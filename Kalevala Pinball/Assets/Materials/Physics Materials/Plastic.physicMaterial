@@ -8,6 +8,6 @@ PhysicMaterial:
   m_Name: Plastic
   dynamicFriction: 0.001
   staticFriction: 0.001
-  bounciness: 0.15
+  bounciness: 0.8
   frictionCombine: 0
   bounceCombine: 0

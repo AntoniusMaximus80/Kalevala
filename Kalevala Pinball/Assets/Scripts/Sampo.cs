@@ -86,7 +86,7 @@ namespace Kalevala
                 randomProductAmount = Random.Range(8, 12);
             } else
             {
-                randomProductAmount = Random.Range(2, 4);
+                randomProductAmount = 1;
             }
 
             for (int i = 0; i < randomProductAmount; i++)

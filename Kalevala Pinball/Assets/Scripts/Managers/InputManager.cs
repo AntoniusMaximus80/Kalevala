@@ -26,27 +26,27 @@ namespace Kalevala {
 
         private void GameInput()
         {
-            if(Input.GetAxis(_launch) > 0)
+            if (Input.GetAxis(_launch) > 0)
             {
                 _launcher.PoweringUp();
             }
-            else if(Input.GetButtonUp(_launch))
+            else if (Input.GetButtonUp(_launch))
             {
                 _launcher.Launch();
             }
-            if(Input.GetButtonDown(_leftFlipperHit))
+            if (Input.GetButton(_leftFlipperHit))
             {
                 _leftFlipper.UseMotor();
             }
-            else if(Input.GetButtonUp(_leftFlipperHit))
+            else
             {
                 _leftFlipper.UseSpring();
             }
-            if(Input.GetButtonDown(_rightFlipperHit))
+            if (Input.GetButton(_rightFlipperHit))
             {
                 _rightFlipper.UseMotor();
             }
-            else if(Input.GetButtonUp(_rightFlipperHit))
+            else
             {
                 _rightFlipper.UseSpring();
             }
