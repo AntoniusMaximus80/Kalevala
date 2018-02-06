@@ -2,38 +2,32 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Launcher : MonoBehaviour {
 
-    public float launcherForceMultiplier;
-    public float timeToMaxForce;
-    private float launcherForce;
-
-    private void Update()
+namespace Kalevala
+{
+    public class Launcher: MonoBehaviour
     {
-        if(Input.GetKey(KeyCode.Space))
+
+        [SerializeField]
+        private float _launcherForceMultiplier;
+        [SerializeField]
+        private float _timeToMaxForce;
+        private float _launcherForce;
+
+        public void PoweringUp()
         {
-            PoweringUp();
-        } else if(Input.GetKeyUp(KeyCode.Space))
+            _launcherForce += Mathf.Clamp01(Time.deltaTime / _timeToMaxForce);
+        }
+
+        public void Launch()
         {
-            Launch();
+            Collider[] colliders = Physics.OverlapSphere(transform.position, 1f);
+
+            foreach(Collider coll in colliders)
+            {
+                coll.GetComponent<Rigidbody>().AddForce(-Vector3.forward * _launcherForce * _launcherForceMultiplier, ForceMode.Impulse);
+            }
+            _launcherForce = 0;
         }
     }
-
-    private void PoweringUp()
-    {
-        launcherForce += Mathf.Clamp01(Time.deltaTime / timeToMaxForce);
-    }
-
-    private void Launch()
-    {
-        Collider [] colliders = Physics.OverlapSphere(transform.position, 1f);
-
-        foreach (Collider coll in colliders )
-        {
-            coll.GetComponent<Rigidbody>().AddForce(-Vector3.forward * launcherForce * launcherForceMultiplier, ForceMode.Impulse);
-        }
-        launcherForce = 0;
-    }
-
-
 }

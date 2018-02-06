@@ -57,6 +57,18 @@ namespace Kalevala
             //Debug.Log(GetComponent<HingeJoint>().spring.spring);
         }
 
+        public void UseMotor()
+        {
+            _hingeJoint.useMotor = true;
+            _hingeJoint.useSpring = false;
+        }
+
+        public void UseSpring()
+        {
+            _hingeJoint.useMotor = false;
+            _hingeJoint.useSpring = true;
+        }
+
         /*using UnityEngine;
         using System.Collections;
 
@@ -74,34 +86,34 @@ namespace Kalevala
             }
         }*/
 
-        void FixedUpdate()
-        {
-            if (_flipperOrientation == FlipperOrientation.Left)
-            {
-                if (Input.GetKey(KeyCode.A))
-                {
-                    _hingeJoint.useMotor = true;
-                    _hingeJoint.useSpring = false;
-                }
-                else
-                {
-                    _hingeJoint.useMotor = false;
-                    _hingeJoint.useSpring = true;
-                }
-            }
-            else
-            {
-                if (Input.GetKey(KeyCode.L))
-                {
-                    _hingeJoint.useMotor = true;
-                    _hingeJoint.useSpring = false;
-                }
-                else
-                {
-                    _hingeJoint.useMotor = false;
-                    _hingeJoint.useSpring = true;
-                }
-            }
-        }
+        //void FixedUpdate()
+        //{
+        //    if (_flipperOrientation == FlipperOrientation.Left)
+        //    {
+        //        if (Input.GetKey(KeyCode.A))
+        //        {
+        //            _hingeJoint.useMotor = true;
+        //            _hingeJoint.useSpring = false;
+        //        }
+        //        else
+        //        {
+        //            _hingeJoint.useMotor = false;
+        //            _hingeJoint.useSpring = true;
+        //        }
+        //    }
+        //    else
+        //    {
+        //        if (Input.GetKey(KeyCode.L))
+        //        {
+        //            _hingeJoint.useMotor = true;
+        //            _hingeJoint.useSpring = false;
+        //        }
+        //        else
+        //        {
+        //            _hingeJoint.useMotor = false;
+        //            _hingeJoint.useSpring = true;
+        //        }
+        //    }
+        //}
     }
 }
