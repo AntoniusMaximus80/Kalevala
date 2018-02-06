@@ -3740,8 +3740,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f8dc61c7f276c04baa0c5917af171cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  launcherForceMultiplier: 120
-  timeToMaxForce: 3
+  _launcherForceMultiplier: 130
+  _timeToMaxForce: 3
 --- !u!4 &1389349156
 Transform:
   m_ObjectHideFlags: 0
@@ -3783,6 +3783,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _launcher: {fileID: 1389349155}
+  _leftFlipper: {fileID: 657911939}
+  _rightFlipper: {fileID: 515031137}
 --- !u!4 &1404912179
 Transform:
   m_ObjectHideFlags: 0
