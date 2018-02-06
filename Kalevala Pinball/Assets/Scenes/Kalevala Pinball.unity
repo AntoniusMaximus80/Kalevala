@@ -1070,6 +1070,11 @@ MonoBehaviour:
   _flipperMotorForce: 32000
   _flipperMotorTargetVelocity: 64000
   _springForce: 32000
+  _startingBallAmount: 3
+  _allowedNudgeAmount: 3
+  _ballLaunchPoint: {x: -23.88, y: 3, z: 42}
+  _ballDrainBottomLeftCorner: {x: 8.9, y: 3, z: 50.1}
+  _ballDrainTopRightCorner: {x: -5.3, y: 3, z: 46.6}
 --- !u!4 &380970434
 Transform:
   m_ObjectHideFlags: 0
