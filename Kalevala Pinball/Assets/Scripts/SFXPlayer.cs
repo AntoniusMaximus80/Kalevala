@@ -11,7 +11,7 @@ using UnityEngine;
 // In our game, another Singleton object called GameManager handles
 // audio settings. You need to adjust this script a bit to fit your game.
 
-namespace INFT_Unity
+namespace Kalevala
 {
     /// <summary>
     /// The sound effects' names

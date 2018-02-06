@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace INFT_Unity
+namespace Kalevala
 {
     public class GameManager : MonoBehaviour
     {

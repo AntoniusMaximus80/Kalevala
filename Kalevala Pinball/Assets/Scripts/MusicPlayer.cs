@@ -9,7 +9,7 @@ using UnityEngine;
 // Singleton object called GameManager handles audio settings.
 // You need to adjust this script a bit to fit your game.
 
-namespace INFT_Unity
+namespace Kalevala
 {
     [RequireComponent(typeof(AudioSource))]
     public class MusicPlayer : MonoBehaviour
