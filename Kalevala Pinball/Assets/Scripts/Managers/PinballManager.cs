@@ -81,10 +81,10 @@ namespace Kalevala
         {
             bool withinX = (position.x >= _ballDrainBottomLeftCorner.x &&
                             position.x < _ballDrainTopRightCorner.x);
-            bool withinY = (position.y >= _ballDrainBottomLeftCorner.y &&
-                            position.y < _ballDrainTopRightCorner.y);
+            bool withinZ = (position.z >= _ballDrainBottomLeftCorner.z &&
+                            position.z < _ballDrainTopRightCorner.z);
 
-            return withinX && withinY;
+            return withinX && withinZ;
         }
 
         public bool InstanceNextBall(GameObject ball)
