@@ -6,8 +6,8 @@ PhysicMaterial:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: Rubber
-  dynamicFriction: 16
-  staticFriction: 16
-  bounciness: 0.4
+  dynamicFriction: 12
+  staticFriction: 12
+  bounciness: 0.2
   frictionCombine: 3
   bounceCombine: 0
