@@ -25,6 +25,7 @@ namespace Kalevala
         public float _crankRotationMultiplier;
         private float _crankRotationY;
         public SampoProduct _sampoProduct;
+        public AudioSource _droppingCoinsAudioSource;
 
         // Use this for initialization
         void Start()
@@ -60,11 +61,16 @@ namespace Kalevala
                     }
                     _burlapSackParticleSystemGrain.SetActive(false);
                     _burlapSackParticleSystemSalt.SetActive(false);
+                    if (!_droppingCoinsAudioSource.isPlaying)
+                    {
+                        _droppingCoinsAudioSource.Play();
+                    }
                 }
             } else
             {
                 _burlapSackParticleSystemGrain.SetActive(false);
                 _burlapSackParticleSystemSalt.SetActive(false);
+                _droppingCoinsAudioSource.Stop();
             }
         }
 
