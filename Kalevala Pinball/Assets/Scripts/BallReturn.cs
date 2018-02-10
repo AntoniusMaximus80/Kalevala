@@ -6,7 +6,7 @@ namespace Kalevala
 {
     public class BallReturn : MonoBehaviour
     {
-        public GameObject _pinball;
+        public Pinball _pinball;
         private Vector3 _pinballStartPosition;
 
         // Use this for initialization
@@ -24,6 +24,12 @@ namespace Kalevala
         private void OnTriggerEnter(Collider other)
         {
             other.transform.position = _pinballStartPosition;
+
+            Pinball pinball = other.GetComponent<Pinball>();
+            if (pinball != null)
+            {
+                pinball.StopMotion();
+            }
         }
     }
 }

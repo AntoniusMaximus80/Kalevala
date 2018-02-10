@@ -13002,10 +13002,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1754552730}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c621057998caa144eb646c50623dfb55, type: 3}
+  m_Script: {fileID: 11500000, guid: 285cc3cd3ca5c74449ce7d5c05c38fe4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _pinball: {fileID: 2054515318}
+  _pinball: {fileID: 2054515324}
 --- !u!1 &1764945559
 GameObject:
   m_ObjectHideFlags: 0
@@ -13919,6 +13919,25 @@ GameObject:
   m_PrefabParentObject: {fileID: 1788350755220122, guid: 095d86518108d174bbc9a088912f7cfd,
     type: 2}
   m_PrefabInternal: {fileID: 1558174464}
+--- !u!114 &2054515324
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2054515318}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ea62d73aaccd674d955241478c6850e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  debug_addImpulseForce: 0
+  debug_stopMotion: 0
+  debug_exitRamp: 0
+  debug_upTableVelocity: {x: 0, y: 0, z: 0}
+  debug_vectorComparisonTolerance: 100
+  speed: 0
+  rampVelocity: {x: 0, y: 0, z: 0}
+  oldVelocity: {x: 0, y: 0, z: 0}
 --- !u!1001 &2057241938
 Prefab:
   m_ObjectHideFlags: 0
