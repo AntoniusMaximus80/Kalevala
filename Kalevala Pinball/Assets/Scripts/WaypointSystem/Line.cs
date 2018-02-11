@@ -4,8 +4,8 @@ using UnityEngine;
 
 namespace Kalevala
 {
-    public class Ramp : MonoBehaviour
+    public class Line : MonoBehaviour
     {
-        // TODO
+        public Vector3 start, end;
     }
 }

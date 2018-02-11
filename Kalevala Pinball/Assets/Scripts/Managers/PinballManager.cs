@@ -52,7 +52,7 @@ namespace Kalevala
         /// </summary>
         private void Update()
         {
-
+            // ...
         }
 
         public void Reset()
@@ -79,19 +79,21 @@ namespace Kalevala
 
         public bool PositionIsInDrain(Vector3 position)
         {
-            bool withinX = (position.x >= _ballDrainBottomLeftCorner.x &&
-                            position.x < _ballDrainTopRightCorner.x);
-            bool withinZ = (position.z >= _ballDrainBottomLeftCorner.z &&
-                            position.z < _ballDrainTopRightCorner.z);
+            bool inDrainZ = (position.z > _ballDrainTopRightCorner.z);
+            //bool withinX = (position.x >= _ballDrainBottomLeftCorner.x &&
+            //                position.x < _ballDrainTopRightCorner.x);
+            //bool withinZ = (position.z >= _ballDrainBottomLeftCorner.z &&
+            //                position.z < _ballDrainTopRightCorner.z);
 
-            return withinX && withinZ;
+            return inDrainZ; //withinX && withinZ;
         }
 
-        public bool InstanceNextBall(GameObject ball)
+        public bool InstanceNextBall(Pinball ball)
         {
             if (!OutOfBalls())
             {
                 ball.transform.position = _ballLaunchPoint;
+                ball.StopMotion();
                 return true;
             }
 

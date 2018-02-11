@@ -1,11 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Kalevala.WaypointSystem;
 
 namespace Kalevala
 {
     public class Pinball : MonoBehaviour
     {
+        public float debug_rampSpeed = 15;
+        public bool debug_useDebugRampSpeed;
+
+        public bool debug_autoReinstance;
         public bool debug_addImpulseForce;
         public bool debug_stopMotion;
         public bool debug_exitRamp;
@@ -13,83 +18,60 @@ namespace Kalevala
         //public bool debug_startPhysics;
 
         public Vector3 debug_upTableVelocity;
-        public float debug_vectorComparisonTolerance = 100;
 
-        public float speed;
-        public Vector3 rampVelocity;
-        public Vector3 oldVelocity;
+        public float _speed;
+        private float _radius;
+        private bool _physicsEnabled = true;
 
-        private float radius;
-        private bool physicsEnabled = true;
+        private Path _ramp;
+        private bool _dropAtEnd;
 
-        private Ramp ramp;
-
-        private Rigidbody rb;
-        private SphereCollider sphColl;
+        private PinballManager _pbm;
+        private Rigidbody _rb;
+        private SphereCollider _sphColl;
 
         private void Start()
         {
-            radius = GetComponent<Collider>().bounds.size.x / 2;
-            rb = GetComponent<Rigidbody>();
-            sphColl = GetComponent<SphereCollider>();
+            _radius = GetComponent<Collider>().bounds.size.x / 2;
+            _rb = GetComponent<Rigidbody>();
+            _sphColl = GetComponent<SphereCollider>();
 
             debug_upTableVelocity = new Vector3(0f, 10 * 0.1742402f, 10 * -10.31068f);
+
+            RampMotion = GetComponent<RampMotion>();
+            _pbm = FindObjectOfType<PinballManager>();
         }
 
         private void Update()
         {
-            speed = Speed;
+            _speed = Speed;
 
-            if (physicsEnabled)
+            if (IsOnRamp)
             {
-                oldVelocity = PhysicsVelocity;
-            }
+                bool rampEnded = RampMotion.MoveAlongRamp();
 
-            if (debug_stopMotion)
-            {
-                debug_stopMotion = false;
-                StopMotion();
-            }
-
-            if (debug_exitRamp)
-            {
-                debug_exitRamp = false;
-                if (IsOnRamp)
+                if (rampEnded)
                 {
                     ExitRamp();
                 }
             }
 
-            //if (debug_stopPhysics)
-            //{
-            //    debug_stopPhysics = false;
-            //    SetPhysicsEnabled(false);
-            //}
-
-            //if (debug_startPhysics)
-            //{
-            //    debug_startPhysics = false;
-            //    SetPhysicsEnabled(true);
-            //}
-
-            if (debug_addImpulseForce)
-            {
-                debug_addImpulseForce = false;
-                AddImpulseForce(debug_upTableVelocity);
-            }
+            HandleDebug();
         }
+
+        public RampMotion RampMotion { get; private set; }
 
         public float Speed
         {
             get
             {
-                if (physicsEnabled)
+                if (_physicsEnabled)
                 {
-                    return rb.velocity.magnitude;
+                    return _rb.velocity.magnitude;
                 }
                 else
                 {
-                    return rampVelocity.magnitude;
+                    return RampMotion._speed;
                 }
             }
         }
@@ -98,16 +80,16 @@ namespace Kalevala
         {
             get
             {
-                return rb.velocity;
+                return _rb.velocity;
             }
         }
 
         public void StopMotion()
         {
-            if (physicsEnabled)
+            if (_physicsEnabled)
             {
-                rb.velocity = Vector3.zero;
-                rb.angularVelocity = Vector3.zero;
+                _rb.velocity = Vector3.zero;
+                _rb.angularVelocity = Vector3.zero;
             }
         }
 
@@ -115,29 +97,29 @@ namespace Kalevala
         {
             if (enable)
             {
-                if (!physicsEnabled)
+                if (!_physicsEnabled)
                 {
-                    physicsEnabled = true;
-                    rb.isKinematic = false;
-                    rb.useGravity = true;
-                    sphColl.enabled = true;
+                    _physicsEnabled = true;
+                    _rb.isKinematic = false;
+                    _rb.useGravity = true;
+                    _sphColl.enabled = true;
                 }
             }
-            else if (physicsEnabled)
+            else if (_physicsEnabled)
             {
                 StopMotion();
-                physicsEnabled = false;
-                rb.isKinematic = true;
-                rb.useGravity = false;
-                sphColl.enabled = false;
+                _physicsEnabled = false;
+                _rb.isKinematic = true;
+                _rb.useGravity = false;
+                _sphColl.enabled = false;
             }
         }
 
         public void AddImpulseForce(Vector3 force)
         {
-            if (physicsEnabled)
+            if (_physicsEnabled)
             {
-                rb.AddForce(force, ForceMode.Impulse);
+                _rb.AddForce(force, ForceMode.Impulse);
 
                 //Vector3 forcePosition = transform.position;
                 //forcePosition.y += radius * 3f / 4f;
@@ -149,38 +131,49 @@ namespace Kalevala
         {
             get
             {
-                return ramp != null;
+                return _ramp != null;
             }
         }
 
-        public void EnterRamp(Ramp ramp, Vector3 debug_rampDirection)
+        public void EnterRamp(Path path, Direction direction, Waypoint startWP, bool dropAtEnd)
         {
-            Debug.Log("Ramp entered");
             float speedEnteringRamp = Speed;
-            this.ramp = ramp;
+
+            if (debug_useDebugRampSpeed)
+            {
+                speedEnteringRamp = debug_rampSpeed;
+            }
+
+            //Debug.Log("Ramp entered - speed: " + speedEnteringRamp);
+            _ramp = path;
+            _dropAtEnd = dropAtEnd;
             SetPhysicsEnabled(false);
-
-            // TODO: Moving on a rail
-            // Direction from line, speed from speedEnteringRamp
-
-            // Testing
-            rampVelocity = debug_rampDirection * speedEnteringRamp;
-            ExitRamp();
+            RampMotion.Activate(_ramp, direction, startWP, speedEnteringRamp);
         }
 
         public void ExitRamp()
         {
-            Debug.Log("Ramp exited");
+            //Debug.Log("Ramp exited");
             float speedExitingRamp = Speed;
-            ramp = null;
             SetPhysicsEnabled(true);
 
-            // TODO: Getting the right direction for impulse
-
             // Testing
-            AddImpulseForce(rampVelocity);
+            if (!_dropAtEnd)
+            {
+                AddImpulseForce(RampMotion.GetRampSegmentDirection() * (3 * speedExitingRamp / 4));
+            }
 
-            rampVelocity = Vector3.zero;
+            _ramp = null;
+        }
+
+        private void ExitRamp_Debug()
+        {
+            if (IsOnRamp)
+            {
+                RampMotion.Deactivate();
+                _dropAtEnd = true;
+                ExitRamp();
+            }
         }
 
         //public bool SameDirections(Vector3 direction1, Vector3 direction2, float angleTolerance)
@@ -211,34 +204,79 @@ namespace Kalevala
         {
             if (Application.isPlaying)
             {
-                //if (SameDirections(PhysicsVelocity, debug_directionVector, debug_vectorComparisonTolerance))
-                //{
-                //    Gizmos.color = Color.green;
-                //}
-                //else
-                //{
-                //    Gizmos.color = Color.red;
-                //}
-
                 Gizmos.color = Color.red;
-                Gizmos.DrawLine(transform.position, transform.position + PhysicsVelocity.normalized * radius * 10);
+
+                if (IsOnRamp)
+                {
+                    Gizmos.DrawLine(transform.position, transform.position + RampMotion.GetRampSegmentDirection() * _radius * 10);
+                }
+                else
+                {
+                    Gizmos.DrawLine(transform.position, transform.position + PhysicsVelocity.normalized * _radius * 10);
+                }
             }
         }
 
         private void DrawLocalAxes()
         {
             Gizmos.color = Color.red;
-            Gizmos.DrawLine(transform.position, transform.position + transform.right * radius * 3);
+            Gizmos.DrawLine(transform.position, transform.position + transform.right * _radius * 3);
             Gizmos.color = Color.green;
-            Gizmos.DrawLine(transform.position, transform.position + transform.up * radius * 3);
+            Gizmos.DrawLine(transform.position, transform.position + transform.up * _radius * 3);
             Gizmos.color = Color.blue;
-            Gizmos.DrawLine(transform.position, transform.position + transform.forward * radius * 3);
+            Gizmos.DrawLine(transform.position, transform.position + transform.forward * _radius * 3);
         }
 
         private void DrawColoredWireSphere()
         {
             Gizmos.color = Color.blue;
-            Gizmos.DrawWireSphere(transform.position, radius * 1.1f);
+            Gizmos.DrawWireSphere(transform.position, _radius * 1.1f);
+        }
+
+        private void HandleDebug()
+        {
+            if (Input.GetKeyDown(KeyCode.Keypad0))
+            {
+                _pbm.InstanceNextBall(this);
+                ExitRamp_Debug();
+            }
+
+            if (debug_autoReinstance &&
+                _pbm.PositionIsInDrain(transform.position))
+            {
+                //Debug.Log("Ball is in drain");
+                _pbm.InstanceNextBall(this);
+            }
+
+            if (debug_stopMotion)
+            {
+                debug_stopMotion = false;
+                StopMotion();
+            }
+
+            if (debug_exitRamp)
+            {
+                debug_exitRamp = false;
+                ExitRamp_Debug();
+            }
+
+            //if (debug_stopPhysics)
+            //{
+            //    debug_stopPhysics = false;
+            //    SetPhysicsEnabled(false);
+            //}
+
+            //if (debug_startPhysics)
+            //{
+            //    debug_startPhysics = false;
+            //    SetPhysicsEnabled(true);
+            //}
+
+            if (debug_addImpulseForce)
+            {
+                debug_addImpulseForce = false;
+                AddImpulseForce(debug_upTableVelocity);
+            }
         }
     }
 }
