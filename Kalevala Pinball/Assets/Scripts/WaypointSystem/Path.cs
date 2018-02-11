@@ -184,7 +184,6 @@ namespace Kalevala.WaypointSystem
                     if (currentWaypointIndex < Waypoints.Count - 1)
                     {
                         nextWaypoint = Waypoints[currentWaypointIndex + 1];
-                        Debug.Log("Next Waypoint Index: " + (currentWaypointIndex + 1));
                     }
                     break;
                 }
@@ -193,7 +192,6 @@ namespace Kalevala.WaypointSystem
                     if (currentWaypointIndex > 0)
                     {
                         nextWaypoint = Waypoints[currentWaypointIndex - 1];
-                        Debug.Log("Next Waypoint Index: " + (currentWaypointIndex - 1));
                     }
                     break;
                 }
