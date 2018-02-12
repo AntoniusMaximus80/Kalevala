@@ -8,9 +8,6 @@ namespace Kalevala
 {
     public class RampMotion : MonoBehaviour
     {
-        [SerializeField]
-        private float _gravity = -1f;
-
         //[SerializeField]
         //private float _eventTime = 1;
 
@@ -32,6 +29,8 @@ namespace Kalevala
         private bool _getNextWaypoint;
 
         public Waypoint CurrentWaypoint { get; private set; }
+
+        public PinballManager PinballManager { get; set; }
 
         private void Start()
         {
@@ -160,7 +159,7 @@ namespace Kalevala
 
                 if (_direction == _startDirection)
                 {
-                    _speed += incline * _gravity;
+                    _speed += incline * PinballManager.RampGravity;
 
                     if (_speed < 0)
                     {
@@ -172,7 +171,7 @@ namespace Kalevala
                 {
                     //Debug.Log("Speed change: " + incline * _gravity * 10);
                     //Debug.Log("_gravity: " + _gravity);
-                    _speed += incline * _gravity;
+                    _speed += incline * PinballManager.RampGravity;
 
                     float rampExitDistance = 2f;
                     if (Vector3.Distance(transform.position, _startWaypoint.Position) < rampExitDistance)

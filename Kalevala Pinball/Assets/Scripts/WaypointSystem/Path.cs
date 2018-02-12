@@ -262,6 +262,18 @@ namespace Kalevala.WaypointSystem
             return length;
         }
 
+        public Color PathColor
+        {
+            get
+            {
+                return _pathColor;
+            }
+            set
+            {
+                _pathColor = value;
+            }
+        }
+
         /// <summary>
         /// Draws lines between waypoints
         /// </summary>

@@ -10,6 +10,9 @@ namespace Kalevala
         public float _flipperMotorTargetVelocity;
         public float _springForce;
 
+        [SerializeField]
+        private float _rampGravity = -7;
+
         [SerializeField, Range(1, 10)]
         private int _startingBallAmount;
 
@@ -31,6 +34,14 @@ namespace Kalevala
         private bool noNudges;
 
         public bool Tilt { get; private set; }
+
+        public float RampGravity
+        {
+            get
+            {
+                return _rampGravity;
+            }
+        }
 
         /// <summary>
         /// Initializes the object.

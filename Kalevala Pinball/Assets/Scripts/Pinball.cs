@@ -40,6 +40,7 @@ namespace Kalevala
 
             RampMotion = GetComponent<RampMotion>();
             _pbm = FindObjectOfType<PinballManager>();
+            RampMotion.PinballManager = _pbm;
         }
 
         private void Update()
