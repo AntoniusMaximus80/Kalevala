@@ -16,7 +16,7 @@ namespace Kalevala
 
         public void PoweringUp()
         {
-            _launcherForce += Mathf.Clamp01(Time.deltaTime / _timeToMaxForce);
+            _launcherForce = Mathf.Clamp01(_launcherForce + Time.deltaTime / _timeToMaxForce);
         }
 
         public void Launch()
@@ -27,6 +27,7 @@ namespace Kalevala
             {
                 coll.GetComponent<Rigidbody>().AddForce(-Vector3.forward * _launcherForce * _launcherForceMultiplier, ForceMode.Impulse);
             }
+            Debug.Log(_launcherForce);
             _launcherForce = 0;
         }
     }
