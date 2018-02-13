@@ -29,6 +29,7 @@ namespace Kalevala.WaypointSystem
         private bool _drawPath = true;
 
         private List<Waypoint> _waypoints;
+        private List<Curve> _curves;
         private Pinball _pinball;
 
         // Dictionary which defines a color for each path type.
@@ -204,13 +205,24 @@ namespace Kalevala.WaypointSystem
         {
             int childCount = transform.childCount;
             _waypoints = new List<Waypoint>(childCount);
+            _curves = new List<Curve>();
             for (int i = 0; i < childCount; i++)
             {
-                Transform waypointTransform = transform.GetChild(i);
-                Waypoint waypoint = waypointTransform.GetComponent<Waypoint>();
+                Transform childTransform = transform.GetChild(i);
+
+                Waypoint waypoint = childTransform.GetComponent<Waypoint>();
                 if (waypoint != null)
                 {
                     _waypoints.Add(waypoint);
+                }
+                else
+                {
+                    Curve curve = childTransform.GetComponent<Curve>();
+                    if (curve != null)
+                    {
+                        curve.pathChildIndex = i;
+                        _curves.Add(curve);
+                    }
                 }
             }
         }
@@ -275,6 +287,19 @@ namespace Kalevala.WaypointSystem
             }
         }
 
+        private Curve CurveInIndex(int index)
+        {
+            for (int i = 0; i < _curves.Count; i++)
+            {
+                if (_curves[i].pathChildIndex == index)
+                {
+                    return _curves[i];
+                }
+            }
+
+            return null;
+        }
+
         /// <summary>
         /// Draws lines between waypoints
         /// </summary>
@@ -282,12 +307,23 @@ namespace Kalevala.WaypointSystem
         {
             if (_drawPath)
             {
-                DrawPath();
-                DrawWaypoints();
+                if (_pinball == null)
+                {
+                    _pinball = FindObjectOfType<Pinball>();
+                }
+
+                float radius = _pinball.Radius;
+
+                DrawPath(radius);
+
+                if (radius > 0)
+                {
+                    DrawWaypoints(radius);
+                }
             }
         }
 
-        private void DrawPath()
+        private void DrawPath(float pinballRadius)
         {
             Gizmos.color = _pathColor;
             //Gizmos.color = _pathColors[_pathType];
@@ -296,8 +332,29 @@ namespace Kalevala.WaypointSystem
             {
                 for (int i = 1; i < Waypoints.Count; i++)
                 {
-                    // Draw line from previous waypoint to current.
-                    Gizmos.DrawLine(Waypoints[i - 1].Position, Waypoints[i].Position);
+                    Curve curve = CurveInIndex(i);
+
+                    if (curve == null)
+                    {
+                        // Draws a line from previous waypoint to current
+                        Gizmos.DrawLine(Waypoints[i - 1].Position, Waypoints[i].Position);
+                    }
+                    else
+                    {
+                        if (curve.lineSteps <= 0)
+                        {
+                            curve.lineSteps = 10;
+                        }
+
+                        // Draws a curve from its start waypoint to its end waypoint
+                        for (int j = 0; j < curve.lineSteps; j++)
+                        {
+                            float step = j / (float) curve.lineSteps;
+                            float nextStep = (j + 1) / (float) curve.lineSteps;
+                            Gizmos.DrawLine(curve.GetPoint(step), curve.GetPoint(nextStep));
+                            DrawPinballSizeMarker(curve.GetPoint(step), pinballRadius);
+                        }
+                    }
                 }
                 if (_pathType == PathType.Loop)
                 {
@@ -308,7 +365,7 @@ namespace Kalevala.WaypointSystem
             }
         }
 
-        private void DrawWaypoints()
+        private void DrawWaypoints(float pinballRadius)
         {
             Gizmos.color = _pathColor;
             //Gizmos.color = _pathColors[_pathType];
@@ -317,45 +374,40 @@ namespace Kalevala.WaypointSystem
             {
                 for (int i = 1; i < Waypoints.Count; i++)
                 {
-                    if (_pinball == null)
-                    {
-                        _pinball = FindObjectOfType<Pinball>();
-                    }
-
-                    float radius = _pinball.Radius;
-
-                    if (radius > 0)
-                    {
-                        // Draw lines on x-axis
-                        Gizmos.DrawLine(Waypoints[i].Position + Vector3.right * radius, Waypoints[i].Position + Vector3.right * radius / 2);
-                        Gizmos.DrawLine(Waypoints[i].Position - Vector3.right * radius, Waypoints[i].Position - Vector3.right * radius / 2);
-
-                        // Draw lines on y-axis
-                        Gizmos.DrawLine(Waypoints[i].Position + Vector3.up * radius, Waypoints[i].Position + Vector3.up * radius / 2);
-                        Gizmos.DrawLine(Waypoints[i].Position - Vector3.up * radius, Waypoints[i].Position - Vector3.up * radius / 2);
-
-                        // Draw lines on z-axis
-                        Gizmos.DrawLine(Waypoints[i].Position + Vector3.forward * radius, Waypoints[i].Position + Vector3.forward * radius / 2);
-                        Gizmos.DrawLine(Waypoints[i].Position - Vector3.forward * radius, Waypoints[i].Position - Vector3.forward * radius / 2);
-
-                        //Vector3 direction = (Waypoints[i].Position - Waypoints[i - 1].Position).normalized;
-
-                        //Vector3 horizVector = direction;
-                        //horizVector.y = 0;
-                        //horizVector.Normalize();
-
-                        //Vector3 vertVector = direction;
-                        //horizVector.x = 0;
-                        //vertVector.Normalize();
-
-                        //// Draw horizontal line
-                        //Gizmos.DrawLine(Waypoints[i].Position + horizVector * radius, Waypoints[i].Position - horizVector * radius);
-
-                        //// Draw vertical line
-                        //Gizmos.DrawLine(Waypoints[i].Position + vertVector * radius, Waypoints[i].Position - vertVector * radius);
-                    }
+                    DrawPinballSizeMarker(Waypoints[i].Position, pinballRadius);
                 }
             }
+        }
+
+        private void DrawPinballSizeMarker(Vector3 position, float radius)
+        {
+            // Draw lines on x-axis
+            Gizmos.DrawLine(position + Vector3.right * radius, position + Vector3.right * radius / 2);
+            Gizmos.DrawLine(position - Vector3.right * radius, position - Vector3.right * radius / 2);
+
+            // Draw lines on y-axis
+            Gizmos.DrawLine(position + Vector3.up * radius, position + Vector3.up * radius / 2);
+            Gizmos.DrawLine(position - Vector3.up * radius, position - Vector3.up * radius / 2);
+
+            // Draw lines on z-axis
+            Gizmos.DrawLine(position + Vector3.forward * radius, position + Vector3.forward * radius / 2);
+            Gizmos.DrawLine(position - Vector3.forward * radius, position - Vector3.forward * radius / 2);
+
+            //Vector3 direction = (Waypoints[i].Position - Waypoints[i - 1].Position).normalized;
+
+            //Vector3 horizVector = direction;
+            //horizVector.y = 0;
+            //horizVector.Normalize();
+
+            //Vector3 vertVector = direction;
+            //horizVector.x = 0;
+            //vertVector.Normalize();
+
+            //// Draw horizontal line
+            //Gizmos.DrawLine(Waypoints[i].Position + horizVector * radius, Waypoints[i].Position - horizVector * radius);
+
+            //// Draw vertical line
+            //Gizmos.DrawLine(Waypoints[i].Position + vertVector * radius, Waypoints[i].Position - vertVector * radius);
         }
     }
 }

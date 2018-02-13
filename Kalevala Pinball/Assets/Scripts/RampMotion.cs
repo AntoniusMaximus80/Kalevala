@@ -11,34 +11,33 @@ namespace Kalevala
         //[SerializeField]
         //private float _eventTime = 1;
 
-        [SerializeField, Range(0, 1)]
-        private float _directionalRatio;
-
-        private bool _onRamp;
+        //[SerializeField, Range(0, 1)]
+        //private float _directionalRatio;
 
         public float _speed;
-        private float _segmentTime;
 
+        private bool _onRamp;
         private Path _path;
         private Waypoint _startWaypoint;
         private Waypoint _prevWaypoint;
         private Direction _startDirection;
         private Direction _direction;
-        private float _leftOverDistance;
-        private float _elapsedTime;
+        private float _leftoverDistance;
+        //private float _segmentTime;
+        //private float _elapsedTime;
         private bool _getNextWaypoint;
 
         public Waypoint CurrentWaypoint { get; private set; }
 
         public PinballManager PinballManager { get; set; }
 
-        private void Start()
-        {
-            //if (_eventTime <= 0)
-            //{
-            //    _eventTime = 1f;
-            //}
-        }
+        //private void Start()
+        //{
+        //    if (_eventTime <= 0)
+        //    {
+        //        _eventTime = 1f;
+        //    }
+        //}
 
         public void Activate(Path path, Direction direction, Waypoint startWaypoint, float speed)
         {
@@ -55,7 +54,7 @@ namespace Kalevala
                 CurrentWaypoint = startWaypoint;
                 //_elapsedTime = 0;
                 _speed = speed;
-                _leftOverDistance = 0;
+                _leftoverDistance = 0;
 
                 //Debug.Log("Direction on path: " + direction);
             }
@@ -72,27 +71,41 @@ namespace Kalevala
             // Are we close enough to the current waypoint?
             //    If yes, get the next waypoint
             // Move towards the current waypoint
+            // Did we reach the next waypoint but didn't move as far as we could?
+            //    If yes, get the next waypoint and move again using the leftover movement
+            //    Repeat until there's no leftover movement
 
-            UpdateCurrentWaypoint();
+            bool wpReached = false;
+            int repeats = 0;
 
-            if (_onRamp)
+            do
             {
-                bool wpReached = MoveUsingSpeed(CurrentWaypoint.Position, false);
+                Waypoint newWaypoint = GetWaypoint();
+                CurrentWaypoint = (newWaypoint == null ?
+                    CurrentWaypoint : newWaypoint);
 
-                if (wpReached && _onRamp)
+                if (_onRamp)
                 {
-                    UpdateCurrentWaypoint();
-                    MoveUsingSpeed(CurrentWaypoint.Position, true);
+                    if (repeats == 0)
+                    {
+                        wpReached = MoveUsingSpeed(CurrentWaypoint.Position, false);
+                    }
+                    else if (_leftoverDistance > 0)
+                    {
+                        wpReached = MoveUsingSpeed(CurrentWaypoint.Position, true);
+                    }
+                    else
+                    {
+                        wpReached = false;
+                    }
                 }
+
+                //Debug.Log(string.Format("Repeat: {0}; dist left: {1}", repeats, _leftoverDistance));
+                repeats++;
             }
+            while (_onRamp && wpReached);
 
             return !_onRamp;
-        }
-
-        private void UpdateCurrentWaypoint()
-        {
-            Waypoint newWaypoint = GetWaypoint();
-            CurrentWaypoint = (newWaypoint == null ? CurrentWaypoint : newWaypoint);
         }
 
         private Waypoint GetWaypoint()
@@ -141,56 +154,66 @@ namespace Kalevala
 
         private bool MoveUsingSpeed(Vector3 waypointPos, bool leftOverOnly)
         {
-            Vector3 position1 = transform.position;
-            Vector3 position2 = waypointPos;
+            float movingDistance;
+
+            Vector3 startPosition = transform.position;
+            Vector3 targetPosition = waypointPos;
+
+            Vector3 direction = GetRampSegmentDirection();
+            float incline = direction.y;
+            //Debug.Log("incline: " + incline);
 
             if (leftOverOnly)
             {
-                if (_leftOverDistance > 0)
+                movingDistance = _leftoverDistance;
+            }
+            else
+            {
+                movingDistance = Time.deltaTime * _speed;
+                _speed = GetSpeedAffectedByGravity(incline);
+            }
+
+            if (_direction == _startDirection)
+            {
+                if (_speed < 0)
                 {
-                    transform.position = Vector3.MoveTowards(position1, position2, _leftOverDistance);
+                    ChangeDirection();
+                    targetPosition = CurrentWaypoint.Position;
                 }
             }
             else
             {
-                Vector3 direction = GetRampSegmentDirection();
-                float incline = direction.y;
-                //Debug.Log("incline: " + incline);
+                // The maximum distance from the start of
+                // the ramp where the ball can exit it
+                float rampExitDistance = 2f;
 
-                if (_direction == _startDirection)
+                // Checks if the ball returned to the start of
+                // the ramp, and if so, deactivates the ramp motion 
+                if (Vector3.Distance(transform.position, _startWaypoint.Position) < rampExitDistance)
                 {
-                    _speed += incline * PinballManager.RampGravity;
-
-                    if (_speed < 0)
-                    {
-                        ChangeDirection();
-                        position2 = CurrentWaypoint.Position;
-                    }
+                    //Debug.Log("Returned to the start of the ramp");
+                    Deactivate();
+                    return true;
                 }
-                else
-                {
-                    //Debug.Log("Speed change: " + incline * _gravity * 10);
-                    //Debug.Log("_gravity: " + _gravity);
-                    _speed += incline * PinballManager.RampGravity;
-
-                    float rampExitDistance = 2f;
-                    if (Vector3.Distance(transform.position, _startWaypoint.Position) < rampExitDistance)
-                    {
-                        //Debug.Log("Returned to the start of the ramp");
-                        Deactivate();
-                        return true;
-                    }
-                }
-
-                transform.position = Vector3.MoveTowards(position1, position2, Time.deltaTime * _speed);
-                _leftOverDistance = Time.deltaTime * _speed - Vector3.Distance(position1, transform.position);
             }
 
+            // Moves the pinball
+            transform.position = Vector3.MoveTowards(
+                startPosition, targetPosition, movingDistance);
+
+            // Updates the leftover distance
+            _leftoverDistance = 
+                movingDistance -
+                Vector3.Distance(startPosition, transform.position);
+
+            // Checks if the segment is finished
             float segmentFinishDistance = 0.1f;
-            bool segmentFinished = Vector3.Distance(position1, position2) < segmentFinishDistance;
+            bool segmentFinished =
+                Vector3.Distance(transform.position, targetPosition)
+                < segmentFinishDistance;
             if (segmentFinished)
             {
-                _elapsedTime = 0;
+                // Enables getting the next waypoint
                 _getNextWaypoint = true;
                 return true;
             }
@@ -198,44 +221,15 @@ namespace Kalevala
             return false;
         }
 
-        private bool MoveUsingTime(Vector3 waypointPos)
+        private float GetSpeedAffectedByGravity(float incline)
         {
-            float ratio = _elapsedTime / _segmentTime;
-            //float ratio = _elapsedTime / _eventTime;
-            _directionalRatio = ratio;
+            float result = _speed;
 
-            Vector3 position1 = _prevWaypoint.Position;
-            Vector3 position2 = waypointPos;
+            //Debug.Log("Speed change: " + incline * _gravity * 10);
+            //Debug.Log("_gravity: " + _gravity);
+            result += incline * PinballManager.RampGravity;
 
-            switch (_direction)
-            {
-                //case Direction.Forward:
-                //{
-                //    _directionalRatio = ratio;
-                //    break;
-                //}
-                case Direction.Backward:
-                {
-                    _directionalRatio = 1 - ratio;
-                    position1 = waypointPos;
-                    position2 = _prevWaypoint.Position;
-                    break;
-                }
-            }
-
-            transform.position = Vector3.Lerp(position1, position2, _directionalRatio);
-
-            _elapsedTime += Time.deltaTime;
-
-            bool segmentFinished = _elapsedTime >= _segmentTime;
-            if (segmentFinished)
-            {
-                _elapsedTime = 0;
-                _getNextWaypoint = true;
-                return true;
-            }
-
-            return false;
+            return result;
         }
 
         private void ChangeDirection()
@@ -243,11 +237,52 @@ namespace Kalevala
             //Debug.Log("Direction changed");
 
             _speed = -1f * _speed;
-            _direction = (_direction == Direction.Forward ? Direction.Backward : Direction.Forward);
+            _direction = (_direction == Direction.Forward ?
+                Direction.Backward : Direction.Forward);
 
             Waypoint temp = _prevWaypoint;
             _prevWaypoint = CurrentWaypoint;
             CurrentWaypoint = temp;
         }
+
+        //private bool MoveUsingTime(Vector3 waypointPos)
+        //{
+        //    float ratio = _elapsedTime / _segmentTime;
+        //    //float ratio = _elapsedTime / _eventTime;
+        //    _directionalRatio = ratio;
+
+        //    Vector3 position1 = _prevWaypoint.Position;
+        //    Vector3 position2 = waypointPos;
+
+        //    switch (_direction)
+        //    {
+        //        //case Direction.Forward:
+        //        //{
+        //        //    _directionalRatio = ratio;
+        //        //    break;
+        //        //}
+        //        case Direction.Backward:
+        //        {
+        //            _directionalRatio = 1 - ratio;
+        //            position1 = waypointPos;
+        //            position2 = _prevWaypoint.Position;
+        //            break;
+        //        }
+        //    }
+
+        //    transform.position = Vector3.Lerp(position1, position2, _directionalRatio);
+
+        //    _elapsedTime += Time.deltaTime;
+
+        //    bool segmentFinished = _elapsedTime >= _segmentTime;
+        //    if (segmentFinished)
+        //    {
+        //        _elapsedTime = 0;
+        //        _getNextWaypoint = true;
+        //        return true;
+        //    }
+
+        //    return false;
+        //}
     }
 }
