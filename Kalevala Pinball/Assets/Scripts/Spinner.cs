@@ -22,10 +22,15 @@ public class Spinner : MonoBehaviour {
     [SerializeField]
     private float _stabilizeRotationSpeed;
 
+    [SerializeField]
+    private float _stabilizingThreshold;
+
     /// <summary>
     /// Defines if the spinner has stopped spinning from the force gained by ball hitting it
     /// </summary>
     private bool _stabilize = false;
+
+    private bool _checkRotation = true;
 
     private Rigidbody _rb;
 
@@ -41,11 +46,11 @@ public class Spinner : MonoBehaviour {
     // Spins the object based on speed give by passing objects velocity.
     void FixedUpdate () {
 
-        Debug.Log(_rb.angularVelocity.x);
-
-        if(_rb.angularVelocity.x <= 0.5f && _rb.angularVelocity.x >= -0.5f && !_stabilize)
+        if(_rb.angularVelocity.x <= _stabilizingThreshold && _rb.angularVelocity.x >= -_stabilizingThreshold &&
+            _checkRotation && (transform.rotation.eulerAngles.x != 270 || transform.rotation.eulerAngles.x != 90))
         {
             _stabilize = true;
+            _checkRotation = false;
             CheckStabilizationDirection();
         }
 
@@ -86,6 +91,17 @@ public class Spinner : MonoBehaviour {
         Vector3 torqueVector = Vector3.Cross(predictedUp, _stabilizationDirection);
         torqueVector = Vector3.Project(torqueVector, new Vector3(1f, 0, 0));
         _rb.AddTorque(torqueVector * _stabilizeRotationSpeed * _stabilizeRotationSpeed);
+
+        if(transform.rotation.eulerAngles.x == 90 && _rb.angularVelocity.x < 0.01f && _rb.angularVelocity.x > -0.01f)
+        {
+            _rb.angularVelocity = Vector3.zero;
+            _stabilize = false;
+        }
+        else if(transform.rotation.eulerAngles.x == 270 && _rb.angularVelocity.x < 0.01f && _rb.angularVelocity.x > -0.01f)
+        {
+            _rb.angularVelocity = Vector3.zero;
+            _stabilize = false;
+        }
         //if(transform.rotation.eulerAngles.x > 0 && transform.rotation.eulerAngles.x <= 90 && _startSpeed == 0)
         //{
         //    //transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(90f, 0f, 0f), Time.time * _stabilizeRotation);
@@ -130,7 +146,7 @@ public class Spinner : MonoBehaviour {
         {
             //_startSpeed = rb.velocity.z * -1;
             gameObject.GetComponent<Rigidbody>().AddTorque(transform.right * _spinSpeedMultiplier * rb.velocity.z * -1);
-            _stabilize = false;
+            _checkRotation = true;
         }
     }
 }

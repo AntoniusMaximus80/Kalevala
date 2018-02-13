@@ -1519,8 +1519,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _spinSpeedMultiplier: 30
-  _wobblyingAmount: 0.3
-  _stabilizeRotationSpeed: 2
+  _wobblyingAmount: 0.5
+  _stabilizeRotationSpeed: 1
+  _stabilizingThreshold: 0.7
 --- !u!1 &593859045
 GameObject:
   m_ObjectHideFlags: 0
@@ -4270,15 +4271,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4270797255632924, guid: d941cf3988467a742a28ee5f6cd018bf, type: 2}
       propertyPath: m_LocalRotation.x
-      value: -0.99281466
+      value: -0.99693906
       objectReference: {fileID: 0}
     - target: {fileID: 4270797255632924, guid: d941cf3988467a742a28ee5f6cd018bf, type: 2}
       propertyPath: m_LocalRotation.w
-      value: 0.119662866
+      value: -0.07818284
       objectReference: {fileID: 0}
     - target: {fileID: 4270797255632924, guid: d941cf3988467a742a28ee5f6cd018bf, type: 2}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: -166.255
+      value: -188.968
       objectReference: {fileID: 0}
     - target: {fileID: 4270797255632924, guid: d941cf3988467a742a28ee5f6cd018bf, type: 2}
       propertyPath: m_LocalRotation.y
