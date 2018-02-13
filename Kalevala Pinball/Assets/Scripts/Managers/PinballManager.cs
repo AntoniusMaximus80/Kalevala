@@ -6,6 +6,34 @@ namespace Kalevala
 {
     public class PinballManager : MonoBehaviour
     {
+        #region Statics
+        private static PinballManager instance;
+
+        public static PinballManager Instance
+        {
+            get
+            {
+                if (instance == null)
+                {
+                    instance = FindObjectOfType<PinballManager>();
+                }
+                if (instance == null)
+                {
+                    // Note:
+                    // There must be a Resources folder under Assets and
+                    // PinballManager there for this to work. Not necessary if
+                    // a PinballManager object is present in a scene from the
+                    // get-go.
+
+                    instance =
+                        Instantiate(Resources.Load<PinballManager>("PinballManager"));
+                }
+
+                return instance;
+            }
+        }
+        #endregion Statics
+
         public float _flipperMotorForce;
         public float _flipperMotorTargetVelocity;
         public float _springForce;
@@ -28,12 +56,41 @@ namespace Kalevala
         [SerializeField]
         private Vector3 _ballDrainTopRightCorner;
 
+        private Pinball[] _pinballs;
         private int _currentBallAmount;
         private int _nudgesLeft;
 
         private bool noNudges;
 
         public bool Tilt { get; private set; }
+
+        public Pinball[] Pinballs
+        {
+            get
+            {
+                if (_pinballs == null)
+                {
+                    _pinballs = FindObjectsOfType<Pinball>();
+                }
+
+                return _pinballs;
+            }
+        }
+
+        public float PinballRadius
+        {
+            get
+            {
+                if (Pinballs != null && Pinballs.Length >= 1)
+                {
+                    return Pinballs[0].Radius;
+                }
+                else
+                {
+                    return 0;
+                }
+            }
+        }
 
         public float RampGravity
         {
@@ -43,10 +100,25 @@ namespace Kalevala
             }
         }
 
+        private void Awake()
+        {
+            if (instance == null)
+            {
+                instance = this;
+            }
+            else if (instance != this)
+            {
+                Destroy(gameObject);
+                return;
+            }
+
+            Init();
+        }
+
         /// <summary>
         /// Initializes the object.
         /// </summary>
-        private void Start()
+        private void Init()
         {
             _ballDrainTopRightCorner.y = _ballDrainBottomLeftCorner.y;
 

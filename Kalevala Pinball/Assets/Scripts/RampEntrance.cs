@@ -70,7 +70,7 @@ namespace Kalevala
 
         private void PutPinballsOnRamp()
         {
-            foreach (Pinball ball in _pinballs)
+            foreach (Pinball ball in PinballManager.Instance.Pinballs)
             {
                 if (!ball.IsOnRamp)
                 {

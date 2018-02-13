@@ -85,6 +85,19 @@ namespace Kalevala
             }
         }
 
+        public float Radius
+        {
+            get
+            {
+                if (_radius == 0)
+                {
+                    _radius = GetComponent<Collider>().bounds.size.x / 2;
+                }
+
+                return _radius;
+            }
+        }
+
         public void StopMotion()
         {
             if (_physicsEnabled)

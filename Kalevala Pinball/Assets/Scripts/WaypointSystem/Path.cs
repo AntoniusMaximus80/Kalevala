@@ -29,6 +29,7 @@ namespace Kalevala.WaypointSystem
         private bool _drawPath = true;
 
         private List<Waypoint> _waypoints;
+        private Pinball _pinball;
 
         // Dictionary which defines a color for each path type.
         //private readonly Dictionary<PathType, Color> _pathColors =
@@ -281,21 +282,77 @@ namespace Kalevala.WaypointSystem
         {
             if (_drawPath)
             {
-                Gizmos.color = _pathColor;
-                //Gizmos.color = _pathColors[_pathType];
+                DrawPath();
+                DrawWaypoints();
+            }
+        }
 
-                if (Waypoints.Count > 1)
+        private void DrawPath()
+        {
+            Gizmos.color = _pathColor;
+            //Gizmos.color = _pathColors[_pathType];
+
+            if (Waypoints.Count > 1)
+            {
+                for (int i = 1; i < Waypoints.Count; i++)
                 {
-                    for (int i = 1; i < Waypoints.Count; i++)
+                    // Draw line from previous waypoint to current.
+                    Gizmos.DrawLine(Waypoints[i - 1].Position, Waypoints[i].Position);
+                }
+                if (_pathType == PathType.Loop)
+                {
+                    // From last waypoint to first 
+                    Gizmos.DrawLine(Waypoints[Waypoints.Count - 1].Position,
+                        Waypoints[0].Position);
+                }
+            }
+        }
+
+        private void DrawWaypoints()
+        {
+            Gizmos.color = _pathColor;
+            //Gizmos.color = _pathColors[_pathType];
+
+            if (Waypoints.Count > 1)
+            {
+                for (int i = 1; i < Waypoints.Count; i++)
+                {
+                    if (_pinball == null)
                     {
-                        // Draw line from previous waypoint to current.
-                        Gizmos.DrawLine(Waypoints[i - 1].Position, Waypoints[i].Position);
+                        _pinball = FindObjectOfType<Pinball>();
                     }
-                    if (_pathType == PathType.Loop)
+
+                    float radius = _pinball.Radius;
+
+                    if (radius > 0)
                     {
-                        // From last waypoint to first 
-                        Gizmos.DrawLine(Waypoints[Waypoints.Count - 1].Position,
-                            Waypoints[0].Position);
+                        // Draw lines on x-axis
+                        Gizmos.DrawLine(Waypoints[i].Position + Vector3.right * radius, Waypoints[i].Position + Vector3.right * radius / 2);
+                        Gizmos.DrawLine(Waypoints[i].Position - Vector3.right * radius, Waypoints[i].Position - Vector3.right * radius / 2);
+
+                        // Draw lines on y-axis
+                        Gizmos.DrawLine(Waypoints[i].Position + Vector3.up * radius, Waypoints[i].Position + Vector3.up * radius / 2);
+                        Gizmos.DrawLine(Waypoints[i].Position - Vector3.up * radius, Waypoints[i].Position - Vector3.up * radius / 2);
+
+                        // Draw lines on z-axis
+                        Gizmos.DrawLine(Waypoints[i].Position + Vector3.forward * radius, Waypoints[i].Position + Vector3.forward * radius / 2);
+                        Gizmos.DrawLine(Waypoints[i].Position - Vector3.forward * radius, Waypoints[i].Position - Vector3.forward * radius / 2);
+
+                        //Vector3 direction = (Waypoints[i].Position - Waypoints[i - 1].Position).normalized;
+
+                        //Vector3 horizVector = direction;
+                        //horizVector.y = 0;
+                        //horizVector.Normalize();
+
+                        //Vector3 vertVector = direction;
+                        //horizVector.x = 0;
+                        //vertVector.Normalize();
+
+                        //// Draw horizontal line
+                        //Gizmos.DrawLine(Waypoints[i].Position + horizVector * radius, Waypoints[i].Position - horizVector * radius);
+
+                        //// Draw vertical line
+                        //Gizmos.DrawLine(Waypoints[i].Position + vertVector * radius, Waypoints[i].Position - vertVector * radius);
                     }
                 }
             }
