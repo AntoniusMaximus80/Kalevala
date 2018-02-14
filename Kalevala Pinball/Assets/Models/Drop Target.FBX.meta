@@ -1,22 +1,20 @@
 fileFormatVersion: 2
-guid: d50228ea3cd8c1d46b7afb5575bccf87
-timeCreated: 1516861704
+guid: d16f977fe85968040ac1360986f3d18c
+timeCreated: 1517854796
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
     100000: //RootNode
     400000: //RootNode
-    2100000: Flipper White Rubber
-    2100002: Flipper Blue Plastic
-    2100004: 14 - Default
+    2100000: No Name
     2300000: //RootNode
     3300000: //RootNode
-    4300000: 3" Flipper (O)
+    4300000: Drop Down Target
     9500000: //RootNode
   externalObjects: {}
   materials:
-    importMaterials: 1
+    importMaterials: 0
     materialName: 0
     materialSearch: 1
     materialLocation: 1
@@ -69,7 +67,7 @@ ModelImporter:
     normalImportMode: 0
     tangentImportMode: 3
     normalCalculationMode: 4
-  importAnimation: 1
+  importAnimation: 0
   copyAvatar: 0
   humanDescription:
     serializedVersion: 2

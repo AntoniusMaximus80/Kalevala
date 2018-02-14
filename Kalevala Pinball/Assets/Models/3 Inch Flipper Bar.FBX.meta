@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: d16f977fe85968040ac1360986f3d18c
-timeCreated: 1517854796
+guid: 4902a4ad708705b46b6b1cd526db2c86
+timeCreated: 1518610994
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
@@ -10,11 +10,11 @@ ModelImporter:
     2100000: No Name
     2300000: //RootNode
     3300000: //RootNode
-    4300000: Drop Down Target
+    4300000: 3 Inch Flipper Bar
     9500000: //RootNode
   externalObjects: {}
   materials:
-    importMaterials: 1
+    importMaterials: 0
     materialName: 0
     materialSearch: 1
     materialLocation: 1

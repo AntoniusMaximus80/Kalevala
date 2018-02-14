@@ -8,11 +8,11 @@ FBXHeaderExtension:  {
 		Version: 1000
 		Year: 2018
 		Month: 2
-		Day: 12
-		Hour: 19
-		Minute: 44
-		Second: 37
-		Millisecond: 834
+		Day: 14
+		Hour: 13
+		Minute: 57
+		Second: 8
+		Millisecond: 592
 	}
 	Creator: "FBX SDK/FBX Plugins version 2018.1"
 	SceneInfo: "SceneInfo::GlobalInfo", "UserData" {
@@ -34,25 +34,25 @@ FBXHeaderExtension:  {
 			P: "Original|ApplicationVendor", "KString", "", "", "Autodesk"
 			P: "Original|ApplicationName", "KString", "", "", "3ds Max"
 			P: "Original|ApplicationVersion", "KString", "", "", "2018"
-			P: "Original|DateTime_GMT", "DateTime", "", "", "12/02/2018 17:44:37.833"
+			P: "Original|DateTime_GMT", "DateTime", "", "", "14/02/2018 11:57:08.590"
 			P: "Original|FileName", "KString", "", "", "C:\Users\Toni\Desktop\Kalevala\Kalevala Pinball\Assets\Models\Playfield Sides.FBX"
 			P: "LastSaved", "Compound", "", ""
 			P: "LastSaved|ApplicationVendor", "KString", "", "", "Autodesk"
 			P: "LastSaved|ApplicationName", "KString", "", "", "3ds Max"
 			P: "LastSaved|ApplicationVersion", "KString", "", "", "2018"
-			P: "LastSaved|DateTime_GMT", "DateTime", "", "", "12/02/2018 17:44:37.833"
+			P: "LastSaved|DateTime_GMT", "DateTime", "", "", "14/02/2018 11:57:08.590"
 			P: "Original|ApplicationActiveProject", "KString", "", "", "C:\Users\Toni\Documents\3dsMax"
-			P: "Original|ApplicationNativeFile", "KString", "", "", "C:\Users\Toni\Dropbox\+ Spring 2018 Project\playfield (scaled to meters).max"
+			P: "Original|ApplicationNativeFile", "KString", "", "", "C:\Users\Toni\Dropbox\+ Spring 2018 Project\Playfield (Centimeters).max"
 		}
 	}
 }
 GlobalSettings:  {
 	Version: 1000
 	Properties70:  {
-		P: "UpAxis", "int", "Integer", "",2
+		P: "UpAxis", "int", "Integer", "",1
 		P: "UpAxisSign", "int", "Integer", "",1
-		P: "FrontAxis", "int", "Integer", "",1
-		P: "FrontAxisSign", "int", "Integer", "",-1
+		P: "FrontAxis", "int", "Integer", "",2
+		P: "FrontAxisSign", "int", "Integer", "",1
 		P: "CoordAxis", "int", "Integer", "",0
 		P: "CoordAxisSign", "int", "Integer", "",1
 		P: "OriginalUpAxis", "int", "Integer", "",2
@@ -65,7 +65,7 @@ GlobalSettings:  {
 		P: "TimeProtocol", "enum", "", "",2
 		P: "SnapOnFrameMode", "enum", "", "",0
 		P: "TimeSpanStart", "KTime", "Time", "",0
-		P: "TimeSpanStop", "KTime", "Time", "",92372316000
+		P: "TimeSpanStop", "KTime", "Time", "",182897185680
 		P: "CustomFrameRate", "double", "Number", "",-1
 		P: "TimeMarker", "Compound", "", ""
 		P: "CurrentTimeMarker", "int", "Integer", "",-1
@@ -77,7 +77,7 @@ GlobalSettings:  {
 
 Documents:  {
 	Count: 1
-	Document: 2868439280320, "", "Scene" {
+	Document: 2944904726656, "", "Scene" {
 		Properties70:  {
 			P: "SourceObject", "object", "", ""
 			P: "ActiveAnimStackName", "KString", "", "", ""
@@ -239,7 +239,7 @@ Definitions:  {
 ;------------------------------------------------------------------
 
 Objects:  {
-	Geometry: 2868222311920, "Geometry::", "Mesh" {
+	Geometry: 2945593002640, "Geometry::", "Mesh" {
 		Properties70:  {
 			P: "Color", "ColorRGB", "Color", "",0.450980392156863,0.450980392156863,0.450980392156863
 		}
@@ -271,10 +271,10 @@ Objects:  {
 			MappingInformationType: "ByPolygonVertex"
 			ReferenceInformationType: "IndexToDirect"
 			UV: *80 {
-				a: 0.0532482266426086,2.98023223876953e-08,0.658697724342346,2.98023223876953e-08,0.999999940395355,2.98023223876953e-08,1.19209289550781e-07,2.98023223876953e-08,0.946751952171326,2.98023223876953e-08,0.946751952171326,0.292569935321808,1.19209289550781e-07,1,0.999999940395355,1,0.0532481670379639,0.292569935321808,0.414488792419434,2.98023223876953e-08,0.658697724342346,0.391729831695557,0.414488792419434,0.391729891300201,0.414488792419434,0.292569935321808,0.658697724342346,0.292569935321808,4.76837158203125e-07,0.391729891300201,0.999999940395355,0.391729891300201,0.414488792419434,0.117568552494049,0.414488792419434,2.98023223876953e-08,0.658697724342346,2.98023223876953e-08,0.658697724342346,0.117568582296371,0.414488792419434,0.235137104988098,0.658697724342346,0.235137134790421,1,2.98023223876953e-08,1,1,5.36441802978516e-07,1,5.36441802978516e-07,2.98023223876953e-08,4.76837158203125e-07,0.292569935321808,0.999999940395355,0.292569935321808,4.76837158203125e-07,2.98023223876953e-08,4.76837158203125e-07,0.292569935321808,0.999999940395355,0.292569935321808,0.999999940395355,2.98023223876953e-08,0.0532481670379639,2.98023223876953e-08,0.0532481670379639,0.235137134790421,5.96046447753906e-08,0.117568582296371,5.96046447753906e-08,2.98023223876953e-08,0.946751832962036,0.235137104988098,0.946751832962036,2.98023223876953e-08,1,2.98023223876953e-08,1,0.117568552494049
+				a: 0.946751952171326,2.98023223876953e-08,0.946751952171326,0.292569935321808,1.19209289550781e-07,1,1.19209289550781e-07,2.98023223876953e-08,0.999999940395355,2.98023223876953e-08,0.999999940395355,1,0.0532481670379639,0.292569935321808,0.0532482266426086,2.98023223876953e-08,0.414488911628723,0.391729891300201,0.414488911628723,0.292569935321808,0.658697843551636,0.292569935321808,0.658697843551636,0.391729831695557,5.96046447753906e-07,0.391729891300201,1,0.391729891300201,0.414488911628723,2.98023223876953e-08,0.658697843551636,2.98023223876953e-08,0.658697843551636,0.117568582296371,0.414488911628723,0.117568552494049,0.414488911628723,2.98023223876953e-08,0.414488911628723,0.235137104988098,0.658697843551636,0.235137134790421,0.658697843551636,2.98023223876953e-08,0.99999988079071,2.98023223876953e-08,0.99999988079071,1,4.17232513427734e-07,1,4.17232513427734e-07,2.98023223876953e-08,5.96046447753906e-07,0.292569935321808,1,0.292569935321808,5.96046447753906e-07,2.98023223876953e-08,5.96046447753906e-07,0.292569935321808,1,0.292569935321808,1,2.98023223876953e-08,0.0532481670379639,2.98023223876953e-08,0.0532481670379639,0.235137134790421,5.96046447753906e-08,0.117568582296371,5.96046447753906e-08,2.98023223876953e-08,0.946751832962036,0.235137104988098,0.946751832962036,2.98023223876953e-08,1,2.98023223876953e-08,1,0.117568552494049
 			} 
 			UVIndex: *50 {
-				a: 4,5,6,3,2,7,8,0,22,23,24,25,11,12,13,10,14,26,12,11,15,10,13,27,17,18,19,16,28,9,20,12,29,30,13,21,1,31,13,12,20,21,32,33,34,35,36,37,38,39
+				a: 0,1,2,3,4,5,6,7,22,23,24,25,8,9,10,11,12,26,9,8,13,11,10,27,14,15,16,17,28,18,19,9,29,30,10,20,21,31,10,9,19,20,32,33,34,35,36,37,38,39
 			} 
 		}
 		LayerElementSmoothing: 0 {
@@ -315,22 +315,24 @@ Objects:  {
 			}
 		}
 	}
-	Model: 2868437738624, "Model::Playfield Sides", "Mesh" {
+	Model: 2944915221520, "Model::Playfield Sides", "Mesh" {
 		Version: 232
 		Properties70:  {
+			P: "PreRotation", "Vector3D", "Vector", "",-90,-0,0
+			P: "RotationActive", "bool", "", "",1
 			P: "InheritType", "enum", "", "",1
 			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
-			P: "GeometricTranslation", "Vector3D", "Vector", "",-75.340576171875,2.99999618530273,-0.999999046325684
+			P: "GeometricTranslation", "Vector3D", "Vector", "",-75.3405685424805,2.99999594688416,-0.999998986721039
+			P: "GeometricScaling", "Vector3D", "Vector", "",0.99999988079071,0.99999988079071,0.99999988079071
 			P: "DefaultAttributeIndex", "int", "Integer", "",0
-			P: "Lcl Translation", "Lcl Translation", "", "A",1,0,0
-			P: "Lcl Scaling", "Lcl Scaling", "", "A",0.1,0.1,0.1
+			P: "Lcl Scaling", "Lcl Scaling", "", "A",0.01,0.01,0.01
 			P: "UDP3DSMAX", "KString", "", "U", "MapChannel:1 = UVChannel_1&cr;&lf;"
 			P: "MaxHandle", "int", "Integer", "UH",64
 		}
 		Shading: T
 		Culling: "CullingOff"
 	}
-	Material: 2867440404304, "Material::Clear Plastic", "" {
+	Material: 2946260005792, "Material::Clear Plastic", "" {
 		Version: 102
 		ShadingModel: "phong"
 		MultiLayer: 0
@@ -353,10 +355,10 @@ Objects:  {
 			P: "Reflectivity", "double", "Number", "",0
 		}
 	}
-	AnimationStack: 2868252813568, "AnimStack::Take 001", "" {
+	AnimationStack: 2945392941424, "AnimStack::Take 001", "" {
 		Properties70:  {
-			P: "LocalStop", "KTime", "Time", "",92372316000
-			P: "ReferenceStop", "KTime", "Time", "",92372316000
+			P: "LocalStop", "KTime", "Time", "",182897185680
+			P: "ReferenceStop", "KTime", "Time", "",182897185680
 		}
 	}
 }
@@ -367,11 +369,11 @@ Objects:  {
 Connections:  {
 	
 	;Model::Playfield Sides, Model::RootNode
-	C: "OO",2868437738624,0
+	C: "OO",2944915221520,0
 	
 	;Geometry::, Model::Playfield Sides
-	C: "OO",2868222311920,2868437738624
+	C: "OO",2945593002640,2944915221520
 	
 	;Material::Clear Plastic, Model::Playfield Sides
-	C: "OO",2867440404304,2868437738624
+	C: "OO",2946260005792,2944915221520
 }

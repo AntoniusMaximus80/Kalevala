@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: c7b8aec56eff1a044baef74e2f141550
-timeCreated: 1516867125
+guid: 8374792132d84e54c84833b3d9aace79
+timeCreated: 1517857808
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
@@ -8,14 +8,9 @@ ModelImporter:
     100000: //RootNode
     400000: //RootNode
     2100000: No Name
-    2100002: Playfield Surface
-    2100004: 'Material #60'
-    2100006: Clear Plastic
     2300000: //RootNode
     3300000: //RootNode
-    4300000: Cabinet
-    4300002: Object001
-    4300004: Seperate Playfield
+    4300000: Drop Down Target Base
     9500000: //RootNode
   externalObjects: {}
   materials:
@@ -72,7 +67,7 @@ ModelImporter:
     normalImportMode: 0
     tangentImportMode: 3
     normalCalculationMode: 4
-  importAnimation: 1
+  importAnimation: 0
   copyAvatar: 0
   humanDescription:
     serializedVersion: 2

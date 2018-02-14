@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: 8374792132d84e54c84833b3d9aace79
-timeCreated: 1517857808
+guid: 2e1ece706422e9d46a44c5eec858d55c
+timeCreated: 1518541064
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
@@ -10,11 +10,11 @@ ModelImporter:
     2100000: No Name
     2300000: //RootNode
     3300000: //RootNode
-    4300000: Drop Down Target Base
+    4300000: Sampo Outer Layer
     9500000: //RootNode
   externalObjects: {}
   materials:
-    importMaterials: 1
+    importMaterials: 0
     materialName: 0
     materialSearch: 1
     materialLocation: 1
@@ -67,7 +67,7 @@ ModelImporter:
     normalImportMode: 0
     tangentImportMode: 3
     normalCalculationMode: 4
-  importAnimation: 1
+  importAnimation: 0
   copyAvatar: 0
   humanDescription:
     serializedVersion: 2
