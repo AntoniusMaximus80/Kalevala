@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -8,6 +9,7 @@ namespace Kalevala {
         private const string _launch = "Launch";
         private const string _leftFlipperHit = "LeftFlipper";
         private const string _rightFlipperHit = "RightFlipper";
+       
 
         [SerializeField]
         private Launcher _launcher;
@@ -17,6 +19,20 @@ namespace Kalevala {
 
         [SerializeField]
         private FlipperHingeJoint _rightFlipper;
+
+        [SerializeField]
+        private float _nudgeStrenght = 10;
+
+        private static Vector3 _nudgeVector = Vector3.zero;
+
+        public static Vector3 NudgeVector
+        {
+            get
+            {
+                return _nudgeVector;
+            }
+
+        }
 
         // Update is called once per frame
         void Update() {
@@ -34,6 +50,7 @@ namespace Kalevala {
             {
                 _launcher.Launch();
             }
+
             if (Input.GetButton(_leftFlipperHit))
             {
                 _leftFlipper.UseMotor();
@@ -42,6 +59,7 @@ namespace Kalevala {
             {
                 _leftFlipper.UseSpring();
             }
+
             if (Input.GetButton(_rightFlipperHit))
             {
                 _rightFlipper.UseMotor();
@@ -50,6 +68,19 @@ namespace Kalevala {
             {
                 _rightFlipper.UseSpring();
             }
+
+            // Ugly nudge hack.
+            _nudgeVector.x = 0;
+            if (Input.GetButtonDown("NudgeLeft")) DoNudge(-1);
+            if (Input.GetButtonDown("NudgeRight")) DoNudge(1);
+            
+        }
+
+        private void DoNudge(int direction)
+        {
+            // TODO : This really needs a sound effect, maybe the camera shake Toni suggested?
+            // Not sure as nudge is not really THAT powerful.
+            _nudgeVector.x = direction*_nudgeStrenght;
         }
     }
 }
