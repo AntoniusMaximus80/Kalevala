@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44824845, g: 0.49827534, b: 0.5755825, a: 1}
+  m_IndirectSpecularColor: {r: 0.4482491, g: 0.49827605, b: 0.5755833, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -965,11 +965,14 @@ MonoBehaviour:
   _flipperMotorTargetVelocity: 64000
   _springForce: 32000
   _rampGravity: -7
-  _startingBallAmount: 0
+  _startingBallAmount: 5
   _allowedNudgeAmount: 0
-  _ballLaunchPoint: {x: 0, y: 0, z: 0}
-  _ballDrainBottomLeftCorner: {x: 0, y: 0, z: 0}
-  _ballDrainTopRightCorner: {x: 0, y: 0, z: 0}
+  _ballLaunchPoint: {x: -24.4, y: 0, z: 0}
+  _ballDrainBottomLeftCorner: {x: 10, y: 0, z: 60}
+  _ballDrainTopRightCorner: {x: -10, y: 0, z: 55}
+  _pinballs: []
+  _currentBallAmount: 0
+  _activeBalls: 0
 --- !u!4 &444942425
 Transform:
   m_ObjectHideFlags: 0
@@ -1518,7 +1521,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c27f6935e68bcd642b66478bebaeb70e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _score: 0
   _spinSpeedMultiplier: 30
   _wobblyingAmount: 0.5
   _stabilizeRotationSpeed: 1
@@ -2771,6 +2773,30 @@ ReflectionProbe:
   m_UseOcclusionCulling: 1
   m_Importance: 1
   m_CustomBakedTexture: {fileID: 0}
+--- !u!1 &969457835 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1788350755220122, guid: 095d86518108d174bbc9a088912f7cfd,
+    type: 2}
+  m_PrefabInternal: {fileID: 1366016964}
+--- !u!114 &969457836
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 969457835}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ea62d73aaccd674d955241478c6850e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  debug_rampSpeed: 15
+  debug_useDebugRampSpeed: 0
+  debug_autoReinstance: 0
+  debug_addImpulseForce: 0
+  debug_stopMotion: 0
+  debug_exitRamp: 0
+  debug_upTableVelocity: {x: 0, y: 0, z: 0}
+  _speed: 0
 --- !u!1 &1024270833
 GameObject:
   m_ObjectHideFlags: 0
@@ -3840,6 +3866,7 @@ MonoBehaviour:
   _launcher: {fileID: 1389349155}
   _leftFlipper: {fileID: 657911939}
   _rightFlipper: {fileID: 515031137}
+  _nudgeStrenght: 10
 --- !u!4 &1404912179
 Transform:
   m_ObjectHideFlags: 0
@@ -4903,6 +4930,30 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 994e50386606dcc4a8ed227d6e487a79, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &1790529083 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1788350755220122, guid: 095d86518108d174bbc9a088912f7cfd,
+    type: 2}
+  m_PrefabInternal: {fileID: 1294680984}
+--- !u!114 &1790529084
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1790529083}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ea62d73aaccd674d955241478c6850e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  debug_rampSpeed: 15
+  debug_useDebugRampSpeed: 0
+  debug_autoReinstance: 0
+  debug_addImpulseForce: 0
+  debug_stopMotion: 0
+  debug_exitRamp: 0
+  debug_upTableVelocity: {x: 0, y: 0, z: 0}
+  _speed: 0
 --- !u!1001 &1797340278
 Prefab:
   m_ObjectHideFlags: 0
@@ -5056,6 +5107,30 @@ ReflectionProbe:
   m_UseOcclusionCulling: 1
   m_Importance: 1
   m_CustomBakedTexture: {fileID: 0}
+--- !u!1 &1882178743 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1788350755220122, guid: 095d86518108d174bbc9a088912f7cfd,
+    type: 2}
+  m_PrefabInternal: {fileID: 1055159874}
+--- !u!114 &1882178744
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1882178743}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ea62d73aaccd674d955241478c6850e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  debug_rampSpeed: 15
+  debug_useDebugRampSpeed: 0
+  debug_autoReinstance: 0
+  debug_addImpulseForce: 0
+  debug_stopMotion: 0
+  debug_exitRamp: 0
+  debug_upTableVelocity: {x: 0, y: 0, z: 0}
+  _speed: 0
 --- !u!1001 &1889388493
 Prefab:
   m_ObjectHideFlags: 0

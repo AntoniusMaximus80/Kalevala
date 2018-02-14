@@ -29,7 +29,7 @@ namespace Kalevala
 
         public Waypoint CurrentWaypoint { get; private set; }
 
-        public PinballManager PinballManager { get; set; }
+        //public PinballManager PinballManager { get; set; }
 
         //private void Start()
         //{
@@ -227,7 +227,7 @@ namespace Kalevala
 
             //Debug.Log("Speed change: " + incline * _gravity * 10);
             //Debug.Log("_gravity: " + _gravity);
-            result += incline * PinballManager.RampGravity;
+            result += incline * PinballManager.Instance.RampGravity;
 
             return result;
         }

@@ -26,7 +26,7 @@ namespace Kalevala
         private Path _ramp;
         private bool _dropAtEnd;
 
-        private PinballManager _pbm;
+        //private PinballManager _pbm;
         private Rigidbody _rb;
         private SphereCollider _sphColl;
 
@@ -39,8 +39,8 @@ namespace Kalevala
             debug_upTableVelocity = new Vector3(0f, 10 * 0.1742402f, 10 * -10.31068f);
 
             RampMotion = GetComponent<RampMotion>();
-            _pbm = FindObjectOfType<PinballManager>();
-            RampMotion.PinballManager = _pbm;
+            //_pbm = FindObjectOfType<PinballManager>();
+            //RampMotion.PinballManager = _pbm;
         }
 
         private void Update()
@@ -54,6 +54,21 @@ namespace Kalevala
                 if (rampEnded)
                 {
                     ExitRamp();
+                }
+            }
+
+            if (!InputManager.NudgeVector.Equals(Vector3.zero)) AddImpulseForce(InputManager.NudgeVector);
+
+            if(PinballManager.Instance.PositionIsInDrain(transform.position))
+            {
+                if (debug_autoReinstance)
+                {
+                    // debug reinstancing moves ball back to where it started.
+                    PinballManager.Instance.InstanceNextBall(this);
+                }
+                else
+                {
+                    PinballManager.Instance.RemoveBall(this);
                 }
             }
 
@@ -134,7 +149,7 @@ namespace Kalevala
             if (_physicsEnabled)
             {
                 _rb.AddForce(force, ForceMode.Impulse);
-
+                // Debug.Log(force);
                 //Vector3 forcePosition = transform.position;
                 //forcePosition.y += radius * 3f / 4f;
                 //rb.AddForceAtPosition(force, forcePosition, ForceMode.Impulse);
@@ -251,15 +266,8 @@ namespace Kalevala
         {
             if (Input.GetKeyDown(KeyCode.Keypad0))
             {
-                _pbm.InstanceNextBall(this);
+                PinballManager.Instance.InstanceNextBall(this);
                 ExitRamp_Debug();
-            }
-
-            if (debug_autoReinstance &&
-                _pbm.PositionIsInDrain(transform.position))
-            {
-                //Debug.Log("Ball is in drain");
-                _pbm.InstanceNextBall(this);
             }
 
             if (debug_stopMotion)

@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Spinner : MonoBehaviour {
-
     /// <summary>
     /// Multiplier to increase magnitude of rotation.
     /// </summary>
@@ -25,12 +24,23 @@ public class Spinner : MonoBehaviour {
     [SerializeField]
     private float _stabilizingThreshold;
 
+    [SerializeField]
+    private float _scoreEachHalfRound;
+
     /// <summary>
     /// Defines if the spinner has stopped spinning from the force gained by ball hitting it
     /// </summary>
     private bool _stabilize = false;
 
+    /// <summary>
+    /// Defines which side the plate should stabilize after rotation force from ball hitting it is near zero
+    /// </summary>
     private bool _checkRotation = true;
+
+    /// <summary>
+    /// Used to give score every half round the plate rotates.
+    /// </summary>
+    private bool _fullRound;
 
     private Rigidbody _rb;
 
@@ -41,17 +51,27 @@ public class Spinner : MonoBehaviour {
 
     private void Start()
     {
+        if(transform.rotation.eulerAngles.x >= 0 && transform.rotation.eulerAngles.x <= 90)
+        {
+            _fullRound = true;
+        }
+        else if(transform.rotation.eulerAngles.x >= 270 && transform.rotation.eulerAngles.x <= 360)
+        {
+            _fullRound = false;
+        }
         _rb = GetComponent<Rigidbody>();
     }
     // Spins the object based on speed give by passing objects velocity.
     void FixedUpdate () {
-
         if(_rb.angularVelocity.x <= _stabilizingThreshold && _rb.angularVelocity.x >= -_stabilizingThreshold &&
             _checkRotation && (transform.rotation.eulerAngles.x != 270 || transform.rotation.eulerAngles.x != 90))
         {
             _stabilize = true;
             _checkRotation = false;
             CheckStabilizationDirection();
+        } else
+        {
+            CheckScoring();
         }
 
         //transform.rotation *= Quaternion.AngleAxis(_startSpeed * _spinSpeedMultiplier * Time.deltaTime, Vector3.right);
@@ -124,13 +144,31 @@ public class Spinner : MonoBehaviour {
     /// </summary>
     private void CheckStabilizationDirection()
     {
-        if(transform.rotation.eulerAngles.x > 0 && transform.rotation.eulerAngles.x <= 90)
+        if(transform.rotation.eulerAngles.x >= 0 && transform.rotation.eulerAngles.x <= 90)
         {
             _stabilizationDirection = Vector3.forward;
         }
-        else if(transform.rotation.eulerAngles.x > 270 && transform.rotation.eulerAngles.x <= 360)
+        else if(transform.rotation.eulerAngles.x >= 270 && transform.rotation.eulerAngles.x <= 360)
         {
             _stabilizationDirection = -Vector3.forward;
+        }
+    }
+
+
+    /// <summary>
+    /// Gives score each half round the spinner does.
+    /// </summary>
+    private void CheckScoring()
+    {
+        if(transform.rotation.eulerAngles.x >= 0 && transform.rotation.eulerAngles.x <= 90 && !_fullRound)
+        {
+            _fullRound = true;
+            //TODO: Give score amount to gamemanager
+        }
+        else if(transform.rotation.eulerAngles.x >= 270 && transform.rotation.eulerAngles.x <= 360 && _fullRound)
+        {
+            _fullRound = false;
+            //TODO: Give score amount to gamemanager
         }
     }
 
