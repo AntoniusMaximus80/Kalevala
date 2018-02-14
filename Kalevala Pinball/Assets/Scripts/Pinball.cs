@@ -59,6 +59,19 @@ namespace Kalevala
 
             if (!InputManager.NudgeVector.Equals(Vector3.zero)) AddImpulseForce(InputManager.NudgeVector);
 
+            if(PinballManager.Instance.PositionIsInDrain(transform.position))
+            {
+                if (debug_autoReinstance)
+                {
+                    // debug reinstancing moves ball back to where it started.
+                    PinballManager.Instance.InstanceNextBall(this);
+                }
+                else
+                {
+                    PinballManager.Instance.RemoveBall(this);
+                }
+            }
+
             HandleDebug();
         }
 
@@ -255,13 +268,6 @@ namespace Kalevala
             {
                 PinballManager.Instance.InstanceNextBall(this);
                 ExitRamp_Debug();
-            }
-
-            if (debug_autoReinstance &&
-                PinballManager.Instance.PositionIsInDrain(transform.position))
-            {
-                //Debug.Log("Ball is in drain");
-                PinballManager.Instance.InstanceNextBall(this);
             }
 
             if (debug_stopMotion)

@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -66,9 +67,14 @@ namespace Kalevala
         [SerializeField]
         private Vector3 _ballDrainTopRightCorner;
 
+        [SerializeField]
+        private Transform _startingPosition;
+
         private Pinball[] _pinballs;
-        private int _currentBallAmount;
+
+        private int _currentBallAmount, _activeBalls;
         private int _nudgesLeft;
+
 
         private bool noNudges;
 
@@ -81,6 +87,8 @@ namespace Kalevala
                 if (_pinballs == null)
                 {
                     _pinballs = FindObjectsOfType<Pinball>();
+                    _activeBalls = _pinballs.Length;
+                    Debug.Log("Initial balls : " + _activeBalls.ToString());
                 }
 
                 return _pinballs;
@@ -146,6 +154,15 @@ namespace Kalevala
             _currentBallAmount = _startingBallAmount;
             _nudgesLeft = _allowedNudgeAmount;
             Tilt = false;
+
+            _pinballs = FindObjectsOfType<Pinball>();
+            _activeBalls = _pinballs.Length;
+            Debug.Log("Initial balls : " + _activeBalls.ToString());
+
+            if(_startingPosition)
+            {
+                _ballLaunchPoint = _startingPosition.position;
+            }
         }
 
         public bool OutOfBalls()
@@ -174,16 +191,34 @@ namespace Kalevala
             return inDrainZ; //withinX && withinZ;
         }
 
-        public bool InstanceNextBall(Pinball ball)
+        public void InstanceNextBall(Pinball ball)
         {
-            if (!OutOfBalls())
-            {
+            
                 ball.transform.position = _ballLaunchPoint;
                 ball.StopMotion();
-                return true;
-            }
+                        
+        }
 
-            return false;
+        public void RemoveBall(Pinball pinball)
+        {
+            if(_activeBalls>1)
+            {
+                pinball.gameObject.SetActive(false);
+                _activeBalls--;
+            }
+            else
+            {
+                if (!OutOfBalls())
+                {
+                    InstanceNextBall(pinball);
+                    _currentBallAmount--;
+                    Debug.Log("Balls left : " + _currentBallAmount.ToString());
+                }
+                else
+                {
+                    Debug.Log("Out of balls");
+                }
+            }
         }
 
         public bool Nudge()
