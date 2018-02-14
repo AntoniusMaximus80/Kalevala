@@ -29,6 +29,26 @@ namespace Kalevala.Editor
         {
             if (GUILayout.Button("Insert Waypoint Between This And Next"))
             {
+                // The parent path
+                Path parentPath = targetWaypoint.GetComponentInParent<Path>();
+
+                // Inserts a new default waypoint
+                Waypoint newWaypoint = parentPath.
+                    InsertWaypoints(targetWaypoint, new Vector3[0], "");
+
+                if (newWaypoint != null)
+                {
+                    // Selects the new waypoint in editor
+                    Selection.activeGameObject = newWaypoint.gameObject;
+                }
+            }
+        }
+
+        /*
+        private void InsertWaypointButton()
+        {
+            if (GUILayout.Button("Insert Waypoint Between This And Next"))
+            {
                 // The new, inserted waypoint
                 Waypoint newWaypoint = null;
 
@@ -98,82 +118,6 @@ namespace Kalevala.Editor
                 // Selects the new waypoint in editor
                 Selection.activeGameObject = newWaypoint.gameObject;
             }
-        }
-
-        private void InsertBetweenWaypoints(bool insertCurve)
-        {
-            // The parent path
-            Path parentPath = targetWaypoint.GetComponentInParent<Path>();
-
-            // The list of existing waypoints
-            Waypoint[] waypoints =
-                parentPath.GetComponentsInChildren<Waypoint>();
-
-            int targetWPIndex = GetTargetWaypointIndex(waypoints);
-            int waypointsAfterCount = waypoints.Length - targetWPIndex - 1;
-
-            // Checks if the target waypoint is valid and returns if not
-            if (targetWPIndex == -1 || waypointsAfterCount < 1)
-            {
-                Debug.LogError("Cannot insert a new waypoint after the " +
-                               "last one. To do this, use the Path's " +
-                               "Add Waypoint button.");
-                return;
-            }
-
-            if (insertCurve)
-            {
-                // TODO
-            }
-            else
-            {
-                // TODO
-            }
-        }
-
-        private int GetTargetWaypointIndex(Waypoint[] waypoints)
-        {
-            int targetWPIndex = -1;
-
-            for (int i = 0; i < waypoints.Length; i++)
-            {
-                if (waypoints[i] == targetWaypoint)
-                {
-                    targetWPIndex = i;
-                    break;
-                }
-            }
-
-            return targetWPIndex;
-        }
-
-        //private void InsertCurveButton()
-        //{
-        //    if (GUILayout.Button("Insert Curve"))
-        //    {
-        //        int waypointCount = targetPath.transform.childCount;
-
-        //        Waypoint[] waypoints =
-        //            targetPath.GetComponentsInChildren<Waypoint>();
-
-        //        Waypoint prevWaypoint =
-        //            (waypoints.Length > 0 ?
-        //                waypoints[waypoints.Length - 1] : null);
-
-        //        string waypointName =
-        //            string.Format("Waypoint{0}", (waypointCount + 1).ToString("D3"));
-
-        //        // Creates the new waypoint
-        //        GameObject waypoint = new GameObject(waypointName);
-        //        waypoint.AddComponent<Waypoint>();
-        //        waypoint.transform.SetParent(targetPath.transform);
-
-        //        // Sets the waypoint's position and rotation
-        //        waypoint.transform.position =
-        //            (prevWaypoint != null ?
-        //                prevWaypoint.Position : targetPath.transform.position);
-        //        waypoint.transform.rotation = new Quaternion(0, 0, 0, 0);
-        //    }
-        //}
+        }*/
     }
 }

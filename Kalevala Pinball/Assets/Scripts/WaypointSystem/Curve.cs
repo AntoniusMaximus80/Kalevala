@@ -7,13 +7,24 @@ namespace Kalevala
 {
     public class Curve : MonoBehaviour
     {
-        public Waypoint[] waypoints;
-        public Vector3 midPoint;
+        [SerializeField]
+        private Waypoint startWaypoint;
 
-        public int pathChildIndex;
-        public int lineSteps = 10;
+        [SerializeField]
+        private Waypoint endWaypoint;
 
+        [SerializeField]
         private Vector3[] points;
+
+        [SerializeField, Range(1, 300)]
+        private int lineSteps = 10;
+
+        private Path parentPath;
+        private Waypoint[] waypoints;
+
+        //private bool resetWhenPossible = true;
+        private bool waypointsCreated = false;
+
         public Vector3[] Points
         {
             get
@@ -31,21 +42,111 @@ namespace Kalevala
             }
         }
 
-        private void Start()
+        public Waypoint StartWaypoint
         {
-            ResetPosition();
+            get
+            {
+                return startWaypoint;
+            }
         }
 
-        public void ResetPosition()
+        public Waypoint EndWaypoint
         {
-            // TODO: (Editor) Fix not being updated immediately if a connected waypoint has been moved
+            get
+            {
+                return endWaypoint;
+            }
+        }
 
-            transform.position = waypoints[0].Position;
+        public int LineSteps
+        {
+            get
+            {
+                return lineSteps;
+            }
+        }
 
-            Points = new Vector3[3];
-            Points[0] = Vector3.zero;
-            Points[2] = waypoints[1].Position - waypoints[0].Position;
-            Points[1] = midPoint;
+        public Vector3 MidPoint { get; set; }
+
+        public int PathChildIndex { get; set; }
+
+        //public bool ResetWhenPossible
+        //{
+        //    get
+        //    {
+        //        return resetWhenPossible;
+        //    }
+        //    set
+        //    {
+        //        resetWhenPossible = value;
+        //    }
+        //}
+
+        public bool WaypointsCreated
+        {
+            get
+            {
+                return waypointsCreated;
+            }
+            set
+            {
+                waypointsCreated = value;
+            }
+        }
+
+        private void Start()
+        {
+            if (startWaypoint != null && endWaypoint != null)
+            {
+                parentPath = startWaypoint.transform.parent.GetComponent<Path>();
+
+                if (parentPath == null)
+                {
+                    Debug.LogError("Parent path not found.");
+                }
+            }
+            else
+            {
+                Debug.LogError("Start and/or end waypoint is not set.");
+            }
+        }
+
+        public void ResetPoints()
+        {
+            if (true) //ResetWhenPossible)
+            {
+                Points = new Vector3[3];
+
+                FixEnds();
+
+                if (startWaypoint != null && endWaypoint != null)
+                {
+                    Points[1] = (endWaypoint.Position - startWaypoint.Position) * 0.5f;
+                    MidPoint = Points[1];
+
+                    //ResetWhenPossible = false;
+                }
+
+                waypointsCreated = false;
+            }
+            //else
+            //{
+            //    FixEnds();
+            //}
+        }
+
+        public void FixEnds()
+        {
+            if (startWaypoint != null)
+            {
+                transform.position = startWaypoint.Position;
+                Points[0] = Vector3.zero;
+
+                if (endWaypoint != null)
+                {
+                    Points[2] = endWaypoint.Position - startWaypoint.Position;
+                }
+            }
         }
 
         public Vector3 GetPoint(float t)
@@ -53,5 +154,21 @@ namespace Kalevala
             return transform.TransformPoint(
                 MathHelp.GetCurvePoint(Points[0], Points[1], Points[2], t));
         }
+
+        /*
+        if (curve.lineSteps <= 0)
+        {
+            curve.lineSteps = 10;
+        }
+
+        // Draws a curve from its start waypoint to its end waypoint
+        for (int j = 0; j < curve.lineSteps; j++)
+        {
+            float step = j / (float) curve.lineSteps;
+            float nextStep = (j + 1) / (float) curve.lineSteps;
+            Gizmos.DrawLine(curve.GetPoint(step), curve.GetPoint(nextStep));
+            DrawPinballSizeMarker(curve.GetPoint(step), pinballRadius);
+        }
+        */
     }
 }
