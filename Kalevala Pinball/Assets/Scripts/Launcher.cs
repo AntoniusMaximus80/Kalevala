@@ -12,22 +12,34 @@ namespace Kalevala
         private float _launcherForceMultiplier;
         [SerializeField]
         private float _timeToMaxForce;
+        [SerializeField]
+        private bool _useDebugs;
         private float _launcherForce;
 
+
+        /// <summary>
+        /// Increases the power to launch ball, calmps the force between 0 and 1.
+        /// </summary>
         public void PoweringUp()
         {
             _launcherForce = Mathf.Clamp01(_launcherForce + Time.deltaTime / _timeToMaxForce);
         }
 
+        /// <summary>
+        /// Launches the ball with force depending on how long launch button is pressed.
+        /// </summary>
         public void Launch()
         {
             Collider[] colliders = Physics.OverlapSphere(transform.position, 1f);
 
             foreach(Collider coll in colliders)
             {
-                coll.GetComponent<Rigidbody>().AddForce(-Vector3.forward * _launcherForce * _launcherForceMultiplier, ForceMode.Impulse);
+                coll.GetComponent<Rigidbody>().AddForce(Vector3.forward * _launcherForce * _launcherForceMultiplier, ForceMode.Impulse);
+                if(_useDebugs)
+                {
+                    Debug.Log(_launcherForce);
+                }
             }
-            Debug.Log(_launcherForce);
             _launcherForce = 0;
         }
 

@@ -30,6 +30,9 @@ namespace Kalevala
         [SerializeField]
         private int _scoreEachHalfRound;
 
+        [SerializeField]
+        private int _maxAngularVelocity;
+
         /// <summary>
         /// Defines if the spinner has stopped spinning from the force gained by ball hitting it
         /// </summary>
@@ -63,11 +66,13 @@ namespace Kalevala
                 _fullRound = false;
             }
             _rb = GetComponent<Rigidbody>();
+            _rb.maxAngularVelocity = _maxAngularVelocity;
         }
+
         // Spins the object based on speed give by passing objects velocity.
         void FixedUpdate()
         {
-            if(_rb.angularVelocity.x <= _stabilizingThreshold && _rb.angularVelocity.x >= -_stabilizingThreshold &&
+            if(_rb.angularVelocity.x < _stabilizingThreshold && _rb.angularVelocity.x > -_stabilizingThreshold &&
                 _checkRotation && (transform.rotation.eulerAngles.x != 270 || transform.rotation.eulerAngles.x != 90))
             {
                 _stabilize = true;
@@ -79,30 +84,12 @@ namespace Kalevala
                 CheckScoring();
             }
 
-            //transform.rotation *= Quaternion.AngleAxis(_startSpeed * _spinSpeedMultiplier * Time.deltaTime, Vector3.right);
-
-            //DecrementRotation();
             if(_stabilize)
             {
                 StabilizeRotation();
             }
 
         }
-
-        /// <summary>
-        /// Decreases rotation speed each fixed update.
-        /// </summary>
-        //private void DecrementRotation()
-        //{
-        //    if(_startSpeed > 0)
-        //    {
-        //        _startSpeed = Mathf.Clamp(_startSpeed - 0.5f, 0, _startSpeed);
-        //    }
-        //    else if(_startSpeed < 0)
-        //    {
-        //        _startSpeed = Mathf.Clamp(_startSpeed + 0.5f, _startSpeed, 0);
-        //    }
-        //}
 
         /// <summary>
         /// Stabilizes rotation back to original if the spinning has stopped and the object isn't back to original rotation.
@@ -127,21 +114,6 @@ namespace Kalevala
                 _rb.angularVelocity = Vector3.zero;
                 _stabilize = false;
             }
-            //if(transform.rotation.eulerAngles.x > 0 && transform.rotation.eulerAngles.x <= 90 && _startSpeed == 0)
-            //{
-            //    //transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(90f, 0f, 0f), Time.time * _stabilizeRotation);
-            //    transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.Euler(90f, 0f, 0f), Time.fixedDeltaTime * _stabilizeRotation);
-            //    _stabilizeRotation = Mathf.Clamp(_stabilizeRotation + 0.1f, _stabilizeRotation, 10);
-            //}
-            //else if(transform.rotation.eulerAngles.x > 270 && transform.rotation.eulerAngles.x <= 360 && _startSpeed == 0)
-            //{
-            //    //transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(270f, 0f, 0f), Time.time * _stabilizeRotation);
-            //    transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.Euler(270f, 0f, 0f), Time.fixedDeltaTime * _stabilizeRotation);
-            //    _stabilizeRotation = Mathf.Clamp(_stabilizeRotation + 0.1f, _stabilizeRotation, 10);
-            //} else
-            //{
-            //    _stabilizeRotation = 1f;
-            //}
         }
 
         /// <summary>
@@ -151,11 +123,11 @@ namespace Kalevala
         {
             if(transform.rotation.eulerAngles.x >= 0 && transform.rotation.eulerAngles.x <= 90)
             {
-                _stabilizationDirection = Vector3.forward;
+                _stabilizationDirection = -Vector3.forward;
             }
             else if(transform.rotation.eulerAngles.x >= 270 && transform.rotation.eulerAngles.x <= 360)
             {
-                _stabilizationDirection = -Vector3.forward;
+                _stabilizationDirection = Vector3.forward;
             }
         }
 
@@ -184,12 +156,18 @@ namespace Kalevala
         private void OnTriggerEnter( Collider other )
         {
 
-            Rigidbody rb = other.gameObject.GetComponent<Rigidbody>();
-            if(rb != null)
+            Pinball pinball = other.GetComponent<Pinball>();
+            int sign = 1;
+            if(pinball != null)
             {
-                //_startSpeed = rb.velocity.z * -1;
-                gameObject.GetComponent<Rigidbody>().AddTorque(transform.right * _spinSpeedMultiplier * rb.velocity.z * -1);
+                _rb.angularVelocity = Vector3.zero;
+                if(pinball.gameObject.GetComponent<Rigidbody>().velocity.z < 0)
+                {
+                    sign = -1;
+                }
+                _rb.AddTorque(transform.right * (pinball.Speed * sign) * _spinSpeedMultiplier ,ForceMode.Impulse);
                 _checkRotation = true;
+                _stabilize = false;
             }
         }
     }

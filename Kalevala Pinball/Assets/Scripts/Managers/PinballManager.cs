@@ -185,13 +185,13 @@ namespace Kalevala
 
         public bool PositionIsInDrain(Vector3 position)
         {
-            bool inDrainZ = (position.z > _ballDrainTopRightCorner.z);
-            //bool withinX = (position.x >= _ballDrainBottomLeftCorner.x &&
-            //                position.x < _ballDrainTopRightCorner.x);
-            //bool withinZ = (position.z >= _ballDrainBottomLeftCorner.z &&
-            //                position.z < _ballDrainTopRightCorner.z);
+            //bool inDrainZ = (position.z < _ballDrainTopRightCorner.z);
+            bool withinX = (position.x >= _ballDrainBottomLeftCorner.x &&
+                            position.x < _ballDrainTopRightCorner.x);
+            bool withinZ = (position.z >= _ballDrainBottomLeftCorner.z &&
+                            position.z < _ballDrainTopRightCorner.z);
 
-            return inDrainZ; //withinX && withinZ;
+            return /*inDrainZ;*/ withinX && withinZ;
         }
 
         public void InstanceNextBall(Pinball ball)
