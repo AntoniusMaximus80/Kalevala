@@ -39,7 +39,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1992906033442706}
   m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 18.08, y: 2, z: 28.56}
+  m_LocalPosition: {x: 19, y: 1.35, z: 22}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -59,7 +59,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 46bd4f5bc9857ed4493d0d05be218d66, type: 2}
+  - {fileID: 2100000, guid: 81456733795510b458742c5459f50e71, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -85,7 +85,7 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1992906033442706}
-  m_Mesh: {fileID: 4300000, guid: 489f789b26906644db8396ef6565ce1a, type: 3}
+  m_Mesh: {fileID: 4300000, guid: 580f35c24ad719241a72dac624200215, type: 3}
 --- !u!54 &54386035720384152
 Rigidbody:
   m_ObjectHideFlags: 1
@@ -100,7 +100,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 1
+  m_CollisionDetection: 2
 --- !u!114 &114478733820421878
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -112,8 +112,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b15cf35d720daae46b9fd2fb0f2a0cc0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _gravity: -7
-  _directionalRatio: 0
   _speed: 0
 --- !u!114 &114819745745679100
 MonoBehaviour:
@@ -128,7 +126,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   debug_rampSpeed: 70
   debug_useDebugRampSpeed: 0
-  debug_autoReinstance: 1
+  debug_autoReinstance: 0
   debug_addImpulseForce: 0
   debug_stopMotion: 0
   debug_exitRamp: 0
