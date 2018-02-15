@@ -16,6 +16,25 @@ namespace Kalevala
         /*private float _testingDelay = 1f,
             _testingDelayCountup = 0f;*/
 
+       private static Scorekeeper _instance;
+
+       public static Scorekeeper Instance
+        {
+            get { return _instance; }
+
+        }
+
+        private void Awake()
+        {
+            if(Instance == null)
+            {
+                _instance = this;
+            } else
+            {
+                Destroy(this.gameObject);
+            }
+        }
+
         private void Start()
         {
             _score = 0;
