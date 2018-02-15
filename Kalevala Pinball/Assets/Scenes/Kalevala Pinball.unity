@@ -8175,8 +8175,8 @@ HingeJoint:
     targetPosition: 0
   m_UseMotor: 0
   m_Motor:
-    targetVelocity: 32000
-    force: 32000
+    targetVelocity: 64000
+    force: 64000
     freeSpin: 0
   m_UseLimits: 1
   m_Limits:
@@ -12204,6 +12204,11 @@ Prefab:
       propertyPath: m_Interpolate
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 54386035720384152, guid: babcca75daa603e479cbcfe048191f33,
+        type: 2}
+      propertyPath: m_AngularDrag
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: babcca75daa603e479cbcfe048191f33, type: 2}
   m_IsPrefabParent: 0
@@ -12862,8 +12867,8 @@ HingeJoint:
     targetPosition: 0
   m_UseMotor: 0
   m_Motor:
-    targetVelocity: 32000
-    force: 32000
+    targetVelocity: 64000
+    force: 64000
     freeSpin: 0
   m_UseLimits: 1
   m_Limits:
