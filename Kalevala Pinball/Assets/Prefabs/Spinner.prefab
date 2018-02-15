@@ -19,7 +19,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4761667268437408}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Spinner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -37,7 +37,10 @@ GameObject:
   - component: {fileID: 33514172907144038}
   - component: {fileID: 23149800205943108}
   - component: {fileID: 95367942156956514}
-  m_Layer: 0
+  - component: {fileID: 54711429471519168}
+  - component: {fileID: 65903838504302450}
+  - component: {fileID: 114871208133564668}
+  m_Layer: 10
   m_Name: Spinner Plate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -55,7 +58,7 @@ GameObject:
   - component: {fileID: 33054389780999816}
   - component: {fileID: 23636267105066324}
   - component: {fileID: 95551265720941528}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Spinner Frame
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -73,7 +76,7 @@ GameObject:
   - component: {fileID: 33148393256423522}
   - component: {fileID: 23318735901327274}
   - component: {fileID: 95348354804350848}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Spinner Bar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -86,13 +89,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1236690878199888}
-  m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 1.8599999, z: 0}
+  m_LocalRotation: {x: -0.34179354, y: -0, z: -0, w: 0.9397751}
+  m_LocalPosition: {x: 0, y: 1.8600004, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4761667268437408}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -39.972, y: 0, z: 0}
 --- !u!4 &4600095416490984
 Transform:
   m_ObjectHideFlags: 1
@@ -126,8 +129,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1224335427851258}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 10, y: 1, z: 5}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -22.45135, y: 1.000002, z: -14.21239}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 4270797255632924}
   - {fileID: 4675608960665464}
@@ -258,6 +261,33 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1236690878199888}
   m_Mesh: {fileID: 4300000, guid: c30d1f25d7097434bb15970ed59cb278, type: 3}
+--- !u!54 &54711429471519168
+Rigidbody:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1236690878199888}
+  serializedVersion: 2
+  m_Mass: 0.1
+  m_Drag: 0
+  m_AngularDrag: 0.4
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 110
+  m_CollisionDetection: 0
+--- !u!65 &65903838504302450
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1236690878199888}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.44, y: 1.1, z: 2.4}
+  m_Center: {x: 0, y: -0.00000047683716, z: 0.00000017881392}
 --- !u!95 &95348354804350848
 Animator:
   serializedVersion: 3
@@ -309,3 +339,19 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114871208133564668
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1236690878199888}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c27f6935e68bcd642b66478bebaeb70e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _spinSpeedMultiplier: 30
+  _wobblyingAmount: 0.5
+  _stabilizeRotationSpeed: 1
+  _stabilizingThreshold: 0.7
+  _scoreEachHalfRound: 0

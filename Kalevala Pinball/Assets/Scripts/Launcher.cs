@@ -30,5 +30,11 @@ namespace Kalevala
             Debug.Log(_launcherForce);
             _launcherForce = 0;
         }
+
+        private void OnDrawGizmos()
+        {
+            Gizmos.color = Color.green;
+            Gizmos.DrawSphere(transform.position, 1f);
+        }
     }
 }
