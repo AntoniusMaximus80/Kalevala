@@ -7,15 +7,34 @@ namespace Kalevala
 {
     public class RampEntrance : MonoBehaviour
     {
-        public bool _isPathStart = true;
-        public bool _dropBallAtEnd;
-        public Vector3 _startPoint;
-        public Vector3 _rampDirection;
-        public float _distanceTolerance = 0.2f;
-        public float _directionAngleTolerance = 30;
+        [SerializeField]
+        private Path _path;
+
+        [SerializeField]
+        private RampEntrance _otherEntrance;
+
+        [SerializeField]
+        private bool _isPathStart = true;
+
+        [SerializeField]
+        private bool _dropBallAtEnd;
+
+        [SerializeField]
+        private Vector3 _startPoint;
+
+        [SerializeField]
+        private Vector3 _rampDirection;
+
+        [SerializeField]
+        private float _distanceTolerance = 0.2f;
+
+        [SerializeField]
+        private float _directionAngleTolerance = 30;
+
+        [SerializeField]
+        private Color _gizmosColor = Color.blue;
 
         public List<Pinball> _pinballs;
-        public Path _path;
 
         private Direction _direction;
         private Waypoint _startWaypoint;
@@ -51,7 +70,7 @@ namespace Kalevala
 
         private void PutPinballsOnRamp()
         {
-            foreach (Pinball ball in _pinballs)
+            foreach (Pinball ball in PinballManager.Instance.Pinballs)
             {
                 if (!ball.IsOnRamp)
                 {
@@ -90,21 +109,46 @@ namespace Kalevala
             return result;
         }
 
+        public Color GizmosColor
+        {
+            get
+            {
+                return _gizmosColor;
+            }
+            set
+            {
+                _gizmosColor = value;
+            }
+        }
+
         private void OnDrawGizmos()
         {
+            if (!Application.isPlaying)
+            {
+                if (_path.PathColor != _gizmosColor)
+                {
+                    _path.PathColor = _gizmosColor;
+                }
+                if (_isPathStart && _otherEntrance != null &&
+                    _otherEntrance.GizmosColor != _gizmosColor)
+                {
+                    _otherEntrance.GizmosColor = _gizmosColor;
+                }
+            }
+
             DrawStartPoint();
             DrawDirection();
         }
 
         private void DrawStartPoint()
         {
-            Gizmos.color = Color.blue;
+            Gizmos.color = _gizmosColor;
             Gizmos.DrawWireSphere(transform.position + _startPoint, _distanceTolerance);
         }
 
         private void DrawDirection()
         {
-            Gizmos.color = Color.blue;
+            Gizmos.color = _gizmosColor;
             Gizmos.DrawLine(transform.position + _startPoint, transform.position + _startPoint + _rampDirection.normalized * 8);
         }
     }

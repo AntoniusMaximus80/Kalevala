@@ -29,6 +29,8 @@ namespace Kalevala.WaypointSystem
         private bool _drawPath = true;
 
         private List<Waypoint> _waypoints;
+        private List<Curve> _curves;
+        private Pinball _pinball;
 
         // Dictionary which defines a color for each path type.
         //private readonly Dictionary<PathType, Color> _pathColors =
@@ -203,14 +205,25 @@ namespace Kalevala.WaypointSystem
         {
             int childCount = transform.childCount;
             _waypoints = new List<Waypoint>(childCount);
+            _curves = new List<Curve>();
             for (int i = 0; i < childCount; i++)
             {
-                Transform waypointTransform = transform.GetChild(i);
-                Waypoint waypoint = waypointTransform.GetComponent<Waypoint>();
+                Transform childTransform = transform.GetChild(i);
+
+                Waypoint waypoint = childTransform.GetComponent<Waypoint>();
                 if (waypoint != null)
                 {
                     _waypoints.Add(waypoint);
                 }
+                //else
+                //{
+                //    Curve curve = childTransform.GetComponent<Curve>();
+                //    if (curve != null)
+                //    {
+                //        curve.PathChildIndex = i;
+                //        _curves.Add(curve);
+                //    }
+                //}
             }
         }
 
@@ -257,10 +270,33 @@ namespace Kalevala.WaypointSystem
             float length = Vector3.Distance(startWaypoint.Position,
                 endWaypoint.Position);
 
-            // TODO: Length for a curved segment
-
             return length;
         }
+
+        public Color PathColor
+        {
+            get
+            {
+                return _pathColor;
+            }
+            set
+            {
+                _pathColor = value;
+            }
+        }
+
+        //private Curve CurveInIndex(int index)
+        //{
+        //    for (int i = 0; i < _curves.Count; i++)
+        //    {
+        //        if (_curves[i].PathChildIndex == index)
+        //        {
+        //            return _curves[i];
+        //        }
+        //    }
+
+        //    return null;
+        //}
 
         /// <summary>
         /// Draws lines between waypoints
@@ -269,24 +305,185 @@ namespace Kalevala.WaypointSystem
         {
             if (_drawPath)
             {
-                Gizmos.color = _pathColor;
-                //Gizmos.color = _pathColors[_pathType];
-
-                if (Waypoints.Count > 1)
+                if (_pinball == null)
                 {
-                    for (int i = 1; i < Waypoints.Count; i++)
-                    {
-                        // Draw line from previous waypoint to current.
-                        Gizmos.DrawLine(Waypoints[i - 1].Position, Waypoints[i].Position);
-                    }
-                    if (_pathType == PathType.Loop)
-                    {
-                        // From last waypoint to first 
-                        Gizmos.DrawLine(Waypoints[Waypoints.Count - 1].Position,
-                            Waypoints[0].Position);
-                    }
+                    _pinball = FindObjectOfType<Pinball>();
+                }
+
+                float radius = _pinball.Radius;
+
+                DrawPath(radius);
+
+                if (radius > 0)
+                {
+                    DrawWaypoints(radius);
                 }
             }
+        }
+
+        private void DrawPath(float pinballRadius)
+        {
+            Gizmos.color = _pathColor;
+            //Gizmos.color = _pathColors[_pathType];
+
+            if (Waypoints.Count > 1)
+            {
+                for (int i = 1; i < Waypoints.Count; i++)
+                {
+                    // Draws a line from previous waypoint to current
+                    Gizmos.DrawLine(Waypoints[i - 1].Position, Waypoints[i].Position);
+                }
+                if (_pathType == PathType.Loop)
+                {
+                    // From last waypoint to first 
+                    Gizmos.DrawLine(Waypoints[Waypoints.Count - 1].Position,
+                        Waypoints[0].Position);
+                }
+            }
+        }
+
+        private void DrawWaypoints(float pinballRadius)
+        {
+            Gizmos.color = _pathColor;
+            //Gizmos.color = _pathColors[_pathType];
+
+            if (Waypoints.Count > 1)
+            {
+                for (int i = 1; i < Waypoints.Count; i++)
+                {
+                    DrawPinballSizeMarker(Waypoints[i].Position, pinballRadius);
+                }
+            }
+        }
+
+        private void DrawPinballSizeMarker(Vector3 position, float radius)
+        {
+            // Draw lines on x-axis
+            Gizmos.DrawLine(position + Vector3.right * radius, position + 3 * Vector3.right * radius / 4);
+            Gizmos.DrawLine(position - Vector3.right * radius, position - 3 * Vector3.right * radius / 4);
+
+            // Draw lines on y-axis
+            Gizmos.DrawLine(position + Vector3.up * radius, position + 3 * Vector3.up * radius / 4);
+            Gizmos.DrawLine(position - Vector3.up * radius, position - 3 * Vector3.up * radius / 4);
+
+            // Draw lines on z-axis
+            Gizmos.DrawLine(position + Vector3.forward * radius, position + 3 * Vector3.forward * radius / 4);
+            Gizmos.DrawLine(position - Vector3.forward * radius, position - 3 * Vector3.forward * radius / 4);
+        }
+
+
+
+
+        public Waypoint InsertWaypoints(Waypoint targetWaypoint,
+            Vector3[] waypointPositions, string curveName)
+        {
+            bool curve = (curveName.Length > 0);
+
+            // Default insert
+            bool defaultInsert = false;
+            if (waypointPositions.Length < 1)
+            {
+                defaultInsert = true;
+                waypointPositions = new Vector3[1];
+            }
+
+            int targetWPIndex = GetTargetWaypointIndex(targetWaypoint);
+            int waypointsAfterCount = _waypoints.Count - targetWPIndex - 1;
+
+            // Checks if the target waypoint is valid and returns if not
+            if (targetWPIndex == -1 || waypointsAfterCount < 1)
+            {
+                Debug.LogError("Cannot insert a new waypoint after the " +
+                               "last one. To do this, use the Path's " +
+                               "Add Waypoint button.");
+                return null;
+            }
+
+            // List of waypoints with the new ones included
+            Waypoint[] alteredWaypoints = new Waypoint[_waypoints.Count + waypointPositions.Length];
+
+            // A new, inserted waypoint
+            Waypoint newWaypoint = null;
+
+            for (int i = 0; i < alteredWaypoints.Length; i++)
+            {
+                // The name of the current waypoint
+                string waypointName =
+                    string.Format("Waypoint{0}", (i + 1).ToString("D3"));
+
+                // If a waypoint comes before the target
+                // waypoint, it is only added to the new list
+                if (i <= targetWPIndex)
+                {
+                    alteredWaypoints[i] = _waypoints[i];
+                }
+                else
+                {
+                    // Creates a new waypoint
+                    if (i > targetWPIndex && i <= targetWPIndex + waypointPositions.Length)
+                    {
+                        if (curve)
+                        {
+                            waypointName += string.Format(" ({0})", curveName);
+                        }
+
+                        GameObject waypoint = new GameObject(waypointName);
+                        newWaypoint = waypoint.AddComponent<Waypoint>();
+                        waypoint.transform.SetParent(transform);
+                        newWaypoint.IsPartOfCurve = curve;
+                        newWaypoint.CurveName = curveName;
+
+                        // Sets the new waypoint's position
+                        if (!defaultInsert)
+                        {
+                            waypoint.transform.position = waypointPositions[i - targetWPIndex - 1];
+                        }
+                        // Default position
+                        else
+                        {
+                            waypoint.transform.position = Vector3.Lerp(
+                                targetWaypoint.Position, _waypoints[i].Position, 0.5f);
+                        }
+
+                        waypoint.transform.rotation = new Quaternion(0, 0, 0, 0);
+
+                        alteredWaypoints[i] = newWaypoint;
+                    }
+                    // Renames following waypoints to keep them in order
+                    else
+                    {
+                        alteredWaypoints[i] = _waypoints[i - waypointPositions.Length];
+
+                        if (alteredWaypoints[i].IsPartOfCurve)
+                        {
+                            waypointName += string.Format(" ({0})",
+                                alteredWaypoints[i].CurveName);
+                        }
+                        alteredWaypoints[i].gameObject.name = waypointName;
+                    }
+
+                    // Reorganizes the waypoint list in editor
+                    alteredWaypoints[i].transform.SetSiblingIndex(i);
+                }
+            }
+
+            return newWaypoint;
+        }
+
+        private int GetTargetWaypointIndex(Waypoint targetWaypoint)
+        {
+            int targetWPIndex = -1;
+
+            for (int i = 0; i < _waypoints.Count; i++)
+            {
+                if (_waypoints[i] == targetWaypoint)
+                {
+                    targetWPIndex = i;
+                    break;
+                }
+            }
+
+            return targetWPIndex;
         }
     }
 }
