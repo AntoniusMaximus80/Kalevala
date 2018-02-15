@@ -294,7 +294,7 @@ MonoBehaviour:
   _isPathStart: 1
   _dropBallAtEnd: 0
   _startPoint: {x: 0, y: 0, z: 0}
-  _rampDirection: {x: 0, y: 0, z: -1}
+  _rampDirection: {x: 0, y: 0, z: 1}
   _distanceTolerance: 1.85
   _directionAngleTolerance: 30
   _gizmosColor: {r: 0, g: 0, b: 1, a: 1}
