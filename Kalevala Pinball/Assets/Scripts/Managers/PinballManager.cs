@@ -70,24 +70,27 @@ namespace Kalevala
         [SerializeField]
         private Transform _startingPosition;
 
-        private Pinball[] _pinballs;
+        [SerializeField, Tooltip("The prefab for creating extra balls.")]
+        private Pinball _pinballPrefab;
+
+        private List<Pinball> _pinballs;
 
         private int _currentBallAmount, _activeBalls;
         private int _nudgesLeft;
 
-
+        
         private bool noNudges;
-
+       
         public bool Tilt { get; private set; }
 
-        public Pinball[] Pinballs
+        public List<Pinball> Pinballs
         {
             get
             {
                 if (_pinballs == null)
                 {
-                    _pinballs = FindObjectsOfType<Pinball>();
-                    _activeBalls = _pinballs.Length;
+                    _pinballs = new List<Pinball>(FindObjectsOfType<Pinball>());
+                    _activeBalls = _pinballs.Count;
                     Debug.Log("Initial balls : " + _activeBalls.ToString());
                 }
 
@@ -99,7 +102,7 @@ namespace Kalevala
         {
             get
             {
-                if (Pinballs != null && Pinballs.Length >= 1)
+                if (Pinballs != null && Pinballs.Count >= 1)
                 {
                     return Pinballs[0].Radius;
                 }
@@ -155,8 +158,8 @@ namespace Kalevala
             _nudgesLeft = _allowedNudgeAmount;
             Tilt = false;
 
-            _pinballs = FindObjectsOfType<Pinball>();
-            _activeBalls = _pinballs.Length;
+            _pinballs = new List<Pinball>(FindObjectsOfType<Pinball>());
+            _activeBalls = _pinballs.Count;
             Debug.Log("Initial balls : " + _activeBalls.ToString());
 
             if(_startingPosition)
@@ -219,6 +222,49 @@ namespace Kalevala
                     Debug.Log("Out of balls");
                 }
             }
+        }
+
+        /// <summary>
+        /// The method to launch extra balls.
+        /// </summary>
+        /// <param name="location">Transform giving the position,
+        /// you can use an empty gameobject linked to launching object.</param>
+        /// <param name="impulse">You can give the ball a "kick" when launching. Use null or Vector3.zero if not needed.</param>
+        public void ExtraBall(Transform location, Vector3 impulse)
+        {
+            // Use a deactivated ball if possible.
+            Pinball ball = RecycleBall();
+
+            // If not create a new ball from prefab.
+            if (!ball)
+            {
+                ball = Instantiate<Pinball>(_pinballPrefab);
+                _pinballs.Add(ball);
+            }
+
+            // If it was found activate it.
+            else
+            {
+                ball.gameObject.SetActive(true);
+            }
+
+            // Update active ball counter and set ball location.
+            _activeBalls++;
+            ball.transform.position = location.position;
+
+            // If given a valid impulse vector apply it.
+            if (impulse!=null && impulse.Equals(Vector3.zero))
+            ball.AddImpulseForce(impulse);
+        }
+
+        private Pinball RecycleBall()
+        {
+            foreach (Pinball ball in _pinballs)
+            {
+                if (!ball.gameObject.activeSelf) return ball;
+            }
+
+            return null;
         }
 
         public bool Nudge()
