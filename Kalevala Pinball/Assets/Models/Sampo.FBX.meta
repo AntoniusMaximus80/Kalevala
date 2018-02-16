@@ -29,6 +29,18 @@ ModelImporter:
     100042: Sampo Upper Body
     100044: Upper Leg L
     100046: Upper Leg R
+    100048: BODY PARENT
+    100050: Handle Bar 1 L
+    100052: Handle Bar 1 R
+    100054: Handle Bar 2 L
+    100056: Handle Bar 2 R
+    100058: Handle L
+    100060: Handle R
+    100062: Light Plane 1
+    100064: Sampo Middle
+    100066: Sampo Top Edge
+    100068: Sampo Top Inner Layer
+    100070: Sampo Top Outer Layer
     400000: Bottom Joint L
     400002: Bottom Joint R
     400004: Foot L
@@ -53,6 +65,18 @@ ModelImporter:
     400042: Sampo Upper Body
     400044: Upper Leg L
     400046: Upper Leg R
+    400048: BODY PARENT
+    400050: Handle Bar 1 L
+    400052: Handle Bar 1 R
+    400054: Handle Bar 2 L
+    400056: Handle Bar 2 R
+    400058: Handle L
+    400060: Handle R
+    400062: Light Plane 1
+    400064: Sampo Middle
+    400066: Sampo Top Edge
+    400068: Sampo Top Inner Layer
+    400070: Sampo Top Outer Layer
     2100000: No Name
     2300000: Bottom Joint L
     2300002: Bottom Joint R
@@ -77,6 +101,18 @@ ModelImporter:
     2300040: Sampo Upper Body
     2300042: Upper Leg L
     2300044: Upper Leg R
+    2300046: BODY PARENT
+    2300048: Handle Bar 1 L
+    2300050: Handle Bar 1 R
+    2300052: Handle Bar 2 L
+    2300054: Handle Bar 2 R
+    2300056: Handle L
+    2300058: Handle R
+    2300060: Light Plane 1
+    2300062: Sampo Middle
+    2300064: Sampo Top Edge
+    2300066: Sampo Top Inner Layer
+    2300068: Sampo Top Outer Layer
     3300000: Bottom Joint L
     3300002: Bottom Joint R
     3300004: Foot L
@@ -100,6 +136,18 @@ ModelImporter:
     3300040: Sampo Upper Body
     3300042: Upper Leg L
     3300044: Upper Leg R
+    3300046: BODY PARENT
+    3300048: Handle Bar 1 L
+    3300050: Handle Bar 1 R
+    3300052: Handle Bar 2 L
+    3300054: Handle Bar 2 R
+    3300056: Handle L
+    3300058: Handle R
+    3300060: Light Plane 1
+    3300062: Sampo Middle
+    3300064: Sampo Top Edge
+    3300066: Sampo Top Inner Layer
+    3300068: Sampo Top Outer Layer
     4300000: Foot R
     4300002: Lower Leg R
     4300004: Upper Leg R
@@ -123,7 +171,24 @@ ModelImporter:
     4300040: Sampo Right Door
     4300042: Sampo Bottom
     4300044: Light Plane001
-    7400000: Open Door
+    4300046: BODY PARENT
+    4300048: Sampo Top Edge
+    4300050: Sampo Top Outer Layer
+    4300052: Sampo Top Inner Layer
+    4300054: Sampo Middle
+    4300056: Handle Bar 2 L
+    4300058: Handle L
+    4300060: Handle Bar 1 L
+    4300062: Handle Bar 2 R
+    4300064: Handle R
+    4300066: Handle Bar 1 R
+    4300068: Light Plane
+    7400000: Open / Close Doors
+    7400002: Rise Up
+    7400004: Sit Down
+    7400006: Slow Down
+    7400008: Bow Down
+    7400010: Up Idle
     9500000: //RootNode
   externalObjects: {}
   materials:
@@ -153,10 +218,122 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Open Door
+      name: Open / Close Doors
       takeName: Take 001
       firstFrame: 0
       lastFrame: 49
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Rise Up
+      takeName: Take 001
+      firstFrame: 51
+      lastFrame: 175
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Slow Down
+      takeName: Take 001
+      firstFrame: 176
+      lastFrame: 224
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Bow Down
+      takeName: Take 001
+      firstFrame: 225
+      lastFrame: 299
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Up Idle
+      takeName: Take 001
+      firstFrame: 224
+      lastFrame: 225
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
