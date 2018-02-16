@@ -1,0 +1,235 @@
+fileFormatVersion: 2
+guid: 34964fcbca4246d4b8bde661c1f01e8e
+timeCreated: 1518762115
+licenseType: Free
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: Bottom Joint L
+    100002: Bottom Joint R
+    100004: Foot L
+    100006: Foot R
+    100008: Handle
+    100010: Handle Bar
+    100012: Handle Bar 1
+    100014: Handle Bar001
+    100016: Handle Bar002
+    100018: Handle001
+    100020: Light Plane
+    100022: Light Plane001
+    100024: Lower Leg L
+    100026: Lower Leg R
+    100028: //RootNode
+    100030: Sampo Bottom
+    100032: Sampo Inner Layer
+    100034: Sampo Left Door
+    100036: Sampo Lower Body
+    100038: Sampo Outer Layer
+    100040: Sampo Right Door
+    100042: Sampo Upper Body
+    100044: Upper Leg L
+    100046: Upper Leg R
+    400000: Bottom Joint L
+    400002: Bottom Joint R
+    400004: Foot L
+    400006: Foot R
+    400008: Handle
+    400010: Handle Bar
+    400012: Handle Bar 1
+    400014: Handle Bar001
+    400016: Handle Bar002
+    400018: Handle001
+    400020: Light Plane
+    400022: Light Plane001
+    400024: Lower Leg L
+    400026: Lower Leg R
+    400028: //RootNode
+    400030: Sampo Bottom
+    400032: Sampo Inner Layer
+    400034: Sampo Left Door
+    400036: Sampo Lower Body
+    400038: Sampo Outer Layer
+    400040: Sampo Right Door
+    400042: Sampo Upper Body
+    400044: Upper Leg L
+    400046: Upper Leg R
+    2100000: No Name
+    2300000: Bottom Joint L
+    2300002: Bottom Joint R
+    2300004: Foot L
+    2300006: Foot R
+    2300008: Handle
+    2300010: Handle Bar
+    2300012: Handle Bar 1
+    2300014: Handle Bar001
+    2300016: Handle Bar002
+    2300018: Handle001
+    2300020: Light Plane
+    2300022: Light Plane001
+    2300024: Lower Leg L
+    2300026: Lower Leg R
+    2300028: Sampo Bottom
+    2300030: Sampo Inner Layer
+    2300032: Sampo Left Door
+    2300034: Sampo Lower Body
+    2300036: Sampo Outer Layer
+    2300038: Sampo Right Door
+    2300040: Sampo Upper Body
+    2300042: Upper Leg L
+    2300044: Upper Leg R
+    3300000: Bottom Joint L
+    3300002: Bottom Joint R
+    3300004: Foot L
+    3300006: Foot R
+    3300008: Handle
+    3300010: Handle Bar
+    3300012: Handle Bar 1
+    3300014: Handle Bar001
+    3300016: Handle Bar002
+    3300018: Handle001
+    3300020: Light Plane
+    3300022: Light Plane001
+    3300024: Lower Leg L
+    3300026: Lower Leg R
+    3300028: Sampo Bottom
+    3300030: Sampo Inner Layer
+    3300032: Sampo Left Door
+    3300034: Sampo Lower Body
+    3300036: Sampo Outer Layer
+    3300038: Sampo Right Door
+    3300040: Sampo Upper Body
+    3300042: Upper Leg L
+    3300044: Upper Leg R
+    4300000: Foot R
+    4300002: Lower Leg R
+    4300004: Upper Leg R
+    4300006: Bottom Joint R
+    4300008: Foot L
+    4300010: Lower Leg L
+    4300012: Upper Leg L
+    4300014: Bottom Joint L
+    4300016: Sampo Upper Body
+    4300018: Sampo Outer Layer
+    4300020: Sampo Inner Layer
+    4300022: Sampo Lower Body
+    4300024: Handle Bar
+    4300026: Handle
+    4300028: Handle Bar
+    4300030: Handle Bar002
+    4300032: Handle001
+    4300034: Handle Bar001
+    4300036: Light Plane
+    4300038: Sampo Left Door
+    4300040: Sampo Right Door
+    4300042: Sampo Bottom
+    4300044: Light Plane001
+    7400000: Open Door
+    9500000: //RootNode
+  externalObjects: {}
+  materials:
+    importMaterials: 0
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 0
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Open Door
+      takeName: Take 001
+      firstFrame: 0
+      lastFrame: 49
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 0
+    importLights: 0
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
