@@ -21,7 +21,7 @@ namespace Kalevala {
         private FlipperHingeJoint _rightFlipper;
 
         [SerializeField]
-        private float _nudgeStrenght = 10;
+        private float _nudgeStrength = 10;
 
         private static Vector3 _nudgeVector = Vector3.zero;
 
@@ -80,7 +80,7 @@ namespace Kalevala {
         {
             // TODO : This really needs a sound effect, maybe the camera shake Toni suggested?
             // Not sure as nudge is not really THAT powerful.
-            _nudgeVector.x = direction*_nudgeStrenght;
+            _nudgeVector.x = direction * _nudgeStrength;
         }
     }
 }
