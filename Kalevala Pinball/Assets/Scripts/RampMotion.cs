@@ -14,7 +14,7 @@ namespace Kalevala
         //[SerializeField, Range(0, 1)]
         //private float _directionalRatio;
 
-        public float _speed;
+        public float _speed; // public for debugging
 
         private bool _onRamp;
         private Path _path;

@@ -11,16 +11,10 @@ namespace Kalevala
         private Path _path;
 
         [SerializeField]
-        private RampEntrance _otherEntrance;
-
-        [SerializeField]
         private bool _isPathStart = true;
 
         [SerializeField]
         private bool _dropBallAtEnd;
-
-        [SerializeField]
-        private Vector3 _startPoint;
 
         [SerializeField]
         private Vector3 _rampDirection;
@@ -33,8 +27,6 @@ namespace Kalevala
 
         [SerializeField]
         private Color _gizmosColor = Color.blue;
-
-        public List<Pinball> _pinballs;
 
         private Direction _direction;
         private Waypoint _startWaypoint;
@@ -65,22 +57,44 @@ namespace Kalevala
 
         private void Update()
         {
-            PutPinballsOnRamp();
+            PutPinballOnRamp();
         }
 
-        private void PutPinballsOnRamp()
+        public bool IsPathStart
+        {
+            get
+            {
+                return _isPathStart;
+            }
+        }
+
+        public Vector3 RampDirection
+        {
+            get
+            {
+                return _rampDirection;
+            }
+            set
+            {
+                _rampDirection = value;
+            }
+        }
+
+        /// <summary>
+        /// Makes a pinball that hits the ramp entrance
+        /// and goes in the right direction enter the ramp.
+        /// </summary>
+        private void PutPinballOnRamp()
         {
             foreach (Pinball ball in PinballManager.Instance.Pinballs)
             {
-                if (!ball.IsOnRamp)
+                if (!ball.IsOnRamp &&
+                    Hit(ball.transform.position) &&
+                    SameDirections(ball.PhysicsVelocity))
                 {
-                    if (Hit(ball.transform.position))
-                    {
-                        if (SameDirections(ball.PhysicsVelocity))
-                        {
-                            ball.EnterRamp(_path, _direction, _startWaypoint, _dropBallAtEnd);
-                        }
-                    }
+                    ball.EnterRamp(_path, _direction,
+                        _startWaypoint, _dropBallAtEnd);
+                    return;
                 }
             }
         }
@@ -89,7 +103,7 @@ namespace Kalevala
         {
             bool result = false;
 
-            if (Vector3.Distance(transform.position + _startPoint, objPosition) < _distanceTolerance)
+            if (Vector3.Distance(transform.position, objPosition) < _distanceTolerance)
             {
                 result = true;
             }
@@ -101,7 +115,9 @@ namespace Kalevala
         {
             bool result = false;
 
-            if (Vector3.Angle(ballDirection, _rampDirection) <= _directionAngleTolerance)
+            if (_directionAngleTolerance >= 180 ||
+                Vector3.Angle(ballDirection, _rampDirection)
+                    <= _directionAngleTolerance)
             {
                 result = true;
             }
@@ -127,12 +143,14 @@ namespace Kalevala
             {
                 if (_path.PathColor != _gizmosColor)
                 {
-                    _path.PathColor = _gizmosColor;
-                }
-                if (_isPathStart && _otherEntrance != null &&
-                    _otherEntrance.GizmosColor != _gizmosColor)
-                {
-                    _otherEntrance.GizmosColor = _gizmosColor;
+                    if (_isPathStart)
+                    {
+                        _path.PathColor = _gizmosColor;
+                    }
+                    else
+                    {
+                        _gizmosColor = _path.PathColor;
+                    }
                 }
             }
 
@@ -143,13 +161,14 @@ namespace Kalevala
         private void DrawStartPoint()
         {
             Gizmos.color = _gizmosColor;
-            Gizmos.DrawWireSphere(transform.position + _startPoint, _distanceTolerance);
+            Gizmos.DrawWireSphere(transform.position, _distanceTolerance);
         }
 
         private void DrawDirection()
         {
             Gizmos.color = _gizmosColor;
-            Gizmos.DrawLine(transform.position + _startPoint, transform.position + _startPoint + _rampDirection.normalized * 8);
+            Gizmos.DrawLine(transform.position,
+                transform.position + _rampDirection);
         }
     }
 }

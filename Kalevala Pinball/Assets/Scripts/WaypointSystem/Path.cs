@@ -29,8 +29,7 @@ namespace Kalevala.WaypointSystem
         private bool _drawPath = true;
 
         private List<Waypoint> _waypoints;
-        private List<Curve> _curves;
-        private Pinball _pinball;
+        private float _pinballRadius;
 
         // Dictionary which defines a color for each path type.
         //private readonly Dictionary<PathType, Color> _pathColors =
@@ -205,7 +204,6 @@ namespace Kalevala.WaypointSystem
         {
             int childCount = transform.childCount;
             _waypoints = new List<Waypoint>(childCount);
-            _curves = new List<Curve>();
             for (int i = 0; i < childCount; i++)
             {
                 Transform childTransform = transform.GetChild(i);
@@ -215,15 +213,6 @@ namespace Kalevala.WaypointSystem
                 {
                     _waypoints.Add(waypoint);
                 }
-                //else
-                //{
-                //    Curve curve = childTransform.GetComponent<Curve>();
-                //    if (curve != null)
-                //    {
-                //        curve.PathChildIndex = i;
-                //        _curves.Add(curve);
-                //    }
-                //}
             }
         }
 
@@ -233,13 +222,10 @@ namespace Kalevala.WaypointSystem
             {
                 float length = 0;
 
-                // Length for a path without curves
                 for (int i = 1; i < Waypoints.Count; i++)
                 {
                     length += Vector3.Distance(Waypoints[i + 1].Position, Waypoints[i].Position);
                 }
-
-                // TODO: Length for a path with curves
 
                 return length;
             }
@@ -305,23 +291,17 @@ namespace Kalevala.WaypointSystem
         {
             if (_drawPath)
             {
-                if (_pinball == null)
+                if (_pinballRadius == 0)
                 {
-                    _pinball = FindObjectOfType<Pinball>();
+                    _pinballRadius = FindObjectOfType<Pinball>().Radius;
                 }
 
-                float radius = _pinball.Radius;
-
-                DrawPath(radius);
-
-                if (radius > 0)
-                {
-                    DrawWaypoints(radius);
-                }
+                DrawPath();
+                DrawWaypoints();
             }
         }
 
-        private void DrawPath(float pinballRadius)
+        private void DrawPath()
         {
             Gizmos.color = _pathColor;
             //Gizmos.color = _pathColors[_pathType];
@@ -342,7 +322,7 @@ namespace Kalevala.WaypointSystem
             }
         }
 
-        private void DrawWaypoints(float pinballRadius)
+        private void DrawWaypoints()
         {
             Gizmos.color = _pathColor;
             //Gizmos.color = _pathColors[_pathType];
@@ -351,7 +331,8 @@ namespace Kalevala.WaypointSystem
             {
                 for (int i = 1; i < Waypoints.Count; i++)
                 {
-                    DrawPinballSizeMarker(Waypoints[i].Position, pinballRadius);
+                    DrawPinballSizeMarker
+                        (Waypoints[i].Position, _pinballRadius);
                 }
             }
         }
@@ -359,22 +340,49 @@ namespace Kalevala.WaypointSystem
         private void DrawPinballSizeMarker(Vector3 position, float radius)
         {
             // Draw lines on x-axis
-            Gizmos.DrawLine(position + Vector3.right * radius, position + 3 * Vector3.right * radius / 4);
-            Gizmos.DrawLine(position - Vector3.right * radius, position - 3 * Vector3.right * radius / 4);
+            Gizmos.DrawLine(position + Vector3.right * radius, position + Vector3.right * radius * 0.75f);
+            Gizmos.DrawLine(position - Vector3.right * radius, position - Vector3.right * radius * 0.75f);
 
             // Draw lines on y-axis
-            Gizmos.DrawLine(position + Vector3.up * radius, position + 3 * Vector3.up * radius / 4);
-            Gizmos.DrawLine(position - Vector3.up * radius, position - 3 * Vector3.up * radius / 4);
+            Gizmos.DrawLine(position + Vector3.up * radius, position + Vector3.up * radius * 0.75f);
+            Gizmos.DrawLine(position - Vector3.up * radius, position - Vector3.up * radius * 0.75f);
 
             // Draw lines on z-axis
-            Gizmos.DrawLine(position + Vector3.forward * radius, position + 3 * Vector3.forward * radius / 4);
-            Gizmos.DrawLine(position - Vector3.forward * radius, position - 3 * Vector3.forward * radius / 4);
+            Gizmos.DrawLine(position + Vector3.forward * radius, position + Vector3.forward * radius * 0.75f);
+            Gizmos.DrawLine(position - Vector3.forward * radius, position - Vector3.forward * radius * 0.75f);
         }
 
 
 
+        /// <summary>
+        /// Inserts a default waypoint after the given waypoint.
+        /// </summary>
+        /// <param name="prevWaypoint">
+        /// The waypoint after which a new
+        /// waypoint will be inserted
+        /// </param>
+        /// <returns>the inserted waypoint (in an array)</returns>
+        public Waypoint[] InsertWaypoint(Waypoint prevWaypoint)
+        {
+            return InsertWaypoints(prevWaypoint, new Vector3[0], "");
+        }
 
-        public Waypoint InsertWaypoints(Waypoint targetWaypoint,
+        /// <summary>
+        /// Inserts waypoints in the given positions after the given waypoint.
+        /// </summary>
+        /// <param name="prevWaypoint">
+        /// The waypoint after which a new
+        /// waypoint will be inserted
+        /// </param>
+        /// <param name="waypointPositions">
+        /// The positions the new waypoints will be in
+        /// </param>
+        /// <param name="curveName">
+        /// The name of the curve the new waypoints belong to;
+        /// can be left empty
+        /// </param>
+        /// <returns>the inserted waypoints</returns>
+        public Waypoint[] InsertWaypoints(Waypoint prevWaypoint,
             Vector3[] waypointPositions, string curveName)
         {
             bool curve = (curveName.Length > 0);
@@ -387,7 +395,7 @@ namespace Kalevala.WaypointSystem
                 waypointPositions = new Vector3[1];
             }
 
-            int targetWPIndex = GetTargetWaypointIndex(targetWaypoint);
+            int targetWPIndex = GetWaypointIndex(prevWaypoint);
             int waypointsAfterCount = _waypoints.Count - targetWPIndex - 1;
 
             // Checks if the target waypoint is valid and returns if not
@@ -400,12 +408,12 @@ namespace Kalevala.WaypointSystem
             }
 
             // List of waypoints with the new ones included
-            Waypoint[] alteredWaypoints = new Waypoint[_waypoints.Count + waypointPositions.Length];
+            Waypoint[] allWaypoints = new Waypoint[_waypoints.Count + waypointPositions.Length];
 
-            // A new, inserted waypoint
-            Waypoint newWaypoint = null;
+            // List of inserted waypoints
+            Waypoint[] newWaypoints = new Waypoint[waypointPositions.Length];
 
-            for (int i = 0; i < alteredWaypoints.Length; i++)
+            for (int i = 0; i < allWaypoints.Length; i++)
             {
                 // The name of the current waypoint
                 string waypointName =
@@ -415,10 +423,13 @@ namespace Kalevala.WaypointSystem
                 // waypoint, it is only added to the new list
                 if (i <= targetWPIndex)
                 {
-                    alteredWaypoints[i] = _waypoints[i];
+                    allWaypoints[i] = _waypoints[i];
                 }
                 else
                 {
+                    // The inserted waypoint's index
+                    int insertedIndex = i - targetWPIndex - 1;
+
                     // Creates a new waypoint
                     if (i > targetWPIndex && i <= targetWPIndex + waypointPositions.Length)
                     {
@@ -428,7 +439,7 @@ namespace Kalevala.WaypointSystem
                         }
 
                         GameObject waypoint = new GameObject(waypointName);
-                        newWaypoint = waypoint.AddComponent<Waypoint>();
+                        Waypoint newWaypoint = waypoint.AddComponent<Waypoint>();
                         waypoint.transform.SetParent(transform);
                         newWaypoint.IsPartOfCurve = curve;
                         newWaypoint.CurveName = curveName;
@@ -436,47 +447,48 @@ namespace Kalevala.WaypointSystem
                         // Sets the new waypoint's position
                         if (!defaultInsert)
                         {
-                            waypoint.transform.position = waypointPositions[i - targetWPIndex - 1];
+                            waypoint.transform.position = waypointPositions[insertedIndex];
                         }
                         // Default position
                         else
                         {
                             waypoint.transform.position = Vector3.Lerp(
-                                targetWaypoint.Position, _waypoints[i].Position, 0.5f);
+                                prevWaypoint.Position, _waypoints[i].Position, 0.5f);
                         }
 
                         waypoint.transform.rotation = new Quaternion(0, 0, 0, 0);
 
-                        alteredWaypoints[i] = newWaypoint;
+                        allWaypoints[i] = newWaypoint;
+                        newWaypoints[insertedIndex] = newWaypoint;
                     }
                     // Renames following waypoints to keep them in order
                     else
                     {
-                        alteredWaypoints[i] = _waypoints[i - waypointPositions.Length];
+                        allWaypoints[i] = _waypoints[i - waypointPositions.Length];
 
-                        if (alteredWaypoints[i].IsPartOfCurve)
+                        if (allWaypoints[i].IsPartOfCurve)
                         {
                             waypointName += string.Format(" ({0})",
-                                alteredWaypoints[i].CurveName);
+                                allWaypoints[i].CurveName);
                         }
-                        alteredWaypoints[i].gameObject.name = waypointName;
+                        allWaypoints[i].gameObject.name = waypointName;
                     }
 
                     // Reorganizes the waypoint list in editor
-                    alteredWaypoints[i].transform.SetSiblingIndex(i);
+                    allWaypoints[i].transform.SetSiblingIndex(i);
                 }
             }
 
-            return newWaypoint;
+            return newWaypoints;
         }
 
-        private int GetTargetWaypointIndex(Waypoint targetWaypoint)
+        private int GetWaypointIndex(Waypoint waypoint)
         {
             int targetWPIndex = -1;
 
             for (int i = 0; i < _waypoints.Count; i++)
             {
-                if (_waypoints[i] == targetWaypoint)
+                if (_waypoints[i] == waypoint)
                 {
                     targetWPIndex = i;
                     break;
@@ -484,6 +496,41 @@ namespace Kalevala.WaypointSystem
             }
 
             return targetWPIndex;
+        }
+
+        public void UpdateWaypointNames()
+        {
+            UpdateWaypointNames(_waypoints.ToArray());
+        }
+
+        public void UpdateWaypointNames(Waypoint[] waypoints)
+        {
+            int runningNumber = 1;
+
+            for (int i = 0; i < waypoints.Length; i++)
+            {
+                if (waypoints[i] == null)
+                {
+                    continue;
+                }
+
+                // The name of the current waypoint
+                string waypointName = string.Format("Waypoint{0}",
+                    (runningNumber).ToString("D3"));
+
+                // Adds a possible curve's name to
+                // the end of the waypoint's name
+                if (waypoints[i].IsPartOfCurve)
+                {
+                    waypointName += string.Format(" ({0})",
+                        waypoints[i].CurveName);
+                }
+
+                // Sets the waypoint's name
+                waypoints[i].name = waypointName;
+
+                runningNumber++;
+            }
         }
     }
 }

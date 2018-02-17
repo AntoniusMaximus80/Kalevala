@@ -22,6 +22,7 @@ namespace Kalevala.Editor
             base.OnInspectorGUI();
 
             AddWaypointButton();
+            FixWaypointNamesButton();
         }
 
         private void AddWaypointButton()
@@ -50,6 +51,14 @@ namespace Kalevala.Editor
                     (prevWaypoint != null ?
                         prevWaypoint.Position : targetPath.transform.position);
                 waypoint.transform.rotation = new Quaternion(0, 0, 0, 0);
+            }
+        }
+
+        private void FixWaypointNamesButton()
+        {
+            if (GUILayout.Button("Fix Waypoint Names"))
+            {
+                targetPath.UpdateWaypointNames();
             }
         }
     }

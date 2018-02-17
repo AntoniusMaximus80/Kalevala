@@ -52,6 +52,9 @@ namespace Kalevala
         [SerializeField]
         private float _rampGravity = -7;
 
+        [SerializeField]
+        private float _rampExitMomentumFactor = 0.75f;
+
         [SerializeField, Range(1, 10)]
         private int _startingBallAmount;
 
@@ -121,6 +124,14 @@ namespace Kalevala
             }
         }
 
+        public float RampExitMomentumFactor
+        {
+            get
+            {
+                return _rampExitMomentumFactor;
+            }
+        }
+
         private void Awake()
         {
             if (instance == null)
@@ -143,16 +154,15 @@ namespace Kalevala
         {
             _ballDrainTopRightCorner.y = _ballDrainBottomLeftCorner.y;
 
-            Reset();
+            ResetAll();
 
             if (_allowedNudgeAmount <= 0)
             {
                 noNudges = true;
             }
         }
-
         
-        public void Reset()
+        public void ResetAll()
         {
             _currentBallAmount = _startingBallAmount;
             _nudgesLeft = _allowedNudgeAmount;

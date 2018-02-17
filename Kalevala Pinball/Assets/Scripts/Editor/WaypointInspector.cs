@@ -22,7 +22,6 @@ namespace Kalevala.Editor
             base.OnInspectorGUI();
 
             InsertWaypointButton();
-            //InsertCurveButton();
         }
 
         private void InsertWaypointButton()
@@ -32,9 +31,9 @@ namespace Kalevala.Editor
                 // The parent path
                 Path parentPath = targetWaypoint.GetComponentInParent<Path>();
 
-                // Inserts a new default waypoint
-                Waypoint newWaypoint = parentPath.
-                    InsertWaypoints(targetWaypoint, new Vector3[0], "");
+                // Inserts a new waypoint
+                Waypoint newWaypoint =
+                    parentPath.InsertWaypoint(targetWaypoint)[0];
 
                 if (newWaypoint != null)
                 {

@@ -7,6 +7,7 @@ namespace Kalevala
 {
     public class Pinball : MonoBehaviour
     {
+        // DEBUGGING
         public float debug_rampSpeed = 15;
         public bool debug_useDebugRampSpeed;
 
@@ -19,7 +20,7 @@ namespace Kalevala
 
         public Vector3 debug_upTableVelocity;
 
-        public float _speed;
+        public float _speed; // public for debugging
         private float _radius;
         private bool _physicsEnabled = true;
 
@@ -77,6 +78,11 @@ namespace Kalevala
 
         public RampMotion RampMotion { get; private set; }
 
+        /// <summary>
+        /// Gets the pinball's speed.
+        /// If its physics are enabled, the physics velocity is returned.
+        /// Otherwise its speed on ramp is returned.
+        /// </summary>
         public float Speed
         {
             get
@@ -92,6 +98,9 @@ namespace Kalevala
             }
         }
 
+        /// <summary>
+        /// Gets the pinball's RigidBody's velocity.
+        /// </summary>
         public Vector3 PhysicsVelocity
         {
             get
@@ -100,6 +109,9 @@ namespace Kalevala
             }
         }
 
+        /// <summary>
+        /// Gets the pinball's radius.
+        /// </summary>
         public float Radius
         {
             get
@@ -184,12 +196,16 @@ namespace Kalevala
         {
             //Debug.Log("Ramp exited");
             float speedExitingRamp = Speed;
+            RampMotion._speed = 0;
             SetPhysicsEnabled(true);
 
-            // Testing
+            // Adds impulse force to the pinball to
+            // keep the momentum it had on the ramp
             if (!_dropAtEnd)
             {
-                AddImpulseForce(RampMotion.GetRampSegmentDirection() * (3 * speedExitingRamp / 4));
+                AddImpulseForce(RampMotion.GetRampSegmentDirection() *
+                    PinballManager.Instance.RampExitMomentumFactor *
+                    speedExitingRamp);
             }
 
             _ramp = null;
@@ -220,8 +236,6 @@ namespace Kalevala
         private void OnDrawGizmos()
         {
             DrawDirection();
-            //DrawDirection2();
-            //DrawLocalAxes();
 
             if (IsOnRamp)
             {
@@ -237,11 +251,11 @@ namespace Kalevala
 
                 if (IsOnRamp)
                 {
-                    Gizmos.DrawLine(transform.position, transform.position + RampMotion.GetRampSegmentDirection() * _radius * 10);
+                    Gizmos.DrawLine(transform.position, transform.position + RampMotion.GetRampSegmentDirection() * _radius * 5);
                 }
                 else
                 {
-                    Gizmos.DrawLine(transform.position, transform.position + PhysicsVelocity.normalized * _radius * 10);
+                    Gizmos.DrawLine(transform.position, transform.position + PhysicsVelocity.normalized * _radius * 5);
                 }
             }
         }

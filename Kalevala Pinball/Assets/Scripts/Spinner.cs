@@ -161,7 +161,7 @@ namespace Kalevala
             if(pinball != null)
             {
                 _rb.angularVelocity = Vector3.zero;
-                if(pinball.gameObject.GetComponent<Rigidbody>().velocity.z < 0)
+                if(pinball.PhysicsVelocity.z < 0)
                 {
                     sign = -1;
                 }

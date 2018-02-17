@@ -8,37 +8,66 @@ namespace Kalevala
     public class Curve : MonoBehaviour
     {
         [SerializeField]
-        private Waypoint startWaypoint;
+        private Waypoint _startWaypoint;
 
         [SerializeField]
-        private Waypoint endWaypoint;
+        private Waypoint _endWaypoint;
 
         [SerializeField]
-        private Vector3[] points;
+        private Vector3[] _points;
 
-        [SerializeField, Range(1, 300)]
-        private int lineSteps = 10;
+        [SerializeField]
+        private Waypoint[] _waypoints;
 
-        private Path parentPath;
-        private Waypoint[] waypoints;
+        [SerializeField, Range(5, 50)]
+        private int _lineSteps = 10;
 
-        //private bool resetWhenPossible = true;
-        private bool waypointsCreated = false;
+        private Path _parentPath;
+        //private bool _waypointsCreated = false;
+
+        //private bool _resetWhenPossible = true;
+
+        private void Start()
+        {
+            // TODO: Fix forgetting created waypoints when play mode is started.
+            // This does not affect the path but makes it impossible to remove them
+            // using the Destroy Waypoints button after returning to the editor mode.
+
+            if (_startWaypoint != null && _endWaypoint != null)
+            {
+                _parentPath = _startWaypoint.transform.parent.GetComponent<Path>();
+
+                if (_parentPath == null)
+                {
+                    Debug.LogError("Parent path not found.");
+                }
+            }
+            else
+            {
+                Debug.LogError("Start and/or end waypoint is not set.");
+            }
+        }
+
+        public Vector3 GetPoint(float t)
+        {
+            return transform.TransformPoint(
+                MathHelp.GetCurvePoint(Points[0], Points[1], Points[2], t));
+        }
 
         public Vector3[] Points
         {
             get
             {
-                if (points == null)
+                if (_points == null)
                 {
-                    points = new Vector3[3];
+                    _points = new Vector3[3];
                 }
 
-                return points;
+                return _points;
             }
             set
             {
-                points = value;
+                _points = value;
             }
         }
 
@@ -46,7 +75,7 @@ namespace Kalevala
         {
             get
             {
-                return startWaypoint;
+                return _startWaypoint;
             }
         }
 
@@ -54,7 +83,7 @@ namespace Kalevala
         {
             get
             {
-                return endWaypoint;
+                return _endWaypoint;
             }
         }
 
@@ -62,7 +91,7 @@ namespace Kalevala
         {
             get
             {
-                return lineSteps;
+                return _lineSteps;
             }
         }
 
@@ -82,32 +111,24 @@ namespace Kalevala
         //    }
         //}
 
+        public Waypoint[] Waypoints
+        {
+            get
+            {
+                return _waypoints;
+            }
+            set
+            {
+                _waypoints = value;
+            }
+        }
+
         public bool WaypointsCreated
         {
             get
             {
-                return waypointsCreated;
-            }
-            set
-            {
-                waypointsCreated = value;
-            }
-        }
-
-        private void Start()
-        {
-            if (startWaypoint != null && endWaypoint != null)
-            {
-                parentPath = startWaypoint.transform.parent.GetComponent<Path>();
-
-                if (parentPath == null)
-                {
-                    Debug.LogError("Parent path not found.");
-                }
-            }
-            else
-            {
-                Debug.LogError("Start and/or end waypoint is not set.");
+                return (_waypoints != null &&
+                        _waypoints.Length > 0);
             }
         }
 
@@ -116,18 +137,19 @@ namespace Kalevala
             if (true) //ResetWhenPossible)
             {
                 Points = new Vector3[3];
+                _waypoints = null;
 
                 FixEnds();
 
-                if (startWaypoint != null && endWaypoint != null)
+                if (_startWaypoint != null && _endWaypoint != null)
                 {
-                    Points[1] = (endWaypoint.Position - startWaypoint.Position) * 0.5f;
+                    Points[1] = (_endWaypoint.Position - _startWaypoint.Position) * 0.5f;
                     MidPoint = Points[1];
 
                     //ResetWhenPossible = false;
                 }
 
-                waypointsCreated = false;
+                //_waypointsCreated = false;
             }
             //else
             //{
@@ -137,38 +159,16 @@ namespace Kalevala
 
         public void FixEnds()
         {
-            if (startWaypoint != null)
+            if (_startWaypoint != null)
             {
-                transform.position = startWaypoint.Position;
+                transform.position = _startWaypoint.Position;
                 Points[0] = Vector3.zero;
 
-                if (endWaypoint != null)
+                if (_endWaypoint != null)
                 {
-                    Points[2] = endWaypoint.Position - startWaypoint.Position;
+                    Points[2] = _endWaypoint.Position - _startWaypoint.Position;
                 }
             }
         }
-
-        public Vector3 GetPoint(float t)
-        {
-            return transform.TransformPoint(
-                MathHelp.GetCurvePoint(Points[0], Points[1], Points[2], t));
-        }
-
-        /*
-        if (curve.lineSteps <= 0)
-        {
-            curve.lineSteps = 10;
-        }
-
-        // Draws a curve from its start waypoint to its end waypoint
-        for (int j = 0; j < curve.lineSteps; j++)
-        {
-            float step = j / (float) curve.lineSteps;
-            float nextStep = (j + 1) / (float) curve.lineSteps;
-            Gizmos.DrawLine(curve.GetPoint(step), curve.GetPoint(nextStep));
-            DrawPinballSizeMarker(curve.GetPoint(step), pinballRadius);
-        }
-        */
     }
 }

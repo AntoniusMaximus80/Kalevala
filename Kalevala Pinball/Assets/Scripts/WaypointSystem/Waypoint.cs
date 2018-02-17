@@ -7,9 +7,35 @@ namespace Kalevala.WaypointSystem
 {
     public class Waypoint : MonoBehaviour
     {
-        public bool IsPartOfCurve { get; set; }
+        [SerializeField]
+        private bool _isPartOfCurve;
 
-        public string CurveName { get; set; }
+        [SerializeField]
+        private string _curveName = "";
+
+        public bool IsPartOfCurve
+        {
+            get
+            {
+                return _isPartOfCurve;
+            }
+            set
+            {
+                _isPartOfCurve = value;
+            }
+        }
+
+        public string CurveName
+        {
+            get
+            {
+                return _curveName;
+            }
+            set
+            {
+                _curveName = value;
+            }
+        }
 
         public Vector3 Position
         {
