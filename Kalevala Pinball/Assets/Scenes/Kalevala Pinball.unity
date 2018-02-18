@@ -1297,6 +1297,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49405937334ac0841b943485c8ce331c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _isPartOfCurve: 0
+  _curveName: 
 --- !u!1 &348692308
 GameObject:
   m_ObjectHideFlags: 0
@@ -1450,6 +1452,7 @@ MonoBehaviour:
   _flipperMotorTargetVelocity: 64000
   _springForce: 32000
   _rampGravity: -7
+  _rampExitMomentumFactor: 0.75
   _startingBallAmount: 3
   _allowedNudgeAmount: 3
   _ballLaunchPoint: {x: 23.6, y: 3, z: -47.94}
@@ -1743,6 +1746,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49405937334ac0841b943485c8ce331c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _isPartOfCurve: 0
+  _curveName: 
 --- !u!1001 &436758779
 Prefab:
   m_ObjectHideFlags: 0
@@ -1857,6 +1862,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49405937334ac0841b943485c8ce331c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _isPartOfCurve: 0
+  _curveName: 
 --- !u!1 &441892460
 GameObject:
   m_ObjectHideFlags: 0
@@ -3502,6 +3509,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49405937334ac0841b943485c8ce331c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _isPartOfCurve: 0
+  _curveName: 
 --- !u!1 &848653227
 GameObject:
   m_ObjectHideFlags: 0
@@ -3778,6 +3787,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49405937334ac0841b943485c8ce331c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _isPartOfCurve: 0
+  _curveName: 
 --- !u!1 &863735823
 GameObject:
   m_ObjectHideFlags: 0
@@ -3879,6 +3890,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49405937334ac0841b943485c8ce331c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _isPartOfCurve: 0
+  _curveName: 
 --- !u!1 &916876907
 GameObject:
   m_ObjectHideFlags: 0
@@ -3919,6 +3932,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49405937334ac0841b943485c8ce331c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _isPartOfCurve: 0
+  _curveName: 
 --- !u!1001 &919672925
 Prefab:
   m_ObjectHideFlags: 0
@@ -4417,6 +4432,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49405937334ac0841b943485c8ce331c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _isPartOfCurve: 0
+  _curveName: 
 --- !u!1 &1023551298
 GameObject:
   m_ObjectHideFlags: 0
@@ -4822,7 +4839,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!81 &1170143877
 AudioListener:
   m_ObjectHideFlags: 0
@@ -14406,6 +14423,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49405937334ac0841b943485c8ce331c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _isPartOfCurve: 0
+  _curveName: 
 --- !u!1 &1696353335
 GameObject:
   m_ObjectHideFlags: 0
@@ -15024,6 +15043,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49405937334ac0841b943485c8ce331c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _isPartOfCurve: 0
+  _curveName: 
 --- !u!4 &1782288757 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4651435530513188, guid: 994e50386606dcc4a8ed227d6e487a79,
@@ -15635,6 +15656,42 @@ Prefab:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: ed6f3922806654b4ca9ed8e441df0057, type: 2}
+    - target: {fileID: 2300026, guid: 34964fcbca4246d4b8bde661c1f01e8e, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: c3ff955f04e8b984f8facc599d080a87, type: 2}
+    - target: {fileID: 2300044, guid: 34964fcbca4246d4b8bde661c1f01e8e, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 065657c620bed754bbcda0b9a1067ea2, type: 2}
+    - target: {fileID: 2300002, guid: 34964fcbca4246d4b8bde661c1f01e8e, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 6a2275c27cd74f14ba125611d0f9c477, type: 2}
+    - target: {fileID: 2300064, guid: 34964fcbca4246d4b8bde661c1f01e8e, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: dc37bae9799b0d0458e71836b618c414, type: 2}
+    - target: {fileID: 2300028, guid: 34964fcbca4246d4b8bde661c1f01e8e, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 170d1a557f3f06a49a61d8000152239f, type: 2}
+    - target: {fileID: 2300046, guid: 34964fcbca4246d4b8bde661c1f01e8e, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0745364e9447c7f4e91fadabb10f9845, type: 2}
+    - target: {fileID: 2300000, guid: 34964fcbca4246d4b8bde661c1f01e8e, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 6a2275c27cd74f14ba125611d0f9c477, type: 2}
+    - target: {fileID: 2300024, guid: 34964fcbca4246d4b8bde661c1f01e8e, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: c3ff955f04e8b984f8facc599d080a87, type: 2}
+    - target: {fileID: 2300042, guid: 34964fcbca4246d4b8bde661c1f01e8e, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 065657c620bed754bbcda0b9a1067ea2, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 34964fcbca4246d4b8bde661c1f01e8e, type: 3}
   m_IsPrefabParent: 0
@@ -16209,7 +16266,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!81 &1962977655
 AudioListener:
   m_ObjectHideFlags: 0
