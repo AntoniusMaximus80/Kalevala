@@ -41,18 +41,61 @@ namespace Kalevala
         [SerializeField]
         private bool debug_ResetData;
 
-        private float musicVolume;
-        private float effectVolume;
+        [SerializeField]
+        private LanguageStateBase.Language _defaultLanguage =
+            LanguageStateBase.Language.English;
+
+        [SerializeField]
+        private ScreenStateBase.ScreenStateType _startUpScreen =
+            ScreenStateBase.ScreenStateType.MainMenu;
+
+        private LanguageStateBase _language;
+        private LanguageStateBase _lang_english;
+        private LanguageState_Finnish _lang_finnish;
+
+        private ScreenStateBase _screenState;
+        private ScreenState_MainMenu _screenMainMenu;
+        private ScreenState_Game _screenGame;
+
+        private GameModeStateBase _gameModeState;
+        private GameModeState_Normal _gameModeNormal;
+
+        private float _musicVolume;
+        private float _effectVolume;
+
+        public LanguageStateBase Language
+        {
+            get
+            {
+                return _language;
+            }
+        }
+
+        public ScreenStateBase Screen
+        {
+            get
+            {
+                return _screenState;
+            }
+        }
+
+        public GameModeStateBase GameMode
+        {
+            get
+            {
+                return _gameModeState;
+            }
+        }
 
         public float MusicVolume
         {
             get
             {
-                return musicVolume;
+                return _musicVolume;
             }
             set
             {
-                musicVolume = value;
+                _musicVolume = value;
                 MusicPlayer.Instance.SetVolume(value);
             }
         }
@@ -61,11 +104,11 @@ namespace Kalevala
         {
             get
             {
-                return effectVolume;
+                return _effectVolume;
             }
             set
             {
-                effectVolume = value;
+                _effectVolume = value;
                 SFXPlayer.Instance.SetVolume(value);
             }
         }
@@ -87,7 +130,13 @@ namespace Kalevala
 
         private void Update()
         {
-            InitScene();
+            //InitScene();
+
+            // DEBUGGING
+            if (_defaultLanguage != _language.SelectedLanguage)
+            {
+                SetLanguage(_defaultLanguage);
+            }
         }
 
         private void Init()
@@ -96,8 +145,16 @@ namespace Kalevala
 
             DontDestroyOnLoad(gameObject);
 
+            // Initializes states
+            InitLanguages();
+            InitScreens();
+            InitGameModes();
+            SetLanguage(_defaultLanguage);
+            SetScreen(_startUpScreen);
+            SetGameMode(GameModeStateBase.GameModeStateType.Normal);
+
             //sceneChanged = true;
-            InitScene();
+            //InitScene();
 
             // Initializes volume
             //MusicVolume = 0.5f;
@@ -118,32 +175,101 @@ namespace Kalevala
             }
         }
 
-
-        private void InitScene()
+        private void InitLanguages()
         {
-            //if (sceneChanged)
-            //{
-            //    sceneChanged = false;
-
-            //    InitLevel();
-
-            //    InitPlayerCharacters();
-
-            //    InitCamera();
-
-            //    InitCycles();
-
-            //    //ResetInput();
-            //    InitInput();
-
-            //    //ResetFade();
-            //    InitFade();
-
-            //    MenuExited = true;
-
-            //    levelStartUp = true;
-            //}
+            _lang_english = new LanguageStateBase();
+            _lang_finnish = new LanguageState_Finnish();
         }
+
+        private void InitScreens()
+        {
+            _screenMainMenu = new ScreenState_MainMenu();
+            _screenGame = new ScreenState_Game();
+        }
+
+        private void InitGameModes()
+        {
+            _gameModeNormal = new GameModeState_Normal();
+        }
+
+        private void SetLanguage(LanguageStateBase.Language language)
+        {
+            switch (language)
+            {
+                case LanguageStateBase.Language.Finnish:
+                {
+                    _language = _lang_finnish;
+                    break;
+                }
+                default:
+                {
+                    _language = _lang_english;
+                    break;
+                }
+            }
+
+            Debug.Log("Selected language: " + _language.SelectedLanguage);
+        }
+
+        private void SetScreen(ScreenStateBase.ScreenStateType screen)
+        {
+            switch (screen)
+            {
+                case ScreenStateBase.ScreenStateType.MainMenu:
+                {
+                    _screenState = _screenMainMenu;
+                    break;
+                }
+                default:
+                {
+                    _screenState = _screenGame;
+                    break;
+                }
+            }
+        }
+
+        private void SetGameMode(GameModeStateBase.GameModeStateType gameMode)
+        {
+            switch (gameMode)
+            {
+                //case GameModeStateBase.GameModeStateType.Sauna:
+                //{
+                //    _gameModeState = ;
+                //    break;
+                //}
+                default:
+                {
+                    _gameModeState = _gameModeNormal;
+                    break;
+                }
+            }
+        }
+
+        //private void InitScene()
+        //{
+        //    if (sceneChanged)
+        //    {
+        //        sceneChanged = false;
+
+        //        InitLevel();
+
+        //        InitPlayerCharacters();
+
+        //        InitCamera();
+
+        //        InitCycles();
+
+        //        //ResetInput();
+        //        InitInput();
+
+        //        //ResetFade();
+        //        InitFade();
+
+        //        MenuExited = true;
+
+        //        levelStartUp = true;
+        //    }
+        //}
 
         //private void InitInput()
         //{

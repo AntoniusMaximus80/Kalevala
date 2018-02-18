@@ -26,9 +26,14 @@ namespace Kalevala.Editor
 
         private void FixPositionButton()
         {
-            if (GUILayout.Button("Fix Position"))
+            string whichWaypoint =
+                (targetRampEntrance.IsPathStart ? "First" : "Last");
+            string buttonName =
+                string.Format("Fix Position ({0} Waypoint)", whichWaypoint);
+
+            if (GUILayout.Button(buttonName))
             {
-                // The path is a child of the path start
+                // The path is a child of the path start RampEntrance
                 Path path;
 
                 Waypoint[] waypoints;
