@@ -7,25 +7,43 @@ namespace Kalevala
 {
     public class ScreenState_MainMenu : ScreenStateBase
     {
+        private bool _goToPlay;
+
         public ScreenState_MainMenu() : base(ScreenStateType.MainMenu)
         {
-            _validStates.Add(ScreenStateType.Game);
-            _validStates.Add(ScreenStateType.SettingsMenu);
+            AddTransition(ScreenStateType.Play);
+            AddTransition(ScreenStateType.SettingsMenu);
+        }
+
+        public override void Update()
+        {
+            if ( !ChangeState() )
+            {
+
+            }
         }
 
         public override void Activate()
         {
-
-        }
-
-        public override void Deactivate()
-        {
-
+            base.Activate();
         }
 
         protected override bool ChangeState()
         {
+            // Is the Play button clicked?
+            // If yes, go to play state
+
+            if (_goToPlay)
+            {
+                return Owner.PerformTransition(ScreenStateType.Play);
+            }
+
             return false;
+        }
+
+        public void OnPlayButtonUp()
+        {
+            _goToPlay = true;
         }
     }
 }

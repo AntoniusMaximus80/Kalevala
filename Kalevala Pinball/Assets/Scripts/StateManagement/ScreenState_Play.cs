@@ -5,17 +5,16 @@ using UnityEngine;
 
 namespace Kalevala
 {
-    public class GameModeState_Normal : GameModeStateBase
+    public class ScreenState_Play : ScreenStateBase
     {
-        public GameModeState_Normal() : base(GameModeStateType.Normal)
+        public ScreenState_Play() : base(ScreenStateType.Play)
         {
-            //AddTransition(GameModeStateType.X);
-            //AddTransition(GameModeStateType.Y);
+            AddTransition(ScreenStateType.Pause);
         }
 
         public override void Update()
         {
-            if (!ChangeState())
+            if ( !ChangeState() )
             {
 
             }
@@ -28,11 +27,6 @@ namespace Kalevala
 
         protected override bool ChangeState()
         {
-            //if (x)
-            //{
-            //    return Owner.PerformTransition(GameModeStateType.X);
-            //}
-
             return false;
         }
     }

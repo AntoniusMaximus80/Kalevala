@@ -4,22 +4,41 @@ using UnityEngine;
 
 namespace Kalevala
 {
+    public enum LanguageStateType
+    {
+        English = 0,
+        Finnish = 1,
+        Russian = 2,
+        German = 3
+    }
+
     public class LanguageStateBase
     {
-        public enum Language
+        public LanguageStateType State { get; protected set; }
+
+        public List<LanguageStateType> TargetStates { get; protected set; }
+
+        /// <summary>
+        /// The owner GameManager of this state
+        /// (GameManager is the state controller class)
+        /// </summary>
+        public GameManager Owner { get; protected set; }
+
+        public LanguageStateBase()
         {
-            English = 0,
-            Finnish = 1,
-            Russian = 2,
-            German = 3
+            Init(LanguageStateType.English);
         }
 
-        public virtual Language SelectedLanguage
+        public LanguageStateBase(LanguageStateType state)
         {
-            get
-            {
-                return Language.English;
-            }
+            Init(state);
+        }
+
+        private void Init(LanguageStateType state)
+        {
+            TargetStates = new List<LanguageStateType>();
+            State = state;
+            Owner = GameManager.Instance;
         }
 
         public string GetText(string textTitle)

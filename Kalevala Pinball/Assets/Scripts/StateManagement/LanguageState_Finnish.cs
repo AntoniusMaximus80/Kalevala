@@ -6,12 +6,8 @@ namespace Kalevala
 {
     public class LanguageState_Finnish : LanguageStateBase
     {
-        public override Language SelectedLanguage
+        public LanguageState_Finnish() : base(LanguageStateType.Finnish)
         {
-            get
-            {
-                return Language.Finnish;
-            }
         }
 
         protected override string play { get { return "Pelaa"; } }

@@ -42,50 +42,32 @@ namespace Kalevala
         private bool debug_ResetData;
 
         [SerializeField]
-        private LanguageStateBase.Language _defaultLanguage =
-            LanguageStateBase.Language.English;
+        private LanguageStateType _defaultLanguage =
+            LanguageStateType.English;
 
         [SerializeField]
-        private ScreenStateBase.ScreenStateType _startUpScreen =
-            ScreenStateBase.ScreenStateType.MainMenu;
+        private ScreenStateType _startUpScreen =
+            ScreenStateType.MainMenu;
 
-        private LanguageStateBase _language;
-        private LanguageStateBase _lang_english;
-        private LanguageState_Finnish _lang_finnish;
+        private IList<LanguageStateBase> _langStates = new List<LanguageStateBase>();
+        public LanguageStateBase Language { get; set; }
+        //private LanguageStateBase _language;
+        //private LanguageStateBase _lang_english;
+        //private LanguageState_Finnish _lang_finnish;
 
-        private ScreenStateBase _screenState;
-        private ScreenState_MainMenu _screenMainMenu;
-        private ScreenState_Game _screenGame;
+        private IList<ScreenStateBase> _screenStates = new List<ScreenStateBase>();
+        public ScreenStateBase CurrentScreenState { get; set; }
+        //private ScreenStateBase _screenState;
+        //private ScreenState_MainMenu _screenMainMenu;
+        //private ScreenState_Play _screenGame;
 
-        private GameModeStateBase _gameModeState;
-        private GameModeState_Normal _gameModeNormal;
+        private IList<GameModeStateBase> _gameModeStates = new List<GameModeStateBase>();
+        public GameModeStateBase CurrentGameModeState { get; set; }
+        //private GameModeStateBase _gameModeState;
+        //private GameModeState_Normal _gameModeNormal;
 
         private float _musicVolume;
         private float _effectVolume;
-
-        public LanguageStateBase Language
-        {
-            get
-            {
-                return _language;
-            }
-        }
-
-        public ScreenStateBase Screen
-        {
-            get
-            {
-                return _screenState;
-            }
-        }
-
-        public GameModeStateBase GameMode
-        {
-            get
-            {
-                return _gameModeState;
-            }
-        }
 
         public float MusicVolume
         {
@@ -133,7 +115,7 @@ namespace Kalevala
             //InitScene();
 
             // DEBUGGING
-            if (_defaultLanguage != _language.SelectedLanguage)
+            if (_defaultLanguage != Language.State)
             {
                 SetLanguage(_defaultLanguage);
             }
@@ -149,9 +131,9 @@ namespace Kalevala
             InitLanguages();
             InitScreens();
             InitGameModes();
-            SetLanguage(_defaultLanguage);
-            SetScreen(_startUpScreen);
-            SetGameMode(GameModeStateBase.GameModeStateType.Normal);
+            //SetLanguage(_defaultLanguage);
+            //SetScreen(_startUpScreen);
+            //SetGameMode(GameModeStateType.Normal);
 
             //sceneChanged = true;
             //InitScene();
@@ -177,72 +159,134 @@ namespace Kalevala
 
         private void InitLanguages()
         {
-            _lang_english = new LanguageStateBase();
-            _lang_finnish = new LanguageState_Finnish();
+            LanguageStateBase lang_english = new LanguageStateBase();
+            LanguageState_Finnish lang_finnish = new LanguageState_Finnish();
+            _langStates.Add(lang_english);
+            _langStates.Add(lang_finnish);
+
+            Language = lang_english;
+            //CurrentLangState.Activate();
         }
 
         private void InitScreens()
         {
-            _screenMainMenu = new ScreenState_MainMenu();
-            _screenGame = new ScreenState_Game();
+            ScreenState_MainMenu mainMenu = new ScreenState_MainMenu();
+            ScreenState_Play play = new ScreenState_Play();
+            _screenStates.Add(mainMenu);
+            _screenStates.Add(play);
+
+            CurrentScreenState = mainMenu;
+            CurrentScreenState.Activate();
         }
 
         private void InitGameModes()
         {
-            _gameModeNormal = new GameModeState_Normal();
+            GameModeState_Normal normal = new GameModeState_Normal();
+            _gameModeStates.Add(normal);
+
+            CurrentGameModeState = normal;
+            CurrentGameModeState.Activate();
         }
 
-        private void SetLanguage(LanguageStateBase.Language language)
+        private void SetLanguage(LanguageStateType language)
         {
-            switch (language)
+            Language = GetStateByType(language);
+            Debug.Log("Selected language: " + Language.State);
+        }
+
+        //private void SetScreen(ScreenStateType screen)
+        //{
+        //    switch (screen)
+        //    {
+        //        case ScreenStateType.MainMenu:
+        //        {
+        //            _screenState = _screenMainMenu;
+        //            break;
+        //        }
+        //        default:
+        //        {
+        //            _screenState = _screenGame;
+        //            break;
+        //        }
+        //    }
+        //}
+
+        //private void SetGameMode(GameModeStateType gameMode)
+        //{
+        //    switch (gameMode)
+        //    {
+        //        //case GameModeStateBase.GameModeStateType.Sauna:
+        //        //{
+        //        //    _gameModeState = ;
+        //        //    break;
+        //        //}
+        //        default:
+        //        {
+        //            _gameModeState = _gameModeNormal;
+        //            break;
+        //        }
+        //    }
+        //}
+
+        public bool PerformTransition(ScreenStateType targetState)
+        {
+            if (!CurrentScreenState.CheckTransition(targetState))
             {
-                case LanguageStateBase.Language.Finnish:
+                Debug.Log("State change failed");
+                return false;
+            }
+
+            bool result = false;
+
+            ScreenStateBase state = GetStateByType(targetState);
+            if (state != null)
+            {
+                CurrentScreenState.StartDeactivating();
+                CurrentScreenState = state;
+                CurrentScreenState.Activate();
+                result = true;
+                //Debug.Log("Changed screen state to " + state);
+            }
+
+            return result;
+        }
+
+        private LanguageStateBase GetStateByType(LanguageStateType stateType)
+        {
+            // Returns the first object from the state list whose State property's
+            // value equals to stateType. If no object was found, null is returned.
+
+            foreach (LanguageStateBase state in _langStates)
+            {
+                if (state.State == stateType)
                 {
-                    _language = _lang_finnish;
-                    break;
-                }
-                default:
-                {
-                    _language = _lang_english;
-                    break;
+                    return state;
                 }
             }
 
-            Debug.Log("Selected language: " + _language.SelectedLanguage);
+            return null;
+
+            // Does the same as all of the previous lines
+            //return _screenStates.FirstOrDefault(state => state.State == stateType);
         }
 
-        private void SetScreen(ScreenStateBase.ScreenStateType screen)
+        private ScreenStateBase GetStateByType(ScreenStateType stateType)
         {
-            switch (screen)
-            {
-                case ScreenStateBase.ScreenStateType.MainMenu:
-                {
-                    _screenState = _screenMainMenu;
-                    break;
-                }
-                default:
-                {
-                    _screenState = _screenGame;
-                    break;
-                }
-            }
-        }
+            // Returns the first object from the state list whose State property's
+            // value equals to stateType. If no object was found, null is returned.
 
-        private void SetGameMode(GameModeStateBase.GameModeStateType gameMode)
-        {
-            switch (gameMode)
+            foreach (ScreenStateBase state in _screenStates)
             {
-                //case GameModeStateBase.GameModeStateType.Sauna:
-                //{
-                //    _gameModeState = ;
-                //    break;
-                //}
-                default:
+                if (state.State == stateType)
                 {
-                    _gameModeState = _gameModeNormal;
-                    break;
+                    return state;
                 }
             }
+
+            return null;
+
+            // Does the same as all of the previous lines
+            //return _screenStates.FirstOrDefault(state => state.State == stateType);
         }
 
         //private void InitScene()
