@@ -9,10 +9,10 @@ FBXHeaderExtension:  {
 		Year: 2018
 		Month: 2
 		Day: 20
-		Hour: 8
-		Minute: 11
-		Second: 10
-		Millisecond: 956
+		Hour: 11
+		Minute: 41
+		Second: 9
+		Millisecond: 119
 	}
 	Creator: "FBX SDK/FBX Plugins version 2018.1"
 	SceneInfo: "SceneInfo::GlobalInfo", "UserData" {
@@ -34,13 +34,13 @@ FBXHeaderExtension:  {
 			P: "Original|ApplicationVendor", "KString", "", "", "Autodesk"
 			P: "Original|ApplicationName", "KString", "", "", "3ds Max"
 			P: "Original|ApplicationVersion", "KString", "", "", "2018"
-			P: "Original|DateTime_GMT", "DateTime", "", "", "20/02/2018 06:11:10.955"
+			P: "Original|DateTime_GMT", "DateTime", "", "", "20/02/2018 09:41:09.118"
 			P: "Original|FileName", "KString", "", "", "C:\Users\Toni\Desktop\Kalevala\Kalevala Pinball\Assets\Models\Spruce.FBX"
 			P: "LastSaved", "Compound", "", ""
 			P: "LastSaved|ApplicationVendor", "KString", "", "", "Autodesk"
 			P: "LastSaved|ApplicationName", "KString", "", "", "3ds Max"
 			P: "LastSaved|ApplicationVersion", "KString", "", "", "2018"
-			P: "LastSaved|DateTime_GMT", "DateTime", "", "", "20/02/2018 06:11:10.955"
+			P: "LastSaved|DateTime_GMT", "DateTime", "", "", "20/02/2018 09:41:09.118"
 			P: "Original|ApplicationActiveProject", "KString", "", "", "C:\Users\Toni\Documents\3dsMax"
 			P: "Original|ApplicationNativeFile", "KString", "", "", "C:\Users\Toni\Dropbox\+ Spring 2018 Project\playfield.max"
 		}
@@ -65,7 +65,7 @@ GlobalSettings:  {
 		P: "TimeProtocol", "enum", "", "",2
 		P: "SnapOnFrameMode", "enum", "", "",0
 		P: "TimeSpanStart", "KTime", "Time", "",0
-		P: "TimeSpanStop", "KTime", "Time", "",92372316000
+		P: "TimeSpanStop", "KTime", "Time", "",7389785280
 		P: "CustomFrameRate", "double", "Number", "",-1
 		P: "TimeMarker", "Compound", "", ""
 		P: "CurrentTimeMarker", "int", "Integer", "",-1
@@ -77,7 +77,7 @@ GlobalSettings:  {
 
 Documents:  {
 	Count: 1
-	Document: 2626771615248, "", "Scene" {
+	Document: 2354468687408, "", "Scene" {
 		Properties70:  {
 			P: "SourceObject", "object", "", ""
 			P: "ActiveAnimStackName", "KString", "", "", ""
@@ -220,10 +220,10 @@ Definitions:  {
 ;------------------------------------------------------------------
 
 Objects:  {
-	NodeAttribute: 2626775499168, "NodeAttribute::", "Null" {
+	NodeAttribute: 2354442437808, "NodeAttribute::", "Null" {
 		TypeFlags: "Null"
 	}
-	Geometry: 2626691517296, "Geometry::", "Mesh" {
+	Geometry: 2354467085152, "Geometry::", "Mesh" {
 		Properties70:  {
 			P: "Color", "ColorRGB", "Color", "",0.23921568627451,0.529411764705882,0.0235294117647059
 		}
@@ -286,7 +286,7 @@ Objects:  {
 			}
 		}
 	}
-	Geometry: 2626691519472, "Geometry::", "Mesh" {
+	Geometry: 2354467089504, "Geometry::", "Mesh" {
 		Properties70:  {
 			P: "Color", "ColorRGB", "Color", "",0.23921568627451,0.529411764705882,0.0235294117647059
 		}
@@ -349,7 +349,7 @@ Objects:  {
 			}
 		}
 	}
-	Geometry: 2626691514576, "Geometry::", "Mesh" {
+	Geometry: 2354467085696, "Geometry::", "Mesh" {
 		Properties70:  {
 			P: "Color", "ColorRGB", "Color", "",0.23921568627451,0.529411764705882,0.0235294117647059
 		}
@@ -412,7 +412,7 @@ Objects:  {
 			}
 		}
 	}
-	Geometry: 2626691515664, "Geometry::", "Mesh" {
+	Geometry: 2354467088960, "Geometry::", "Mesh" {
 		Properties70:  {
 			P: "Color", "ColorRGB", "Color", "",0.23921568627451,0.529411764705882,0.0235294117647059
 		}
@@ -475,7 +475,7 @@ Objects:  {
 			}
 		}
 	}
-	Geometry: 2626691517840, "Geometry::", "Mesh" {
+	Geometry: 2354470875904, "Geometry::", "Mesh" {
 		Properties70:  {
 			P: "Color", "ColorRGB", "Color", "",0.23921568627451,0.529411764705882,0.0235294117647059
 		}
@@ -538,7 +538,7 @@ Objects:  {
 			}
 		}
 	}
-	Geometry: 2626775979920, "Geometry::", "Mesh" {
+	Geometry: 2354470873184, "Geometry::", "Mesh" {
 		Properties70:  {
 			P: "Color", "ColorRGB", "Color", "",0.23921568627451,0.529411764705882,0.0235294117647059
 		}
@@ -601,7 +601,7 @@ Objects:  {
 			}
 		}
 	}
-	Geometry: 2626775978832, "Geometry::", "Mesh" {
+	Geometry: 2354470874272, "Geometry::", "Mesh" {
 		Properties70:  {
 			P: "Color", "ColorRGB", "Color", "",0.23921568627451,0.529411764705882,0.0235294117647059
 		}
@@ -664,7 +664,7 @@ Objects:  {
 			}
 		}
 	}
-	Geometry: 2626689021280, "Geometry::", "Mesh" {
+	Geometry: 2354470871552, "Geometry::", "Mesh" {
 		Properties70:  {
 			P: "Color", "ColorRGB", "Color", "",0.23921568627451,0.529411764705882,0.0235294117647059
 		}
@@ -727,7 +727,7 @@ Objects:  {
 			}
 		}
 	}
-	Geometry: 2626689021824, "Geometry::", "Mesh" {
+	Geometry: 2354470876448, "Geometry::", "Mesh" {
 		Properties70:  {
 			P: "Color", "ColorRGB", "Color", "",0.23921568627451,0.529411764705882,0.0235294117647059
 		}
@@ -790,7 +790,7 @@ Objects:  {
 			}
 		}
 	}
-	Geometry: 2626775560448, "Geometry::", "Mesh" {
+	Geometry: 2354470877536, "Geometry::", "Mesh" {
 		Properties70:  {
 			P: "Color", "ColorRGB", "Color", "",0.23921568627451,0.529411764705882,0.0235294117647059
 		}
@@ -853,7 +853,7 @@ Objects:  {
 			}
 		}
 	}
-	Geometry: 2626775557728, "Geometry::", "Mesh" {
+	Geometry: 2354470875360, "Geometry::", "Mesh" {
 		Properties70:  {
 			P: "Color", "ColorRGB", "Color", "",0.23921568627451,0.529411764705882,0.0235294117647059
 		}
@@ -916,7 +916,7 @@ Objects:  {
 			}
 		}
 	}
-	Geometry: 2626775558272, "Geometry::", "Mesh" {
+	Geometry: 2354470874816, "Geometry::", "Mesh" {
 		Properties70:  {
 			P: "Color", "ColorRGB", "Color", "",0.23921568627451,0.529411764705882,0.0235294117647059
 		}
@@ -979,7 +979,7 @@ Objects:  {
 			}
 		}
 	}
-	Geometry: 2626775559360, "Geometry::", "Mesh" {
+	Geometry: 2354470872096, "Geometry::", "Mesh" {
 		Properties70:  {
 			P: "Color", "ColorRGB", "Color", "",0.23921568627451,0.529411764705882,0.0235294117647059
 		}
@@ -1042,7 +1042,7 @@ Objects:  {
 			}
 		}
 	}
-	Geometry: 2626775560992, "Geometry::", "Mesh" {
+	Geometry: 2354470876992, "Geometry::", "Mesh" {
 		Properties70:  {
 			P: "Color", "ColorRGB", "Color", "",0.23921568627451,0.529411764705882,0.0235294117647059
 		}
@@ -1105,7 +1105,7 @@ Objects:  {
 			}
 		}
 	}
-	Geometry: 2626775559904, "Geometry::", "Mesh" {
+	Geometry: 2354470870464, "Geometry::", "Mesh" {
 		Properties70:  {
 			P: "Color", "ColorRGB", "Color", "",0.23921568627451,0.529411764705882,0.0235294117647059
 		}
@@ -1168,7 +1168,7 @@ Objects:  {
 			}
 		}
 	}
-	Geometry: 2626775561536, "Geometry::", "Mesh" {
+	Geometry: 2354470871008, "Geometry::", "Mesh" {
 		Properties70:  {
 			P: "Color", "ColorRGB", "Color", "",0.603921568627451,0.843137254901961,0.898039215686275
 		}
@@ -1240,7 +1240,7 @@ Objects:  {
 			}
 		}
 	}
-	Geometry: 2626775562624, "Geometry::", "Mesh" {
+	Geometry: 2354470873728, "Geometry::", "Mesh" {
 		Properties70:  {
 			P: "Color", "ColorRGB", "Color", "",0.23921568627451,0.529411764705882,0.0235294117647059
 		}
@@ -1303,7 +1303,7 @@ Objects:  {
 			}
 		}
 	}
-	Model: 2626777140000, "Model::Spruce", "Null" {
+	Model: 2354473224528, "Model::Spruce", "Null" {
 		Version: 232
 		Properties70:  {
 			P: "PreRotation", "Vector3D", "Vector", "",-90,-0,0
@@ -1319,7 +1319,7 @@ Objects:  {
 		Shading: T
 		Culling: "CullingOff"
 	}
-	Model: 2626777168496, "Model::Spruce Branches014", "Mesh" {
+	Model: 2354473226720, "Model::Spruce Branches014", "Mesh" {
 		Version: 232
 		Properties70:  {
 			P: "InheritType", "enum", "", "",1
@@ -1334,7 +1334,7 @@ Objects:  {
 		Shading: T
 		Culling: "CullingOff"
 	}
-	Model: 2626777170688, "Model::Spruce Branches006", "Mesh" {
+	Model: 2354473202608, "Model::Spruce Branches006", "Mesh" {
 		Version: 232
 		Properties70:  {
 			P: "InheritType", "enum", "", "",1
@@ -1349,7 +1349,7 @@ Objects:  {
 		Shading: T
 		Culling: "CullingOff"
 	}
-	Model: 2626777142192, "Model::Spruce Branches001", "Mesh" {
+	Model: 2354473239872, "Model::Spruce Branches001", "Mesh" {
 		Version: 232
 		Properties70:  {
 			P: "InheritType", "enum", "", "",1
@@ -1364,7 +1364,7 @@ Objects:  {
 		Shading: T
 		Culling: "CullingOff"
 	}
-	Model: 2626777148768, "Model::Spruce Branches002", "Mesh" {
+	Model: 2354473242064, "Model::Spruce Branches002", "Mesh" {
 		Version: 232
 		Properties70:  {
 			P: "InheritType", "enum", "", "",1
@@ -1379,7 +1379,7 @@ Objects:  {
 		Shading: T
 		Culling: "CullingOff"
 	}
-	Model: 2626777164112, "Model::Spruce Branches005", "Mesh" {
+	Model: 2354473261792, "Model::Spruce Branches005", "Mesh" {
 		Version: 232
 		Properties70:  {
 			P: "InheritType", "enum", "", "",1
@@ -1394,7 +1394,7 @@ Objects:  {
 		Shading: T
 		Culling: "CullingOff"
 	}
-	Model: 2626777153152, "Model::Spruce Branches004", "Mesh" {
+	Model: 2354473237680, "Model::Spruce Branches004", "Mesh" {
 		Version: 232
 		Properties70:  {
 			P: "InheritType", "enum", "", "",1
@@ -1409,7 +1409,7 @@ Objects:  {
 		Shading: T
 		Culling: "CullingOff"
 	}
-	Model: 2626777172880, "Model::Spruce Branches012", "Mesh" {
+	Model: 2354473235488, "Model::Spruce Branches012", "Mesh" {
 		Version: 232
 		Properties70:  {
 			P: "InheritType", "enum", "", "",1
@@ -1424,7 +1424,7 @@ Objects:  {
 		Shading: T
 		Culling: "CullingOff"
 	}
-	Model: 2626777144384, "Model::Spruce Branches007", "Mesh" {
+	Model: 2354473248640, "Model::Spruce Branches007", "Mesh" {
 		Version: 232
 		Properties70:  {
 			P: "InheritType", "enum", "", "",1
@@ -1439,7 +1439,7 @@ Objects:  {
 		Shading: T
 		Culling: "CullingOff"
 	}
-	Model: 2626777186032, "Model::Spruce Branches008", "Mesh" {
+	Model: 2354473246448, "Model::Spruce Branches008", "Mesh" {
 		Version: 232
 		Properties70:  {
 			P: "InheritType", "enum", "", "",1
@@ -1454,7 +1454,7 @@ Objects:  {
 		Shading: T
 		Culling: "CullingOff"
 	}
-	Model: 2626777203568, "Model::Spruce Branches009", "Mesh" {
+	Model: 2354473244256, "Model::Spruce Branches009", "Mesh" {
 		Version: 232
 		Properties70:  {
 			P: "InheritType", "enum", "", "",1
@@ -1470,7 +1470,7 @@ Objects:  {
 		Shading: T
 		Culling: "CullingOff"
 	}
-	Model: 2626777194800, "Model::Spruce Branches010", "Mesh" {
+	Model: 2354473250832, "Model::Spruce Branches010", "Mesh" {
 		Version: 232
 		Properties70:  {
 			P: "InheritType", "enum", "", "",1
@@ -1485,7 +1485,7 @@ Objects:  {
 		Shading: T
 		Culling: "CullingOff"
 	}
-	Model: 2626777188224, "Model::Spruce Branches011", "Mesh" {
+	Model: 2354473253024, "Model::Spruce Branches011", "Mesh" {
 		Version: 232
 		Properties70:  {
 			P: "InheritType", "enum", "", "",1
@@ -1501,7 +1501,7 @@ Objects:  {
 		Shading: T
 		Culling: "CullingOff"
 	}
-	Model: 2626777201376, "Model::Spruce Branches", "Mesh" {
+	Model: 2354473255216, "Model::Spruce Branches", "Mesh" {
 		Version: 232
 		Properties70:  {
 			P: "InheritType", "enum", "", "",1
@@ -1516,7 +1516,7 @@ Objects:  {
 		Shading: T
 		Culling: "CullingOff"
 	}
-	Model: 2626777199184, "Model::Spruce Branches003", "Mesh" {
+	Model: 2354473257408, "Model::Spruce Branches003", "Mesh" {
 		Version: 232
 		Properties70:  {
 			P: "InheritType", "enum", "", "",1
@@ -1531,7 +1531,7 @@ Objects:  {
 		Shading: T
 		Culling: "CullingOff"
 	}
-	Model: 2626777190416, "Model::Spruce Branches013", "Mesh" {
+	Model: 2354473259600, "Model::Spruce Branches013", "Mesh" {
 		Version: 232
 		Properties70:  {
 			P: "InheritType", "enum", "", "",1
@@ -1547,7 +1547,7 @@ Objects:  {
 		Shading: T
 		Culling: "CullingOff"
 	}
-	Model: 2626777175072, "Model::Spruce Trunk", "Mesh" {
+	Model: 2354473233296, "Model::Spruce Trunk", "Mesh" {
 		Version: 232
 		Properties70:  {
 			P: "InheritType", "enum", "", "",1
@@ -1562,7 +1562,7 @@ Objects:  {
 		Shading: T
 		Culling: "CullingOff"
 	}
-	Model: 2626777179456, "Model::Spruce Branches015", "Mesh" {
+	Model: 2354473263984, "Model::Spruce Branches015", "Mesh" {
 		Version: 232
 		Properties70:  {
 			P: "InheritType", "enum", "", "",1
@@ -1577,10 +1577,10 @@ Objects:  {
 		Shading: T
 		Culling: "CullingOff"
 	}
-	AnimationStack: 2626695717872, "AnimStack::Take 001", "" {
+	AnimationStack: 2353948997680, "AnimStack::Take 001", "" {
 		Properties70:  {
-			P: "LocalStop", "KTime", "Time", "",92372316000
-			P: "ReferenceStop", "KTime", "Time", "",92372316000
+			P: "LocalStop", "KTime", "Time", "",7389785280
+			P: "ReferenceStop", "KTime", "Time", "",7389785280
 		}
 	}
 }
@@ -1591,110 +1591,110 @@ Objects:  {
 Connections:  {
 	
 	;Model::Spruce, Model::RootNode
-	C: "OO",2626777140000,0
+	C: "OO",2354473224528,0
 	
 	;Model::Spruce Branches014, Model::Spruce
-	C: "OO",2626777168496,2626777140000
+	C: "OO",2354473226720,2354473224528
 	
 	;Model::Spruce Branches006, Model::Spruce
-	C: "OO",2626777170688,2626777140000
+	C: "OO",2354473202608,2354473224528
 	
 	;Model::Spruce Branches001, Model::Spruce
-	C: "OO",2626777142192,2626777140000
+	C: "OO",2354473239872,2354473224528
 	
 	;Model::Spruce Branches002, Model::Spruce
-	C: "OO",2626777148768,2626777140000
+	C: "OO",2354473242064,2354473224528
 	
 	;Model::Spruce Branches005, Model::Spruce
-	C: "OO",2626777164112,2626777140000
+	C: "OO",2354473261792,2354473224528
 	
 	;Model::Spruce Branches004, Model::Spruce
-	C: "OO",2626777153152,2626777140000
+	C: "OO",2354473237680,2354473224528
 	
 	;Model::Spruce Branches012, Model::Spruce
-	C: "OO",2626777172880,2626777140000
+	C: "OO",2354473235488,2354473224528
 	
 	;Model::Spruce Branches007, Model::Spruce
-	C: "OO",2626777144384,2626777140000
+	C: "OO",2354473248640,2354473224528
 	
 	;Model::Spruce Branches008, Model::Spruce
-	C: "OO",2626777186032,2626777140000
+	C: "OO",2354473246448,2354473224528
 	
 	;Model::Spruce Branches009, Model::Spruce
-	C: "OO",2626777203568,2626777140000
+	C: "OO",2354473244256,2354473224528
 	
 	;Model::Spruce Branches010, Model::Spruce
-	C: "OO",2626777194800,2626777140000
+	C: "OO",2354473250832,2354473224528
 	
 	;Model::Spruce Branches011, Model::Spruce
-	C: "OO",2626777188224,2626777140000
+	C: "OO",2354473253024,2354473224528
 	
 	;Model::Spruce Branches, Model::Spruce
-	C: "OO",2626777201376,2626777140000
+	C: "OO",2354473255216,2354473224528
 	
 	;Model::Spruce Branches003, Model::Spruce
-	C: "OO",2626777199184,2626777140000
+	C: "OO",2354473257408,2354473224528
 	
 	;Model::Spruce Branches013, Model::Spruce
-	C: "OO",2626777190416,2626777140000
+	C: "OO",2354473259600,2354473224528
 	
 	;Model::Spruce Trunk, Model::Spruce
-	C: "OO",2626777175072,2626777140000
+	C: "OO",2354473233296,2354473224528
 	
 	;Model::Spruce Branches015, Model::Spruce
-	C: "OO",2626777179456,2626777140000
+	C: "OO",2354473263984,2354473224528
 	
 	;NodeAttribute::, Model::Spruce
-	C: "OO",2626775499168,2626777140000
+	C: "OO",2354442437808,2354473224528
 	
 	;Geometry::, Model::Spruce Branches014
-	C: "OO",2626691517296,2626777168496
+	C: "OO",2354467085152,2354473226720
 	
 	;Geometry::, Model::Spruce Branches006
-	C: "OO",2626691519472,2626777170688
+	C: "OO",2354467089504,2354473202608
 	
 	;Geometry::, Model::Spruce Branches001
-	C: "OO",2626691514576,2626777142192
+	C: "OO",2354467085696,2354473239872
 	
 	;Geometry::, Model::Spruce Branches002
-	C: "OO",2626691515664,2626777148768
+	C: "OO",2354467088960,2354473242064
 	
 	;Geometry::, Model::Spruce Branches005
-	C: "OO",2626691517840,2626777164112
+	C: "OO",2354470875904,2354473261792
 	
 	;Geometry::, Model::Spruce Branches004
-	C: "OO",2626775979920,2626777153152
+	C: "OO",2354470873184,2354473237680
 	
 	;Geometry::, Model::Spruce Branches012
-	C: "OO",2626775978832,2626777172880
+	C: "OO",2354470874272,2354473235488
 	
 	;Geometry::, Model::Spruce Branches007
-	C: "OO",2626689021280,2626777144384
+	C: "OO",2354470871552,2354473248640
 	
 	;Geometry::, Model::Spruce Branches008
-	C: "OO",2626689021824,2626777186032
+	C: "OO",2354470876448,2354473246448
 	
 	;Geometry::, Model::Spruce Branches009
-	C: "OO",2626775560448,2626777203568
+	C: "OO",2354470877536,2354473244256
 	
 	;Geometry::, Model::Spruce Branches010
-	C: "OO",2626775557728,2626777194800
+	C: "OO",2354470875360,2354473250832
 	
 	;Geometry::, Model::Spruce Branches011
-	C: "OO",2626775558272,2626777188224
+	C: "OO",2354470874816,2354473253024
 	
 	;Geometry::, Model::Spruce Branches
-	C: "OO",2626775559360,2626777201376
+	C: "OO",2354470872096,2354473255216
 	
 	;Geometry::, Model::Spruce Branches003
-	C: "OO",2626775560992,2626777199184
+	C: "OO",2354470876992,2354473257408
 	
 	;Geometry::, Model::Spruce Branches013
-	C: "OO",2626775559904,2626777190416
+	C: "OO",2354470870464,2354473259600
 	
 	;Geometry::, Model::Spruce Trunk
-	C: "OO",2626775561536,2626777175072
+	C: "OO",2354470871008,2354473233296
 	
 	;Geometry::, Model::Spruce Branches015
-	C: "OO",2626775562624,2626777179456
+	C: "OO",2354470873728,2354473263984
 }

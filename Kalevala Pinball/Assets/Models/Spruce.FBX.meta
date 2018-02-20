@@ -23,6 +23,8 @@ ModelImporter:
     100030: Spruce Branches014
     100032: Spruce Branches015
     100034: Spruce Trunk
+    100036: Spruce Branches016
+    100038: Spruce Branches017
     400000: //RootNode
     400002: Spruce Branches
     400004: Spruce Branches001
@@ -41,6 +43,8 @@ ModelImporter:
     400030: Spruce Branches014
     400032: Spruce Branches015
     400034: Spruce Trunk
+    400036: Spruce Branches016
+    400038: Spruce Branches017
     2100000: No Name
     2300000: Spruce Branches
     2300002: Spruce Branches001
@@ -59,6 +63,8 @@ ModelImporter:
     2300028: Spruce Branches014
     2300030: Spruce Branches015
     2300032: Spruce Trunk
+    2300034: Spruce Branches016
+    2300036: Spruce Branches017
     3300000: Spruce Branches
     3300002: Spruce Branches001
     3300004: Spruce Branches002
@@ -76,6 +82,8 @@ ModelImporter:
     3300028: Spruce Branches014
     3300030: Spruce Branches015
     3300032: Spruce Trunk
+    3300034: Spruce Branches016
+    3300036: Spruce Branches017
     4300000: Spruce Branches014
     4300002: Spruce Branches006
     4300004: Spruce Branches001
@@ -93,6 +101,8 @@ ModelImporter:
     4300028: Spruce Branches013
     4300030: Spruce Trunk
     4300032: Spruce Branches015
+    4300034: Spruce Branches016
+    4300036: Spruce Branches017
     9500000: //RootNode
   externalObjects: {}
   materials:
