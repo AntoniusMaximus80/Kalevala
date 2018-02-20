@@ -30,8 +30,9 @@ namespace Kalevala
         /// </summary>
         public void Launch()
         {
-            Collider[] colliders = Physics.OverlapSphere(transform.position, 1f);
-
+            int layermask = 1 << LayerMask.NameToLayer("Pinballs");
+            Collider[] colliders = Physics.OverlapSphere(transform.position, 1f, layermask);
+            Debug.Log(colliders.Length);
             foreach(Collider coll in colliders)
             {
                 coll.GetComponent<Rigidbody>().AddForce(Vector3.forward * _launcherForce * _launcherForceMultiplier, ForceMode.Impulse);
