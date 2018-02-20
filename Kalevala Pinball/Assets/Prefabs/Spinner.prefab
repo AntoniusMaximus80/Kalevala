@@ -56,6 +56,7 @@ GameObject:
   - component: {fileID: 4600095416490984}
   - component: {fileID: 33054389780999816}
   - component: {fileID: 23636267105066324}
+  - component: {fileID: 64034246436047708}
   m_Layer: 10
   m_Name: Spinner Frame
   m_TagString: Untagged
@@ -273,6 +274,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 110
   m_CollisionDetection: 0
+--- !u!64 &64034246436047708
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1658370422318674}
+  m_Material: {fileID: 13400000, guid: f6c6668c8718a0e479fc90dda820aee9, type: 2}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300000, guid: 81ee55253af87fb48a5a58d0332e6fad, type: 3}
 --- !u!65 &65903838504302450
 BoxCollider:
   m_ObjectHideFlags: 1
