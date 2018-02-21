@@ -6,10 +6,11 @@ namespace Kalevala
 {
     public enum GameModeStateType
     {
-        Normal = 0,
-        ForgingOfSampo = 1,
-        TheftOfSampo = 2,
-        Sauna = 3
+        None = 0,
+        Normal = 1,
+        ForgingOfSampo = 2,
+        TheftOfSampo = 3,
+        Sauna = 4
     }
 
     public abstract class GameModeStateBase
@@ -22,13 +23,13 @@ namespace Kalevala
         /// The owner GameManager of this state
         /// (GameManager is the state controller class)
         /// </summary>
-        public GameManager Owner { get; protected set; }
+        public StateManager Owner { get; protected set; }
 
-        public GameModeStateBase(GameModeStateType state)
+        public GameModeStateBase(StateManager owner, GameModeStateType state)
         {
             TargetStates = new List<GameModeStateType>();
             State = state;
-            Owner = GameManager.Instance;
+            Owner = owner;
         }
 
         public abstract void Update();
@@ -88,6 +89,6 @@ namespace Kalevala
 
         }
 
-        protected abstract bool ChangeState();
+        //protected abstract bool ChangeState();
     }
 }

@@ -6,10 +6,11 @@ namespace Kalevala
 {
     public enum ScreenStateType
     {
-        MainMenu = 0,
-        Play = 1,
-        Pause = 2,
-        SettingsMenu = 3
+        None = 0,
+        MainMenu = 1,
+        Play = 2,
+        Pause = 3,
+        SettingsMenu = 4
     }
 
     public abstract class ScreenStateBase
@@ -22,13 +23,13 @@ namespace Kalevala
         /// The owner GameManager of this state
         /// (GameManager is the state controller class)
         /// </summary>
-        public GameManager Owner { get; protected set; }
+        public StateManager Owner { get; protected set; }
 
-        public ScreenStateBase(ScreenStateType state)
+        public ScreenStateBase(StateManager owner, ScreenStateType state)
         {
             TargetStates = new List<ScreenStateType>();
             State = state;
-            Owner = GameManager.Instance;
+            Owner = owner;
         }
 
         public abstract void Update();
@@ -88,6 +89,6 @@ namespace Kalevala
 
         }
 
-        protected abstract bool ChangeState();
+        //protected abstract bool ChangeState();
     }
 }

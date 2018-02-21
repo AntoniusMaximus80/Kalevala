@@ -42,6 +42,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
   m_IsActive: 1
+--- !u!1 &1231760756887704
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4464413775144430}
+  - component: {fileID: 114580282689976504}
+  m_Layer: 0
+  m_Name: StateManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1596276267533454
 GameObject:
   m_ObjectHideFlags: 0
@@ -87,8 +103,22 @@ Transform:
   - {fileID: 4770323251890058}
   - {fileID: 4895772739060030}
   - {fileID: 4915165818976400}
+  - {fileID: 4464413775144430}
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4464413775144430
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1231760756887704}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4113696463926870}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4770323251890058
 Transform:
@@ -155,10 +185,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e4958aa9a1eb0545a8a9f96b45d05c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _score: 0
+  _totalScore: 0
+  _spruceBumper: 0
+  _kanteleBumper: 0
+  _spinner: 0
+  _dropTarget: 0
   _scoreUGUI: {fileID: 0}
   _incrementUGUI: {fileID: 0}
   _incrementVisible: 0.5
+--- !u!114 &114580282689976504
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1231760756887704}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a23ce7d897e43f94a9cfd170d285d1e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mainMenu: {fileID: 0}
+  pauseMenu: {fileID: 0}
+  settingsMenu: {fileID: 0}
+  screen: 0
+  gameMode: 0
 --- !u!114 &114602248010753546
 MonoBehaviour:
   m_ObjectHideFlags: 1

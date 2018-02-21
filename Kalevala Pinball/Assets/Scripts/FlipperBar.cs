@@ -43,6 +43,11 @@ namespace Kalevala
             _hingeJoint.useMotor = true;
             _hingeJoint.useSpring = false;
 
+            if (_flipperBarUpAudioSource == null)
+            {
+                return;
+            }
+
             if (!_flipperBarUpAudioSource.isPlaying)
             {
                 float randomPitch = Random.Range(0.95f, 1.05f);
@@ -61,6 +66,11 @@ namespace Kalevala
         {
             _hingeJoint.useMotor = false;
             _hingeJoint.useSpring = true;
+
+            if (_flipperBarDownAudioSource == null)
+            {
+                return;
+            }
 
             if (!_flipperBarDownAudioSource.isPlaying)
             {

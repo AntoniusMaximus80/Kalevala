@@ -46,6 +46,8 @@ namespace Kalevala
 
         private void Update()
         {
+            UpdatePause();
+
             _speed = Speed;
 
             if (IsOnRamp)
@@ -58,9 +60,10 @@ namespace Kalevala
                 }
             }
 
-            if (!InputManager.NudgeVector.Equals(Vector3.zero)) AddImpulseForce(InputManager.NudgeVector);
+            if (!InputManager.NudgeVector.Equals(Vector3.zero))
+                AddImpulseForce(InputManager.NudgeVector);
 
-            if(PinballManager.Instance.PositionIsInDrain(transform.position))
+            if (PinballManager.Instance.PositionIsInDrain(transform.position))
             {
                 if (debug_autoReinstance)
                 {
@@ -74,6 +77,19 @@ namespace Kalevala
             }
 
             HandleDebug();
+        }
+
+        private void UpdatePause()
+        {
+            bool inPlayScreen =
+                GameManager.Instance.Screen == ScreenStateType.Play;
+
+            if (_physicsEnabled != inPlayScreen)
+            {
+                // NOTE: If the ball is paused with this (in the
+                // current state), its velocity resets to zero
+                SetPhysicsEnabled(inPlayScreen);
+            }
         }
 
         public RampMotion RampMotion { get; private set; }

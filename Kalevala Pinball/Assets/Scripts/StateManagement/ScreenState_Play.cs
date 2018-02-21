@@ -7,17 +7,18 @@ namespace Kalevala
 {
     public class ScreenState_Play : ScreenStateBase
     {
-        public ScreenState_Play() : base(ScreenStateType.Play)
+        public ScreenState_Play(StateManager owner)
+            : base(owner, ScreenStateType.Play)
         {
             AddTransition(ScreenStateType.Pause);
         }
 
         public override void Update()
         {
-            if ( !ChangeState() )
-            {
+            //if ( !ChangeState() )
+            //{
 
-            }
+            //}
         }
 
         public override void Activate()
@@ -25,9 +26,13 @@ namespace Kalevala
             base.Activate();
         }
 
-        protected override bool ChangeState()
-        {
-            return false;
-        }
+        //protected override bool ChangeState()
+        //{
+        //    bool stateChanged = false;
+
+
+
+        //    return stateChanged;
+        //}
     }
 }

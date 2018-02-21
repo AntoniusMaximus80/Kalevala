@@ -5,13 +5,12 @@ using UnityEngine;
 
 namespace Kalevala
 {
-    public class ScreenState_MainMenu : ScreenStateBase
+    public class ScreenState_Pause : ScreenStateBase
     {
-        public ScreenState_MainMenu(StateManager owner)
-            : base(owner, ScreenStateType.MainMenu)
+        public ScreenState_Pause(StateManager owner)
+            : base(owner, ScreenStateType.Pause)
         {
             AddTransition(ScreenStateType.Play);
-            AddTransition(ScreenStateType.SettingsMenu);
         }
 
         public override void Update()
@@ -29,15 +28,11 @@ namespace Kalevala
 
         //protected override bool ChangeState()
         //{
-        //    // Is the Play button clicked?
-        //    // If yes, go to play state
+        //    bool stateChanged = false;
 
-        //    if (_goToPlay)
-        //    {
-        //        return Owner.PerformTransition(ScreenStateType.Play);
-        //    }
 
-        //    return false;
+
+        //    return stateChanged;
         //}
     }
 }

@@ -7,7 +7,8 @@ namespace Kalevala
 {
     public class GameModeState_Normal : GameModeStateBase
     {
-        public GameModeState_Normal() : base(GameModeStateType.Normal)
+        public GameModeState_Normal(StateManager owner)
+            : base(owner, GameModeStateType.Normal)
         {
             //AddTransition(GameModeStateType.X);
             //AddTransition(GameModeStateType.Y);
@@ -15,10 +16,10 @@ namespace Kalevala
 
         public override void Update()
         {
-            if (!ChangeState())
-            {
+            //if (!ChangeState())
+            //{
 
-            }
+            //}
         }
 
         public override void Activate()
@@ -26,14 +27,14 @@ namespace Kalevala
             base.Activate();
         }
 
-        protected override bool ChangeState()
-        {
-            //if (x)
-            //{
-            //    return Owner.PerformTransition(GameModeStateType.X);
-            //}
+        //protected override bool ChangeState()
+        //{
+        //    //if (x)
+        //    //{
+        //    //    return Owner.PerformTransition(GameModeStateType.X);
+        //    //}
 
-            return false;
-        }
+        //    return false;
+        //}
     }
 }

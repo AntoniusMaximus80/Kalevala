@@ -45,26 +45,10 @@ namespace Kalevala
         private LanguageStateType _defaultLanguage =
             LanguageStateType.English;
 
-        [SerializeField]
-        private ScreenStateType _startUpScreen =
-            ScreenStateType.MainMenu;
+        private StateManager stateManager;
 
         private IList<LanguageStateBase> _langStates = new List<LanguageStateBase>();
         public LanguageStateBase Language { get; set; }
-        //private LanguageStateBase _language;
-        //private LanguageStateBase _lang_english;
-        //private LanguageState_Finnish _lang_finnish;
-
-        private IList<ScreenStateBase> _screenStates = new List<ScreenStateBase>();
-        public ScreenStateBase CurrentScreenState { get; set; }
-        //private ScreenStateBase _screenState;
-        //private ScreenState_MainMenu _screenMainMenu;
-        //private ScreenState_Play _screenGame;
-
-        private IList<GameModeStateBase> _gameModeStates = new List<GameModeStateBase>();
-        public GameModeStateBase CurrentGameModeState { get; set; }
-        //private GameModeStateBase _gameModeState;
-        //private GameModeState_Normal _gameModeNormal;
 
         private float _musicVolume;
         private float _effectVolume;
@@ -128,12 +112,14 @@ namespace Kalevala
             DontDestroyOnLoad(gameObject);
 
             // Initializes states
+            stateManager = FindObjectOfType<StateManager>();
+            if (stateManager == null)
+            {
+                Debug.LogError("StateManager object not found in the scene.");
+            }
+
+            // Initializes languages
             InitLanguages();
-            InitScreens();
-            InitGameModes();
-            //SetLanguage(_defaultLanguage);
-            //SetScreen(_startUpScreen);
-            //SetGameMode(GameModeStateType.Normal);
 
             //sceneChanged = true;
             //InitScene();
@@ -164,94 +150,16 @@ namespace Kalevala
             _langStates.Add(lang_english);
             _langStates.Add(lang_finnish);
 
-            Language = lang_english;
-            //CurrentLangState.Activate();
+            SetLanguage(_defaultLanguage);
         }
 
-        private void InitScreens()
+        public void SetLanguage(LanguageStateType language)
         {
-            ScreenState_MainMenu mainMenu = new ScreenState_MainMenu();
-            ScreenState_Play play = new ScreenState_Play();
-            _screenStates.Add(mainMenu);
-            _screenStates.Add(play);
-
-            CurrentScreenState = mainMenu;
-            CurrentScreenState.Activate();
-        }
-
-        private void InitGameModes()
-        {
-            GameModeState_Normal normal = new GameModeState_Normal();
-            _gameModeStates.Add(normal);
-
-            CurrentGameModeState = normal;
-            CurrentGameModeState.Activate();
-        }
-
-        private void SetLanguage(LanguageStateType language)
-        {
-            Language = GetStateByType(language);
+            Language = GetLanguage(language);
             Debug.Log("Selected language: " + Language.State);
         }
 
-        //private void SetScreen(ScreenStateType screen)
-        //{
-        //    switch (screen)
-        //    {
-        //        case ScreenStateType.MainMenu:
-        //        {
-        //            _screenState = _screenMainMenu;
-        //            break;
-        //        }
-        //        default:
-        //        {
-        //            _screenState = _screenGame;
-        //            break;
-        //        }
-        //    }
-        //}
-
-        //private void SetGameMode(GameModeStateType gameMode)
-        //{
-        //    switch (gameMode)
-        //    {
-        //        //case GameModeStateBase.GameModeStateType.Sauna:
-        //        //{
-        //        //    _gameModeState = ;
-        //        //    break;
-        //        //}
-        //        default:
-        //        {
-        //            _gameModeState = _gameModeNormal;
-        //            break;
-        //        }
-        //    }
-        //}
-
-        public bool PerformTransition(ScreenStateType targetState)
-        {
-            if (!CurrentScreenState.CheckTransition(targetState))
-            {
-                Debug.Log("State change failed");
-                return false;
-            }
-
-            bool result = false;
-
-            ScreenStateBase state = GetStateByType(targetState);
-            if (state != null)
-            {
-                CurrentScreenState.StartDeactivating();
-                CurrentScreenState = state;
-                CurrentScreenState.Activate();
-                result = true;
-                //Debug.Log("Changed screen state to " + state);
-            }
-
-            return result;
-        }
-
-        private LanguageStateBase GetStateByType(LanguageStateType stateType)
+        private LanguageStateBase GetLanguage(LanguageStateType stateType)
         {
             // Returns the first object from the state list whose State property's
             // value equals to stateType. If no object was found, null is returned.
@@ -270,23 +178,20 @@ namespace Kalevala
             //return _screenStates.FirstOrDefault(state => state.State == stateType);
         }
 
-        private ScreenStateBase GetStateByType(ScreenStateType stateType)
+        public ScreenStateType Screen
         {
-            // Returns the first object from the state list whose State property's
-            // value equals to stateType. If no object was found, null is returned.
-
-            foreach (ScreenStateBase state in _screenStates)
+            get
             {
-                if (state.State == stateType)
-                {
-                    return state;
-                }
+                return stateManager.CurrentScreenState.State;
             }
+        }
 
-            return null;
-
-            // Does the same as all of the previous lines
-            //return _screenStates.FirstOrDefault(state => state.State == stateType);
+        public GameModeStateType GameMode
+        {
+            get
+            {
+                return stateManager.CurrentGameModeState.State;
+            }
         }
 
         //private void InitScene()
