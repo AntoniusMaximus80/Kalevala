@@ -6,18 +6,14 @@ namespace Kalevala
     {
         public GameObject _needlesParticleSystemPrefab,
             _spruceGameObject;
-        private AudioSource _spruceBumperHitAudioSource;
+        public AudioSource _spruceAudioSource,
+            _bumperAudioSource;
 
         [SerializeField, Range(0f, 32f)]
         private float _bumperForce;
 
         [SerializeField, Tooltip("The bumper force shouldn't be constant, that enables endless ping ponging between two bumpers."), Range(0.1f, 0.25f)]
         private float _bumperForceRandomModifier;
-
-        void Start()
-        {
-            _spruceBumperHitAudioSource = GetComponent<AudioSource>();
-        }
 
         private void OnTriggerEnter(Collider other)
         {
@@ -31,11 +27,24 @@ namespace Kalevala
             GameObject _newParticleSystem = Instantiate(_needlesParticleSystemPrefab, transform);
             _newParticleSystem.transform.localScale = Vector3.one * _spruceGameObject.transform.localScale.x; // Scale the particle system to match the spruce model's scale.
 
-            if (!_spruceBumperHitAudioSource.isPlaying)
+            if (!_spruceAudioSource.isPlaying)
             {
                 float randomPitch = Random.Range(0.8f, 1.2f);
-                _spruceBumperHitAudioSource.pitch = randomPitch;
-                _spruceBumperHitAudioSource.Play();
+                _spruceAudioSource.pitch = randomPitch;
+                _spruceAudioSource.Play();
+            } else
+            {
+                _spruceAudioSource.Stop();
+                float randomPitch = Random.Range(0.8f, 1.2f);
+                _spruceAudioSource.pitch = randomPitch;
+                _spruceAudioSource.Play();
+            }
+
+            if (!_bumperAudioSource.isPlaying)
+            {
+                float randomPitch = Random.Range(0.8f, 1.2f);
+                _bumperAudioSource.pitch = randomPitch;
+                _bumperAudioSource.Play();
             }
 
             Scorekeeper.Instance.AddScore(Scorekeeper.ScoreType.SpruceBumper);

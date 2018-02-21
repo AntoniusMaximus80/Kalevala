@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Kalevala {
     public class InputManager: MonoBehaviour {
@@ -10,18 +7,17 @@ namespace Kalevala {
         private const string _leftFlipperHit = "LeftFlipper";
         private const string _rightFlipperHit = "RightFlipper";
        
-
         [SerializeField]
         private Launcher _launcher;
 
         [SerializeField]
-        private FlipperHingeJoint _leftFlipper;
+        private FlipperBar _leftFlipper;
 
         [SerializeField]
-        private FlipperHingeJoint _rightFlipper;
+        private FlipperBar _rightFlipper;
 
         [SerializeField]
-        private float _nudgeStrength = 10;
+        private float _nudgeStrength;
 
         private static Vector3 _nudgeVector = Vector3.zero;
 
