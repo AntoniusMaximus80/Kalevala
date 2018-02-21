@@ -314,5 +314,10 @@ namespace Kalevala
                 AddImpulseForce(debug_upTableVelocity);
             }
         }
+
+        public void ResetVelocity()
+        {
+            GetComponent<Rigidbody>().velocity = Vector3.zero;
+        }
     }
 }

@@ -223,7 +223,6 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4815414892614534}
-  - component: {fileID: 95065460458382072}
   m_Layer: 12
   m_Name: Spruce
   m_TagString: Untagged
@@ -2014,23 +2013,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
---- !u!95 &95065460458382072
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1450062448113198}
-  m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: 7ccf4f97a01ec9e418237ae3ddb88208, type: 3}
-  m_Controller: {fileID: 0}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
 --- !u!95 &95374700796912576
 Animator:
   serializedVersion: 3
@@ -2043,7 +2025,7 @@ Animator:
   m_Controller: {fileID: 9100000, guid: acac98774bd81b3479ca3a4dea2951db, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
-  m_ApplyRootMotion: 0
+  m_ApplyRootMotion: 1
   m_LinearVelocityBlending: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
@@ -2078,7 +2060,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _needlesParticleSystemPrefab: {fileID: 1244018770170240, guid: b6404f0248ecc1d4e966ce12129fe238,
     type: 2}
-  _bumperForce: 8
+  _spruceGameObject: {fileID: 1450062448113198}
+  _bumperForce: 6
+  _bumperForceRandomModifier: 0.15
 --- !u!136 &136348756489602660
 CapsuleCollider:
   m_ObjectHideFlags: 1

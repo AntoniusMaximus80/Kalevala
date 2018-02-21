@@ -7,7 +7,6 @@ namespace Kalevala
         public GameObject _bumperInactive,
             _bumperActive,
             _bumperForceOrigin;
-        public Scorekeeper _scoreKeeper;
         public int _bumperActiveFrames,
             _bumperScore;
         private int _bumperActiveCountdown = 0;
@@ -37,7 +36,7 @@ namespace Kalevala
 
         private void OnTriggerEnter(Collider other)
         {
-            _scoreKeeper.AddScore(_bumperScore);
+            Scorekeeper.Instance.AddScore(Scorekeeper.ScoreType.KanteleBumper);
             _bumperActiveCountdown = _bumperActiveFrames;
             _bumperCollider.enabled = false;
             _bumperInactive.SetActive(false);

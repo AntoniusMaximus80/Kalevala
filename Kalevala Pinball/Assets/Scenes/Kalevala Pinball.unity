@@ -633,7 +633,8 @@ Prefab:
       propertyPath: m_RootOrder
       value: 7
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 95615500746722446, guid: c23afafdab193ea4c98242a27f80a27a, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: c23afafdab193ea4c98242a27f80a27a, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &204402408
@@ -14418,7 +14419,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e4958aa9a1eb0545a8a9f96b45d05c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _score: 0
+  _totalScore: 0
+  _spruceBumper: 10000
+  _kanteleBumper: 5000
+  _spinner: 1000
+  _dropTarget: 10000
   _scoreUGUI: {fileID: 802141450}
   _incrementUGUI: {fileID: 2006425770}
   _incrementVisible: 0.5

@@ -1,10 +1,8 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Kalevala
 {
-    public class DropDownTarget : MonoBehaviour
+    public class DropTarget : MonoBehaviour
     {
         private bool _triggered = false,
             _animating = false,
@@ -26,10 +24,11 @@ namespace Kalevala
 
         private void Update()
         {
-            if (Input.GetKeyDown(KeyCode.R) && _triggered)
+            if (Input.GetKeyDown(KeyCode.R) && _triggered) // For debug purposes.
             {
-                Reset();
+                ResetDropTarget();
             }
+
             if (_animating)
             {
                 _animationTimeCounter += Time.deltaTime;
@@ -60,10 +59,10 @@ namespace Kalevala
             _animating = true;
             _animatingDown = true;
             _collider.enabled = false;
-            _scorekeeper.AddScore(10000);
+            Scorekeeper.Instance.AddScore(Scorekeeper.ScoreType.DropTarget);
         }
 
-        public void Reset()
+        public void ResetDropTarget()
         {
             _triggered = false;
             _animating = true;

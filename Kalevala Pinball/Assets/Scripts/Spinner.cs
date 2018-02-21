@@ -28,9 +28,6 @@ namespace Kalevala
         private float _stabilizingThreshold;
 
         [SerializeField]
-        private int _scoreEachHalfRound;
-
-        [SerializeField]
         private int _maxAngularVelocity;
 
         /// <summary>
@@ -131,7 +128,6 @@ namespace Kalevala
             }
         }
 
-
         /// <summary>
         /// Gives score each half round the spinner does.
         /// </summary>
@@ -140,12 +136,12 @@ namespace Kalevala
             if(transform.rotation.eulerAngles.x >= 0 && transform.rotation.eulerAngles.x <= 90 && !_fullRound)
             {
                 _fullRound = true;
-                Scorekeeper.Instance.AddScore(_scoreEachHalfRound);
+                Scorekeeper.Instance.AddScore(Scorekeeper.ScoreType.Spinner);
             }
             else if(transform.rotation.eulerAngles.x >= 270 && transform.rotation.eulerAngles.x <= 360 && _fullRound)
             {
                 _fullRound = false;
-                Scorekeeper.Instance.AddScore(_scoreEachHalfRound);
+                Scorekeeper.Instance.AddScore(Scorekeeper.ScoreType.Spinner);
             }
         }
 
@@ -165,7 +161,7 @@ namespace Kalevala
                 {
                     sign = -1;
                 }
-                _rb.AddTorque(transform.right * (pinball.Speed * sign) * _spinSpeedMultiplier ,ForceMode.Impulse);
+                _rb.AddTorque(transform.right * (pinball.Speed * sign) * _spinSpeedMultiplier, ForceMode.Impulse);
                 _checkRotation = true;
                 _stabilize = false;
             }
