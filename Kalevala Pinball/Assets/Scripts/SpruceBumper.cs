@@ -21,7 +21,7 @@ namespace Kalevala
 
         private void OnTriggerEnter(Collider other)
         {
-            Debug.Log("Spruce Bumper collision!");
+            //Debug.Log("Spruce Bumper collision!");
             Vector3 difference = other.gameObject.transform.position - gameObject.transform.position;
             difference.y = 0f; // Reset vertical force.
             other.GetComponent<Rigidbody>().velocity = Vector3.zero; // Reset the pinball's velocity, before adding bumper force.
