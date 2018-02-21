@@ -317,7 +317,9 @@ namespace Kalevala
 
         public void ResetVelocity()
         {
-            GetComponent<Rigidbody>().velocity = Vector3.zero;
+            StopMotion();
+
+            //GetComponent<Rigidbody>().velocity = Vector3.zero;
         }
     }
 }

@@ -20,9 +20,18 @@ namespace Kalevala
             //Debug.Log("Spruce Bumper collision!");
             Vector3 difference = other.gameObject.transform.position - gameObject.transform.position;
             difference.y = 0f; // Reset vertical force.
-            other.GetComponent<Rigidbody>().velocity = Vector3.zero; // Reset the pinball's velocity, before adding bumper force.
-            other.gameObject.GetComponent<Rigidbody>().AddForce(difference * _bumperForce * (1f + Random.Range(-_bumperForceRandomModifier, _bumperForceRandomModifier)),
-                ForceMode.Impulse);
+
+            Pinball pinball = other.GetComponent<Pinball>();
+            if (pinball != null)
+            {
+                // Reset the pinball's velocity, before adding bumper force.
+                pinball.StopMotion();
+                pinball.AddImpulseForce(difference * _bumperForce * (1f + Random.Range(-_bumperForceRandomModifier, _bumperForceRandomModifier)));
+
+                //other.GetComponent<Rigidbody>().velocity = Vector3.zero;
+                //other.gameObject.GetComponent<Rigidbody>().AddForce(difference * _bumperForce * (1f + Random.Range(-_bumperForceRandomModifier, _bumperForceRandomModifier)),
+                //    ForceMode.Impulse);
+            }
 
             GameObject _newParticleSystem = Instantiate(_needlesParticleSystemPrefab, transform);
             _newParticleSystem.transform.localScale = Vector3.one * _spruceGameObject.transform.localScale.x; // Scale the particle system to match the spruce model's scale.
