@@ -7,10 +7,11 @@ namespace Kalevala
     public enum GameModeStateType
     {
         None = 0,
-        Normal = 1,
-        ForgingOfSampo = 2,
-        TheftOfSampo = 3,
-        Sauna = 4
+        Attract = 1,
+        Normal = 2,
+        ForgingOfSampo = 3,
+        TheftOfSampo = 4,
+        Sauna = 5
     }
 
     public abstract class GameModeStateBase

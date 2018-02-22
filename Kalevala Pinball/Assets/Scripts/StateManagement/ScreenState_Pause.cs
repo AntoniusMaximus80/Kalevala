@@ -7,9 +7,13 @@ namespace Kalevala
 {
     public class ScreenState_Pause : ScreenStateBase
     {
-        public ScreenState_Pause(StateManager owner)
+        private GameObject _menu;
+
+        public ScreenState_Pause(StateManager owner, GameObject menu)
             : base(owner, ScreenStateType.Pause)
         {
+            _menu = menu;
+
             AddTransition(ScreenStateType.Play);
         }
 

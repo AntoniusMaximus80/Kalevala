@@ -7,19 +7,19 @@ namespace Kalevala
     public class StateManager : MonoBehaviour
     {
         [SerializeField]
-        private GameObject mainMenu;
+        private GameObject _mainMenu;
 
         [SerializeField]
-        private GameObject pauseMenu;
+        private GameObject _pauseMenu;
 
         [SerializeField]
-        private GameObject settingsMenu;
+        private GameObject _settingsMenu;
 
         // DEBUGGING
         [SerializeField]
-        private ScreenStateType screen = ScreenStateType.None;
+        private ScreenStateType _screen = ScreenStateType.None;
         [SerializeField]
-        private GameModeStateType gameMode = GameModeStateType.None;
+        private GameModeStateType _gameMode = GameModeStateType.None;
 
         private IList<ScreenStateBase> _screenStates = new List<ScreenStateBase>();
         private IList<GameModeStateBase> _gameModeStates = new List<GameModeStateBase>();
@@ -35,14 +35,17 @@ namespace Kalevala
 
         private void InitScreens()
         {
-            ScreenState_MainMenu mainMenu = new ScreenState_MainMenu(this);
-            ScreenState_Play play = new ScreenState_Play(this);
-            ScreenState_Pause pause = new ScreenState_Pause(this);
-            _screenStates.Add(mainMenu);
-            _screenStates.Add(play);
-            _screenStates.Add(pause);
+            ScreenState_MainMenu mainMenuScreen =
+                new ScreenState_MainMenu(this, _mainMenu);
+            ScreenState_Play playScreen =
+                new ScreenState_Play(this);
+            ScreenState_Pause pauseScreen =
+                new ScreenState_Pause(this, _pauseMenu);
+            _screenStates.Add(mainMenuScreen);
+            _screenStates.Add(playScreen);
+            _screenStates.Add(pauseScreen);
 
-            SetScreen(mainMenu);
+            SetScreen(mainMenuScreen);
         }
 
         private void InitGameModes()
@@ -59,14 +62,14 @@ namespace Kalevala
 
             CurrentScreenState = state;
             CurrentScreenState.Activate();
-            screen = CurrentScreenState.State;
+            _screen = CurrentScreenState.State;
         }
 
         private void SetGameMode(GameModeStateBase state)
         {
             CurrentGameModeState = state;
             CurrentGameModeState.Activate();
-            gameMode = CurrentGameModeState.State;
+            _gameMode = CurrentGameModeState.State;
         }
 
         public bool PerformTransition(ScreenStateType targetState)
@@ -182,33 +185,33 @@ namespace Kalevala
             {
                 case ScreenStateType.Play:
                 {
-                    if (mainMenu != null && mainMenu.activeSelf)
+                    if (_mainMenu != null && _mainMenu.activeSelf)
                     {
-                        mainMenu.SetActive(false);
+                        _mainMenu.SetActive(false);
                     }
-                    else if (pauseMenu != null && pauseMenu.activeSelf)
+                    else if (_pauseMenu != null && _pauseMenu.activeSelf)
                     {
-                        pauseMenu.SetActive(false);
+                        _pauseMenu.SetActive(false);
                     }
                     break;
                 }
                 case ScreenStateType.MainMenu:
                 {
-                    if (mainMenu != null)
+                    if (_mainMenu != null)
                     {
-                        mainMenu.SetActive(true);
+                        _mainMenu.SetActive(true);
                     }
-                    else if (pauseMenu != null && pauseMenu.activeSelf)
+                    else if (_pauseMenu != null && _pauseMenu.activeSelf)
                     {
-                        pauseMenu.SetActive(false);
+                        _pauseMenu.SetActive(false);
                     }
                     break;
                 }
                 case ScreenStateType.Pause:
                 {
-                    if (pauseMenu != null)
+                    if (_pauseMenu != null)
                     {
-                        pauseMenu.SetActive(true);
+                        _pauseMenu.SetActive(true);
                     }
                     break;
                 }
