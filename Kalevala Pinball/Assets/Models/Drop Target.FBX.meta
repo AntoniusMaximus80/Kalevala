@@ -6,11 +6,21 @@ ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
     100000: //RootNode
+    100002: Drop Target 1
+    100004: Drop Target Base
     400000: //RootNode
+    400002: Drop Target 1
+    400004: Drop Target Base
     2100000: No Name
     2300000: //RootNode
+    2300002: Drop Target 1
+    2300004: Drop Target Base
     3300000: //RootNode
+    3300002: Drop Target 1
+    3300004: Drop Target Base
     4300000: Drop Down Target
+    4300002: Drop Target Base
+    4300004: Drop Target
     9500000: //RootNode
   externalObjects: {}
   materials:
