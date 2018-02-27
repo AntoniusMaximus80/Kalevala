@@ -1,16 +1,17 @@
 fileFormatVersion: 2
-guid: d66ea42dfd929f24a8fe02a12a836ea6
-timeCreated: 1519401296
+guid: 68540c7b6de85564f8184f036fbbbdc0
+timeCreated: 1519745151
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
     100000: //RootNode
     400000: //RootNode
-    2100000: No Name
+    2100000: 19 - Default
     2300000: //RootNode
     3300000: //RootNode
-    4300000: Ukon Kirves
+    4300000: Right Apron
+    6400000: //RootNode
     9500000: //RootNode
   externalObjects: {}
   materials:
@@ -44,7 +45,7 @@ ModelImporter:
     lODScreenPercentages: []
     globalScale: 1
     meshCompression: 0
-    addColliders: 0
+    addColliders: 1
     importVisibility: 1
     importBlendShapes: 1
     importCameras: 0
@@ -65,8 +66,8 @@ ModelImporter:
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0
-    tangentImportMode: 3
-    normalCalculationMode: 4
+    tangentImportMode: 0
+    normalCalculationMode: 1
   importAnimation: 0
   copyAvatar: 0
   humanDescription:
