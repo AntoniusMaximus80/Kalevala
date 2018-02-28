@@ -7,19 +7,20 @@ namespace Kalevala
         private bool _triggered = false,
             _animating = false,
             _animatingDown = true;
-        public Scorekeeper _scorekeeper;
+        private Scorekeeper _scorekeeper;
         private Collider _collider;
         public float _animationTime;
-        private float  _animationTimeCounter;
+        private float _animationTimeCounter = 0f;
         private Vector3 _upPosition,
             _downPosition;
 
         private void Start()
         {
             _collider = GetComponent<Collider>();
+            _scorekeeper = FindObjectOfType<Scorekeeper>();
             _upPosition = transform.localPosition;
             _downPosition = transform.localPosition;
-            _downPosition.z -= 1.96f;
+            _downPosition.z = _upPosition.z - 2.5f;
         }
 
         private void Update()
@@ -68,6 +69,7 @@ namespace Kalevala
             _animating = true;
             _animatingDown = false;
             _collider.enabled = true;
+            _animationTimeCounter = 0f;
         }
     }
 }

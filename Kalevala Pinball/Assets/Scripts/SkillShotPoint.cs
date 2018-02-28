@@ -83,12 +83,8 @@ namespace Kalevala
             
             if(_drawBlockPos)
             {
-                //transform.rotation = Quaternion.Euler(0f, 12f, 0f);
                 Gizmos.color = Color.black;
-                Gizmos.matrix = Matrix4x4.TRS(_child.position, _child.rotation, transform.lossyScale);
-                Gizmos.DrawCube(_blockPos - _child.position, _child.localScale);
-
-                //transform.rotation = Quaternion.Euler(0f, 0f, 0f);
+                Gizmos.DrawCube(_blockPos,_child.lossyScale);
             }
 
         }
