@@ -190,7 +190,7 @@ namespace Kalevala
             }
             else
             {
-                Debug.LogError("An object of " + targetState + " is missing.");
+                Debug.LogError(targetState + " object is missing.");
             }
 
             return result;
@@ -271,7 +271,7 @@ namespace Kalevala
                 return;
             }
 
-            Debug.Log("Changed from " + currentState + " to " + newState);
+            //Debug.Log("Changed from " + currentState + " to " + newState);
         }
 
         //private void SetScreen(ScreenStateBase state)
