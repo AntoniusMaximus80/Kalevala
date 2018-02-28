@@ -266,10 +266,6 @@ namespace Kalevala
                 // Debugging
                 _gameMode = CurrentGameModeState.State;
             }
-            else
-            {
-                return;
-            }
 
             //Debug.Log("Changed from " + currentState + " to " + newState);
         }
