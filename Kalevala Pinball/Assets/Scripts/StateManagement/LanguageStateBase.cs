@@ -59,9 +59,17 @@ namespace Kalevala
             {
                 return settingsMenu;
             }
+            else if (textID.Equals("gameOver"))
+            {
+                return gameOver;
+            }
             else if (textID.Equals("resume"))
             {
                 return resume;
+            }
+            else if (textID.Equals("restart"))
+            {
+                return restart;
             }
             else if (textID.Equals("quitGame"))
             {
@@ -92,17 +100,21 @@ namespace Kalevala
             }
         }
 
+        // Error
         protected virtual string error { get { return "--Error--"; } }
 
+        // Menus
         protected virtual string play { get { return "Play"; } }
-        protected virtual string mainMenu { get { return "Main menu"; } }
+        protected virtual string mainMenu { get { return "Main Menu"; } }
         protected virtual string pauseMenu { get { return "Paused"; } }
         protected virtual string settingsMenu { get { return "Settings"; } }
+        protected virtual string gameOver { get { return "Game Over"; } }
         protected virtual string resume { get { return "Resume"; } }
-        protected virtual string quitGame { get { return "Quit game"; } }
+        protected virtual string restart { get { return "Play Again"; } }
+        protected virtual string quitGame { get { return "Quit Game"; } }
         protected virtual string back { get { return "Back"; } }
 
-
+        // Help
         protected virtual string launchHelp
         { get { return "Press and hold the Space bar and then release it to lauch a ball."; } }
         protected virtual string flippersHelp

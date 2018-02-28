@@ -14,26 +14,18 @@ namespace Kalevala
         Sauna = 5
     }
 
-    public abstract class GameModeStateBase
+    public abstract class GameModeStateBase : StateBase
     {
         public GameModeStateType State { get; protected set; }
 
         public List<GameModeStateType> TargetStates { get; protected set; }
 
-        /// <summary>
-        /// The owner GameManager of this state
-        /// (GameManager is the state controller class)
-        /// </summary>
-        public StateManager Owner { get; protected set; }
-
         public GameModeStateBase(StateManager owner, GameModeStateType state)
+            : base(owner)
         {
             TargetStates = new List<GameModeStateType>();
             State = state;
-            Owner = owner;
         }
-
-        public abstract void Update();
 
         /// <summary>
         /// Adds a new target state to the target state
@@ -79,17 +71,5 @@ namespace Kalevala
         {
             return TargetStates.Contains(targetState);
         }
-
-        public virtual void Activate()
-        {
-
-        }
-
-        public virtual void StartDeactivating()
-        {
-
-        }
-
-        //protected abstract bool ChangeState();
     }
 }

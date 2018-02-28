@@ -15,6 +15,9 @@ namespace Kalevala
         [SerializeField]
         private GameObject _settingsMenu;
 
+        [SerializeField]
+        private GameObject _gameOverScreen;
+
         // DEBUGGING
         [SerializeField]
         private ScreenStateType _screen = ScreenStateType.None;
@@ -33,6 +36,19 @@ namespace Kalevala
             InitGameModes();
         }
 
+        private void Update()
+        {
+            if (CurrentScreenState != null)
+            {
+                CurrentScreenState.Update();
+            }
+
+            if (CurrentGameModeState != null)
+            {
+                CurrentGameModeState.Update();
+            }
+        }
+
         private void InitScreens()
         {
             ScreenState_MainMenu mainMenuScreen =
@@ -43,12 +59,15 @@ namespace Kalevala
                 new ScreenState_Pause(this, _pauseMenu);
             ScreenState_Settings settingsScreen =
                 new ScreenState_Settings(this, _settingsMenu);
+            ScreenState_GameOver gameOverScreen =
+                new ScreenState_GameOver(this, _gameOverScreen);
             _screenStates.Add(mainMenuScreen);
             _screenStates.Add(playScreen);
             _screenStates.Add(pauseScreen);
             _screenStates.Add(settingsScreen);
+            _screenStates.Add(gameOverScreen);
 
-            SetScreen(mainMenuScreen);
+            SetState(CurrentScreenState, mainMenuScreen);
         }
 
         private void InitGameModes()
@@ -56,12 +75,13 @@ namespace Kalevala
             GameModeState_Normal normal = new GameModeState_Normal(this);
             _gameModeStates.Add(normal);
 
-            SetGameMode(normal);
+            SetState(CurrentGameModeState, normal);
         }
 
         public void GoToMainMenuState()
         {
-            GameOver(true);
+            GameOver(false);
+            GameManager.Instance.ResetAll();
             PerformTransition(ScreenStateType.MainMenu);
         }
 
@@ -78,6 +98,13 @@ namespace Kalevala
         public void GoToSettingsMenuState()
         {
             PerformTransition(ScreenStateType.SettingsMenu);
+        }
+
+        public void StartNewGame()
+        {
+            GameManager.Instance.ResetAll();
+            PinballManager.Instance.SetPinballPhysicsEnabled(true);
+            GoToPlayState();
         }
 
         public void QuitGame()
@@ -98,6 +125,7 @@ namespace Kalevala
                 PerformTransition(GameModeStateType.Normal);
             }
 
+            PinballManager.Instance.SetPinballPhysicsEnabled(false);
             GameManager.Instance.GameOver(saveScore);
         }
 
@@ -115,22 +143,25 @@ namespace Kalevala
             ScreenStateBase state = GetStateByType(targetState);
             if (state != null)
             {
-                bool exitingPauseState =
-                    (CurrentScreenState.State == ScreenStateType.Pause);
+                ScreenState_Pause pauseState =
+                    CurrentScreenState as ScreenState_Pause;
 
                 // Time continues if the pause state is exited
                 // to something else than settings menu state
-                if (exitingPauseState &&
+                if (pauseState != null &&
                     targetState != ScreenStateType.SettingsMenu)
                 {
-                    ((ScreenState_Pause) CurrentScreenState).ResumeGame();
+                    pauseState.ResumeGame();
                 }
 
-                CurrentScreenState.Deactivate();
-                SetScreen(state);
+                // Game over state
+                else if (targetState == ScreenStateType.GameOver)
+                {
+                    GameOver(true);
+                }
 
+                SetState(CurrentScreenState, state);
                 result = true;
-                //Debug.Log("Changed screen to " + state);
             }
             else
             {
@@ -154,10 +185,8 @@ namespace Kalevala
             GameModeStateBase state = GetStateByType(targetState);
             if (state != null)
             {
-                CurrentGameModeState.StartDeactivating();
-                SetGameMode(state);
+                SetState(CurrentGameModeState, state);
                 result = true;
-                //Debug.Log("Changed game mode to " + state);
             }
             else
             {
@@ -188,8 +217,9 @@ namespace Kalevala
 
         private GameModeStateBase GetStateByType(GameModeStateType stateType)
         {
-            // Returns the first object from the state list whose State property's
-            // value equals to stateType. If no object was found, null is returned.
+            // Returns the first object from the state list whose State
+            // property's value equals to stateType. If no object was found,
+            // null is returned.
 
             foreach (GameModeStateBase state in _gameModeStates)
             {
@@ -202,24 +232,63 @@ namespace Kalevala
             return null;
 
             // Does the same as all of the previous lines
-            //return _screenStates.FirstOrDefault(state => state.State == stateType);
+            //return _screenStates.FirstOrDefault
+            //    (state => state.State == stateType);
         }
 
-        private void SetScreen(ScreenStateBase state)
+        private void SetState(StateBase currentState, StateBase newState)
         {
-            //ShowOrHideMenu(state.State);
+            ScreenStateBase screenState = newState
+                as ScreenStateBase;
+            GameModeStateBase gameModeState = newState
+                as GameModeStateBase;
 
-            CurrentScreenState = state;
-            CurrentScreenState.Activate();
-            _screen = CurrentScreenState.State;
+            if (currentState != null)
+            {
+                currentState.Deactivate();
+            }
+
+            if (screenState != null)
+            {
+                //CurrentScreenState.Deactivate();
+                CurrentScreenState = screenState;
+                CurrentScreenState.Activate();
+
+                // Debugging
+                _screen = CurrentScreenState.State;
+            }
+            else if (gameModeState != null)
+            {
+                //CurrentGameModeState.Deactivate();
+                CurrentGameModeState = gameModeState;
+                CurrentGameModeState.Activate();
+
+                // Debugging
+                _gameMode = CurrentGameModeState.State;
+            }
+            else
+            {
+                return;
+            }
+
+            Debug.Log("Changed from " + currentState + " to " + newState);
         }
 
-        private void SetGameMode(GameModeStateBase state)
-        {
-            CurrentGameModeState = state;
-            CurrentGameModeState.Activate();
-            _gameMode = CurrentGameModeState.State;
-        }
+        //private void SetScreen(ScreenStateBase state)
+        //{
+        //    //ShowOrHideMenu(state.State);
+
+        //    CurrentScreenState = state;
+        //    CurrentScreenState.Activate();
+        //    _screen = CurrentScreenState.State;
+        //}
+
+        //private void SetGameMode(GameModeStateBase state)
+        //{
+        //    CurrentGameModeState = state;
+        //    CurrentGameModeState.Activate();
+        //    _gameMode = CurrentGameModeState.State;
+        //}
 
         //private void ShowOrHideMenu(ScreenStateType enteredState)
         //{

@@ -31,7 +31,7 @@ namespace Kalevala
         private Rigidbody _rb;
         private SphereCollider _sphColl;
 
-        private void Start()
+        private void Awake()
         {
             _radius = GetComponent<Collider>().bounds.size.x / 2;
             _rb = GetComponent<Rigidbody>();
@@ -44,9 +44,18 @@ namespace Kalevala
             //RampMotion.PinballManager = _pbm;
         }
 
-        private void Update()
+        /// <summary>
+        /// Updates the pinball if the game is not paused.
+        /// </summary>
+        public void UpdatePinball()
         {
-            UpdatePause();
+            //// Does not update if the game is paused
+            //if (GameManager.Instance.Screen != ScreenStateType.Play)
+            //{
+            //    return;
+            //}
+
+            //UpdatePause();
 
             _speed = Speed;
 
@@ -79,18 +88,18 @@ namespace Kalevala
             HandleDebug();
         }
 
-        private void UpdatePause()
-        {
-            bool inPlayScreen =
-                GameManager.Instance.Screen == ScreenStateType.Play;
+        //private void UpdatePause()
+        //{
+        //    bool inPlayScreen =
+        //        GameManager.Instance.Screen == ScreenStateType.Play;
 
-            if (_physicsEnabled != inPlayScreen)
-            {
-                // NOTE: If the ball is paused with this (in the
-                // current state), its velocity resets to zero
-                SetPhysicsEnabled(inPlayScreen);
-            }
-        }
+        //    if (_physicsEnabled != inPlayScreen)
+        //    {
+        //        // NOTE: If the ball is paused with this (in the
+        //        // current state), its velocity resets to zero
+        //        SetPhysicsEnabled(inPlayScreen);
+        //    }
+        //}
 
         public RampMotion RampMotion { get; private set; }
 

@@ -7,10 +7,10 @@ namespace Kalevala
 {
     public class ScreenState_MainMenu : ScreenStateBase
     {
-        public ScreenState_MainMenu(StateManager owner, GameObject menu)
+        public ScreenState_MainMenu(StateManager owner, GameObject uiObject)
             : base(owner, ScreenStateType.MainMenu)
         {
-            ScreenObject = menu;
+            ScreenObject = uiObject;
 
             AddTransition(ScreenStateType.Play);
             AddTransition(ScreenStateType.SettingsMenu);

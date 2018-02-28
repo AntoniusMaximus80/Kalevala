@@ -154,7 +154,7 @@ namespace Kalevala
         {
             _ballDrainTopRightCorner.y = _ballDrainBottomLeftCorner.y;
 
-            ResetAll();
+            ResetGame();
 
             if (_allowedNudgeAmount <= 0)
             {
@@ -162,7 +162,7 @@ namespace Kalevala
             }
         }
         
-        public void ResetAll()
+        public void ResetGame()
         {
             _currentBallAmount = _startingBallAmount;
             _nudgesLeft = _allowedNudgeAmount;
@@ -170,12 +170,38 @@ namespace Kalevala
 
             _pinballs = new List<Pinball>(FindObjectsOfType<Pinball>());
             _activeBalls = _pinballs.Count;
+            Debug.Log("Total balls : " + _currentBallAmount.ToString());
             Debug.Log("Initial balls : " + _activeBalls.ToString());
 
-            if(_startingPosition)
+            if (_startingPosition)
             {
                 _ballLaunchPoint = _startingPosition.position;
             }
+
+            ResetPinball();
+
+            SetPinballPhysicsEnabled(false);
+        }
+
+        public void UpdatePinballs()
+        {
+            foreach (Pinball ball in _pinballs)
+            {
+                ball.UpdatePinball();
+            }
+        }
+
+        public void ResetPinball()
+        {
+            if (_pinballs.Count > 0)
+            {
+                InstanceNextBall(_pinballs[0]);
+            }
+
+            //foreach (Pinball ball in _pinballs)
+            //{
+            //    InstanceNextBall(ball);
+            //}
         }
 
         public bool OutOfBalls()
@@ -206,10 +232,8 @@ namespace Kalevala
 
         public void InstanceNextBall(Pinball ball)
         {
-            
-                ball.transform.position = _ballLaunchPoint;
-                ball.StopMotion();
-                        
+            ball.transform.position = _ballLaunchPoint;
+            ball.StopMotion();
         }
 
         public void RemoveBall(Pinball pinball)
@@ -275,6 +299,19 @@ namespace Kalevala
             }
 
             return null;
+        }
+
+        /// <summary>
+        /// Sets all pinballs' physics enabled or disabled.
+        /// Used when a game starts or ends.
+        /// </summary>
+        /// <param name="enable">are pinball physics enabled</param>
+        public void SetPinballPhysicsEnabled(bool enable)
+        {
+            foreach (Pinball ball in _pinballs)
+            {
+                ball.SetPhysicsEnabled(enable);
+            }
         }
 
         public bool Nudge()

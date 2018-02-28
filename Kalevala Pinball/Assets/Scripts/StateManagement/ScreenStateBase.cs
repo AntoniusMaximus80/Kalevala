@@ -10,31 +10,24 @@ namespace Kalevala
         MainMenu = 1,
         Play = 2,
         Pause = 3,
-        SettingsMenu = 4
+        SettingsMenu = 4,
+        GameOver = 5
     }
 
-    public abstract class ScreenStateBase
+    public abstract class ScreenStateBase : StateBase
     {
         public ScreenStateType State { get; protected set; }
 
         public List<ScreenStateType> TargetStates { get; protected set; }
 
-        /// <summary>
-        /// The owner GameManager of this state
-        /// (GameManager is the state controller class)
-        /// </summary>
-        public StateManager Owner { get; protected set; }
-
         public GameObject ScreenObject { get; protected set; }
 
         public ScreenStateBase(StateManager owner, ScreenStateType state)
+            : base(owner)
         {
             TargetStates = new List<ScreenStateType>();
             State = state;
-            Owner = owner;
         }
-
-        public abstract void Update();
 
         /// <summary>
         /// Adds a new target state to the target state
@@ -81,7 +74,7 @@ namespace Kalevala
             return TargetStates.Contains(targetState);
         }
 
-        public virtual void Activate()
+        public override void Activate()
         {
             if (ScreenObject != null)
             {
@@ -89,14 +82,12 @@ namespace Kalevala
             }
         }
 
-        public virtual void Deactivate()
+        public override void Deactivate()
         {
             if (ScreenObject != null)
             {
                 ScreenObject.SetActive(false);
             }
         }
-
-        //protected abstract bool ChangeState();
     }
 }

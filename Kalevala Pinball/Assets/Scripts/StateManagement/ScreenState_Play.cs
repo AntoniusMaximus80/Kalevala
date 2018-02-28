@@ -11,23 +11,28 @@ namespace Kalevala
             : base(owner, ScreenStateType.Play)
         {
             AddTransition(ScreenStateType.Pause);
+            AddTransition(ScreenStateType.GameOver);
         }
 
         public override void Update()
         {
-            //if ( !ChangeState() )
-            //{
-
-            //}
+            if (!ChangeState())
+            {
+                PinballManager.Instance.UpdatePinballs();
+            }
         }
 
-        //protected override bool ChangeState()
-        //{
-        //    bool stateChanged = false;
+        protected override bool ChangeState()
+        {
+            bool stateChanged = false;
 
+            if (PinballManager.Instance.OutOfBalls())
+            {
+                Owner.PerformTransition(ScreenStateType.GameOver);
+                stateChanged = true;
+            }
 
-
-        //    return stateChanged;
-        //}
+            return stateChanged;
+        }
     }
 }

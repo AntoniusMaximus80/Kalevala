@@ -50,7 +50,7 @@ namespace Kalevala
 
         private void Start()
         {
-            _totalScore = 0;
+            ResetScore();
             _incrementVisibleCountdown = _incrementVisible;
             _fade = new Color(1f, 1f, 1f, 1f);
         }
@@ -107,6 +107,12 @@ namespace Kalevala
         {
             string formattedIncrement = "+" + amount.ToString("N0");
             return formattedIncrement;
+        }
+
+        public void ResetScore()
+        {
+            _totalScore = 0;
+            _scoreUGUI.text = FormatScore();
         }
     }
 }

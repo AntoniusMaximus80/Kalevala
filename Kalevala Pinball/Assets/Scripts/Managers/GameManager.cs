@@ -51,6 +51,7 @@ namespace Kalevala
             LanguageStateType.English;
 
         private StateManager stateManager;
+        private Playfield playfield;
 
         private IList<LanguageStateBase> _langStates = new List<LanguageStateBase>();
         public LanguageStateBase Language { get; set; }
@@ -121,6 +122,12 @@ namespace Kalevala
             if (stateManager == null)
             {
                 Debug.LogError("StateManager object not found in the scene.");
+            }
+
+            playfield = FindObjectOfType<Playfield>();
+            if (playfield == null)
+            {
+                Debug.LogError("Playfield object not found in the scene.");
             }
 
             // Initializes languages
@@ -202,6 +209,13 @@ namespace Kalevala
         public void GameOver(bool saveScore)
         {
             // TODO
+        }
+
+        public void ResetAll()
+        {
+            PinballManager.Instance.ResetGame();
+            Scorekeeper.Instance.ResetScore();
+            playfield.ResetPlayfield();
         }
 
         //private void InitScene()

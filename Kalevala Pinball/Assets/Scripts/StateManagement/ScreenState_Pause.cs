@@ -9,10 +9,10 @@ namespace Kalevala
     {
         private float playTimeScale = 1f;
 
-        public ScreenState_Pause(StateManager owner, GameObject menu)
+        public ScreenState_Pause(StateManager owner, GameObject uiObject)
             : base(owner, ScreenStateType.Pause)
         {
-            ScreenObject = menu;
+            ScreenObject = uiObject;
 
             AddTransition(ScreenStateType.Play);
             AddTransition(ScreenStateType.SettingsMenu);
