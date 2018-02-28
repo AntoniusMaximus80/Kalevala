@@ -25,6 +25,8 @@ namespace Kalevala
         /// </summary>
         public StateManager Owner { get; protected set; }
 
+        public GameObject ScreenObject { get; protected set; }
+
         public ScreenStateBase(StateManager owner, ScreenStateType state)
         {
             TargetStates = new List<ScreenStateType>();
@@ -81,12 +83,18 @@ namespace Kalevala
 
         public virtual void Activate()
         {
-
+            if (ScreenObject != null)
+            {
+                ScreenObject.SetActive(true);
+            }
         }
 
-        public virtual void StartDeactivating()
+        public virtual void Deactivate()
         {
-
+            if (ScreenObject != null)
+            {
+                ScreenObject.SetActive(false);
+            }
         }
 
         //protected abstract bool ChangeState();

@@ -206,6 +206,11 @@ namespace Kalevala
 
         private Vector3 ShowPoint(int index, bool showHandle)
         {
+            if (index >= targetCurve.Points.Length)
+            {
+                return Vector3.zero;
+            }
+
             // Transforms the position into world coordinates
             Vector3 point = handleTransform.
                 TransformPoint(targetCurve.Points[index]);

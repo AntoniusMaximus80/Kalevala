@@ -7,14 +7,16 @@ namespace Kalevala
 {
     public class ScreenState_Pause : ScreenStateBase
     {
-        private GameObject _menu;
+        private float playTimeScale = 1f;
 
         public ScreenState_Pause(StateManager owner, GameObject menu)
             : base(owner, ScreenStateType.Pause)
         {
-            _menu = menu;
+            ScreenObject = menu;
 
             AddTransition(ScreenStateType.Play);
+            AddTransition(ScreenStateType.SettingsMenu);
+            AddTransition(ScreenStateType.MainMenu);
         }
 
         public override void Update()
@@ -28,6 +30,21 @@ namespace Kalevala
         public override void Activate()
         {
             base.Activate();
+
+            // The time is stopped if it isn't already
+            if (Time.timeScale > 0f)
+            {
+                playTimeScale = Time.timeScale;
+                Time.timeScale = 0f;
+            }
+        }
+
+        /// <summary>
+        /// Continues time.
+        /// </summary>
+        public void ResumeGame()
+        {
+            Time.timeScale = playTimeScale;
         }
 
         //protected override bool ChangeState()

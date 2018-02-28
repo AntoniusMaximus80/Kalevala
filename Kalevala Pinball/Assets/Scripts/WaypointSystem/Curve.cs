@@ -44,7 +44,8 @@ namespace Kalevala
             }
             else
             {
-                Debug.LogError("Start and/or end waypoint is not set.");
+                Debug.LogError
+                    ("Start and/or end waypoint is not set for this curve.");
             }
         }
 
@@ -143,7 +144,9 @@ namespace Kalevala
 
                 if (_startWaypoint != null && _endWaypoint != null)
                 {
-                    Points[1] = (_endWaypoint.Position - _startWaypoint.Position) * 0.5f;
+                    Points[1] =
+                        (_endWaypoint.Position - _startWaypoint.Position)
+                        * 0.5f;
                     MidPoint = Points[1];
 
                     //ResetWhenPossible = false;

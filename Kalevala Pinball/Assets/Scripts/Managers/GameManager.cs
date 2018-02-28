@@ -17,14 +17,19 @@ namespace Kalevala
             {
                 if (instance == null)
                 {
+                    // Prints an error message.
+                    // A GameManager object must be in the scene.
+                    Debug.LogError("A GameManager object has not " +
+                                   "been added to the scene.");
+
                     // Note:
                     // There must be a Resources folder under Assets and
                     // GameManager there for this to work. Not necessary if
                     // a GameManager object is present in a scene from the
                     // get-go.
 
-                    instance =
-                        Instantiate(Resources.Load<GameManager>("GameManager"));
+                    //instance =
+                    //    Instantiate(Resources.Load<GameManager>("GameManager"));
 
                     //GameObject gmObj = Instantiate(Resources.Load("GameManager") as GameObject);
                     //instance = gmObj.GetComponent<GameManager>();
@@ -192,6 +197,11 @@ namespace Kalevala
             {
                 return stateManager.CurrentGameModeState.State;
             }
+        }
+
+        public void GameOver(bool saveScore)
+        {
+            // TODO
         }
 
         //private void InitScene()

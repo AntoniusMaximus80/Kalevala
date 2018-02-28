@@ -41,9 +41,12 @@ namespace Kalevala
                 new ScreenState_Play(this);
             ScreenState_Pause pauseScreen =
                 new ScreenState_Pause(this, _pauseMenu);
+            ScreenState_Settings settingsScreen =
+                new ScreenState_Settings(this, _settingsMenu);
             _screenStates.Add(mainMenuScreen);
             _screenStates.Add(playScreen);
             _screenStates.Add(pauseScreen);
+            _screenStates.Add(settingsScreen);
 
             SetScreen(mainMenuScreen);
         }
@@ -56,20 +59,46 @@ namespace Kalevala
             SetGameMode(normal);
         }
 
-        private void SetScreen(ScreenStateBase state)
+        public void GoToMainMenuState()
         {
-            ShowOrHideMenu(state.State);
-
-            CurrentScreenState = state;
-            CurrentScreenState.Activate();
-            _screen = CurrentScreenState.State;
+            GameOver(true);
+            PerformTransition(ScreenStateType.MainMenu);
         }
 
-        private void SetGameMode(GameModeStateBase state)
+        public void GoToPlayState()
         {
-            CurrentGameModeState = state;
-            CurrentGameModeState.Activate();
-            _gameMode = CurrentGameModeState.State;
+            PerformTransition(ScreenStateType.Play);
+        }
+
+        public void GoToPauseState()
+        {
+            PerformTransition(ScreenStateType.Pause);
+        }
+
+        public void GoToSettingsMenuState()
+        {
+            PerformTransition(ScreenStateType.SettingsMenu);
+        }
+
+        public void QuitGame()
+        {
+            Application.Quit();
+        }
+
+        /// <summary>
+        /// Ends the game. If the player lost their last ball, the game ends
+        /// normally and their score is saved. The score is not saved if the
+        /// player drops out by returning to the main menu.
+        /// </summary>
+        /// <param name="saveScore">is the score saved</param>
+        private void GameOver(bool saveScore)
+        {
+            if (CurrentGameModeState.State != GameModeStateType.Normal)
+            {
+                PerformTransition(GameModeStateType.Normal);
+            }
+
+            GameManager.Instance.GameOver(saveScore);
         }
 
         public bool PerformTransition(ScreenStateType targetState)
@@ -86,14 +115,26 @@ namespace Kalevala
             ScreenStateBase state = GetStateByType(targetState);
             if (state != null)
             {
-                CurrentScreenState.StartDeactivating();
+                bool exitingPauseState =
+                    (CurrentScreenState.State == ScreenStateType.Pause);
+
+                // Time continues if the pause state is exited
+                // to something else than settings menu state
+                if (exitingPauseState &&
+                    targetState != ScreenStateType.SettingsMenu)
+                {
+                    ((ScreenState_Pause) CurrentScreenState).ResumeGame();
+                }
+
+                CurrentScreenState.Deactivate();
                 SetScreen(state);
+
                 result = true;
                 //Debug.Log("Changed screen to " + state);
             }
             else
             {
-                Debug.LogError("An object of " + targetState + " is missing.");
+                Debug.LogError(targetState + " object is missing.");
             }
 
             return result;
@@ -164,58 +205,60 @@ namespace Kalevala
             //return _screenStates.FirstOrDefault(state => state.State == stateType);
         }
 
-        public void GoToPlayState()
+        private void SetScreen(ScreenStateBase state)
         {
-            PerformTransition(ScreenStateType.Play);
+            //ShowOrHideMenu(state.State);
+
+            CurrentScreenState = state;
+            CurrentScreenState.Activate();
+            _screen = CurrentScreenState.State;
         }
 
-        public void GoToMainMenuState()
+        private void SetGameMode(GameModeStateBase state)
         {
-            PerformTransition(ScreenStateType.MainMenu);
+            CurrentGameModeState = state;
+            CurrentGameModeState.Activate();
+            _gameMode = CurrentGameModeState.State;
         }
 
-        public void QuitGame()
-        {
-            Application.Quit();
-        }
+        //private void ShowOrHideMenu(ScreenStateType enteredState)
+        //{
+        //    switch (enteredState)
+        //    {
+        //        case ScreenStateType.Play:
+        //        {
+        //            SetScreenActive(_mainMenu, false);
+        //            SetScreenActive(_pauseMenu, false);
+        //            //SetScreenActive(_settingsMenu, false);
+        //            break;
+        //        }
+        //        case ScreenStateType.MainMenu:
+        //        {
+        //            SetScreenActive(_pauseMenu, false);
+        //            SetScreenActive(_mainMenu, true);
+        //            break;
+        //        }
+        //        case ScreenStateType.Pause:
+        //        {
+        //            SetScreenActive(_settingsMenu, false);
+        //            SetScreenActive(_pauseMenu, true);
+        //            break;
+        //        }
+        //        case ScreenStateType.SettingsMenu:
+        //        {
+        //            SetScreenActive(_pauseMenu, false);
+        //            SetScreenActive(_settingsMenu, true);
+        //            break;
+        //        }
+        //    }
+        //}
 
-        private void ShowOrHideMenu(ScreenStateType enteredState)
-        {
-            switch (enteredState)
-            {
-                case ScreenStateType.Play:
-                {
-                    if (_mainMenu != null && _mainMenu.activeSelf)
-                    {
-                        _mainMenu.SetActive(false);
-                    }
-                    else if (_pauseMenu != null && _pauseMenu.activeSelf)
-                    {
-                        _pauseMenu.SetActive(false);
-                    }
-                    break;
-                }
-                case ScreenStateType.MainMenu:
-                {
-                    if (_mainMenu != null)
-                    {
-                        _mainMenu.SetActive(true);
-                    }
-                    else if (_pauseMenu != null && _pauseMenu.activeSelf)
-                    {
-                        _pauseMenu.SetActive(false);
-                    }
-                    break;
-                }
-                case ScreenStateType.Pause:
-                {
-                    if (_pauseMenu != null)
-                    {
-                        _pauseMenu.SetActive(true);
-                    }
-                    break;
-                }
-            }
-        }
+        //private void SetScreenActive(GameObject screen, bool active)
+        //{
+        //    if (screen != null && screen.activeSelf != active)
+        //    {
+        //        screen.SetActive(active);
+        //    }
+        //}
     }
 }

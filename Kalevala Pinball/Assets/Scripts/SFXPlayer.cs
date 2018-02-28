@@ -117,9 +117,9 @@ namespace Kalevala
         private int[] noDuplicates; 
 
         /// <summary>
-        /// The object is initialized on awake.
+        /// The object is initialized on start.
         /// </summary>
-        private void Awake()
+        private void Start()
         {
             if (instance == null)
             {

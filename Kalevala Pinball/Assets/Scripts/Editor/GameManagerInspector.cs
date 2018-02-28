@@ -21,7 +21,7 @@ namespace Kalevala.Editor
         {
             base.OnInspectorGUI();
 
-            AddDebugLabels();
+            //AddDebugLabels();
         }
 
         private void AddDebugLabels()

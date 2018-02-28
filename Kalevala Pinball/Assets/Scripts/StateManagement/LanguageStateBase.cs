@@ -41,34 +41,50 @@ namespace Kalevala
             Owner = GameManager.Instance;
         }
 
-        public string GetText(string textTitle)
+        public string GetText(string textID)
         {
-            if (textTitle.Equals("play"))
+            if (textID.Equals("play"))
             {
                 return play;
             }
-            else if (textTitle.Equals("mainMenu"))
+            else if (textID.Equals("mainMenu"))
             {
                 return mainMenu;
             }
-            else if (textTitle.Equals("settingsMenu"))
+            else if (textID.Equals("pauseMenu"))
+            {
+                return pauseMenu;
+            }
+            else if (textID.Equals("settingsMenu"))
             {
                 return settingsMenu;
             }
-            else if (textTitle.Equals("launchHelp"))
+            else if (textID.Equals("resume"))
+            {
+                return resume;
+            }
+            else if (textID.Equals("quitGame"))
+            {
+                return quitGame;
+            }
+            else if (textID.Equals("back"))
+            {
+                return back;
+            }
+            else if (textID.Equals("launchHelp"))
             {
                 return launchHelp;
             }
-            else if (textTitle.Equals("flippersHelp"))
+            else if (textID.Equals("flippersHelp"))
             {
                 return flippersHelp;
             }
-            else if (textTitle.Equals("nudgeHelp"))
+            else if (textID.Equals("nudgeHelp"))
             {
                 return nudgeHelp;
             }
 
-            // If the text title does not correspond
+            // If the text ID does not correspond
             // with any text, error text is returned
             else
             {
@@ -80,7 +96,12 @@ namespace Kalevala
 
         protected virtual string play { get { return "Play"; } }
         protected virtual string mainMenu { get { return "Main menu"; } }
-        protected virtual string settingsMenu { get { return "Settings menu"; } }
+        protected virtual string pauseMenu { get { return "Paused"; } }
+        protected virtual string settingsMenu { get { return "Settings"; } }
+        protected virtual string resume { get { return "Resume"; } }
+        protected virtual string quitGame { get { return "Quit game"; } }
+        protected virtual string back { get { return "Back"; } }
+
 
         protected virtual string launchHelp
         { get { return "Press and hold the Space bar and then release it to lauch a ball."; } }
