@@ -10,9 +10,9 @@ FBXHeaderExtension:  {
 		Month: 3
 		Day: 4
 		Hour: 15
-		Minute: 19
-		Second: 41
-		Millisecond: 966
+		Minute: 45
+		Second: 47
+		Millisecond: 244
 	}
 	Creator: "FBX SDK/FBX Plugins version 2018.1"
 	SceneInfo: "SceneInfo::GlobalInfo", "UserData" {
@@ -34,13 +34,13 @@ FBXHeaderExtension:  {
 			P: "Original|ApplicationVendor", "KString", "", "", "Autodesk"
 			P: "Original|ApplicationName", "KString", "", "", "3ds Max"
 			P: "Original|ApplicationVersion", "KString", "", "", "2018"
-			P: "Original|DateTime_GMT", "DateTime", "", "", "04/03/2018 13:19:41.965"
+			P: "Original|DateTime_GMT", "DateTime", "", "", "04/03/2018 13:45:47.243"
 			P: "Original|FileName", "KString", "", "", "C:\Users\Toni\Desktop\Kalevala\Kalevala Pinball\Assets\Models\Playfield Sides.FBX"
 			P: "LastSaved", "Compound", "", ""
 			P: "LastSaved|ApplicationVendor", "KString", "", "", "Autodesk"
 			P: "LastSaved|ApplicationName", "KString", "", "", "3ds Max"
 			P: "LastSaved|ApplicationVersion", "KString", "", "", "2018"
-			P: "LastSaved|DateTime_GMT", "DateTime", "", "", "04/03/2018 13:19:41.965"
+			P: "LastSaved|DateTime_GMT", "DateTime", "", "", "04/03/2018 13:45:47.243"
 			P: "Original|ApplicationActiveProject", "KString", "", "", "C:\Users\Toni\Documents\3dsMax"
 			P: "Original|ApplicationNativeFile", "KString", "", "", "C:\Users\Toni\Dropbox\+ Spring 2018 Project\Kalevala Pinball.max"
 		}
@@ -77,7 +77,7 @@ GlobalSettings:  {
 
 Documents:  {
 	Count: 1
-	Document: 2719292634000, "", "Scene" {
+	Document: 2259955396240, "", "Scene" {
 		Properties70:  {
 			P: "SourceObject", "object", "", ""
 			P: "ActiveAnimStackName", "KString", "", "", ""
@@ -239,7 +239,7 @@ Definitions:  {
 ;------------------------------------------------------------------
 
 Objects:  {
-	Geometry: 2718850332960, "Geometry::", "Mesh" {
+	Geometry: 2259979753696, "Geometry::", "Mesh" {
 		Properties70:  {
 			P: "Color", "ColorRGB", "Color", "",0.450980392156863,0.450980392156863,0.450980392156863
 		}
@@ -315,7 +315,7 @@ Objects:  {
 			}
 		}
 	}
-	Model: 2719293152592, "Model::Playfield Sides", "Mesh" {
+	Model: 2259544094272, "Model::Playfield Sides", "Mesh" {
 		Version: 232
 		Properties70:  {
 			P: "PreRotation", "Vector3D", "Vector", "",-90,-0,0
@@ -332,7 +332,7 @@ Objects:  {
 		Shading: T
 		Culling: "CullingOff"
 	}
-	Material: 2719460809712, "Material::Placeholder", "" {
+	Material: 2260091809600, "Material::Placeholder", "" {
 		Version: 102
 		ShadingModel: "phong"
 		MultiLayer: 0
@@ -354,7 +354,7 @@ Objects:  {
 			P: "Reflectivity", "double", "Number", "",0
 		}
 	}
-	AnimationStack: 2719039481232, "AnimStack::Take 001", "" {
+	AnimationStack: 2260091890848, "AnimStack::Take 001", "" {
 		Properties70:  {
 			P: "LocalStop", "KTime", "Time", "",552386449680
 			P: "ReferenceStop", "KTime", "Time", "",552386449680
@@ -368,11 +368,11 @@ Objects:  {
 Connections:  {
 	
 	;Model::Playfield Sides, Model::RootNode
-	C: "OO",2719293152592,0
+	C: "OO",2259544094272,0
 	
 	;Geometry::, Model::Playfield Sides
-	C: "OO",2718850332960,2719293152592
+	C: "OO",2259979753696,2259544094272
 	
 	;Material::Placeholder, Model::Playfield Sides
-	C: "OO",2719460809712,2719293152592
+	C: "OO",2260091809600,2259544094272
 }
