@@ -20,6 +20,7 @@ ModelImporter:
     100024: Ukonvasara 1
     100026: Ukonvasara Frame
     100028: //RootNode
+    100030: Ball Lift Bottom
     400000: Board
     400002: Board001
     400004: Launcher Track
@@ -35,6 +36,7 @@ ModelImporter:
     400024: Ukonvasara 1
     400026: Ukonvasara Frame
     400028: //RootNode
+    400030: Ball Lift Bottom
     2100000: Placeholder
     2300000: Board
     2300002: Board001
@@ -49,6 +51,7 @@ ModelImporter:
     2300020: Nail002
     2300022: Ukonvasara 1
     2300024: Ukonvasara Frame
+    2300026: Ball Lift Bottom
     3300000: Board
     3300002: Board001
     3300004: Launcher Track
@@ -62,6 +65,7 @@ ModelImporter:
     3300020: Nail002
     3300022: Ukonvasara 1
     3300024: Ukonvasara Frame
+    3300026: Ball Lift Bottom
     4300000: Launcher Track
     4300002: Magnetic Lifter Rod
     4300004: Ukonvasara Frame
@@ -75,6 +79,7 @@ ModelImporter:
     4300020: Nail
     4300022: Board001
     4300024: Ukonvasara
+    4300026: Ball Lift Bottom
     9500000: //RootNode
   externalObjects: {}
   materials:

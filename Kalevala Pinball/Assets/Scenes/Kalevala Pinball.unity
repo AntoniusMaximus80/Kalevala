@@ -1570,48 +1570,6 @@ ReflectionProbe:
   m_UseOcclusionCulling: 1
   m_Importance: 1
   m_CustomBakedTexture: {fileID: 0}
---- !u!1001 &358866360
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4363587252833606, guid: 915195df1c5dab240a242e4f409311ba, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 21.577
-      objectReference: {fileID: 0}
-    - target: {fileID: 4363587252833606, guid: 915195df1c5dab240a242e4f409311ba, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 5.4791
-      objectReference: {fileID: 0}
-    - target: {fileID: 4363587252833606, guid: 915195df1c5dab240a242e4f409311ba, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: -26.459
-      objectReference: {fileID: 0}
-    - target: {fileID: 4363587252833606, guid: 915195df1c5dab240a242e4f409311ba, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4363587252833606, guid: 915195df1c5dab240a242e4f409311ba, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 4363587252833606, guid: 915195df1c5dab240a242e4f409311ba, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 4363587252833606, guid: 915195df1c5dab240a242e4f409311ba, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4363587252833606, guid: 915195df1c5dab240a242e4f409311ba, type: 2}
-      propertyPath: m_RootOrder
-      value: 2
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: 915195df1c5dab240a242e4f409311ba, type: 2}
-  m_IsPrefabParent: 0
 --- !u!1 &370941214
 GameObject:
   m_ObjectHideFlags: 0
@@ -12798,6 +12756,52 @@ ReflectionProbe:
   m_UseOcclusionCulling: 1
   m_Importance: 1
   m_CustomBakedTexture: {fileID: 0}
+--- !u!1001 &1460093192
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4094300169783376, guid: 1bae2942c0c08794cbc009e3a9b803e0, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 21.577
+      objectReference: {fileID: 0}
+    - target: {fileID: 4094300169783376, guid: 1bae2942c0c08794cbc009e3a9b803e0, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 5.4791
+      objectReference: {fileID: 0}
+    - target: {fileID: 4094300169783376, guid: 1bae2942c0c08794cbc009e3a9b803e0, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -26.459
+      objectReference: {fileID: 0}
+    - target: {fileID: 4094300169783376, guid: 1bae2942c0c08794cbc009e3a9b803e0, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4094300169783376, guid: 1bae2942c0c08794cbc009e3a9b803e0, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 4094300169783376, guid: 1bae2942c0c08794cbc009e3a9b803e0, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 4094300169783376, guid: 1bae2942c0c08794cbc009e3a9b803e0, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4094300169783376, guid: 1bae2942c0c08794cbc009e3a9b803e0, type: 2}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1131422613254408, guid: 1bae2942c0c08794cbc009e3a9b803e0, type: 2}
+      propertyPath: m_Name
+      value: Ukonvasara Launcher
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 1bae2942c0c08794cbc009e3a9b803e0, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &1476990155
 GameObject:
   m_ObjectHideFlags: 0
@@ -12848,15 +12852,15 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4092941026948766, guid: babcca75daa603e479cbcfe048191f33, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 23.725
+      value: 23.721
       objectReference: {fileID: 0}
     - target: {fileID: 4092941026948766, guid: babcca75daa603e479cbcfe048191f33, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 4.25
+      value: 4.404
       objectReference: {fileID: 0}
     - target: {fileID: 4092941026948766, guid: babcca75daa603e479cbcfe048191f33, type: 2}
       propertyPath: m_LocalPosition.z
-      value: -34.8
+      value: -38.662
       objectReference: {fileID: 0}
     - target: {fileID: 4092941026948766, guid: babcca75daa603e479cbcfe048191f33, type: 2}
       propertyPath: m_LocalRotation.x
@@ -14380,7 +14384,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 6ae12cc7ca7e9754a8e000a779a84964, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 6ae12cc7ca7e9754a8e000a779a84964, type: 3}
       propertyPath: m_LocalScale.x
