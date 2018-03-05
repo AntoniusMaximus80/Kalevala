@@ -55,7 +55,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4094300169783376}
   m_Layer: 10
-  m_Name: Ukonvasara Launcher
+  m_Name: Ukonvasara Launcher 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
