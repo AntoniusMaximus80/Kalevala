@@ -1,0 +1,268 @@
+fileFormatVersion: 2
+guid: 039471f9dc9ec1d4090b5ed12794d181
+timeCreated: 1520320896
+licenseType: Free
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: Board
+    100002: Board001
+    100004: //RootNode
+    100006: Launcher Shield
+    100008: Launcher Shield Support
+    100010: Launcher Shield Support 1
+    100012: Launcher Shield Support004
+    100014: Launcher Shield Support005
+    100016: Launcher Shield Support006
+    100018: Launcher Shield Support007
+    100020: Launcher Shield Support008
+    100022: Launcher Shield Support009
+    100024: Launcher Shield Support010
+    100026: Launcher Shield Support011
+    100028: Launcher Shield Supports
+    100030: Launcher Track
+    100032: Magnetic Lifter Rod
+    100034: Nail
+    100036: Nail Head
+    100038: Nail Head001
+    100040: Nail Head002
+    100042: Nail Head003
+    100044: Nail001
+    100046: Nail002
+    100048: Rivet
+    100050: Rivet001
+    100052: Rivet008
+    100054: Rivet009
+    100056: Rivet010
+    100058: Rivet011
+    100060: Rivet012
+    100062: Rivet013
+    100064: Rivet014
+    100066: Rivet015
+    100068: Rivet016
+    100070: Rivet017
+    100072: Support004
+    100074: Support005
+    100076: Ukon Kirves
+    100078: Ukon Kirves 1
+    100080: Ukon Kirves Frame
+    400000: Board
+    400002: Board001
+    400004: //RootNode
+    400006: Launcher Shield
+    400008: Launcher Shield Support
+    400010: Launcher Shield Support 1
+    400012: Launcher Shield Support004
+    400014: Launcher Shield Support005
+    400016: Launcher Shield Support006
+    400018: Launcher Shield Support007
+    400020: Launcher Shield Support008
+    400022: Launcher Shield Support009
+    400024: Launcher Shield Support010
+    400026: Launcher Shield Support011
+    400028: Launcher Shield Supports
+    400030: Launcher Track
+    400032: Magnetic Lifter Rod
+    400034: Nail
+    400036: Nail Head
+    400038: Nail Head001
+    400040: Nail Head002
+    400042: Nail Head003
+    400044: Nail001
+    400046: Nail002
+    400048: Rivet
+    400050: Rivet001
+    400052: Rivet008
+    400054: Rivet009
+    400056: Rivet010
+    400058: Rivet011
+    400060: Rivet012
+    400062: Rivet013
+    400064: Rivet014
+    400066: Rivet015
+    400068: Rivet016
+    400070: Rivet017
+    400072: Support004
+    400074: Support005
+    400076: Ukon Kirves
+    400078: Ukon Kirves 1
+    400080: Ukon Kirves Frame
+    2100000: Placeholder
+    2100002: Clear Plastic
+    2300000: Board
+    2300002: Board001
+    2300004: Launcher Shield
+    2300006: Launcher Shield Support 1
+    2300008: Launcher Shield Support005
+    2300010: Launcher Shield Support007
+    2300012: Launcher Shield Support009
+    2300014: Launcher Track
+    2300016: Magnetic Lifter Rod
+    2300018: Nail
+    2300020: Nail Head
+    2300022: Nail Head001
+    2300024: Nail Head002
+    2300026: Nail Head003
+    2300028: Nail001
+    2300030: Nail002
+    2300032: Rivet
+    2300034: Rivet001
+    2300036: Rivet008
+    2300038: Rivet009
+    2300040: Rivet010
+    2300042: Rivet011
+    2300044: Rivet012
+    2300046: Rivet013
+    2300048: Rivet014
+    2300050: Rivet015
+    2300052: Rivet016
+    2300054: Rivet017
+    2300056: Support004
+    2300058: Support005
+    2300060: Ukon Kirves 1
+    2300062: Ukon Kirves Frame
+    3300000: Board
+    3300002: Board001
+    3300004: Launcher Shield
+    3300006: Launcher Shield Support 1
+    3300008: Launcher Shield Support005
+    3300010: Launcher Shield Support007
+    3300012: Launcher Shield Support009
+    3300014: Launcher Track
+    3300016: Magnetic Lifter Rod
+    3300018: Nail
+    3300020: Nail Head
+    3300022: Nail Head001
+    3300024: Nail Head002
+    3300026: Nail Head003
+    3300028: Nail001
+    3300030: Nail002
+    3300032: Rivet
+    3300034: Rivet001
+    3300036: Rivet008
+    3300038: Rivet009
+    3300040: Rivet010
+    3300042: Rivet011
+    3300044: Rivet012
+    3300046: Rivet013
+    3300048: Rivet014
+    3300050: Rivet015
+    3300052: Rivet016
+    3300054: Rivet017
+    3300056: Support004
+    3300058: Support005
+    3300060: Ukon Kirves 1
+    3300062: Ukon Kirves Frame
+    4300000: Launcher Track
+    4300002: Launcher Shield
+    4300004: Ukon Kirves Frame
+    4300006: Board
+    4300008: Nail Head003
+    4300010: Nail Head002
+    4300012: Nail Head
+    4300014: Nail Head001
+    4300016: Nail002
+    4300018: Nail001
+    4300020: Nail
+    4300022: Board001
+    4300024: Ukon Kirves
+    4300026: Magnetic Lifter Rod
+    4300028: Rivet001
+    4300030: Launcher Shield Support
+    4300032: Rivet
+    4300034: Launcher Shield Support005
+    4300036: Rivet010
+    4300038: Rivet011
+    4300040: Launcher Shield Support007
+    4300042: Rivet012
+    4300044: Rivet013
+    4300046: Launcher Shield Support009
+    4300048: Rivet014
+    4300050: Rivet015
+    4300052: Rivet008
+    4300054: Rivet009
+    4300056: Support004
+    4300058: Rivet016
+    4300060: Rivet017
+    4300062: Support005
+    9500000: //RootNode
+  externalObjects: {}
+  materials:
+    importMaterials: 0
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 0
+    importLights: 0
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 0
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
