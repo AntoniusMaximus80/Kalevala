@@ -1,0 +1,174 @@
+fileFormatVersion: 2
+guid: b6dcdf99e91c87440b54b21b2e2e9554
+timeCreated: 1520344577
+licenseType: Free
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: Ilmarinen's Forge Chimney
+    100004: Ilmarinen's Forge Roof
+    100006: Object002
+    100008: Rivet
+    100010: Rivet 1
+    100012: Rivet Stem
+    100014: Rivet Stem001
+    100016: Rivet Stem002
+    100018: Rivet Stem003
+    100020: Rivet Stem004
+    100022: Rivet Stem005
+    100024: Rivet018
+    100026: Rivet019
+    100028: Rivet020
+    100030: Rivet021
+    100032: Rivet022
+    100034: Rivet023
+    100036: Shield Target001
+    100038: Shield Target002
+    400000: //RootNode
+    400002: Ilmarinen's Forge Chimney
+    400004: Ilmarinen's Forge Roof
+    400006: Object002
+    400008: Rivet
+    400010: Rivet 1
+    400012: Rivet Stem
+    400014: Rivet Stem001
+    400016: Rivet Stem002
+    400018: Rivet Stem003
+    400020: Rivet Stem004
+    400022: Rivet Stem005
+    400024: Rivet018
+    400026: Rivet019
+    400028: Rivet020
+    400030: Rivet021
+    400032: Rivet022
+    400034: Rivet023
+    400036: Shield Target001
+    400038: Shield Target002
+    2100000: Placeholder
+    2300000: Ilmarinen's Forge Chimney
+    2300002: Ilmarinen's Forge Roof
+    2300004: Object002
+    2300006: Rivet 1
+    2300008: Rivet Stem
+    2300010: Rivet Stem001
+    2300012: Rivet Stem002
+    2300014: Rivet Stem003
+    2300016: Rivet Stem004
+    2300018: Rivet Stem005
+    2300020: Rivet019
+    2300022: Rivet021
+    2300024: Rivet023
+    2300026: Shield Target001
+    2300028: Shield Target002
+    3300000: Ilmarinen's Forge Chimney
+    3300002: Ilmarinen's Forge Roof
+    3300004: Object002
+    3300006: Rivet 1
+    3300008: Rivet Stem
+    3300010: Rivet Stem001
+    3300012: Rivet Stem002
+    3300014: Rivet Stem003
+    3300016: Rivet Stem004
+    3300018: Rivet Stem005
+    3300020: Rivet019
+    3300022: Rivet021
+    3300024: Rivet023
+    3300026: Shield Target001
+    3300028: Shield Target002
+    4300000: Shield Target001
+    4300002: Shield Target002
+    4300004: Rivet Stem
+    4300006: Rivet
+    4300008: Rivet019
+    4300010: Rivet Stem001
+    4300012: Rivet Stem002
+    4300014: Rivet021
+    4300016: Rivet023
+    4300018: Rivet Stem003
+    4300020: Object002
+    4300022: Ilmarinen's Forge Roof
+    4300024: Ilmarinen's Forge Chimney
+    4300026: Rivet Stem004
+    4300028: Rivet Stem005
+    9500000: //RootNode
+  externalObjects: {}
+  materials:
+    importMaterials: 0
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 0
+    importLights: 0
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 0
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
