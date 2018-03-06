@@ -93,7 +93,7 @@ namespace Kalevala {
             }
             else if (Input.GetButtonUp(_launch))
             {
-                _launcher.Launch();
+                _launcher.SwingAxe();
             }
 
             if (Input.GetButton(_leftFlipperHit))

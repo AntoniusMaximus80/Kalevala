@@ -13,53 +13,52 @@ namespace Kalevala
         [SerializeField]
         private float _timeToMaxForce;
         [SerializeField]
-        private Transform _axe;
-        [SerializeField]
-        private float _maxRotation;
-        [SerializeField]
         private bool _useDebugs;
-
-        private float _axeStartRotationX;
-        private float _axeRotateSpeed;
+        [SerializeField]
+        private HingeJoint _hingejoint;
+        
+        private JointLimits _jointLimits;
+        private bool _takeInput = true;
         private float _launcherForce;
-        private bool _launch = false;
+
+        private bool _checkVelocity = false;
+        private bool _launchDone = true;
+        private bool _returnAxeToStartPosition = false;
 
 
         private void Awake()
         {
-            _axeStartRotationX = _axe.eulerAngles.x;
-            _axeRotateSpeed = _maxRotation / _timeToMaxForce;
+            JointMotor motor = _hingejoint.motor;
+            motor.force = (_hingejoint.limits.max - _hingejoint.limits.min) / _timeToMaxForce;
+            motor.targetVelocity = (_hingejoint.limits.max - _hingejoint.limits.min) / _timeToMaxForce;
+            _hingejoint.motor = motor;
+            _jointLimits = _hingejoint.limits;
+            _hingejoint.useMotor = false;
+            _hingejoint.useSpring = true;
         }
 
         private void Update()
         {
-            if(_launch)
+            if(_hingejoint.angle <=  40f && !_launchDone)
             {
-                SwingAxe();
+                Launch();
             }
-        }
-
-        private void SwingAxe()
-        {
-            if(_axe.eulerAngles.x > _axeStartRotationX)
+            if(_hingejoint.velocity == 0f && _checkVelocity)
             {
-                _axe.Rotate(new Vector3(400f * Time.deltaTime, 0, 0));
+                _returnAxeToStartPosition = true;
             }
-            else
+            if(_returnAxeToStartPosition && _hingejoint.limits.min < 90)
             {
-                int layermask = 1 << LayerMask.NameToLayer("Pinballs");
-                Collider[] colliders = Physics.OverlapSphere(transform.position, 1f, layermask);
-                Debug.Log(colliders.Length);
-                foreach(Collider coll in colliders)
+                _jointLimits.min += 20f * Time.deltaTime;
+                if(_jointLimits.min > 90f )
                 {
-                    coll.GetComponent<Rigidbody>().AddForce(Vector3.forward * _launcherForce * _launcherForceMultiplier, ForceMode.Impulse);
-                    if(_useDebugs)
-                    {
-                        Debug.Log(_launcherForce);
-                    }
+                    _jointLimits.min = 90f;
                 }
-                _launcherForce = 0;
-                _launch = false;
+                _hingejoint.limits = _jointLimits;
+            } else if(_returnAxeToStartPosition && _hingejoint.limits.min >= 90)
+            {
+                _returnAxeToStartPosition = false;
+                _takeInput = true;
             }
         }
 
@@ -68,20 +67,51 @@ namespace Kalevala
         /// </summary>
         public void PoweringUp()
         {
-            _launcherForce = Mathf.Clamp01(_launcherForce + Time.deltaTime / _timeToMaxForce);
-            if(_launcherForce < 1)
+            if(_takeInput)
             {
-                _axe.Rotate(new Vector3(_axeRotateSpeed * Time.deltaTime, 0f, 0f));
-            
+                _launcherForce = Mathf.Clamp01(_launcherForce + Time.deltaTime / _timeToMaxForce);
+                if(_launcherForce == 1)
+                {
+                    Debug.Log("LAUNCHINGGRGE");
+                }
+                _hingejoint.useMotor = true;
+                _hingejoint.useSpring = false;
             }
+
         }
 
         /// <summary>
         /// Launches the ball with force depending on how long launch button is pressed.
         /// </summary>
-        public void Launch()
+        public void SwingAxe()
         {
-            _launch = true;
+            if(_takeInput)
+            {
+                _jointLimits.min = 0f;
+                _hingejoint.limits = _jointLimits;
+                _hingejoint.useMotor = false;
+                _hingejoint.useSpring = true;
+                _launchDone = false;
+            }
+        }
+
+        private void Launch()
+        {
+            _checkVelocity = true;
+            _launchDone = false;
+            _takeInput = false;
+            int layermask = 1 << LayerMask.NameToLayer("Pinballs");
+            Collider[] colliders = Physics.OverlapSphere(transform.position, 1f, layermask);
+            Debug.Log(colliders.Length);
+            foreach(Collider coll in colliders)
+            {
+                coll.GetComponent<Rigidbody>().AddForce(Vector3.forward * _launcherForce * _launcherForceMultiplier, ForceMode.Impulse);
+                if(_useDebugs)
+                {
+                    Debug.Log(_launcherForce);
+                }
+            }
+            _launcherForce = 0;
         }
 
         private void OnDrawGizmos()

@@ -13668,6 +13668,60 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a3acc3a797774fb49aa0fe8fcd53c06c, type: 3}
   m_IsPrefabParent: 0
+--- !u!1 &1466812570 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1355202825291730, guid: 44e752bf0357634499ab766973cea25a,
+    type: 2}
+  m_PrefabInternal: {fileID: 1769376121}
+--- !u!59 &1466812572
+HingeJoint:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1466812570}
+  m_ConnectedBody: {fileID: 0}
+  m_Anchor: {x: 0, y: 0, z: 0}
+  m_Axis: {x: -1, y: 0, z: 0}
+  m_AutoConfigureConnectedAnchor: 1
+  m_ConnectedAnchor: {x: 25.735802, y: 11.8939085, z: -40.65046}
+  m_UseSpring: 0
+  m_Spring:
+    spring: 100
+    damper: 0
+    targetPosition: 1
+  m_UseMotor: 0
+  m_Motor:
+    targetVelocity: 100
+    force: 100
+    freeSpin: 0
+  m_UseLimits: 1
+  m_Limits:
+    min: 90
+    max: 160
+    bounciness: 0
+    bounceMinVelocity: 0.2
+    contactDistance: 0
+  m_BreakForce: Infinity
+  m_BreakTorque: Infinity
+  m_EnableCollision: 0
+  m_EnablePreprocessing: 1
+  m_MassScale: 2
+  m_ConnectedMassScale: 2
+--- !u!54 &1466812573
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1466812570}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1001 &1469274858
 Prefab:
   m_ObjectHideFlags: 0
@@ -15148,6 +15202,28 @@ Prefab:
       propertyPath: _swingSpeed
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 114709386625352712, guid: 44e752bf0357634499ab766973cea25a,
+        type: 2}
+      propertyPath: hingejoint
+      value: 
+      objectReference: {fileID: 1466812572}
+    - target: {fileID: 4427007979105984, guid: 44e752bf0357634499ab766973cea25a, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4427007979105984, guid: 44e752bf0357634499ab766973cea25a, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4427007979105984, guid: 44e752bf0357634499ab766973cea25a, type: 2}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114709386625352712, guid: 44e752bf0357634499ab766973cea25a,
+        type: 2}
+      propertyPath: _hingejoint
+      value: 
+      objectReference: {fileID: 1466812572}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 44e752bf0357634499ab766973cea25a, type: 2}
   m_IsPrefabParent: 0
