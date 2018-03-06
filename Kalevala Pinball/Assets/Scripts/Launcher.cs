@@ -70,10 +70,6 @@ namespace Kalevala
             if(_takeInput)
             {
                 _launcherForce = Mathf.Clamp01(_launcherForce + Time.deltaTime / _timeToMaxForce);
-                if(_launcherForce == 1)
-                {
-                    Debug.Log("LAUNCHINGGRGE");
-                }
                 _hingejoint.useMotor = true;
                 _hingejoint.useSpring = false;
             }
@@ -98,7 +94,7 @@ namespace Kalevala
         private void Launch()
         {
             _checkVelocity = true;
-            _launchDone = false;
+            _launchDone = true;
             _takeInput = false;
             int layermask = 1 << LayerMask.NameToLayer("Pinballs");
             Collider[] colliders = Physics.OverlapSphere(transform.position, 1f, layermask);

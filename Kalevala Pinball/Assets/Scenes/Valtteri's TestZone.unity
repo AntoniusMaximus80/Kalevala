@@ -3166,11 +3166,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4092941026948766, guid: babcca75daa603e479cbcfe048191f33, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 5.14
+      value: 4.42
       objectReference: {fileID: 0}
     - target: {fileID: 4092941026948766, guid: babcca75daa603e479cbcfe048191f33, type: 2}
       propertyPath: m_LocalPosition.z
-      value: -37.4
+      value: -38.6
       objectReference: {fileID: 0}
     - target: {fileID: 4092941026948766, guid: babcca75daa603e479cbcfe048191f33, type: 2}
       propertyPath: m_LocalRotation.x
@@ -13692,7 +13692,7 @@ HingeJoint:
   m_UseMotor: 0
   m_Motor:
     targetVelocity: 100
-    force: 100
+    force: 142
     freeSpin: 0
   m_UseLimits: 1
   m_Limits:
