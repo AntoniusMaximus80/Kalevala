@@ -265,7 +265,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1441697297895960}
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 13.96, y: -0, z: 24}
+  m_LocalPosition: {x: 15, y: -0, z: 24}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4829152188081504}
@@ -839,7 +839,7 @@ MonoBehaviour:
   _bumperForceOrigin: {fileID: 1235331500862178}
   _kanteleBumperAudioSource: {fileID: 82915136600397528}
   _bumperActiveFrames: 12
-  _bumperForce: 3
+  _bumperForce: 2
   _bumperForceRandomModifier: 0.15
 --- !u!136 &136682993829568280
 CapsuleCollider:
