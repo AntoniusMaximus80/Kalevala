@@ -7,12 +7,12 @@ FBXHeaderExtension:  {
 	CreationTimeStamp:  {
 		Version: 1000
 		Year: 2018
-		Month: 2
-		Day: 20
-		Hour: 13
-		Minute: 19
-		Second: 14
-		Millisecond: 162
+		Month: 3
+		Day: 7
+		Hour: 19
+		Minute: 56
+		Second: 17
+		Millisecond: 346
 	}
 	Creator: "FBX SDK/FBX Plugins version 2018.1"
 	SceneInfo: "SceneInfo::GlobalInfo", "UserData" {
@@ -34,15 +34,15 @@ FBXHeaderExtension:  {
 			P: "Original|ApplicationVendor", "KString", "", "", "Autodesk"
 			P: "Original|ApplicationName", "KString", "", "", "3ds Max"
 			P: "Original|ApplicationVersion", "KString", "", "", "2018"
-			P: "Original|DateTime_GMT", "DateTime", "", "", "20/02/2018 11:19:14.161"
+			P: "Original|DateTime_GMT", "DateTime", "", "", "07/03/2018 17:56:17.344"
 			P: "Original|FileName", "KString", "", "", "C:\Users\Toni\Desktop\Kalevala\Kalevala Pinball\Assets\Models\Spruce.FBX"
 			P: "LastSaved", "Compound", "", ""
 			P: "LastSaved|ApplicationVendor", "KString", "", "", "Autodesk"
 			P: "LastSaved|ApplicationName", "KString", "", "", "3ds Max"
 			P: "LastSaved|ApplicationVersion", "KString", "", "", "2018"
-			P: "LastSaved|DateTime_GMT", "DateTime", "", "", "20/02/2018 11:19:14.161"
+			P: "LastSaved|DateTime_GMT", "DateTime", "", "", "07/03/2018 17:56:17.344"
 			P: "Original|ApplicationActiveProject", "KString", "", "", "C:\Users\Toni\Documents\3dsMax"
-			P: "Original|ApplicationNativeFile", "KString", "", "", "C:\Users\Toni\Dropbox\+ Spring 2018 Project\playfield.max"
+			P: "Original|ApplicationNativeFile", "KString", "", "", "C:\Users\Toni\Dropbox\+ Spring 2018 Project\Kalevala Pinball.max"
 		}
 	}
 }
@@ -65,7 +65,7 @@ GlobalSettings:  {
 		P: "TimeProtocol", "enum", "", "",2
 		P: "SnapOnFrameMode", "enum", "", "",0
 		P: "TimeSpanStart", "KTime", "Time", "",0
-		P: "TimeSpanStop", "KTime", "Time", "",7389785280
+		P: "TimeSpanStop", "KTime", "Time", "",552386449680
 		P: "CustomFrameRate", "double", "Number", "",-1
 		P: "TimeMarker", "Compound", "", ""
 		P: "CurrentTimeMarker", "int", "Integer", "",-1
@@ -77,7 +77,7 @@ GlobalSettings:  {
 
 Documents:  {
 	Count: 1
-	Document: 1580699105984, "", "Scene" {
+	Document: 1243999657520, "", "Scene" {
 		Properties70:  {
 			P: "SourceObject", "object", "", ""
 			P: "ActiveAnimStackName", "KString", "", "", ""
@@ -97,7 +97,7 @@ References:  {
 
 Definitions:  {
 	Version: 100
-	Count: 50
+	Count: 45
 	ObjectType: "GlobalSettings" {
 		Count: 1
 	}
@@ -114,7 +114,7 @@ Definitions:  {
 		}
 	}
 	ObjectType: "Model" {
-		Count: 24
+		Count: 21
 		PropertyTemplate: "FbxNode" {
 			Properties70:  {
 				P: "QuaternionInterpolate", "enum", "", "",0
@@ -192,7 +192,7 @@ Definitions:  {
 		}
 	}
 	ObjectType: "NodeAttribute" {
-		Count: 1
+		Count: 2
 		PropertyTemplate: "FbxNull" {
 			Properties70:  {
 				P: "Color", "ColorRGB", "Color", "",0.8,0.8,0.8
@@ -202,7 +202,7 @@ Definitions:  {
 		}
 	}
 	ObjectType: "Geometry" {
-		Count: 23
+		Count: 19
 		PropertyTemplate: "FbxMesh" {
 			Properties70:  {
 				P: "Color", "ColorRGB", "Color", "",0.8,0.8,0.8
@@ -214,16 +214,51 @@ Definitions:  {
 			}
 		}
 	}
+	ObjectType: "Material" {
+		Count: 1
+		PropertyTemplate: "FbxSurfacePhong" {
+			Properties70:  {
+				P: "ShadingModel", "KString", "", "", "Phong"
+				P: "MultiLayer", "bool", "", "",0
+				P: "EmissiveColor", "Color", "", "A",0,0,0
+				P: "EmissiveFactor", "Number", "", "A",1
+				P: "AmbientColor", "Color", "", "A",0.2,0.2,0.2
+				P: "AmbientFactor", "Number", "", "A",1
+				P: "DiffuseColor", "Color", "", "A",0.8,0.8,0.8
+				P: "DiffuseFactor", "Number", "", "A",1
+				P: "Bump", "Vector3D", "Vector", "",0,0,0
+				P: "NormalMap", "Vector3D", "Vector", "",0,0,0
+				P: "BumpFactor", "double", "Number", "",1
+				P: "TransparentColor", "Color", "", "A",0,0,0
+				P: "TransparencyFactor", "Number", "", "A",0
+				P: "DisplacementColor", "ColorRGB", "Color", "",0,0,0
+				P: "DisplacementFactor", "double", "Number", "",1
+				P: "VectorDisplacementColor", "ColorRGB", "Color", "",0,0,0
+				P: "VectorDisplacementFactor", "double", "Number", "",1
+				P: "SpecularColor", "Color", "", "A",0.2,0.2,0.2
+				P: "SpecularFactor", "Number", "", "A",1
+				P: "ShininessExponent", "Number", "", "A",20
+				P: "ReflectionColor", "Color", "", "A",0,0,0
+				P: "ReflectionFactor", "Number", "", "A",1
+			}
+		}
+	}
 }
 
 ; Object properties
 ;------------------------------------------------------------------
 
 Objects:  {
-	NodeAttribute: 1582634690112, "NodeAttribute::", "Null" {
+	NodeAttribute: 1244264865984, "NodeAttribute::", "Null" {
+		Properties70:  {
+			P: "Look", "enum", "", "",0
+		}
 		TypeFlags: "Null"
 	}
-	Geometry: 1582638267072, "Geometry::", "Mesh" {
+	NodeAttribute: 1244264866336, "NodeAttribute::", "Null" {
+		TypeFlags: "Null"
+	}
+	Geometry: 1244306463296, "Geometry::", "Mesh" {
 		Properties70:  {
 			P: "Color", "ColorRGB", "Color", "",0.23921568627451,0.529411764705882,0.0235294117647059
 		}
@@ -270,10 +305,23 @@ Objects:  {
 				a: 8,8,8,8
 			} 
 		}
+		LayerElementMaterial: 0 {
+			Version: 101
+			Name: ""
+			MappingInformationType: "AllSame"
+			ReferenceInformationType: "IndexToDirect"
+			Materials: *1 {
+				a: 0
+			} 
+		}
 		Layer: 0 {
 			Version: 100
 			LayerElement:  {
 				Type: "LayerElementNormal"
+				TypedIndex: 0
+			}
+			LayerElement:  {
+				Type: "LayerElementMaterial"
 				TypedIndex: 0
 			}
 			LayerElement:  {
@@ -286,7 +334,7 @@ Objects:  {
 			}
 		}
 	}
-	Geometry: 1582638279040, "Geometry::", "Mesh" {
+	Geometry: 1244306442624, "Geometry::", "Mesh" {
 		Properties70:  {
 			P: "Color", "ColorRGB", "Color", "",0.23921568627451,0.529411764705882,0.0235294117647059
 		}
@@ -333,10 +381,23 @@ Objects:  {
 				a: 8,8,8,8
 			} 
 		}
+		LayerElementMaterial: 0 {
+			Version: 101
+			Name: ""
+			MappingInformationType: "AllSame"
+			ReferenceInformationType: "IndexToDirect"
+			Materials: *1 {
+				a: 0
+			} 
+		}
 		Layer: 0 {
 			Version: 100
 			LayerElement:  {
 				Type: "LayerElementNormal"
+				TypedIndex: 0
+			}
+			LayerElement:  {
+				Type: "LayerElementMaterial"
 				TypedIndex: 0
 			}
 			LayerElement:  {
@@ -349,7 +410,7 @@ Objects:  {
 			}
 		}
 	}
-	Geometry: 1582638248576, "Geometry::", "Mesh" {
+	Geometry: 1244306443168, "Geometry::", "Mesh" {
 		Properties70:  {
 			P: "Color", "ColorRGB", "Color", "",0.23921568627451,0.529411764705882,0.0235294117647059
 		}
@@ -396,10 +457,23 @@ Objects:  {
 				a: 8,8,8,8
 			} 
 		}
+		LayerElementMaterial: 0 {
+			Version: 101
+			Name: ""
+			MappingInformationType: "AllSame"
+			ReferenceInformationType: "IndexToDirect"
+			Materials: *1 {
+				a: 0
+			} 
+		}
 		Layer: 0 {
 			Version: 100
 			LayerElement:  {
 				Type: "LayerElementNormal"
+				TypedIndex: 0
+			}
+			LayerElement:  {
+				Type: "LayerElementMaterial"
 				TypedIndex: 0
 			}
 			LayerElement:  {
@@ -412,7 +486,7 @@ Objects:  {
 			}
 		}
 	}
-	Geometry: 1582638250208, "Geometry::", "Mesh" {
+	Geometry: 1244306455136, "Geometry::", "Mesh" {
 		Properties70:  {
 			P: "Color", "ColorRGB", "Color", "",0.23921568627451,0.529411764705882,0.0235294117647059
 		}
@@ -459,10 +533,23 @@ Objects:  {
 				a: 8,8,8,8
 			} 
 		}
+		LayerElementMaterial: 0 {
+			Version: 101
+			Name: ""
+			MappingInformationType: "AllSame"
+			ReferenceInformationType: "IndexToDirect"
+			Materials: *1 {
+				a: 0
+			} 
+		}
 		Layer: 0 {
 			Version: 100
 			LayerElement:  {
 				Type: "LayerElementNormal"
+				TypedIndex: 0
+			}
+			LayerElement:  {
+				Type: "LayerElementMaterial"
 				TypedIndex: 0
 			}
 			LayerElement:  {
@@ -475,7 +562,7 @@ Objects:  {
 			}
 		}
 	}
-	Geometry: 1582272096448, "Geometry::", "Mesh" {
+	Geometry: 1244306449152, "Geometry::", "Mesh" {
 		Properties70:  {
 			P: "Color", "ColorRGB", "Color", "",0.23921568627451,0.529411764705882,0.0235294117647059
 		}
@@ -522,10 +609,23 @@ Objects:  {
 				a: 8,8,8,8
 			} 
 		}
+		LayerElementMaterial: 0 {
+			Version: 101
+			Name: ""
+			MappingInformationType: "AllSame"
+			ReferenceInformationType: "IndexToDirect"
+			Materials: *1 {
+				a: 0
+			} 
+		}
 		Layer: 0 {
 			Version: 100
 			LayerElement:  {
 				Type: "LayerElementNormal"
+				TypedIndex: 0
+			}
+			LayerElement:  {
+				Type: "LayerElementMaterial"
 				TypedIndex: 0
 			}
 			LayerElement:  {
@@ -538,7 +638,7 @@ Objects:  {
 			}
 		}
 	}
-	Geometry: 1580562549168, "Geometry::", "Mesh" {
+	Geometry: 1244306450240, "Geometry::", "Mesh" {
 		Properties70:  {
 			P: "Color", "ColorRGB", "Color", "",0.23921568627451,0.529411764705882,0.0235294117647059
 		}
@@ -585,10 +685,23 @@ Objects:  {
 				a: 8,8,8,8
 			} 
 		}
+		LayerElementMaterial: 0 {
+			Version: 101
+			Name: ""
+			MappingInformationType: "AllSame"
+			ReferenceInformationType: "IndexToDirect"
+			Materials: *1 {
+				a: 0
+			} 
+		}
 		Layer: 0 {
 			Version: 100
 			LayerElement:  {
 				Type: "LayerElementNormal"
+				TypedIndex: 0
+			}
+			LayerElement:  {
+				Type: "LayerElementMaterial"
 				TypedIndex: 0
 			}
 			LayerElement:  {
@@ -601,7 +714,7 @@ Objects:  {
 			}
 		}
 	}
-	Geometry: 1580562544816, "Geometry::", "Mesh" {
+	Geometry: 1244306352320, "Geometry::", "Mesh" {
 		Properties70:  {
 			P: "Color", "ColorRGB", "Color", "",0.23921568627451,0.529411764705882,0.0235294117647059
 		}
@@ -648,10 +761,23 @@ Objects:  {
 				a: 8,8,8,8
 			} 
 		}
+		LayerElementMaterial: 0 {
+			Version: 101
+			Name: ""
+			MappingInformationType: "AllSame"
+			ReferenceInformationType: "IndexToDirect"
+			Materials: *1 {
+				a: 0
+			} 
+		}
 		Layer: 0 {
 			Version: 100
 			LayerElement:  {
 				Type: "LayerElementNormal"
+				TypedIndex: 0
+			}
+			LayerElement:  {
+				Type: "LayerElementMaterial"
 				TypedIndex: 0
 			}
 			LayerElement:  {
@@ -664,7 +790,7 @@ Objects:  {
 			}
 		}
 	}
-	Geometry: 1580562545904, "Geometry::", "Mesh" {
+	Geometry: 1244306333824, "Geometry::", "Mesh" {
 		Properties70:  {
 			P: "Color", "ColorRGB", "Color", "",0.23921568627451,0.529411764705882,0.0235294117647059
 		}
@@ -711,10 +837,23 @@ Objects:  {
 				a: 8,8,8,8
 			} 
 		}
+		LayerElementMaterial: 0 {
+			Version: 101
+			Name: ""
+			MappingInformationType: "AllSame"
+			ReferenceInformationType: "IndexToDirect"
+			Materials: *1 {
+				a: 0
+			} 
+		}
 		Layer: 0 {
 			Version: 100
 			LayerElement:  {
 				Type: "LayerElementNormal"
+				TypedIndex: 0
+			}
+			LayerElement:  {
+				Type: "LayerElementMaterial"
 				TypedIndex: 0
 			}
 			LayerElement:  {
@@ -727,7 +866,7 @@ Objects:  {
 			}
 		}
 	}
-	Geometry: 1580562533936, "Geometry::", "Mesh" {
+	Geometry: 1244306351776, "Geometry::", "Mesh" {
 		Properties70:  {
 			P: "Color", "ColorRGB", "Color", "",0.23921568627451,0.529411764705882,0.0235294117647059
 		}
@@ -774,10 +913,23 @@ Objects:  {
 				a: 8,8,8,8
 			} 
 		}
+		LayerElementMaterial: 0 {
+			Version: 101
+			Name: ""
+			MappingInformationType: "AllSame"
+			ReferenceInformationType: "IndexToDirect"
+			Materials: *1 {
+				a: 0
+			} 
+		}
 		Layer: 0 {
 			Version: 100
 			LayerElement:  {
 				Type: "LayerElementNormal"
+				TypedIndex: 0
+			}
+			LayerElement:  {
+				Type: "LayerElementMaterial"
 				TypedIndex: 0
 			}
 			LayerElement:  {
@@ -790,7 +942,7 @@ Objects:  {
 			}
 		}
 	}
-	Geometry: 1580562545360, "Geometry::", "Mesh" {
+	Geometry: 1244306355040, "Geometry::", "Mesh" {
 		Properties70:  {
 			P: "Color", "ColorRGB", "Color", "",0.23921568627451,0.529411764705882,0.0235294117647059
 		}
@@ -837,10 +989,23 @@ Objects:  {
 				a: 8,8,8,8
 			} 
 		}
+		LayerElementMaterial: 0 {
+			Version: 101
+			Name: ""
+			MappingInformationType: "AllSame"
+			ReferenceInformationType: "IndexToDirect"
+			Materials: *1 {
+				a: 0
+			} 
+		}
 		Layer: 0 {
 			Version: 100
 			LayerElement:  {
 				Type: "LayerElementNormal"
+				TypedIndex: 0
+			}
+			LayerElement:  {
+				Type: "LayerElementMaterial"
 				TypedIndex: 0
 			}
 			LayerElement:  {
@@ -853,7 +1018,7 @@ Objects:  {
 			}
 		}
 	}
-	Geometry: 1580562548624, "Geometry::", "Mesh" {
+	Geometry: 1244306344160, "Geometry::", "Mesh" {
 		Properties70:  {
 			P: "Color", "ColorRGB", "Color", "",0.23921568627451,0.529411764705882,0.0235294117647059
 		}
@@ -900,73 +1065,23 @@ Objects:  {
 				a: 8,8,8,8
 			} 
 		}
-		Layer: 0 {
-			Version: 100
-			LayerElement:  {
-				Type: "LayerElementNormal"
-				TypedIndex: 0
-			}
-			LayerElement:  {
-				Type: "LayerElementSmoothing"
-				TypedIndex: 0
-			}
-			LayerElement:  {
-				Type: "LayerElementUV"
-				TypedIndex: 0
-			}
-		}
-	}
-	Geometry: 1580562547536, "Geometry::", "Mesh" {
-		Properties70:  {
-			P: "Color", "ColorRGB", "Color", "",0.23921568627451,0.529411764705882,0.0235294117647059
-		}
-		Vertices: *18 {
-			a: -8.30116176605225,-4.62964963912964,6.62716197967529,-6.96369361877441,-5.96711921691895,7.61629772186279,-5.13667488098145,-6.45666933059692,7.99148035049438,-3.30965662002563,-5.96712303161621,7.61629772186279,-1.97218561172485,-4.62965202331543,6.62716197967529,-5.13667392730713,-2.80263233184814,7.82857751846313
-		} 
-		PolygonVertexIndex: *12 {
-			a: 0,1,-6,1,2,-6,2,3,-6,3,4,-6
-		} 
-		Edges: *9 {
-			a: 0,3,6,9,2,1,4,7,10
-		} 
-		GeometryVersion: 124
-		LayerElementNormal: 0 {
-			Version: 102
-			Name: ""
-			MappingInformationType: "ByPolygonVertex"
-			ReferenceInformationType: "Direct"
-			Normals: *36 {
-				a: -0.446193426847458,0.199080422520638,0.872512638568878,-0.325201064348221,0.124875023961067,0.937363624572754,4.32485762758006e-08,0.133224070072174,0.991085946559906,-0.325201064348221,0.124875023961067,0.937363624572754,1.62765218192362e-07,0.044537365436554,0.999007701873779,4.32485762758006e-08,0.133224070072174,0.991085946559906,1.62765218192362e-07,0.044537365436554,0.999007701873779,0.325200974941254,0.124874599277973,0.937363624572754,4.32485762758006e-08,0.133224070072174,0.991085946559906,0.325200974941254,0.124874599277973,0.937363624572754,0.446193188428879,0.199079677462578,0.872512996196747,4.32485762758006e-08,0.133224070072174,0.991085946559906
-			} 
-			NormalsW: *12 {
-				a: 0,0,0,0,0,0,0,0,0,0,0,0
-			} 
-		}
-		LayerElementUV: 0 {
+		LayerElementMaterial: 0 {
 			Version: 101
-			Name: "UVChannel_1"
-			MappingInformationType: "ByPolygonVertex"
-			ReferenceInformationType: "IndexToDirect"
-			UV: *12 {
-				a: 0.0199999995529652,0.690036654472351,0.24656480550766,0.499564945697784,0.500000357627869,0.951021790504456,0.500000059604645,0.432570844888687,0.753435134887695,0.499564588069916,0.979999959468842,0.690036535263062
-			} 
-			UVIndex: *12 {
-				a: 0,1,2,1,3,2,3,4,2,4,5,2
-			} 
-		}
-		LayerElementSmoothing: 0 {
-			Version: 102
 			Name: ""
-			MappingInformationType: "ByPolygon"
-			ReferenceInformationType: "Direct"
-			Smoothing: *4 {
-				a: 8,8,8,8
+			MappingInformationType: "AllSame"
+			ReferenceInformationType: "IndexToDirect"
+			Materials: *1 {
+				a: 0
 			} 
 		}
 		Layer: 0 {
 			Version: 100
 			LayerElement:  {
 				Type: "LayerElementNormal"
+				TypedIndex: 0
+			}
+			LayerElement:  {
+				Type: "LayerElementMaterial"
 				TypedIndex: 0
 			}
 			LayerElement:  {
@@ -979,196 +1094,7 @@ Objects:  {
 			}
 		}
 	}
-	Geometry: 1580562534480, "Geometry::", "Mesh" {
-		Properties70:  {
-			P: "Color", "ColorRGB", "Color", "",0.23921568627451,0.529411764705882,0.0235294117647059
-		}
-		Vertices: *18 {
-			a: -8.30116176605225,-4.62964963912964,6.62716197967529,-6.96369361877441,-5.96711921691895,7.61629772186279,-5.13667488098145,-6.45666933059692,7.99148035049438,-3.30965662002563,-5.96712303161621,7.61629772186279,-1.97218561172485,-4.62965202331543,6.62716197967529,-5.13667392730713,-2.80263233184814,7.82857751846313
-		} 
-		PolygonVertexIndex: *12 {
-			a: 0,1,-6,1,2,-6,2,3,-6,3,4,-6
-		} 
-		Edges: *9 {
-			a: 0,3,6,9,2,1,4,7,10
-		} 
-		GeometryVersion: 124
-		LayerElementNormal: 0 {
-			Version: 102
-			Name: ""
-			MappingInformationType: "ByPolygonVertex"
-			ReferenceInformationType: "Direct"
-			Normals: *36 {
-				a: -0.446193426847458,0.199080422520638,0.872512638568878,-0.325201064348221,0.124875023961067,0.937363624572754,4.32485762758006e-08,0.133224070072174,0.991085946559906,-0.325201064348221,0.124875023961067,0.937363624572754,1.62765218192362e-07,0.044537365436554,0.999007701873779,4.32485762758006e-08,0.133224070072174,0.991085946559906,1.62765218192362e-07,0.044537365436554,0.999007701873779,0.325200974941254,0.124874599277973,0.937363624572754,4.32485762758006e-08,0.133224070072174,0.991085946559906,0.325200974941254,0.124874599277973,0.937363624572754,0.446193188428879,0.199079677462578,0.872512996196747,4.32485762758006e-08,0.133224070072174,0.991085946559906
-			} 
-			NormalsW: *12 {
-				a: 0,0,0,0,0,0,0,0,0,0,0,0
-			} 
-		}
-		LayerElementUV: 0 {
-			Version: 101
-			Name: "UVChannel_1"
-			MappingInformationType: "ByPolygonVertex"
-			ReferenceInformationType: "IndexToDirect"
-			UV: *12 {
-				a: 0.0199999995529652,0.690036654472351,0.24656480550766,0.499564945697784,0.500000357627869,0.951021790504456,0.500000059604645,0.432570844888687,0.753435134887695,0.499564588069916,0.979999959468842,0.690036535263062
-			} 
-			UVIndex: *12 {
-				a: 0,1,2,1,3,2,3,4,2,4,5,2
-			} 
-		}
-		LayerElementSmoothing: 0 {
-			Version: 102
-			Name: ""
-			MappingInformationType: "ByPolygon"
-			ReferenceInformationType: "Direct"
-			Smoothing: *4 {
-				a: 8,8,8,8
-			} 
-		}
-		Layer: 0 {
-			Version: 100
-			LayerElement:  {
-				Type: "LayerElementNormal"
-				TypedIndex: 0
-			}
-			LayerElement:  {
-				Type: "LayerElementSmoothing"
-				TypedIndex: 0
-			}
-			LayerElement:  {
-				Type: "LayerElementUV"
-				TypedIndex: 0
-			}
-		}
-	}
-	Geometry: 1580562546448, "Geometry::", "Mesh" {
-		Properties70:  {
-			P: "Color", "ColorRGB", "Color", "",0.23921568627451,0.529411764705882,0.0235294117647059
-		}
-		Vertices: *18 {
-			a: -8.30116176605225,-4.62964963912964,6.62716197967529,-6.96369361877441,-5.96711921691895,7.61629772186279,-5.13667488098145,-6.45666933059692,7.99148035049438,-3.30965662002563,-5.96712303161621,7.61629772186279,-1.97218561172485,-4.62965202331543,6.62716197967529,-5.13667392730713,-2.80263233184814,7.82857751846313
-		} 
-		PolygonVertexIndex: *12 {
-			a: 0,1,-6,1,2,-6,2,3,-6,3,4,-6
-		} 
-		Edges: *9 {
-			a: 0,3,6,9,2,1,4,7,10
-		} 
-		GeometryVersion: 124
-		LayerElementNormal: 0 {
-			Version: 102
-			Name: ""
-			MappingInformationType: "ByPolygonVertex"
-			ReferenceInformationType: "Direct"
-			Normals: *36 {
-				a: -0.446193426847458,0.199080422520638,0.872512638568878,-0.325201064348221,0.124875023961067,0.937363624572754,4.32485762758006e-08,0.133224070072174,0.991085946559906,-0.325201064348221,0.124875023961067,0.937363624572754,1.62765218192362e-07,0.044537365436554,0.999007701873779,4.32485762758006e-08,0.133224070072174,0.991085946559906,1.62765218192362e-07,0.044537365436554,0.999007701873779,0.325200974941254,0.124874599277973,0.937363624572754,4.32485762758006e-08,0.133224070072174,0.991085946559906,0.325200974941254,0.124874599277973,0.937363624572754,0.446193188428879,0.199079677462578,0.872512996196747,4.32485762758006e-08,0.133224070072174,0.991085946559906
-			} 
-			NormalsW: *12 {
-				a: 0,0,0,0,0,0,0,0,0,0,0,0
-			} 
-		}
-		LayerElementUV: 0 {
-			Version: 101
-			Name: "UVChannel_1"
-			MappingInformationType: "ByPolygonVertex"
-			ReferenceInformationType: "IndexToDirect"
-			UV: *12 {
-				a: 0.0199999995529652,0.690036654472351,0.24656480550766,0.499564945697784,0.500000357627869,0.951021790504456,0.500000059604645,0.432570844888687,0.753435134887695,0.499564588069916,0.979999959468842,0.690036535263062
-			} 
-			UVIndex: *12 {
-				a: 0,1,2,1,3,2,3,4,2,4,5,2
-			} 
-		}
-		LayerElementSmoothing: 0 {
-			Version: 102
-			Name: ""
-			MappingInformationType: "ByPolygon"
-			ReferenceInformationType: "Direct"
-			Smoothing: *4 {
-				a: 8,8,8,8
-			} 
-		}
-		Layer: 0 {
-			Version: 100
-			LayerElement:  {
-				Type: "LayerElementNormal"
-				TypedIndex: 0
-			}
-			LayerElement:  {
-				Type: "LayerElementSmoothing"
-				TypedIndex: 0
-			}
-			LayerElement:  {
-				Type: "LayerElementUV"
-				TypedIndex: 0
-			}
-		}
-	}
-	Geometry: 1580562548080, "Geometry::", "Mesh" {
-		Properties70:  {
-			P: "Color", "ColorRGB", "Color", "",0.23921568627451,0.529411764705882,0.0235294117647059
-		}
-		Vertices: *18 {
-			a: -8.30116176605225,-4.62964963912964,6.62716197967529,-6.96369361877441,-5.96711921691895,7.61629772186279,-5.13667488098145,-6.45666933059692,7.99148035049438,-3.30965662002563,-5.96712303161621,7.61629772186279,-1.97218561172485,-4.62965202331543,6.62716197967529,-5.13667392730713,-2.80263233184814,7.82857751846313
-		} 
-		PolygonVertexIndex: *12 {
-			a: 0,1,-6,1,2,-6,2,3,-6,3,4,-6
-		} 
-		Edges: *9 {
-			a: 0,3,6,9,2,1,4,7,10
-		} 
-		GeometryVersion: 124
-		LayerElementNormal: 0 {
-			Version: 102
-			Name: ""
-			MappingInformationType: "ByPolygonVertex"
-			ReferenceInformationType: "Direct"
-			Normals: *36 {
-				a: -0.446193426847458,0.199080422520638,0.872512638568878,-0.325201064348221,0.124875023961067,0.937363624572754,4.32485762758006e-08,0.133224070072174,0.991085946559906,-0.325201064348221,0.124875023961067,0.937363624572754,1.62765218192362e-07,0.044537365436554,0.999007701873779,4.32485762758006e-08,0.133224070072174,0.991085946559906,1.62765218192362e-07,0.044537365436554,0.999007701873779,0.325200974941254,0.124874599277973,0.937363624572754,4.32485762758006e-08,0.133224070072174,0.991085946559906,0.325200974941254,0.124874599277973,0.937363624572754,0.446193188428879,0.199079677462578,0.872512996196747,4.32485762758006e-08,0.133224070072174,0.991085946559906
-			} 
-			NormalsW: *12 {
-				a: 0,0,0,0,0,0,0,0,0,0,0,0
-			} 
-		}
-		LayerElementUV: 0 {
-			Version: 101
-			Name: "UVChannel_1"
-			MappingInformationType: "ByPolygonVertex"
-			ReferenceInformationType: "IndexToDirect"
-			UV: *12 {
-				a: 0.0199999995529652,0.690036654472351,0.24656480550766,0.499564945697784,0.500000357627869,0.951021790504456,0.500000059604645,0.432570844888687,0.753435134887695,0.499564588069916,0.979999959468842,0.690036535263062
-			} 
-			UVIndex: *12 {
-				a: 0,1,2,1,3,2,3,4,2,4,5,2
-			} 
-		}
-		LayerElementSmoothing: 0 {
-			Version: 102
-			Name: ""
-			MappingInformationType: "ByPolygon"
-			ReferenceInformationType: "Direct"
-			Smoothing: *4 {
-				a: 8,8,8,8
-			} 
-		}
-		Layer: 0 {
-			Version: 100
-			LayerElement:  {
-				Type: "LayerElementNormal"
-				TypedIndex: 0
-			}
-			LayerElement:  {
-				Type: "LayerElementSmoothing"
-				TypedIndex: 0
-			}
-			LayerElement:  {
-				Type: "LayerElementUV"
-				TypedIndex: 0
-			}
-		}
-	}
-	Geometry: 1580562542640, "Geometry::", "Mesh" {
+	Geometry: 1244306355584, "Geometry::", "Mesh" {
 		Properties70:  {
 			P: "Color", "ColorRGB", "Color", "",0.603921568627451,0.843137254901961,0.898039215686275
 		}
@@ -1224,10 +1150,23 @@ Objects:  {
 				a: 8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8
 			} 
 		}
+		LayerElementMaterial: 0 {
+			Version: 101
+			Name: ""
+			MappingInformationType: "AllSame"
+			ReferenceInformationType: "IndexToDirect"
+			Materials: *1 {
+				a: 0
+			} 
+		}
 		Layer: 0 {
 			Version: 100
 			LayerElement:  {
 				Type: "LayerElementNormal"
+				TypedIndex: 0
+			}
+			LayerElement:  {
+				Type: "LayerElementMaterial"
 				TypedIndex: 0
 			}
 			LayerElement:  {
@@ -1240,7 +1179,7 @@ Objects:  {
 			}
 		}
 	}
-	Geometry: 1580562536656, "Geometry::", "Mesh" {
+	Geometry: 1244306337088, "Geometry::", "Mesh" {
 		Properties70:  {
 			P: "Color", "ColorRGB", "Color", "",0.23921568627451,0.529411764705882,0.0235294117647059
 		}
@@ -1287,10 +1226,23 @@ Objects:  {
 				a: 8,8,8,8
 			} 
 		}
+		LayerElementMaterial: 0 {
+			Version: 101
+			Name: ""
+			MappingInformationType: "AllSame"
+			ReferenceInformationType: "IndexToDirect"
+			Materials: *1 {
+				a: 0
+			} 
+		}
 		Layer: 0 {
 			Version: 100
 			LayerElement:  {
 				Type: "LayerElementNormal"
+				TypedIndex: 0
+			}
+			LayerElement:  {
+				Type: "LayerElementMaterial"
 				TypedIndex: 0
 			}
 			LayerElement:  {
@@ -1303,7 +1255,7 @@ Objects:  {
 			}
 		}
 	}
-	Geometry: 1580562536112, "Geometry::", "Mesh" {
+	Geometry: 1244306357216, "Geometry::", "Mesh" {
 		Properties70:  {
 			P: "Color", "ColorRGB", "Color", "",0.23921568627451,0.529411764705882,0.0235294117647059
 		}
@@ -1350,10 +1302,23 @@ Objects:  {
 				a: 8,8,8,8
 			} 
 		}
+		LayerElementMaterial: 0 {
+			Version: 101
+			Name: ""
+			MappingInformationType: "AllSame"
+			ReferenceInformationType: "IndexToDirect"
+			Materials: *1 {
+				a: 0
+			} 
+		}
 		Layer: 0 {
 			Version: 100
 			LayerElement:  {
 				Type: "LayerElementNormal"
+				TypedIndex: 0
+			}
+			LayerElement:  {
+				Type: "LayerElementMaterial"
 				TypedIndex: 0
 			}
 			LayerElement:  {
@@ -1366,7 +1331,7 @@ Objects:  {
 			}
 		}
 	}
-	Geometry: 1580562539920, "Geometry::", "Mesh" {
+	Geometry: 1244306361568, "Geometry::", "Mesh" {
 		Properties70:  {
 			P: "Color", "ColorRGB", "Color", "",0.23921568627451,0.529411764705882,0.0235294117647059
 		}
@@ -1413,10 +1378,23 @@ Objects:  {
 				a: 8,8,8,8
 			} 
 		}
+		LayerElementMaterial: 0 {
+			Version: 101
+			Name: ""
+			MappingInformationType: "AllSame"
+			ReferenceInformationType: "IndexToDirect"
+			Materials: *1 {
+				a: 0
+			} 
+		}
 		Layer: 0 {
 			Version: 100
 			LayerElement:  {
 				Type: "LayerElementNormal"
+				TypedIndex: 0
+			}
+			LayerElement:  {
+				Type: "LayerElementMaterial"
 				TypedIndex: 0
 			}
 			LayerElement:  {
@@ -1429,7 +1407,7 @@ Objects:  {
 			}
 		}
 	}
-	Geometry: 1580562546992, "Geometry::", "Mesh" {
+	Geometry: 1244306337632, "Geometry::", "Mesh" {
 		Properties70:  {
 			P: "Color", "ColorRGB", "Color", "",0.23921568627451,0.529411764705882,0.0235294117647059
 		}
@@ -1476,10 +1454,23 @@ Objects:  {
 				a: 8,8,8,8
 			} 
 		}
+		LayerElementMaterial: 0 {
+			Version: 101
+			Name: ""
+			MappingInformationType: "AllSame"
+			ReferenceInformationType: "IndexToDirect"
+			Materials: *1 {
+				a: 0
+			} 
+		}
 		Layer: 0 {
 			Version: 100
 			LayerElement:  {
 				Type: "LayerElementNormal"
+				TypedIndex: 0
+			}
+			LayerElement:  {
+				Type: "LayerElementMaterial"
 				TypedIndex: 0
 			}
 			LayerElement:  {
@@ -1492,7 +1483,7 @@ Objects:  {
 			}
 		}
 	}
-	Geometry: 1580562535024, "Geometry::", "Mesh" {
+	Geometry: 1244306367552, "Geometry::", "Mesh" {
 		Properties70:  {
 			P: "Color", "ColorRGB", "Color", "",0.23921568627451,0.529411764705882,0.0235294117647059
 		}
@@ -1539,10 +1530,23 @@ Objects:  {
 				a: 8,8,8,8
 			} 
 		}
+		LayerElementMaterial: 0 {
+			Version: 101
+			Name: ""
+			MappingInformationType: "AllSame"
+			ReferenceInformationType: "IndexToDirect"
+			Materials: *1 {
+				a: 0
+			} 
+		}
 		Layer: 0 {
 			Version: 100
 			LayerElement:  {
 				Type: "LayerElementNormal"
+				TypedIndex: 0
+			}
+			LayerElement:  {
+				Type: "LayerElementMaterial"
 				TypedIndex: 0
 			}
 			LayerElement:  {
@@ -1555,7 +1559,7 @@ Objects:  {
 			}
 		}
 	}
-	Geometry: 1580562535568, "Geometry::", "Mesh" {
+	Geometry: 1244306365376, "Geometry::", "Mesh" {
 		Properties70:  {
 			P: "Color", "ColorRGB", "Color", "",0.23921568627451,0.529411764705882,0.0235294117647059
 		}
@@ -1602,10 +1606,23 @@ Objects:  {
 				a: 8,8,8,8
 			} 
 		}
+		LayerElementMaterial: 0 {
+			Version: 101
+			Name: ""
+			MappingInformationType: "AllSame"
+			ReferenceInformationType: "IndexToDirect"
+			Materials: *1 {
+				a: 0
+			} 
+		}
 		Layer: 0 {
 			Version: 100
 			LayerElement:  {
 				Type: "LayerElementNormal"
+				TypedIndex: 0
+			}
+			LayerElement:  {
+				Type: "LayerElementMaterial"
 				TypedIndex: 0
 			}
 			LayerElement:  {
@@ -1618,7 +1635,7 @@ Objects:  {
 			}
 		}
 	}
-	Geometry: 1580562537200, "Geometry::", "Mesh" {
+	Geometry: 1244306350144, "Geometry::", "Mesh" {
 		Properties70:  {
 			P: "Color", "ColorRGB", "Color", "",0.23921568627451,0.529411764705882,0.0235294117647059
 		}
@@ -1665,10 +1682,23 @@ Objects:  {
 				a: 8,8,8,8
 			} 
 		}
+		LayerElementMaterial: 0 {
+			Version: 101
+			Name: ""
+			MappingInformationType: "AllSame"
+			ReferenceInformationType: "IndexToDirect"
+			Materials: *1 {
+				a: 0
+			} 
+		}
 		Layer: 0 {
 			Version: 100
 			LayerElement:  {
 				Type: "LayerElementNormal"
+				TypedIndex: 0
+			}
+			LayerElement:  {
+				Type: "LayerElementMaterial"
 				TypedIndex: 0
 			}
 			LayerElement:  {
@@ -1681,23 +1711,35 @@ Objects:  {
 			}
 		}
 	}
-	Model: 1580699270528, "Model::Spruce", "Null" {
+	Model: 1244404642160, "Model::Spruce Bumper", "Null" {
 		Version: 232
 		Properties70:  {
 			P: "PreRotation", "Vector3D", "Vector", "",-90,-0,0
 			P: "RotationActive", "bool", "", "",1
 			P: "InheritType", "enum", "", "",1
 			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
+			P: "DefaultAttributeIndex", "int", "Integer", "",0
+			P: "Lcl Translation", "Lcl Translation", "", "A",-0.169868659973145,0.118965845108032,-0.445853385925293
+			P: "Lcl Scaling", "Lcl Scaling", "", "A",0.01,0.01,0.01
+			P: "MaxHandle", "int", "Integer", "UH",616
+		}
+		Shading: T
+		Culling: "CullingOff"
+	}
+	Model: 1244320286208, "Model::Spruce", "Null" {
+		Version: 232
+		Properties70:  {
+			P: "InheritType", "enum", "", "",1
+			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
 			P: "GeometricTranslation", "Vector3D", "Vector", "",0,0,5.58619737625122
 			P: "DefaultAttributeIndex", "int", "Integer", "",0
-			P: "Lcl Translation", "Lcl Translation", "", "A",-0.181648063659668,0.0360095453262329,-0.288743591308594
-			P: "Lcl Scaling", "Lcl Scaling", "", "A",0.01,0.01,0.01
+			P: "Lcl Translation", "Lcl Translation", "", "A",0,0.134170532226563,-3.79562854766846
 			P: "MaxHandle", "int", "Integer", "UH",459
 		}
 		Shading: T
 		Culling: "CullingOff"
 	}
-	Model: 1580699294640, "Model::Spruce Branches014", "Mesh" {
+	Model: 1244320277440, "Model::Spruce Branches014", "Mesh" {
 		Version: 232
 		Properties70:  {
 			P: "InheritType", "enum", "", "",1
@@ -1713,7 +1755,7 @@ Objects:  {
 		Shading: T
 		Culling: "CullingOff"
 	}
-	Model: 1580699305600, "Model::Spruce Branches006", "Mesh" {
+	Model: 1244320288400, "Model::Spruce Branches006", "Mesh" {
 		Version: 232
 		Properties70:  {
 			P: "InheritType", "enum", "", "",1
@@ -1729,22 +1771,7 @@ Objects:  {
 		Shading: T
 		Culling: "CullingOff"
 	}
-	Model: 1580699283680, "Model::Spruce Branches001", "Mesh" {
-		Version: 232
-		Properties70:  {
-			P: "InheritType", "enum", "", "",1
-			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
-			P: "GeometricTranslation", "Vector3D", "Vector", "",1.73760080337524,-10.4778881072998,-5.04796981811523
-			P: "GeometricRotation", "Vector3D", "Vector", "",40.0000038146973,1.70754731243505e-06,-135
-			P: "GeometricScaling", "Vector3D", "Vector", "",1.20317482948303,1.20317494869232,1.20317471027374
-			P: "DefaultAttributeIndex", "int", "Integer", "",0
-			P: "Lcl Translation", "Lcl Translation", "", "A",-0.0198688507080078,-0.0182285308837891,4.512047290802
-			P: "MaxHandle", "int", "Integer", "UH",441
-		}
-		Shading: T
-		Culling: "CullingOff"
-	}
-	Model: 1580699301216, "Model::Spruce Branches002", "Mesh" {
+	Model: 1244320270864, "Model::Spruce Branches002", "Mesh" {
 		Version: 232
 		Properties70:  {
 			P: "InheritType", "enum", "", "",1
@@ -1753,13 +1780,13 @@ Objects:  {
 			P: "GeometricRotation", "Vector3D", "Vector", "",34.9625854492188,-4.92385625839233,0.870383203029633
 			P: "GeometricScaling", "Vector3D", "Vector", "",1.09675002098083,1.09674990177155,1.09675014019012
 			P: "DefaultAttributeIndex", "int", "Integer", "",0
-			P: "Lcl Translation", "Lcl Translation", "", "A",-0.0123176574707031,0,5.504723072052
+			P: "Lcl Translation", "Lcl Translation", "", "A",-0.0123176574707031,0,5.50472259521484
 			P: "MaxHandle", "int", "Integer", "UH",442
 		}
 		Shading: T
 		Culling: "CullingOff"
 	}
-	Model: 1580699290256, "Model::Spruce Branches005", "Mesh" {
+	Model: 1244320290592, "Model::Spruce Branches005", "Mesh" {
 		Version: 232
 		Properties70:  {
 			P: "InheritType", "enum", "", "",1
@@ -1774,7 +1801,7 @@ Objects:  {
 		Shading: T
 		Culling: "CullingOff"
 	}
-	Model: 1580699296832, "Model::Spruce Branches004", "Mesh" {
+	Model: 1244320284016, "Model::Spruce Branches004", "Mesh" {
 		Version: 232
 		Properties70:  {
 			P: "InheritType", "enum", "", "",1
@@ -1783,14 +1810,14 @@ Objects:  {
 			P: "GeometricRotation", "Vector3D", "Vector", "",45.0000190734863,-4.99999761581421,-7.49905552765995e-07
 			P: "GeometricScaling", "Vector3D", "Vector", "",1.00000011920929,1.00000011920929,1.00000035762787
 			P: "DefaultAttributeIndex", "int", "Integer", "",0
-			P: "Lcl Translation", "Lcl Translation", "", "A",-0.0123176574707031,0,7.490074634552
+			P: "Lcl Translation", "Lcl Translation", "", "A",-0.0123176574707031,0,7.49007415771484
 			P: "Lcl Rotation", "Lcl Rotation", "", "A",0,-0,-44.9999975851635
 			P: "MaxHandle", "int", "Integer", "UH",444
 		}
 		Shading: T
 		Culling: "CullingOff"
 	}
-	Model: 1580699288064, "Model::Spruce Branches012", "Mesh" {
+	Model: 1244320279632, "Model::Spruce Branches012", "Mesh" {
 		Version: 232
 		Properties70:  {
 			P: "InheritType", "enum", "", "",1
@@ -1799,13 +1826,13 @@ Objects:  {
 			P: "GeometricRotation", "Vector3D", "Vector", "",40,-4.99999761581421,180
 			P: "GeometricScaling", "Vector3D", "Vector", "",1,0.999999821186066,0.999999940395355
 			P: "DefaultAttributeIndex", "int", "Integer", "",0
-			P: "Lcl Translation", "Lcl Translation", "", "A",-0.0123176574707031,0,7.490074634552
+			P: "Lcl Translation", "Lcl Translation", "", "A",-0.0123176574707031,0,7.49007415771484
 			P: "MaxHandle", "int", "Integer", "UH",452
 		}
 		Shading: T
 		Culling: "CullingOff"
 	}
-	Model: 1580699303408, "Model::Spruce Branches007", "Mesh" {
+	Model: 1244320292784, "Model::Spruce Branches007", "Mesh" {
 		Version: 232
 		Properties70:  {
 			P: "InheritType", "enum", "", "",1
@@ -1820,38 +1847,7 @@ Objects:  {
 		Shading: T
 		Culling: "CullingOff"
 	}
-	Model: 1580699307792, "Model::Spruce Branches008", "Mesh" {
-		Version: 232
-		Properties70:  {
-			P: "InheritType", "enum", "", "",1
-			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
-			P: "GeometricTranslation", "Vector3D", "Vector", "",-6.16668367385864,-9.0247917175293,-4.26650762557983
-			P: "GeometricRotation", "Vector3D", "Vector", "",44.9999961853027,-6.10666519521713e-13,180
-			P: "GeometricScaling", "Vector3D", "Vector", "",1.20052051544189,1.20052051544189,1.20052051544189
-			P: "DefaultAttributeIndex", "int", "Integer", "",0
-			P: "Lcl Translation", "Lcl Translation", "", "A",-0.0123176574707031,0,3.51937007904053
-			P: "MaxHandle", "int", "Integer", "UH",448
-		}
-		Shading: T
-		Culling: "CullingOff"
-	}
-	Model: 1580699309984, "Model::Spruce Branches009", "Mesh" {
-		Version: 232
-		Properties70:  {
-			P: "InheritType", "enum", "", "",1
-			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
-			P: "GeometricTranslation", "Vector3D", "Vector", "",-1.66773581504822,10.0566139221191,-4.84501123428345
-			P: "GeometricRotation", "Vector3D", "Vector", "",40,-1.70754731243505e-06,44.9999847412109
-			P: "GeometricScaling", "Vector3D", "Vector", "",1.1547999382019,1.15479981899261,1.1547999382019
-			P: "DefaultAttributeIndex", "int", "Integer", "",0
-			P: "Lcl Translation", "Lcl Translation", "", "A",-0.0198688507080078,-0.0182285308837891,4.512047290802
-			P: "Lcl Rotation", "Lcl Rotation", "", "A",0,-0,-1.00179122619506e-05
-			P: "MaxHandle", "int", "Integer", "UH",449
-		}
-		Shading: T
-		Culling: "CullingOff"
-	}
-	Model: 1580699281488, "Model::Spruce Branches010", "Mesh" {
+	Model: 1244320264288, "Model::Spruce Branches010", "Mesh" {
 		Version: 232
 		Properties70:  {
 			P: "InheritType", "enum", "", "",1
@@ -1860,14 +1856,14 @@ Objects:  {
 			P: "GeometricRotation", "Vector3D", "Vector", "",35.1913909912109,10.0744152069092,-179.119247436523
 			P: "GeometricScaling", "Vector3D", "Vector", "",1.09674978256226,1.09675049781799,1.09675014019012
 			P: "DefaultAttributeIndex", "int", "Integer", "",0
-			P: "Lcl Translation", "Lcl Translation", "", "A",-0.0123176574707031,0,5.504723072052
+			P: "Lcl Translation", "Lcl Translation", "", "A",-0.0123176574707031,0,5.50472259521484
 			P: "Lcl Rotation", "Lcl Rotation", "", "A",-8.01121189902001,6.39585579110872,19.6132699932431
 			P: "MaxHandle", "int", "Integer", "UH",450
 		}
 		Shading: T
 		Culling: "CullingOff"
 	}
-	Model: 1580699312176, "Model::Spruce Branches011", "Mesh" {
+	Model: 1244320266480, "Model::Spruce Branches011", "Mesh" {
 		Version: 232
 		Properties70:  {
 			P: "InheritType", "enum", "", "",1
@@ -1876,29 +1872,14 @@ Objects:  {
 			P: "GeometricRotation", "Vector3D", "Vector", "",35.0000076293945,4.99999380111694,135.000030517578
 			P: "GeometricScaling", "Vector3D", "Vector", "",1.04837501049042,1.04837548732758,1.04837536811829
 			P: "DefaultAttributeIndex", "int", "Integer", "",0
-			P: "Lcl Translation", "Lcl Translation", "", "A",-0.0123176574707031,0,6.497398853302
+			P: "Lcl Translation", "Lcl Translation", "", "A",-0.0123176574707031,0,6.49739837646484
 			P: "Lcl Rotation", "Lcl Rotation", "", "A",0,-0,-1.00179122619506e-05
 			P: "MaxHandle", "int", "Integer", "UH",451
 		}
 		Shading: T
 		Culling: "CullingOff"
 	}
-	Model: 1580699314368, "Model::Spruce Branches", "Mesh" {
-		Version: 232
-		Properties70:  {
-			P: "InheritType", "enum", "", "",1
-			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
-			P: "GeometricTranslation", "Vector3D", "Vector", "",6.21444416046143,8.60836410522461,-3.54148983955383
-			P: "GeometricRotation", "Vector3D", "Vector", "",45,-4.99999856948853,-4.28517466843914e-07
-			P: "GeometricScaling", "Vector3D", "Vector", "",1.14512526988983,1.14512538909912,1.14512491226196
-			P: "DefaultAttributeIndex", "int", "Integer", "",0
-			P: "Lcl Translation", "Lcl Translation", "", "A",-0.0123176574707031,0,3.51937007904053
-			P: "MaxHandle", "int", "Integer", "UH",439
-		}
-		Shading: T
-		Culling: "CullingOff"
-	}
-	Model: 1580699285872, "Model::Spruce Branches003", "Mesh" {
+	Model: 1244320294976, "Model::Spruce Branches003", "Mesh" {
 		Version: 232
 		Properties70:  {
 			P: "InheritType", "enum", "", "",1
@@ -1907,14 +1888,14 @@ Objects:  {
 			P: "GeometricRotation", "Vector3D", "Vector", "",40.0000114440918,4.99999713897705,-44.9999847412109
 			P: "GeometricScaling", "Vector3D", "Vector", "",1.04837477207184,1.04837477207184,1.04837536811829
 			P: "DefaultAttributeIndex", "int", "Integer", "",0
-			P: "Lcl Translation", "Lcl Translation", "", "A",-0.0123176574707031,0,6.497398853302
+			P: "Lcl Translation", "Lcl Translation", "", "A",-0.0123176574707031,0,6.49739837646484
 			P: "Lcl Rotation", "Lcl Rotation", "", "A",0,-0,-44.9999975851635
 			P: "MaxHandle", "int", "Integer", "UH",443
 		}
 		Shading: T
 		Culling: "CullingOff"
 	}
-	Model: 1580699340672, "Model::Spruce Branches013", "Mesh" {
+	Model: 1244320297168, "Model::Spruce Branches013", "Mesh" {
 		Version: 232
 		Properties70:  {
 			P: "InheritType", "enum", "", "",1
@@ -1930,7 +1911,7 @@ Objects:  {
 		Shading: T
 		Culling: "CullingOff"
 	}
-	Model: 1580699334096, "Model::Spruce Trunk", "Mesh" {
+	Model: 1244320268672, "Model::Spruce Trunk", "Mesh" {
 		Version: 232
 		Properties70:  {
 			P: "InheritType", "enum", "", "",1
@@ -1939,13 +1920,13 @@ Objects:  {
 			P: "GeometricRotation", "Vector3D", "Vector", "",-0.368830174207687,-0.065023384988308,3.90826850049653e-11
 			P: "GeometricScaling", "Vector3D", "Vector", "",1.00000011920929,1.00000011920929,3.15021848678589
 			P: "DefaultAttributeIndex", "int", "Integer", "",0
-			P: "Lcl Translation", "Lcl Translation", "", "A",-0.0123176574707031,0,-0.217821359634399
+			P: "Lcl Translation", "Lcl Translation", "", "A",-0.0123176574707031,0,-0.21782112121582
 			P: "MaxHandle", "int", "Integer", "UH",437
 		}
 		Shading: T
 		Culling: "CullingOff"
 	}
-	Model: 1580699342864, "Model::Spruce Branches015", "Mesh" {
+	Model: 1244320299360, "Model::Spruce Branches015", "Mesh" {
 		Version: 232
 		Properties70:  {
 			P: "InheritType", "enum", "", "",1
@@ -1960,7 +1941,7 @@ Objects:  {
 		Shading: T
 		Culling: "CullingOff"
 	}
-	Model: 1580699338480, "Model::Spruce Branches016", "Mesh" {
+	Model: 1244320301552, "Model::Spruce Branches016", "Mesh" {
 		Version: 232
 		Properties70:  {
 			P: "InheritType", "enum", "", "",1
@@ -1976,7 +1957,7 @@ Objects:  {
 		Shading: T
 		Culling: "CullingOff"
 	}
-	Model: 1580699327520, "Model::Spruce Branches017", "Mesh" {
+	Model: 1244320273056, "Model::Spruce Branches017", "Mesh" {
 		Version: 232
 		Properties70:  {
 			P: "InheritType", "enum", "", "",1
@@ -1992,7 +1973,7 @@ Objects:  {
 		Shading: T
 		Culling: "CullingOff"
 	}
-	Model: 1580699345056, "Model::Spruce Branches018", "Mesh" {
+	Model: 1244320303744, "Model::Spruce Branches018", "Mesh" {
 		Version: 232
 		Properties70:  {
 			P: "InheritType", "enum", "", "",1
@@ -2008,7 +1989,7 @@ Objects:  {
 		Shading: T
 		Culling: "CullingOff"
 	}
-	Model: 1580699336288, "Model::Spruce Branches019", "Mesh" {
+	Model: 1244320275248, "Model::Spruce Branches019", "Mesh" {
 		Version: 232
 		Properties70:  {
 			P: "InheritType", "enum", "", "",1
@@ -2024,7 +2005,7 @@ Objects:  {
 		Shading: T
 		Culling: "CullingOff"
 	}
-	Model: 1580699323136, "Model::Spruce Branches020", "Mesh" {
+	Model: 1244320310320, "Model::Spruce Branches020", "Mesh" {
 		Version: 232
 		Properties70:  {
 			P: "InheritType", "enum", "", "",1
@@ -2033,14 +2014,14 @@ Objects:  {
 			P: "GeometricRotation", "Vector3D", "Vector", "",34.9625854492188,-4.92385625839233,0.870383203029633
 			P: "GeometricScaling", "Vector3D", "Vector", "",1.09675002098083,1.09674990177155,1.09675014019012
 			P: "DefaultAttributeIndex", "int", "Integer", "",0
-			P: "Lcl Translation", "Lcl Translation", "", "A",-0.0123176574707031,0,6.0280385017395
+			P: "Lcl Translation", "Lcl Translation", "", "A",-0.0123176574707031,0,6.02803802490234
 			P: "Lcl Rotation", "Lcl Rotation", "", "A",-3.36580782582077,9.38141549941103,70.5975105739664
 			P: "MaxHandle", "int", "Integer", "UH",467
 		}
 		Shading: T
 		Culling: "CullingOff"
 	}
-	Model: 1580699325328, "Model::Spruce Branches021", "Mesh" {
+	Model: 1244320305936, "Model::Spruce Branches021", "Mesh" {
 		Version: 232
 		Properties70:  {
 			P: "InheritType", "enum", "", "",1
@@ -2049,17 +2030,39 @@ Objects:  {
 			P: "GeometricRotation", "Vector3D", "Vector", "",35.0000076293945,4.99999380111694,135.000030517578
 			P: "GeometricScaling", "Vector3D", "Vector", "",1.04837501049042,1.04837548732758,1.04837536811829
 			P: "DefaultAttributeIndex", "int", "Integer", "",0
-			P: "Lcl Translation", "Lcl Translation", "", "A",-0.0123176574707031,0,6.86635637283325
+			P: "Lcl Translation", "Lcl Translation", "", "A",-0.0123176574707031,0,6.86635589599609
 			P: "Lcl Rotation", "Lcl Rotation", "", "A",5.25785002608106,0.293901775642863,-62.9281820615939
 			P: "MaxHandle", "int", "Integer", "UH",468
 		}
 		Shading: T
 		Culling: "CullingOff"
 	}
-	AnimationStack: 1582629563904, "AnimStack::Take 001", "" {
+	Material: 1244314665584, "Material::Placeholder", "" {
+		Version: 102
+		ShadingModel: "phong"
+		MultiLayer: 0
 		Properties70:  {
-			P: "LocalStop", "KTime", "Time", "",7389785280
-			P: "ReferenceStop", "KTime", "Time", "",7389785280
+			P: "ShadingModel", "KString", "", "", "phong"
+			P: "EmissiveFactor", "Number", "", "A",0
+			P: "AmbientColor", "Color", "", "A",0.588235318660736,0.588235318660736,0.588235318660736
+			P: "DiffuseColor", "Color", "", "A",0.588235318660736,0.588235318660736,0.588235318660736
+			P: "TransparentColor", "Color", "", "A",1,1,1
+			P: "SpecularColor", "Color", "", "A",0.899999976158142,0.899999976158142,0.899999976158142
+			P: "SpecularFactor", "Number", "", "A",0
+			P: "ShininessExponent", "Number", "", "A",1.99999988079071
+			P: "Emissive", "Vector3D", "Vector", "",0,0,0
+			P: "Ambient", "Vector3D", "Vector", "",0.588235318660736,0.588235318660736,0.588235318660736
+			P: "Diffuse", "Vector3D", "Vector", "",0.588235318660736,0.588235318660736,0.588235318660736
+			P: "Specular", "Vector3D", "Vector", "",0,0,0
+			P: "Shininess", "double", "Number", "",1.99999988079071
+			P: "Opacity", "double", "Number", "",1
+			P: "Reflectivity", "double", "Number", "",0
+		}
+	}
+	AnimationStack: 1244198653984, "AnimStack::Take 001", "" {
+		Properties70:  {
+			P: "LocalStop", "KTime", "Time", "",552386449680
+			P: "ReferenceStop", "KTime", "Time", "",552386449680
 		}
 	}
 }
@@ -2069,147 +2072,186 @@ Objects:  {
 
 Connections:  {
 	
-	;Model::Spruce, Model::RootNode
-	C: "OO",1580699270528,0
+	;Model::Spruce Bumper, Model::RootNode
+	C: "OO",1244404642160,0
+	
+	;Model::Spruce, Model::Spruce Bumper
+	C: "OO",1244320286208,1244404642160
+	
+	;NodeAttribute::, Model::Spruce Bumper
+	C: "OO",1244264865984,1244404642160
 	
 	;Model::Spruce Branches014, Model::Spruce
-	C: "OO",1580699294640,1580699270528
+	C: "OO",1244320277440,1244320286208
 	
 	;Model::Spruce Branches006, Model::Spruce
-	C: "OO",1580699305600,1580699270528
-	
-	;Model::Spruce Branches001, Model::Spruce
-	C: "OO",1580699283680,1580699270528
+	C: "OO",1244320288400,1244320286208
 	
 	;Model::Spruce Branches002, Model::Spruce
-	C: "OO",1580699301216,1580699270528
+	C: "OO",1244320270864,1244320286208
 	
 	;Model::Spruce Branches005, Model::Spruce
-	C: "OO",1580699290256,1580699270528
+	C: "OO",1244320290592,1244320286208
 	
 	;Model::Spruce Branches004, Model::Spruce
-	C: "OO",1580699296832,1580699270528
+	C: "OO",1244320284016,1244320286208
 	
 	;Model::Spruce Branches012, Model::Spruce
-	C: "OO",1580699288064,1580699270528
+	C: "OO",1244320279632,1244320286208
 	
 	;Model::Spruce Branches007, Model::Spruce
-	C: "OO",1580699303408,1580699270528
-	
-	;Model::Spruce Branches008, Model::Spruce
-	C: "OO",1580699307792,1580699270528
-	
-	;Model::Spruce Branches009, Model::Spruce
-	C: "OO",1580699309984,1580699270528
+	C: "OO",1244320292784,1244320286208
 	
 	;Model::Spruce Branches010, Model::Spruce
-	C: "OO",1580699281488,1580699270528
+	C: "OO",1244320264288,1244320286208
 	
 	;Model::Spruce Branches011, Model::Spruce
-	C: "OO",1580699312176,1580699270528
-	
-	;Model::Spruce Branches, Model::Spruce
-	C: "OO",1580699314368,1580699270528
+	C: "OO",1244320266480,1244320286208
 	
 	;Model::Spruce Branches003, Model::Spruce
-	C: "OO",1580699285872,1580699270528
+	C: "OO",1244320294976,1244320286208
 	
 	;Model::Spruce Branches013, Model::Spruce
-	C: "OO",1580699340672,1580699270528
+	C: "OO",1244320297168,1244320286208
 	
 	;Model::Spruce Trunk, Model::Spruce
-	C: "OO",1580699334096,1580699270528
+	C: "OO",1244320268672,1244320286208
 	
 	;Model::Spruce Branches015, Model::Spruce
-	C: "OO",1580699342864,1580699270528
+	C: "OO",1244320299360,1244320286208
 	
 	;Model::Spruce Branches016, Model::Spruce
-	C: "OO",1580699338480,1580699270528
+	C: "OO",1244320301552,1244320286208
 	
 	;Model::Spruce Branches017, Model::Spruce
-	C: "OO",1580699327520,1580699270528
+	C: "OO",1244320273056,1244320286208
 	
 	;Model::Spruce Branches018, Model::Spruce
-	C: "OO",1580699345056,1580699270528
+	C: "OO",1244320303744,1244320286208
 	
 	;Model::Spruce Branches019, Model::Spruce
-	C: "OO",1580699336288,1580699270528
+	C: "OO",1244320275248,1244320286208
 	
 	;Model::Spruce Branches020, Model::Spruce
-	C: "OO",1580699323136,1580699270528
+	C: "OO",1244320310320,1244320286208
 	
 	;Model::Spruce Branches021, Model::Spruce
-	C: "OO",1580699325328,1580699270528
+	C: "OO",1244320305936,1244320286208
 	
 	;NodeAttribute::, Model::Spruce
-	C: "OO",1582634690112,1580699270528
+	C: "OO",1244264866336,1244320286208
 	
 	;Geometry::, Model::Spruce Branches014
-	C: "OO",1582638267072,1580699294640
+	C: "OO",1244306463296,1244320277440
+	
+	;Material::Placeholder, Model::Spruce Branches014
+	C: "OO",1244314665584,1244320277440
 	
 	;Geometry::, Model::Spruce Branches006
-	C: "OO",1582638279040,1580699305600
+	C: "OO",1244306442624,1244320288400
 	
-	;Geometry::, Model::Spruce Branches001
-	C: "OO",1582638248576,1580699283680
+	;Material::Placeholder, Model::Spruce Branches006
+	C: "OO",1244314665584,1244320288400
 	
 	;Geometry::, Model::Spruce Branches002
-	C: "OO",1582638250208,1580699301216
+	C: "OO",1244306443168,1244320270864
+	
+	;Material::Placeholder, Model::Spruce Branches002
+	C: "OO",1244314665584,1244320270864
 	
 	;Geometry::, Model::Spruce Branches005
-	C: "OO",1582272096448,1580699290256
+	C: "OO",1244306455136,1244320290592
+	
+	;Material::Placeholder, Model::Spruce Branches005
+	C: "OO",1244314665584,1244320290592
 	
 	;Geometry::, Model::Spruce Branches004
-	C: "OO",1580562549168,1580699296832
+	C: "OO",1244306449152,1244320284016
+	
+	;Material::Placeholder, Model::Spruce Branches004
+	C: "OO",1244314665584,1244320284016
 	
 	;Geometry::, Model::Spruce Branches012
-	C: "OO",1580562544816,1580699288064
+	C: "OO",1244306450240,1244320279632
+	
+	;Material::Placeholder, Model::Spruce Branches012
+	C: "OO",1244314665584,1244320279632
 	
 	;Geometry::, Model::Spruce Branches007
-	C: "OO",1580562545904,1580699303408
+	C: "OO",1244306352320,1244320292784
 	
-	;Geometry::, Model::Spruce Branches008
-	C: "OO",1580562533936,1580699307792
-	
-	;Geometry::, Model::Spruce Branches009
-	C: "OO",1580562545360,1580699309984
+	;Material::Placeholder, Model::Spruce Branches007
+	C: "OO",1244314665584,1244320292784
 	
 	;Geometry::, Model::Spruce Branches010
-	C: "OO",1580562548624,1580699281488
+	C: "OO",1244306333824,1244320264288
+	
+	;Material::Placeholder, Model::Spruce Branches010
+	C: "OO",1244314665584,1244320264288
 	
 	;Geometry::, Model::Spruce Branches011
-	C: "OO",1580562547536,1580699312176
+	C: "OO",1244306351776,1244320266480
 	
-	;Geometry::, Model::Spruce Branches
-	C: "OO",1580562534480,1580699314368
+	;Material::Placeholder, Model::Spruce Branches011
+	C: "OO",1244314665584,1244320266480
 	
 	;Geometry::, Model::Spruce Branches003
-	C: "OO",1580562546448,1580699285872
+	C: "OO",1244306355040,1244320294976
+	
+	;Material::Placeholder, Model::Spruce Branches003
+	C: "OO",1244314665584,1244320294976
 	
 	;Geometry::, Model::Spruce Branches013
-	C: "OO",1580562548080,1580699340672
+	C: "OO",1244306344160,1244320297168
+	
+	;Material::Placeholder, Model::Spruce Branches013
+	C: "OO",1244314665584,1244320297168
 	
 	;Geometry::, Model::Spruce Trunk
-	C: "OO",1580562542640,1580699334096
+	C: "OO",1244306355584,1244320268672
+	
+	;Material::Placeholder, Model::Spruce Trunk
+	C: "OO",1244314665584,1244320268672
 	
 	;Geometry::, Model::Spruce Branches015
-	C: "OO",1580562536656,1580699342864
+	C: "OO",1244306337088,1244320299360
+	
+	;Material::Placeholder, Model::Spruce Branches015
+	C: "OO",1244314665584,1244320299360
 	
 	;Geometry::, Model::Spruce Branches016
-	C: "OO",1580562536112,1580699338480
+	C: "OO",1244306357216,1244320301552
+	
+	;Material::Placeholder, Model::Spruce Branches016
+	C: "OO",1244314665584,1244320301552
 	
 	;Geometry::, Model::Spruce Branches017
-	C: "OO",1580562539920,1580699327520
+	C: "OO",1244306361568,1244320273056
+	
+	;Material::Placeholder, Model::Spruce Branches017
+	C: "OO",1244314665584,1244320273056
 	
 	;Geometry::, Model::Spruce Branches018
-	C: "OO",1580562546992,1580699345056
+	C: "OO",1244306337632,1244320303744
+	
+	;Material::Placeholder, Model::Spruce Branches018
+	C: "OO",1244314665584,1244320303744
 	
 	;Geometry::, Model::Spruce Branches019
-	C: "OO",1580562535024,1580699336288
+	C: "OO",1244306367552,1244320275248
+	
+	;Material::Placeholder, Model::Spruce Branches019
+	C: "OO",1244314665584,1244320275248
 	
 	;Geometry::, Model::Spruce Branches020
-	C: "OO",1580562535568,1580699323136
+	C: "OO",1244306365376,1244320310320
+	
+	;Material::Placeholder, Model::Spruce Branches020
+	C: "OO",1244314665584,1244320310320
 	
 	;Geometry::, Model::Spruce Branches021
-	C: "OO",1580562537200,1580699325328
+	C: "OO",1244306350144,1244320305936
+	
+	;Material::Placeholder, Model::Spruce Branches021
+	C: "OO",1244314665584,1244320305936
 }
