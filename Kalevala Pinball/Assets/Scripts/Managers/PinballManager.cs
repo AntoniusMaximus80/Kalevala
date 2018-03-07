@@ -147,15 +147,18 @@ namespace Kalevala
             Init();
         }
 
+        private void Start()
+        {
+            ResetGame();
+        }
+
         /// <summary>
         /// Initializes the object.
         /// </summary>
         private void Init()
         {
             _ballDrainTopRightCorner.y = _ballDrainBottomLeftCorner.y;
-
-            ResetGame();
-
+            
             if (_allowedNudgeAmount <= 0)
             {
                 noNudges = true;
@@ -179,7 +182,6 @@ namespace Kalevala
             }
 
             ResetPinball();
-
             SetPinballPhysicsEnabled(false);
         }
 
@@ -233,7 +235,8 @@ namespace Kalevala
         public void InstanceNextBall(Pinball ball)
         {
             ball.transform.position = _ballLaunchPoint;
-            ball.StopMotion();
+            ball.SetPhysicsEnabled(false);
+            Launcher.Instance.StartLaunch(ball);
         }
 
         public void RemoveBall(Pinball pinball)

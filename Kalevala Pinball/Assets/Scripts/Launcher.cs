@@ -13,13 +13,18 @@ namespace Kalevala
         [SerializeField]
         private float _timeToMaxForce;
         [SerializeField]
+        private float _minForceTime;
+        [SerializeField]
         private bool _useDebugs;
         [SerializeField]
         private HingeJoint _hingejoint;
+
+        public static Launcher Instance;
         
         private JointLimits _jointLimits;
         private bool _takeInput = true;
         private float _launcherForce;
+        private Pinball _pinball;
 
         private bool _checkVelocity = false;
         private bool _launchDone = true;
@@ -28,13 +33,15 @@ namespace Kalevala
 
         private void Awake()
         {
+            _launcherForce = _minForceTime;
             JointMotor motor = _hingejoint.motor;
-            motor.force = (_hingejoint.limits.max - _hingejoint.limits.min) / _timeToMaxForce;
-            motor.targetVelocity = (_hingejoint.limits.max - _hingejoint.limits.min) / _timeToMaxForce;
+            motor.force = (_hingejoint.limits.max - _hingejoint.limits.min) /(_timeToMaxForce - _minForceTime);
+            motor.targetVelocity = (_hingejoint.limits.max - _hingejoint.limits.min) / (_timeToMaxForce - _minForceTime);
             _hingejoint.motor = motor;
             _jointLimits = _hingejoint.limits;
             _hingejoint.useMotor = false;
             _hingejoint.useSpring = true;
+            Instance = this;
         }
 
         private void Update()
@@ -43,13 +50,11 @@ namespace Kalevala
             {
                 Launch();
             }
-            if(_hingejoint.velocity == 0f && _checkVelocity)
-            {
-                _returnAxeToStartPosition = true;
-            }
+
             if(_returnAxeToStartPosition && _hingejoint.limits.min < 90)
             {
-                _jointLimits.min += 20f * Time.deltaTime;
+                //_pinball.transform.Translate(new Vector3(0f, 1f, 0f));
+                _jointLimits.min += 80f * Time.deltaTime;
                 if(_jointLimits.min > 90f )
                 {
                     _jointLimits.min = 90f;
@@ -69,7 +74,7 @@ namespace Kalevala
         {
             if(_takeInput)
             {
-                _launcherForce = Mathf.Clamp01(_launcherForce + Time.deltaTime / _timeToMaxForce);
+                _launcherForce = Mathf.Clamp(_launcherForce + Time.deltaTime / _timeToMaxForce, _minForceTime, 1);
                 _hingejoint.useMotor = true;
                 _hingejoint.useSpring = false;
             }
@@ -85,6 +90,7 @@ namespace Kalevala
             {
                 _jointLimits.min = 0f;
                 _hingejoint.limits = _jointLimits;
+                _hingejoint.useLimits = false;
                 _hingejoint.useMotor = false;
                 _hingejoint.useSpring = true;
                 _launchDone = false;
@@ -93,27 +99,19 @@ namespace Kalevala
 
         private void Launch()
         {
+            PinballManager.Instance.SetPinballPhysicsEnabled(true);
+            _pinball.AddImpulseForce(Vector3.forward * _launcherForce * _launcherForceMultiplier);
             _checkVelocity = true;
             _launchDone = true;
             _takeInput = false;
-            int layermask = 1 << LayerMask.NameToLayer("Pinballs");
-            Collider[] colliders = Physics.OverlapSphere(transform.position, 1f, layermask);
-            Debug.Log(colliders.Length);
-            foreach(Collider coll in colliders)
-            {
-                coll.GetComponent<Rigidbody>().AddForce(Vector3.forward * _launcherForce * _launcherForceMultiplier, ForceMode.Impulse);
-                if(_useDebugs)
-                {
-                    Debug.Log(_launcherForce);
-                }
-            }
-            _launcherForce = 0;
+            _launcherForce = _minForceTime;
         }
 
-        private void OnDrawGizmos()
+        public void StartLaunch(Pinball pinball)
         {
-            Gizmos.color = Color.green;
-            Gizmos.DrawSphere(transform.position, 1f);
+            _pinball = pinball;
+            _returnAxeToStartPosition = true;
+            _hingejoint.useLimits = true;
         }
     }
 }

@@ -138,7 +138,6 @@ GameObject:
   - component: {fileID: 4980095198324842}
   - component: {fileID: 33466422862898510}
   - component: {fileID: 23760737222983734}
-  - component: {fileID: 136182314776119684}
   m_Layer: 10
   m_Name: Magnetic Lifter Rod
   m_TagString: Untagged
@@ -270,6 +269,8 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4427007979105984}
+  - component: {fileID: 54296581544906876}
+  - component: {fileID: 59657429218937912}
   m_Layer: 10
   m_Name: Ukon Kirves
   m_TagString: Untagged
@@ -889,8 +890,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1355202825291730}
-  m_LocalRotation: {x: -0.3420201, y: 0, z: 0, w: 0.9396927}
-  m_LocalPosition: {x: -3.172802, y: -11.918457, z: 2.8972073}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -3.172802, y: -11.81, z: 3.74}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4447838958785122}
@@ -905,7 +906,7 @@ Transform:
   - {fileID: 4650350406768988}
   m_Father: {fileID: 4897184772407060}
   m_RootOrder: 9
-  m_LocalEulerAnglesHint: {x: -40, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4447838958785122
 Transform:
   m_ObjectHideFlags: 1
@@ -1249,7 +1250,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1170896394590896}
   m_LocalRotation: {x: 2.05184e-15, y: 0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.5527, y: -9.929268, z: -8.997461}
+  m_LocalPosition: {x: -1.5527, y: -9.929268, z: -9.467462}
   m_LocalScale: {x: 1.4968295, y: 1.4968295, z: 1}
   m_Children: []
   m_Father: {fileID: 4897184772407060}
@@ -2580,6 +2581,55 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1710474789660252}
   m_Mesh: {fileID: 4300016, guid: 039471f9dc9ec1d4090b5ed12794d181, type: 3}
+--- !u!54 &54296581544906876
+Rigidbody:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1355202825291730}
+  serializedVersion: 2
+  m_Mass: 0.5
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!59 &59657429218937912
+HingeJoint:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1355202825291730}
+  m_ConnectedBody: {fileID: 0}
+  m_Anchor: {x: 0, y: 0, z: 0}
+  m_Axis: {x: -1, y: 0, z: 0}
+  m_AutoConfigureConnectedAnchor: 1
+  m_ConnectedAnchor: {x: 25.735802, y: 12.736702, z: -40.542004}
+  m_UseSpring: 0
+  m_Spring:
+    spring: 100
+    damper: 0
+    targetPosition: 1
+  m_UseMotor: 0
+  m_Motor:
+    targetVelocity: 100
+    force: 142
+    freeSpin: 0
+  m_UseLimits: 1
+  m_Limits:
+    min: 90
+    max: 160
+    bounciness: 0
+    bounceMinVelocity: 0.2
+    contactDistance: 0
+  m_BreakForce: Infinity
+  m_BreakTorque: Infinity
+  m_EnableCollision: 0
+  m_EnablePreprocessing: 1
+  m_MassScale: 2
+  m_ConnectedMassScale: 2
 --- !u!64 &64386127333294430
 MeshCollider:
   m_ObjectHideFlags: 1
@@ -2638,20 +2688,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _launcherForceMultiplier: 240
   _timeToMaxForce: 3
-  _axe: {fileID: 4427007979105984}
-  _maxAngle: -90
+  _minForceTime: 0.4
   _useDebugs: 0
-  _axeRotateSpeed: 0
---- !u!136 &136182314776119684
-CapsuleCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1170896394590896}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.93
-  m_Height: 2.99
-  m_Direction: 2
-  m_Center: {x: 0, y: 0, z: 1.81}
+  _hingejoint: {fileID: 59657429218937912}
