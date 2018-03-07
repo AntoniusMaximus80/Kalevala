@@ -46,6 +46,7 @@ ModelImporter:
     100076: Ukon Kirves
     100078: Ukon Kirves 1
     100080: Ukon Kirves Frame
+    100082: Wire Gate
     400000: Board
     400002: Board001
     400004: //RootNode
@@ -87,6 +88,7 @@ ModelImporter:
     400076: Ukon Kirves
     400078: Ukon Kirves 1
     400080: Ukon Kirves Frame
+    400082: Wire Gate
     2100000: Placeholder
     2100002: Clear Plastic
     2300000: Board
@@ -121,6 +123,7 @@ ModelImporter:
     2300058: Support005
     2300060: Ukon Kirves 1
     2300062: Ukon Kirves Frame
+    2300064: Wire Gate
     3300000: Board
     3300002: Board001
     3300004: Launcher Shield
@@ -153,6 +156,7 @@ ModelImporter:
     3300058: Support005
     3300060: Ukon Kirves 1
     3300062: Ukon Kirves Frame
+    3300064: Wire Gate
     4300000: Launcher Track
     4300002: Launcher Shield
     4300004: Ukon Kirves Frame
@@ -185,6 +189,7 @@ ModelImporter:
     4300058: Rivet016
     4300060: Rivet017
     4300062: Support005
+    4300064: Wire Gate
     9500000: //RootNode
   externalObjects: {}
   materials:
