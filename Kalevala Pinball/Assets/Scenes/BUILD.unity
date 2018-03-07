@@ -11179,6 +11179,16 @@ Prefab:
       propertyPath: m_ConnectedAnchor.z
       value: -40.542
       objectReference: {fileID: 0}
+    - target: {fileID: 114709386625352712, guid: 44e752bf0357634499ab766973cea25a,
+        type: 2}
+      propertyPath: _hingejoint
+      value: 
+      objectReference: {fileID: 869414914}
+    - target: {fileID: 114709386625352712, guid: 44e752bf0357634499ab766973cea25a,
+        type: 2}
+      propertyPath: _minForceTime
+      value: 0.4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 44e752bf0357634499ab766973cea25a, type: 2}
   m_IsPrefabParent: 0
@@ -11196,6 +11206,11 @@ MonoBehaviour:
 --- !u!4 &869414913 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4980095198324842, guid: 44e752bf0357634499ab766973cea25a,
+    type: 2}
+  m_PrefabInternal: {fileID: 869414910}
+--- !u!59 &869414914 stripped
+HingeJoint:
+  m_PrefabParentObject: {fileID: 59657429218937912, guid: 44e752bf0357634499ab766973cea25a,
     type: 2}
   m_PrefabInternal: {fileID: 869414910}
 --- !u!1 &881763715
