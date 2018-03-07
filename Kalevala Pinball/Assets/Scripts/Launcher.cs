@@ -18,6 +18,12 @@ namespace Kalevala
         private bool _useDebugs;
         [SerializeField]
         private HingeJoint _hingejoint;
+        [SerializeField]
+        private Transform _ballLifter;
+        [SerializeField]
+        private GameObject _hitParticles;
+        [SerializeField]
+        private AudioSource _hitSFX;
 
         public static Launcher Instance;
         
@@ -99,6 +105,8 @@ namespace Kalevala
 
         private void Launch()
         {
+            _hitSFX.Play();
+            _hitParticles.SetActive(true);
             PinballManager.Instance.SetPinballPhysicsEnabled(true);
             _pinball.AddImpulseForce(Vector3.forward * _launcherForce * _launcherForceMultiplier);
             _checkVelocity = true;
@@ -109,6 +117,7 @@ namespace Kalevala
 
         public void StartLaunch(Pinball pinball)
         {
+            _hitParticles.SetActive(false);
             _pinball = pinball;
             _returnAxeToStartPosition = true;
             _hingejoint.useLimits = true;
