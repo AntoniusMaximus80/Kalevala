@@ -38,8 +38,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1992906033442706}
-  m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 19, y: 1.35, z: 22}
+  m_LocalRotation: {x: -0.0000019222498, y: 0.7071068, z: 0.7071068, w: 0.0000019222498}
+  m_LocalPosition: {x: 24.08, y: 4.47, z: -38.51}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -126,7 +126,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   debug_rampSpeed: 70
   debug_useDebugRampSpeed: 0
-  debug_autoReinstance: 0
+  debug_freeBalls: 0
   debug_addImpulseForce: 0
   debug_stopMotion: 0
   debug_exitRamp: 0

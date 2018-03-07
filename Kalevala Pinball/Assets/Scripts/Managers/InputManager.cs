@@ -61,6 +61,11 @@ namespace Kalevala {
                     PauseInput();
                     break;
                 }
+                case ScreenStateType.GameOver:
+                {
+                    GameOverInput();
+                    break;
+                }
             }
         }
 
@@ -69,7 +74,7 @@ namespace Kalevala {
             // Starting the game
             if (Input.GetButtonUp("Submit"))
             {
-                stateManager.PerformTransition(ScreenStateType.Play);
+                stateManager.GoToPlayState();
                 Debug.Log("Game started");
             }
         }
@@ -80,7 +85,24 @@ namespace Kalevala {
             if (Input.GetButtonUp("Cancel") ||
                 Input.GetButtonUp("Submit"))
             {
-                stateManager.PerformTransition(ScreenStateType.Play);
+                stateManager.GoToPlayState();
+                //Debug.Log("Game resumed");
+            }
+        }
+
+        private void GameOverInput()
+        {
+            // Restarting the game
+            if (Input.GetButtonUp("Submit"))
+            {
+                stateManager.GoToPlayState();
+                //Debug.Log("Game resumed");
+            }
+
+            // Returning to main menu
+            if (Input.GetButtonUp("Cancel"))
+            {
+                stateManager.GoToMainMenuState();
                 //Debug.Log("Game resumed");
             }
         }
@@ -124,6 +146,12 @@ namespace Kalevala {
             {
                 stateManager.PerformTransition(ScreenStateType.Pause);
                 //Debug.Log("Game paused");
+            }
+
+            // Resetting the ball
+            if (Input.GetButtonDown("ResetBall"))
+            {
+                PinballManager.Instance.Pinballs[0].ResetBall();
             }
         }
 

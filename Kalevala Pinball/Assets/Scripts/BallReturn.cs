@@ -21,15 +21,20 @@ namespace Kalevala
 
         }
 
-        private void OnTriggerEnter(Collider other)
-        {
-            other.transform.position = _pinballStartPosition;
+        // DISABLED because this object is in every scene and like
+        // a cockroach it can never be got rid of no matter how
+        // many times it is deleted. It always exists somewhere and
+        // soon is copied to every scene, time after time. Argh.
 
-            Pinball pinball = other.GetComponent<Pinball>();
-            if (pinball != null)
-            {
-                pinball.StopMotion();
-            }
-        }
+        //private void OnTriggerEnter(Collider other)
+        //{
+        //    other.transform.position = _pinballStartPosition;
+
+        //    Pinball pinball = other.GetComponent<Pinball>();
+        //    if (pinball != null)
+        //    {
+        //        pinball.StopMotion();
+        //    }
+        //}
     }
 }

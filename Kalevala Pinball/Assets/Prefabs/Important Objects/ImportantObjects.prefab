@@ -1213,9 +1213,10 @@ MonoBehaviour:
   _rampExitMomentumFactor: 0.75
   _startingBallAmount: 3
   _allowedNudgeAmount: 3
+  debug_useDefaultLaunchPoint: 0
   _ballLaunchPoint: {x: -20.2, y: 1.35, z: -6.8}
-  _ballDrainBottomLeftCorner: {x: -7.2, y: 3, z: -56.93}
-  _ballDrainTopRightCorner: {x: 4.21, y: 3, z: -46.6}
+  _ballDrainBottomLeftCorner: {x: 2.8, y: 3, z: -50.56}
+  _ballDrainTopRightCorner: {x: 11.62, y: 3, z: -46.6}
   _startingPosition: {fileID: 0}
   _pinballPrefab: {fileID: 0}
 --- !u!114 &114635116687291534

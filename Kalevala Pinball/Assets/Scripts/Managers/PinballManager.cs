@@ -62,6 +62,9 @@ namespace Kalevala
         public int _allowedNudgeAmount;
 
         [SerializeField]
+        private bool debug_useDefaultLaunchPoint;
+
+        [SerializeField]
         private Vector3 _ballLaunchPoint;
 
         [SerializeField]
@@ -163,6 +166,12 @@ namespace Kalevala
             {
                 noNudges = true;
             }
+
+            if (!debug_useDefaultLaunchPoint &&
+                _startingPosition != null)
+            {
+                _ballLaunchPoint = _startingPosition.position;
+            }
         }
         
         public void ResetGame()
@@ -175,11 +184,6 @@ namespace Kalevala
             _activeBalls = _pinballs.Count;
             Debug.Log("Total balls : " + _currentBallAmount.ToString());
             Debug.Log("Initial balls : " + _activeBalls.ToString());
-
-            if (_startingPosition)
-            {
-                _ballLaunchPoint = _startingPosition.position;
-            }
 
             ResetPinball();
             SetPinballPhysicsEnabled(false);
@@ -290,8 +294,10 @@ namespace Kalevala
             ball.transform.position = location.position;
 
             // If given a valid impulse vector apply it.
-            if (impulse!=null && impulse.Equals(Vector3.zero))
-            ball.AddImpulseForce(impulse);
+            if (impulse != null && !impulse.Equals(Vector3.zero))
+            {
+                ball.AddImpulseForce(impulse);
+            }
         }
 
         private Pinball RecycleBall()
@@ -342,7 +348,15 @@ namespace Kalevala
 
         private void DrawBallLaunchPoint()
         {
-            Gizmos.color = Color.blue;
+            if (debug_useDefaultLaunchPoint)
+            {
+                Gizmos.color = Color.green;
+            }
+            else
+            {
+                Gizmos.color = Color.blue;
+            }
+
             Gizmos.DrawWireSphere(_ballLaunchPoint, 1.5f);
         }
 

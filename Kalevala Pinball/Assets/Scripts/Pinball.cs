@@ -11,7 +11,7 @@ namespace Kalevala
         public float debug_rampSpeed = 15;
         public bool debug_useDebugRampSpeed;
 
-        public bool debug_autoReinstance;
+        public bool debug_freeBalls;
         public bool debug_addImpulseForce;
         public bool debug_stopMotion;
         public bool debug_exitRamp;
@@ -74,9 +74,10 @@ namespace Kalevala
 
             if (PinballManager.Instance.PositionIsInDrain(transform.position))
             {
-                if (debug_autoReinstance)
+                if (debug_freeBalls)
                 {
-                    // debug reinstancing moves ball back to where it started.
+                    // if debug free balls is on, a ball in drain is moved
+                    // back to the launcher without consuming "lives"
                     PinballManager.Instance.InstanceNextBall(this);
                 }
                 else
@@ -236,7 +237,7 @@ namespace Kalevala
             _ramp = null;
         }
 
-        private void ExitRamp_Debug()
+        private void AbortRamp()
         {
             if (IsOnRamp)
             {
@@ -244,6 +245,15 @@ namespace Kalevala
                 _dropAtEnd = true;
                 ExitRamp();
             }
+        }
+
+        /// <summary>
+        /// Returns the ball to the launcher regardless of where it is.
+        /// </summary>
+        public void ResetBall()
+        {
+            PinballManager.Instance.InstanceNextBall(this);
+            AbortRamp();
         }
 
         //public bool SameDirections(Vector3 direction1, Vector3 direction2, float angleTolerance)
@@ -303,12 +313,6 @@ namespace Kalevala
 
         private void HandleDebug()
         {
-            if (Input.GetKeyDown(KeyCode.Keypad0))
-            {
-                PinballManager.Instance.InstanceNextBall(this);
-                ExitRamp_Debug();
-            }
-
             if (debug_stopMotion)
             {
                 debug_stopMotion = false;
@@ -318,7 +322,7 @@ namespace Kalevala
             if (debug_exitRamp)
             {
                 debug_exitRamp = false;
-                ExitRamp_Debug();
+                AbortRamp();
             }
 
             //if (debug_stopPhysics)
@@ -338,13 +342,6 @@ namespace Kalevala
                 debug_addImpulseForce = false;
                 AddImpulseForce(debug_upTableVelocity);
             }
-        }
-
-        public void ResetVelocity()
-        {
-            StopMotion();
-
-            //GetComponent<Rigidbody>().velocity = Vector3.zero;
         }
     }
 }
