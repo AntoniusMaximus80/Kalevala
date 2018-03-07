@@ -47,6 +47,7 @@ ModelImporter:
     100078: Rivet030
     100080: Rivet031
     100082: Rivets
+    100084: Stopper Post003
     400000: Cylinder026
     400002: Cylinder027
     400004: Cylinder028
@@ -89,6 +90,7 @@ ModelImporter:
     400078: Rivet030
     400080: Rivet031
     400082: Rivets
+    400084: Stopper Post003
     2100000: Placeholder
     2100002: 04 - Default
     2100004: Clear Plastic
@@ -124,6 +126,7 @@ ModelImporter:
     2300058: Rivet029
     2300060: Rivet030
     2300062: Rivet031
+    2300064: Stopper Post003
     3300000: Cylinder026
     3300002: Cylinder027
     3300004: Cylinder028
@@ -156,6 +159,7 @@ ModelImporter:
     3300058: Rivet029
     3300060: Rivet030
     3300062: Rivet031
+    3300064: Stopper Post003
     4300000: Drop Target Base003
     4300002: Drop Target006
     4300004: Drop Target002
@@ -188,6 +192,7 @@ ModelImporter:
     4300058: Rivet029
     4300060: Rivet030
     4300062: Rivet031
+    4300064: Stopper Post003
     9500000: //RootNode
   externalObjects: {}
   materials:
