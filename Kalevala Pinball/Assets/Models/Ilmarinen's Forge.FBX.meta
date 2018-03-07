@@ -25,6 +25,7 @@ ModelImporter:
     100034: Rivet023
     100036: Shield Target001
     100038: Shield Target002
+    100040: Ilmarine's Forge Kick-out Hole
     400000: //RootNode
     400002: Ilmarinen's Forge Chimney
     400004: Ilmarinen's Forge Roof
@@ -45,6 +46,7 @@ ModelImporter:
     400034: Rivet023
     400036: Shield Target001
     400038: Shield Target002
+    400040: Ilmarine's Forge Kick-out Hole
     2100000: Placeholder
     2300000: Ilmarinen's Forge Chimney
     2300002: Ilmarinen's Forge Roof
@@ -61,6 +63,8 @@ ModelImporter:
     2300024: Rivet023
     2300026: Shield Target001
     2300028: Shield Target002
+    2300030: Ilmarine's Forge Kick-out Hole
+    2300032: Rivet
     3300000: Ilmarinen's Forge Chimney
     3300002: Ilmarinen's Forge Roof
     3300004: Object002
@@ -76,6 +80,8 @@ ModelImporter:
     3300024: Rivet023
     3300026: Shield Target001
     3300028: Shield Target002
+    3300030: Ilmarine's Forge Kick-out Hole
+    3300032: Rivet
     4300000: Shield Target001
     4300002: Shield Target002
     4300004: Rivet Stem
@@ -91,6 +97,7 @@ ModelImporter:
     4300024: Ilmarinen's Forge Chimney
     4300026: Rivet Stem004
     4300028: Rivet Stem005
+    4300030: Ilmarine's Forge Kick-out Hole
     9500000: //RootNode
   externalObjects: {}
   materials:

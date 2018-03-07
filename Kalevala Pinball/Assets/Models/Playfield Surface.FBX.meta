@@ -6,11 +6,105 @@ ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
     100000: //RootNode
+    100002: Ilmarine's Forge Kick-out Hole
+    100004: Ilmarinen's Forge
+    100006: Ilmarinen's Forge Chimney
+    100008: Ilmarinen's Forge Roof
+    100010: Object002
+    100012: Playfield Surface
+    100014: Rivet
+    100016: Rivet 1
+    100018: Rivet Stem
+    100020: Rivet Stem001
+    100022: Rivet Stem002
+    100024: Rivet Stem003
+    100026: Rivet Stem004
+    100028: Rivet Stem005
+    100030: Rivet018
+    100032: Rivet019
+    100034: Rivet020
+    100036: Rivet021
+    100038: Rivet022
+    100040: Rivet023
+    100042: Shield Target001
+    100044: Shield Target002
     400000: //RootNode
+    400002: Ilmarine's Forge Kick-out Hole
+    400004: Ilmarinen's Forge
+    400006: Ilmarinen's Forge Chimney
+    400008: Ilmarinen's Forge Roof
+    400010: Object002
+    400012: Playfield Surface
+    400014: Rivet
+    400016: Rivet 1
+    400018: Rivet Stem
+    400020: Rivet Stem001
+    400022: Rivet Stem002
+    400024: Rivet Stem003
+    400026: Rivet Stem004
+    400028: Rivet Stem005
+    400030: Rivet018
+    400032: Rivet019
+    400034: Rivet020
+    400036: Rivet021
+    400038: Rivet022
+    400040: Rivet023
+    400042: Shield Target001
+    400044: Shield Target002
     2100000: 14 - Default
     2300000: //RootNode
+    2300002: Ilmarine's Forge Kick-out Hole
+    2300004: Ilmarinen's Forge Chimney
+    2300006: Ilmarinen's Forge Roof
+    2300008: Object002
+    2300010: Playfield Surface
+    2300012: Rivet 1
+    2300014: Rivet Stem
+    2300016: Rivet Stem001
+    2300018: Rivet Stem002
+    2300020: Rivet Stem003
+    2300022: Rivet Stem004
+    2300024: Rivet Stem005
+    2300026: Rivet019
+    2300028: Rivet021
+    2300030: Rivet023
+    2300032: Shield Target001
+    2300034: Shield Target002
     3300000: //RootNode
+    3300002: Ilmarine's Forge Kick-out Hole
+    3300004: Ilmarinen's Forge Chimney
+    3300006: Ilmarinen's Forge Roof
+    3300008: Object002
+    3300010: Playfield Surface
+    3300012: Rivet 1
+    3300014: Rivet Stem
+    3300016: Rivet Stem001
+    3300018: Rivet Stem002
+    3300020: Rivet Stem003
+    3300022: Rivet Stem004
+    3300024: Rivet Stem005
+    3300026: Rivet019
+    3300028: Rivet021
+    3300030: Rivet023
+    3300032: Shield Target001
+    3300034: Shield Target002
     4300000: Playfield Surface
+    4300002: Shield Target001
+    4300004: Shield Target002
+    4300006: Rivet Stem
+    4300008: Rivet
+    4300010: Rivet019
+    4300012: Rivet Stem001
+    4300014: Rivet Stem002
+    4300016: Rivet021
+    4300018: Rivet023
+    4300020: Rivet Stem003
+    4300022: Object002
+    4300024: Ilmarinen's Forge Roof
+    4300026: Ilmarinen's Forge Chimney
+    4300028: Rivet Stem004
+    4300030: Rivet Stem005
+    4300032: Ilmarine's Forge Kick-out Hole
     9500000: //RootNode
   externalObjects: {}
   materials:
