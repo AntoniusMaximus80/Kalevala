@@ -52,6 +52,8 @@ namespace Kalevala
         /// </summary>
         private Vector3 _stabilizationDirection;
 
+        private float _timer = 0f;
+
         private void Start()
         {
             if(transform.rotation.eulerAngles.x >= 0 && transform.rotation.eulerAngles.x <= 90)
@@ -69,9 +71,14 @@ namespace Kalevala
         // Spins the object based on speed give by passing objects velocity.
         void FixedUpdate()
         {
+            if(_timer > 0)
+            {
+                _timer -= Time.deltaTime;
+            } else
             if(_rb.angularVelocity.x < _stabilizingThreshold && _rb.angularVelocity.x > -_stabilizingThreshold &&
                 _checkRotation && (transform.rotation.eulerAngles.x != 270 || transform.rotation.eulerAngles.x != 90))
             {
+                Debug.Log("Stabilize");
                 _stabilize = true;
                 _checkRotation = false;
                 CheckStabilizationDirection();
@@ -120,11 +127,11 @@ namespace Kalevala
         {
             if(transform.rotation.eulerAngles.x >= 0 && transform.rotation.eulerAngles.x <= 90)
             {
-                _stabilizationDirection = -Vector3.forward;
+                _stabilizationDirection = Vector3.forward;
             }
             else if(transform.rotation.eulerAngles.x >= 270 && transform.rotation.eulerAngles.x <= 360)
             {
-                _stabilizationDirection = Vector3.forward;
+                _stabilizationDirection = -Vector3.forward;
             }
         }
 
@@ -163,6 +170,7 @@ namespace Kalevala
                 }
                 _rb.AddTorque(transform.right * (pinball.Speed * sign) * _spinSpeedMultiplier, ForceMode.Impulse);
                 _checkRotation = true;
+                _timer = 1f;
                 _stabilize = false;
             }
         }
