@@ -839,7 +839,7 @@ MonoBehaviour:
   _bumperForceOrigin: {fileID: 1235331500862178}
   _kanteleBumperAudioSource: {fileID: 82915136600397528}
   _bumperActiveFrames: 12
-  _bumperForce: 2
+  _bumperForce: 1.5
   _bumperForceRandomModifier: 0.15
 --- !u!136 &136682993829568280
 CapsuleCollider:
