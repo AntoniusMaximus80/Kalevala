@@ -25,7 +25,7 @@ namespace Kalevala
 
 
         // Use this for initialization
-        void Start()
+        void Awake()
         {
             _heatMap = new int[_sizeX, _sizeY];
         }
@@ -56,9 +56,28 @@ namespace Kalevala
 
         }
 
-        void OnDrawGizmoz()
+        void OnDrawGizmos()
         {
+            for (int x = 0; x < _sizeX; x++)
+            {
+                for (int y = 0; y < _sizeY; y++)
+                {
+                    DrawPoint(x, y);
+                }
+            }
+        }
 
+        void DrawPoint(int x, int y)
+        {
+            try
+            {
+                Vector3 pos = new Vector3(_bottomLeft.x + x * (_topRight.x - _bottomLeft.x) / _sizeX, 0, _bottomLeft.y + y * (_topRight.y - _bottomLeft.y) / _sizeY);
+                Color c = new Color(_heatMap[x, y] * 10 / _count, 0, 0);
+
+                Gizmos.color = c;
+                Gizmos.DrawSphere(pos, .1f);
+            }
+            catch { Debug.Log(x + "," + y); }
         }
     }
 }
