@@ -113,6 +113,8 @@ namespace Kalevala
             _launchDone = true;
             _takeInput = false;
             _launcherForce = _minForceTime;
+
+            StateManager.LaunchOver();
         }
 
         public void StartLaunch(Pinball pinball)
@@ -121,6 +123,8 @@ namespace Kalevala
             _pinball = pinball;
             _returnAxeToStartPosition = true;
             _hingejoint.useLimits = true;
+
+            StateManager.ShowLaunch();
         }
     }
 }

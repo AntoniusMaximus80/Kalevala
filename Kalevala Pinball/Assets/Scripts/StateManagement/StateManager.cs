@@ -18,6 +18,11 @@ namespace Kalevala
         [SerializeField]
         private GameObject _gameOverScreen;
 
+        //Added here since other UI things are here and because it does not deserve a file of its own at this point.
+        [SerializeField]
+        private GameObject _focusShow;
+        private static GameObject _staticFocusShow;
+
         // DEBUGGING
         [SerializeField]
         private ScreenStateType _screen = ScreenStateType.None;
@@ -34,6 +39,9 @@ namespace Kalevala
         {
             InitScreens();
             InitGameModes();
+
+            // Store the focus canvas statically.
+            _staticFocusShow = _focusShow;
         }
 
         private void Update()
@@ -268,6 +276,16 @@ namespace Kalevala
             }
 
             //Debug.Log("Changed from " + currentState + " to " + newState);
+        }
+
+        public static void ShowLaunch()
+        {
+            _staticFocusShow.SetActive(true);
+        }
+
+        public static void LaunchOver()
+        {
+            _staticFocusShow.SetActive(false);
         }
 
         //private void SetScreen(ScreenStateBase state)

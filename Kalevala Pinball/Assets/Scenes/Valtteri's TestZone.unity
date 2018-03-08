@@ -8608,6 +8608,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 114602248010753546, guid: 211d40b776f371a499e88a8daab2dc4d,
         type: 2}
+      propertyPath: _startingPosition
+      value: 
+      objectReference: {fileID: 173056376}
+    - target: {fileID: 114602248010753546, guid: 211d40b776f371a499e88a8daab2dc4d,
+        type: 2}
       propertyPath: _pinballPrefab
       value: 
       objectReference: {fileID: 173056375}
@@ -8636,15 +8641,6 @@ Prefab:
       propertyPath: _rightFlipper
       value: 
       objectReference: {fileID: 623823748}
-    - target: {fileID: 114602248010753546, guid: 211d40b776f371a499e88a8daab2dc4d,
-        type: 2}
-      propertyPath: _startingPosition
-      value: 
-      objectReference: {fileID: 173056376}
-    - target: {fileID: 1965245872092680, guid: 211d40b776f371a499e88a8daab2dc4d, type: 2}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 211d40b776f371a499e88a8daab2dc4d, type: 2}
   m_IsPrefabParent: 0
