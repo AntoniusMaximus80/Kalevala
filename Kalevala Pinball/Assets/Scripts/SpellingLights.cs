@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CyclingLights : MonoBehaviour {
+public class SpellingLights : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
