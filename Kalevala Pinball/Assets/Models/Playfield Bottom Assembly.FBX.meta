@@ -1,0 +1,439 @@
+fileFormatVersion: 2
+guid: c28de9562f5befb4b82e43e75497fe54
+timeCreated: 1520666437
+licenseType: Free
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: 3 Inch Flipper Bar001
+    100002: 3 Inch Flipper Bar002
+    100004: Apron
+    100006: Base
+    100008: Base001
+    100010: Base002
+    100012: Base003
+    100014: Base004
+    100016: Base005
+    100018: Base006
+    100020: Board
+    100022: Board001
+    100024: Body
+    100026: Divider
+    100028: Divider001
+    100030: Kantele Bumper
+    100032: Kantele Bumper001
+    100034: Lower Body001
+    100036: Nail
+    100038: Nail Head
+    100040: Nail Head001
+    100042: Nail Head002
+    100044: Nail Head003
+    100046: Nail001
+    100048: Nail002
+    100050: Plastic Rail001
+    100052: Plastic Rail002
+    100054: Plastic Rail003
+    100056: Plastic Rail004
+    100058: Plastic Rails
+    100060: Plastic Rails001
+    100062: //RootNode
+    100064: Return Lane
+    100066: Return Lane Decoration
+    100068: Return Lane Decoration002
+    100070: Return Lane Top
+    100072: Return Lane Top001
+    100074: Return Lane001
+    100076: Rollover Switch
+    100078: Rollover Switch001
+    100080: Rollover Switch002
+    100082: Rollover Switch003
+    100084: Rollover Switch004
+    100086: Rollover Switch005
+    100088: Rollover Switch006
+    100090: Rubber Rail
+    100092: Rubber Rail010
+    100094: Square Nail
+    100096: Square Nail001
+    100098: Steel Post
+    100100: Steel Post001
+    100102: Steel Post002
+    100104: Steel Post003
+    100106: Steel Post003 1
+    100108: Steel Post004
+    100110: Steel Post005
+    100112: Steel Post006
+    100114: Steel Post007
+    100116: Steel Post008
+    100118: Steel Post009
+    100120: Steel Post010
+    100122: Steel Post011
+    100124: Steel Post012
+    100126: Steel Post013
+    100128: Steel Post014
+    100130: Steel Posts
+    100132: Steel Posts001
+    100134: Strings
+    100136: Strings001
+    100138: Ukon Kirves
+    100140: Ukon Kirves 1
+    100142: Ukon Kirves Frame
+    100144: Wire
+    100146: Wire001
+    100148: Wire002
+    100150: Wire003
+    100152: Wire004
+    100154: Wire005
+    100156: Wire006
+    100158: Plastic Rail003 1
+    400000: 3 Inch Flipper Bar001
+    400002: 3 Inch Flipper Bar002
+    400004: Apron
+    400006: Base
+    400008: Base001
+    400010: Base002
+    400012: Base003
+    400014: Base004
+    400016: Base005
+    400018: Base006
+    400020: Board
+    400022: Board001
+    400024: Body
+    400026: Divider
+    400028: Divider001
+    400030: Kantele Bumper
+    400032: Kantele Bumper001
+    400034: Lower Body001
+    400036: Nail
+    400038: Nail Head
+    400040: Nail Head001
+    400042: Nail Head002
+    400044: Nail Head003
+    400046: Nail001
+    400048: Nail002
+    400050: Plastic Rail001
+    400052: Plastic Rail002
+    400054: Plastic Rail003
+    400056: Plastic Rail004
+    400058: Plastic Rails
+    400060: Plastic Rails001
+    400062: //RootNode
+    400064: Return Lane
+    400066: Return Lane Decoration
+    400068: Return Lane Decoration002
+    400070: Return Lane Top
+    400072: Return Lane Top001
+    400074: Return Lane001
+    400076: Rollover Switch
+    400078: Rollover Switch001
+    400080: Rollover Switch002
+    400082: Rollover Switch003
+    400084: Rollover Switch004
+    400086: Rollover Switch005
+    400088: Rollover Switch006
+    400090: Rubber Rail
+    400092: Rubber Rail010
+    400094: Square Nail
+    400096: Square Nail001
+    400098: Steel Post
+    400100: Steel Post001
+    400102: Steel Post002
+    400104: Steel Post003
+    400106: Steel Post003 1
+    400108: Steel Post004
+    400110: Steel Post005
+    400112: Steel Post006
+    400114: Steel Post007
+    400116: Steel Post008
+    400118: Steel Post009
+    400120: Steel Post010
+    400122: Steel Post011
+    400124: Steel Post012
+    400126: Steel Post013
+    400128: Steel Post014
+    400130: Steel Posts
+    400132: Steel Posts001
+    400134: Strings
+    400136: Strings001
+    400138: Ukon Kirves
+    400140: Ukon Kirves 1
+    400142: Ukon Kirves Frame
+    400144: Wire
+    400146: Wire001
+    400148: Wire002
+    400150: Wire003
+    400152: Wire004
+    400154: Wire005
+    400156: Wire006
+    400158: Plastic Rail003 1
+    2100000: Placeholder
+    2100002: 04 - Default
+    2300000: 3 Inch Flipper Bar001
+    2300002: 3 Inch Flipper Bar002
+    2300004: Apron
+    2300006: Base
+    2300008: Base001
+    2300010: Base002
+    2300012: Base003
+    2300014: Base004
+    2300016: Base005
+    2300018: Base006
+    2300020: Board
+    2300022: Board001
+    2300024: Body
+    2300026: Divider
+    2300028: Divider001
+    2300030: Lower Body001
+    2300032: Nail
+    2300034: Nail Head
+    2300036: Nail Head001
+    2300038: Nail Head002
+    2300040: Nail Head003
+    2300042: Nail001
+    2300044: Nail002
+    2300046: Plastic Rail001
+    2300048: Plastic Rail002
+    2300050: Plastic Rail003
+    2300052: Plastic Rail004
+    2300054: Return Lane Decoration
+    2300056: Return Lane Decoration002
+    2300058: Return Lane Top
+    2300060: Return Lane Top001
+    2300062: Rubber Rail
+    2300064: Rubber Rail010
+    2300066: Square Nail
+    2300068: Square Nail001
+    2300070: Steel Post
+    2300072: Steel Post001
+    2300074: Steel Post002
+    2300076: Steel Post003
+    2300078: Steel Post003 1
+    2300080: Steel Post004
+    2300082: Steel Post005
+    2300084: Steel Post006
+    2300086: Steel Post007
+    2300088: Steel Post008
+    2300090: Steel Post009
+    2300092: Steel Post010
+    2300094: Steel Post011
+    2300096: Steel Post012
+    2300098: Steel Post013
+    2300100: Steel Post014
+    2300102: Strings
+    2300104: Strings001
+    2300106: Ukon Kirves 1
+    2300108: Ukon Kirves Frame
+    2300110: Wire
+    2300112: Wire001
+    2300114: Wire002
+    2300116: Wire003
+    2300118: Wire004
+    2300120: Wire005
+    2300122: Wire006
+    2300124: Plastic Rail003 1
+    3300000: 3 Inch Flipper Bar001
+    3300002: 3 Inch Flipper Bar002
+    3300004: Apron
+    3300006: Base
+    3300008: Base001
+    3300010: Base002
+    3300012: Base003
+    3300014: Base004
+    3300016: Base005
+    3300018: Base006
+    3300020: Board
+    3300022: Board001
+    3300024: Body
+    3300026: Divider
+    3300028: Divider001
+    3300030: Lower Body001
+    3300032: Nail
+    3300034: Nail Head
+    3300036: Nail Head001
+    3300038: Nail Head002
+    3300040: Nail Head003
+    3300042: Nail001
+    3300044: Nail002
+    3300046: Plastic Rail001
+    3300048: Plastic Rail002
+    3300050: Plastic Rail003
+    3300052: Plastic Rail004
+    3300054: Return Lane Decoration
+    3300056: Return Lane Decoration002
+    3300058: Return Lane Top
+    3300060: Return Lane Top001
+    3300062: Rubber Rail
+    3300064: Rubber Rail010
+    3300066: Square Nail
+    3300068: Square Nail001
+    3300070: Steel Post
+    3300072: Steel Post001
+    3300074: Steel Post002
+    3300076: Steel Post003
+    3300078: Steel Post003 1
+    3300080: Steel Post004
+    3300082: Steel Post005
+    3300084: Steel Post006
+    3300086: Steel Post007
+    3300088: Steel Post008
+    3300090: Steel Post009
+    3300092: Steel Post010
+    3300094: Steel Post011
+    3300096: Steel Post012
+    3300098: Steel Post013
+    3300100: Steel Post014
+    3300102: Strings
+    3300104: Strings001
+    3300106: Ukon Kirves 1
+    3300108: Ukon Kirves Frame
+    3300110: Wire
+    3300112: Wire001
+    3300114: Wire002
+    3300116: Wire003
+    3300118: Wire004
+    3300120: Wire005
+    3300122: Wire006
+    3300124: Plastic Rail003 1
+    4300000: Base
+    4300002: Wire
+    4300004: Return Lane Decoration
+    4300006: Return Lane Top
+    4300008: Rubber Rail
+    4300010: Plastic Rail001
+    4300012: Plastic Rail002
+    4300014: Steel Post
+    4300016: Steel Post001
+    4300018: Steel Post002
+    4300020: Steel Post003
+    4300022: Steel Post003
+    4300024: Steel Post004
+    4300026: Steel Post005
+    4300028: Steel Post006
+    4300030: Base001
+    4300032: Wire001
+    4300034: Divider
+    4300036: Base002
+    4300038: Wire002
+    4300040: Body
+    4300042: Strings
+    4300044: Lower Body001
+    4300046: Strings001
+    4300048: Base003
+    4300050: Wire003
+    4300052: Divider001
+    4300054: Base004
+    4300056: Wire004
+    4300058: Plastic Rail003
+    4300060: Plastic Rail004
+    4300062: Rubber Rail010
+    4300064: Return Lane Decoration002
+    4300066: Return Lane Top001
+    4300068: Steel Post007
+    4300070: Steel Post008
+    4300072: Steel Post009
+    4300074: Steel Post010
+    4300076: Steel Post011
+    4300078: Steel Post012
+    4300080: Steel Post013
+    4300082: Steel Post014
+    4300084: Base005
+    4300086: Wire005
+    4300088: Base006
+    4300090: Wire006
+    4300092: 3 Inch Flipper Bar002
+    4300094: 3 Inch Flipper Bar001
+    4300096: Apron
+    4300098: Square Nail
+    4300100: Board
+    4300102: Nail Head003
+    4300104: Nail Head002
+    4300106: Nail Head
+    4300108: Nail Head001
+    4300110: Nail002
+    4300112: Nail001
+    4300114: Nail
+    4300116: Board001
+    4300118: Ukon Kirves
+    4300120: Square Nail001
+    4300122: Ukon Kirves Frame
+    4300124: Plastic Rail003
+    9500000: //RootNode
+  externalObjects: {}
+  materials:
+    importMaterials: 0
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 0
+    importLights: 0
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 0
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
