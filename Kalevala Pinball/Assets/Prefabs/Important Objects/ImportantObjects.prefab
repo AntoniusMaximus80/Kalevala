@@ -416,7 +416,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4770323251890058}
   - component: {fileID: 114602248010753546}
-  - component: {fileID: 114888964445000616}
   m_Layer: 0
   m_Name: PinballManager
   m_TagString: Untagged
@@ -1834,21 +1833,6 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: Play
---- !u!114 &114888964445000616
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1792419746859102}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dd88c4052afdbef42b9501242fe7650d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _bottomLeft: {x: -30, y: -60}
-  _topRight: {x: 30, y: 60}
-  _sizeX: 100
-  _sizeY: 200
 --- !u!114 &114923408599343912
 MonoBehaviour:
   m_ObjectHideFlags: 1
