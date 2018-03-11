@@ -7,77 +7,112 @@ namespace Kalevala
 {
     public class HeatMap : MonoBehaviour
     {
-        private int _count;
+        private Renderer _renderer;
+        private Bounds _bounds;
+        private int[,] _map;
+        private int _max;
 
-        private int[,] _heatMap;
+        private Vector2 _bottomLeft, _topRight;
+        private int _sizeX, _sizeY;
+        private float _timer;
+        private Vector3 _oldPos;
+               
+        [SerializeField, Tooltip("Scaling factor for the heat map resolution in points per unit.")]
+        private float _ScaleFactor = 5;
 
-        [SerializeField]
-        private Vector2 _bottomLeft;
+        [SerializeField, Tooltip("Sampling rate in seconds between samples."), Range(0,1)]
+        private float _SamplingRate = .05f;
 
-        [SerializeField]
-        private Vector2 _topRight;
+        [SerializeField, Tooltip("Color, adjust until it looks right."), Range(0, 1)]
+        private float _colorRate = .1f;
 
-        [SerializeField]
-        private int _sizeX;
-
-        [SerializeField]
-        private int _sizeY;
-
+        [SerializeField, Tooltip("No point in drawing while playing, switch this on when you want to see results.")]
+        private bool _showMap;
 
         // Use this for initialization
-        void Awake()
+        void Start()
         {
-            _heatMap = new int[_sizeX, _sizeY];
+            _renderer = gameObject.GetComponent<Renderer>();
+            _bounds = _renderer.bounds;
+            _sizeX = Mathf.FloorToInt(_bounds.size.x * _ScaleFactor);
+            _sizeY = Mathf.FloorToInt(_bounds.size.z * _ScaleFactor);
+            _map = new int[_sizeX,_sizeY];
+
+            //Debug.Log("x " + _sizeX + " y " + _sizeY);
+
+            _bottomLeft = new Vector2(_bounds.center.x - _bounds.extents.x, _bounds.center.z - _bounds.extents.z);
+            _topRight = new Vector2(_bounds.center.x + _bounds.extents.x, _bounds.center.z + _bounds.extents.z);
+
+            
         }
 
         // Update is called once per frame
         void Update()
         {
+            _timer -= Time.deltaTime;
+
+            if (_timer > 0) return;
+
+            
 
             foreach (Pinball ball in PinballManager.Instance.Pinballs)
             {
+                // Skip non-active balls that might be on the list.
+                if (!ball.gameObject.activeSelf) continue;
+
+                // Skip not moving balls.
+                //if (ball.Speed == 0) continue;
+
+                // Add a hit to the heat map.
                 AddToMap(ball.transform.position);
             }
 
+            _timer = _SamplingRate;
         }
 
         private void AddToMap(Vector3 position)
         {
+            
             // Skip if the ball posiion is outside the area.
             if (position.x < _bottomLeft.x || position.x > _topRight.x) return;
             if (position.z < _bottomLeft.y || position.z > _topRight.y) return;
 
-            _count++;
+            // Calculate the map coordinates.
+            int x = (int)((position.x - _bottomLeft.x) / (_topRight.x - _bottomLeft.x) * _sizeX);
+            int y = (int)((position.z - _bottomLeft.y) / (_topRight.y - _bottomLeft.y) * _sizeY);
 
-            int x = (int)((position.x - _bottomLeft.x) / (_topRight.x - _bottomLeft.x)) * _sizeX;
-            int y = (int)((position.z - _bottomLeft.y) / (_topRight.y - _bottomLeft.y)) * _sizeY;
+            // Add to the map.
+            _map[x, y]++;
 
-            _heatMap[x, y]++;
+            // Keep track of max value.
+            if (_map[x, y] > _max) _max = _map[x, y];
 
         }
 
-        void OnDrawGizmos()
+        private void OnDrawGizmos()
         {
+            if (!_showMap) return;
+
+            Vector3 pos = new Vector3();
+            pos.x = _bottomLeft.x;
+           
+
+            float step = 1 / _ScaleFactor;
+            Gizmos.color = Color.red;
+
             for (int x = 0; x < _sizeX; x++)
             {
+                pos.z = _bottomLeft.y;
                 for (int y = 0; y < _sizeY; y++)
                 {
-                    DrawPoint(x, y);
+                    Gizmos.color = new Color(Mathf.Clamp01(_colorRate*_map[x, y]), 0,0, .2f);
+                    
+                    Gizmos.DrawSphere(pos, step / 2 );
+                    pos.z += step;
                 }
+                pos.x += step;
             }
         }
 
-        void DrawPoint(int x, int y)
-        {
-            try
-            {
-                Vector3 pos = new Vector3(_bottomLeft.x + x * (_topRight.x - _bottomLeft.x) / _sizeX, 0, _bottomLeft.y + y * (_topRight.y - _bottomLeft.y) / _sizeY);
-                Color c = new Color(_heatMap[x, y] * 10 / _count, 0, 0);
-
-                Gizmos.color = c;
-                Gizmos.DrawSphere(pos, .1f);
-            }
-            catch { Debug.Log(x + "," + y); }
-        }
     }
 }
