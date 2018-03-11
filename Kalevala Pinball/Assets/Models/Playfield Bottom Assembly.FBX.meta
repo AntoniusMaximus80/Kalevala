@@ -88,6 +88,10 @@ ModelImporter:
     100160: Axle
     100162: Ukon Kirves Assembly
     100164: Ukon Kirves Launcher
+    100166: Kirves
+    100168: Plastic Rail005
+    100170: Plastic Rail006
+    100172: Return Lane Decoration001
     400000: 3 Inch Flipper Bar001
     400002: 3 Inch Flipper Bar002
     400004: Apron
@@ -171,6 +175,10 @@ ModelImporter:
     400160: Axle
     400162: Ukon Kirves Assembly
     400164: Ukon Kirves Launcher
+    400166: Kirves
+    400168: Plastic Rail005
+    400170: Plastic Rail006
+    400172: Return Lane Decoration001
     2100000: Placeholder
     2100002: 04 - Default
     2300000: 3 Inch Flipper Bar001
@@ -238,6 +246,9 @@ ModelImporter:
     2300124: Plastic Rail003 1
     2300126: Axle
     2300128: Ukon Kirves
+    2300130: Plastic Rail005
+    2300132: Plastic Rail006
+    2300134: Return Lane Decoration001
     3300000: 3 Inch Flipper Bar001
     3300002: 3 Inch Flipper Bar002
     3300004: Apron
@@ -303,6 +314,9 @@ ModelImporter:
     3300124: Plastic Rail003 1
     3300126: Axle
     3300128: Ukon Kirves
+    3300130: Plastic Rail005
+    3300132: Plastic Rail006
+    3300134: Return Lane Decoration001
     4300000: Base
     4300002: Wire
     4300004: Return Lane Decoration
@@ -367,6 +381,9 @@ ModelImporter:
     4300122: Ukon Kirves Frame
     4300124: Plastic Rail003
     4300126: Axle
+    4300128: Plastic Rail005
+    4300130: Plastic Rail006
+    4300132: Return Lane Decoration001
     9500000: //RootNode
   externalObjects: {}
   materials:

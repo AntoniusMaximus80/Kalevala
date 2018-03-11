@@ -19,8 +19,6 @@ namespace Kalevala
         [SerializeField]
         private HingeJoint _hingejoint;
         [SerializeField]
-        private Transform _ballLifter;
-        [SerializeField]
         private GameObject _hitParticles;
         [SerializeField]
         private AudioSource _hitSFX;
@@ -59,7 +57,6 @@ namespace Kalevala
 
             if(_returnAxeToStartPosition && _hingejoint.limits.min < 90)
             {
-                //_pinball.transform.Translate(new Vector3(0f, 1f, 0f));
                 _jointLimits.min += 80f * Time.deltaTime;
                 if(_jointLimits.min > 90f )
                 {

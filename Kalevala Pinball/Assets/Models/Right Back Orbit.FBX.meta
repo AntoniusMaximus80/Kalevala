@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: 64a2410edbb4ec44ebbe12edf625ae17
-timeCreated: 1520167827
+guid: 24f07c7144e7e6b49963188fdb2106ab
+timeCreated: 1520757436
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
@@ -10,7 +10,7 @@ ModelImporter:
     2100000: Placeholder
     2300000: //RootNode
     3300000: //RootNode
-    4300000: Apron
+    4300000: Right Back Orbit
     9500000: //RootNode
   externalObjects: {}
   materials:
@@ -65,7 +65,7 @@ ModelImporter:
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0
-    tangentImportMode: 3
+    tangentImportMode: 0
     normalCalculationMode: 4
   importAnimation: 0
   copyAvatar: 0
