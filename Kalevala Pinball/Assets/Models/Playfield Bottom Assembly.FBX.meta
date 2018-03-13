@@ -92,6 +92,30 @@ ModelImporter:
     100168: Plastic Rail005
     100170: Plastic Rail006
     100172: Return Lane Decoration001
+    100174: Base010
+    100176: Base011
+    100178: Base012
+    100180: Base013
+    100182: Base014
+    100184: Base015
+    100186: Base016
+    100188: Rollover Switch010
+    100190: Rollover Switch011
+    100192: Rollover Switch012
+    100194: Rollover Switch013
+    100196: Rollover Switch014
+    100198: Rollover Switch015
+    100200: Rollover Switch016
+    100202: Slingshot
+    100204: Slingshot001
+    100206: Tuonela Rollover Switches
+    100208: Wire010
+    100210: Wire011
+    100212: Wire012
+    100214: Wire013
+    100216: Wire014
+    100218: Wire015
+    100220: Wire016
     400000: 3 Inch Flipper Bar001
     400002: 3 Inch Flipper Bar002
     400004: Apron
@@ -179,6 +203,30 @@ ModelImporter:
     400168: Plastic Rail005
     400170: Plastic Rail006
     400172: Return Lane Decoration001
+    400174: Base010
+    400176: Base011
+    400178: Base012
+    400180: Base013
+    400182: Base014
+    400184: Base015
+    400186: Base016
+    400188: Rollover Switch010
+    400190: Rollover Switch011
+    400192: Rollover Switch012
+    400194: Rollover Switch013
+    400196: Rollover Switch014
+    400198: Rollover Switch015
+    400200: Rollover Switch016
+    400202: Slingshot
+    400204: Slingshot001
+    400206: Tuonela Rollover Switches
+    400208: Wire010
+    400210: Wire011
+    400212: Wire012
+    400214: Wire013
+    400216: Wire014
+    400218: Wire015
+    400220: Wire016
     2100000: Placeholder
     2100002: 04 - Default
     2300000: 3 Inch Flipper Bar001
@@ -249,6 +297,20 @@ ModelImporter:
     2300130: Plastic Rail005
     2300132: Plastic Rail006
     2300134: Return Lane Decoration001
+    2300136: Base010
+    2300138: Base011
+    2300140: Base012
+    2300142: Base013
+    2300144: Base014
+    2300146: Base015
+    2300148: Base016
+    2300150: Wire010
+    2300152: Wire011
+    2300154: Wire012
+    2300156: Wire013
+    2300158: Wire014
+    2300160: Wire015
+    2300162: Wire016
     3300000: 3 Inch Flipper Bar001
     3300002: 3 Inch Flipper Bar002
     3300004: Apron
@@ -317,6 +379,20 @@ ModelImporter:
     3300130: Plastic Rail005
     3300132: Plastic Rail006
     3300134: Return Lane Decoration001
+    3300136: Base010
+    3300138: Base011
+    3300140: Base012
+    3300142: Base013
+    3300144: Base014
+    3300146: Base015
+    3300148: Base016
+    3300150: Wire010
+    3300152: Wire011
+    3300154: Wire012
+    3300156: Wire013
+    3300158: Wire014
+    3300160: Wire015
+    3300162: Wire016
     4300000: Base
     4300002: Wire
     4300004: Return Lane Decoration
@@ -384,6 +460,20 @@ ModelImporter:
     4300128: Plastic Rail005
     4300130: Plastic Rail006
     4300132: Return Lane Decoration001
+    4300134: Base016
+    4300136: Wire016
+    4300138: Base015
+    4300140: Wire015
+    4300142: Base014
+    4300144: Wire014
+    4300146: Base013
+    4300148: Wire013
+    4300150: Base012
+    4300152: Wire012
+    4300154: Base010
+    4300156: Wire010
+    4300158: Base011
+    4300160: Wire011
     9500000: //RootNode
   externalObjects: {}
   materials:
