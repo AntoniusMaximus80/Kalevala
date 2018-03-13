@@ -29,8 +29,6 @@ namespace Kalevala
         private bool _takeInput = true;
         private float _launcherForce;
         private Pinball _pinball;
-
-        private bool _checkVelocity = false;
         private bool _launchDone = true;
         private bool _returnAxeToStartPosition = false;
 
@@ -106,7 +104,6 @@ namespace Kalevala
             _hitParticles.SetActive(true);
             PinballManager.Instance.SetPinballPhysicsEnabled(true);
             _pinball.AddImpulseForce(Vector3.forward * _launcherForce * _launcherForceMultiplier);
-            _checkVelocity = true;
             _launchDone = true;
             _takeInput = false;
             _launcherForce = _minForceTime;
