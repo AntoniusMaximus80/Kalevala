@@ -59,7 +59,16 @@ namespace Kalevala
             _triggered = true;
             _animating = true;
             _animatingDown = true;
-            _collider.enabled = false;
+
+            if (_collider != null)
+            {
+                _collider.enabled = false;
+            }
+            else
+            {
+                Debug.LogError("Collider is missing.");
+            }
+
             Scorekeeper.Instance.AddScore(Scorekeeper.ScoreType.DropTarget);
         }
 
@@ -68,8 +77,16 @@ namespace Kalevala
             _triggered = false;
             _animating = true;
             _animatingDown = false;
-            _collider.enabled = true;
             _animationTimeCounter = 0f;
+
+            if (_collider != null)
+            {
+                _collider.enabled = true; 
+            }
+            else
+            {
+                Debug.LogError("Collider is missing.");
+            }
         }
     }
 }
