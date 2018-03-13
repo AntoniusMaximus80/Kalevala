@@ -186,7 +186,7 @@ namespace Kalevala
             Debug.Log("Initial balls : " + _activeBalls.ToString());
 
             ResetPinball();
-            SetPinballPhysicsEnabled(false);
+            //SetPinballPhysicsEnabled(false);
         }
 
         public void UpdatePinballs()
@@ -239,7 +239,7 @@ namespace Kalevala
         public void InstanceNextBall(Pinball ball)
         {
             ball.transform.position = _ballLaunchPoint;
-            ball.SetPhysicsEnabled(false);
+            //ball.SetPhysicsEnabled(false);
             Launcher.Instance.StartLaunch(ball);
         }
 
