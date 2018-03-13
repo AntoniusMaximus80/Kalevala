@@ -40,6 +40,11 @@ namespace Kalevala
             InitScreens();
             InitGameModes();
 
+           
+        }
+
+        private void Awake()
+        {
             // Store the focus canvas statically.
             _staticFocusShow = _focusShow;
         }
