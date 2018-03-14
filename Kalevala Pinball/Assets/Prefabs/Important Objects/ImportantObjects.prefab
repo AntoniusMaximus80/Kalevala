@@ -744,6 +744,7 @@ MonoBehaviour:
   _launcher: {fileID: 0}
   _leftFlipper: {fileID: 0}
   _rightFlipper: {fileID: 0}
+  _topRightFlipper: {fileID: 0}
   _nudgeStrength: 12
 --- !u!114 &114012420951170960
 MonoBehaviour:
@@ -1370,11 +1371,11 @@ MonoBehaviour:
   _rampGravity: -7
   _rampExitMomentumFactor: 0.75
   _startingBallAmount: 3
-  _allowedNudgeAmount: 3
+  _allowedNudgeAmount: 4
   debug_useDefaultLaunchPoint: 0
   _ballLaunchPoint: {x: -20.2, y: 1.35, z: -6.8}
-  _ballDrainBottomLeftCorner: {x: 2.8, y: 3, z: -50.56}
-  _ballDrainTopRightCorner: {x: 11.62, y: 3, z: -46.6}
+  _ballDrainBottomLeftCorner: {x: 8, y: 1, z: -52}
+  _ballDrainTopRightCorner: {x: 12, y: 1, z: -48}
   _startingPosition: {fileID: 0}
   _pinballPrefab: {fileID: 0}
 --- !u!114 &114635116687291534
