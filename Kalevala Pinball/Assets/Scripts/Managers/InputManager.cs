@@ -17,6 +17,9 @@ namespace Kalevala {
         private FlipperBar _rightFlipper;
 
         [SerializeField]
+        private FlipperBar _topRightFlipper;
+
+        [SerializeField]
         private float _nudgeStrength;
 
         private static Vector3 _nudgeVector = Vector3.zero;
@@ -130,10 +133,12 @@ namespace Kalevala {
             if (Input.GetButton(_rightFlipperHit))
             {
                 _rightFlipper.UseMotor();
+                _topRightFlipper.UseMotor();
             }
             else
             {
                 _rightFlipper.UseSpring();
+                _topRightFlipper.UseSpring();
             }
 
             // Ugly nudge hack.
