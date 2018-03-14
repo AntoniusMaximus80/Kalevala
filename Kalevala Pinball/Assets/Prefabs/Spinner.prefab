@@ -85,7 +85,6 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4869589876850152}
-  - component: {fileID: 95478564513007748}
   m_Layer: 10
   m_Name: Spinner
   m_TagString: Untagged
@@ -282,8 +281,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1485240735807766}
-  m_LocalRotation: {x: -0.0000023075402, y: -0.7071068, z: -0.7071068, w: 0.0000023075402}
-  m_LocalPosition: {x: 9.3, y: 0, z: 11}
+  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: -16.21754, y: -0.000035688292, z: 7.9172397}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4528070422475358}
@@ -293,7 +292,7 @@ Transform:
   - {fileID: 4513042118304086}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -90.00001, y: 0, z: 0}
 --- !u!4 &4951487943687468
 Transform:
   m_ObjectHideFlags: 1
@@ -675,23 +674,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2.8019488, y: 0.25000054, z: 2.255106}
   m_Center: {x: -0.0000002384187, y: -0.00000095367426, z: 0.00000035762784}
---- !u!95 &95478564513007748
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1485240735807766}
-  m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: 8a6f9e9a389b2794d88965f4e1ce64b4, type: 3}
-  m_Controller: {fileID: 0}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &114822975761731054
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -55,7 +55,7 @@ MonoBehaviour:
   _ScaleFactor: 1
   _SamplingRate: 0.05
   _colorRate: 0.1
-  _showMap: 1
+  _showMap: 0
 --- !u!212 &212444321740312654
 SpriteRenderer:
   m_ObjectHideFlags: 1
