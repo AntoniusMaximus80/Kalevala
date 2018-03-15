@@ -26,7 +26,7 @@ namespace Kalevala
         //private float _segmentTime;
         //private float _elapsedTime;
         private bool _getNextWaypoint;
-
+        private bool _kickOut;
         public Waypoint CurrentWaypoint { get; private set; }
 
         //public PinballManager PinballManager { get; set; }
@@ -39,13 +39,13 @@ namespace Kalevala
         //    }
         //}
 
-        public void Activate(Path path, Direction direction, Waypoint startWaypoint, float speed)
+        public void Activate(Path path, Direction direction, Waypoint startWaypoint, float speed, bool kickout)
         {
             if (speed > 0)
             {
                 _onRamp = true;
                 _getNextWaypoint = true;
-
+                _kickOut = kickout;
                 _path = path;
                 _startDirection = direction;
                 _direction = direction;
@@ -74,6 +74,7 @@ namespace Kalevala
             // Did we reach the next waypoint but didn't move as far as we could?
             //    If yes, get the next waypoint and move again using the leftover movement
             //    Repeat until there's no leftover movement
+            // Return whether the ball is still on the ramp
 
             bool wpReached = false;
             int repeats = 0;
@@ -83,7 +84,6 @@ namespace Kalevala
                 Waypoint newWaypoint = GetWaypoint();
                 CurrentWaypoint = (newWaypoint == null ?
                     CurrentWaypoint : newWaypoint);
-
                 if (_onRamp)
                 {
                     if (repeats == 0)
@@ -105,7 +105,7 @@ namespace Kalevala
             }
             while (_onRamp && wpReached);
 
-            return !_onRamp;
+            return _onRamp;
         }
 
         private Waypoint GetWaypoint()
@@ -225,10 +225,12 @@ namespace Kalevala
         {
             float result = _speed;
 
-            //Debug.Log("Speed change: " + incline * _gravity * 10);
-            //Debug.Log("_gravity: " + _gravity);
-            result += incline * PinballManager.Instance.RampGravity;
-
+            if(!_kickOut)
+            {
+                //Debug.Log("Speed change: " + incline * _gravity * 10);
+                //Debug.Log("_gravity: " + _gravity);
+                result += incline * PinballManager.Instance.RampGravity;
+            }
             return result;
         }
 
