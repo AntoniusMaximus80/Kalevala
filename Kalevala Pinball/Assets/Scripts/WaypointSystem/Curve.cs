@@ -52,7 +52,7 @@ namespace Kalevala
         public Vector3 GetPoint(float t)
         {
             return transform.TransformPoint(
-                MathHelp.GetCurvePoint(Points[0], Points[1], Points[2], t));
+                Utils.GetCurvePoint(Points[0], Points[1], Points[2], t));
         }
 
         public Vector3[] Points

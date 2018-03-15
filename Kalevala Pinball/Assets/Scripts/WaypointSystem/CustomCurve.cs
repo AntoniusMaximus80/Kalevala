@@ -18,16 +18,16 @@ namespace Kalevala
             if (Points.Length == 4)
             {
                 return transform.TransformPoint(
-                MathHelp.GetCurvePoint(Points[0], Points[1], Points[2], Points[3], t));
+                Utils.GetCurvePoint(Points[0], Points[1], Points[2], Points[3], t));
             }
             else if (Points.Length == 5)
             {
                 return transform.TransformPoint(
-                    MathHelp.GetCurvePoint(Points[0], Points[1], Points[2], Points[3], Points[4], t));
+                    Utils.GetCurvePoint(Points[0], Points[1], Points[2], Points[3], Points[4], t));
             }
 
             return transform.TransformPoint(
-                MathHelp.GetCurvePoint(Points[0], Points[1], Points[2], t));
+                Utils.GetCurvePoint(Points[0], Points[1], Points[2], t));
         }
 
         public Vector3[] Points

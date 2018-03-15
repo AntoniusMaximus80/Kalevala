@@ -72,19 +72,7 @@ namespace Kalevala
             if (!InputManager.NudgeVector.Equals(Vector3.zero))
                 AddImpulseForce(InputManager.NudgeVector);
 
-            if (PinballManager.Instance.PositionIsInDrain(transform.position))
-            {
-                if (debug_freeBalls)
-                {
-                    // if debug free balls is on, a ball in drain is moved
-                    // back to the launcher without consuming "lives"
-                    PinballManager.Instance.InstanceNextBall(this);
-                }
-                else
-                {
-                    PinballManager.Instance.RemoveBall(this);
-                }
-            }
+            PinballManager.Instance.CheckIfBallIsLost(this, debug_freeBalls);
 
             HandleDebug();
         }

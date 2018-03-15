@@ -61,7 +61,8 @@ namespace Kalevala
         [SerializeField]
         public int _allowedNudgeAmount;
 
-        [SerializeField]
+        [SerializeField, Tooltip
+            ("Use the wire sphere gizmo's position as the launch point.")]
         private bool debug_useDefaultLaunchPoint;
 
         [SerializeField]
@@ -185,7 +186,7 @@ namespace Kalevala
             Debug.Log("Total balls : " + _currentBallAmount.ToString());
             Debug.Log("Initial balls : " + _activeBalls.ToString());
 
-            ResetPinball();
+            ResetAllPinballs();
             //SetPinballPhysicsEnabled(false);
         }
 
@@ -203,6 +204,19 @@ namespace Kalevala
             {
                 InstanceNextBall(_pinballs[0]);
             }
+        }
+
+        public void ResetAllPinballs()
+        {
+            if (_pinballs.Count > 0)
+            {
+                for (int i = 0; i < _pinballs.Count; i++)
+                {
+                    RemoveBall(_pinballs[i], true);
+                }
+
+                InstanceNextBall(_pinballs[0]);
+            }
 
             //foreach (Pinball ball in _pinballs)
             //{
@@ -215,14 +229,25 @@ namespace Kalevala
             return _currentBallAmount <= 0;
         }
 
-        public bool LoseBall()
+        public bool CheckIfBallIsLost(Pinball ball, bool freeBalls)
         {
-            if (!OutOfBalls())
+            if (PositionIsInDrain(transform.position))
             {
-                _currentBallAmount--;
+                // If balls are free, a ball in drain is moved
+                // back to the launcher without consuming "lives"
+                if (freeBalls)
+                {
+                    InstanceNextBall(ball);
+                }
+                else
+                {
+                    RemoveBall(ball, false);
+                }
+
+                return true;
             }
 
-            return OutOfBalls();
+            return false;
         }
 
         public bool PositionIsInDrain(Vector3 position)
@@ -243,14 +268,14 @@ namespace Kalevala
             Launcher.Instance.StartLaunch(ball);
         }
 
-        public void RemoveBall(Pinball pinball)
+        public void RemoveBall(Pinball pinball, bool gameReset)
         {
-            if(_activeBalls>1)
+            if(_activeBalls > 1)
             {
                 pinball.gameObject.SetActive(false);
                 _activeBalls--;
             }
-            else
+            else if (!gameReset)
             {
                 if (!OutOfBalls())
                 {

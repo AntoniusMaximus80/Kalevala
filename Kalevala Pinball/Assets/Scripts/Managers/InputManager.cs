@@ -25,6 +25,7 @@ namespace Kalevala {
         private static Vector3 _nudgeVector = Vector3.zero;
 
         private StateManager stateManager;
+        private MouseCursorController cursor;
 
         public static Vector3 NudgeVector
         {
@@ -42,6 +43,8 @@ namespace Kalevala {
             {
                 Debug.LogError("StateManager object not found in the scene.");
             }
+
+            cursor = FindObjectOfType<MouseCursorController>();
         }
 
         // Update is called once per frame
@@ -70,16 +73,13 @@ namespace Kalevala {
                     break;
                 }
             }
+
+            DebugInput();
         }
 
         private void MainMenuInput()
         {
-            // Starting the game
-            if (Input.GetButtonUp("Submit"))
-            {
-                stateManager.GoToPlayState();
-                Debug.Log("Game started");
-            }
+            // Uses on-screen buttons only
         }
 
         private void PauseInput()
@@ -98,15 +98,15 @@ namespace Kalevala {
             // Restarting the game
             if (Input.GetButtonUp("Submit"))
             {
-                stateManager.GoToPlayState();
-                //Debug.Log("Game resumed");
+                stateManager.StartNewGame();
+                //Debug.Log("Game restarted");
             }
 
             // Returning to main menu
             if (Input.GetButtonUp("Cancel"))
             {
                 stateManager.GoToMainMenuState();
-                //Debug.Log("Game resumed");
+                //Debug.Log("Returned to main menu");
             }
         }
 
@@ -165,6 +165,14 @@ namespace Kalevala {
             // TODO : This really needs a sound effect, maybe the camera shake Toni suggested?
             // Not sure as nudge is not really THAT powerful.
             _nudgeVector.x = direction * _nudgeStrength;
+        }
+
+        private void DebugInput()
+        {
+            if (Input.GetButtonUp("ToggleCursor"))
+            {
+                cursor.PlayingUsingMouse = !cursor.PlayingUsingMouse;
+            }
         }
     }
 }

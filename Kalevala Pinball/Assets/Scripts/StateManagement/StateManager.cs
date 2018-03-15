@@ -94,7 +94,7 @@ namespace Kalevala
         public void GoToMainMenuState()
         {
             GameOver(false);
-            GameManager.Instance.ResetAll();
+            //GameManager.Instance.ResetAll();
             PerformTransition(ScreenStateType.MainMenu);
         }
 
