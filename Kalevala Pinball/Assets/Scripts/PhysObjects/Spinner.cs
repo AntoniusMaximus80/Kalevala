@@ -78,7 +78,6 @@ namespace Kalevala
             if(_rb.angularVelocity.x < _stabilizingThreshold && _rb.angularVelocity.x > -_stabilizingThreshold &&
                 _checkRotation && (transform.rotation.eulerAngles.x != 270 || transform.rotation.eulerAngles.x != 90))
             {
-                Debug.Log("Stabilize");
                 _stabilize = true;
                 _checkRotation = false;
                 CheckStabilizationDirection();
