@@ -31,6 +31,10 @@ namespace Kalevala
         private Direction _direction;
         private Waypoint _startWaypoint;
 
+        private KickoutHole _kickoutHole;
+
+        private bool _isKickHole = false;
+
         /* The ramp entrance knows the ramp it is a part of
          * When a pinball hits, the ramp is given to it and it disables its physics
          * The pinball moves itself on the ramp using its speed, the ramp's line and gravity
@@ -42,14 +46,20 @@ namespace Kalevala
         private void Start()
         {
             _rampDirection.Normalize();
-
+            
             if (_isPathStart)
             {
+                _kickoutHole = GetComponent<KickoutHole>();
+                if(_kickoutHole != null)
+                {
+                    _isKickHole = true;
+                }
                 _direction = Direction.Forward;
                 _startWaypoint = _path.GetFirstWaypoint();
             }
             else
             {
+                _kickoutHole = GetComponentInParent<KickoutHole>();
                 _direction = Direction.Backward;
                 _startWaypoint = _path.GetLastWaypoint();
             }
@@ -86,14 +96,32 @@ namespace Kalevala
         /// </summary>
         private void PutPinballOnRamp()
         {
+            
             foreach (Pinball ball in PinballManager.Instance.Pinballs)
             {
-                if (!ball.IsOnRamp &&
+                if (!ball.IsOnRamp && !ball.IsInKickoutHole &&
                     Hit(ball.transform.position) &&
-                    SameDirections(ball.PhysicsVelocity))
+                    SameDirections(ball.PhysicsVelocity) )
+
                 {
-                    ball.EnterRamp(_path, _direction,
-                        _startWaypoint, _dropBallAtEnd);
+                    bool available = true;
+                    float kickforce = 0;
+                    if(_kickoutHole != null)
+                    {
+                        if(!_isKickHole)
+                        {
+                            kickforce = _kickoutHole.KickForce;
+                        }
+                        else
+                        {
+                            available = _kickoutHole.BallIncoming(ball, this);
+                        }
+                    }
+                    if(available)
+                    {
+                        ball.EnterRamp(_path, _direction,
+                            _startWaypoint, _dropBallAtEnd, kickforce);
+                    }
                     return;
                 }
             }
