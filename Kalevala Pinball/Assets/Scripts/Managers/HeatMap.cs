@@ -119,7 +119,11 @@ namespace Kalevala
 
                 for (int y = 0; y < _sizeY; y++)
                 {
-                    Color color = new Color(Mathf.Clamp01(_colorRate * _map[x, y]), 0, 0, .2f);
+
+                    float value = Mathf.Clamp01(_colorRate * _map[x, y]);
+                    float subValue = value * .2f;
+
+                    Color color = new Color(value, subValue, subValue, subValue);
 
                     _texture.SetPixel(_sizeX - x, _sizeY - y, color);
 
