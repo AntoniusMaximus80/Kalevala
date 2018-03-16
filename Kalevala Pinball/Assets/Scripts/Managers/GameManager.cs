@@ -40,8 +40,8 @@ namespace Kalevala
         }
         #endregion Statics
 
-        [SerializeField]
-        private bool debug_UnlockAll;
+        // DEBUGGING
+        public bool debug_SkipMainMenu;
 
         [SerializeField]
         private bool debug_ResetData;
@@ -143,11 +143,6 @@ namespace Kalevala
             // Creates a new MusicPlayer instance
             // if one does not already exist
             //MusicPlayer.Instance.Create();
-
-            if (debug_UnlockAll)
-            {
-                //LatestCompletedLevel = 8;
-            }
 
             if (debug_ResetData)
             {

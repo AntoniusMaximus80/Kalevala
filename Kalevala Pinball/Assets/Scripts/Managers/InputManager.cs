@@ -34,7 +34,6 @@ namespace Kalevala {
             {
                 return _nudgeVector;
             }
-
         }
 
         private void Start()
@@ -93,6 +92,13 @@ namespace Kalevala {
 
         private void MainMenuInput()
         {
+            // Debugging
+            if (GameManager.Instance.debug_SkipMainMenu)
+            {
+                StartGame(true);
+                return;
+            }
+
             // Quitting the game
             if (Input.GetButtonUp("Cancel"))
             {
