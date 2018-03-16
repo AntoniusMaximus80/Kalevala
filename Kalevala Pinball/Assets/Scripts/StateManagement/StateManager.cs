@@ -35,18 +35,16 @@ namespace Kalevala
         public ScreenStateBase CurrentScreenState { get; set; }
         public GameModeStateBase CurrentGameModeState { get; set; }
 
-        private void Start()
-        {
-            InitScreens();
-            InitGameModes();
-
-           
-        }
-
         private void Awake()
         {
             // Store the focus canvas statically.
             _staticFocusShow = _focusShow;
+        }
+
+        private void Start()
+        {
+            InitScreens();
+            InitGameModes();
         }
 
         private void Update()
@@ -91,6 +89,11 @@ namespace Kalevala
             SetState(CurrentGameModeState, normal);
         }
 
+        public void ShowCurrentMenu(bool show)
+        {
+            CurrentScreenState.ShowScreenObject(show);
+        }
+
         public void GoToMainMenuState()
         {
             GameOver(false);
@@ -118,11 +121,6 @@ namespace Kalevala
             GameManager.Instance.ResetAll();
             //PinballManager.Instance.SetPinballPhysicsEnabled(true);
             GoToPlayState();
-        }
-
-        public void QuitGame()
-        {
-            Application.Quit();
         }
 
         /// <summary>

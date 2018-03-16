@@ -63,6 +63,10 @@ namespace Kalevala
             {
                 return gameOver;
             }
+            else if (textID.Equals("highscores"))
+            {
+                return highscores;
+            }
             else if (textID.Equals("resume"))
             {
                 return resume;
@@ -75,9 +79,65 @@ namespace Kalevala
             {
                 return quitGame;
             }
+            else if (textID.Equals("next"))
+            {
+                return next;
+            }
+            else if (textID.Equals("previous"))
+            {
+                return back;
+            }
             else if (textID.Equals("back"))
             {
                 return back;
+            }
+            else if (textID.Equals("accept"))
+            {
+                return accept;
+            }
+            else if (textID.Equals("ok"))
+            {
+                return ok;
+            }
+            else if (textID.Equals("cancel"))
+            {
+                return cancel;
+            }
+            else if (textID.Equals("yes"))
+            {
+                return yes;
+            }
+            else if (textID.Equals("no"))
+            {
+                return no;
+            }
+            else if (textID.Equals("apply"))
+            {
+                return apply;
+            }
+            else if (textID.Equals("revert"))
+            {
+                return revert;
+            }
+            else if (textID.Equals("confirmExitGame"))
+            {
+                return confirmExitGame;
+            }
+            else if (textID.Equals("confirmStartGame"))
+            {
+                return confirmStartGame;
+            }
+            else if (textID.Equals("confirmReturnToMainMenu"))
+            {
+                return confirmReturnToMainMenu;
+            }
+            else if (textID.Equals("confirmSaveSettings"))
+            {
+                return confirmSaveSettings;
+            }
+            else if (textID.Equals("confirmEraseHighscores"))
+            {
+                return confirmEraseHighscores;
             }
             else if (textID.Equals("launchHelp"))
             {
@@ -112,7 +172,29 @@ namespace Kalevala
         protected virtual string resume { get { return "Resume"; } }
         protected virtual string restart { get { return "Play Again"; } }
         protected virtual string quitGame { get { return "Quit Game"; } }
+        protected virtual string highscores { get { return "Highscores"; } }
+        protected virtual string next { get { return "Next"; } }
+        protected virtual string previous { get { return "Previous"; } }
         protected virtual string back { get { return "Back"; } }
+        protected virtual string accept { get { return "accept"; } }
+        protected virtual string ok { get { return "OK"; } }
+        protected virtual string cancel { get { return "Cancel"; } }
+        protected virtual string yes { get { return "Yes"; } }
+        protected virtual string no { get { return "No"; } }
+        protected virtual string apply { get { return "Apply"; } }
+        protected virtual string revert { get { return "Revert"; } }
+
+        // Confirmation
+        protected virtual string confirmExitGame
+        { get { return "Exit the game?"; } }
+        protected virtual string confirmStartGame
+        { get { return "Start playing?"; } }
+        protected virtual string confirmReturnToMainMenu
+        { get { return "Return to the main menu? Your score won't be saved."; } }
+        protected virtual string confirmSaveSettings
+        { get { return "Apply settings?"; } }
+        protected virtual string confirmEraseHighscores
+        { get { return "Are you sure you want to erase saved highscores?"; } }
 
         // Help
         protected virtual string launchHelp

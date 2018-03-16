@@ -89,5 +89,13 @@ namespace Kalevala
                 ScreenObject.SetActive(false);
             }
         }
+
+        public void ShowScreenObject(bool show)
+        {
+            if (ScreenObject != null)
+            {
+                ScreenObject.SetActive(show);
+            }
+        }
     }
 }

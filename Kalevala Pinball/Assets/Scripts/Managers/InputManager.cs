@@ -25,6 +25,7 @@ namespace Kalevala {
         private static Vector3 _nudgeVector = Vector3.zero;
 
         private StateManager stateManager;
+        private ConfirmationDialog confirmation;
         private MouseCursorController cursor;
 
         public static Vector3 NudgeVector
@@ -44,33 +45,46 @@ namespace Kalevala {
                 Debug.LogError("StateManager object not found in the scene.");
             }
 
+            confirmation = FindObjectOfType<ConfirmationDialog>();
             cursor = FindObjectOfType<MouseCursorController>();
         }
 
         // Update is called once per frame
         private void Update()
         {
-            switch (stateManager.CurrentScreenState.State)
+            if (confirmation.Active)
             {
-                case ScreenStateType.MainMenu:
+                ConfirmationInput();
+            }
+            else
+            {
+                switch (stateManager.CurrentScreenState.State)
                 {
-                    MainMenuInput();
-                    break;
-                }
-                case ScreenStateType.Play:
-                {
-                    GameInput();
-                    break;
-                }
-                case ScreenStateType.Pause:
-                {
-                    PauseInput();
-                    break;
-                }
-                case ScreenStateType.GameOver:
-                {
-                    GameOverInput();
-                    break;
+                    case ScreenStateType.MainMenu:
+                    {
+                        MainMenuInput();
+                        break;
+                    }
+                    case ScreenStateType.Play:
+                    {
+                        GameInput();
+                        break;
+                    }
+                    case ScreenStateType.Pause:
+                    {
+                        PauseInput();
+                        break;
+                    }
+                    case ScreenStateType.SettingsMenu:
+                    {
+                        SettingsInput();
+                        break;
+                    }
+                    case ScreenStateType.GameOver:
+                    {
+                        GameOverInput();
+                        break;
+                    }
                 }
             }
 
@@ -79,34 +93,95 @@ namespace Kalevala {
 
         private void MainMenuInput()
         {
-            // Uses on-screen buttons only
+            // Quitting the game
+            if (Input.GetButtonUp("Cancel"))
+            {
+                QuitGame(false);
+            }
         }
 
         private void PauseInput()
         {
             // Resuming the game
-            if (Input.GetButtonUp("Cancel") ||
-                Input.GetButtonUp("Submit"))
+            if (Input.GetButtonUp("Cancel"))
             {
                 stateManager.GoToPlayState();
                 //Debug.Log("Game resumed");
             }
         }
 
+        private void SettingsInput()
+        {
+            // Exiting the menu
+            if (Input.GetButtonUp("Cancel"))
+            {
+                SaveSettings(false);
+            }
+        }
+
         private void GameOverInput()
         {
-            // Restarting the game
-            if (Input.GetButtonUp("Submit"))
-            {
-                stateManager.StartNewGame();
-                //Debug.Log("Game restarted");
-            }
-
             // Returning to main menu
             if (Input.GetButtonUp("Cancel"))
             {
-                stateManager.GoToMainMenuState();
-                //Debug.Log("Returned to main menu");
+                ReturnToMainMenu(false);
+            }
+        }
+
+        private void ConfirmationInput()
+        {
+            ConfirmationDialog.InputType confInput = confirmation.GetInput();
+
+            // Decline just closes the confirmation dialog box
+            // except in the case of settings menu where it
+            // exits the menu without saving.
+            // AltDecline has the normal effect for settings menu.
+            if (confInput == ConfirmationDialog.InputType.Decline)
+            {
+                switch (confirmation.Type)
+                {
+                    case ConfirmationType.SaveSettings:
+                    {
+                        stateManager.GoToPauseState();
+                        break;
+                    }
+                }
+            }
+            else if (confInput == ConfirmationDialog.InputType.Accept)
+            {
+                switch (confirmation.Type)
+                {
+                    case ConfirmationType.QuitGame:
+                    {
+                        QuitGame(true);
+                        break;
+                    }
+                    case ConfirmationType.StartGame:
+                    {
+                        StartGame(true);
+                        break;
+                    }
+                    case ConfirmationType.ReturnToMainMenu:
+                    {
+                        ReturnToMainMenu(true);
+                        break;
+                    }
+                    case ConfirmationType.SaveSettings:
+                    {
+                        SaveSettings(true);
+                        break;
+                    }
+                    case ConfirmationType.EraseHighscores:
+                    {
+                        EraseHighscores(true);
+                        break;
+                    }
+                }
+            }
+
+            if (confInput != ConfirmationDialog.InputType.NoInput)
+            {
+                ExitConfirm();
             }
         }
 
@@ -172,6 +247,82 @@ namespace Kalevala {
             if (Input.GetButtonUp("ToggleCursor"))
             {
                 cursor.PlayingUsingMouse = !cursor.PlayingUsingMouse;
+            }
+        }
+
+        private void Confirm(ConfirmationType confType)
+        {
+            confirmation.Activate(confType);
+            stateManager.ShowCurrentMenu(false);
+        }
+
+        private void ExitConfirm()
+        {
+            confirmation.Deactivate();
+            stateManager.ShowCurrentMenu(true);
+        }
+
+        public void QuitGame(bool skipConfirm)
+        {
+            if (!skipConfirm)
+            {
+                Confirm(ConfirmationType.QuitGame);
+            }
+            else
+            {
+                Application.Quit();
+            }
+        }
+
+        public void StartGame(bool skipConfirm)
+        {
+            if (!skipConfirm)
+            {
+                Confirm(ConfirmationType.StartGame);
+            }
+            else
+            {
+                stateManager.StartNewGame();
+            }
+        }
+
+        public void ReturnToMainMenu(bool skipConfirm)
+        {
+            if (!skipConfirm)
+            {
+                Confirm(ConfirmationType.ReturnToMainMenu);
+            }
+            else
+            {
+                stateManager.GoToMainMenuState();
+            }
+        }
+
+        public void SaveSettings(bool skipConfirm)
+        {
+            if (!skipConfirm)
+            {
+                // TODO: Accept, decline and cancel buttons
+
+                Confirm(ConfirmationType.SaveSettings);
+            }
+            else
+            {
+                // TODO: Save settings
+
+                stateManager.GoToPauseState();
+            }
+        }
+
+        public void EraseHighscores(bool skipConfirm)
+        {
+            if (!skipConfirm)
+            {
+                Confirm(ConfirmationType.EraseHighscores);
+            }
+            else
+            {
+                // TODO
             }
         }
     }
