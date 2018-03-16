@@ -74,7 +74,7 @@ namespace Kalevala
 
                 if (rampEnded)
                 {
-                    Debug.Log("exiting ramp, ramp ended");
+                    //Debug.Log("exiting ramp, ramp ended");
                     ExitRamp();
                 }
             }

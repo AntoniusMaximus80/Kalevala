@@ -68,11 +68,11 @@ namespace Kalevala
 
                 if (i == targetCurve.Points.Length - 2)
                 {
-                    p_end1 = ShowPoint(i, true);
+                    p_end1 = p;
                 }
                 else if (i == targetCurve.Points.Length - 1)
                 {
-                    p_end0 = ShowPoint(i, true);
+                    p_end0 = p;
                 }
             }
 

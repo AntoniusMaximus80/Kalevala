@@ -352,7 +352,44 @@ namespace Kalevala.WaypointSystem
             Gizmos.DrawLine(position - Vector3.forward * radius, position - Vector3.forward * radius * 0.75f);
         }
 
+        private Waypoint CreateWaypoint(string name, Vector3 position)
+        {
+            // Creates the new waypoint
+            GameObject wpObj = new GameObject(name);
+            Waypoint waypoint = wpObj.AddComponent<Waypoint>();
+            waypoint.transform.SetParent(transform);
 
+            // Sets the waypoint's position and rotation
+            waypoint.transform.position = position;
+            waypoint.transform.rotation = new Quaternion(0, 0, 0, 0);
+
+            return waypoint;
+        }
+
+        public Waypoint AddWaypoint()
+        {
+            int waypointCount = transform.childCount;
+
+            Waypoint[] waypoints =
+                GetComponentsInChildren<Waypoint>();
+
+            Waypoint prevWaypoint =
+                (waypoints.Length > 0 ?
+                    waypoints[waypoints.Length - 1] : null);
+
+            // The name of the waypoint
+            string waypointName = string.Format
+                ("Waypoint{0}", (waypointCount + 1).ToString("D3"));
+
+            // The position of the waypoint
+            Vector3 waypointPosition = (prevWaypoint != null ?
+                prevWaypoint.Position : transform.position);
+
+            // Creates the new waypoint
+            Waypoint waypoint = CreateWaypoint(waypointName, waypointPosition);
+
+            return waypoint;
+        }
 
         /// <summary>
         /// Inserts a default waypoint after the given waypoint.
@@ -361,10 +398,10 @@ namespace Kalevala.WaypointSystem
         /// The waypoint after which a new
         /// waypoint will be inserted
         /// </param>
-        /// <returns>the inserted waypoint (in an array)</returns>
-        public Waypoint[] InsertWaypoint(Waypoint prevWaypoint)
+        /// <returns>The inserted waypoint</returns>
+        public Waypoint InsertWaypoint(Waypoint prevWaypoint)
         {
-            return InsertWaypoints(prevWaypoint, new Vector3[0], "");
+            return InsertWaypoints(prevWaypoint, new Vector3[0], "")[0];
         }
 
         /// <summary>
@@ -381,13 +418,13 @@ namespace Kalevala.WaypointSystem
         /// The name of the curve the new waypoints belong to;
         /// can be left empty
         /// </param>
-        /// <returns>the inserted waypoints</returns>
+        /// <returns>The inserted waypoints</returns>
         public Waypoint[] InsertWaypoints(Waypoint prevWaypoint,
             Vector3[] waypointPositions, string curveName)
         {
             bool curve = (curveName.Length > 0);
 
-            // Default insert
+            // Default insert: one waypoint to insert
             bool defaultInsert = false;
             if (waypointPositions.Length < 1)
             {
@@ -402,13 +439,14 @@ namespace Kalevala.WaypointSystem
             if (targetWPIndex == -1 || waypointsAfterCount < 1)
             {
                 Debug.LogError("Cannot insert a new waypoint after the " +
-                               "last one. To do this, use the Path's " +
-                               "Add Waypoint button.");
+                               "last one. To do this, use the Add " +
+                               "Waypoint button.");
                 return null;
             }
 
             // List of waypoints with the new ones included
-            Waypoint[] allWaypoints = new Waypoint[_waypoints.Count + waypointPositions.Length];
+            Waypoint[] allWaypoints =
+                new Waypoint[_waypoints.Count + waypointPositions.Length];
 
             // List of inserted waypoints
             Waypoint[] newWaypoints = new Waypoint[waypointPositions.Length];
@@ -431,32 +469,34 @@ namespace Kalevala.WaypointSystem
                     int insertedIndex = i - targetWPIndex - 1;
 
                     // Creates a new waypoint
-                    if (i > targetWPIndex && i <= targetWPIndex + waypointPositions.Length)
+                    if (i > targetWPIndex &&
+                        i <= targetWPIndex + waypointPositions.Length)
                     {
+                        // Adds the name of the possible curve
+                        // to the end of the waypoint's name
                         if (curve)
                         {
                             waypointName += string.Format(" ({0})", curveName);
                         }
 
-                        GameObject waypoint = new GameObject(waypointName);
-                        Waypoint newWaypoint = waypoint.AddComponent<Waypoint>();
-                        waypoint.transform.SetParent(transform);
-                        newWaypoint.IsPartOfCurve = curve;
-                        newWaypoint.CurveName = curveName;
-
-                        // Sets the new waypoint's position
+                        // The position of the waypoint
+                        Vector3 waypointPosition = transform.position;
                         if (!defaultInsert)
                         {
-                            waypoint.transform.position = waypointPositions[insertedIndex];
+                            waypointPosition = waypointPositions[insertedIndex];
                         }
                         // Default position
                         else
                         {
-                            waypoint.transform.position = Vector3.Lerp(
+                            waypointPosition = Vector3.Lerp(
                                 prevWaypoint.Position, _waypoints[i].Position, 0.5f);
                         }
 
-                        waypoint.transform.rotation = new Quaternion(0, 0, 0, 0);
+                        // Creates the new waypoint
+                        Waypoint newWaypoint =
+                            CreateWaypoint(waypointName, waypointPosition);
+                        newWaypoint.IsPartOfCurve = curve;
+                        newWaypoint.CurveName = curveName;
 
                         allWaypoints[i] = newWaypoint;
                         newWaypoints[insertedIndex] = newWaypoint;
@@ -496,6 +536,27 @@ namespace Kalevala.WaypointSystem
             }
 
             return targetWPIndex;
+        }
+
+        public bool WaypointIsLast(Waypoint waypoint)
+        {
+            // The index of the waypoint
+            int wpIndex = GetWaypointIndex(waypoint);
+
+            // The number of waypoints after this one
+            int waypointsAfterCount = _waypoints.Count - wpIndex - 1;
+
+            if (wpIndex == -1)
+            {
+                Debug.LogError("The waypoint does not belong to this path.");
+                return false;
+            }
+            else if (waypointsAfterCount > 0)
+            {
+                return false;
+            }
+
+            return true;
         }
 
         public void UpdateWaypointNames()

@@ -23,21 +23,9 @@ namespace Kalevala
         private Direction _startDirection;
         private Direction _direction;
         private float _leftoverDistance;
-        //private float _segmentTime;
-        //private float _elapsedTime;
         private bool _getNextWaypoint;
         private bool _kickOut;
         public Waypoint CurrentWaypoint { get; private set; }
-
-        //public PinballManager PinballManager { get; set; }
-
-        //private void Start()
-        //{
-        //    if (_eventTime <= 0)
-        //    {
-        //        _eventTime = 1f;
-        //    }
-        //}
 
         public void Activate(Path path, Direction direction, Waypoint startWaypoint, float speed, bool kickout)
         {
@@ -52,7 +40,6 @@ namespace Kalevala
                 _startWaypoint = startWaypoint;
                 _prevWaypoint = startWaypoint;
                 CurrentWaypoint = startWaypoint;
-                //_elapsedTime = 0;
                 _speed = speed;
                 _leftoverDistance = 0;
 
@@ -125,7 +112,6 @@ namespace Kalevala
                 else
                 {
                     _prevWaypoint = CurrentWaypoint;
-                    //_segmentTime = Vector3.Distance(CurrentWaypoint.Position, result.Position) / _speed;
                 }
             }
 
@@ -246,45 +232,5 @@ namespace Kalevala
             _prevWaypoint = CurrentWaypoint;
             CurrentWaypoint = temp;
         }
-
-        //private bool MoveUsingTime(Vector3 waypointPos)
-        //{
-        //    float ratio = _elapsedTime / _segmentTime;
-        //    //float ratio = _elapsedTime / _eventTime;
-        //    _directionalRatio = ratio;
-
-        //    Vector3 position1 = _prevWaypoint.Position;
-        //    Vector3 position2 = waypointPos;
-
-        //    switch (_direction)
-        //    {
-        //        //case Direction.Forward:
-        //        //{
-        //        //    _directionalRatio = ratio;
-        //        //    break;
-        //        //}
-        //        case Direction.Backward:
-        //        {
-        //            _directionalRatio = 1 - ratio;
-        //            position1 = waypointPos;
-        //            position2 = _prevWaypoint.Position;
-        //            break;
-        //        }
-        //    }
-
-        //    transform.position = Vector3.Lerp(position1, position2, _directionalRatio);
-
-        //    _elapsedTime += Time.deltaTime;
-
-        //    bool segmentFinished = _elapsedTime >= _segmentTime;
-        //    if (segmentFinished)
-        //    {
-        //        _elapsedTime = 0;
-        //        _getNextWaypoint = true;
-        //        return true;
-        //    }
-
-        //    return false;
-        //}
     }
 }
