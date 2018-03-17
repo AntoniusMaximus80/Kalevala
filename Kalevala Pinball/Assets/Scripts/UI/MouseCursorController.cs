@@ -31,6 +31,11 @@ namespace Kalevala
         private bool mouseMoved;
 
         /// <summary>
+        /// Where was the cursor in the last frame (system coordinates)
+        /// </summary>
+        //private Vector3 oldMousePosition;
+
+        /// <summary>
         /// Where was the cursor in the last frame
         /// </summary>
         private Vector3 oldScreenPosition;
@@ -65,9 +70,6 @@ namespace Kalevala
         {
             // Shows or hides the cursor
             Cursor.visible = show;
-
-            // Activates or deativates the cursor
-            //Cursor.
         }
 
         /// <summary>
@@ -112,7 +114,7 @@ namespace Kalevala
 
                     ShowSystemCursor(value);
 
-                    if (playingUsingMouse)
+                    if (value)
                     {
                         //Debug.Log("cursor shown");
 
@@ -124,7 +126,15 @@ namespace Kalevala
 
                         ClearCursorHighlight();
 
-                        Utils.SelectButton(FindObjectOfType<Button>());
+                        // Selects the first available button
+                        Button firstButton = FindObjectOfType<Button>();
+                        if (firstButton != null)
+                        {
+                            Utils.SelectButton(firstButton);
+                        }
+
+                        //EventSystem.current.SetSelectedGameObject
+                        //    (EventSystem.current.firstSelectedGameObject);
 
                         // Prevents the cursor being immediately shown again
                         oldScreenPosition = ScreenPosition;
@@ -138,8 +148,17 @@ namespace Kalevala
         /// </summary>
         private void Update()
         {
-            //UpdatePosition();
+            UpdatePosition();
             CheckIfPlayingUsingMouse();
+        }
+
+        private void UpdatePosition()
+        {
+            // Sets the cursor's old screen position for checking if it changed
+            oldScreenPosition = ScreenPosition;
+
+            // Gets the system mouse cursor's position in screen coordinates
+            ScreenPosition = Input.mousePosition;
         }
 
         /// <summary>
@@ -180,16 +199,7 @@ namespace Kalevala
 
         private void CheckIfPlayingUsingMouse()
         {
-            if (PlayingUsingMouse)
-            {
-                // TODO: Use InputManager
-                //if (PlayerInput.GetSelectorDirection()
-                //    != Utils.Direction.None)
-                //{
-                //    PlayingUsingMouse = false;
-                //}
-            }
-            else
+            if ( !PlayingUsingMouse )
             {
                 // Moving the mouse or using its buttons shows the mouse cursor
                 if (ScreenPosition != oldScreenPosition ||
@@ -198,9 +208,11 @@ namespace Kalevala
                     PlayingUsingMouse = true;
                 }
             }
+
+            // InputManager checks if the cursor should be hidden
         }
 
-        private void ClearCursorHighlight()
+        public void ClearCursorHighlight()
         {
             PointerEventData pointer =
                 new PointerEventData(EventSystem.current);

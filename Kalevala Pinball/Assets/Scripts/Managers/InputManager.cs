@@ -1,12 +1,22 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 namespace Kalevala {
     public class InputManager: MonoBehaviour {
 
-        private const string _launch = "Launch";
-        private const string _leftFlipperHit = "LeftFlipper";
-        private const string _rightFlipperHit = "RightFlipper";
-       
+        private const string _LAUNCH = "Launch";
+        private const string _LEFTFLIPPERHIT = "LeftFlipper";
+        private const string _RIGHTFLIPPERHIT = "RightFlipper";
+        private const string _SUBMIT = "Submit";
+        private const string _CANCEL = "Cancel";
+        private const string _PAUSE = "Pause";
+        private const string _HOR_AXIS = "Horizontal";
+        private const string _VERT_AXIS = "Vertical";
+
+        [SerializeField]
+        private GraphicRaycaster _canvasGR;
+
         [SerializeField]
         private Launcher _launcher;
 
@@ -28,6 +38,13 @@ namespace Kalevala {
         private ConfirmationDialog confirmation;
         private MouseCursorController cursor;
 
+        private bool gameOver;
+
+        /// <summary>
+        /// Is the submit button still held down from the previous screen
+        /// </summary>
+        private bool submitHoldover;
+
         public static Vector3 NudgeVector
         {
             get
@@ -48,9 +65,14 @@ namespace Kalevala {
             cursor = FindObjectOfType<MouseCursorController>();
         }
 
-        // Update is called once per frame
+        /// <summary>
+        ///  Update is called once per frame.
+        /// </summary>
         private void Update()
         {
+            UpdateMouseControl();
+            HighlightFirstButtonIfGameOver();
+
             if (confirmation.Active)
             {
                 ConfirmationInput();
@@ -90,9 +112,31 @@ namespace Kalevala {
             DebugInput();
         }
 
+        /// <summary>
+        /// Highlights the first button in the game over
+        /// menu if the mouse cursor is hidden.
+        /// </summary>
+        private void HighlightFirstButtonIfGameOver()
+        {
+            if (stateManager.CurrentScreenState.State
+                    == ScreenStateType.GameOver)
+            {
+                if (!gameOver)
+                {
+                    gameOver = true;
+                    SetHighlightedButtonOnScreenChange();
+                }
+            }
+            else if (gameOver)
+            {
+                gameOver = false;
+            }
+        }
+
         private void MainMenuInput()
         {
-            // Debugging
+            // Debugging:
+            // Goes straight to the game
             if (GameManager.Instance.debug_SkipMainMenu)
             {
                 StartGame(true);
@@ -100,7 +144,7 @@ namespace Kalevala {
             }
 
             // Quitting the game
-            if (Input.GetButtonUp("Cancel"))
+            if (Input.GetButtonUp(_CANCEL))
             {
                 QuitGame(false);
             }
@@ -109,9 +153,10 @@ namespace Kalevala {
         private void PauseInput()
         {
             // Resuming the game
-            if (Input.GetButtonUp("Cancel"))
+            if (Input.GetButtonUp(_CANCEL) ||
+                Input.GetButtonUp(_PAUSE))
             {
-                stateManager.GoToPlayState();
+                ResumeGame();
                 //Debug.Log("Game resumed");
             }
         }
@@ -119,7 +164,8 @@ namespace Kalevala {
         private void SettingsInput()
         {
             // Exiting the menu
-            if (Input.GetButtonUp("Cancel"))
+            if (Input.GetButtonUp(_CANCEL) ||
+                Input.GetButtonUp(_PAUSE))
             {
                 SaveSettings(false);
             }
@@ -127,11 +173,99 @@ namespace Kalevala {
 
         private void GameOverInput()
         {
-            // Returning to main menu
-            if (Input.GetButtonUp("Cancel"))
+            // Returning to the main menu
+            if (Input.GetButtonUp(_CANCEL) ||
+                Input.GetButtonUp(_PAUSE))
             {
                 ReturnToMainMenu(false);
             }
+        }
+
+        private void GameInput()
+        {
+            // Accepts both KB+M and gamepad input
+
+            LaunchInput();
+            FlipperInput();
+
+            // Ugly nudge hack.
+            _nudgeVector.x = 0;
+            if (Input.GetButtonDown("NudgeLeft")) DoNudge(-1);
+            if (Input.GetButtonDown("NudgeRight")) DoNudge(1);
+
+            // Pausing the game
+            if (Input.GetButtonUp(_CANCEL) ||
+                Input.GetButtonUp(_PAUSE))
+            {
+                stateManager.PerformTransition(ScreenStateType.Pause);
+                SetHighlightedButtonOnScreenChange();
+                //Debug.Log("Game paused");
+            }
+        }
+
+        private void LaunchInput()
+        {
+            // The launcher cannot be used until the submit button is released
+            if (!submitHoldover)
+            {
+                if (Input.GetAxis(_LAUNCH) != 0)
+                {
+                    _launcher.PoweringUp();
+                }
+                else if (Input.GetButtonUp(_LAUNCH))
+                {
+                    _launcher.SwingAxe();
+                }
+            }
+            else
+            {
+                CheckIfSubmitReleased();
+            }
+        }
+
+        private void FlipperInput()
+        {
+            if (Input.GetAxis(_LEFTFLIPPERHIT) != 0)
+            {
+                _leftFlipper.UseMotor();
+            }
+            else
+            {
+                _leftFlipper.UseSpring();
+            }
+
+            if (Input.GetAxis(_RIGHTFLIPPERHIT) != 0)
+            {
+                _rightFlipper.UseMotor();
+                _topRightFlipper.UseMotor();
+            }
+            else
+            {
+                _rightFlipper.UseSpring();
+                _topRightFlipper.UseSpring();
+            }
+        }
+
+        private void DoNudge(int direction)
+        {
+            // TODO : This really needs a sound effect, maybe the camera shake Toni suggested?
+            // Not sure as nudge is not really THAT powerful.
+            _nudgeVector.x = direction * _nudgeStrength;
+        }
+
+        private void DebugInput()
+        {
+            // Resetting the ball
+            if (Input.GetButtonDown("ResetBall"))
+            {
+                PinballManager.Instance.Pinballs[0].ResetBall();
+            }
+
+            // Toggling cursor visibility
+            //if (Input.GetButtonUp("ToggleCursor"))
+            //{
+            //    cursor.PlayingUsingMouse = !cursor.PlayingUsingMouse;
+            //}
         }
 
         private void ConfirmationInput()
@@ -191,81 +325,18 @@ namespace Kalevala {
             }
         }
 
-        private void GameInput()
-        {
-            if (Input.GetAxis(_launch) > 0)
-            {
-                _launcher.PoweringUp();
-            }
-            else if (Input.GetButtonUp(_launch))
-            {
-                _launcher.SwingAxe();
-            }
-
-            if (Input.GetButton(_leftFlipperHit))
-            {
-                _leftFlipper.UseMotor();
-            }
-            else
-            {
-                _leftFlipper.UseSpring();
-            }
-
-            if (Input.GetButton(_rightFlipperHit))
-            {
-                _rightFlipper.UseMotor();
-                _topRightFlipper.UseMotor();
-            }
-            else
-            {
-                _rightFlipper.UseSpring();
-                _topRightFlipper.UseSpring();
-            }
-
-            // Ugly nudge hack.
-            _nudgeVector.x = 0;
-            if (Input.GetButtonDown("NudgeLeft")) DoNudge(-1);
-            if (Input.GetButtonDown("NudgeRight")) DoNudge(1);
-
-            // Pausing the game
-            if (Input.GetButtonUp("Cancel"))
-            {
-                stateManager.PerformTransition(ScreenStateType.Pause);
-                //Debug.Log("Game paused");
-            }
-
-            // Resetting the ball
-            if (Input.GetButtonDown("ResetBall"))
-            {
-                PinballManager.Instance.Pinballs[0].ResetBall();
-            }
-        }
-
-        private void DoNudge(int direction)
-        {
-            // TODO : This really needs a sound effect, maybe the camera shake Toni suggested?
-            // Not sure as nudge is not really THAT powerful.
-            _nudgeVector.x = direction * _nudgeStrength;
-        }
-
-        private void DebugInput()
-        {
-            if (Input.GetButtonUp("ToggleCursor"))
-            {
-                cursor.PlayingUsingMouse = !cursor.PlayingUsingMouse;
-            }
-        }
-
         private void Confirm(ConfirmationType confType)
         {
             confirmation.Activate(confType);
             stateManager.ShowCurrentMenu(false);
+            SetHighlightedButtonOnScreenChange();
         }
 
         private void ExitConfirm()
         {
             confirmation.Deactivate();
             stateManager.ShowCurrentMenu(true);
+            SetHighlightedButtonOnScreenChange();
         }
 
         public void QuitGame(bool skipConfirm)
@@ -288,8 +359,15 @@ namespace Kalevala {
             }
             else
             {
+                submitHoldover = true;
                 stateManager.StartNewGame();
             }
+        }
+
+        public void ResumeGame()
+        {
+            submitHoldover = true;
+            stateManager.GoToPlayState();
         }
 
         public void ReturnToMainMenu(bool skipConfirm)
@@ -301,15 +379,20 @@ namespace Kalevala {
             else
             {
                 stateManager.GoToMainMenuState();
+                SetHighlightedButtonOnScreenChange();
             }
+        }
+
+        public void GoToSettings()
+        {
+            stateManager.GoToSettingsMenuState();
+            SetHighlightedButtonOnScreenChange();
         }
 
         public void SaveSettings(bool skipConfirm)
         {
             if (!skipConfirm)
             {
-                // TODO: Accept, decline and cancel buttons
-
                 Confirm(ConfirmationType.SaveSettings);
             }
             else
@@ -317,6 +400,7 @@ namespace Kalevala {
                 // TODO: Save settings
 
                 stateManager.GoToPauseState();
+                SetHighlightedButtonOnScreenChange();
             }
         }
 
@@ -329,6 +413,55 @@ namespace Kalevala {
             else
             {
                 // TODO
+            }
+        }
+
+        private void CheckIfSubmitReleased()
+        {
+            if (submitHoldover && !Input.GetButton(_SUBMIT))
+            {
+                submitHoldover = false;
+            }
+        }
+
+        private void UpdateMouseControl()
+        {
+            if (cursor.PlayingUsingMouse)
+            {
+                // Disables the use of the mouse cursor
+                if (Input.GetAxis(_HOR_AXIS) != 0 ||
+                    Input.GetAxis(_VERT_AXIS) != 0)
+                {
+                    cursor.PlayingUsingMouse = false;
+                    if (_canvasGR != null)
+                    {
+                        _canvasGR.enabled = false;
+                    }
+                }
+                // Enables the use of the mouse cursor
+                // (the cursor handles most of this by itself)
+                else if (_canvasGR != null && !_canvasGR.enabled)
+                {
+                    _canvasGR.enabled = true;
+                }
+            }
+        }
+
+        private void SetHighlightedButtonOnScreenChange()
+        {
+            if (!cursor.PlayingUsingMouse)
+            {
+                //cursor.ClearCursorHighlight();
+
+                // Selects the first available button
+                Button firstButton = FindObjectOfType<Button>();
+                if (firstButton != null)
+                {
+                    Utils.SelectButton(firstButton);
+                }
+
+                //EventSystem.current.SetSelectedGameObject
+                //    (EventSystem.current.firstSelectedGameObject);
             }
         }
     }

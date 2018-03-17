@@ -119,7 +119,6 @@ namespace Kalevala
         public void StartNewGame()
         {
             GameManager.Instance.ResetAll();
-            //PinballManager.Instance.SetPinballPhysicsEnabled(true);
             GoToPlayState();
         }
 

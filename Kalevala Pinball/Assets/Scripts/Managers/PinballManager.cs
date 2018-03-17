@@ -231,7 +231,7 @@ namespace Kalevala
 
         public bool CheckIfBallIsLost(Pinball ball, bool freeBalls)
         {
-            if (PositionIsInDrain(transform.position))
+            if (PositionIsInDrain(ball.transform.position))
             {
                 // If balls are free, a ball in drain is moved
                 // back to the launcher without consuming "lives"

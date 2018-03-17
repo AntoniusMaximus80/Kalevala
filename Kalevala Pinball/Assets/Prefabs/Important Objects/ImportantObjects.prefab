@@ -816,13 +816,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1792419746859102}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4113696463926870}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 180.00002, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4851703086779858
 Transform:
   m_ObjectHideFlags: 1
@@ -842,27 +842,27 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1596276267533454}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 5.8301144, y: -8.090332, z: -5.055094}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4153824683153624}
   m_Father: {fileID: 4113696463926870}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 180.00002, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4915165818976400
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1203597633783006}
-  m_LocalRotation: {x: -0.49999994, y: 0.5000001, z: 0.5000001, w: 0.49999994}
+  m_LocalRotation: {x: 0, y: -0, z: 0.7071068, w: -0.7071068}
   m_LocalPosition: {x: 1.500018, y: 0.099999905, z: 12}
   m_LocalScale: {x: 0.10000002, y: 0.10000002, z: 0.10000002}
   m_Children: []
   m_Father: {fileID: 4113696463926870}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: -90.00001, y: 0, z: 270}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 270}
 --- !u!20 &20825400929398592
 Camera:
   m_ObjectHideFlags: 1
@@ -955,6 +955,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 511e09df59ecf85478558b9b2fd6a955, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _canvasGR: {fileID: 114932668291277818}
   _launcher: {fileID: 0}
   _leftFlipper: {fileID: 0}
   _rightFlipper: {fileID: 0}
@@ -1110,8 +1111,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 114580282689976504}
-        m_MethodName: GoToSettingsMenuState
+      - m_Target: {fileID: 114011568283334892}
+        m_MethodName: GoToSettings
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1844,7 +1845,7 @@ MonoBehaviour:
   _rampExitMomentumFactor: 0.75
   _startingBallAmount: 3
   _allowedNudgeAmount: 4
-  debug_useDefaultLaunchPoint: 1
+  debug_useDefaultLaunchPoint: 0
   _ballLaunchPoint: {x: -20.2, y: 1.35, z: -6.8}
   _ballDrainBottomLeftCorner: {x: 6, y: 1.35, z: -54}
   _ballDrainTopRightCorner: {x: 10, y: 1.35, z: -48}
@@ -2326,8 +2327,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 114580282689976504}
-        m_MethodName: GoToPlayState
+      - m_Target: {fileID: 114011568283334892}
+        m_MethodName: ResumeGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2619,7 +2620,7 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 0
+          m_BoolArgument: 1
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
