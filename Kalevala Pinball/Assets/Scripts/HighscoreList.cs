@@ -24,6 +24,9 @@ namespace Kalevala
             UpdateScoreboard();
         }
 
+        /// <summary>
+        /// Is the scoreboard visible.
+        /// </summary>
         public bool Visible
         {
             get
@@ -36,12 +39,23 @@ namespace Kalevala
             }
         }
 
-        public void SaveHighscore(string playerName, int score)
+        /// <summary>
+        /// Compares the given score to the highscores and if it is
+        /// higher than at least one of them, it is added to the list.
+        /// </summary>
+        /// <param name="playerName">The scoring player's name</param>
+        /// <param name="score">The score being compared</param>
+        /// <returns>Is the score a new highscore</returns>
+        public bool CompareScoreAndSave(string playerName, int score)
         {
+            bool isHighscore = false;
+
             for (int i = 0; i < _highscores.Length; i++)
             {
                 if (score > _highscores[i].score)
                 {
+                    isHighscore = true;
+
                     // Adds the new highscore to the slot at the index
                     // and moves lower scores down on the list
                     AddScore(playerName, score, i);
@@ -55,22 +69,17 @@ namespace Kalevala
                     break;
                 }
             }
+
+            return isHighscore;
         }
 
-        public void SaveHighscores()
-        {
-            // TODO
-        }
-
-        public void LoadHighscores()
-        {
-            // TODO
-
-            // If the saved list has a different length than
-            // the current list, either some scores get dropped
-            // or empty slots are filled with default values
-        }
-
+        /// <summary>
+        /// Adds a new highscore to the slot at the index
+        /// and moves lower scores down on the list.
+        /// </summary>
+        /// <param name="playerName">The scoring player's name</param>
+        /// <param name="score">A new highscore</param>
+        /// <param name="index">The highscore's index</param>
         private void AddScore(string playerName, int score, int index)
         {
             for (int i = _highscores.Length - 1; i >= index; i--)
@@ -104,6 +113,20 @@ namespace Kalevala
             {
                 scoreSlots[i].text = (i + 1) + ". " + _highscores[i].ToString();
             }
+        }
+
+        public void SaveHighscores()
+        {
+            // TODO
+        }
+
+        public void LoadHighscores()
+        {
+            // TODO
+
+            // If the saved list has a different length than
+            // the current list, either some scores get dropped
+            // or empty slots are filled with default values
         }
 
         private void ResetList()

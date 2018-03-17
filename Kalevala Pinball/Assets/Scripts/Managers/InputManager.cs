@@ -139,7 +139,7 @@ namespace Kalevala {
                     SetHighlightedButtonOnScreenChange();
 
                     // Saves the score if it's high enough
-                    _highscoreList.SaveHighscore
+                    _highscoreList.CompareScoreAndSave
                         ("Player", Scorekeeper.Instance._totalScore);
                 }
             }
