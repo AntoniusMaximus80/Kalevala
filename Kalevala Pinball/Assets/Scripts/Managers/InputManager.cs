@@ -8,11 +8,12 @@ namespace Kalevala {
         private const string _LAUNCH = "Launch";
         private const string _LEFTFLIPPERHIT = "LeftFlipper";
         private const string _RIGHTFLIPPERHIT = "RightFlipper";
+        private const string _HOR_AXIS = "Horizontal";
+        private const string _VERT_AXIS = "Vertical";
         private const string _SUBMIT = "Submit";
         private const string _CANCEL = "Cancel";
         private const string _PAUSE = "Pause";
-        private const string _HOR_AXIS = "Horizontal";
-        private const string _VERT_AXIS = "Vertical";
+        private const string _SHOW_SCORES = "ShowHighscores";
 
         [SerializeField]
         private GraphicRaycaster _canvasGR;
@@ -34,11 +35,12 @@ namespace Kalevala {
 
         private static Vector3 _nudgeVector = Vector3.zero;
 
-        private StateManager stateManager;
-        private ConfirmationDialog confirmation;
-        private MouseCursorController cursor;
+        private StateManager _stateManager;
+        private ConfirmationDialog _confirmation;
+        private HighscoreList _highscoreList;
+        private MouseCursorController _cursor;
 
-        private bool gameOver;
+        private bool _gameOver;
 
         /// <summary>
         /// Is the submit button still held down from the previous screen
@@ -55,14 +57,17 @@ namespace Kalevala {
 
         private void Start()
         {
-            stateManager = FindObjectOfType<StateManager>();
-            if (stateManager == null)
+            _stateManager = FindObjectOfType<StateManager>();
+            if (_stateManager == null)
             {
                 Debug.LogError("StateManager object not found in the scene.");
             }
 
-            confirmation = FindObjectOfType<ConfirmationDialog>();
-            cursor = FindObjectOfType<MouseCursorController>();
+            _confirmation = GetComponentInChildren<ConfirmationDialog>();
+            _highscoreList = GetComponentInChildren<HighscoreList>();
+            _cursor = FindObjectOfType<MouseCursorController>();
+
+            _highscoreList.Visible = false;
         }
 
         /// <summary>
@@ -71,15 +76,21 @@ namespace Kalevala {
         private void Update()
         {
             UpdateMouseControl();
-            HighlightFirstButtonIfGameOver();
+            CheckIfGameOver();
 
-            if (confirmation.Active)
+            if (_confirmation.Active)
             {
                 ConfirmationInput();
             }
             else
             {
-                switch (stateManager.CurrentScreenState.State)
+                // Toggling scoreboard visibility
+                if (Input.GetButtonUp(_SHOW_SCORES))
+                {
+                    _highscoreList.Visible = !_highscoreList.Visible;
+                }
+
+                switch (_stateManager.CurrentScreenState.State)
                 {
                     case ScreenStateType.MainMenu:
                     {
@@ -113,23 +124,28 @@ namespace Kalevala {
         }
 
         /// <summary>
+        /// Saves highscores when the game is over.
         /// Highlights the first button in the game over
         /// menu if the mouse cursor is hidden.
         /// </summary>
-        private void HighlightFirstButtonIfGameOver()
+        private void CheckIfGameOver()
         {
-            if (stateManager.CurrentScreenState.State
+            if (_stateManager.CurrentScreenState.State
                     == ScreenStateType.GameOver)
             {
-                if (!gameOver)
+                if (!_gameOver)
                 {
-                    gameOver = true;
+                    _gameOver = true;
                     SetHighlightedButtonOnScreenChange();
+
+                    // Saves the score if it's high enough
+                    _highscoreList.SaveHighscore
+                        ("Player", Scorekeeper.Instance._totalScore);
                 }
             }
-            else if (gameOver)
+            else if (_gameOver)
             {
-                gameOver = false;
+                _gameOver = false;
             }
         }
 
@@ -197,7 +213,7 @@ namespace Kalevala {
             if (Input.GetButtonUp(_CANCEL) ||
                 Input.GetButtonUp(_PAUSE))
             {
-                stateManager.PerformTransition(ScreenStateType.Pause);
+                _stateManager.PerformTransition(ScreenStateType.Pause);
                 SetHighlightedButtonOnScreenChange();
                 //Debug.Log("Game paused");
             }
@@ -270,7 +286,7 @@ namespace Kalevala {
 
         private void ConfirmationInput()
         {
-            ConfirmationDialog.InputType confInput = confirmation.GetInput();
+            ConfirmationDialog.InputType confInput = _confirmation.GetInput();
 
             // Decline just closes the confirmation dialog box
             // except in the case of settings menu where it
@@ -278,18 +294,18 @@ namespace Kalevala {
             // AltDecline has the normal effect for settings menu.
             if (confInput == ConfirmationDialog.InputType.Decline)
             {
-                switch (confirmation.Type)
+                switch (_confirmation.Type)
                 {
                     case ConfirmationType.SaveSettings:
                     {
-                        stateManager.GoToPauseState();
+                        _stateManager.GoToPauseState();
                         break;
                     }
                 }
             }
             else if (confInput == ConfirmationDialog.InputType.Accept)
             {
-                switch (confirmation.Type)
+                switch (_confirmation.Type)
                 {
                     case ConfirmationType.QuitGame:
                     {
@@ -327,15 +343,15 @@ namespace Kalevala {
 
         private void Confirm(ConfirmationType confType)
         {
-            confirmation.Activate(confType);
-            stateManager.ShowCurrentMenu(false);
+            _confirmation.Activate(confType);
+            _stateManager.ShowCurrentMenu(false);
             SetHighlightedButtonOnScreenChange();
         }
 
         private void ExitConfirm()
         {
-            confirmation.Deactivate();
-            stateManager.ShowCurrentMenu(true);
+            _confirmation.Deactivate();
+            _stateManager.ShowCurrentMenu(true);
             SetHighlightedButtonOnScreenChange();
         }
 
@@ -360,14 +376,14 @@ namespace Kalevala {
             else
             {
                 submitHoldover = true;
-                stateManager.StartNewGame();
+                _stateManager.StartNewGame();
             }
         }
 
         public void ResumeGame()
         {
             submitHoldover = true;
-            stateManager.GoToPlayState();
+            _stateManager.GoToPlayState();
         }
 
         public void ReturnToMainMenu(bool skipConfirm)
@@ -378,14 +394,14 @@ namespace Kalevala {
             }
             else
             {
-                stateManager.GoToMainMenuState();
+                _stateManager.GoToMainMenuState();
                 SetHighlightedButtonOnScreenChange();
             }
         }
 
         public void GoToSettings()
         {
-            stateManager.GoToSettingsMenuState();
+            _stateManager.GoToSettingsMenuState();
             SetHighlightedButtonOnScreenChange();
         }
 
@@ -399,7 +415,7 @@ namespace Kalevala {
             {
                 // TODO: Save settings
 
-                stateManager.GoToPauseState();
+                _stateManager.GoToPauseState();
                 SetHighlightedButtonOnScreenChange();
             }
         }
@@ -426,13 +442,13 @@ namespace Kalevala {
 
         private void UpdateMouseControl()
         {
-            if (cursor.PlayingUsingMouse)
+            if (_cursor.PlayingUsingMouse)
             {
                 // Disables the use of the mouse cursor
                 if (Input.GetAxis(_HOR_AXIS) != 0 ||
                     Input.GetAxis(_VERT_AXIS) != 0)
                 {
-                    cursor.PlayingUsingMouse = false;
+                    _cursor.PlayingUsingMouse = false;
                     if (_canvasGR != null)
                     {
                         _canvasGR.enabled = false;
@@ -449,7 +465,7 @@ namespace Kalevala {
 
         private void SetHighlightedButtonOnScreenChange()
         {
-            if (!cursor.PlayingUsingMouse)
+            if (!_cursor.PlayingUsingMouse)
             {
                 //cursor.ClearCursorHighlight();
 
