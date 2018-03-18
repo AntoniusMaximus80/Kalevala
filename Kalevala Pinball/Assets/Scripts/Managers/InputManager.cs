@@ -74,13 +74,17 @@ namespace Kalevala {
             _stateManager.GameOver += HighlightGameOverMenuButton;
         }
 
+        private void OnDestroy()
+        {
+            _stateManager.GameOver -= HighlightGameOverMenuButton;
+        }
+
         /// <summary>
         ///  Update is called once per frame.
         /// </summary>
         private void Update()
         {
             UpdateMouseControl();
-            //CheckIfGameOver();
 
             if (_confirmation.Active)
             {
@@ -269,12 +273,6 @@ namespace Kalevala {
             {
                 PinballManager.Instance.DebugLoseBall();
             }
-
-            // Toggling cursor visibility
-            //if (Input.GetButtonUp("ToggleCursor"))
-            //{
-            //    cursor.PlayingUsingMouse = !cursor.PlayingUsingMouse;
-            //}
         }
 
         private void ConfirmationInput()
@@ -433,26 +431,64 @@ namespace Kalevala {
             }
         }
 
+        /// <summary>
+        /// Hides the mouse cursor if any input
+        /// methods other than the mouse are used.
+        /// </summary>
         private void UpdateMouseControl()
         {
             if (_cursor.PlayingUsingMouse)
             {
-                // Disables the use of the mouse cursor
-                if (Input.GetAxis(_HOR_AXIS) != 0 ||
-                    Input.GetAxis(_VERT_AXIS) != 0)
+                // Disables the use of the mouse cursor if
+                // any input other than the mouse is used
+                if (NonMouseInputUsed())
                 {
-                    _cursor.PlayingUsingMouse = false;
-                    if (_canvasGR != null)
-                    {
-                        _canvasGR.enabled = false;
-                    }
+                    DisableMouseCursor();
                 }
                 // Enables the use of the mouse cursor
-                // (the cursor handles most of this by itself)
-                else if (_canvasGR != null && !_canvasGR.enabled)
+                else
                 {
-                    _canvasGR.enabled = true;
+                    EnableMouseCursor();
                 }
+            }
+        }
+
+        private bool NonMouseInputUsed()
+        {
+            bool directionalInputUsed =
+                Input.GetAxis(_HOR_AXIS) != 0 ||
+                Input.GetAxis(_VERT_AXIS) != 0;
+
+            bool submitInputUsed =
+                Input.GetButton(_SUBMIT);
+
+            //bool cancelInputUsed =
+            //    Input.GetButton(_CANCEL);
+
+            return directionalInputUsed || submitInputUsed;
+        }
+
+        /// <summary>
+        /// Disables the use of the mouse cursor.
+        /// </summary>
+        public void DisableMouseCursor()
+        {
+            _cursor.PlayingUsingMouse = false;
+            if (_canvasGR != null)
+            {
+                _canvasGR.enabled = false;
+            }
+        }
+
+        /// <summary>
+        /// Enables the use of the mouse cursor
+        /// (the cursor handles most of this by itself).
+        /// </summary>
+        public void EnableMouseCursor()
+        {
+            if (_canvasGR != null && !_canvasGR.enabled)
+            {
+                _canvasGR.enabled = true;
             }
         }
 
