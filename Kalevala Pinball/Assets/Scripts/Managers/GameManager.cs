@@ -50,8 +50,9 @@ namespace Kalevala
         private LanguageStateType _defaultLanguage =
             LanguageStateType.English;
 
-        private StateManager stateManager;
-        private Playfield playfield;
+        private StateManager _stateManager;
+        private Playfield _playfield;
+        private HighscoreList _highscoreList;
 
         private IList<LanguageStateBase> _langStates = new List<LanguageStateBase>();
         public LanguageStateBase Language { get; set; }
@@ -118,16 +119,22 @@ namespace Kalevala
             DontDestroyOnLoad(gameObject);
 
             // Initializes states
-            stateManager = FindObjectOfType<StateManager>();
-            if (stateManager == null)
+            _stateManager = FindObjectOfType<StateManager>();
+            if (_stateManager == null)
             {
                 Debug.LogError("StateManager object not found in the scene.");
             }
 
-            playfield = FindObjectOfType<Playfield>();
-            if (playfield == null)
+            _playfield = FindObjectOfType<Playfield>();
+            if (_playfield == null)
             {
                 Debug.LogError("Playfield object not found in the scene.");
+            }
+
+            _highscoreList = FindObjectOfType<HighscoreList>();
+            if (_highscoreList == null)
+            {
+                Debug.LogError("HighscoreList object not found in the scene.");
             }
 
             // Initializes languages
@@ -189,7 +196,7 @@ namespace Kalevala
         {
             get
             {
-                return stateManager.CurrentScreenState.State;
+                return _stateManager.CurrentScreenState.State;
             }
         }
 
@@ -197,20 +204,39 @@ namespace Kalevala
         {
             get
             {
-                return stateManager.CurrentGameModeState.State;
+                return _stateManager.CurrentGameModeState.State;
             }
         }
 
         public void GameOver(bool saveScore)
         {
-            // TODO
+            // NOTE: Called by ScreenState_Play
+            //_stateManager.EndGame(saveScore);
+
+            // TODO: Allow the player to set a name
+            string playerName = "Player";
+
+            // Saves the score if it's high enough
+            // and the player actually finished
+            // the game instead of giving up
+            if (saveScore)
+            {
+                //bool isHighscore =
+                _highscoreList.CompareScoreAndSave
+                    (playerName, Scorekeeper.Instance._totalScore);
+
+                //if (isHighscore)
+                //{
+
+                //}
+            }
         }
 
         public void ResetAll()
         {
             PinballManager.Instance.ResetGame();
             Scorekeeper.Instance.ResetScore();
-            playfield.ResetPlayfield();
+            _playfield.ResetPlayfield();
         }
 
         //private void InitScene()

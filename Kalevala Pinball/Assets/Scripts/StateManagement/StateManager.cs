@@ -1,4 +1,4 @@
-﻿using System.Collections;
+﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -29,11 +29,18 @@ namespace Kalevala
         [SerializeField]
         private GameModeStateType _gameMode = GameModeStateType.None;
 
-        private IList<ScreenStateBase> _screenStates = new List<ScreenStateBase>();
-        private IList<GameModeStateBase> _gameModeStates = new List<GameModeStateBase>();
+        private IList<ScreenStateBase> _screenStates =
+            new List<ScreenStateBase>();
+        private IList<GameModeStateBase> _gameModeStates =
+            new List<GameModeStateBase>();
 
         public ScreenStateBase CurrentScreenState { get; set; }
         public GameModeStateBase CurrentGameModeState { get; set; }
+
+        /// <summary>
+        /// An event which is fired when the game ends.
+        /// </summary>
+        public event Action<bool> GameOver;
 
         private void Awake()
         {
@@ -96,7 +103,7 @@ namespace Kalevala
 
         public void GoToMainMenuState()
         {
-            GameOver(false);
+            EndGame(false);
             //GameManager.Instance.ResetAll();
             PerformTransition(ScreenStateType.MainMenu);
         }
@@ -128,7 +135,7 @@ namespace Kalevala
         /// player drops out by returning to the main menu.
         /// </summary>
         /// <param name="saveScore">is the score saved</param>
-        private void GameOver(bool saveScore)
+        public void EndGame(bool saveScore)
         {
             if (CurrentGameModeState.State != GameModeStateType.Normal)
             {
@@ -136,7 +143,7 @@ namespace Kalevala
             }
 
             PinballManager.Instance.SetPinballPhysicsEnabled(false);
-            GameManager.Instance.GameOver(saveScore);
+            GameOver(saveScore);
         }
 
         public bool PerformTransition(ScreenStateType targetState)

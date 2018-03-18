@@ -210,6 +210,7 @@ namespace Kalevala
         {
             if (_pinballs.Count > 0)
             {
+                // Removes all extra balls from play
                 for (int i = 0; i < _pinballs.Count; i++)
                 {
                     RemoveBall(_pinballs[i], true);
@@ -268,26 +269,40 @@ namespace Kalevala
             Launcher.Instance.StartLaunch(ball);
         }
 
-        public void RemoveBall(Pinball pinball, bool gameReset)
+        public void RemoveBall(Pinball pinball, bool removeExtraBallsOnly)
         {
-            if(_activeBalls > 1)
+            if (_activeBalls > 1)
             {
                 pinball.gameObject.SetActive(false);
                 _activeBalls--;
             }
-            else if (!gameReset)
+            else if (!removeExtraBallsOnly)
             {
                 if (!OutOfBalls())
                 {
                     InstanceNextBall(pinball);
                     _currentBallAmount--;
-                    Debug.Log("Balls left : " + _currentBallAmount.ToString());
+
+                    if (OutOfBalls())
+                    {
+                        Debug.Log("Out of balls - game over");
+                        GameManager.Instance.GameOver(true);
+                    }
+                    else
+                    {
+                        Debug.Log("Balls left : " + _currentBallAmount.ToString());
+                    }
                 }
                 else
                 {
                     Debug.Log("Out of balls");
                 }
             }
+        }
+
+        public void DebugLoseBall()
+        {
+            RemoveBall(_pinballs[0], false);
         }
 
         /// <summary>

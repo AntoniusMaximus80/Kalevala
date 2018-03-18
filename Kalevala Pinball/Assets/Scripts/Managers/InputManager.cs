@@ -40,7 +40,7 @@ namespace Kalevala {
         private HighscoreList _highscoreList;
         private MouseCursorController _cursor;
 
-        private bool _gameOver;
+        //private bool _gameOver;
 
         /// <summary>
         /// Is the submit button still held down from the previous screen
@@ -64,10 +64,14 @@ namespace Kalevala {
             }
 
             _confirmation = GetComponentInChildren<ConfirmationDialog>();
-            _highscoreList = GetComponentInChildren<HighscoreList>();
+            _highscoreList = FindObjectOfType<HighscoreList>();
             _cursor = FindObjectOfType<MouseCursorController>();
 
             _highscoreList.Visible = false;
+
+            // When the GameOver event is triggered, the first
+            // button in the game over menu is highlighted
+            _stateManager.GameOver += HighlightGameOverMenuButton;
         }
 
         /// <summary>
@@ -76,7 +80,7 @@ namespace Kalevala {
         private void Update()
         {
             UpdateMouseControl();
-            CheckIfGameOver();
+            //CheckIfGameOver();
 
             if (_confirmation.Active)
             {
@@ -124,29 +128,12 @@ namespace Kalevala {
         }
 
         /// <summary>
-        /// Saves highscores when the game is over.
         /// Highlights the first button in the game over
         /// menu if the mouse cursor is hidden.
         /// </summary>
-        private void CheckIfGameOver()
+        private void HighlightGameOverMenuButton(bool saveScore)
         {
-            if (_stateManager.CurrentScreenState.State
-                    == ScreenStateType.GameOver)
-            {
-                if (!_gameOver)
-                {
-                    _gameOver = true;
-                    SetHighlightedButtonOnScreenChange();
-
-                    // Saves the score if it's high enough
-                    _highscoreList.CompareScoreAndSave
-                        ("Player", Scorekeeper.Instance._totalScore);
-                }
-            }
-            else if (_gameOver)
-            {
-                _gameOver = false;
-            }
+            SetHighlightedButtonOnScreenChange();
         }
 
         private void MainMenuInput()
@@ -275,6 +262,12 @@ namespace Kalevala {
             if (Input.GetButtonDown("ResetBall"))
             {
                 PinballManager.Instance.Pinballs[0].ResetBall();
+            }
+
+            // Losing and resetting the ball
+            if (Input.GetButtonDown("LoseBall"))
+            {
+                PinballManager.Instance.DebugLoseBall();
             }
 
             // Toggling cursor visibility

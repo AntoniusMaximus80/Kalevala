@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 using UnityEngine.UI;
 
 namespace Kalevala
@@ -11,17 +12,35 @@ namespace Kalevala
         [SerializeField]
         private GameObject _scoreboard;
 
+        [SerializeField]
+        private Text _scoreSlotPrefab;
+
         [SerializeField, Range(5, 30)]
         private int _listSize = 10;
 
         private Highscore[] _highscores;
+        private List<Text> _scoreSlots;
 
         private void Start()
         {
             _highscores = new Highscore[_listSize];
-            ResetList();
-            LoadHighscores();
-            UpdateScoreboard();
+            _scoreSlots = new List<Text>(_listSize);
+
+            if (_scoreboard != null)
+            {
+                ResetList();
+                LoadHighscores();
+                UpdateScoreboard();
+            }
+            else
+            {
+                Debug.LogError("Scoreboard is not set.");
+            }
+        }
+
+        private string GetHighscoreText(Highscore highscore, int placement)
+        {
+            return placement + ". " + highscore.ToString();
         }
 
         /// <summary>
@@ -52,6 +71,8 @@ namespace Kalevala
 
             for (int i = 0; i < _highscores.Length; i++)
             {
+                // Checks if the score is higher than a
+                // previous highscore and if so, saves it
                 if (score > _highscores[i].score)
                 {
                     isHighscore = true;
@@ -105,13 +126,9 @@ namespace Kalevala
 
         private void UpdateScoreboard()
         {
-            Text[] scoreSlots = _scoreboard.GetComponentsInChildren<Text>();
-
-            // TODO: Add or remove score slots in the scoreboard if needed
-
-            for (int i = 0; i < scoreSlots.Length; i++)
+            for (int i = 0; i < _scoreSlots.Count; i++)
             {
-                scoreSlots[i].text = (i + 1) + ". " + _highscores[i].ToString();
+                _scoreSlots[i].text = GetHighscoreText(_highscores[i], i + 1);
             }
         }
 
@@ -136,6 +153,36 @@ namespace Kalevala
                 _highscores[i] = new Highscore();
                 _highscores[i].playerName = _DEFAULT_PLAYER_NAME;
                 _highscores[i].score = _DEFAULT_SCORE;
+            }
+
+            if (_scoreSlotPrefab != null)
+            {
+                // Gets every score slot text found in the
+                // scoreboard and puts them in an array
+                Text[] scoreSlotArray =
+                    _scoreboard.GetComponentsInChildren<Text>();
+
+                // Destroys all existing score slots
+                _scoreSlots.Clear();
+                for (int i = scoreSlotArray.Length - 1; i >= 0; i--)
+                {
+                    Destroy(scoreSlotArray[i].gameObject);
+                }
+
+                // Creates as many score slots as the highscore
+                // list needs and adds them to the score slot list
+                for (int scoreSlotIndex = 0;
+                     scoreSlotIndex < _listSize;
+                     scoreSlotIndex++)
+                {
+                    Text newScoreSlot =
+                        Instantiate(_scoreSlotPrefab, _scoreboard.transform);
+
+                    _scoreSlots.Add(newScoreSlot);
+
+                    newScoreSlot.name = string.Format
+                        ("Highscore{0}", (scoreSlotIndex + 1).ToString("D2"));
+                }
             }
         }
     }
