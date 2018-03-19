@@ -222,7 +222,7 @@ namespace Kalevala
                 if (EditorGUI.EndChangeCheck())
                 {
                     Undo.RecordObject(targetCurve, "Move Point");
-                    EditorUtility.SetDirty(targetCurve);
+                    //EditorUtility.SetDirty(targetCurve);
                     targetCurve.Points[index] =
                         handleTransform.InverseTransformPoint(point);
                 }

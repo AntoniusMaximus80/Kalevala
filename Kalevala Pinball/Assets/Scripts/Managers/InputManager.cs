@@ -234,6 +234,12 @@ namespace Kalevala {
 
         private void FlipperInput()
         {
+            // If the game is in tilt, the flippers are unavailable
+            if (PinballManager.Instance.Tilt)
+            {
+                return;
+            }
+
             if (Input.GetAxis(_LEFTFLIPPERHIT) != 0)
             {
                 _leftFlipper.UseMotor();
@@ -260,6 +266,8 @@ namespace Kalevala {
             // TODO : This really needs a sound effect, maybe the camera shake Toni suggested?
             // Not sure as nudge is not really THAT powerful.
             _nudgeVector.x = direction * _nudgeStrength;
+
+            //PinballManager.Instance.SpendNudge();
         }
 
         private void DebugInput()

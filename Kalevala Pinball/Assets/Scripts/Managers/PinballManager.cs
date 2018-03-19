@@ -84,11 +84,22 @@ namespace Kalevala
 
         private int _currentBallAmount, _activeBalls;
         private int _nudgesLeft;
-
         
         private bool noNudges;
        
         public bool Tilt { get; private set; }
+
+        public Vector3 LaunchPoint
+        {
+            get
+            {
+                return _ballLaunchPoint;
+            }
+            set
+            {
+                _ballLaunchPoint = value;
+            }
+        }
 
         public List<Pinball> Pinballs
         {
@@ -171,10 +182,10 @@ namespace Kalevala
             if (!debug_useDefaultLaunchPoint &&
                 _startingPosition != null)
             {
-                _ballLaunchPoint = _startingPosition.position;
+                LaunchPoint = _startingPosition.position;
             }
         }
-        
+
         public void ResetGame()
         {
             _currentBallAmount = _startingBallAmount;
@@ -271,6 +282,11 @@ namespace Kalevala
 
         public void RemoveBall(Pinball pinball, bool removeExtraBallsOnly)
         {
+            if (Tilt)
+            {
+                Tilt = false;
+            }
+
             if (_activeBalls > 1)
             {
                 pinball.gameObject.SetActive(false);
@@ -363,7 +379,7 @@ namespace Kalevala
             }
         }
 
-        public bool Nudge()
+        public bool SpendNudge()
         {
             if (!noNudges && _nudgesLeft > 0)
             {

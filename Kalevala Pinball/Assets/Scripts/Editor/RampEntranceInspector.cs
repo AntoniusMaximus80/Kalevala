@@ -98,7 +98,7 @@ namespace Kalevala.Editor
                 if (EditorGUI.EndChangeCheck())
                 {
                     Undo.RecordObject(targetRampEntrance, "Move Point");
-                    EditorUtility.SetDirty(targetRampEntrance);
+                    //EditorUtility.SetDirty(targetRampEntrance);
                     targetRampEntrance.RampDirection =
                         targetTransform.InverseTransformPoint(point);
                 }
