@@ -32,6 +32,26 @@ namespace Kalevala
         private bool _showMap;
         private bool _showMapOld;
 
+        public bool Visible
+        {
+            get
+            {
+                return _showMap;
+            }
+            set
+            {
+                _showMap = value;
+                if (value)
+                {
+                    ShowMap();
+                }
+                else
+                {
+                    HideMap();
+                }
+            }
+        }
+
         // Use this for initialization
         void Start()
         {

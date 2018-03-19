@@ -39,6 +39,7 @@ namespace Kalevala {
         private ConfirmationDialog _confirmation;
         private HighscoreList _highscoreList;
         private MouseCursorController _cursor;
+        private HeatMap _heatMap;
 
         //private bool _gameOver;
 
@@ -66,6 +67,7 @@ namespace Kalevala {
             _confirmation = GetComponentInChildren<ConfirmationDialog>();
             _highscoreList = FindObjectOfType<HighscoreList>();
             _cursor = FindObjectOfType<MouseCursorController>();
+            _heatMap = FindObjectOfType<HeatMap>();
 
             _highscoreList.Visible = false;
 
@@ -272,6 +274,12 @@ namespace Kalevala {
             if (Input.GetButtonDown("LoseBall"))
             {
                 PinballManager.Instance.DebugLoseBall();
+            }
+
+            // Toggle heat map visibility
+            if (Input.GetKeyDown(KeyCode.H))
+            {
+                _heatMap.Visible = !_heatMap.Visible;
             }
         }
 
