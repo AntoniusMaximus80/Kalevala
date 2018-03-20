@@ -31,6 +31,7 @@ namespace Kalevala
         private Direction _direction;
         private Waypoint _startWaypoint;
 
+        [SerializeField]
         private KickoutHole _kickoutHole;
 
         private bool _isKickHole = false;
@@ -49,7 +50,7 @@ namespace Kalevala
             
             if (_isPathStart)
             {
-                _kickoutHole = GetComponent<KickoutHole>();
+                //_kickoutHole = GetComponent<KickoutHole>();
                 if(_kickoutHole != null)
                 {
                     _isKickHole = true;
@@ -59,7 +60,7 @@ namespace Kalevala
             }
             else
             {
-                _kickoutHole = GetComponentInParent<KickoutHole>();
+                //_kickoutHole = GetComponentInParent<KickoutHole>();
                 _direction = Direction.Backward;
                 _startWaypoint = _path.GetLastWaypoint();
             }

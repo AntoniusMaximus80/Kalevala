@@ -32,6 +32,7 @@ namespace Kalevala
         private bool _launchDone = true;
         private bool _returnAxeToStartPosition = false;
         private SkillShotGate[] _gates;
+        private SkillShotHandler _handler;
 
 
         private void Awake()
@@ -46,6 +47,7 @@ namespace Kalevala
             _hingejoint.useSpring = true;
             Instance = this;
             _gates = FindObjectsOfType<SkillShotGate>();
+            _handler = FindObjectOfType<SkillShotHandler>();
         }
 
         private void Update()
@@ -119,6 +121,10 @@ namespace Kalevala
             _pinball = pinball;
             _returnAxeToStartPosition = true;
             _hingejoint.useLimits = true;
+            if(_handler != null)
+            {
+                _handler.PathDeactivate();
+            }
             foreach(SkillShotGate gate in _gates)
             {
                 gate.OpenGate();
