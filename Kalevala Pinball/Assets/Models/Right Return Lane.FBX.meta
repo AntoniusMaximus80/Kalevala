@@ -1,0 +1,161 @@
+fileFormatVersion: 2
+guid: b1235488fa2a23344860d05e8e21c9af
+timeCreated: 1521213001
+licenseType: Free
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: Plastic Rail004
+    100002: Plastic Rail005
+    100004: Plastic Rail006
+    100006: Plastic Rails001
+    100008: Return Lane Decoration001
+    100010: Return Lane Top001
+    100012: //RootNode
+    100014: Steel Post007
+    100016: Steel Post008
+    100018: Steel Post009
+    100020: Steel Post010
+    100022: Steel Post011
+    100024: Steel Post012
+    100026: Steel Post013
+    100028: Steel Post014
+    100030: Steel Posts001
+    400000: Plastic Rail004
+    400002: Plastic Rail005
+    400004: Plastic Rail006
+    400006: Plastic Rails001
+    400008: Return Lane Decoration001
+    400010: Return Lane Top001
+    400012: //RootNode
+    400014: Steel Post007
+    400016: Steel Post008
+    400018: Steel Post009
+    400020: Steel Post010
+    400022: Steel Post011
+    400024: Steel Post012
+    400026: Steel Post013
+    400028: Steel Post014
+    400030: Steel Posts001
+    2100000: Placeholder
+    2100002: 04 - Default
+    2300000: Plastic Rail004
+    2300002: Plastic Rail005
+    2300004: Plastic Rail006
+    2300006: Return Lane Decoration001
+    2300008: Return Lane Top001
+    2300010: Steel Post007
+    2300012: Steel Post008
+    2300014: Steel Post009
+    2300016: Steel Post010
+    2300018: Steel Post011
+    2300020: Steel Post012
+    2300022: Steel Post013
+    2300024: Steel Post014
+    3300000: Plastic Rail004
+    3300002: Plastic Rail005
+    3300004: Plastic Rail006
+    3300006: Return Lane Decoration001
+    3300008: Return Lane Top001
+    3300010: Steel Post007
+    3300012: Steel Post008
+    3300014: Steel Post009
+    3300016: Steel Post010
+    3300018: Steel Post011
+    3300020: Steel Post012
+    3300022: Steel Post013
+    3300024: Steel Post014
+    4300000: Return Lane Top001
+    4300002: Return Lane Decoration001
+    4300004: Plastic Rail004
+    4300006: Plastic Rail005
+    4300008: Plastic Rail006
+    4300010: Steel Post007
+    4300012: Steel Post008
+    4300014: Steel Post009
+    4300016: Steel Post010
+    4300018: Steel Post011
+    4300020: Steel Post012
+    4300022: Steel Post013
+    4300024: Steel Post014
+    9500000: //RootNode
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

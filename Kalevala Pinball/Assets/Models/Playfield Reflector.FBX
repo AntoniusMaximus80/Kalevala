@@ -8,11 +8,11 @@ FBXHeaderExtension:  {
 		Version: 1000
 		Year: 2018
 		Month: 3
-		Day: 10
-		Hour: 9
-		Minute: 12
-		Second: 33
-		Millisecond: 12
+		Day: 19
+		Hour: 16
+		Minute: 38
+		Second: 48
+		Millisecond: 731
 	}
 	Creator: "FBX SDK/FBX Plugins version 2018.1"
 	SceneInfo: "SceneInfo::GlobalInfo", "UserData" {
@@ -34,13 +34,13 @@ FBXHeaderExtension:  {
 			P: "Original|ApplicationVendor", "KString", "", "", "Autodesk"
 			P: "Original|ApplicationName", "KString", "", "", "3ds Max"
 			P: "Original|ApplicationVersion", "KString", "", "", "2018"
-			P: "Original|DateTime_GMT", "DateTime", "", "", "10/03/2018 07:12:33.010"
+			P: "Original|DateTime_GMT", "DateTime", "", "", "19/03/2018 14:38:48.729"
 			P: "Original|FileName", "KString", "", "", "C:\Users\Toni\Desktop\Kalevala\Kalevala Pinball\Assets\Models\Playfield Reflector.FBX"
 			P: "LastSaved", "Compound", "", ""
 			P: "LastSaved|ApplicationVendor", "KString", "", "", "Autodesk"
 			P: "LastSaved|ApplicationName", "KString", "", "", "3ds Max"
 			P: "LastSaved|ApplicationVersion", "KString", "", "", "2018"
-			P: "LastSaved|DateTime_GMT", "DateTime", "", "", "10/03/2018 07:12:33.010"
+			P: "LastSaved|DateTime_GMT", "DateTime", "", "", "19/03/2018 14:38:48.729"
 			P: "Original|ApplicationActiveProject", "KString", "", "", "C:\Users\Toni\Documents\3dsMax"
 			P: "Original|ApplicationNativeFile", "KString", "", "", "C:\Users\Toni\Dropbox\+ Spring 2018 Project\Kalevala Pinball.max"
 		}
@@ -65,7 +65,7 @@ GlobalSettings:  {
 		P: "TimeProtocol", "enum", "", "",2
 		P: "SnapOnFrameMode", "enum", "", "",0
 		P: "TimeSpanStart", "KTime", "Time", "",0
-		P: "TimeSpanStop", "KTime", "Time", "",552386449680
+		P: "TimeSpanStop", "KTime", "Time", "",90524869680
 		P: "CustomFrameRate", "double", "Number", "",-1
 		P: "TimeMarker", "Compound", "", ""
 		P: "CurrentTimeMarker", "int", "Integer", "",-1
@@ -77,7 +77,7 @@ GlobalSettings:  {
 
 Documents:  {
 	Count: 1
-	Document: 2215452184032, "", "Scene" {
+	Document: 2309369273088, "", "Scene" {
 		Properties70:  {
 			P: "SourceObject", "object", "", ""
 			P: "ActiveAnimStackName", "KString", "", "", ""
@@ -239,18 +239,18 @@ Definitions:  {
 ;------------------------------------------------------------------
 
 Objects:  {
-	Geometry: 2215464377920, "Geometry::", "Mesh" {
+	Geometry: 2309378243584, "Geometry::", "Mesh" {
 		Properties70:  {
 			P: "Color", "ColorRGB", "Color", "",0.882352941176471,0.56078431372549,0.341176470588235
 		}
 		Vertices: *12 {
-			a: -12.5965671539307,-33.9527435302734,-4.99933958053589e-05,47.5083160400391,-33.9527435302734,-4.99933958053589e-05,-12.5965671539307,90.6971206665039,-4.99933958053589e-05,47.5083160400391,90.6971206665039,-4.99933958053589e-05
+			a: -12.5965671539307,-33.9527435302734,-4.99933958053589e-05,47.5083160400391,-33.9527435302734,-4.99933958053589e-05,47.5083160400391,28.3721885681152,-4.99933958053589e-05,-12.5965671539307,28.3721885681152,-4.99933958053589e-05
 		} 
 		PolygonVertexIndex: *4 {
-			a: 1,3,2,-1
+			a: 2,3,0,-2
 		} 
 		Edges: *4 {
-			a: 3,0,1,2
+			a: 2,3,1,0
 		} 
 		GeometryVersion: 124
 		LayerElementNormal: 0 {
@@ -271,10 +271,10 @@ Objects:  {
 			MappingInformationType: "ByPolygonVertex"
 			ReferenceInformationType: "IndexToDirect"
 			UV: *8 {
-				a: 0.755675137042999,0.0253211408853531,0.755675137042999,0.974677801132202,0.297904908657074,0.974677801132202,0.297904908657074,0.0253211408853531
+				a: 0,2.38418579101563e-07,0.999999701976776,0,0.999999940395355,0.999999761581421,2.38418579101563e-07,1
 			} 
 			UVIndex: *4 {
-				a: 0,1,2,3
+				a: 2,3,0,1
 			} 
 		}
 		LayerElementSmoothing: 0 {
@@ -315,7 +315,7 @@ Objects:  {
 			}
 		}
 	}
-	Model: 2215475344528, "Model::Playfield Reflector", "Mesh" {
+	Model: 2309635408400, "Model::Playfield Reflector", "Mesh" {
 		Version: 232
 		Properties70:  {
 			P: "PreRotation", "Vector3D", "Vector", "",-90,-0,0
@@ -325,14 +325,13 @@ Objects:  {
 			P: "GeometricTranslation", "Vector3D", "Vector", "",-14.9393882751465,-24.2819766998291,-0.400000035762787
 			P: "GeometricScaling", "Vector3D", "Vector", "",0.855837225914001,0.855837225914001,0.999999821186066
 			P: "DefaultAttributeIndex", "int", "Integer", "",0
-			P: "Lcl Translation", "Lcl Translation", "", "A",0,0,1.9073486328125e-08
 			P: "Lcl Scaling", "Lcl Scaling", "", "A",0.01,0.01,0.01
 			P: "MaxHandle", "int", "Integer", "UH",2096
 		}
 		Shading: T
 		Culling: "CullingOff"
 	}
-	Material: 2215450438032, "Material::Placeholder", "" {
+	Material: 2309352381568, "Material::Placeholder", "" {
 		Version: 102
 		ShadingModel: "phong"
 		MultiLayer: 0
@@ -354,10 +353,10 @@ Objects:  {
 			P: "Reflectivity", "double", "Number", "",0
 		}
 	}
-	AnimationStack: 2215434867872, "AnimStack::Take 001", "" {
+	AnimationStack: 2309485214144, "AnimStack::Take 001", "" {
 		Properties70:  {
-			P: "LocalStop", "KTime", "Time", "",552386449680
-			P: "ReferenceStop", "KTime", "Time", "",552386449680
+			P: "LocalStop", "KTime", "Time", "",90524869680
+			P: "ReferenceStop", "KTime", "Time", "",90524869680
 		}
 	}
 }
@@ -368,11 +367,11 @@ Objects:  {
 Connections:  {
 	
 	;Model::Playfield Reflector, Model::RootNode
-	C: "OO",2215475344528,0
+	C: "OO",2309635408400,0
 	
 	;Geometry::, Model::Playfield Reflector
-	C: "OO",2215464377920,2215475344528
+	C: "OO",2309378243584,2309635408400
 	
 	;Material::Placeholder, Model::Playfield Reflector
-	C: "OO",2215450438032,2215475344528
+	C: "OO",2309352381568,2309635408400
 }

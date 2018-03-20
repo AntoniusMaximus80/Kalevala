@@ -1,0 +1,318 @@
+fileFormatVersion: 2
+guid: 1ab90b44778df1a4eb94c188e10c942b
+timeCreated: 1521367631
+licenseType: Free
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: Chimney
+    100002: Door
+    100004: //RootNode
+    100006: Patio Board
+    100008: Patio Board001
+    100010: Patio Board002
+    100012: Patio Board003
+    100014: Patio Board004
+    100016: Support
+    100018: Support005
+    100020: Walls
+    100022: Log Walls
+    100024: Patio Board005
+    100026: Roof
+    100028: Split Wall Log
+    100030: Split Wall Log001
+    100032: Split Wall Log002
+    100034: Split Wall Log003
+    100036: Wall Log
+    100038: Wall Log001
+    100040: Wall Log002
+    100042: Wall Log003
+    100044: Wall Log004
+    100046: Wall Log005
+    100048: Wall Log006
+    100050: Wall Log007
+    100052: Wall Log008
+    100054: Wall Log009
+    100056: Wall Log010
+    100058: Wall Log011
+    100060: Wall Log012
+    100062: Wall Log013
+    100064: Wall Log014
+    100066: Wall Log015
+    100068: Wall Log016
+    100070: Wall Log017
+    100072: Wall Log018
+    100074: Wall Log019
+    100076: Wall Log020
+    100078: Wall Log021
+    100080: Wall Log022
+    100082: Wall Log023
+    100084: Wall Log024
+    100086: Wall Log025
+    100088: Wall Log026
+    100090: Wall Log027
+    100092: Wall Log028
+    400000: Chimney
+    400002: Door
+    400004: //RootNode
+    400006: Patio Board
+    400008: Patio Board001
+    400010: Patio Board002
+    400012: Patio Board003
+    400014: Patio Board004
+    400016: Support
+    400018: Support005
+    400020: Walls
+    400022: Log Walls
+    400024: Patio Board005
+    400026: Roof
+    400028: Split Wall Log
+    400030: Split Wall Log001
+    400032: Split Wall Log002
+    400034: Split Wall Log003
+    400036: Wall Log
+    400038: Wall Log001
+    400040: Wall Log002
+    400042: Wall Log003
+    400044: Wall Log004
+    400046: Wall Log005
+    400048: Wall Log006
+    400050: Wall Log007
+    400052: Wall Log008
+    400054: Wall Log009
+    400056: Wall Log010
+    400058: Wall Log011
+    400060: Wall Log012
+    400062: Wall Log013
+    400064: Wall Log014
+    400066: Wall Log015
+    400068: Wall Log016
+    400070: Wall Log017
+    400072: Wall Log018
+    400074: Wall Log019
+    400076: Wall Log020
+    400078: Wall Log021
+    400080: Wall Log022
+    400082: Wall Log023
+    400084: Wall Log024
+    400086: Wall Log025
+    400088: Wall Log026
+    400090: Wall Log027
+    400092: Wall Log028
+    2100000: Placeholder
+    2300000: Chimney
+    2300002: Door
+    2300004: Patio Board
+    2300006: Patio Board001
+    2300008: Patio Board002
+    2300010: Patio Board003
+    2300012: Patio Board004
+    2300014: Support
+    2300016: Support005
+    2300018: Walls
+    2300020: Patio Board005
+    2300022: Roof
+    2300024: Split Wall Log
+    2300026: Split Wall Log001
+    2300028: Split Wall Log002
+    2300030: Split Wall Log003
+    2300032: Wall Log
+    2300034: Wall Log001
+    2300036: Wall Log002
+    2300038: Wall Log003
+    2300040: Wall Log004
+    2300042: Wall Log005
+    2300044: Wall Log006
+    2300046: Wall Log007
+    2300048: Wall Log008
+    2300050: Wall Log009
+    2300052: Wall Log010
+    2300054: Wall Log011
+    2300056: Wall Log012
+    2300058: Wall Log013
+    2300060: Wall Log014
+    2300062: Wall Log015
+    2300064: Wall Log016
+    2300066: Wall Log017
+    2300068: Wall Log018
+    2300070: Wall Log019
+    2300072: Wall Log020
+    2300074: Wall Log021
+    2300076: Wall Log022
+    2300078: Wall Log023
+    2300080: Wall Log024
+    2300082: Wall Log025
+    2300084: Wall Log026
+    2300086: Wall Log027
+    2300088: Wall Log028
+    3300000: Chimney
+    3300002: Door
+    3300004: Patio Board
+    3300006: Patio Board001
+    3300008: Patio Board002
+    3300010: Patio Board003
+    3300012: Patio Board004
+    3300014: Support
+    3300016: Support005
+    3300018: Walls
+    3300020: Patio Board005
+    3300022: Roof
+    3300024: Split Wall Log
+    3300026: Split Wall Log001
+    3300028: Split Wall Log002
+    3300030: Split Wall Log003
+    3300032: Wall Log
+    3300034: Wall Log001
+    3300036: Wall Log002
+    3300038: Wall Log003
+    3300040: Wall Log004
+    3300042: Wall Log005
+    3300044: Wall Log006
+    3300046: Wall Log007
+    3300048: Wall Log008
+    3300050: Wall Log009
+    3300052: Wall Log010
+    3300054: Wall Log011
+    3300056: Wall Log012
+    3300058: Wall Log013
+    3300060: Wall Log014
+    3300062: Wall Log015
+    3300064: Wall Log016
+    3300066: Wall Log017
+    3300068: Wall Log018
+    3300070: Wall Log019
+    3300072: Wall Log020
+    3300074: Wall Log021
+    3300076: Wall Log022
+    3300078: Wall Log023
+    3300080: Wall Log024
+    3300082: Wall Log025
+    3300084: Wall Log026
+    3300086: Wall Log027
+    3300088: Wall Log028
+    4300000: Walls
+    4300002: Chimney
+    4300004: Support
+    4300006: Support005
+    4300008: Door
+    4300010: Patio Board
+    4300012: Patio Board002
+    4300014: Patio Board003
+    4300016: Patio Board004
+    4300018: Patio Board001
+    4300020: Roof
+    4300022: Wall Log
+    4300024: Wall Log001
+    4300026: Wall Log002
+    4300028: Wall Log003
+    4300030: Wall Log004
+    4300032: Wall Log005
+    4300034: Wall Log006
+    4300036: Wall Log007
+    4300038: Wall Log008
+    4300040: Wall Log009
+    4300042: Wall Log010
+    4300044: Wall Log011
+    4300046: Wall Log012
+    4300048: Wall Log013
+    4300050: Split Wall Log
+    4300052: Split Wall Log001
+    4300054: Split Wall Log002
+    4300056: Wall Log014
+    4300058: Wall Log015
+    4300060: Wall Log016
+    4300062: Wall Log017
+    4300064: Wall Log018
+    4300066: Wall Log019
+    4300068: Wall Log020
+    4300070: Split Wall Log003
+    4300072: Wall Log021
+    4300074: Wall Log022
+    4300076: Wall Log023
+    4300078: Wall Log024
+    4300080: Wall Log025
+    4300082: Wall Log026
+    4300084: Wall Log027
+    4300086: Wall Log028
+    4300088: Patio Board005
+    9500000: //RootNode
+  externalObjects: {}
+  materials:
+    importMaterials: 0
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 0
+    importLights: 0
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 0
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

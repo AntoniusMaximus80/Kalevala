@@ -1,0 +1,161 @@
+fileFormatVersion: 2
+guid: d9494e2de6b7fbb43a062ab556cf9c9e
+timeCreated: 1521213001
+licenseType: Free
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: Plastic Rail001
+    100004: Plastic Rail002
+    100006: Plastic Rail003
+    100008: Plastic Rails
+    100010: Return Lane Decoration
+    100012: Return Lane Top
+    100014: Steel Post
+    100016: Steel Post001
+    100018: Steel Post002
+    100020: Steel Post003
+    100022: Steel Post003 1
+    100024: Steel Post004
+    100026: Steel Post005
+    100028: Steel Post006
+    100030: Steel Posts
+    400000: //RootNode
+    400002: Plastic Rail001
+    400004: Plastic Rail002
+    400006: Plastic Rail003
+    400008: Plastic Rails
+    400010: Return Lane Decoration
+    400012: Return Lane Top
+    400014: Steel Post
+    400016: Steel Post001
+    400018: Steel Post002
+    400020: Steel Post003
+    400022: Steel Post003 1
+    400024: Steel Post004
+    400026: Steel Post005
+    400028: Steel Post006
+    400030: Steel Posts
+    2100000: Placeholder
+    2100002: 04 - Default
+    2300000: Plastic Rail001
+    2300002: Plastic Rail002
+    2300004: Plastic Rail003
+    2300006: Return Lane Decoration
+    2300008: Return Lane Top
+    2300010: Steel Post
+    2300012: Steel Post001
+    2300014: Steel Post002
+    2300016: Steel Post003
+    2300018: Steel Post003 1
+    2300020: Steel Post004
+    2300022: Steel Post005
+    2300024: Steel Post006
+    3300000: Plastic Rail001
+    3300002: Plastic Rail002
+    3300004: Plastic Rail003
+    3300006: Return Lane Decoration
+    3300008: Return Lane Top
+    3300010: Steel Post
+    3300012: Steel Post001
+    3300014: Steel Post002
+    3300016: Steel Post003
+    3300018: Steel Post003 1
+    3300020: Steel Post004
+    3300022: Steel Post005
+    3300024: Steel Post006
+    4300000: Steel Post
+    4300002: Steel Post001
+    4300004: Steel Post002
+    4300006: Steel Post003
+    4300008: Steel Post003
+    4300010: Steel Post004
+    4300012: Steel Post005
+    4300014: Steel Post006
+    4300016: Plastic Rail003
+    4300018: Plastic Rail001
+    4300020: Plastic Rail002
+    4300022: Return Lane Top
+    4300024: Return Lane Decoration
+    9500000: //RootNode
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

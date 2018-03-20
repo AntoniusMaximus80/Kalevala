@@ -1,16 +1,29 @@
 fileFormatVersion: 2
-guid: 3a196fcc84e8c0a41852382c2ed3dc4c
-timeCreated: 1518275092
+guid: a56a0ae611dd95545bb964a19e476ab4
+timeCreated: 1521215501
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
     100000: //RootNode
+    100002: Strobe Light Base
+    100004: Strobe Light Bulb
+    100006: Strobe Light Cover
     400000: //RootNode
-    2100000: No Name
-    2300000: //RootNode
-    3300000: //RootNode
-    4300000: Kantele Bumper Bumber Active
+    400002: Strobe Light Base
+    400004: Strobe Light Bulb
+    400006: Strobe Light Cover
+    2100000: Placeholder
+    2100002: Clear Plastic
+    2300000: Strobe Light Base
+    2300002: Strobe Light Bulb
+    2300004: Strobe Light Cover
+    3300000: Strobe Light Base
+    3300002: Strobe Light Bulb
+    3300004: Strobe Light Cover
+    4300000: Strobe Light Base
+    4300002: Strobe Light Cover
+    4300004: Strobe Light Bulb
     9500000: //RootNode
   externalObjects: {}
   materials:

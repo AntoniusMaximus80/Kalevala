@@ -1,0 +1,286 @@
+fileFormatVersion: 2
+guid: 01e988705986e1344be4f5abe5965221
+timeCreated: 1521214169
+licenseType: Free
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: Fence Post
+    100002: Fence Post001
+    100004: Fence Post002
+    100006: Fence Post003
+    100008: Fence Post004
+    100010: Fence Post005
+    100012: Fence Post006
+    100014: Fence Post007
+    100016: Fence Post008
+    100018: Fence Post009
+    100020: Fence Post010
+    100022: Fence Post011
+    100024: Fence Post012
+    100026: Fence Post013
+    100028: Fence Post014
+    100030: Fence Post015
+    100032: Fence Post016
+    100034: Fence Post017
+    100036: Fence Post018
+    100038: Fence Post019
+    100040: Fence Post020
+    100042: Fence Post021
+    100044: Fence Post022
+    100046: Fence Post023
+    100048: Fence Post024
+    100050: Fence Post025
+    100052: Fence Post027
+    100054: Fence Post030
+    100056: Fence Post031
+    100058: Fence Post033
+    100060: Fence Post034
+    100062: Fence Post035
+    100064: Fence Post036
+    100066: Fence Post037
+    100068: Fence Post038
+    100070: Fence Post039
+    100072: Fence Post040
+    100074: Fence Post041
+    100076: Fence Post042
+    100078: //RootNode
+    400000: Fence Post
+    400002: Fence Post001
+    400004: Fence Post002
+    400006: Fence Post003
+    400008: Fence Post004
+    400010: Fence Post005
+    400012: Fence Post006
+    400014: Fence Post007
+    400016: Fence Post008
+    400018: Fence Post009
+    400020: Fence Post010
+    400022: Fence Post011
+    400024: Fence Post012
+    400026: Fence Post013
+    400028: Fence Post014
+    400030: Fence Post015
+    400032: Fence Post016
+    400034: Fence Post017
+    400036: Fence Post018
+    400038: Fence Post019
+    400040: Fence Post020
+    400042: Fence Post021
+    400044: Fence Post022
+    400046: Fence Post023
+    400048: Fence Post024
+    400050: Fence Post025
+    400052: Fence Post027
+    400054: Fence Post030
+    400056: Fence Post031
+    400058: Fence Post033
+    400060: Fence Post034
+    400062: Fence Post035
+    400064: Fence Post036
+    400066: Fence Post037
+    400068: Fence Post038
+    400070: Fence Post039
+    400072: Fence Post040
+    400074: Fence Post041
+    400076: Fence Post042
+    400078: //RootNode
+    2100000: 14 - Default
+    2300000: Fence Post
+    2300002: Fence Post001
+    2300004: Fence Post002
+    2300006: Fence Post003
+    2300008: Fence Post004
+    2300010: Fence Post005
+    2300012: Fence Post006
+    2300014: Fence Post007
+    2300016: Fence Post008
+    2300018: Fence Post009
+    2300020: Fence Post010
+    2300022: Fence Post011
+    2300024: Fence Post012
+    2300026: Fence Post013
+    2300028: Fence Post014
+    2300030: Fence Post015
+    2300032: Fence Post016
+    2300034: Fence Post017
+    2300036: Fence Post018
+    2300038: Fence Post019
+    2300040: Fence Post020
+    2300042: Fence Post021
+    2300044: Fence Post022
+    2300046: Fence Post023
+    2300048: Fence Post024
+    2300050: Fence Post025
+    2300052: Fence Post027
+    2300054: Fence Post030
+    2300056: Fence Post031
+    2300058: Fence Post033
+    2300060: Fence Post034
+    2300062: Fence Post035
+    2300064: Fence Post036
+    2300066: Fence Post037
+    2300068: Fence Post038
+    2300070: Fence Post039
+    2300072: Fence Post040
+    2300074: Fence Post041
+    2300076: Fence Post042
+    3300000: Fence Post
+    3300002: Fence Post001
+    3300004: Fence Post002
+    3300006: Fence Post003
+    3300008: Fence Post004
+    3300010: Fence Post005
+    3300012: Fence Post006
+    3300014: Fence Post007
+    3300016: Fence Post008
+    3300018: Fence Post009
+    3300020: Fence Post010
+    3300022: Fence Post011
+    3300024: Fence Post012
+    3300026: Fence Post013
+    3300028: Fence Post014
+    3300030: Fence Post015
+    3300032: Fence Post016
+    3300034: Fence Post017
+    3300036: Fence Post018
+    3300038: Fence Post019
+    3300040: Fence Post020
+    3300042: Fence Post021
+    3300044: Fence Post022
+    3300046: Fence Post023
+    3300048: Fence Post024
+    3300050: Fence Post025
+    3300052: Fence Post027
+    3300054: Fence Post030
+    3300056: Fence Post031
+    3300058: Fence Post033
+    3300060: Fence Post034
+    3300062: Fence Post035
+    3300064: Fence Post036
+    3300066: Fence Post037
+    3300068: Fence Post038
+    3300070: Fence Post039
+    3300072: Fence Post040
+    3300074: Fence Post041
+    3300076: Fence Post042
+    4300000: Fence Post
+    4300002: Fence Post001
+    4300004: Fence Post002
+    4300006: Fence Post003
+    4300008: Fence Post004
+    4300010: Fence Post005
+    4300012: Fence Post006
+    4300014: Fence Post007
+    4300016: Fence Post008
+    4300018: Fence Post009
+    4300020: Fence Post010
+    4300022: Fence Post011
+    4300024: Fence Post012
+    4300026: Fence Post013
+    4300028: Fence Post014
+    4300030: Fence Post015
+    4300032: Fence Post016
+    4300034: Fence Post017
+    4300036: Fence Post018
+    4300038: Fence Post019
+    4300040: Fence Post020
+    4300042: Fence Post021
+    4300044: Fence Post022
+    4300046: Fence Post023
+    4300048: Fence Post024
+    4300050: Fence Post025
+    4300052: Fence Post027
+    4300054: Fence Post030
+    4300056: Fence Post031
+    4300058: Fence Post033
+    4300060: Fence Post034
+    4300062: Fence Post035
+    4300064: Fence Post036
+    4300066: Fence Post037
+    4300068: Fence Post038
+    4300070: Fence Post039
+    4300072: Fence Post040
+    4300074: Fence Post041
+    4300076: Fence Post042
+    9500000: //RootNode
+  externalObjects: {}
+  materials:
+    importMaterials: 0
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 0
+    importLights: 0
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 0
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
