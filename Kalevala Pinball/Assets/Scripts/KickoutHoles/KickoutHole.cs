@@ -11,8 +11,8 @@ namespace Kalevala
         private float _kickoutForce;
         [SerializeField]
         private float _timeToWait;
-        private Pinball _ball;
-        private RampEntrance _myEntrance;
+        protected Pinball _ball;
+        protected RampEntrance _myEntrance;
         private float _startTime = -1;
 
         public float KickForce
@@ -34,7 +34,7 @@ namespace Kalevala
         }
 
         // Update is called once per frame
-        void Update()
+        protected void Update()
         {
             if(_ball != null && _startTime > 0)
             {
@@ -42,10 +42,14 @@ namespace Kalevala
                 {
                     KickOut();
                 }
+                else
+                {
+                    KickOutUpdate();
+                }
             }
         }
 
-        private void BallInsideHole(bool exit)
+        protected void BallInsideHole(bool exit)
         {
 
             _ball.IsInKickoutHole = true;
@@ -55,13 +59,18 @@ namespace Kalevala
 
         }
 
-        private void KickOut()
+        protected void KickOut()
         {
             _ball.IsInKickoutHole = false;
             Debug.Log("KikcOut");
             _ball.SetPhysicsEnabled(true);
             _startTime = -1;
             _ball = null;
+        }
+
+        protected virtual void KickOutUpdate()
+        {
+            
         }
     }
 }
