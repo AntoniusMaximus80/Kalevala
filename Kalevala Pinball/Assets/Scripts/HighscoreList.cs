@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -15,8 +16,11 @@ namespace Kalevala
         [SerializeField]
         private Text _scoreSlotPrefab;
 
-        [SerializeField, Range(5, 30)]
+        [SerializeField, Range(3, 30)]
         private int _listSize = 10;
+
+        [SerializeField, Range(0, 3)]
+        private float _scoreSlotMoveDuration = 1f;
 
         private Highscore[] _highscores;
         private List<Text> _scoreSlots;
@@ -110,6 +114,9 @@ namespace Kalevala
                 {
                     _highscores[i].playerName = _highscores[i - 1].playerName;
                     _highscores[i].score = _highscores[i - 1].score;
+
+                    //RectTransform belowScrSlotTr = _scoreSlots[i].GetComponent<RectTransform>();
+                    //StartCoroutine(MoveScoreSlot(_scoreSlots[i - 1], belowScrSlotTr.anchoredPosition.y));
                 }
                 // Records the new highscore to the slot at the index
                 else
@@ -122,6 +129,39 @@ namespace Kalevala
             string debugMsg = string.Format
                 ("New highscore ({0}): {1}", (index + 1), score);
             Debug.Log(debugMsg);
+        }
+
+        /// <summary>
+        /// A coroutine.
+        /// Moves a highscore slot up or down towards the given Y-coordinate.
+        /// The moving speed is determined by the serialized field
+        /// _scoreSlotMoveDuration.
+        /// </summary>
+        /// <param name="scoreSlot">The text object that moves</param>
+        /// <param name="targetY">The target Y-coordinate</param>
+        /// <returns>Null</returns>
+        private IEnumerator MoveScoreSlot(Text scoreSlot, float targetY)
+        {
+            RectTransform scoreSlotTransform =
+                scoreSlot.GetComponent<RectTransform>();
+            float startY = scoreSlotTransform.anchoredPosition.y;
+            bool moveUp = (targetY > startY);
+            Vector3 newPos = scoreSlotTransform.anchoredPosition;
+
+            float startTime = Time.time;
+            float ratio = 0;
+
+            while ((moveUp && newPos.y < targetY) ||
+                   (!moveUp && newPos.y > targetY))
+            {
+                ratio = (Time.time - startTime) / _scoreSlotMoveDuration;
+                newPos.y = Mathf.Lerp(startY, targetY, ratio);
+                scoreSlotTransform.anchoredPosition = newPos;
+                yield return null;
+            }
+
+            newPos.y = targetY;
+            scoreSlotTransform.anchoredPosition = newPos;
         }
 
         private void UpdateScoreboard()

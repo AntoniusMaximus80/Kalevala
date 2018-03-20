@@ -553,6 +553,50 @@ Prefab:
       propertyPath: _topRightFlipper
       value: 
       objectReference: {fileID: 1334091354}
+    - target: {fileID: 1729810659660682, guid: 211d40b776f371a499e88a8daab2dc4d, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224141663019483342, guid: 211d40b776f371a499e88a8daab2dc4d,
+        type: 2}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 224744314643843680, guid: 211d40b776f371a499e88a8daab2dc4d,
+        type: 2}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224275312035647424, guid: 211d40b776f371a499e88a8daab2dc4d,
+        type: 2}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 224978773684275846, guid: 211d40b776f371a499e88a8daab2dc4d,
+        type: 2}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 224691657284596338, guid: 211d40b776f371a499e88a8daab2dc4d,
+        type: 2}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224539232829128114, guid: 211d40b776f371a499e88a8daab2dc4d,
+        type: 2}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 224831156671381638, guid: 211d40b776f371a499e88a8daab2dc4d,
+        type: 2}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114911808151956180, guid: 211d40b776f371a499e88a8daab2dc4d,
+        type: 2}
+      propertyPath: _scoreSlotMoveDuration
+      value: 0.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 211d40b776f371a499e88a8daab2dc4d, type: 2}
   m_IsPrefabParent: 0
@@ -2404,6 +2448,7 @@ MonoBehaviour:
   _distanceTolerance: 3
   _directionAngleTolerance: 30
   _gizmosColor: {r: 0, g: 0, b: 1, a: 1}
+  _kickoutHole: {fileID: 0}
 --- !u!1 &180823994
 GameObject:
   m_ObjectHideFlags: 0
