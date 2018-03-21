@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Kalevala.Persistence;
 
 namespace Kalevala
 {
@@ -44,17 +46,17 @@ namespace Kalevala
         public bool debug_SkipMainMenu;
 
         [SerializeField]
-        private bool debug_ResetData;
-
-        [SerializeField]
         private LanguageStateType _defaultLanguage =
             LanguageStateType.English;
 
         private StateManager _stateManager;
         private Playfield _playfield;
         private HighscoreList _highscoreList;
+        private SaveSystem saveSystem;
 
-        private IList<LanguageStateBase> _langStates = new List<LanguageStateBase>();
+        private IList<LanguageStateBase> _langStates =
+            new List<LanguageStateBase>();
+
         public LanguageStateBase Language { get; set; }
 
         private float _musicVolume;
@@ -86,6 +88,23 @@ namespace Kalevala
             }
         }
 
+        public HighscoreList HighscoreList
+        {
+            get
+            {
+                return _highscoreList;
+            }
+        }
+
+        public string SavePath
+        {
+            get
+            {
+                return Path.Combine(Application.persistentDataPath,
+                    "saveData");
+            }
+        }
+
         private void Awake()
         {
             if (instance == null)
@@ -114,7 +133,16 @@ namespace Kalevala
 
         private void Init()
         {
-            //LoadGame();
+            // Initializes the highscore list
+            _highscoreList = FindObjectOfType<HighscoreList>();
+            if (_highscoreList == null)
+            {
+                Debug.LogError("HighscoreList object not found in the scene.");
+            }
+
+            // Initializes the save system and loads data
+            saveSystem = new SaveSystem(new JSONPersistence(SavePath));
+            LoadGame();
 
             DontDestroyOnLoad(gameObject);
 
@@ -131,30 +159,12 @@ namespace Kalevala
                 Debug.LogError("Playfield object not found in the scene.");
             }
 
-            _highscoreList = FindObjectOfType<HighscoreList>();
-            if (_highscoreList == null)
-            {
-                Debug.LogError("HighscoreList object not found in the scene.");
-            }
-
             // Initializes languages
             InitLanguages();
-
-            //sceneChanged = true;
-            //InitScene();
-
-            // Initializes volume
-            //MusicVolume = 0.5f;
-            //EffectVolume = 0.5f;
 
             // Creates a new MusicPlayer instance
             // if one does not already exist
             //MusicPlayer.Instance.Create();
-
-            if (debug_ResetData)
-            {
-                //Reset();
-            }
         }
 
         private void InitLanguages()
@@ -239,59 +249,6 @@ namespace Kalevala
             _playfield.ResetPlayfield();
         }
 
-        //private void InitScene()
-        //{
-        //    if (sceneChanged)
-        //    {
-        //        sceneChanged = false;
-
-        //        InitLevel();
-
-        //        InitPlayerCharacters();
-
-        //        InitCamera();
-
-        //        InitCycles();
-
-        //        //ResetInput();
-        //        InitInput();
-
-        //        //ResetFade();
-        //        InitFade();
-
-        //        MenuExited = true;
-
-        //        levelStartUp = true;
-        //    }
-        //}
-
-        //private void InitInput()
-        //{
-        //    if (input == null)
-        //    {
-        //        input = FindObjectOfType<PlayerInput>();
-        //    }
-        //}
-
-        //private void ResetInput()
-        //{
-        //    if (input != null)
-        //    {
-        //        input = null;
-        //    }
-        //}
-
-        //private void InitCamera()
-        //{
-        //    gameCamera = FindObjectOfType<CameraController>();
-
-        //    if (gameCamera == null)
-        //    {
-        //        Debug.LogError("Could not find a CameraController " +
-        //                       "object in the scene.");
-        //    }
-        //}
-
         //private void InitFade()
         //{
         //    fade = FindObjectOfType<FadeToColor>();
@@ -319,82 +276,49 @@ namespace Kalevala
         //    }
         //}
 
-        //private void SaveGame()
-        //{
-        //    // Note: Saved data can be found in
-        //    // regedit > Tietokone\HKEY_CURRENT_USER\Software\Unity\UnityEditor\TeamAF\not - broforce
+        /// <summary>
+        /// Gets highscore data and stores it to a data object.
+        /// </summary>
+        public void SaveGame()
+        {
+            Debug.Log("--[ Saving game ]--");
 
-        //    PlayerPrefs.SetInt("latestCompletedLevel", latestCompletedLevel);
-        //    PlayerPrefs.SetFloat("musicVolume", musicVolume);
-        //    PlayerPrefs.SetFloat("effectVolume", effectVolume);
+            GameData data = new GameData();
 
-        //    //Utils.PlayerPrefsSetBool(
-        //    //    "alwaysShowBoxSelector", alwaysShowBoxSelector);
-        //    //Utils.PlayerPrefsSetBool(
-        //    //    "holdToActivateBoxSelector", holdToActivateBoxSelector);
+            // Gets highscores and stores them to the data
+            HighscoreList.FetchHighscoreData(ref data);
 
-        //    PlayerPrefs.Save();
-        //    Debug.Log("--[ Game saved ]--");
-        //    Debug.Log("latestCompletedLevel: " + latestCompletedLevel);
-        //}
+            saveSystem.Save(data);
 
-        //private void LoadGame()
-        //{
-        //    latestCompletedLevel = PlayerPrefs.GetInt("latestCompletedLevel", 0);
-        //    musicVolume = PlayerPrefs.GetFloat("musicVolume", 0.5f);
-        //    effectVolume = PlayerPrefs.GetFloat("effectVolume", 0.5f);
+            Debug.Log("--[ Game saved ]--");
+        }
 
-        //    //alwaysShowBoxSelector =
-        //    //    Utils.PlayerPrefsGetBool("alwaysShowBoxSelector", false);
-        //    //holdToActivateBoxSelector =
-        //    //    Utils.PlayerPrefsGetBool("holdToActivateBoxSelector", false);
+        public void LoadGame()
+        {
+            Debug.Log("--[ Loading game ]--");
 
-        //    Debug.Log("--[ Game loaded ]--");
-        //    Debug.Log("latestCompletedLevel: " + latestCompletedLevel);
-        //}
+            GameData data = saveSystem.Load();
 
-        //public void SaveSettings()
-        //{
-        //    PlayerPrefs.SetFloat("musicVolume", musicVolume);
-        //    PlayerPrefs.SetFloat("effectVolume", effectVolume);
+            // Loads highscores and sets them to the scoreboard
+            HighscoreList.LoadHighscores(data);
 
-        //    //Utils.PlayerPrefsSetBool(
-        //    //    "alwaysShowBoxSelector", alwaysShowBoxSelector);
-        //    //Utils.PlayerPrefsSetBool(
-        //    //    "holdToActivateBoxSelector", holdToActivateBoxSelector);
+            //MusicVolume = PlayerPrefs.GetFloat("musicVolume", 0.5f);
+            //EffectVolume = PlayerPrefs.GetFloat("effectVolume", 0.5f);
 
-        //    PlayerPrefs.Save();
-        //    Debug.Log("Settings saved");
-        //}
+            Debug.Log("--[ Game loaded ]--");
+        }
 
-        //public void Reset()
-        //{
-        //    CurrentLevel = 0;
+        public void SaveSettings()
+        {
+            // Note: Saved data can be found in
+            // regedit > Tietokone\HKEY_CURRENT_USER\Software\Unity\UnityEditor\TeamAF\not - broforce
 
-        //    // Overwrites the existing save!
-        //    LatestCompletedLevel = 0;
-        //}
+            //PlayerPrefs.SetFloat("musicVolume", MusicVolume);
+            //PlayerPrefs.SetFloat("effectVolume", EffectVolume);
 
-        //public void StartSceneChange(string sceneName)
-        //{
-        //    if (!changingScene)
-        //    {
-        //        nextScene = sceneName;
-        //        changingScene = true;
-
-        //        if (fade != null)
-        //        {
-        //            fade.StartFadeOut();
-        //        }
-
-        //        Debug.Log("Next scene: " + sceneName);
-        //    }
-        //}
-
-        //public void LoadScene()
-        //{
-        //    LoadScene(nextScene);
-        //}
+            PlayerPrefs.Save();
+            Debug.Log("Settings saved");
+        }
 
         public void LoadScene(string sceneName)
         {
@@ -404,38 +328,6 @@ namespace Kalevala
             //changingScene = false;
             //sceneChanged = true;
             SceneManager.LoadScene(sceneName);
-        }
-
-        private bool menuExited = false;
-        private float exitTime = 0f;
-        private float exitDuration = 0.2f;
-
-        /// <summary>
-        /// Gets or sets whether a menu was just exited.
-        /// Setting this true starts a short timer after whose
-        /// completion the value returns to false.
-        /// </summary>
-        public bool MenuExited
-        {
-            get
-            {
-                if (menuExited &&
-                    Time.time - exitTime >= exitDuration)
-                {
-                    menuExited = false;
-                }
-
-                return menuExited;
-            }
-            set
-            {
-                menuExited = value;
-
-                if (value == true)
-                {
-                    exitTime = Time.time;
-                }
-            }
         }
     }
 }

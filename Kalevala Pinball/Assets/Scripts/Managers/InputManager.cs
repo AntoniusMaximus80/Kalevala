@@ -65,7 +65,7 @@ namespace Kalevala {
             }
 
             _confirmation = GetComponentInChildren<ConfirmationDialog>();
-            _highscoreList = FindObjectOfType<HighscoreList>();
+            _highscoreList = GameManager.Instance.HighscoreList;
             _cursor = FindObjectOfType<MouseCursorController>();
             _heatMap = FindObjectOfType<HeatMap>();
 

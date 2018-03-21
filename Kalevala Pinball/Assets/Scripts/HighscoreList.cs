@@ -1,7 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
+using Kalevala.Persistence;
 
 namespace Kalevala
 {
@@ -27,13 +29,17 @@ namespace Kalevala
 
         private void Start()
         {
+            //InitScoreboard();
+        }
+
+        private void InitScoreboard()
+        {
             _highscores = new Highscore[_listSize];
             _scoreSlots = new List<Text>(_listSize);
 
             if (_scoreboard != null)
             {
                 ResetList();
-                LoadHighscores();
                 UpdateScoreboard();
             }
             else
@@ -77,7 +83,7 @@ namespace Kalevala
             {
                 // Checks if the score is higher than a
                 // previous highscore and if so, saves it
-                if (score > _highscores[i].score)
+                if (score > _highscores[i]._score)
                 {
                     isHighscore = true;
 
@@ -86,7 +92,7 @@ namespace Kalevala
                     AddScore(playerName, score, i);
 
                     // Saves all highscores to a file
-                    SaveHighscores();
+                    GameManager.Instance.SaveGame();
 
                     // Updates the scoreboard
                     UpdateScoreboard();
@@ -112,8 +118,8 @@ namespace Kalevala
                 // Moves a lower score down in the list
                 if (i > index)
                 {
-                    _highscores[i].playerName = _highscores[i - 1].playerName;
-                    _highscores[i].score = _highscores[i - 1].score;
+                    _highscores[i]._playerName = _highscores[i - 1]._playerName;
+                    _highscores[i]._score = _highscores[i - 1]._score;
 
                     //RectTransform belowScrSlotTr = _scoreSlots[i].GetComponent<RectTransform>();
                     //StartCoroutine(MoveScoreSlot(_scoreSlots[i - 1], belowScrSlotTr.anchoredPosition.y));
@@ -121,8 +127,8 @@ namespace Kalevala
                 // Records the new highscore to the slot at the index
                 else
                 {
-                    _highscores[i].playerName = playerName;
-                    _highscores[i].score = score;
+                    _highscores[i]._playerName = playerName;
+                    _highscores[i]._score = score;
                 }
             }
 
@@ -172,27 +178,58 @@ namespace Kalevala
             }
         }
 
-        public void SaveHighscores()
+        public void FetchHighscoreData(ref GameData data)
         {
-            // TODO
+            foreach (Highscore highscore in _highscores)
+            {
+                data.HighscoreDataList.Add(highscore.GetHighscoreData());
+            }
         }
 
-        public void LoadHighscores()
+        /// <summary>
+        /// Loads highscores from data.
+        /// </summary>
+        /// <param name="data">Loaded game data</param>
+        public void LoadHighscores(GameData data)
         {
-            // TODO
+            InitScoreboard();
 
+            // No data to load;
+            // saves default scores and returns
+            if (data == null)
+            {
+                Debug.Log("Saving default scores");
+                GameManager.Instance.SaveGame();
+                return;
+            }
+
+            // Sets highscores taken from the loaded game data
+            foreach (HighscoreData highscoreData in data.HighscoreDataList)
+            {
+                Highscore highscore = _highscores.
+                    FirstOrDefault(hs => hs.ID == highscoreData.ID);
+
+                if (highscore != null)
+                {
+                    highscore.SetHighscoreData(highscoreData);
+                }
+            }
+
+            // TODO:
             // If the saved list has a different length than
             // the current list, either some scores get dropped
             // or empty slots are filled with default values
+
+            UpdateScoreboard();
         }
 
         private void ResetList()
         {
             for (int i = 0; i < _highscores.Length; i++)
             {
-                _highscores[i] = new Highscore();
-                _highscores[i].playerName = _DEFAULT_PLAYER_NAME;
-                _highscores[i].score = _DEFAULT_SCORE;
+                _highscores[i] = new Highscore(i);
+                _highscores[i]._playerName = _DEFAULT_PLAYER_NAME;
+                _highscores[i]._score = _DEFAULT_SCORE;
             }
 
             if (_scoreSlotPrefab != null)
