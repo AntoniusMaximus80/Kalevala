@@ -1,0 +1,173 @@
+fileFormatVersion: 2
+guid: 9a3835e60e38f0c4c8c4db1e449d602f
+timeCreated: 1521643490
+licenseType: Free
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: Body
+    100002: Bumper
+    100004: Bumper Bone 1
+    100006: Bumper Bone 2
+    100008: Bumper Bone 3
+    100010: Plastic Rail
+    100012: //RootNode
+    100014: Steel Post015
+    100016: Steel Post016
+    100018: Steel Post017
+    100020: Steel Post018
+    100022: Steel Post019
+    100024: Steel Posts
+    100026: Strings
+    400000: Body
+    400002: Bumper
+    400004: Bumper Bone 1
+    400006: Bumper Bone 2
+    400008: Bumper Bone 3
+    400010: Plastic Rail
+    400012: //RootNode
+    400014: Steel Post015
+    400016: Steel Post016
+    400018: Steel Post017
+    400020: Steel Post018
+    400022: Steel Post019
+    400024: Steel Posts
+    400026: Strings
+    2100000: Placeholder
+    2100002: 04 - Default
+    2300000: Body
+    2300002: Plastic Rail
+    2300004: Steel Post015
+    2300006: Steel Post016
+    2300008: Steel Post017
+    2300010: Steel Post018
+    2300012: Steel Post019
+    2300014: Strings
+    3300000: Body
+    3300002: Plastic Rail
+    3300004: Steel Post015
+    3300006: Steel Post016
+    3300008: Steel Post017
+    3300010: Steel Post018
+    3300012: Steel Post019
+    3300014: Strings
+    4300000: Body
+    4300002: Strings
+    4300004: Steel Post015
+    4300006: Steel Post016
+    4300008: Steel Post019
+    4300010: Steel Post017
+    4300012: Steel Post018
+    4300014: Plastic Rail
+    4300016: Bumper
+    7400000: Slingshot Bump
+    9500000: //RootNode
+    13700000: Bumper
+  externalObjects: {}
+  materials:
+    importMaterials: 0
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Slingshot Bump
+      takeName: Take 001
+      firstFrame: 0
+      lastFrame: 23
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 0
+    importLights: 0
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -9,8 +9,8 @@ namespace Kalevala
     {
         public enum ScoreType
         {
-            SpruceBumper,
-            KanteleBumper,
+            PopBumper,
+            Slingshot,
             Spinner,
             DropTarget
         }
@@ -72,10 +72,10 @@ namespace Kalevala
             int _score = 0;
             switch(scoreType)
             {
-                case ScoreType.SpruceBumper:
+                case ScoreType.PopBumper:
                     _score += _spruceBumper;
                     break;
-                case ScoreType.KanteleBumper:
+                case ScoreType.Slingshot:
                     _score += _kanteleBumper;
                     break;
                 case ScoreType.Spinner:

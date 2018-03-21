@@ -52,6 +52,8 @@ ModelImporter:
     100088: Wall Log026
     100090: Wall Log027
     100092: Wall Log028
+    100094: Ilmarinen's Workshop Kickout Hole
+    100096: Kickout Hole Kicker
     400000: Chimney
     400002: Door
     400004: //RootNode
@@ -99,6 +101,8 @@ ModelImporter:
     400088: Wall Log026
     400090: Wall Log027
     400092: Wall Log028
+    400094: Ilmarinen's Workshop Kickout Hole
+    400096: Kickout Hole Kicker
     2100000: Placeholder
     2300000: Chimney
     2300002: Door
@@ -145,6 +149,8 @@ ModelImporter:
     2300084: Wall Log026
     2300086: Wall Log027
     2300088: Wall Log028
+    2300090: Ilmarinen's Workshop Kickout Hole
+    2300092: Kickout Hole Kicker
     3300000: Chimney
     3300002: Door
     3300004: Patio Board
@@ -190,6 +196,8 @@ ModelImporter:
     3300084: Wall Log026
     3300086: Wall Log027
     3300088: Wall Log028
+    3300090: Ilmarinen's Workshop Kickout Hole
+    3300092: Kickout Hole Kicker
     4300000: Walls
     4300002: Chimney
     4300004: Support
@@ -235,6 +243,8 @@ ModelImporter:
     4300084: Wall Log027
     4300086: Wall Log028
     4300088: Patio Board005
+    4300090: Ilmarinen's Workshop Kickout Hole
+    4300092: Kickout Hole Kicker
     9500000: //RootNode
   externalObjects: {}
   materials:
