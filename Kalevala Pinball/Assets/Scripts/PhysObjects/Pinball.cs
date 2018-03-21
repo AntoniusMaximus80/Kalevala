@@ -203,7 +203,6 @@ namespace Kalevala
         public void EnterRamp(Path path, Direction direction, Waypoint startWP, bool dropAtEnd, float kickoutSpeed)
         {
             float speedEnteringRamp = Speed;
-            Debug.Log(kickoutSpeed);
             if(kickoutSpeed > 0)
             {
                 speedEnteringRamp = kickoutSpeed;

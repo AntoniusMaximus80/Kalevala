@@ -13,10 +13,9 @@ namespace Kalevala
         {
             PathDeactivate();
         }
-        private void OnTriggerEnter( Collider other )
+        private void OnTriggerStay( Collider other )
         {
             Pinball ball = other.GetComponent<Pinball>();
-            Debug.Log("Open the gates");
             if(ball != null)
             {
                 _skillshotPath.SetActive(true);

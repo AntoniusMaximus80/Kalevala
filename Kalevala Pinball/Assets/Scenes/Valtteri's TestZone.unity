@@ -5239,7 +5239,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4158322413436454, guid: 1ef246b180ffafc4ea27fd3c80a57eaa, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -20.32013
+      value: -19.9
       objectReference: {fileID: 0}
     - target: {fileID: 4158322413436454, guid: 1ef246b180ffafc4ea27fd3c80a57eaa, type: 2}
       propertyPath: m_LocalPosition.y
@@ -5247,23 +5247,23 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4158322413436454, guid: 1ef246b180ffafc4ea27fd3c80a57eaa, type: 2}
       propertyPath: m_LocalPosition.z
-      value: -19.999866
+      value: -19.78
       objectReference: {fileID: 0}
     - target: {fileID: 4158322413436454, guid: 1ef246b180ffafc4ea27fd3c80a57eaa, type: 2}
       propertyPath: m_LocalRotation.x
-      value: 0.35355148
+      value: 0.2899333
       objectReference: {fileID: 0}
     - target: {fileID: 4158322413436454, guid: 1ef246b180ffafc4ea27fd3c80a57eaa, type: 2}
       propertyPath: m_LocalRotation.y
-      value: -0.6123737
+      value: -0.64493334
       objectReference: {fileID: 0}
     - target: {fileID: 4158322413436454, guid: 1ef246b180ffafc4ea27fd3c80a57eaa, type: 2}
       propertyPath: m_LocalRotation.z
-      value: -0.6123735
+      value: -0.644933
       objectReference: {fileID: 0}
     - target: {fileID: 4158322413436454, guid: 1ef246b180ffafc4ea27fd3c80a57eaa, type: 2}
       propertyPath: m_LocalRotation.w
-      value: -0.35355133
+      value: -0.28993317
       objectReference: {fileID: 0}
     - target: {fileID: 4158322413436454, guid: 1ef246b180ffafc4ea27fd3c80a57eaa, type: 2}
       propertyPath: m_RootOrder
@@ -5281,7 +5281,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4158322413436454, guid: 1ef246b180ffafc4ea27fd3c80a57eaa, type: 2}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: -89.99999
+      value: -90.00001
       objectReference: {fileID: 0}
     - target: {fileID: 1486853492705456, guid: 1ef246b180ffafc4ea27fd3c80a57eaa, type: 2}
       propertyPath: m_Name
@@ -5289,7 +5289,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4158322413436454, guid: 1ef246b180ffafc4ea27fd3c80a57eaa, type: 2}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: -60
+      value: -228.413
       objectReference: {fileID: 0}
     - target: {fileID: 4158322413436454, guid: 1ef246b180ffafc4ea27fd3c80a57eaa, type: 2}
       propertyPath: m_LocalScale.y
@@ -21291,7 +21291,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1219905361045806, guid: 2b39468f711bf10438b60cd3062cb35d, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4471965710295912, guid: 2b39468f711bf10438b60cd3062cb35d, type: 2}
       propertyPath: m_LocalPosition.x
@@ -21311,6 +21311,29 @@ Prefab:
       propertyPath: _kickoutHole
       value: 
       objectReference: {fileID: 1963853159}
+    - target: {fileID: 4961503813441908, guid: 2b39468f711bf10438b60cd3062cb35d, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 3.16
+      objectReference: {fileID: 0}
+    - target: {fileID: 65434563569390552, guid: 2b39468f711bf10438b60cd3062cb35d,
+        type: 2}
+      propertyPath: m_Size.x
+      value: 2.37
+      objectReference: {fileID: 0}
+    - target: {fileID: 65434563569390552, guid: 2b39468f711bf10438b60cd3062cb35d,
+        type: 2}
+      propertyPath: m_Size.z
+      value: 9.53
+      objectReference: {fileID: 0}
+    - target: {fileID: 4961503813441908, guid: 2b39468f711bf10438b60cd3062cb35d, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0.46
+      objectReference: {fileID: 0}
+    - target: {fileID: 65434563569390552, guid: 2b39468f711bf10438b60cd3062cb35d,
+        type: 2}
+      propertyPath: m_Size.y
+      value: 1.72
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114318879405040392, guid: 2b39468f711bf10438b60cd3062cb35d, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 2b39468f711bf10438b60cd3062cb35d, type: 2}
