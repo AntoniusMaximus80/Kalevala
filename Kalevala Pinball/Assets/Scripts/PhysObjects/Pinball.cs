@@ -30,8 +30,8 @@ namespace Kalevala
         private bool _heatBall;
         private bool _coolDown;
         private Color _heatColor = new Color(0.7411765f, 0.2156863f, 0.03921569f);
-        private float _heatDuration;
-        private float _elapsedHeatTime;
+        private float _colorChangeDuration;
+        private float _elapsedColorChangeDuration;
         private float _coolDownTimer;
 
         public bool IsInKickoutHole
@@ -73,10 +73,10 @@ namespace Kalevala
             //UpdatePause();
             if(_heatBall)
             {
-                HeatUpBall();
+                HeatUpBall(_heatColor);
             } else if (_coolDown)
             {
-                CoolDownBall();
+                CoolDownBall(_heatColor);
             }
             _speed = Speed;
 
@@ -214,19 +214,19 @@ namespace Kalevala
 
         public void SetHeatBall (float heatDuration)
         {
-            _heatDuration = heatDuration;
+            _colorChangeDuration = heatDuration;
             _heatBall = true;
         }
 
-        private void HeatUpBall()
+        private void HeatUpBall(Color heatcolor)
         {
-            if (_elapsedHeatTime < _heatDuration) {
-                _elapsedHeatTime += Time.deltaTime;
+            if (_elapsedColorChangeDuration < _colorChangeDuration) {
+                _elapsedColorChangeDuration += Time.deltaTime;
                 Material mat = GetComponent<Renderer>().material;
-                Color color = _heatColor * (_elapsedHeatTime / _heatDuration);
+                Color color = heatcolor * (_elapsedColorChangeDuration / _colorChangeDuration);
                 mat.SetColor("_EmissionColor", color);
             }
-             else if(_elapsedHeatTime >  _heatDuration)
+             else if(_elapsedColorChangeDuration >  _colorChangeDuration)
             {
                 _heatBall = false;
                 _coolDownTimer = 5f;
@@ -235,18 +235,18 @@ namespace Kalevala
             
         }
 
-        private void CoolDownBall()
+        private void CoolDownBall( Color heatcolor )
         {
             if(_coolDownTimer > 0)
             {
                 _coolDownTimer -= Time.deltaTime;
             } else
             {
-                _elapsedHeatTime -= Time.deltaTime;
+                _elapsedColorChangeDuration -= Time.deltaTime;
             }
             Material mat = GetComponent<Renderer>().material;
-            Color color = _heatColor * (_elapsedHeatTime / _heatDuration);
-            if(_elapsedHeatTime <= 0)
+            Color color = heatcolor * (_elapsedColorChangeDuration / _colorChangeDuration);
+            if(_elapsedColorChangeDuration <= 0)
             {
                 _heatBall = false;
                 _coolDown = false;
