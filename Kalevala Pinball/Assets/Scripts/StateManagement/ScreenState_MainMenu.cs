@@ -2,16 +2,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Kalevala
 {
-    public class ScreenState_MainMenu : ScreenStateBase
+    public class ScreenState_MainMenu : ScreenStateMenu
     {
         public ScreenState_MainMenu(StateManager owner, GameObject uiObject)
-            : base(owner, ScreenStateType.MainMenu)
+            : base(owner, uiObject, ScreenStateType.MainMenu)
         {
-            ScreenObject = uiObject;
-
             AddTransition(ScreenStateType.Play);
             AddTransition(ScreenStateType.SettingsMenu);
         }

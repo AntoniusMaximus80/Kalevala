@@ -284,7 +284,7 @@ GameObject:
   - component: {fileID: 114783841997715732}
   m_Layer: 5
   m_Name: StartGameButton
-  m_TagString: Untagged
+  m_TagString: DefaultSelectedButton
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -352,7 +352,7 @@ GameObject:
   - component: {fileID: 114566912571384548}
   m_Layer: 5
   m_Name: ExitButton
-  m_TagString: Untagged
+  m_TagString: DefaultSelectedButton
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -472,7 +472,7 @@ GameObject:
   - component: {fileID: 114520918305106400}
   m_Layer: 5
   m_Name: RestartButton
-  m_TagString: Untagged
+  m_TagString: DefaultSelectedButton
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -726,7 +726,7 @@ GameObject:
   - component: {fileID: 114859283342871462}
   m_Layer: 5
   m_Name: AcceptButton
-  m_TagString: Untagged
+  m_TagString: DefaultSelectedButton
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -762,7 +762,7 @@ GameObject:
   - component: {fileID: 114852602169087156}
   m_Layer: 5
   m_Name: ContinueGameButton
-  m_TagString: Untagged
+  m_TagString: DefaultSelectedButton
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295

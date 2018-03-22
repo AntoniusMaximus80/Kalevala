@@ -5,15 +5,12 @@ using UnityEngine;
 
 namespace Kalevala
 {
-    public class ScreenState_Settings : ScreenStateBase
+    public class ScreenState_Settings : ScreenStateMenu
     {
         public ScreenState_Settings(StateManager owner, GameObject uiObject)
-            : base(owner, ScreenStateType.SettingsMenu)
+            : base(owner, uiObject, ScreenStateType.SettingsMenu)
         {
-            ScreenObject = uiObject;
-
             AddTransition(ScreenStateType.Pause);
-            //AddTransition(ScreenStateType.MainMenu);
         }
 
         public override void Update()

@@ -1,41 +1,12 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Kalevala
 {
-    public class DebugBreak : MonoBehaviour
+    public class DebugBreak : DebugBallHitTool
     {
-        public float restingTime;
-        public bool resting = false;
-        private float elapsedRestingTime = 0;
-
-        // Update is called once per frame
-        void Update()
+        protected override void Activate()
         {
-            if (resting)
-            {
-                elapsedRestingTime += Time.deltaTime;
-
-                if (elapsedRestingTime > restingTime)
-                {
-                    elapsedRestingTime = 0;
-                    resting = false;
-                }
-            }
-        }
-
-        private void OnTriggerEnter(Collider other)
-        {
-            if (!resting)
-            {
-                Pinball pinball = other.GetComponent<Pinball>();
-                if (pinball != null)
-                {
-                    resting = true;
-                    Debug.Break();
-                }
-            }
+            Debug.Break();
         }
     }
 }

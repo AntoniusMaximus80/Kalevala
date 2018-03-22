@@ -311,8 +311,8 @@ InputManager:
     joyNum: 0
   - serializedVersion: 3
     m_Name: Submit
-    descriptiveName: Submit POS
-    descriptiveNegativeName: Submit NEG
+    descriptiveName: 
+    descriptiveNegativeName: 
     negativeButton: enter
     positiveButton: return
     altNegativeButton: space

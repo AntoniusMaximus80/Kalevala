@@ -16,6 +16,8 @@ namespace Kalevala
 
     public abstract class ScreenStateBase : StateBase
     {
+        public const string DEFAULT_SELECTED_BUTTON = "DefaultSelectedButton";
+
         public ScreenStateType State { get; protected set; }
 
         public List<ScreenStateType> TargetStates { get; protected set; }

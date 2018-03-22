@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using System;
 
 namespace Kalevala
 {
@@ -15,7 +16,7 @@ namespace Kalevala
         EraseHighscores = 4
     }
 
-    public class ConfirmationDialog : MonoBehaviour
+    public class ConfirmationDialog : MonoBehaviour, IMenu
     {
         public enum InputType
         {
@@ -43,21 +44,9 @@ namespace Kalevala
         private LanguageStateBase _language;
         private InputType _input = InputType.NoInput;
 
+        private Button[] _menuButtons;
+
         public ConfirmationType Type { get; private set; }
-
-        public bool Active
-        {
-            get
-            {
-                if (_dialogBox == null)
-                {
-                    Debug.LogError("Dialog box is not set.");
-                    return false;
-                }
-
-                return _dialogBox.activeSelf;
-            }
-        }
 
         private void Start()
         {
@@ -67,6 +56,11 @@ namespace Kalevala
             {
                 Debug.LogError("Dialog box is not set.");
             }
+            else
+            {
+                _menuButtons = _dialogBox.GetComponentsInChildren<Button>();
+            }
+
             if (_dialogText == null)
             {
                 Debug.LogError("Dialog box dialog text is not set.");
@@ -93,6 +87,23 @@ namespace Kalevala
         public void UpdateLanguage()
         {
             _language = GameManager.Instance.Language;
+        }
+
+        /// <summary>
+        /// Is the confirmation screen active
+        /// </summary>
+        public bool Active
+        {
+            get
+            {
+                if (_dialogBox == null)
+                {
+                    Debug.LogError("Dialog box is not set.");
+                    return false;
+                }
+
+                return _dialogBox.activeSelf;
+            }
         }
 
         public void Activate(ConfirmationType type)
@@ -220,6 +231,30 @@ namespace Kalevala
             }
 
             return InputType.NoInput;
+        }
+
+        public Button[] GetMenuButtons()
+        {
+            return _menuButtons;
+        }
+
+        public Button GetDefaultSelectedButton()
+        {
+            Button defaultSelectedButton = null;
+
+            foreach (Button button in _menuButtons)
+            {
+                if (button.gameObject.tag.Equals(
+                        ScreenStateBase.DEFAULT_SELECTED_BUTTON))
+                {
+                    defaultSelectedButton = button;
+                    break;
+                }
+            }
+
+            Debug.Log("Selected confirmation button: " + defaultSelectedButton.name);
+
+            return defaultSelectedButton;
         }
     }
 }

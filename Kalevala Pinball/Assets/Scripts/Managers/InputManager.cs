@@ -69,6 +69,11 @@ namespace Kalevala {
             _cursor = FindObjectOfType<MouseCursorController>();
             _heatMap = FindObjectOfType<HeatMap>();
 
+            // Allows the cursor to select the current menu's
+            // default selected button when it is hidden
+            _cursor.SelectMenuButtonAction = SelectDefaultSelectedMenuButton;
+
+            // Hides the scoreboard by default
             _highscoreList.Visible = false;
 
             // When the GameOver event is triggered, the first
@@ -139,7 +144,7 @@ namespace Kalevala {
         /// </summary>
         private void HighlightGameOverMenuButton(bool saveScore)
         {
-            SetHighlightedButtonOnScreenChange();
+            HighlightMenuDefaultButton();
         }
 
         private void MainMenuInput()
@@ -207,7 +212,7 @@ namespace Kalevala {
                 Input.GetButtonUp(_PAUSE))
             {
                 _stateManager.PerformTransition(ScreenStateType.Pause);
-                SetHighlightedButtonOnScreenChange();
+                HighlightMenuDefaultButton();
                 //Debug.Log("Game paused");
             }
         }
@@ -352,14 +357,14 @@ namespace Kalevala {
         {
             _confirmation.Activate(confType);
             _stateManager.ShowCurrentMenu(false);
-            SetHighlightedButtonOnScreenChange();
+            HighlightMenuDefaultButton();
         }
 
         private void ExitConfirm()
         {
             _confirmation.Deactivate();
             _stateManager.ShowCurrentMenu(true);
-            SetHighlightedButtonOnScreenChange();
+            HighlightMenuDefaultButton();
         }
 
         public void QuitGame(bool skipConfirm)
@@ -402,14 +407,14 @@ namespace Kalevala {
             else
             {
                 _stateManager.GoToMainMenuState();
-                SetHighlightedButtonOnScreenChange();
+                HighlightMenuDefaultButton();
             }
         }
 
         public void GoToSettings()
         {
             _stateManager.GoToSettingsMenuState();
-            SetHighlightedButtonOnScreenChange();
+            HighlightMenuDefaultButton();
         }
 
         public void SaveSettings(bool skipConfirm)
@@ -423,7 +428,7 @@ namespace Kalevala {
                 // TODO: Save settings
 
                 _stateManager.GoToPauseState();
-                SetHighlightedButtonOnScreenChange();
+                HighlightMenuDefaultButton();
             }
         }
 
@@ -508,21 +513,45 @@ namespace Kalevala {
             }
         }
 
-        private void SetHighlightedButtonOnScreenChange()
+        private void HighlightMenuDefaultButton()
         {
             if (!_cursor.PlayingUsingMouse)
             {
                 //cursor.ClearCursorHighlight();
 
-                // Selects the first available button
-                Button firstButton = FindObjectOfType<Button>();
-                if (firstButton != null)
-                {
-                    Utils.SelectButton(firstButton);
-                }
+                // Selects the menu's default selected button
+                SelectDefaultSelectedMenuButton();
 
                 //EventSystem.current.SetSelectedGameObject
                 //    (EventSystem.current.firstSelectedGameObject);
+            }
+        }
+
+        /// <summary>
+        /// Selects the given menu's default selected button.
+        /// </summary>
+        /// <param name="menu">A menu</param>
+        private void SelectDefaultSelectedMenuButton()
+        {
+            // Gets the current menu, if any
+            IMenu menu = null;
+            if (_confirmation.Active)
+            {
+                menu = _confirmation as IMenu;
+            }
+            else
+            {
+                menu = _stateManager.CurrentScreenState as IMenu;
+            }
+
+            if (menu != null)
+            {
+                Button defaultSelectedButton =
+                    menu.GetDefaultSelectedButton();
+                if (defaultSelectedButton != null)
+                {
+                    Utils.SelectButton(defaultSelectedButton);
+                }
             }
         }
     }

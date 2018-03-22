@@ -1,4 +1,4 @@
-﻿using System.Collections;
+﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -40,6 +40,8 @@ namespace Kalevala
         /// </summary>
         private Vector3 oldScreenPosition;
 
+        public Action SelectMenuButtonAction { get; set; }
+
         /// <summary>
         /// Initializes the game object.
         /// </summary>
@@ -50,17 +52,26 @@ namespace Kalevala
         }
 
         /// <summary>
+        /// Updates the mouse cursor.
+        /// </summary>
+        private void Update()
+        {
+            UpdatePosition();
+            CheckIfPlayingUsingMouse();
+        }
+
+        /// <summary>
         /// Initializes the cursor.
         /// The system cursor is used but with a custom texture.
         /// </summary>
-        private void InitSystemCursor()
-        {
-            //// Sets the cursor's main point
-            //hotSpot = new Vector2(cursorTexture.width / 2, cursorTexture.height / 2);
+        //private void InitSystemCursor()
+        //{
+        //    // Sets the cursor's main point
+        //    hotSpot = new Vector2(cursorTexture.width / 2, cursorTexture.height / 2);
 
-            //// Gives the game object's sprite to the system cursor
-            //Cursor.SetCursor(cursorTexture, hotSpot, cursorMode);
-        }
+        //    // Gives the game object's sprite to the system cursor
+        //    Cursor.SetCursor(cursorTexture, hotSpot, cursorMode);
+        //}
 
         /// <summary>
         /// Shows or hides the operating system's cursor.
@@ -68,7 +79,6 @@ namespace Kalevala
         /// <param name="show">will the cursor be shown</param>
         private void ShowSystemCursor(bool show)
         {
-            // Shows or hides the cursor
             Cursor.visible = show;
         }
 
@@ -126,12 +136,8 @@ namespace Kalevala
 
                         ClearCursorHighlight();
 
-                        // Selects the first available button
-                        Button firstButton = FindObjectOfType<Button>();
-                        if (firstButton != null)
-                        {
-                            Utils.SelectButton(firstButton);
-                        }
+                        // Selects the current menu's default selected button
+                        SelectDefaultSelectedMenuButton();
 
                         //EventSystem.current.SetSelectedGameObject
                         //    (EventSystem.current.firstSelectedGameObject);
@@ -143,13 +149,12 @@ namespace Kalevala
             }
         }
 
-        /// <summary>
-        /// Updates the mouse cursor.
-        /// </summary>
-        private void Update()
+        private void SelectDefaultSelectedMenuButton()
         {
-            UpdatePosition();
-            CheckIfPlayingUsingMouse();
+            if (SelectMenuButtonAction != null)
+            {
+                SelectMenuButtonAction.Invoke();
+            }
         }
 
         private void UpdatePosition()
@@ -189,12 +194,6 @@ namespace Kalevala
         public void TogglePlayingUsingMouse()
         {
             PlayingUsingMouse = !PlayingUsingMouse;
-
-            //if (!PlayingUsingMouse)
-            //{
-            //   // Prevents the cursor being immediately shown again
-            //   cursorPos = cursor.Position;
-            //}
         }
 
         private void CheckIfPlayingUsingMouse()
@@ -228,8 +227,8 @@ namespace Kalevala
 
                 bool success = ClearHighlight(hoveredObj, pointer);
 
-                // Sometimes, the child image may be interactable
-                // -> highlight from parent object is cleared
+                // Sometimes, the child image may be interactable;
+                // in this case, a highlight from parent object is cleared
                 if (!success)
                 {
                     ClearHighlight(
