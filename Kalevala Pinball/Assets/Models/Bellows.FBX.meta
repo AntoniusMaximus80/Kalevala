@@ -26,7 +26,7 @@ ModelImporter:
     3300002: Nozzle
     4300000: Nozzle
     4300002: Bag
-    7400000: Pump
+    7400000: Bellows Pump
     9500000: //RootNode
     13700000: Bag
   externalObjects: {}
@@ -57,7 +57,7 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Pump
+      name: Bellows Pump
       takeName: Take 001
       firstFrame: 0
       lastFrame: 49
