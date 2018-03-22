@@ -4,4 +4,7 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Valtteri's TestZone.unity
+    guid: b5dad9d17b2b9e04ca4a0797e496a0d8

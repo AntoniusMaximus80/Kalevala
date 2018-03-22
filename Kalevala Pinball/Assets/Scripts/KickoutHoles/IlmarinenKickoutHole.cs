@@ -6,9 +6,24 @@ namespace Kalevala
 {
     public class IlmarinenKickoutHole: KickoutHole
     {
+        [SerializeField]
+        private Animator _bellows;
+        private bool _doOnce = true;
         protected override void KickOutUpdate()
         {
-            //TODO: Lisää toiminnallisuus ilmarisen pajalle.
+            if(_doOnce)
+            {
+                _bellows.SetBool("Pumping", true);
+                _ball.SetHeatBall(_timeToWait);
+                _doOnce = false;
+            }
+        }
+
+        protected override void KickOut()
+        {
+            base.KickOut();
+            _bellows.SetBool("Pumping", false);
+            _doOnce = true;
         }
     }
 }

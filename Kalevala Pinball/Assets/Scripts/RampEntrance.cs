@@ -107,12 +107,15 @@ namespace Kalevala
                 {
                     bool available = true;
                     float kickforce = 0;
+                    // Checks if either end of the ramp is attached to a kickouthole
                     if(_kickoutHole != null)
                     {
+                        // Checks if the path is not starting path and has a reference to kickouthole component attached
                         if(!_isKickHole)
                         {
                             kickforce = _kickoutHole.KickForce;
                         }
+                        // otherwise if the path is path start entrance and has a kickouthole component attached
                         else
                         {
                             available = _kickoutHole.BallIncoming(ball, this);
@@ -121,7 +124,7 @@ namespace Kalevala
                     if(available)
                     {
                         ball.EnterRamp(_path, _direction,
-                            _startWaypoint, _dropBallAtEnd, kickforce);
+                            _startWaypoint, _dropBallAtEnd, _kickoutHole);
                     }
                     return;
                 }

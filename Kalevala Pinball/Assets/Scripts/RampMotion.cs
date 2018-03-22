@@ -25,15 +25,16 @@ namespace Kalevala
         private float _leftoverDistance;
         private bool _getNextWaypoint;
         private bool _kickOut;
+        private KickoutHole _kickoutHole;
         public Waypoint CurrentWaypoint { get; private set; }
 
-        public void Activate(Path path, Direction direction, Waypoint startWaypoint, float speed, bool kickout)
+        public void Activate(Path path, Direction direction, Waypoint startWaypoint, float speed, KickoutHole kickouthole)
         {
             if (speed > 0)
             {
                 _onRamp = true;
                 _getNextWaypoint = true;
-                _kickOut = kickout;
+                _kickOut = kickouthole != null;
                 _path = path;
                 _startDirection = direction;
                 _direction = direction;
@@ -42,7 +43,7 @@ namespace Kalevala
                 CurrentWaypoint = startWaypoint;
                 _speed = speed;
                 _leftoverDistance = 0;
-
+                _kickoutHole = kickouthole;
                 //Debug.Log("Direction on path: " + direction);
             }
         }
@@ -135,6 +136,10 @@ namespace Kalevala
 
         public Vector3 GetRampSegmentDirection()
         {
+            if(_kickOut)
+            {
+                return _kickoutHole.KickDirection;
+            }
             return (CurrentWaypoint.Position - _prevWaypoint.Position).normalized;
         }
 
