@@ -22,7 +22,6 @@ namespace Kalevala
 
         public bool BallIncoming (Pinball ball, RampEntrance myEntrance)
         {
-            Debug.Log("Ball INC");
             _myEntrance = myEntrance;
             if(_ball != null)
             {
@@ -62,7 +61,6 @@ namespace Kalevala
         protected void KickOut()
         {
             _ball.IsInKickoutHole = false;
-            Debug.Log("KikcOut");
             _ball.SetPhysicsEnabled(true);
             _startTime = -1;
             _ball = null;
