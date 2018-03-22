@@ -27,7 +27,13 @@ namespace Kalevala
 
         private Path _ramp;
         private bool _dropAtEnd;
-        
+        private bool _heatBall;
+        private bool _coolDown;
+        private Color _heatColor = new Color(0.7411765f, 0.2156863f, 0.03921569f);
+        private float _heatDuration;
+        private float _elapsedHeatTime;
+        private float _coolDownTimer;
+
         public bool IsInKickoutHole
         {
             get;
@@ -65,7 +71,13 @@ namespace Kalevala
             //}
 
             //UpdatePause();
-
+            if(_heatBall)
+            {
+                HeatUpBall();
+            } else if (_coolDown)
+            {
+                CoolDownBall();
+            }
             _speed = Speed;
 
             if (IsOnRamp)
@@ -200,12 +212,54 @@ namespace Kalevala
             }
         }
 
-        public void EnterRamp(Path path, Direction direction, Waypoint startWP, bool dropAtEnd, float kickoutSpeed)
+        public void SetHeatBall (float heatDuration)
+        {
+            _heatDuration = heatDuration;
+            _heatBall = true;
+        }
+
+        private void HeatUpBall()
+        {
+            if (_elapsedHeatTime < _heatDuration) {
+                _elapsedHeatTime += Time.deltaTime;
+                Material mat = GetComponent<Renderer>().material;
+                Color color = _heatColor * (_elapsedHeatTime / _heatDuration);
+                mat.SetColor("_EmissionColor", color);
+            }
+             else if(_elapsedHeatTime >  _heatDuration)
+            {
+                _heatBall = false;
+                _coolDownTimer = 5f;
+                _coolDown = true;
+            }
+            
+        }
+
+        private void CoolDownBall()
+        {
+            if(_coolDownTimer > 0)
+            {
+                _coolDownTimer -= Time.deltaTime;
+            } else
+            {
+                _elapsedHeatTime -= Time.deltaTime;
+            }
+            Material mat = GetComponent<Renderer>().material;
+            Color color = _heatColor * (_elapsedHeatTime / _heatDuration);
+            if(_elapsedHeatTime <= 0)
+            {
+                _heatBall = false;
+                _coolDown = false;
+            }
+            mat.SetColor("_EmissionColor", color);
+        } 
+
+        public void EnterRamp(Path path, Direction direction, Waypoint startWP, bool dropAtEnd, KickoutHole kickoutHole)
         {
             float speedEnteringRamp = Speed;
-            if(kickoutSpeed > 0)
+            if(kickoutHole != null)
             {
-                speedEnteringRamp = kickoutSpeed;
+                speedEnteringRamp = kickoutHole.KickForce;
             }
             else if (debug_useDebugRampSpeed)
             {
@@ -216,7 +270,7 @@ namespace Kalevala
             _ramp = path;
             _dropAtEnd = dropAtEnd;
             SetPhysicsEnabled(false);
-            RampMotion.Activate(_ramp, direction, startWP, speedEnteringRamp, kickoutSpeed > 0);
+            RampMotion.Activate(_ramp, direction, startWP, speedEnteringRamp, kickoutHole);
         }
 
         public void ExitRamp()
