@@ -74,8 +74,9 @@ namespace Kalevala
             if(_timer > 0)
             {
                 _timer -= Time.deltaTime;
-            } else
-            if(_rb.angularVelocity.x < _stabilizingThreshold && _rb.angularVelocity.x > -_stabilizingThreshold &&
+                CheckScoring();
+            }
+            else if(_rb.angularVelocity.x < _stabilizingThreshold && _rb.angularVelocity.x > -_stabilizingThreshold &&
                 _checkRotation && (transform.rotation.eulerAngles.x != 270 || transform.rotation.eulerAngles.x != 90))
             {
                 _stabilize = true;
@@ -141,11 +142,13 @@ namespace Kalevala
         {
             if(transform.rotation.eulerAngles.x >= 0 && transform.rotation.eulerAngles.x <= 90 && !_fullRound)
             {
+                Debug.Log("Score added");
                 _fullRound = true;
                 Scorekeeper.Instance.AddScore(Scorekeeper.ScoreType.Spinner);
             }
             else if(transform.rotation.eulerAngles.x >= 270 && transform.rotation.eulerAngles.x <= 360 && _fullRound)
             {
+                Debug.Log("Score added");
                 _fullRound = false;
                 Scorekeeper.Instance.AddScore(Scorekeeper.ScoreType.Spinner);
             }
@@ -169,7 +172,7 @@ namespace Kalevala
                 }
                 _rb.AddTorque(transform.right * (pinball.Speed * sign) * _spinSpeedMultiplier, ForceMode.Impulse);
                 _checkRotation = true;
-                _timer = 1f;
+                _timer = 0.1f;
                 _stabilize = false;
             }
         }
