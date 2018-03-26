@@ -154,15 +154,25 @@ namespace Kalevala
             bool moveUp = (targetY > startY);
             Vector3 newPos = scoreSlotTransform.anchoredPosition;
 
-            float startTime = Time.time;
+            float elapsedTime = 0;
             float ratio = 0;
 
-            while ((moveUp && newPos.y < targetY) ||
-                   (!moveUp && newPos.y > targetY))
+            while (ratio < 1.0)
             {
-                ratio = (Time.time - startTime) / _scoreSlotMoveDuration;
+                if (_scoreSlotMoveDuration <= 0)
+                {
+                    ratio = 1;
+                }
+                else
+                {
+                    ratio = elapsedTime / _scoreSlotMoveDuration;
+                }
+
+                elapsedTime += Time.unscaledDeltaTime;
+               
                 newPos.y = Mathf.Lerp(startY, targetY, ratio);
                 scoreSlotTransform.anchoredPosition = newPos;
+
                 yield return null;
             }
 

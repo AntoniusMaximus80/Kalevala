@@ -252,7 +252,7 @@ namespace Kalevala
                 }
             }
 
-            Debug.Log("Selected confirmation button: " + defaultSelectedButton.name);
+            //Debug.Log("Selected confirmation button: " + defaultSelectedButton.name);
 
             return defaultSelectedButton;
         }
