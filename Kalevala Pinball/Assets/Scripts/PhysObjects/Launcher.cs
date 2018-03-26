@@ -99,6 +99,7 @@ namespace Kalevala
                 _hingejoint.useMotor = false;
                 _hingejoint.useSpring = true;
                 _launchDone = false;
+                _takeInput = false;
             }
         }
 
@@ -109,7 +110,6 @@ namespace Kalevala
             PinballManager.Instance.SetPinballPhysicsEnabled(true);
             _pinball.AddImpulseForce(Vector3.forward * _launcherForce * _launcherForceMultiplier);
             _launchDone = true;
-            _takeInput = false;
             _launcherForce = _minForceTime;
 
             StateManager.LaunchOver();

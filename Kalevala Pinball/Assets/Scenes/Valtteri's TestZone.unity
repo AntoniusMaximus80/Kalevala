@@ -11069,6 +11069,23 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 619193390}
   m_Mesh: {fileID: 4300194, guid: 3babbd9ec5769ee4bb4e72b902baaff5, type: 3}
+--- !u!1 &626135370 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 100016, guid: 1ab90b44778df1a4eb94c188e10c942b, type: 3}
+  m_PrefabInternal: {fileID: 573859372}
+--- !u!136 &626135372
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 626135370}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.3
+  m_Height: 4
+  m_Direction: 2
+  m_Center: {x: -16.412983, y: 12.205328, z: 1.649983}
 --- !u!1001 &629918990
 Prefab:
   m_ObjectHideFlags: 0
@@ -17121,6 +17138,23 @@ Transform:
   m_Father: {fileID: 1189291331}
   m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1093683592 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 100018, guid: 1ab90b44778df1a4eb94c188e10c942b, type: 3}
+  m_PrefabInternal: {fileID: 573859372}
+--- !u!136 &1093683594
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1093683592}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.31
+  m_Height: 4
+  m_Direction: 2
+  m_Center: {x: 21.16353, y: -8.358414, z: 1.6499839}
 --- !u!1 &1093872558
 GameObject:
   m_ObjectHideFlags: 0
@@ -41451,7 +41485,7 @@ MonoBehaviour:
   _dropBallAtEnd: 0
   _rampDirection: {x: 1, y: 0, z: 1}
   _distanceTolerance: 2.5
-  _directionAngleTolerance: 80
+  _directionAngleTolerance: 89
   _gizmosColor: {r: 1, g: 0, b: 0, a: 1}
   _kickoutHole: {fileID: 1963853159}
 --- !u!4 &1963853161

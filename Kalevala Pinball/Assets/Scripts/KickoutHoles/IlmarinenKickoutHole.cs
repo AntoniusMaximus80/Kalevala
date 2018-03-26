@@ -15,6 +15,7 @@ namespace Kalevala
             {
                 _bellows.SetBool("Pumping", true);
                 _ball.SetHeatBall(_timeToWait);
+                // TODO add score to scorekeeper
                 _doOnce = false;
             }
         }

@@ -73,10 +73,10 @@ namespace Kalevala
             //UpdatePause();
             if(_heatBall)
             {
-                HeatUpBall(_heatColor);
+                _heatBall = HeatUpBall(_heatColor);
             } else if (_coolDown)
             {
-                CoolDownBall(_heatColor);
+                _coolDown = CoolDownBall(_heatColor);
             }
             _speed = Speed;
 
@@ -216,10 +216,12 @@ namespace Kalevala
         {
             _colorChangeDuration = heatDuration;
             _heatBall = true;
+            _coolDown = true;
         }
 
-        private void HeatUpBall(Color heatcolor)
+        private bool HeatUpBall(Color heatcolor)
         {
+            bool result = true;
             if (_elapsedColorChangeDuration < _colorChangeDuration) {
                 _elapsedColorChangeDuration += Time.deltaTime;
                 Material mat = GetComponent<Renderer>().material;
@@ -228,15 +230,16 @@ namespace Kalevala
             }
              else if(_elapsedColorChangeDuration >  _colorChangeDuration)
             {
-                _heatBall = false;
+                result = false;
                 _coolDownTimer = 5f;
-                _coolDown = true;
             }
+            return result;
             
         }
 
-        private void CoolDownBall( Color heatcolor )
+        private bool CoolDownBall( Color heatcolor )
         {
+            bool result = true;
             if(_coolDownTimer > 0)
             {
                 _coolDownTimer -= Time.deltaTime;
@@ -248,10 +251,10 @@ namespace Kalevala
             Color color = heatcolor * (_elapsedColorChangeDuration / _colorChangeDuration);
             if(_elapsedColorChangeDuration <= 0)
             {
-                _heatBall = false;
-                _coolDown = false;
+                result = false;
             }
             mat.SetColor("_EmissionColor", color);
+            return result;
         } 
 
         public void EnterRamp(Path path, Direction direction, Waypoint startWP, bool dropAtEnd, KickoutHole kickoutHole)
