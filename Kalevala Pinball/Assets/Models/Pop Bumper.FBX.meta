@@ -8,16 +8,66 @@ ModelImporter:
     100000: Body
     100002: Bumper
     100004: //RootNode
+    100006: Stake
+    100008: Straw Layer
+    100010: Straw Layer001
+    100012: Straw Layer002
+    100014: Straw Layer003
+    100016: Straw Layer004
+    100018: Straw Layer005
+    100020: Straw Layer006
+    100022: Straw Layer007
+    100024: Straw Layer008
     400000: Body
     400002: Bumper
     400004: //RootNode
+    400006: Stake
+    400008: Straw Layer
+    400010: Straw Layer001
+    400012: Straw Layer002
+    400014: Straw Layer003
+    400016: Straw Layer004
+    400018: Straw Layer005
+    400020: Straw Layer006
+    400022: Straw Layer007
+    400024: Straw Layer008
     2100000: Placeholder
     2300000: Body
     2300002: Bumper
+    2300004: Stake
+    2300006: Straw Layer
+    2300008: Straw Layer001
+    2300010: Straw Layer002
+    2300012: Straw Layer003
+    2300014: Straw Layer004
+    2300016: Straw Layer005
+    2300018: Straw Layer006
+    2300020: Straw Layer007
+    2300022: Straw Layer008
     3300000: Body
     3300002: Bumper
+    3300004: Stake
+    3300006: Straw Layer
+    3300008: Straw Layer001
+    3300010: Straw Layer002
+    3300012: Straw Layer003
+    3300014: Straw Layer004
+    3300016: Straw Layer005
+    3300018: Straw Layer006
+    3300020: Straw Layer007
+    3300022: Straw Layer008
     4300000: Body
     4300002: Bumper
+    4300004: Straw Layer
+    4300006: Stake
+    4300008: Straw Layer001
+    4300010: Straw Layer002
+    4300012: Straw Layer003
+    4300014: Straw Layer004
+    4300016: Straw Layer005
+    4300018: Straw Layer006
+    4300020: Straw Layer007
+    4300022: Straw Layer008
     9500000: //RootNode
   externalObjects: {}
   materials:
