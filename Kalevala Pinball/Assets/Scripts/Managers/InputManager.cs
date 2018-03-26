@@ -48,6 +48,12 @@ namespace Kalevala {
         /// </summary>
         private bool submitHoldover;
 
+        /// <summary>
+        /// The screen type to which should be returned
+        /// after exiting the settings menu
+        /// </summary>
+        private ScreenStateType settingsAccessorScreen;
+
         public static Vector3 NudgeVector
         {
             get
@@ -310,7 +316,7 @@ namespace Kalevala {
                 {
                     case ConfirmationType.SaveSettings:
                     {
-                        _stateManager.GoToPauseState();
+                        ExitSettings();
                         break;
                     }
                 }
@@ -395,7 +401,7 @@ namespace Kalevala {
         public void ResumeGame()
         {
             submitHoldover = true;
-            _stateManager.GoToPlayState();
+            _stateManager.PerformTransition(ScreenStateType.Play);
         }
 
         public void ReturnToMainMenu(bool skipConfirm)
@@ -406,14 +412,15 @@ namespace Kalevala {
             }
             else
             {
-                _stateManager.GoToMainMenuState();
+                _stateManager.ReturnToMainMenu();
                 HighlightMenuDefaultButton();
             }
         }
 
         public void GoToSettings()
         {
-            _stateManager.GoToSettingsMenuState();
+            settingsAccessorScreen = _stateManager.CurrentScreenState.State;
+            _stateManager.PerformTransition(ScreenStateType.SettingsMenu);
             HighlightMenuDefaultButton();
         }
 
@@ -426,10 +433,17 @@ namespace Kalevala {
             else
             {
                 // TODO: Save settings
+                //GameManager.Instance.SaveSettings();
 
-                _stateManager.GoToPauseState();
-                HighlightMenuDefaultButton();
+                ExitSettings();
             }
+        }
+
+        private void ExitSettings()
+        {
+            _stateManager.PerformTransition(settingsAccessorScreen);
+            //_stateManager.GoToPauseState();
+            HighlightMenuDefaultButton();
         }
 
         public void EraseHighscores(bool skipConfirm)
@@ -453,11 +467,14 @@ namespace Kalevala {
         }
 
         /// <summary>
-        /// Hides the mouse cursor if any input
-        /// methods other than the mouse are used.
+        /// Hides the mouse cursor if any input methods
+        /// other than the mouse are used.
+        /// Enables the use of the cursor if it is moved.
         /// </summary>
         private void UpdateMouseControl()
         {
+            
+
             if (_cursor.PlayingUsingMouse)
             {
                 // Disables the use of the mouse cursor if
@@ -477,8 +494,8 @@ namespace Kalevala {
         private bool NonMouseInputUsed()
         {
             bool directionalInputUsed =
-                Input.GetAxis(_HOR_AXIS) != 0 ||
-                Input.GetAxis(_VERT_AXIS) != 0;
+                Input.GetAxisRaw(_HOR_AXIS) != 0 ||
+                Input.GetAxisRaw(_VERT_AXIS) != 0;
 
             bool submitInputUsed =
                 Input.GetButton(_SUBMIT);

@@ -40,7 +40,7 @@ namespace Kalevala
                 }
             }
 
-            Debug.Log("Selected button: " + defaultSelectedButton.name);
+            //Debug.Log("Selected button: " + defaultSelectedButton.name);
 
             return defaultSelectedButton;
         }

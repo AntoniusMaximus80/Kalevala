@@ -101,32 +101,17 @@ namespace Kalevala
             CurrentScreenState.ShowScreenObject(show);
         }
 
-        public void GoToMainMenuState()
+        public void StartNewGame()
+        {
+            GameManager.Instance.ResetAll();
+            PerformTransition(ScreenStateType.Play);
+        }
+
+        public void ReturnToMainMenu()
         {
             EndGame(false);
             //GameManager.Instance.ResetAll();
             PerformTransition(ScreenStateType.MainMenu);
-        }
-
-        public void GoToPlayState()
-        {
-            PerformTransition(ScreenStateType.Play);
-        }
-
-        public void GoToPauseState()
-        {
-            PerformTransition(ScreenStateType.Pause);
-        }
-
-        public void GoToSettingsMenuState()
-        {
-            PerformTransition(ScreenStateType.SettingsMenu);
-        }
-
-        public void StartNewGame()
-        {
-            GameManager.Instance.ResetAll();
-            GoToPlayState();
         }
 
         /// <summary>
@@ -148,6 +133,8 @@ namespace Kalevala
 
         public bool PerformTransition(ScreenStateType targetState)
         {
+            Debug.Log("Next screen: " + targetState);
+
             if (!CurrentScreenState.CheckTransition(targetState))
             {
                 Debug.LogWarning(targetState +

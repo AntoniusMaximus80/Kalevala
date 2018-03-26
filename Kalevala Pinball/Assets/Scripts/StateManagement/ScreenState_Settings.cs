@@ -10,6 +10,7 @@ namespace Kalevala
         public ScreenState_Settings(StateManager owner, GameObject uiObject)
             : base(owner, uiObject, ScreenStateType.SettingsMenu)
         {
+            AddTransition(ScreenStateType.MainMenu);
             AddTransition(ScreenStateType.Pause);
         }
 

@@ -310,6 +310,8 @@ namespace Kalevala
 
         public void SaveSettings()
         {
+            // TODO
+
             // Note: Saved data can be found in
             // regedit > Tietokone\HKEY_CURRENT_USER\Software\Unity\UnityEditor\TeamAF\not - broforce
 
