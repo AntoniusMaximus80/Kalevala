@@ -18,6 +18,27 @@ ModelImporter:
     100020: Straw Layer006
     100022: Straw Layer007
     100024: Straw Layer008
+    100026: Bumper001
+    100028: Hay Stake
+    100030: Stake001
+    100032: Straw Layer009
+    100034: Straw Layer010
+    100036: Straw Layer011
+    100038: Straw Layer012
+    100040: Straw Layer013
+    100042: Straw Layer014
+    100044: Straw Layer015
+    100046: Straw Layer016
+    100048: Straw Layer017
+    100050: Hay Layer
+    100052: Hay Layer001
+    100054: Hay Layer002
+    100056: Hay Layer003
+    100058: Hay Layer004
+    100060: Hay Layer005
+    100062: Hay Layer006
+    100064: Hay Layer007
+    100066: Hay Layer008
     400000: Body
     400002: Bumper
     400004: //RootNode
@@ -31,6 +52,27 @@ ModelImporter:
     400020: Straw Layer006
     400022: Straw Layer007
     400024: Straw Layer008
+    400026: Bumper001
+    400028: Hay Stake
+    400030: Stake001
+    400032: Straw Layer009
+    400034: Straw Layer010
+    400036: Straw Layer011
+    400038: Straw Layer012
+    400040: Straw Layer013
+    400042: Straw Layer014
+    400044: Straw Layer015
+    400046: Straw Layer016
+    400048: Straw Layer017
+    400050: Hay Layer
+    400052: Hay Layer001
+    400054: Hay Layer002
+    400056: Hay Layer003
+    400058: Hay Layer004
+    400060: Hay Layer005
+    400062: Hay Layer006
+    400064: Hay Layer007
+    400066: Hay Layer008
     2100000: Placeholder
     2300000: Body
     2300002: Bumper
@@ -44,6 +86,26 @@ ModelImporter:
     2300018: Straw Layer006
     2300020: Straw Layer007
     2300022: Straw Layer008
+    2300024: Bumper001
+    2300026: Stake001
+    2300028: Straw Layer009
+    2300030: Straw Layer010
+    2300032: Straw Layer011
+    2300034: Straw Layer012
+    2300036: Straw Layer013
+    2300038: Straw Layer014
+    2300040: Straw Layer015
+    2300042: Straw Layer016
+    2300044: Straw Layer017
+    2300046: Hay Layer
+    2300048: Hay Layer001
+    2300050: Hay Layer002
+    2300052: Hay Layer003
+    2300054: Hay Layer004
+    2300056: Hay Layer005
+    2300058: Hay Layer006
+    2300060: Hay Layer007
+    2300062: Hay Layer008
     3300000: Body
     3300002: Bumper
     3300004: Stake
@@ -56,6 +118,26 @@ ModelImporter:
     3300018: Straw Layer006
     3300020: Straw Layer007
     3300022: Straw Layer008
+    3300024: Bumper001
+    3300026: Stake001
+    3300028: Straw Layer009
+    3300030: Straw Layer010
+    3300032: Straw Layer011
+    3300034: Straw Layer012
+    3300036: Straw Layer013
+    3300038: Straw Layer014
+    3300040: Straw Layer015
+    3300042: Straw Layer016
+    3300044: Straw Layer017
+    3300046: Hay Layer
+    3300048: Hay Layer001
+    3300050: Hay Layer002
+    3300052: Hay Layer003
+    3300054: Hay Layer004
+    3300056: Hay Layer005
+    3300058: Hay Layer006
+    3300060: Hay Layer007
+    3300062: Hay Layer008
     4300000: Body
     4300002: Bumper
     4300004: Straw Layer
@@ -68,6 +150,26 @@ ModelImporter:
     4300018: Straw Layer006
     4300020: Straw Layer007
     4300022: Straw Layer008
+    4300024: Bumper001
+    4300026: Stake001
+    4300028: Straw Layer009
+    4300030: Straw Layer010
+    4300032: Straw Layer011
+    4300034: Straw Layer012
+    4300036: Straw Layer013
+    4300038: Straw Layer014
+    4300040: Straw Layer015
+    4300042: Straw Layer016
+    4300044: Straw Layer017
+    4300046: Hay Layer
+    4300048: Hay Layer001
+    4300050: Hay Layer002
+    4300052: Hay Layer003
+    4300054: Hay Layer004
+    4300056: Hay Layer005
+    4300058: Hay Layer006
+    4300060: Hay Layer007
+    4300062: Hay Layer008
     9500000: //RootNode
   externalObjects: {}
   materials:
