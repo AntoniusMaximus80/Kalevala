@@ -12,14 +12,18 @@ namespace Kalevala
             PopBumper,
             Slingshot,
             Spinner,
-            DropTarget
+            DropTarget,
+            IlmarinenKOH,
+            TeleportKOH
         }
 
         public int _totalScore,
             _spruceBumper,
             _kanteleBumper,
             _spinner,
-            _dropTarget;
+            _dropTarget,
+            _ilmarinenKOH,
+            _teleportKOH;
 
         public TextMeshProUGUI _scoreUGUI,
             _incrementUGUI;
@@ -83,6 +87,12 @@ namespace Kalevala
                     break;
                 case ScoreType.DropTarget:
                     _score += _dropTarget;
+                    break;
+                case ScoreType.IlmarinenKOH:
+                    _score += _ilmarinenKOH;
+                    break;
+                case ScoreType.TeleportKOH:
+                    _score += _teleportKOH;
                     break;
                 default:
                     Debug.LogError("ScoreType not recognized.");

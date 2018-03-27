@@ -14,7 +14,7 @@ namespace Kalevala
         [SerializeField]
         private Vector3 _kickDirection;
         [SerializeField]
-        private int gizmoLenght;
+        protected int gizmoLenght;
         protected Pinball _ball;
         protected RampEntrance _myEntrance;
         private float _startTime = -1;
@@ -77,7 +77,7 @@ namespace Kalevala
 
         protected virtual void KickOutUpdate() { }
 
-        private void OnDrawGizmos()
+        protected virtual void OnDrawGizmos()
         {
             Gizmos.color = Color.cyan;
             Vector3 startpos = transform.position;
