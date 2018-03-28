@@ -19,6 +19,9 @@ namespace Kalevala
             {
                 dt.ResetDropTarget();
             }
+
+            // Reset the TUONELA lights and rollovers.
+            Rollover.Reset();
         }
     }
 }

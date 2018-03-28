@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -14,19 +15,42 @@ public class Rollover : MonoBehaviour {
 
     private bool _down;
 
-    private Vector3 _positionTemp, _targetPosition = Vector3.zero;
+    private Vector3 _targetPosition = Vector3.zero;
 
     private float _elapsedTime;
 
-	// Use this for initialization
-	void Start () {
+    private static List<Rollover> _instances = new List<Rollover>();
 
+	// Use this for initialization
+	void Awake () {
+
+        Init();
+
+        _instances.Add(this);
+
+	}
+
+    internal static void Reset()
+    {
+        foreach(Rollover r in _instances)
+        {
+            r.Init();
+        }
+    }
+
+    private void Init()
+    {
         // Start having moved, might be a good idea to actually move the wires at start instead.
         _elapsedTime = duration;
-	}
-	
-	// Update is called once per frame
-	void Update () {
+
+        _down = false;
+
+        // The light should start off.
+        _light.TurnOff();
+    }
+
+    // Update is called once per frame
+    void Update () {
 
         if (_elapsedTime > duration) return;
 
@@ -42,10 +66,8 @@ public class Rollover : MonoBehaviour {
     private void OnTriggerEnter(Collider collider)
     {
 
-        Debug.Log("rollover");
-        
-
         _down = true;
+        _light.TurnOn();
         _elapsedTime = duration - _elapsedTime;
 
 

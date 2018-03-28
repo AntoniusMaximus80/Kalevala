@@ -7,13 +7,15 @@ public class PlayfieldLight : MonoBehaviour {
 
     public Light Up, Down;
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+	public void TurnOn()
+    {
+        Up.enabled = true;
+        Down.enabled = true;
+    }
+
+    public void TurnOff()
+    {
+        Up.enabled = false;
+        Down.enabled = false;
+    }
 }
