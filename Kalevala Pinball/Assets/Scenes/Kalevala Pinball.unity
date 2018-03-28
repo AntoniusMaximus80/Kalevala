@@ -2044,6 +2044,16 @@ Prefab:
       propertyPath: m_Name
       value: Playfield Light E
       objectReference: {fileID: 0}
+    - target: {fileID: 114466614474483086, guid: 33b73e934d0e43a458fabc01f795f734,
+        type: 2}
+      propertyPath: Up
+      value: 
+      objectReference: {fileID: 295190329}
+    - target: {fileID: 114466614474483086, guid: 33b73e934d0e43a458fabc01f795f734,
+        type: 2}
+      propertyPath: Down
+      value: 
+      objectReference: {fileID: 295190328}
     m_RemovedComponents:
     - {fileID: 0}
   m_ParentPrefab: {fileID: 100100000, guid: 33b73e934d0e43a458fabc01f795f734, type: 2}
@@ -2057,6 +2067,16 @@ MonoBehaviour:
 --- !u!4 &295190327 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4803382830782708, guid: 33b73e934d0e43a458fabc01f795f734,
+    type: 2}
+  m_PrefabInternal: {fileID: 295190325}
+--- !u!108 &295190328 stripped
+Light:
+  m_PrefabParentObject: {fileID: 108257398142663148, guid: 33b73e934d0e43a458fabc01f795f734,
+    type: 2}
+  m_PrefabInternal: {fileID: 295190325}
+--- !u!108 &295190329 stripped
+Light:
+  m_PrefabParentObject: {fileID: 108807213355824614, guid: 33b73e934d0e43a458fabc01f795f734,
     type: 2}
   m_PrefabInternal: {fileID: 295190325}
 --- !u!1 &331086227
@@ -5195,6 +5215,16 @@ Prefab:
       propertyPath: m_Name
       value: Playfield Light O
       objectReference: {fileID: 0}
+    - target: {fileID: 114466614474483086, guid: 33b73e934d0e43a458fabc01f795f734,
+        type: 2}
+      propertyPath: Down
+      value: 
+      objectReference: {fileID: 1122345871}
+    - target: {fileID: 114466614474483086, guid: 33b73e934d0e43a458fabc01f795f734,
+        type: 2}
+      propertyPath: Up
+      value: 
+      objectReference: {fileID: 1122345872}
     m_RemovedComponents:
     - {fileID: 0}
   m_ParentPrefab: {fileID: 100100000, guid: 33b73e934d0e43a458fabc01f795f734, type: 2}
@@ -5205,6 +5235,16 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 1122345869}
   m_Script: {fileID: 11500000, guid: 53e80169233652f49a2c80496dce5bd2, type: 3}
+--- !u!108 &1122345871 stripped
+Light:
+  m_PrefabParentObject: {fileID: 108257398142663148, guid: 33b73e934d0e43a458fabc01f795f734,
+    type: 2}
+  m_PrefabInternal: {fileID: 1122345869}
+--- !u!108 &1122345872 stripped
+Light:
+  m_PrefabParentObject: {fileID: 108807213355824614, guid: 33b73e934d0e43a458fabc01f795f734,
+    type: 2}
+  m_PrefabInternal: {fileID: 1122345869}
 --- !u!1001 &1192165074
 Prefab:
   m_ObjectHideFlags: 0
@@ -9810,6 +9850,16 @@ Prefab:
       propertyPath: m_Name
       value: Playfield Light U
       objectReference: {fileID: 0}
+    - target: {fileID: 114466614474483086, guid: 33b73e934d0e43a458fabc01f795f734,
+        type: 2}
+      propertyPath: Down
+      value: 
+      objectReference: {fileID: 1455797384}
+    - target: {fileID: 114466614474483086, guid: 33b73e934d0e43a458fabc01f795f734,
+        type: 2}
+      propertyPath: Up
+      value: 
+      objectReference: {fileID: 1455797385}
     m_RemovedComponents:
     - {fileID: 0}
   m_ParentPrefab: {fileID: 100100000, guid: 33b73e934d0e43a458fabc01f795f734, type: 2}
@@ -9823,6 +9873,16 @@ MonoBehaviour:
 --- !u!4 &1455797383 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4803382830782708, guid: 33b73e934d0e43a458fabc01f795f734,
+    type: 2}
+  m_PrefabInternal: {fileID: 1455797381}
+--- !u!108 &1455797384 stripped
+Light:
+  m_PrefabParentObject: {fileID: 108257398142663148, guid: 33b73e934d0e43a458fabc01f795f734,
+    type: 2}
+  m_PrefabInternal: {fileID: 1455797381}
+--- !u!108 &1455797385 stripped
+Light:
+  m_PrefabParentObject: {fileID: 108807213355824614, guid: 33b73e934d0e43a458fabc01f795f734,
     type: 2}
   m_PrefabInternal: {fileID: 1455797381}
 --- !u!1001 &1496929678
@@ -10063,6 +10123,16 @@ Prefab:
       propertyPath: m_Name
       value: Playfield Light N
       objectReference: {fileID: 0}
+    - target: {fileID: 114466614474483086, guid: 33b73e934d0e43a458fabc01f795f734,
+        type: 2}
+      propertyPath: Down
+      value: 
+      objectReference: {fileID: 1514737319}
+    - target: {fileID: 114466614474483086, guid: 33b73e934d0e43a458fabc01f795f734,
+        type: 2}
+      propertyPath: Up
+      value: 
+      objectReference: {fileID: 1514737320}
     m_RemovedComponents:
     - {fileID: 0}
   m_ParentPrefab: {fileID: 100100000, guid: 33b73e934d0e43a458fabc01f795f734, type: 2}
@@ -10076,6 +10146,16 @@ MonoBehaviour:
 --- !u!4 &1514737318 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4803382830782708, guid: 33b73e934d0e43a458fabc01f795f734,
+    type: 2}
+  m_PrefabInternal: {fileID: 1514737316}
+--- !u!108 &1514737319 stripped
+Light:
+  m_PrefabParentObject: {fileID: 108257398142663148, guid: 33b73e934d0e43a458fabc01f795f734,
+    type: 2}
+  m_PrefabInternal: {fileID: 1514737316}
+--- !u!108 &1514737320 stripped
+Light:
+  m_PrefabParentObject: {fileID: 108807213355824614, guid: 33b73e934d0e43a458fabc01f795f734,
     type: 2}
   m_PrefabInternal: {fileID: 1514737316}
 --- !u!114 &1557698142 stripped
@@ -10556,6 +10636,16 @@ Prefab:
       propertyPath: m_Name
       value: Playfield Light A
       objectReference: {fileID: 0}
+    - target: {fileID: 114466614474483086, guid: 33b73e934d0e43a458fabc01f795f734,
+        type: 2}
+      propertyPath: Up
+      value: 
+      objectReference: {fileID: 1607100749}
+    - target: {fileID: 114466614474483086, guid: 33b73e934d0e43a458fabc01f795f734,
+        type: 2}
+      propertyPath: Down
+      value: 
+      objectReference: {fileID: 1607100748}
     m_RemovedComponents:
     - {fileID: 0}
   m_ParentPrefab: {fileID: 100100000, guid: 33b73e934d0e43a458fabc01f795f734, type: 2}
@@ -10569,6 +10659,16 @@ MonoBehaviour:
 --- !u!4 &1607100747 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4803382830782708, guid: 33b73e934d0e43a458fabc01f795f734,
+    type: 2}
+  m_PrefabInternal: {fileID: 1607100745}
+--- !u!108 &1607100748 stripped
+Light:
+  m_PrefabParentObject: {fileID: 108257398142663148, guid: 33b73e934d0e43a458fabc01f795f734,
+    type: 2}
+  m_PrefabInternal: {fileID: 1607100745}
+--- !u!108 &1607100749 stripped
+Light:
+  m_PrefabParentObject: {fileID: 108807213355824614, guid: 33b73e934d0e43a458fabc01f795f734,
     type: 2}
   m_PrefabInternal: {fileID: 1607100745}
 --- !u!59 &1617753654 stripped
@@ -11214,6 +11314,16 @@ Prefab:
       propertyPath: m_Name
       value: Playfield Light T
       objectReference: {fileID: 0}
+    - target: {fileID: 114466614474483086, guid: 33b73e934d0e43a458fabc01f795f734,
+        type: 2}
+      propertyPath: Down
+      value: 
+      objectReference: {fileID: 1879417265}
+    - target: {fileID: 114466614474483086, guid: 33b73e934d0e43a458fabc01f795f734,
+        type: 2}
+      propertyPath: Up
+      value: 
+      objectReference: {fileID: 1879417266}
     m_RemovedComponents:
     - {fileID: 0}
   m_ParentPrefab: {fileID: 100100000, guid: 33b73e934d0e43a458fabc01f795f734, type: 2}
@@ -11227,6 +11337,16 @@ MonoBehaviour:
 --- !u!4 &1879417264 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4803382830782708, guid: 33b73e934d0e43a458fabc01f795f734,
+    type: 2}
+  m_PrefabInternal: {fileID: 1879417262}
+--- !u!108 &1879417265 stripped
+Light:
+  m_PrefabParentObject: {fileID: 108257398142663148, guid: 33b73e934d0e43a458fabc01f795f734,
+    type: 2}
+  m_PrefabInternal: {fileID: 1879417262}
+--- !u!108 &1879417266 stripped
+Light:
+  m_PrefabParentObject: {fileID: 108807213355824614, guid: 33b73e934d0e43a458fabc01f795f734,
     type: 2}
   m_PrefabInternal: {fileID: 1879417262}
 --- !u!1 &1887017439
@@ -11598,6 +11718,16 @@ Prefab:
       propertyPath: m_Name
       value: Playfield Light L
       objectReference: {fileID: 0}
+    - target: {fileID: 114466614474483086, guid: 33b73e934d0e43a458fabc01f795f734,
+        type: 2}
+      propertyPath: Down
+      value: 
+      objectReference: {fileID: 1940568477}
+    - target: {fileID: 114466614474483086, guid: 33b73e934d0e43a458fabc01f795f734,
+        type: 2}
+      propertyPath: Up
+      value: 
+      objectReference: {fileID: 1940568478}
     m_RemovedComponents:
     - {fileID: 0}
   m_ParentPrefab: {fileID: 100100000, guid: 33b73e934d0e43a458fabc01f795f734, type: 2}
@@ -11611,6 +11741,16 @@ MonoBehaviour:
 --- !u!4 &1940568476 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4803382830782708, guid: 33b73e934d0e43a458fabc01f795f734,
+    type: 2}
+  m_PrefabInternal: {fileID: 1940568474}
+--- !u!108 &1940568477 stripped
+Light:
+  m_PrefabParentObject: {fileID: 108257398142663148, guid: 33b73e934d0e43a458fabc01f795f734,
+    type: 2}
+  m_PrefabInternal: {fileID: 1940568474}
+--- !u!108 &1940568478 stripped
+Light:
+  m_PrefabParentObject: {fileID: 108807213355824614, guid: 33b73e934d0e43a458fabc01f795f734,
     type: 2}
   m_PrefabInternal: {fileID: 1940568474}
 --- !u!1 &1975819841

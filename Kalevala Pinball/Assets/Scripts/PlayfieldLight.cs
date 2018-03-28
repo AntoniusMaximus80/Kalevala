@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class PlayfieldLight : MonoBehaviour {
 
+
+    public Light Up, Down;
+
 	// Use this for initialization
 	void Start () {
 		
