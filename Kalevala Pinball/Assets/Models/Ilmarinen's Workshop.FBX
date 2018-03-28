@@ -8,11 +8,11 @@ FBXHeaderExtension:  {
 		Version: 1000
 		Year: 2018
 		Month: 3
-		Day: 22
-		Hour: 8
-		Minute: 20
-		Second: 31
-		Millisecond: 830
+		Day: 28
+		Hour: 16
+		Minute: 48
+		Second: 49
+		Millisecond: 930
 	}
 	Creator: "FBX SDK/FBX Plugins version 2018.1"
 	SceneInfo: "SceneInfo::GlobalInfo", "UserData" {
@@ -34,13 +34,13 @@ FBXHeaderExtension:  {
 			P: "Original|ApplicationVendor", "KString", "", "", "Autodesk"
 			P: "Original|ApplicationName", "KString", "", "", "3ds Max"
 			P: "Original|ApplicationVersion", "KString", "", "", "2018"
-			P: "Original|DateTime_GMT", "DateTime", "", "", "22/03/2018 06:20:31.829"
+			P: "Original|DateTime_GMT", "DateTime", "", "", "28/03/2018 13:48:49.928"
 			P: "Original|FileName", "KString", "", "", "C:\Users\Toni\Desktop\Kalevala\Kalevala Pinball\Assets\Models\Ilmarinen's Workshop.FBX"
 			P: "LastSaved", "Compound", "", ""
 			P: "LastSaved|ApplicationVendor", "KString", "", "", "Autodesk"
 			P: "LastSaved|ApplicationName", "KString", "", "", "3ds Max"
 			P: "LastSaved|ApplicationVersion", "KString", "", "", "2018"
-			P: "LastSaved|DateTime_GMT", "DateTime", "", "", "22/03/2018 06:20:31.829"
+			P: "LastSaved|DateTime_GMT", "DateTime", "", "", "28/03/2018 13:48:49.928"
 			P: "Original|ApplicationActiveProject", "KString", "", "", "C:\Users\Toni\Documents\3dsMax"
 			P: "Original|ApplicationNativeFile", "KString", "", "", "C:\Users\Toni\Dropbox\+ Spring 2018 Project\Kalevala Pinball.max"
 		}
@@ -65,7 +65,7 @@ GlobalSettings:  {
 		P: "TimeProtocol", "enum", "", "",2
 		P: "SnapOnFrameMode", "enum", "", "",0
 		P: "TimeSpanStart", "KTime", "Time", "",0
-		P: "TimeSpanStop", "KTime", "Time", "",42491265360
+		P: "TimeSpanStop", "KTime", "Time", "",7389785280
 		P: "CustomFrameRate", "double", "Number", "",-1
 		P: "TimeMarker", "Compound", "", ""
 		P: "CurrentTimeMarker", "int", "Integer", "",-1
@@ -77,7 +77,7 @@ GlobalSettings:  {
 
 Documents:  {
 	Count: 1
-	Document: 2942197400192, "", "Scene" {
+	Document: 2566449296096, "", "Scene" {
 		Properties70:  {
 			P: "SourceObject", "object", "", ""
 			P: "ActiveAnimStackName", "KString", "", "", ""
@@ -299,10 +299,10 @@ Definitions:  {
 ;------------------------------------------------------------------
 
 Objects:  {
-	NodeAttribute: 2943262225504, "NodeAttribute::", "Null" {
+	NodeAttribute: 2566570176512, "NodeAttribute::", "Null" {
 		TypeFlags: "Null"
 	}
-	Geometry: 2942206517584, "Geometry::", "Mesh" {
+	Geometry: 2566392003312, "Geometry::", "Mesh" {
 		Properties70:  {
 			P: "Color", "ColorRGB", "Color", "",0.83921568627451,0.898039215686275,0.650980392156863
 		}
@@ -379,7 +379,7 @@ Objects:  {
 			}
 		}
 	}
-	Geometry: 2942206518672, "Geometry::", "Mesh" {
+	Geometry: 2566392004944, "Geometry::", "Mesh" {
 		Properties70:  {
 			P: "Color", "ColorRGB", "Color", "",0.882352941176471,0.345098039215686,0.780392156862745
 		}
@@ -462,7 +462,7 @@ Objects:  {
 			}
 		}
 	}
-	Geometry: 2942206513776, "Geometry::", "Mesh" {
+	Geometry: 2566392014736, "Geometry::", "Mesh" {
 		Properties70:  {
 			P: "Color", "ColorRGB", "Color", "",0.529411764705882,0.231372549019608,0.0313725490196078
 		}
@@ -540,7 +540,7 @@ Objects:  {
 			}
 		}
 	}
-	Geometry: 2942206519760, "Geometry::", "Mesh" {
+	Geometry: 2566382176784, "Geometry::", "Mesh" {
 		Properties70:  {
 			P: "Color", "ColorRGB", "Color", "",0.529411764705882,0.231372549019608,0.0313725490196078
 		}
@@ -618,18 +618,18 @@ Objects:  {
 			}
 		}
 	}
-	Geometry: 2942206520304, "Geometry::", "Mesh" {
+	Geometry: 2566270613232, "Geometry::", "Mesh" {
 		Properties70:  {
 			P: "Color", "ColorRGB", "Color", "",0.0313725490196078,0.0313725490196078,0.533333333333333
 		}
-		Vertices: *24 {
-			a: -1.60027694702148,-0.115403488278389,0,1.55323910713196,-0.193944618105888,0,-1.60027682781219,0.0845965296030045,0,1.55323922634125,0.00605540722608566,0,-1.60027694702148,-0.115403488278389,2.90000009536743,1.55323910713196,-0.193944618105888,2.90000009536743,-1.60027682781219,0.0845965296030045,2.90000009536743,1.55323922634125,0.00605540722608566,2.90000009536743
+		Vertices: *12 {
+			a: -1.60027694702148,-0.115403488278389,0,1.55323910713196,-0.193944618105888,0,-1.60027694702148,-0.115403488278389,2.90000009536743,1.55323910713196,-0.193944618105888,2.90000009536743
 		} 
-		PolygonVertexIndex: *12 {
-			a: 0,1,5,-5,3,2,6,-8,7,5,1,-4
+		PolygonVertexIndex: *4 {
+			a: 0,1,3,-3
 		} 
-		Edges: *10 {
-			a: 4,0,2,6,1,3,7,5,8,10
+		Edges: *4 {
+			a: 0,2,1,3
 		} 
 		GeometryVersion: 124
 		LayerElementNormal: 0 {
@@ -637,11 +637,11 @@ Objects:  {
 			Name: ""
 			MappingInformationType: "ByPolygonVertex"
 			ReferenceInformationType: "Direct"
-			Normals: *36 {
-				a: -0.0248981714248657,-0.999689996242523,0,-0.0248981714248657,-0.999689996242523,0,-0.0248981714248657,-0.999689996242523,0,-0.0248981714248657,-0.999689996242523,0,0.0248981714248657,0.999689996242523,0,0.0248981714248657,0.999689996242523,0,0.0248981714248657,0.999689996242523,0,0.0248981714248657,0.999689996242523,0,1,-5.96046390910487e-07,0,1,-5.96046390910487e-07,0,1,-5.96046390910487e-07,0,1,-5.96046390910487e-07,0
+			Normals: *12 {
+				a: -0.0248981714248657,-0.999689996242523,0,-0.0248981714248657,-0.999689996242523,0,-0.0248981714248657,-0.999689996242523,0,-0.0248981714248657,-0.999689996242523,0
 			} 
-			NormalsW: *12 {
-				a: 0,0,0,0,0,0,0,0,0,0,0,0
+			NormalsW: *4 {
+				a: 0,0,0,0
 			} 
 		}
 		LayerElementUV: 0 {
@@ -649,11 +649,11 @@ Objects:  {
 			Name: "UVChannel_1"
 			MappingInformationType: "ByPolygonVertex"
 			ReferenceInformationType: "IndexToDirect"
-			UV: *24 {
-				a: 0.0200000461190939,0.507084906101227,0.581200838088989,0.507084906101227,0.534416139125824,0.507084906101227,0.581200838088989,0.979999899864197,0.534416139125824,0.492914944887161,0.0199999995529652,0.492914885282516,0.0200000926852226,0.0199999995529652,0.534416258335114,0.0200000926852226,0.534416079521179,0.979999721050262,0.0199999995529652,0.979999721050262,0.548586130142212,0.979999899864197,0.548586130142212,0.507084906101227
+			UV: *8 {
+				a: 0.0502030961215496,0.0477664321660995,0.949796795845032,0.0477664023637772,0.0502031520009041,0.874783992767334,0.949796915054321,0.874783992767334
 			} 
-			UVIndex: *12 {
-				a: 0,2,8,9,4,5,6,7,3,10,11,1
+			UVIndex: *4 {
+				a: 0,1,3,2
 			} 
 		}
 		LayerElementSmoothing: 0 {
@@ -661,8 +661,8 @@ Objects:  {
 			Name: ""
 			MappingInformationType: "ByPolygon"
 			ReferenceInformationType: "Direct"
-			Smoothing: *3 {
-				a: 8,32,0
+			Smoothing: *1 {
+				a: 8
 			} 
 		}
 		LayerElementMaterial: 0 {
@@ -694,7 +694,7 @@ Objects:  {
 			}
 		}
 	}
-	Geometry: 2942206514320, "Geometry::", "Mesh" {
+	Geometry: 2566391910112, "Geometry::", "Mesh" {
 		Properties70:  {
 			P: "Color", "ColorRGB", "Color", "",0.882352941176471,0.341176470588235,0.56078431372549
 		}
@@ -770,7 +770,7 @@ Objects:  {
 			}
 		}
 	}
-	Geometry: 2943263346720, "Geometry::", "Mesh" {
+	Geometry: 2566456649264, "Geometry::", "Mesh" {
 		Properties70:  {
 			P: "Color", "ColorRGB", "Color", "",0.882352941176471,0.776470588235294,0.341176470588235
 		}
@@ -846,7 +846,7 @@ Objects:  {
 			}
 		}
 	}
-	Geometry: 2943263341280, "Geometry::", "Mesh" {
+	Geometry: 2566456635664, "Geometry::", "Mesh" {
 		Properties70:  {
 			P: "Color", "ColorRGB", "Color", "",0.882352941176471,0.776470588235294,0.341176470588235
 		}
@@ -922,7 +922,7 @@ Objects:  {
 			}
 		}
 	}
-	Geometry: 2943263343456, "Geometry::", "Mesh" {
+	Geometry: 2566456649808, "Geometry::", "Mesh" {
 		Properties70:  {
 			P: "Color", "ColorRGB", "Color", "",0.882352941176471,0.776470588235294,0.341176470588235
 		}
@@ -998,7 +998,7 @@ Objects:  {
 			}
 		}
 	}
-	Geometry: 2943263344544, "Geometry::", "Mesh" {
+	Geometry: 2566456648720, "Geometry::", "Mesh" {
 		Properties70:  {
 			P: "Color", "ColorRGB", "Color", "",0.882352941176471,0.341176470588235,0.56078431372549
 		}
@@ -1074,7 +1074,7 @@ Objects:  {
 			}
 		}
 	}
-	Geometry: 2943263340192, "Geometry::", "Mesh" {
+	Geometry: 2566456636208, "Geometry::", "Mesh" {
 		Properties70:  {
 			P: "Color", "ColorRGB", "Color", "",0.83921568627451,0.898039215686275,0.650980392156863
 		}
@@ -1152,10 +1152,10 @@ Objects:  {
 			}
 		}
 	}
-	NodeAttribute: 2943262222864, "NodeAttribute::", "Null" {
+	NodeAttribute: 2566570177392, "NodeAttribute::", "Null" {
 		TypeFlags: "Null"
 	}
-	Geometry: 2943263345088, "Geometry::", "Mesh" {
+	Geometry: 2566456643280, "Geometry::", "Mesh" {
 		Properties70:  {
 			P: "Color", "ColorRGB", "Color", "",0.337254901960784,0.337254901960784,0.337254901960784
 		}
@@ -1220,7 +1220,7 @@ Objects:  {
 			}
 		}
 	}
-	Geometry: 2943263345632, "Geometry::", "Mesh" {
+	Geometry: 2566456643824, "Geometry::", "Mesh" {
 		Properties70:  {
 			P: "Color", "ColorRGB", "Color", "",0.337254901960784,0.337254901960784,0.337254901960784
 		}
@@ -1285,7 +1285,7 @@ Objects:  {
 			}
 		}
 	}
-	Geometry: 2943263340736, "Geometry::", "Mesh" {
+	Geometry: 2566456644368, "Geometry::", "Mesh" {
 		Properties70:  {
 			P: "Color", "ColorRGB", "Color", "",0.337254901960784,0.337254901960784,0.337254901960784
 		}
@@ -1350,7 +1350,7 @@ Objects:  {
 			}
 		}
 	}
-	Geometry: 2943263341824, "Geometry::", "Mesh" {
+	Geometry: 2566456638928, "Geometry::", "Mesh" {
 		Properties70:  {
 			P: "Color", "ColorRGB", "Color", "",0.337254901960784,0.337254901960784,0.337254901960784
 		}
@@ -1415,7 +1415,7 @@ Objects:  {
 			}
 		}
 	}
-	Geometry: 2943263342368, "Geometry::", "Mesh" {
+	Geometry: 2566456636752, "Geometry::", "Mesh" {
 		Properties70:  {
 			P: "Color", "ColorRGB", "Color", "",0.337254901960784,0.337254901960784,0.337254901960784
 		}
@@ -1480,7 +1480,7 @@ Objects:  {
 			}
 		}
 	}
-	Geometry: 2943263342912, "Geometry::", "Mesh" {
+	Geometry: 2566456650352, "Geometry::", "Mesh" {
 		Properties70:  {
 			P: "Color", "ColorRGB", "Color", "",0.337254901960784,0.337254901960784,0.337254901960784
 		}
@@ -1545,7 +1545,7 @@ Objects:  {
 			}
 		}
 	}
-	Geometry: 2942207789264, "Geometry::", "Mesh" {
+	Geometry: 2566456640016, "Geometry::", "Mesh" {
 		Properties70:  {
 			P: "Color", "ColorRGB", "Color", "",0.337254901960784,0.337254901960784,0.337254901960784
 		}
@@ -1610,7 +1610,7 @@ Objects:  {
 			}
 		}
 	}
-	Geometry: 2942207790352, "Geometry::", "Mesh" {
+	Geometry: 2566456644912, "Geometry::", "Mesh" {
 		Properties70:  {
 			P: "Color", "ColorRGB", "Color", "",0.337254901960784,0.337254901960784,0.337254901960784
 		}
@@ -1675,7 +1675,7 @@ Objects:  {
 			}
 		}
 	}
-	Geometry: 2942207790896, "Geometry::", "Mesh" {
+	Geometry: 2566456638384, "Geometry::", "Mesh" {
 		Properties70:  {
 			P: "Color", "ColorRGB", "Color", "",0.337254901960784,0.337254901960784,0.337254901960784
 		}
@@ -1740,7 +1740,7 @@ Objects:  {
 			}
 		}
 	}
-	Geometry: 2942207791440, "Geometry::", "Mesh" {
+	Geometry: 2566456640560, "Geometry::", "Mesh" {
 		Properties70:  {
 			P: "Color", "ColorRGB", "Color", "",0.337254901960784,0.337254901960784,0.337254901960784
 		}
@@ -1805,7 +1805,7 @@ Objects:  {
 			}
 		}
 	}
-	Geometry: 2942207792528, "Geometry::", "Mesh" {
+	Geometry: 2566456645456, "Geometry::", "Mesh" {
 		Properties70:  {
 			P: "Color", "ColorRGB", "Color", "",0.337254901960784,0.337254901960784,0.337254901960784
 		}
@@ -1870,7 +1870,7 @@ Objects:  {
 			}
 		}
 	}
-	Geometry: 2942206553664, "Geometry::", "Mesh" {
+	Geometry: 2566456646000, "Geometry::", "Mesh" {
 		Properties70:  {
 			P: "Color", "ColorRGB", "Color", "",0.337254901960784,0.337254901960784,0.337254901960784
 		}
@@ -1935,7 +1935,7 @@ Objects:  {
 			}
 		}
 	}
-	Geometry: 2942206551488, "Geometry::", "Mesh" {
+	Geometry: 2566456637296, "Geometry::", "Mesh" {
 		Properties70:  {
 			P: "Color", "ColorRGB", "Color", "",0.337254901960784,0.337254901960784,0.337254901960784
 		}
@@ -2000,7 +2000,7 @@ Objects:  {
 			}
 		}
 	}
-	Geometry: 2942206547680, "Geometry::", "Mesh" {
+	Geometry: 2566456639472, "Geometry::", "Mesh" {
 		Properties70:  {
 			P: "Color", "ColorRGB", "Color", "",0.337254901960784,0.337254901960784,0.337254901960784
 		}
@@ -2065,7 +2065,7 @@ Objects:  {
 			}
 		}
 	}
-	Geometry: 2942206550944, "Geometry::", "Mesh" {
+	Geometry: 2566456641104, "Geometry::", "Mesh" {
 		Properties70:  {
 			P: "Color", "ColorRGB", "Color", "",0.337254901960784,0.337254901960784,0.337254901960784
 		}
@@ -2128,7 +2128,7 @@ Objects:  {
 			}
 		}
 	}
-	Geometry: 2942206546592, "Geometry::", "Mesh" {
+	Geometry: 2566456647088, "Geometry::", "Mesh" {
 		Properties70:  {
 			P: "Color", "ColorRGB", "Color", "",0.337254901960784,0.337254901960784,0.337254901960784
 		}
@@ -2191,7 +2191,7 @@ Objects:  {
 			}
 		}
 	}
-	Geometry: 2942206548768, "Geometry::", "Mesh" {
+	Geometry: 2566456635120, "Geometry::", "Mesh" {
 		Properties70:  {
 			P: "Color", "ColorRGB", "Color", "",0.337254901960784,0.337254901960784,0.337254901960784
 		}
@@ -2254,7 +2254,7 @@ Objects:  {
 			}
 		}
 	}
-	Geometry: 2942206552032, "Geometry::", "Mesh" {
+	Geometry: 2566456641648, "Geometry::", "Mesh" {
 		Properties70:  {
 			P: "Color", "ColorRGB", "Color", "",0.337254901960784,0.337254901960784,0.337254901960784
 		}
@@ -2319,7 +2319,7 @@ Objects:  {
 			}
 		}
 	}
-	Geometry: 2942206549856, "Geometry::", "Mesh" {
+	Geometry: 2566456642192, "Geometry::", "Mesh" {
 		Properties70:  {
 			P: "Color", "ColorRGB", "Color", "",0.337254901960784,0.337254901960784,0.337254901960784
 		}
@@ -2384,7 +2384,7 @@ Objects:  {
 			}
 		}
 	}
-	Geometry: 2942206549312, "Geometry::", "Mesh" {
+	Geometry: 2566456648176, "Geometry::", "Mesh" {
 		Properties70:  {
 			P: "Color", "ColorRGB", "Color", "",0.337254901960784,0.337254901960784,0.337254901960784
 		}
@@ -2449,7 +2449,7 @@ Objects:  {
 			}
 		}
 	}
-	Geometry: 2942206548224, "Geometry::", "Mesh" {
+	Geometry: 2566456637840, "Geometry::", "Mesh" {
 		Properties70:  {
 			P: "Color", "ColorRGB", "Color", "",0.337254901960784,0.337254901960784,0.337254901960784
 		}
@@ -2514,7 +2514,7 @@ Objects:  {
 			}
 		}
 	}
-	Geometry: 2942206547136, "Geometry::", "Mesh" {
+	Geometry: 2566456642736, "Geometry::", "Mesh" {
 		Properties70:  {
 			P: "Color", "ColorRGB", "Color", "",0.337254901960784,0.337254901960784,0.337254901960784
 		}
@@ -2579,7 +2579,7 @@ Objects:  {
 			}
 		}
 	}
-	Geometry: 2942206552576, "Geometry::", "Mesh" {
+	Geometry: 2566456646544, "Geometry::", "Mesh" {
 		Properties70:  {
 			P: "Color", "ColorRGB", "Color", "",0.337254901960784,0.337254901960784,0.337254901960784
 		}
@@ -2644,7 +2644,7 @@ Objects:  {
 			}
 		}
 	}
-	Geometry: 2942206550400, "Geometry::", "Mesh" {
+	Geometry: 2566456647632, "Geometry::", "Mesh" {
 		Properties70:  {
 			P: "Color", "ColorRGB", "Color", "",0.337254901960784,0.337254901960784,0.337254901960784
 		}
@@ -2709,7 +2709,7 @@ Objects:  {
 			}
 		}
 	}
-	Geometry: 2942206553120, "Geometry::", "Mesh" {
+	Geometry: 2568123396128, "Geometry::", "Mesh" {
 		Properties70:  {
 			P: "Color", "ColorRGB", "Color", "",0.337254901960784,0.337254901960784,0.337254901960784
 		}
@@ -2772,7 +2772,7 @@ Objects:  {
 			}
 		}
 	}
-	Geometry: 2942206561872, "Geometry::", "Mesh" {
+	Geometry: 2568123384160, "Geometry::", "Mesh" {
 		Properties70:  {
 			P: "Color", "ColorRGB", "Color", "",0.337254901960784,0.337254901960784,0.337254901960784
 		}
@@ -2837,7 +2837,7 @@ Objects:  {
 			}
 		}
 	}
-	Geometry: 2942206558608, "Geometry::", "Mesh" {
+	Geometry: 2568123397760, "Geometry::", "Mesh" {
 		Properties70:  {
 			P: "Color", "ColorRGB", "Color", "",0.337254901960784,0.337254901960784,0.337254901960784
 		}
@@ -2902,7 +2902,7 @@ Objects:  {
 			}
 		}
 	}
-	Geometry: 2942206555344, "Geometry::", "Mesh" {
+	Geometry: 2568123396672, "Geometry::", "Mesh" {
 		Properties70:  {
 			P: "Color", "ColorRGB", "Color", "",0.337254901960784,0.337254901960784,0.337254901960784
 		}
@@ -2967,7 +2967,7 @@ Objects:  {
 			}
 		}
 	}
-	Geometry: 2942206558064, "Geometry::", "Mesh" {
+	Geometry: 2568123386880, "Geometry::", "Mesh" {
 		Properties70:  {
 			P: "Color", "ColorRGB", "Color", "",0.337254901960784,0.337254901960784,0.337254901960784
 		}
@@ -3032,7 +3032,7 @@ Objects:  {
 			}
 		}
 	}
-	Geometry: 2942206557520, "Geometry::", "Mesh" {
+	Geometry: 2568123387424, "Geometry::", "Mesh" {
 		Properties70:  {
 			P: "Color", "ColorRGB", "Color", "",0.337254901960784,0.337254901960784,0.337254901960784
 		}
@@ -3097,7 +3097,7 @@ Objects:  {
 			}
 		}
 	}
-	Geometry: 2942206559152, "Geometry::", "Mesh" {
+	Geometry: 2568123390144, "Geometry::", "Mesh" {
 		Properties70:  {
 			P: "Color", "ColorRGB", "Color", "",0.337254901960784,0.337254901960784,0.337254901960784
 		}
@@ -3162,7 +3162,7 @@ Objects:  {
 			}
 		}
 	}
-	Geometry: 2942206560240, "Geometry::", "Mesh" {
+	Geometry: 2568123386336, "Geometry::", "Mesh" {
 		Properties70:  {
 			P: "Color", "ColorRGB", "Color", "",0.337254901960784,0.337254901960784,0.337254901960784
 		}
@@ -3227,7 +3227,7 @@ Objects:  {
 			}
 		}
 	}
-	Geometry: 2942206560784, "Geometry::", "Mesh" {
+	Geometry: 2568123384704, "Geometry::", "Mesh" {
 		Properties70:  {
 			P: "Color", "ColorRGB", "Color", "",0.337254901960784,0.337254901960784,0.337254901960784
 		}
@@ -3292,7 +3292,7 @@ Objects:  {
 			}
 		}
 	}
-	Geometry: 2942206559696, "Geometry::", "Mesh" {
+	Geometry: 2568123385792, "Geometry::", "Mesh" {
 		Properties70:  {
 			P: "Color", "ColorRGB", "Color", "",0.882352941176471,0.776470588235294,0.341176470588235
 		}
@@ -3368,7 +3368,7 @@ Objects:  {
 			}
 		}
 	}
-	Geometry: 2942206561328, "Geometry::", "Mesh" {
+	Geometry: 2568123392320, "Geometry::", "Mesh" {
 		Properties70:  {
 			P: "Color", "ColorRGB", "Color", "",0.882352941176471,0.56078431372549,0.341176470588235
 		}
@@ -3454,7 +3454,7 @@ Objects:  {
 			}
 		}
 	}
-	Geometry: 2942206555888, "Geometry::", "Mesh" {
+	Geometry: 2568123385248, "Geometry::", "Mesh" {
 		Properties70:  {
 			P: "Color", "ColorRGB", "Color", "",0.333333333333333,0.109803921568627,0.694117647058824
 		}
@@ -3530,7 +3530,7 @@ Objects:  {
 			}
 		}
 	}
-	Model: 2942298808560, "Model::Ilmarinen's Workshop", "Null" {
+	Model: 2566571547808, "Model::Ilmarinen's Workshop", "Null" {
 		Version: 232
 		Properties70:  {
 			P: "PreRotation", "Vector3D", "Vector", "",-90,-0,0
@@ -3545,7 +3545,7 @@ Objects:  {
 		Shading: T
 		Culling: "CullingOff"
 	}
-	Model: 2942298797600, "Model::Walls", "Mesh" {
+	Model: 2566571565344, "Model::Walls", "Mesh" {
 		Version: 232
 		Properties70:  {
 			P: "InheritType", "enum", "", "",1
@@ -3557,7 +3557,7 @@ Objects:  {
 		Shading: T
 		Culling: "CullingOff"
 	}
-	Model: 2942298788832, "Model::Chimney", "Mesh" {
+	Model: 2566571543424, "Model::Chimney", "Mesh" {
 		Version: 232
 		Properties70:  {
 			P: "InheritType", "enum", "", "",1
@@ -3571,7 +3571,7 @@ Objects:  {
 		Shading: T
 		Culling: "CullingOff"
 	}
-	Model: 2942298810752, "Model::Support", "Mesh" {
+	Model: 2566571556576, "Model::Support", "Mesh" {
 		Version: 232
 		Properties70:  {
 			P: "InheritType", "enum", "", "",1
@@ -3583,7 +3583,7 @@ Objects:  {
 		Shading: T
 		Culling: "CullingOff"
 	}
-	Model: 2942298799792, "Model::Support005", "Mesh" {
+	Model: 2566571554384, "Model::Support005", "Mesh" {
 		Version: 232
 		Properties70:  {
 			P: "InheritType", "enum", "", "",1
@@ -3596,20 +3596,21 @@ Objects:  {
 		Shading: T
 		Culling: "CullingOff"
 	}
-	Model: 2942298782256, "Model::Door", "Mesh" {
+	Model: 2566571550000, "Model::Door", "Mesh" {
 		Version: 232
 		Properties70:  {
 			P: "InheritType", "enum", "", "",1
 			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
-			P: "GeometricTranslation", "Vector3D", "Vector", "",8.88136291503906,23.5845947265625,0.100000023841858
+			P: "GeometricTranslation", "Vector3D", "Vector", "",1.59757745265961,-0.0102974139153957,-1.45000004768372
 			P: "DefaultAttributeIndex", "int", "Integer", "",0
+			P: "Lcl Translation", "Lcl Translation", "", "A",19.5,15.1499996185303,1.55000007152557
 			P: "Lcl Rotation", "Lcl Rotation", "", "A",0,-0,-34.9999926798029
 			P: "MaxHandle", "int", "Integer", "UH",2448
 		}
 		Shading: T
 		Culling: "CullingOff"
 	}
-	Model: 2942298812944, "Model::Patio Board", "Mesh" {
+	Model: 2566571574112, "Model::Patio Board", "Mesh" {
 		Version: 232
 		Properties70:  {
 			P: "InheritType", "enum", "", "",1
@@ -3622,7 +3623,7 @@ Objects:  {
 		Shading: T
 		Culling: "CullingOff"
 	}
-	Model: 2942298784448, "Model::Patio Board002", "Mesh" {
+	Model: 2566571569728, "Model::Patio Board002", "Mesh" {
 		Version: 232
 		Properties70:  {
 			P: "InheritType", "enum", "", "",1
@@ -3636,7 +3637,7 @@ Objects:  {
 		Shading: T
 		Culling: "CullingOff"
 	}
-	Model: 2942298815136, "Model::Patio Board003", "Mesh" {
+	Model: 2566571545616, "Model::Patio Board003", "Mesh" {
 		Version: 232
 		Properties70:  {
 			P: "InheritType", "enum", "", "",1
@@ -3649,7 +3650,7 @@ Objects:  {
 		Shading: T
 		Culling: "CullingOff"
 	}
-	Model: 2942298786640, "Model::Patio Board004", "Mesh" {
+	Model: 2566571552192, "Model::Patio Board004", "Mesh" {
 		Version: 232
 		Properties70:  {
 			P: "InheritType", "enum", "", "",1
@@ -3662,7 +3663,7 @@ Objects:  {
 		Shading: T
 		Culling: "CullingOff"
 	}
-	Model: 2942298832672, "Model::Patio Board001", "Mesh" {
+	Model: 2566571558768, "Model::Patio Board001", "Mesh" {
 		Version: 232
 		Properties70:  {
 			P: "InheritType", "enum", "", "",1
@@ -3675,7 +3676,7 @@ Objects:  {
 		Shading: T
 		Culling: "CullingOff"
 	}
-	Model: 2942298828288, "Model::Roof", "Mesh" {
+	Model: 2566571576304, "Model::Roof", "Mesh" {
 		Version: 232
 		Properties70:  {
 			P: "InheritType", "enum", "", "",1
@@ -3688,7 +3689,7 @@ Objects:  {
 		Shading: T
 		Culling: "CullingOff"
 	}
-	Model: 2942298821712, "Model::Log Walls", "Null" {
+	Model: 2566571567536, "Model::Log Walls", "Null" {
 		Version: 232
 		Properties70:  {
 			P: "InheritType", "enum", "", "",1
@@ -3700,7 +3701,7 @@ Objects:  {
 		Shading: T
 		Culling: "CullingOff"
 	}
-	Model: 2942298817328, "Model::Wall Log", "Mesh" {
+	Model: 2566571560960, "Model::Wall Log", "Mesh" {
 		Version: 232
 		Properties70:  {
 			P: "InheritType", "enum", "", "",1
@@ -3715,7 +3716,7 @@ Objects:  {
 		Shading: T
 		Culling: "CullingOff"
 	}
-	Model: 2942298848016, "Model::Wall Log001", "Mesh" {
+	Model: 2566571578496, "Model::Wall Log001", "Mesh" {
 		Version: 232
 		Properties70:  {
 			P: "InheritType", "enum", "", "",1
@@ -3730,7 +3731,7 @@ Objects:  {
 		Shading: T
 		Culling: "CullingOff"
 	}
-	Model: 2942298841440, "Model::Wall Log002", "Mesh" {
+	Model: 2566571589456, "Model::Wall Log002", "Mesh" {
 		Version: 232
 		Properties70:  {
 			P: "InheritType", "enum", "", "",1
@@ -3745,7 +3746,7 @@ Objects:  {
 		Shading: T
 		Culling: "CullingOff"
 	}
-	Model: 2942298830480, "Model::Wall Log003", "Mesh" {
+	Model: 2566571580688, "Model::Wall Log003", "Mesh" {
 		Version: 232
 		Properties70:  {
 			P: "InheritType", "enum", "", "",1
@@ -3760,7 +3761,7 @@ Objects:  {
 		Shading: T
 		Culling: "CullingOff"
 	}
-	Model: 2942298823904, "Model::Wall Log004", "Mesh" {
+	Model: 2566571582880, "Model::Wall Log004", "Mesh" {
 		Version: 232
 		Properties70:  {
 			P: "InheritType", "enum", "", "",1
@@ -3775,7 +3776,7 @@ Objects:  {
 		Shading: T
 		Culling: "CullingOff"
 	}
-	Model: 2942298819520, "Model::Wall Log005", "Mesh" {
+	Model: 2566571585072, "Model::Wall Log005", "Mesh" {
 		Version: 232
 		Properties70:  {
 			P: "InheritType", "enum", "", "",1
@@ -3790,7 +3791,7 @@ Objects:  {
 		Shading: T
 		Culling: "CullingOff"
 	}
-	Model: 2942298834864, "Model::Wall Log006", "Mesh" {
+	Model: 2566571587264, "Model::Wall Log006", "Mesh" {
 		Version: 232
 		Properties70:  {
 			P: "InheritType", "enum", "", "",1
@@ -3805,7 +3806,7 @@ Objects:  {
 		Shading: T
 		Culling: "CullingOff"
 	}
-	Model: 2942298837056, "Model::Wall Log007", "Mesh" {
+	Model: 2566571591648, "Model::Wall Log007", "Mesh" {
 		Version: 232
 		Properties70:  {
 			P: "InheritType", "enum", "", "",1
@@ -3820,7 +3821,7 @@ Objects:  {
 		Shading: T
 		Culling: "CullingOff"
 	}
-	Model: 2942298839248, "Model::Wall Log008", "Mesh" {
+	Model: 2566571563152, "Model::Wall Log008", "Mesh" {
 		Version: 232
 		Properties70:  {
 			P: "InheritType", "enum", "", "",1
@@ -3835,7 +3836,7 @@ Objects:  {
 		Shading: T
 		Culling: "CullingOff"
 	}
-	Model: 2942298843632, "Model::Wall Log009", "Mesh" {
+	Model: 2566571593840, "Model::Wall Log009", "Mesh" {
 		Version: 232
 		Properties70:  {
 			P: "InheritType", "enum", "", "",1
@@ -3850,7 +3851,7 @@ Objects:  {
 		Shading: T
 		Culling: "CullingOff"
 	}
-	Model: 2942298845824, "Model::Wall Log010", "Mesh" {
+	Model: 2566571596032, "Model::Wall Log010", "Mesh" {
 		Version: 232
 		Properties70:  {
 			P: "InheritType", "enum", "", "",1
@@ -3865,7 +3866,7 @@ Objects:  {
 		Shading: T
 		Culling: "CullingOff"
 	}
-	Model: 2942298850208, "Model::Wall Log011", "Mesh" {
+	Model: 2566571598224, "Model::Wall Log011", "Mesh" {
 		Version: 232
 		Properties70:  {
 			P: "InheritType", "enum", "", "",1
@@ -3880,7 +3881,7 @@ Objects:  {
 		Shading: T
 		Culling: "CullingOff"
 	}
-	Model: 2942298852400, "Model::Wall Log012", "Mesh" {
+	Model: 2566565142912, "Model::Wall Log012", "Mesh" {
 		Version: 232
 		Properties70:  {
 			P: "InheritType", "enum", "", "",1
@@ -3895,7 +3896,7 @@ Objects:  {
 		Shading: T
 		Culling: "CullingOff"
 	}
-	Model: 2942298854592, "Model::Wall Log013", "Mesh" {
+	Model: 2566565158256, "Model::Wall Log013", "Mesh" {
 		Version: 232
 		Properties70:  {
 			P: "InheritType", "enum", "", "",1
@@ -3910,7 +3911,7 @@ Objects:  {
 		Shading: T
 		Culling: "CullingOff"
 	}
-	Model: 2942298826096, "Model::Split Wall Log", "Mesh" {
+	Model: 2566565145104, "Model::Split Wall Log", "Mesh" {
 		Version: 232
 		Properties70:  {
 			P: "InheritType", "enum", "", "",1
@@ -3925,7 +3926,7 @@ Objects:  {
 		Shading: T
 		Culling: "CullingOff"
 	}
-	Model: 2942298880896, "Model::Split Wall Log001", "Mesh" {
+	Model: 2566565164832, "Model::Split Wall Log001", "Mesh" {
 		Version: 232
 		Properties70:  {
 			P: "InheritType", "enum", "", "",1
@@ -3940,7 +3941,7 @@ Objects:  {
 		Shading: T
 		Culling: "CullingOff"
 	}
-	Model: 2942298869936, "Model::Split Wall Log002", "Mesh" {
+	Model: 2566565151680, "Model::Split Wall Log002", "Mesh" {
 		Version: 232
 		Properties70:  {
 			P: "InheritType", "enum", "", "",1
@@ -3955,7 +3956,7 @@ Objects:  {
 		Shading: T
 		Culling: "CullingOff"
 	}
-	Model: 2942298876512, "Model::Wall Log014", "Mesh" {
+	Model: 2566565147296, "Model::Wall Log014", "Mesh" {
 		Version: 232
 		Properties70:  {
 			P: "InheritType", "enum", "", "",1
@@ -3970,7 +3971,7 @@ Objects:  {
 		Shading: T
 		Culling: "CullingOff"
 	}
-	Model: 2942298883088, "Model::Wall Log015", "Mesh" {
+	Model: 2566565167024, "Model::Wall Log015", "Mesh" {
 		Version: 232
 		Properties70:  {
 			P: "InheritType", "enum", "", "",1
@@ -3985,7 +3986,7 @@ Objects:  {
 		Shading: T
 		Culling: "CullingOff"
 	}
-	Model: 2942298863360, "Model::Wall Log016", "Mesh" {
+	Model: 2566565149488, "Model::Wall Log016", "Mesh" {
 		Version: 232
 		Properties70:  {
 			P: "InheritType", "enum", "", "",1
@@ -3999,7 +4000,7 @@ Objects:  {
 		Shading: T
 		Culling: "CullingOff"
 	}
-	Model: 2942298885280, "Model::Wall Log017", "Mesh" {
+	Model: 2566565162640, "Model::Wall Log017", "Mesh" {
 		Version: 232
 		Properties70:  {
 			P: "InheritType", "enum", "", "",1
@@ -4014,7 +4015,7 @@ Objects:  {
 		Shading: T
 		Culling: "CullingOff"
 	}
-	Model: 2942298856784, "Model::Wall Log018", "Mesh" {
+	Model: 2566565138528, "Model::Wall Log018", "Mesh" {
 		Version: 232
 		Properties70:  {
 			P: "InheritType", "enum", "", "",1
@@ -4029,7 +4030,7 @@ Objects:  {
 		Shading: T
 		Culling: "CullingOff"
 	}
-	Model: 2942298887472, "Model::Wall Log019", "Mesh" {
+	Model: 2566565153872, "Model::Wall Log019", "Mesh" {
 		Version: 232
 		Properties70:  {
 			P: "InheritType", "enum", "", "",1
@@ -4043,7 +4044,7 @@ Objects:  {
 		Shading: T
 		Culling: "CullingOff"
 	}
-	Model: 2942298865552, "Model::Wall Log020", "Mesh" {
+	Model: 2566565156064, "Model::Wall Log020", "Mesh" {
 		Version: 232
 		Properties70:  {
 			P: "InheritType", "enum", "", "",1
@@ -4058,7 +4059,7 @@ Objects:  {
 		Shading: T
 		Culling: "CullingOff"
 	}
-	Model: 2942298867744, "Model::Split Wall Log003", "Mesh" {
+	Model: 2566565160448, "Model::Split Wall Log003", "Mesh" {
 		Version: 232
 		Properties70:  {
 			P: "InheritType", "enum", "", "",1
@@ -4073,7 +4074,7 @@ Objects:  {
 		Shading: T
 		Culling: "CullingOff"
 	}
-	Model: 2942298872128, "Model::Wall Log021", "Mesh" {
+	Model: 2566565169216, "Model::Wall Log021", "Mesh" {
 		Version: 232
 		Properties70:  {
 			P: "InheritType", "enum", "", "",1
@@ -4088,7 +4089,7 @@ Objects:  {
 		Shading: T
 		Culling: "CullingOff"
 	}
-	Model: 2942298858976, "Model::Wall Log022", "Mesh" {
+	Model: 2566565140720, "Model::Wall Log022", "Mesh" {
 		Version: 232
 		Properties70:  {
 			P: "InheritType", "enum", "", "",1
@@ -4102,7 +4103,7 @@ Objects:  {
 		Shading: T
 		Culling: "CullingOff"
 	}
-	Model: 2942298889664, "Model::Wall Log023", "Mesh" {
+	Model: 2566565182368, "Model::Wall Log023", "Mesh" {
 		Version: 232
 		Properties70:  {
 			P: "InheritType", "enum", "", "",1
@@ -4117,7 +4118,7 @@ Objects:  {
 		Shading: T
 		Culling: "CullingOff"
 	}
-	Model: 2942298874320, "Model::Wall Log024", "Mesh" {
+	Model: 2566565175792, "Model::Wall Log024", "Mesh" {
 		Version: 232
 		Properties70:  {
 			P: "InheritType", "enum", "", "",1
@@ -4132,7 +4133,7 @@ Objects:  {
 		Shading: T
 		Culling: "CullingOff"
 	}
-	Model: 2942298878704, "Model::Wall Log025", "Mesh" {
+	Model: 2566565177984, "Model::Wall Log025", "Mesh" {
 		Version: 232
 		Properties70:  {
 			P: "InheritType", "enum", "", "",1
@@ -4147,7 +4148,7 @@ Objects:  {
 		Shading: T
 		Culling: "CullingOff"
 	}
-	Model: 2942298861168, "Model::Wall Log026", "Mesh" {
+	Model: 2566565197712, "Model::Wall Log026", "Mesh" {
 		Version: 232
 		Properties70:  {
 			P: "InheritType", "enum", "", "",1
@@ -4162,7 +4163,7 @@ Objects:  {
 		Shading: T
 		Culling: "CullingOff"
 	}
-	Model: 2942298911584, "Model::Wall Log027", "Mesh" {
+	Model: 2566565171408, "Model::Wall Log027", "Mesh" {
 		Version: 232
 		Properties70:  {
 			P: "InheritType", "enum", "", "",1
@@ -4177,7 +4178,7 @@ Objects:  {
 		Shading: T
 		Culling: "CullingOff"
 	}
-	Model: 2942298907200, "Model::Wall Log028", "Mesh" {
+	Model: 2566565180176, "Model::Wall Log028", "Mesh" {
 		Version: 232
 		Properties70:  {
 			P: "InheritType", "enum", "", "",1
@@ -4192,7 +4193,7 @@ Objects:  {
 		Shading: T
 		Culling: "CullingOff"
 	}
-	Model: 2942298891856, "Model::Patio Board005", "Mesh" {
+	Model: 2566565184560, "Model::Patio Board005", "Mesh" {
 		Version: 232
 		Properties70:  {
 			P: "InheritType", "enum", "", "",1
@@ -4206,7 +4207,7 @@ Objects:  {
 		Shading: T
 		Culling: "CullingOff"
 	}
-	Model: 2942298913776, "Model::Ilmarinen's Workshop Kickout Hole", "Mesh" {
+	Model: 2566565186752, "Model::Ilmarinen's Workshop Kickout Hole", "Mesh" {
 		Version: 232
 		Properties70:  {
 			P: "InheritType", "enum", "", "",1
@@ -4219,7 +4220,7 @@ Objects:  {
 		Shading: T
 		Culling: "CullingOff"
 	}
-	Model: 2942298894048, "Model::Kicker", "Mesh" {
+	Model: 2566565191136, "Model::Kicker", "Mesh" {
 		Version: 232
 		Properties70:  {
 			P: "InheritType", "enum", "", "",1
@@ -4233,7 +4234,7 @@ Objects:  {
 		Shading: T
 		Culling: "CullingOff"
 	}
-	Material: 2942058823760, "Material::Placeholder", "" {
+	Material: 2566382192624, "Material::Placeholder", "" {
 		Version: 102
 		ShadingModel: "phong"
 		MultiLayer: 0
@@ -4255,7 +4256,7 @@ Objects:  {
 			P: "Reflectivity", "double", "Number", "",0
 		}
 	}
-	Material: 2942058827600, "Material::Playfield Surface", "" {
+	Material: 2566382195504, "Material::Playfield Surface", "" {
 		Version: 102
 		ShadingModel: "phong"
 		MultiLayer: 0
@@ -4277,7 +4278,7 @@ Objects:  {
 			P: "Reflectivity", "double", "Number", "",0
 		}
 	}
-	Video: 2942058828080, "Video::Map #13", "Clip" {
+	Video: 2566392840496, "Video::Map #13", "Clip" {
 		Type: "Clip"
 		Properties70:  {
 			P: "Path", "KString", "XRefUrl", "", "C:\Users\Toni\Dropbox\+ Spring 2018 Project\"
@@ -4287,7 +4288,7 @@ Objects:  {
 		Filename: "C:\Users\Toni\Dropbox\+ Spring 2018 Project\"
 		RelativeFilename: "..\..\..\..\..\Dropbox\+ Spring 2018 Project"
 	}
-	Texture: 2942058819440, "Texture::Map #13", "" {
+	Texture: 2566382192144, "Texture::Map #13", "" {
 		Type: "TextureVideoClip"
 		Version: 202
 		TextureName: "Texture::Map #13"
@@ -4303,10 +4304,10 @@ Objects:  {
 		Texture_Alpha_Source: "None"
 		Cropping: 0,0,0,0
 	}
-	AnimationStack: 2942211891488, "AnimStack::Take 001", "" {
+	AnimationStack: 2566457639744, "AnimStack::Take 001", "" {
 		Properties70:  {
-			P: "LocalStop", "KTime", "Time", "",42491265360
-			P: "ReferenceStop", "KTime", "Time", "",42491265360
+			P: "LocalStop", "KTime", "Time", "",7389785280
+			P: "ReferenceStop", "KTime", "Time", "",7389785280
 		}
 	}
 }
@@ -4317,344 +4318,344 @@ Objects:  {
 Connections:  {
 	
 	;Model::Ilmarinen's Workshop, Model::RootNode
-	C: "OO",2942298808560,0
+	C: "OO",2566571547808,0
 	
 	;Model::Walls, Model::Ilmarinen's Workshop
-	C: "OO",2942298797600,2942298808560
+	C: "OO",2566571565344,2566571547808
 	
 	;Model::Chimney, Model::Ilmarinen's Workshop
-	C: "OO",2942298788832,2942298808560
+	C: "OO",2566571543424,2566571547808
 	
 	;Model::Support, Model::Ilmarinen's Workshop
-	C: "OO",2942298810752,2942298808560
+	C: "OO",2566571556576,2566571547808
 	
 	;Model::Support005, Model::Ilmarinen's Workshop
-	C: "OO",2942298799792,2942298808560
+	C: "OO",2566571554384,2566571547808
 	
 	;Model::Door, Model::Ilmarinen's Workshop
-	C: "OO",2942298782256,2942298808560
+	C: "OO",2566571550000,2566571547808
 	
 	;Model::Patio Board, Model::Ilmarinen's Workshop
-	C: "OO",2942298812944,2942298808560
+	C: "OO",2566571574112,2566571547808
 	
 	;Model::Patio Board002, Model::Ilmarinen's Workshop
-	C: "OO",2942298784448,2942298808560
+	C: "OO",2566571569728,2566571547808
 	
 	;Model::Patio Board003, Model::Ilmarinen's Workshop
-	C: "OO",2942298815136,2942298808560
+	C: "OO",2566571545616,2566571547808
 	
 	;Model::Patio Board004, Model::Ilmarinen's Workshop
-	C: "OO",2942298786640,2942298808560
+	C: "OO",2566571552192,2566571547808
 	
 	;Model::Patio Board001, Model::Ilmarinen's Workshop
-	C: "OO",2942298832672,2942298808560
+	C: "OO",2566571558768,2566571547808
 	
 	;Model::Roof, Model::Ilmarinen's Workshop
-	C: "OO",2942298828288,2942298808560
+	C: "OO",2566571576304,2566571547808
 	
 	;Model::Log Walls, Model::Ilmarinen's Workshop
-	C: "OO",2942298821712,2942298808560
+	C: "OO",2566571567536,2566571547808
 	
 	;Model::Patio Board005, Model::Ilmarinen's Workshop
-	C: "OO",2942298891856,2942298808560
+	C: "OO",2566565184560,2566571547808
 	
 	;Model::Ilmarinen's Workshop Kickout Hole, Model::Ilmarinen's Workshop
-	C: "OO",2942298913776,2942298808560
+	C: "OO",2566565186752,2566571547808
 	
 	;Model::Kicker, Model::Ilmarinen's Workshop
-	C: "OO",2942298894048,2942298808560
+	C: "OO",2566565191136,2566571547808
 	
 	;NodeAttribute::, Model::Ilmarinen's Workshop
-	C: "OO",2943262225504,2942298808560
+	C: "OO",2566570176512,2566571547808
 	
 	;Geometry::, Model::Walls
-	C: "OO",2942206517584,2942298797600
+	C: "OO",2566392003312,2566571565344
 	
 	;Material::Placeholder, Model::Walls
-	C: "OO",2942058823760,2942298797600
+	C: "OO",2566382192624,2566571565344
 	
 	;Geometry::, Model::Chimney
-	C: "OO",2942206518672,2942298788832
+	C: "OO",2566392004944,2566571543424
 	
 	;Material::Placeholder, Model::Chimney
-	C: "OO",2942058823760,2942298788832
+	C: "OO",2566382192624,2566571543424
 	
 	;Geometry::, Model::Support
-	C: "OO",2942206513776,2942298810752
+	C: "OO",2566392014736,2566571556576
 	
 	;Material::Placeholder, Model::Support
-	C: "OO",2942058823760,2942298810752
+	C: "OO",2566382192624,2566571556576
 	
 	;Geometry::, Model::Support005
-	C: "OO",2942206519760,2942298799792
+	C: "OO",2566382176784,2566571554384
 	
 	;Material::Placeholder, Model::Support005
-	C: "OO",2942058823760,2942298799792
+	C: "OO",2566382192624,2566571554384
 	
 	;Geometry::, Model::Door
-	C: "OO",2942206520304,2942298782256
+	C: "OO",2566270613232,2566571550000
 	
 	;Material::Placeholder, Model::Door
-	C: "OO",2942058823760,2942298782256
+	C: "OO",2566382192624,2566571550000
 	
 	;Geometry::, Model::Patio Board
-	C: "OO",2942206514320,2942298812944
+	C: "OO",2566391910112,2566571574112
 	
 	;Material::Placeholder, Model::Patio Board
-	C: "OO",2942058823760,2942298812944
+	C: "OO",2566382192624,2566571574112
 	
 	;Geometry::, Model::Patio Board002
-	C: "OO",2943263346720,2942298784448
+	C: "OO",2566456649264,2566571569728
 	
 	;Material::Placeholder, Model::Patio Board002
-	C: "OO",2942058823760,2942298784448
+	C: "OO",2566382192624,2566571569728
 	
 	;Geometry::, Model::Patio Board003
-	C: "OO",2943263341280,2942298815136
+	C: "OO",2566456635664,2566571545616
 	
 	;Material::Placeholder, Model::Patio Board003
-	C: "OO",2942058823760,2942298815136
+	C: "OO",2566382192624,2566571545616
 	
 	;Geometry::, Model::Patio Board004
-	C: "OO",2943263343456,2942298786640
+	C: "OO",2566456649808,2566571552192
 	
 	;Material::Placeholder, Model::Patio Board004
-	C: "OO",2942058823760,2942298786640
+	C: "OO",2566382192624,2566571552192
 	
 	;Geometry::, Model::Patio Board001
-	C: "OO",2943263344544,2942298832672
+	C: "OO",2566456648720,2566571558768
 	
 	;Material::Placeholder, Model::Patio Board001
-	C: "OO",2942058823760,2942298832672
+	C: "OO",2566382192624,2566571558768
 	
 	;Geometry::, Model::Roof
-	C: "OO",2943263340192,2942298828288
+	C: "OO",2566456636208,2566571576304
 	
 	;Material::Placeholder, Model::Roof
-	C: "OO",2942058823760,2942298828288
+	C: "OO",2566382192624,2566571576304
 	
 	;Model::Wall Log, Model::Log Walls
-	C: "OO",2942298817328,2942298821712
+	C: "OO",2566571560960,2566571567536
 	
 	;Model::Wall Log001, Model::Log Walls
-	C: "OO",2942298848016,2942298821712
+	C: "OO",2566571578496,2566571567536
 	
 	;Model::Wall Log002, Model::Log Walls
-	C: "OO",2942298841440,2942298821712
+	C: "OO",2566571589456,2566571567536
 	
 	;Model::Wall Log003, Model::Log Walls
-	C: "OO",2942298830480,2942298821712
+	C: "OO",2566571580688,2566571567536
 	
 	;Model::Wall Log004, Model::Log Walls
-	C: "OO",2942298823904,2942298821712
+	C: "OO",2566571582880,2566571567536
 	
 	;Model::Wall Log005, Model::Log Walls
-	C: "OO",2942298819520,2942298821712
+	C: "OO",2566571585072,2566571567536
 	
 	;Model::Wall Log006, Model::Log Walls
-	C: "OO",2942298834864,2942298821712
+	C: "OO",2566571587264,2566571567536
 	
 	;Model::Wall Log007, Model::Log Walls
-	C: "OO",2942298837056,2942298821712
+	C: "OO",2566571591648,2566571567536
 	
 	;Model::Wall Log008, Model::Log Walls
-	C: "OO",2942298839248,2942298821712
+	C: "OO",2566571563152,2566571567536
 	
 	;Model::Wall Log009, Model::Log Walls
-	C: "OO",2942298843632,2942298821712
+	C: "OO",2566571593840,2566571567536
 	
 	;Model::Wall Log010, Model::Log Walls
-	C: "OO",2942298845824,2942298821712
+	C: "OO",2566571596032,2566571567536
 	
 	;Model::Wall Log011, Model::Log Walls
-	C: "OO",2942298850208,2942298821712
+	C: "OO",2566571598224,2566571567536
 	
 	;Model::Wall Log012, Model::Log Walls
-	C: "OO",2942298852400,2942298821712
+	C: "OO",2566565142912,2566571567536
 	
 	;Model::Wall Log013, Model::Log Walls
-	C: "OO",2942298854592,2942298821712
+	C: "OO",2566565158256,2566571567536
 	
 	;Model::Split Wall Log, Model::Log Walls
-	C: "OO",2942298826096,2942298821712
+	C: "OO",2566565145104,2566571567536
 	
 	;Model::Split Wall Log001, Model::Log Walls
-	C: "OO",2942298880896,2942298821712
+	C: "OO",2566565164832,2566571567536
 	
 	;Model::Split Wall Log002, Model::Log Walls
-	C: "OO",2942298869936,2942298821712
+	C: "OO",2566565151680,2566571567536
 	
 	;Model::Wall Log014, Model::Log Walls
-	C: "OO",2942298876512,2942298821712
+	C: "OO",2566565147296,2566571567536
 	
 	;Model::Wall Log015, Model::Log Walls
-	C: "OO",2942298883088,2942298821712
+	C: "OO",2566565167024,2566571567536
 	
 	;Model::Wall Log016, Model::Log Walls
-	C: "OO",2942298863360,2942298821712
+	C: "OO",2566565149488,2566571567536
 	
 	;Model::Wall Log017, Model::Log Walls
-	C: "OO",2942298885280,2942298821712
+	C: "OO",2566565162640,2566571567536
 	
 	;Model::Wall Log018, Model::Log Walls
-	C: "OO",2942298856784,2942298821712
+	C: "OO",2566565138528,2566571567536
 	
 	;Model::Wall Log019, Model::Log Walls
-	C: "OO",2942298887472,2942298821712
+	C: "OO",2566565153872,2566571567536
 	
 	;Model::Wall Log020, Model::Log Walls
-	C: "OO",2942298865552,2942298821712
+	C: "OO",2566565156064,2566571567536
 	
 	;Model::Split Wall Log003, Model::Log Walls
-	C: "OO",2942298867744,2942298821712
+	C: "OO",2566565160448,2566571567536
 	
 	;Model::Wall Log021, Model::Log Walls
-	C: "OO",2942298872128,2942298821712
+	C: "OO",2566565169216,2566571567536
 	
 	;Model::Wall Log022, Model::Log Walls
-	C: "OO",2942298858976,2942298821712
+	C: "OO",2566565140720,2566571567536
 	
 	;Model::Wall Log023, Model::Log Walls
-	C: "OO",2942298889664,2942298821712
+	C: "OO",2566565182368,2566571567536
 	
 	;Model::Wall Log024, Model::Log Walls
-	C: "OO",2942298874320,2942298821712
+	C: "OO",2566565175792,2566571567536
 	
 	;Model::Wall Log025, Model::Log Walls
-	C: "OO",2942298878704,2942298821712
+	C: "OO",2566565177984,2566571567536
 	
 	;Model::Wall Log026, Model::Log Walls
-	C: "OO",2942298861168,2942298821712
+	C: "OO",2566565197712,2566571567536
 	
 	;Model::Wall Log027, Model::Log Walls
-	C: "OO",2942298911584,2942298821712
+	C: "OO",2566565171408,2566571567536
 	
 	;Model::Wall Log028, Model::Log Walls
-	C: "OO",2942298907200,2942298821712
+	C: "OO",2566565180176,2566571567536
 	
 	;NodeAttribute::, Model::Log Walls
-	C: "OO",2943262222864,2942298821712
+	C: "OO",2566570177392,2566571567536
 	
 	;Geometry::, Model::Wall Log
-	C: "OO",2943263345088,2942298817328
+	C: "OO",2566456643280,2566571560960
 	
 	;Geometry::, Model::Wall Log001
-	C: "OO",2943263345632,2942298848016
+	C: "OO",2566456643824,2566571578496
 	
 	;Geometry::, Model::Wall Log002
-	C: "OO",2943263340736,2942298841440
+	C: "OO",2566456644368,2566571589456
 	
 	;Geometry::, Model::Wall Log003
-	C: "OO",2943263341824,2942298830480
+	C: "OO",2566456638928,2566571580688
 	
 	;Geometry::, Model::Wall Log004
-	C: "OO",2943263342368,2942298823904
+	C: "OO",2566456636752,2566571582880
 	
 	;Geometry::, Model::Wall Log005
-	C: "OO",2943263342912,2942298819520
+	C: "OO",2566456650352,2566571585072
 	
 	;Geometry::, Model::Wall Log006
-	C: "OO",2942207789264,2942298834864
+	C: "OO",2566456640016,2566571587264
 	
 	;Geometry::, Model::Wall Log007
-	C: "OO",2942207790352,2942298837056
+	C: "OO",2566456644912,2566571591648
 	
 	;Geometry::, Model::Wall Log008
-	C: "OO",2942207790896,2942298839248
+	C: "OO",2566456638384,2566571563152
 	
 	;Geometry::, Model::Wall Log009
-	C: "OO",2942207791440,2942298843632
+	C: "OO",2566456640560,2566571593840
 	
 	;Geometry::, Model::Wall Log010
-	C: "OO",2942207792528,2942298845824
+	C: "OO",2566456645456,2566571596032
 	
 	;Geometry::, Model::Wall Log011
-	C: "OO",2942206553664,2942298850208
+	C: "OO",2566456646000,2566571598224
 	
 	;Geometry::, Model::Wall Log012
-	C: "OO",2942206551488,2942298852400
+	C: "OO",2566456637296,2566565142912
 	
 	;Geometry::, Model::Wall Log013
-	C: "OO",2942206547680,2942298854592
+	C: "OO",2566456639472,2566565158256
 	
 	;Geometry::, Model::Split Wall Log
-	C: "OO",2942206550944,2942298826096
+	C: "OO",2566456641104,2566565145104
 	
 	;Geometry::, Model::Split Wall Log001
-	C: "OO",2942206546592,2942298880896
+	C: "OO",2566456647088,2566565164832
 	
 	;Geometry::, Model::Split Wall Log002
-	C: "OO",2942206548768,2942298869936
+	C: "OO",2566456635120,2566565151680
 	
 	;Geometry::, Model::Wall Log014
-	C: "OO",2942206552032,2942298876512
+	C: "OO",2566456641648,2566565147296
 	
 	;Geometry::, Model::Wall Log015
-	C: "OO",2942206549856,2942298883088
+	C: "OO",2566456642192,2566565167024
 	
 	;Geometry::, Model::Wall Log016
-	C: "OO",2942206549312,2942298863360
+	C: "OO",2566456648176,2566565149488
 	
 	;Geometry::, Model::Wall Log017
-	C: "OO",2942206548224,2942298885280
+	C: "OO",2566456637840,2566565162640
 	
 	;Geometry::, Model::Wall Log018
-	C: "OO",2942206547136,2942298856784
+	C: "OO",2566456642736,2566565138528
 	
 	;Geometry::, Model::Wall Log019
-	C: "OO",2942206552576,2942298887472
+	C: "OO",2566456646544,2566565153872
 	
 	;Geometry::, Model::Wall Log020
-	C: "OO",2942206550400,2942298865552
+	C: "OO",2566456647632,2566565156064
 	
 	;Geometry::, Model::Split Wall Log003
-	C: "OO",2942206553120,2942298867744
+	C: "OO",2568123396128,2566565160448
 	
 	;Geometry::, Model::Wall Log021
-	C: "OO",2942206561872,2942298872128
+	C: "OO",2568123384160,2566565169216
 	
 	;Geometry::, Model::Wall Log022
-	C: "OO",2942206558608,2942298858976
+	C: "OO",2568123397760,2566565140720
 	
 	;Geometry::, Model::Wall Log023
-	C: "OO",2942206555344,2942298889664
+	C: "OO",2568123396672,2566565182368
 	
 	;Geometry::, Model::Wall Log024
-	C: "OO",2942206558064,2942298874320
+	C: "OO",2568123386880,2566565175792
 	
 	;Geometry::, Model::Wall Log025
-	C: "OO",2942206557520,2942298878704
+	C: "OO",2568123387424,2566565177984
 	
 	;Geometry::, Model::Wall Log026
-	C: "OO",2942206559152,2942298861168
+	C: "OO",2568123390144,2566565197712
 	
 	;Geometry::, Model::Wall Log027
-	C: "OO",2942206560240,2942298911584
+	C: "OO",2568123386336,2566565171408
 	
 	;Geometry::, Model::Wall Log028
-	C: "OO",2942206560784,2942298907200
+	C: "OO",2568123384704,2566565180176
 	
 	;Geometry::, Model::Patio Board005
-	C: "OO",2942206559696,2942298891856
+	C: "OO",2568123385792,2566565184560
 	
 	;Material::Placeholder, Model::Patio Board005
-	C: "OO",2942058823760,2942298891856
+	C: "OO",2566382192624,2566565184560
 	
 	;Geometry::, Model::Ilmarinen's Workshop Kickout Hole
-	C: "OO",2942206561328,2942298913776
+	C: "OO",2568123392320,2566565186752
 	
 	;Material::Playfield Surface, Model::Ilmarinen's Workshop Kickout Hole
-	C: "OO",2942058827600,2942298913776
+	C: "OO",2566382195504,2566565186752
 	
 	;Geometry::, Model::Kicker
-	C: "OO",2942206555888,2942298894048
+	C: "OO",2568123385248,2566565191136
 	
 	;Material::Placeholder, Model::Kicker
-	C: "OO",2942058823760,2942298894048
+	C: "OO",2566382192624,2566565191136
 	
 	;Texture::Map #13, Material::Playfield Surface
-	C: "OP",2942058819440,2942058827600, "DiffuseColor"
+	C: "OP",2566382192144,2566382195504, "DiffuseColor"
 	
 	;Video::Map #13, Texture::Map #13
-	C: "OO",2942058828080,2942058819440
+	C: "OO",2566392840496,2566382192144
 }

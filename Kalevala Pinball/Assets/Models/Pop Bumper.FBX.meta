@@ -39,6 +39,15 @@ ModelImporter:
     100062: Hay Layer006
     100064: Hay Layer007
     100066: Hay Layer008
+    100068: Hay
+    100070: Hay Stack
+    100072: Transparent Hay
+    100074: Transparent Hay001
+    100076: Transparent Hay002
+    100078: Transparent Hay003
+    100080: Transparent Hay004
+    100082: Transparent Hay005
+    100084: Transparent Hay006
     400000: Body
     400002: Bumper
     400004: //RootNode
@@ -73,6 +82,15 @@ ModelImporter:
     400062: Hay Layer006
     400064: Hay Layer007
     400066: Hay Layer008
+    400068: Hay
+    400070: Hay Stack
+    400072: Transparent Hay
+    400074: Transparent Hay001
+    400076: Transparent Hay002
+    400078: Transparent Hay003
+    400080: Transparent Hay004
+    400082: Transparent Hay005
+    400084: Transparent Hay006
     2100000: Placeholder
     2300000: Body
     2300002: Bumper
@@ -106,6 +124,14 @@ ModelImporter:
     2300058: Hay Layer006
     2300060: Hay Layer007
     2300062: Hay Layer008
+    2300064: Hay
+    2300066: Transparent Hay
+    2300068: Transparent Hay001
+    2300070: Transparent Hay002
+    2300072: Transparent Hay003
+    2300074: Transparent Hay004
+    2300076: Transparent Hay005
+    2300078: Transparent Hay006
     3300000: Body
     3300002: Bumper
     3300004: Stake
@@ -138,6 +164,14 @@ ModelImporter:
     3300058: Hay Layer006
     3300060: Hay Layer007
     3300062: Hay Layer008
+    3300064: Hay
+    3300066: Transparent Hay
+    3300068: Transparent Hay001
+    3300070: Transparent Hay002
+    3300072: Transparent Hay003
+    3300074: Transparent Hay004
+    3300076: Transparent Hay005
+    3300078: Transparent Hay006
     4300000: Body
     4300002: Bumper
     4300004: Straw Layer
@@ -170,6 +204,14 @@ ModelImporter:
     4300058: Hay Layer006
     4300060: Hay Layer007
     4300062: Hay Layer008
+    4300064: Hay
+    4300066: Transparent Hay
+    4300068: Transparent Hay001
+    4300070: Transparent Hay002
+    4300072: Transparent Hay003
+    4300074: Transparent Hay004
+    4300076: Transparent Hay005
+    4300078: Transparent Hay006
     9500000: //RootNode
   externalObjects: {}
   materials:

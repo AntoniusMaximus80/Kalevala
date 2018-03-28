@@ -1116,7 +1116,7 @@ MonoBehaviour:
   _slingshotKanteleAudioSource: {fileID: 82110513988853144}
   _slingshotActivationCollider: {fileID: 65722644990673368}
   _animator: {fileID: 95303022435536354}
-  _slingshotForce: 32
+  _slingshotForce: 48
   _slingshotForceRandomModifier: 0.25
   _slingshotActivationSensitivity: 8
   _shakeMagnitude: 0.1

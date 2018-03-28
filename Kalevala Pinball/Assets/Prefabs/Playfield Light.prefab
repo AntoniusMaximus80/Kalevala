@@ -36,7 +36,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4289740490158136}
   - component: {fileID: 108807213355824614}
-  - component: {fileID: 122366097904582730}
   m_Layer: 0
   m_Name: Up Spot
   m_TagString: Untagged
@@ -92,8 +91,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1934933673554286}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -24, y: 0, z: -20}
+  m_LocalRotation: {x: -0, y: -1, z: -0, w: 0.0000032633543}
+  m_LocalPosition: {x: 1.55, y: 0, z: 46}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4262529821657544}
@@ -110,10 +109,10 @@ Light:
   m_Enabled: 1
   serializedVersion: 8
   m_Type: 0
-  m_Color: {r: 0.65882355, g: 0, b: 1, a: 1}
-  m_Intensity: 24
-  m_Range: 10
-  m_SpotAngle: 30
+  m_Color: {r: 0.9264706, g: 0.5120958, b: 0.06812285, a: 1}
+  m_Intensity: 128
+  m_Range: 9.5
+  m_SpotAngle: 18
   m_CookieSize: 10
   m_Shadows:
     m_Type: 0
@@ -146,10 +145,10 @@ Light:
   m_Enabled: 1
   serializedVersion: 8
   m_Type: 0
-  m_Color: {r: 0.65882355, g: 0, b: 1, a: 1}
-  m_Intensity: 24
+  m_Color: {r: 0.9254902, g: 0.5137255, b: 0.06666667, a: 1}
+  m_Intensity: 8
   m_Range: 4
-  m_SpotAngle: 135
+  m_SpotAngle: 170
   m_CookieSize: 10
   m_Shadows:
     m_Type: 0
@@ -184,14 +183,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53e80169233652f49a2c80496dce5bd2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!122 &122366097904582730
-Halo:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1315503489759918}
-  m_Enabled: 1
-  m_Color:
-    serializedVersion: 2
-    rgba: 4294901928
-  m_Size: 1
