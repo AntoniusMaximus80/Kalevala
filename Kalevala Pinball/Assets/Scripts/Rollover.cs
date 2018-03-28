@@ -21,12 +21,20 @@ public class Rollover : MonoBehaviour {
 
     private static List<Rollover> _instances = new List<Rollover>();
 
+    private static AudioSource _leftSound, _rightSound;
+
 	// Use this for initialization
 	void Awake () {
 
         Init();
 
         _instances.Add(this);
+
+        if (_leftSound == null )
+        {
+            _leftSound = GameObject.Find("RolloverLeftAudio").GetComponent<AudioSource>();
+            _rightSound = GameObject.Find("RolloverRightAudio").GetComponent<AudioSource>();
+        }
 
 	}
 
@@ -66,11 +74,15 @@ public class Rollover : MonoBehaviour {
     private void OnTriggerEnter(Collider collider)
     {
 
+        // Was already down.
+        if (_down) return;
+
         _down = true;
         _light.TurnOn();
         _elapsedTime = duration - _elapsedTime;
 
-
+        (transform.position.x < 0 ? _leftSound : _rightSound).Play();
+        
     }
 
     
