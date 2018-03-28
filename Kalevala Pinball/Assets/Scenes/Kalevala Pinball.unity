@@ -507,7 +507,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d55a187054ee1d44873dbb03dda1f55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wire: {fileID: 0}
+  wire: {fileID: 97721303}
   downPositionZ: -0.5
   duration: 0.5
 --- !u!65 &97721302
@@ -522,6 +522,10 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2, y: 2, z: 2.7}
   m_Center: {x: 0, y: 0, z: 1.35}
+--- !u!4 &97721303 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 400004, guid: 46d7e25a2aed94a43a518321a76351cd, type: 3}
+  m_PrefabInternal: {fileID: 97721298}
 --- !u!1001 &109626554
 Prefab:
   m_ObjectHideFlags: 0
@@ -2770,7 +2774,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d55a187054ee1d44873dbb03dda1f55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wire: {fileID: 0}
+  wire: {fileID: 533560192}
   downPositionZ: -0.5
   duration: 0.5
 --- !u!65 &533560191
@@ -2785,6 +2789,10 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2, y: 2, z: 2.7}
   m_Center: {x: 0, y: 0, z: 1.35}
+--- !u!4 &533560192 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 400004, guid: 46d7e25a2aed94a43a518321a76351cd, type: 3}
+  m_PrefabInternal: {fileID: 533560187}
 --- !u!1001 &566133759
 Prefab:
   m_ObjectHideFlags: 0
@@ -3943,7 +3951,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d55a187054ee1d44873dbb03dda1f55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wire: {fileID: 0}
+  wire: {fileID: 737871380}
   downPositionZ: -0.5
   duration: 0.5
 --- !u!65 &737871379
@@ -3958,6 +3966,10 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2, y: 2, z: 2.7}
   m_Center: {x: 0, y: 0, z: 1.35}
+--- !u!4 &737871380 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 400004, guid: 46d7e25a2aed94a43a518321a76351cd, type: 3}
+  m_PrefabInternal: {fileID: 737871375}
 --- !u!1 &761069073
 GameObject:
   m_ObjectHideFlags: 0
@@ -5304,7 +5316,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d55a187054ee1d44873dbb03dda1f55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wire: {fileID: 0}
+  wire: {fileID: 1202434628}
   downPositionZ: -0.5
   duration: 0.5
 --- !u!65 &1202434627
@@ -5319,6 +5331,10 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2, y: 2, z: 2.7}
   m_Center: {x: 0, y: 0, z: 1.35}
+--- !u!4 &1202434628 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 400004, guid: 46d7e25a2aed94a43a518321a76351cd, type: 3}
+  m_PrefabInternal: {fileID: 1202434623}
 --- !u!1 &1204073540
 GameObject:
   m_ObjectHideFlags: 0
@@ -9766,7 +9782,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d55a187054ee1d44873dbb03dda1f55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wire: {fileID: 0}
+  wire: {fileID: 1567879959}
   downPositionZ: -0.5
   duration: 0.5
 --- !u!65 &1567879958
@@ -9781,6 +9797,10 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2, y: 2, z: 2.7}
   m_Center: {x: 0, y: 0, z: 1.35}
+--- !u!4 &1567879959 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 400004, guid: 46d7e25a2aed94a43a518321a76351cd, type: 3}
+  m_PrefabInternal: {fileID: 1567879954}
 --- !u!1 &1573801053
 GameObject:
   m_ObjectHideFlags: 0
@@ -9980,7 +10000,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d55a187054ee1d44873dbb03dda1f55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wire: {fileID: 0}
+  wire: {fileID: 1580688115}
   downPositionZ: -0.5
   duration: 0.5
 --- !u!65 &1580688114
@@ -9995,6 +10015,10 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2, y: 2, z: 2.7}
   m_Center: {x: 0, y: 0, z: 1.35}
+--- !u!4 &1580688115 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 400004, guid: 46d7e25a2aed94a43a518321a76351cd, type: 3}
+  m_PrefabInternal: {fileID: 1580688110}
 --- !u!59 &1617753654 stripped
 HingeJoint:
   m_PrefabParentObject: {fileID: 59339142755674438, guid: d3f1272fd70bc0d4db95d54a0b8b2b74,
@@ -10444,7 +10468,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d55a187054ee1d44873dbb03dda1f55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wire: {fileID: 0}
+  wire: {fileID: 1869006359}
   downPositionZ: -0.5
   duration: 0.5
 --- !u!65 &1869006358
@@ -10459,6 +10483,10 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2, y: 2, z: 2.7}
   m_Center: {x: 0, y: 0, z: 1.35}
+--- !u!4 &1869006359 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 400004, guid: 46d7e25a2aed94a43a518321a76351cd, type: 3}
+  m_PrefabInternal: {fileID: 1869006354}
 --- !u!4 &1877253043 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4045096202384618, guid: 5cc6b2dfd3fa0c04a9eb6bfd0883317e,
