@@ -6,7 +6,7 @@ public class Rollover : MonoBehaviour {
 
     public Transform wire;
 
-    //public TuonelaLightSwitch _light;
+    public PlayfieldLight _light;
 
     public float downPositionZ = -.5f;
 
