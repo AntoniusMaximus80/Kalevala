@@ -70,15 +70,15 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1486853492705456}
-  m_LocalRotation: {x: 0.18301043, y: -0.6830133, z: -0.6830133, w: -0.18301043}
-  m_LocalPosition: {x: -6.499502, y: 0, z: 39.240448}
+  m_LocalRotation: {x: 0.18301049, y: -0.68301344, z: -0.6830132, w: -0.1830104}
+  m_LocalPosition: {x: -6.2, y: 0, z: 42.4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4995252717093048}
   - {fileID: 4691880194002894}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: -90, y: 0, z: -30}
+  m_LocalEulerAnglesHint: {x: -89.99999, y: 0, z: -30}
 --- !u!4 &4691880194002894
 Transform:
   m_ObjectHideFlags: 1
@@ -171,7 +171,7 @@ HingeJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 0, y: 0, z: 1}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 6.5, y: 0, z: -39.75}
+  m_ConnectedAnchor: {x: 6.2002764, y: 0, z: -42.39996}
   m_UseSpring: 0
   m_Spring:
     spring: 16000
@@ -185,7 +185,7 @@ HingeJoint:
   m_UseLimits: 1
   m_Limits:
     min: 0
-    max: 50
+    max: 60
     bounciness: 0
     bounceMinVelocity: 0.2
     contactDistance: 0
@@ -201,7 +201,7 @@ MeshCollider:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1486853492705456}
-  m_Material: {fileID: 13400000, guid: 8dabd28a59bc31d409db7cf60a979929, type: 2}
+  m_Material: {fileID: 13400000, guid: 8049c98a414824a4b85114bea621b8c1, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 3

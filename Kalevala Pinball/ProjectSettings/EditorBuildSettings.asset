@@ -5,6 +5,9 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Valtteri's TestZone.unity
     guid: b5dad9d17b2b9e04ca4a0797e496a0d8
+  - enabled: 1
+    path: Assets/Scenes/Kalevala Pinball.unity
+    guid: 25b580db5f3a41446a350ca3fa90a174

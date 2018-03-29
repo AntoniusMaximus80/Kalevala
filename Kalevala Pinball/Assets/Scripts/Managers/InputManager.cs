@@ -289,6 +289,11 @@ namespace Kalevala {
             if (Input.GetAxis(_LEFTFLIPPERHIT) != 0)
             {
                 _leftFlipper.UseMotor();
+
+                if (_leftFlipper.IsReset)
+                {
+                    Rollover.RollLeft();
+                }
             }
             else
             {
@@ -299,12 +304,18 @@ namespace Kalevala {
             {
                 _rightFlipper.UseMotor();
                 _topRightFlipper.UseMotor();
+
+                if (_rightFlipper.IsReset)
+                {
+                    Rollover.RollRight();
+                }
             }
             else
             {
                 _rightFlipper.UseSpring();
                 _topRightFlipper.UseSpring();
             }
+
         }
 
         private void DoNudge(int direction)

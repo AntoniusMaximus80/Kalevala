@@ -15,7 +15,8 @@ namespace Kalevala
             DropTarget,
             IlmarinenKOH,
             TeleportKOH,
-            TuonelaRollover
+            TuonelaRollover,
+            Skillshot
         }
 
         public int _totalScore,
@@ -25,7 +26,8 @@ namespace Kalevala
             _dropTarget,
             _ilmarinenKOH,
             _teleportKOH,
-            _tuonelaRollover
+            _tuonelaRollover,
+            _skillshot
            ;
 
         public TextMeshProUGUI _scoreUGUI,
@@ -99,6 +101,9 @@ namespace Kalevala
                     break;
                 case ScoreType.TuonelaRollover:
                     _score += _tuonelaRollover * Rollover.ScoreMultiplier;
+                    break;
+                case ScoreType.Skillshot:
+                    _score += _skillshot;
                     break;
                 default:
                     Debug.LogError("ScoreType not recognized.");
