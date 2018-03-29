@@ -9,10 +9,10 @@ FBXHeaderExtension:  {
 		Year: 2018
 		Month: 3
 		Day: 29
-		Hour: 11
-		Minute: 8
-		Second: 24
-		Millisecond: 843
+		Hour: 14
+		Minute: 24
+		Second: 13
+		Millisecond: 543
 	}
 	Creator: "FBX SDK/FBX Plugins version 2018.1"
 	SceneInfo: "SceneInfo::GlobalInfo", "UserData" {
@@ -34,13 +34,13 @@ FBXHeaderExtension:  {
 			P: "Original|ApplicationVendor", "KString", "", "", "Autodesk"
 			P: "Original|ApplicationName", "KString", "", "", "3ds Max"
 			P: "Original|ApplicationVersion", "KString", "", "", "2018"
-			P: "Original|DateTime_GMT", "DateTime", "", "", "29/03/2018 08:08:24.840"
+			P: "Original|DateTime_GMT", "DateTime", "", "", "29/03/2018 11:24:13.542"
 			P: "Original|FileName", "KString", "", "", "C:\Users\Antonius Maximus\Desktop\Kalevala\Kalevala Pinball\Assets\Models\Playfield Reflector.FBX"
 			P: "LastSaved", "Compound", "", ""
 			P: "LastSaved|ApplicationVendor", "KString", "", "", "Autodesk"
 			P: "LastSaved|ApplicationName", "KString", "", "", "3ds Max"
 			P: "LastSaved|ApplicationVersion", "KString", "", "", "2018"
-			P: "LastSaved|DateTime_GMT", "DateTime", "", "", "29/03/2018 08:08:24.840"
+			P: "LastSaved|DateTime_GMT", "DateTime", "", "", "29/03/2018 11:24:13.542"
 			P: "Original|ApplicationActiveProject", "KString", "", "", "C:\Users\Antonius Maximus\Documents\3dsMax"
 			P: "Original|ApplicationNativeFile", "KString", "", "", "C:\Users\Antonius Maximus\Dropbox\+ Spring 2018 Project\Kalevala Pinball.max"
 		}
@@ -77,7 +77,7 @@ GlobalSettings:  {
 
 Documents:  {
 	Count: 1
-	Document: 1744738426688, "", "Scene" {
+	Document: 1744747047552, "", "Scene" {
 		Properties70:  {
 			P: "SourceObject", "object", "", ""
 			P: "ActiveAnimStackName", "KString", "", "", ""
@@ -239,12 +239,12 @@ Definitions:  {
 ;------------------------------------------------------------------
 
 Objects:  {
-	Geometry: 1745061646832, "Geometry::", "Mesh" {
+	Geometry: 1745259406944, "Geometry::", "Mesh" {
 		Properties70:  {
 			P: "Color", "ColorRGB", "Color", "",0.882352941176471,0.56078431372549,0.341176470588235
 		}
 		Vertices: *12 {
-			a: -12.5965671539307,-33.9527435302734,-4.99933958053589e-05,47.5083160400391,-33.9527435302734,-4.99933958053589e-05,47.5083160400391,28.3721885681152,-4.99933958053589e-05,-12.5965671539307,28.3721885681152,-4.99933958053589e-05
+			a: -12.5965671539307,-33.9527435302734,-4.99933958053589e-05,47.5083160400391,-33.9527435302734,-4.99933958053589e-05,47.5083160400391,16.2594146728516,-4.99933958053589e-05,-12.596565246582,16.2594146728516,-4.99933958053589e-05
 		} 
 		PolygonVertexIndex: *4 {
 			a: 2,3,0,-2
@@ -271,7 +271,7 @@ Objects:  {
 			MappingInformationType: "ByPolygonVertex"
 			ReferenceInformationType: "IndexToDirect"
 			UV: *8 {
-				a: 0,2.38418579101563e-07,0.999999701976776,0,0.999999940395355,0.999999761581421,2.38418579101563e-07,1
+				a: 0,2.98023223876953e-07,0.99999988079071,0,1,0.999999701976776,2.08616256713867e-07,1
 			} 
 			UVIndex: *4 {
 				a: 2,3,0,1
@@ -315,7 +315,7 @@ Objects:  {
 			}
 		}
 	}
-	Model: 1745581911408, "Model::Playfield Reflector", "Mesh" {
+	Model: 1745750224384, "Model::Playfield Reflector", "Mesh" {
 		Version: 232
 		Properties70:  {
 			P: "PreRotation", "Vector3D", "Vector", "",-90,-0,0
@@ -331,7 +331,7 @@ Objects:  {
 		Shading: T
 		Culling: "CullingOff"
 	}
-	Material: 1745460780736, "Material::Placeholder", "" {
+	Material: 1744309746352, "Material::Placeholder", "" {
 		Version: 102
 		ShadingModel: "phong"
 		MultiLayer: 0
@@ -353,7 +353,7 @@ Objects:  {
 			P: "Reflectivity", "double", "Number", "",0
 		}
 	}
-	AnimationStack: 1745377510848, "AnimStack::Take 001", "" {
+	AnimationStack: 1745580432608, "AnimStack::Take 001", "" {
 		Properties70:  {
 			P: "LocalStop", "KTime", "Time", "",7389785280
 			P: "ReferenceStop", "KTime", "Time", "",7389785280
@@ -367,11 +367,11 @@ Objects:  {
 Connections:  {
 	
 	;Model::Playfield Reflector, Model::RootNode
-	C: "OO",1745581911408,0
+	C: "OO",1745750224384,0
 	
 	;Geometry::, Model::Playfield Reflector
-	C: "OO",1745061646832,1745581911408
+	C: "OO",1745259406944,1745750224384
 	
 	;Material::Placeholder, Model::Playfield Reflector
-	C: "OO",1745460780736,1745581911408
+	C: "OO",1744309746352,1745750224384
 }
