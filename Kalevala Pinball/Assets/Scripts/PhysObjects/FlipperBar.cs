@@ -23,6 +23,8 @@ namespace Kalevala
 
         void Start()
         {
+            GetComponent<Rigidbody>().maxAngularVelocity = 0; // Set the maximum angular velocity to infinite.
+
             _pinballManager = FindObjectOfType<PinballManager>();
 
             _hingeJoint = GetComponent<HingeJoint>();
