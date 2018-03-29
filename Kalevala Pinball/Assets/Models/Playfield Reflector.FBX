@@ -1,18 +1,18 @@
-; FBX 7.5.0 project file
+; FBX 7.4.0 project file
 ; ----------------------------------------------------
 
 FBXHeaderExtension:  {
 	FBXHeaderVersion: 1003
-	FBXVersion: 7500
+	FBXVersion: 7400
 	CreationTimeStamp:  {
 		Version: 1000
 		Year: 2018
 		Month: 3
-		Day: 19
-		Hour: 16
-		Minute: 38
-		Second: 48
-		Millisecond: 731
+		Day: 29
+		Hour: 11
+		Minute: 8
+		Second: 24
+		Millisecond: 843
 	}
 	Creator: "FBX SDK/FBX Plugins version 2018.1"
 	SceneInfo: "SceneInfo::GlobalInfo", "UserData" {
@@ -28,21 +28,21 @@ FBXHeaderExtension:  {
 			Comment: ""
 		}
 		Properties70:  {
-			P: "DocumentUrl", "KString", "Url", "", "C:\Users\Toni\Desktop\Kalevala\Kalevala Pinball\Assets\Models\Playfield Reflector.FBX"
-			P: "SrcDocumentUrl", "KString", "Url", "", "C:\Users\Toni\Desktop\Kalevala\Kalevala Pinball\Assets\Models\Playfield Reflector.FBX"
+			P: "DocumentUrl", "KString", "Url", "", "C:\Users\Antonius Maximus\Desktop\Kalevala\Kalevala Pinball\Assets\Models\Playfield Reflector.FBX"
+			P: "SrcDocumentUrl", "KString", "Url", "", "C:\Users\Antonius Maximus\Desktop\Kalevala\Kalevala Pinball\Assets\Models\Playfield Reflector.FBX"
 			P: "Original", "Compound", "", ""
 			P: "Original|ApplicationVendor", "KString", "", "", "Autodesk"
 			P: "Original|ApplicationName", "KString", "", "", "3ds Max"
 			P: "Original|ApplicationVersion", "KString", "", "", "2018"
-			P: "Original|DateTime_GMT", "DateTime", "", "", "19/03/2018 14:38:48.729"
-			P: "Original|FileName", "KString", "", "", "C:\Users\Toni\Desktop\Kalevala\Kalevala Pinball\Assets\Models\Playfield Reflector.FBX"
+			P: "Original|DateTime_GMT", "DateTime", "", "", "29/03/2018 08:08:24.840"
+			P: "Original|FileName", "KString", "", "", "C:\Users\Antonius Maximus\Desktop\Kalevala\Kalevala Pinball\Assets\Models\Playfield Reflector.FBX"
 			P: "LastSaved", "Compound", "", ""
 			P: "LastSaved|ApplicationVendor", "KString", "", "", "Autodesk"
 			P: "LastSaved|ApplicationName", "KString", "", "", "3ds Max"
 			P: "LastSaved|ApplicationVersion", "KString", "", "", "2018"
-			P: "LastSaved|DateTime_GMT", "DateTime", "", "", "19/03/2018 14:38:48.729"
-			P: "Original|ApplicationActiveProject", "KString", "", "", "C:\Users\Toni\Documents\3dsMax"
-			P: "Original|ApplicationNativeFile", "KString", "", "", "C:\Users\Toni\Dropbox\+ Spring 2018 Project\Kalevala Pinball.max"
+			P: "LastSaved|DateTime_GMT", "DateTime", "", "", "29/03/2018 08:08:24.840"
+			P: "Original|ApplicationActiveProject", "KString", "", "", "C:\Users\Antonius Maximus\Documents\3dsMax"
+			P: "Original|ApplicationNativeFile", "KString", "", "", "C:\Users\Antonius Maximus\Dropbox\+ Spring 2018 Project\Kalevala Pinball.max"
 		}
 	}
 }
@@ -65,7 +65,7 @@ GlobalSettings:  {
 		P: "TimeProtocol", "enum", "", "",2
 		P: "SnapOnFrameMode", "enum", "", "",0
 		P: "TimeSpanStart", "KTime", "Time", "",0
-		P: "TimeSpanStop", "KTime", "Time", "",90524869680
+		P: "TimeSpanStop", "KTime", "Time", "",7389785280
 		P: "CustomFrameRate", "double", "Number", "",-1
 		P: "TimeMarker", "Compound", "", ""
 		P: "CurrentTimeMarker", "int", "Integer", "",-1
@@ -77,7 +77,7 @@ GlobalSettings:  {
 
 Documents:  {
 	Count: 1
-	Document: 2309369273088, "", "Scene" {
+	Document: 1744738426688, "", "Scene" {
 		Properties70:  {
 			P: "SourceObject", "object", "", ""
 			P: "ActiveAnimStackName", "KString", "", "", ""
@@ -239,7 +239,7 @@ Definitions:  {
 ;------------------------------------------------------------------
 
 Objects:  {
-	Geometry: 2309378243584, "Geometry::", "Mesh" {
+	Geometry: 1745061646832, "Geometry::", "Mesh" {
 		Properties70:  {
 			P: "Color", "ColorRGB", "Color", "",0.882352941176471,0.56078431372549,0.341176470588235
 		}
@@ -315,14 +315,14 @@ Objects:  {
 			}
 		}
 	}
-	Model: 2309635408400, "Model::Playfield Reflector", "Mesh" {
+	Model: 1745581911408, "Model::Playfield Reflector", "Mesh" {
 		Version: 232
 		Properties70:  {
 			P: "PreRotation", "Vector3D", "Vector", "",-90,-0,0
 			P: "RotationActive", "bool", "", "",1
 			P: "InheritType", "enum", "", "",1
 			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
-			P: "GeometricTranslation", "Vector3D", "Vector", "",-14.9393882751465,-24.2819766998291,-0.400000035762787
+			P: "GeometricTranslation", "Vector3D", "Vector", "",-14.9393882751465,-24.2819766998291,-0.0999994575977325
 			P: "GeometricScaling", "Vector3D", "Vector", "",0.855837225914001,0.855837225914001,0.999999821186066
 			P: "DefaultAttributeIndex", "int", "Integer", "",0
 			P: "Lcl Scaling", "Lcl Scaling", "", "A",0.01,0.01,0.01
@@ -331,7 +331,7 @@ Objects:  {
 		Shading: T
 		Culling: "CullingOff"
 	}
-	Material: 2309352381568, "Material::Placeholder", "" {
+	Material: 1745460780736, "Material::Placeholder", "" {
 		Version: 102
 		ShadingModel: "phong"
 		MultiLayer: 0
@@ -353,10 +353,10 @@ Objects:  {
 			P: "Reflectivity", "double", "Number", "",0
 		}
 	}
-	AnimationStack: 2309485214144, "AnimStack::Take 001", "" {
+	AnimationStack: 1745377510848, "AnimStack::Take 001", "" {
 		Properties70:  {
-			P: "LocalStop", "KTime", "Time", "",90524869680
-			P: "ReferenceStop", "KTime", "Time", "",90524869680
+			P: "LocalStop", "KTime", "Time", "",7389785280
+			P: "ReferenceStop", "KTime", "Time", "",7389785280
 		}
 	}
 }
@@ -367,11 +367,11 @@ Objects:  {
 Connections:  {
 	
 	;Model::Playfield Reflector, Model::RootNode
-	C: "OO",2309635408400,0
+	C: "OO",1745581911408,0
 	
 	;Geometry::, Model::Playfield Reflector
-	C: "OO",2309378243584,2309635408400
+	C: "OO",1745061646832,1745581911408
 	
 	;Material::Placeholder, Model::Playfield Reflector
-	C: "OO",2309352381568,2309635408400
+	C: "OO",1745460780736,1745581911408
 }
