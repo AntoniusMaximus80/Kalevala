@@ -12,6 +12,8 @@ namespace Kalevala
 
         public PlayfieldLight _light;
 
+        public int order;
+
         public float downPositionZ = -.5f;
 
         public float duration = .5f;
@@ -22,7 +24,7 @@ namespace Kalevala
 
         private float _elapsedTime;
 
-        private static List<Rollover> _instances = new List<Rollover>();
+        private static Rollover[] _instances = new Rollover[7];
 
         private static AudioSource _leftSound, _rightSound;
 
@@ -51,7 +53,7 @@ namespace Kalevala
 
             Init();
 
-            _instances.Add(this);
+            _instances[order] = this;
 
             if (_leftSound == null)
             {
@@ -114,6 +116,11 @@ namespace Kalevala
             _count++;
 
             //if(IsComplete) ChangeGameMode();
+
+        }
+
+        private void RollLeft()
+        {
 
         }
 

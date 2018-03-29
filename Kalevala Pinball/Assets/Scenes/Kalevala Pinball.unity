@@ -509,6 +509,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   wire: {fileID: 97721303}
   _light: {fileID: 1514737317}
+  order: 3
   downPositionZ: -0.5
   duration: 0.5
 --- !u!65 &97721302
@@ -2927,6 +2928,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   wire: {fileID: 533560192}
   _light: {fileID: 295190326}
+  order: 4
   downPositionZ: -0.5
   duration: 0.5
 --- !u!65 &533560191
@@ -4111,6 +4113,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   wire: {fileID: 737871380}
   _light: {fileID: 1122345870}
+  order: 2
   downPositionZ: -0.5
   duration: 0.5
 --- !u!65 &737871379
@@ -5629,6 +5632,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   wire: {fileID: 1202434628}
   _light: {fileID: 1455797382}
+  order: 1
   downPositionZ: -0.5
   duration: 0.5
 --- !u!65 &1202434627
@@ -10396,6 +10400,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   wire: {fileID: 1567879959}
   _light: {fileID: 1607100746}
+  order: 6
   downPositionZ: -0.5
   duration: 0.5
 --- !u!65 &1567879958
@@ -10615,6 +10620,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   wire: {fileID: 1580688115}
   _light: {fileID: 1940568475}
+  order: 5
   downPositionZ: -0.5
   duration: 0.5
 --- !u!65 &1580688114
@@ -11346,6 +11352,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   wire: {fileID: 1869006359}
   _light: {fileID: 1879417263}
+  order: 0
   downPositionZ: -0.5
   duration: 0.5
 --- !u!65 &1869006358
