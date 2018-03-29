@@ -81,11 +81,19 @@ namespace Kalevala
         private Pinball _pinballPrefab;
 
         private List<Pinball> _pinballs;
+        private List<Pinball> _autosavedPinballs;
 
         private int _currentBallAmount, _activeBalls;
         private int _nudgesLeft;
-        
-        private bool noNudges;
+
+        [SerializeField] // Serialized for debugging purposes only
+        private float _autosaveTimeRemaining;
+
+        [SerializeField]
+        private Vector3 _shootAgainLightPos; // Debugging purposes only
+
+        private bool _shootAgain;
+        private bool _noNudges;
 
         private void Awake()
         {
@@ -104,7 +112,14 @@ namespace Kalevala
 
         private void Start()
         {
+            _autosavedPinballs = new List<Pinball>();
+
             ResetGame();
+        }
+
+        private void Update()
+        {
+            UpdateAutosave();
         }
 
         /// <summary>
@@ -116,7 +131,7 @@ namespace Kalevala
             
             if (_allowedNudgeAmount <= 0)
             {
-                noNudges = true;
+                _noNudges = true;
             }
 
             if (!debug_useDefaultLaunchPoint &&
@@ -126,7 +141,24 @@ namespace Kalevala
             }
         }
 
-        public bool ShootAgain { get; set; }
+        public bool Autosave { get; private set; }
+
+        public bool ShootAgain
+        {
+            get
+            {
+                return _shootAgain;
+            }
+            set
+            {
+                _shootAgain = value;
+
+                if (value)
+                {
+                    Debug.Log("Shoot Again activated");
+                }
+            }
+        }
 
         public bool Tilt { get; private set; }
 
@@ -193,9 +225,11 @@ namespace Kalevala
             _currentBallAmount = _startingBallAmount;
             _nudgesLeft = _allowedNudgeAmount;
             Tilt = false;
+            Autosave = false;
             ShootAgain = false;
 
             _pinballs = new List<Pinball>(FindObjectsOfType<Pinball>());
+            _autosavedPinballs.Clear();
             _activeBalls = _pinballs.Count;
             Debug.Log("Total balls : " + _currentBallAmount.ToString());
             Debug.Log("Initial balls : " + _activeBalls.ToString());
@@ -210,6 +244,41 @@ namespace Kalevala
             {
                 ball.UpdatePinball();
             }
+        }
+
+        private void UpdateAutosave()
+        {
+            if (Autosave)
+            {
+                if (_autosavedPinballs.Count > 0 &&
+                    Launcher.Instance.LaunchAreaIsEmpty)
+                {
+                    ReturnBallToLauncher
+                        (_autosavedPinballs[0], true);
+                    _autosavedPinballs.RemoveAt(0);
+                }
+
+                _autosaveTimeRemaining -= Time.deltaTime;
+
+                // The autosave is deactivated and the queue is cleared
+                if (_autosaveTimeRemaining <= 0)
+                {
+                    Autosave = false;
+                    _autosavedPinballs.Clear();
+                }
+            }
+        }
+
+        /// <summary>
+        /// Activates Autosave for the given duration.
+        /// </summary>
+        /// <param name="duration">The duration of Autosave in seconds</param>
+        public void ActivateAutosave(float duration)
+        {
+            Autosave = true;
+            _autosaveTimeRemaining = duration;
+
+            Debug.Log("Autosave activated");
         }
 
         public void ResetPinball()
@@ -292,7 +361,7 @@ namespace Kalevala
 
         /// <summary>
         /// Returns the ball next to the launcher.
-        /// If Shoot Again is lit, the ball is not lost.
+        /// If Autosave or Shoot Again is active, the ball is not lost.
         /// </summary>
         /// <param name="ball">A pinball that went down the drain</param>
         /// <param name="lauchFreeBallOnly">Is the ball returned to the
@@ -302,14 +371,36 @@ namespace Kalevala
         {
             // Returns the ball next to the launcher if it's
             // free or if also non-free balls can be launched
-            if (ShootAgain || !lauchFreeBallOnly)
+            if (Autosave)
+            {
+                // The ball is returned to the launcher if there's not
+                // already a ball there. If there is, the ball is added
+                // to a queue and will be returned to the launcher when
+                // the previous one is launched.
+                if (Launcher.Instance.LaunchAreaIsEmpty)
+                {
+                    InstanceNextBall(ball);
+                }
+                else
+                {
+                    _autosavedPinballs.Add(ball);
+                }
+            }
+            else if (ShootAgain || !lauchFreeBallOnly)
             {
                 InstanceNextBall(ball);
             }
 
-            // The ball is not lost but Shoot Again becomes unlit
-            if (ShootAgain)
+            // The ball is not lost
+            if (Autosave)
             {
+                Debug.Log("Ball autosaved");
+                return false;
+            }
+            // The ball is not lost but Shoot Again becomes unlit
+            else if (ShootAgain)
+            {
+                Debug.Log("Shooting ball again");
                 ShootAgain = false;
                 return false;
             }
@@ -436,7 +527,7 @@ namespace Kalevala
 
         public bool SpendNudge()
         {
-            if (!noNudges && _nudgesLeft > 0)
+            if (!_noNudges && _nudgesLeft > 0)
             {
                 _nudgesLeft--;
 
@@ -455,6 +546,20 @@ namespace Kalevala
         {
             DrawBallLaunchPoint();
             DrawBallDrainAreaBorders();
+
+            // Debugging purposes only, remove when an actual lights are implemented
+            // Shoot Again light
+            if (ShootAgain)
+            {
+                Gizmos.color = Color.yellow;
+                Gizmos.DrawSphere(_shootAgainLightPos, 1);
+            }
+            // Autosave light
+            if (Autosave)
+            {
+                Gizmos.color = Color.green;
+                Gizmos.DrawSphere(_shootAgainLightPos + Vector3.right * 2.2f, 1);
+            }
         }
 
         private void DrawBallLaunchPoint()

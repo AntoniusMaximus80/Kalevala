@@ -26,7 +26,8 @@ namespace Kalevala
         {
             bool stateChanged = false;
 
-            if (PinballManager.Instance.OutOfBalls())
+            // Transitions to the Game Over screen
+            if (PinballManager.Instance.OutOfBalls)
             {
                 Owner.PerformTransition(ScreenStateType.GameOver);
                 Owner.EndGame(true);

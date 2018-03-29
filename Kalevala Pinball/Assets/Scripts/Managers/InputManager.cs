@@ -341,10 +341,16 @@ namespace Kalevala {
                 PinballManager.Instance.DebugLoseBall();
             }
 
-            // Lighting 'Shoot Again'
-            if (Input.GetKeyDown(KeyCode.U))
+            // Activating 'Shoot Again'
+            if (Input.GetKeyDown(KeyCode.Y))
             {
                 PinballManager.Instance.ShootAgain = true;
+            }
+
+            // Activating 15 seconds of autosave
+            if (Input.GetKeyDown(KeyCode.U))
+            {
+                PinballManager.Instance.ActivateAutosave(15);
             }
 
             // Toggling heat map visibility

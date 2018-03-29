@@ -1705,6 +1705,7 @@ MonoBehaviour:
   _ilmarinenKOH: 0
   _teleportKOH: 0
   _tuonelaRollover: 0
+  _skillshot: 0
   _scoreUGUI: {fileID: 0}
   _incrementUGUI: {fileID: 0}
   _incrementVisible: 0.5
@@ -2250,6 +2251,8 @@ MonoBehaviour:
   _ballDrainTopRightCorner: {x: 10, y: 1.35, z: -48}
   _startingPosition: {fileID: 0}
   _pinballPrefab: {fileID: 0}
+  _autosaveTimeRemaining: 0
+  _shootAgainLightPos: {x: -1.45, y: -0.19, z: -45.82}
 --- !u!114 &114635116687291534
 MonoBehaviour:
   m_ObjectHideFlags: 1

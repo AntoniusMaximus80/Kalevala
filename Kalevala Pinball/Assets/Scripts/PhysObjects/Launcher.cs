@@ -151,6 +151,21 @@ namespace Kalevala
             StateManager.ShowLaunch();
         }
 
+        public bool LaunchAreaIsEmpty
+        {
+            // TODO:
+            // There will be a design flaw if autosave feature
+            // is implemented and the player starts a multiball:
+            // either the gates block launched balls or any ball
+            // can return to the launch area.
+            // Solve this.
+
+            get
+            {
+                return _gatesClosed;
+            }
+        }
+
         private void OnDrawGizmos()
         {
             Gizmos.color = Color.white;
