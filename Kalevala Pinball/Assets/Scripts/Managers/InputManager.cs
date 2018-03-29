@@ -41,6 +41,8 @@ namespace Kalevala {
         private MouseCursorController _cursor;
         private HeatMap _heatMap;
 
+        private bool _alwaysDisplayScoreboard;
+        private bool _pauseMenuActive;
         //private bool _gameOver;
 
         /// <summary>
@@ -82,14 +84,27 @@ namespace Kalevala {
             // Hides the scoreboard by default
             _highscoreList.Visible = false;
 
+            // Registers to listen to the GameOver event.
             // When the GameOver event is triggered, the first
             // button in the game over menu is highlighted
             _stateManager.GameOver += HighlightGameOverMenuButton;
+
+            // Registers to listen to the PauseMenuActivated event.
+            // Makes the scoreboard visible and doesn't allow
+            // hiding it in the pause menu
+            _stateManager.PauseMenuActivated += PauseMenuEntered;
+
+            // Registers to listen to the PauseMenuDeactivated event.
+            // Changes the scoreboard's visibility to what it
+            // was before accessing the pause menu
+            _stateManager.PauseMenuDeactivated += PauseMenuExited;
         }
 
         private void OnDestroy()
         {
             _stateManager.GameOver -= HighlightGameOverMenuButton;
+            _stateManager.PauseMenuActivated -= PauseMenuEntered;
+            _stateManager.PauseMenuDeactivated -= PauseMenuExited;
         }
 
         /// <summary>
@@ -99,18 +114,14 @@ namespace Kalevala {
         {
             UpdateMouseControl();
 
+            ScoreboardInput();
+
             if (_confirmation.Active)
             {
                 ConfirmationInput();
             }
             else
             {
-                // Toggling scoreboard visibility
-                if (Input.GetButtonUp(_SHOW_SCORES))
-                {
-                    _highscoreList.Visible = !_highscoreList.Visible;
-                }
-
                 switch (_stateManager.CurrentScreenState.State)
                 {
                     case ScreenStateType.MainMenu:
@@ -144,19 +155,10 @@ namespace Kalevala {
             DebugInput();
         }
 
-        /// <summary>
-        /// Highlights the first button in the game over
-        /// menu if the mouse cursor is hidden.
-        /// </summary>
-        private void HighlightGameOverMenuButton(bool saveScore)
-        {
-            HighlightMenuDefaultButton();
-        }
-
         private void MainMenuInput()
         {
             // Debugging:
-            // Goes straight to the game
+            // Goes straight to play mode
             if (GameManager.Instance.debug_SkipMainMenu)
             {
                 StartGame(true);
@@ -188,6 +190,39 @@ namespace Kalevala {
                 Input.GetButtonUp(_PAUSE))
             {
                 SaveSettings(false);
+            }
+
+            // Debugging
+            // TODO: UI for these settings
+
+            // Volume control
+            if (Input.GetKey(KeyCode.UpArrow))
+            {
+                GameManager.Instance.MusicVolume =
+                    Mathf.Clamp(GameManager.Instance.MusicVolume + 0.01f, 0, 1);
+            }
+            if (Input.GetKey(KeyCode.DownArrow))
+            {
+                GameManager.Instance.MusicVolume =
+                    Mathf.Clamp(GameManager.Instance.MusicVolume - 0.01f, 0, 1);
+            }
+
+            // Changing the camera mode
+            if (Input.GetKeyUp(KeyCode.F))
+            {
+                GameManager.Instance.SetCameraMode
+                    (CameraController.CameraType.Default);
+            }
+            if (Input.GetKeyUp(KeyCode.G))
+            {
+                GameManager.Instance.SetCameraMode
+                    (CameraController.CameraType.Horizontal);
+            }
+
+            // Reset highscores
+            if (Input.GetKeyUp(KeyCode.R))
+            {
+                GameManager.Instance.EraseLocalHighscores();
             }
         }
 
@@ -295,10 +330,37 @@ namespace Kalevala {
                 PinballManager.Instance.DebugLoseBall();
             }
 
-            // Toggle heat map visibility
+            // Toggling heat map visibility
             if (Input.GetKeyDown(KeyCode.H))
             {
                 _heatMap.Visible = !_heatMap.Visible;
+            }
+
+            // Moving the camera
+            if (Input.GetKeyUp(KeyCode.V))
+            {
+                GameManager.Instance.SetCameraFocus
+                    (CameraController.CameraPosition.Playfield);
+            }
+            if (Input.GetKeyUp(KeyCode.B))
+            {
+                GameManager.Instance.SetCameraFocus
+                    (CameraController.CameraPosition.Kantele);
+            }
+            if (Input.GetKeyUp(KeyCode.N))
+            {
+                GameManager.Instance.SetCameraFocus
+                    (CameraController.CameraPosition.Launcher);
+            }
+        }
+
+        private void ScoreboardInput()
+        {
+            // Toggling scoreboard visibility
+            if (!_pauseMenuActive && Input.GetButtonUp(_SHOW_SCORES))
+            {
+                _highscoreList.Visible = !_highscoreList.Visible;
+                _alwaysDisplayScoreboard = _highscoreList.Visible;
             }
         }
 
@@ -432,9 +494,7 @@ namespace Kalevala {
             }
             else
             {
-                // TODO: Save settings
-                //GameManager.Instance.SaveSettings();
-
+                GameManager.Instance.SaveSettings();
                 ExitSettings();
             }
         }
@@ -473,8 +533,6 @@ namespace Kalevala {
         /// </summary>
         private void UpdateMouseControl()
         {
-            
-
             if (_cursor.PlayingUsingMouse)
             {
                 // Disables the use of the mouse cursor if
@@ -570,6 +628,34 @@ namespace Kalevala {
                     Utils.SelectButton(defaultSelectedButton);
                 }
             }
+        }
+
+        /// <summary>
+        /// Highlights the first button in the game over
+        /// menu if the mouse cursor is hidden.
+        /// </summary>
+        private void HighlightGameOverMenuButton(bool saveScore)
+        {
+            HighlightMenuDefaultButton();
+        }
+
+        /// <summary>
+        /// Makes the scoreboard visible.
+        /// </summary>
+        private void PauseMenuEntered()
+        {
+            _pauseMenuActive = true;
+            _highscoreList.Visible = true;
+        }
+
+        /// <summary>
+        /// Changes the scoreboard's visibility to what
+        /// it was before accessing the pause menu.
+        /// </summary>
+        private void PauseMenuExited()
+        {
+            _pauseMenuActive = false;
+            _highscoreList.Visible = _alwaysDisplayScoreboard;
         }
     }
 }

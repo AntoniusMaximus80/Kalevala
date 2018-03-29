@@ -51,8 +51,9 @@ namespace Kalevala
 
         private StateManager _stateManager;
         private Playfield _playfield;
+        private CameraController _cameraCtrl;
         private HighscoreList _highscoreList;
-        private SaveSystem saveSystem;
+        private SaveSystem _saveSystem;
 
         private IList<LanguageStateBase> _langStates =
             new List<LanguageStateBase>();
@@ -120,6 +121,11 @@ namespace Kalevala
             Init();
         }
 
+        private void Start()
+        {
+            InitAudio();
+        }
+
         private void Update()
         {
             //InitScene();
@@ -141,10 +147,8 @@ namespace Kalevala
             }
 
             // Initializes the save system and loads data
-            saveSystem = new SaveSystem(new JSONPersistence(SavePath));
+            _saveSystem = new SaveSystem(new JSONPersistence(SavePath));
             LoadGame();
-
-            DontDestroyOnLoad(gameObject);
 
             // Initializes states
             _stateManager = FindObjectOfType<StateManager>();
@@ -159,12 +163,17 @@ namespace Kalevala
                 Debug.LogError("Playfield object not found in the scene.");
             }
 
+            _cameraCtrl = FindObjectOfType<CameraController>();
+            if (_cameraCtrl == null)
+            {
+                Debug.LogError
+                    ("CameraController object not found in the scene.");
+            }
+
             // Initializes languages
             InitLanguages();
 
-            // Creates a new MusicPlayer instance
-            // if one does not already exist
-            //MusicPlayer.Instance.Create();
+            DontDestroyOnLoad(gameObject);
         }
 
         private void InitLanguages()
@@ -175,6 +184,15 @@ namespace Kalevala
             _langStates.Add(lang_finnish);
 
             SetLanguage(_defaultLanguage);
+        }
+
+        private void InitAudio()
+        {
+            // Creates a new MusicPlayer instance
+            // if one does not already exist
+            //MusicPlayer.Instance.Create();
+
+            MusicPlayer.Instance.SetVolume(MusicVolume);
         }
 
         public void SetLanguage(LanguageStateType language)
@@ -242,11 +260,24 @@ namespace Kalevala
             }
         }
 
-        public void ResetAll()
+        /// <summary>
+        /// Resets the playfield and the current score for a clean start.
+        /// </summary>
+        public void ResetPlay()
         {
             PinballManager.Instance.ResetGame();
-            Scorekeeper.Instance.ResetScore();
             _playfield.ResetPlayfield();
+            Scorekeeper.Instance.ResetScore();
+        }
+
+        /// <summary>
+        /// Erases local highscores and saves the game.
+        /// </summary>
+        public void EraseLocalHighscores()
+        {
+            _highscoreList.ResetList();
+            _highscoreList.UpdateScoreboard();
+            SaveGame("Saving reset highscores");
         }
 
         //private void InitFade()
@@ -279,44 +310,55 @@ namespace Kalevala
         /// <summary>
         /// Gets highscore data and stores it to a data object.
         /// </summary>
-        public void SaveGame()
+        /// <param name="saveMessage">A printed message</param>
+        public void SaveGame(string saveMessage = "Saving game")
         {
-            Debug.Log("--[ Saving game ]--");
+            // Default save message
+            if (saveMessage.Length == 0)
+            {
+                saveMessage = "Saving game";
+            }
+
+            // Prints the save message
+            Debug.Log("--[ " + saveMessage + " ]--");
 
             GameData data = new GameData();
 
             // Gets highscores and stores them to the data
-            HighscoreList.FetchHighscoreData(ref data);
+            HighscoreList.FetchHighscoreData(data);
 
-            saveSystem.Save(data);
+            _saveSystem.Save(data);
 
-            Debug.Log("--[ Game saved ]--");
+            // Prints a save success message 
+            Debug.Log("--[ Saved ]--");
         }
 
         public void LoadGame()
         {
             Debug.Log("--[ Loading game ]--");
 
-            GameData data = saveSystem.Load();
+            GameData data = _saveSystem.Load();
 
             // Loads highscores and sets them to the scoreboard
             HighscoreList.LoadHighscores(data);
 
-            //MusicVolume = PlayerPrefs.GetFloat("musicVolume", 0.5f);
-            //EffectVolume = PlayerPrefs.GetFloat("effectVolume", 0.5f);
+            // Loads audio volumes but doesn't set them to the audio
+            // players because they have not been initialized yet
+            _musicVolume = PlayerPrefs.GetFloat("musicVolume", 0.25f);
+            _effectVolume = PlayerPrefs.GetFloat("effectVolume", 0.25f);
 
             Debug.Log("--[ Game loaded ]--");
         }
 
         public void SaveSettings()
         {
-            // TODO
-
             // Note: Saved data can be found in
             // regedit > Tietokone\HKEY_CURRENT_USER\Software\Unity\UnityEditor\TeamAF\not - broforce
 
-            //PlayerPrefs.SetFloat("musicVolume", MusicVolume);
-            //PlayerPrefs.SetFloat("effectVolume", EffectVolume);
+            Debug.Log("musicVolume: " + _musicVolume);
+            Debug.Log("effectVolume: " + _effectVolume);
+            PlayerPrefs.SetFloat("musicVolume", MusicVolume);
+            PlayerPrefs.SetFloat("effectVolume", EffectVolume);
 
             PlayerPrefs.Save();
             Debug.Log("Settings saved");
@@ -330,6 +372,16 @@ namespace Kalevala
             //changingScene = false;
             //sceneChanged = true;
             SceneManager.LoadScene(sceneName);
+        }
+
+        public void SetCameraMode(CameraController.CameraType camType)
+        {
+            _cameraCtrl.SetCurrentCamera(camType);
+        }
+
+        public void SetCameraFocus(CameraController.CameraPosition camPos)
+        {
+            _cameraCtrl.MoveCurrentCamTo(camPos, false);
         }
     }
 }

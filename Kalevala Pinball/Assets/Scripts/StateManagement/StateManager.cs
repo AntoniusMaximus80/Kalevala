@@ -42,6 +42,16 @@ namespace Kalevala
         /// </summary>
         public event Action<bool> GameOver;
 
+        /// <summary>
+        /// An event which is fired when the pause menu is activated.
+        /// </summary>
+        public event Action PauseMenuActivated;
+
+        /// <summary>
+        /// An event which is fired when the pause menu is deactivated.
+        /// </summary>
+        public event Action PauseMenuDeactivated;
+
         private void Awake()
         {
             // Store the focus canvas statically.
@@ -103,7 +113,7 @@ namespace Kalevala
 
         public void StartNewGame()
         {
-            GameManager.Instance.ResetAll();
+            GameManager.Instance.ResetPlay();
             PerformTransition(ScreenStateType.Play);
         }
 
@@ -133,7 +143,7 @@ namespace Kalevala
 
         public bool PerformTransition(ScreenStateType targetState)
         {
-            Debug.Log("Next screen: " + targetState);
+            //Debug.Log("Next screen: " + targetState);
 
             if (!CurrentScreenState.CheckTransition(targetState))
             {
@@ -147,6 +157,7 @@ namespace Kalevala
             ScreenStateBase state = GetStateByType(targetState);
             if (state != null)
             {
+                // The pause state if it is currently active
                 ScreenState_Pause pauseState =
                     CurrentScreenState as ScreenState_Pause;
 
@@ -216,7 +227,8 @@ namespace Kalevala
             return null;
 
             // Does the same as all of the previous lines
-            //return _screenStates.FirstOrDefault(state => state.State == stateType);
+            //return _screenStates.FirstOrDefault
+            //    (state => state.State == stateType);
         }
 
         private GameModeStateBase GetStateByType(GameModeStateType stateType)
@@ -284,60 +296,42 @@ namespace Kalevala
             _staticFocusShow.SetActive(false);
         }
 
-        //private void SetScreen(ScreenStateBase state)
-        //{
-        //    //ShowOrHideMenu(state.State);
+        /// <summary>
+        /// Fires the PauseMenuActivated event.
+        /// </summary>
+        public void ActivatePauseMenu()
+        {
+            PauseMenuActivated();
+        }
 
-        //    CurrentScreenState = state;
-        //    CurrentScreenState.Activate();
-        //    _screen = CurrentScreenState.State;
-        //}
+        /// <summary>
+        /// Fires the PauseMenuDeactivated event.
+        /// </summary>
+        public void DeactivatePauseMenu()
+        {
+            PauseMenuDeactivated();
+        }
 
-        //private void SetGameMode(GameModeStateBase state)
-        //{
-        //    CurrentGameModeState = state;
-        //    CurrentGameModeState.Activate();
-        //    _gameMode = CurrentGameModeState.State;
-        //}
+        /// <summary>
+        /// Checks whether the game is paused or not.
+        /// Can check if the game is either in the
+        /// pause menu only or in any menu.
+        /// </summary>
+        /// <param name="anyMenu">Is any menu accepted</param>
+        /// <returns>Is the game paused</returns>
+        public bool GameIsPaused(bool anyMenu)
+        {
+            // Pause menu is checked in any case
+            bool result = (CurrentScreenState.State == ScreenStateType.Pause);
 
-        //private void ShowOrHideMenu(ScreenStateType enteredState)
-        //{
-        //    switch (enteredState)
-        //    {
-        //        case ScreenStateType.Play:
-        //        {
-        //            SetScreenActive(_mainMenu, false);
-        //            SetScreenActive(_pauseMenu, false);
-        //            //SetScreenActive(_settingsMenu, false);
-        //            break;
-        //        }
-        //        case ScreenStateType.MainMenu:
-        //        {
-        //            SetScreenActive(_pauseMenu, false);
-        //            SetScreenActive(_mainMenu, true);
-        //            break;
-        //        }
-        //        case ScreenStateType.Pause:
-        //        {
-        //            SetScreenActive(_settingsMenu, false);
-        //            SetScreenActive(_pauseMenu, true);
-        //            break;
-        //        }
-        //        case ScreenStateType.SettingsMenu:
-        //        {
-        //            SetScreenActive(_pauseMenu, false);
-        //            SetScreenActive(_settingsMenu, true);
-        //            break;
-        //        }
-        //    }
-        //}
+            // Other menus are checked only if anyMenu is true
+            if (!result && anyMenu)
+            {
+                result = (CurrentScreenState.State == ScreenStateType.MainMenu ||
+                          CurrentScreenState.State == ScreenStateType.SettingsMenu);
+            }
 
-        //private void SetScreenActive(GameObject screen, bool active)
-        //{
-        //    if (screen != null && screen.activeSelf != active)
-        //    {
-        //        screen.SetActive(active);
-        //    }
-        //}
+            return result;
+        }
     }
 }

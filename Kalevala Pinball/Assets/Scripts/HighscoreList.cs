@@ -92,7 +92,7 @@ namespace Kalevala
                     AddScore(playerName, score, i);
 
                     // Saves all highscores to a file
-                    GameManager.Instance.SaveGame();
+                    GameManager.Instance.SaveGame("Saving new highscore");
 
                     // Updates the scoreboard
                     UpdateScoreboard();
@@ -180,7 +180,7 @@ namespace Kalevala
             scoreSlotTransform.anchoredPosition = newPos;
         }
 
-        private void UpdateScoreboard()
+        public void UpdateScoreboard()
         {
             for (int i = 0; i < _scoreSlots.Count; i++)
             {
@@ -188,7 +188,7 @@ namespace Kalevala
             }
         }
 
-        public void FetchHighscoreData(ref GameData data)
+        public void FetchHighscoreData(GameData data)
         {
             foreach (Highscore highscore in _highscores)
             {
@@ -208,8 +208,7 @@ namespace Kalevala
             // saves default scores and returns
             if (data == null)
             {
-                Debug.Log("Saving default scores");
-                GameManager.Instance.SaveGame();
+                GameManager.Instance.SaveGame("Saving default scores");
                 return;
             }
 
@@ -233,7 +232,7 @@ namespace Kalevala
             UpdateScoreboard();
         }
 
-        private void ResetList()
+        public void ResetList()
         {
             for (int i = 0; i < _highscores.Length; i++)
             {

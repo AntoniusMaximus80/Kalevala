@@ -35,6 +35,15 @@ namespace Kalevala
                 playTimeScale = Time.timeScale;
                 Time.timeScale = 0f;
             }
+
+            Owner.ActivatePauseMenu();
+        }
+
+        public override void Deactivate()
+        {
+            base.Deactivate();
+
+            Owner.DeactivatePauseMenu();
         }
 
         /// <summary>
