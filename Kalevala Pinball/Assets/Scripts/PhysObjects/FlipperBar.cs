@@ -93,7 +93,7 @@ namespace Kalevala
         {
             get
             {
-                return Mathf.Abs(_hingeJoint.angle) < 10f;
+                return Mathf.Abs(_hingeJoint.angle) < 5f;
             }
         }
     }
