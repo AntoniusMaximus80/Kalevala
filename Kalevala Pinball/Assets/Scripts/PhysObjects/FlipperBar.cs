@@ -88,5 +88,13 @@ namespace Kalevala
                 _flipperBarDownAudioSource.Play();
             }
         }
+
+        public bool IsReset
+        {
+            get
+            {
+                return Mathf.Abs(_hingeJoint.angle) < 10f;
+            }
+        }
     }
 }

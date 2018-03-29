@@ -119,9 +119,51 @@ namespace Kalevala
 
         }
 
-        private void RollLeft()
+        public static void RollLeft()
         {
+            bool[] current = new bool[7];
+            foreach(Rollover r in _instances)
+            {
+                current[r.order] = r._down;
+            }
 
+            foreach (Rollover r in _instances)
+            {
+                r.SetValue(current[(r.order+1)%6]);
+            }
+        }
+
+        public static void RollRight()
+        {
+            bool[] current = new bool[7];
+            foreach (Rollover r in _instances)
+            {
+                current[r.order] = r._down;
+            }
+
+            foreach (Rollover r in _instances)
+            {
+                r.SetValue(current[(r.order==0?6:r.order-1)]);
+            }
+        }
+
+        private void SetValue(bool newValue)
+        {
+            if(newValue != _down)
+            {
+                _elapsedTime = duration - _elapsedTime;
+            }
+
+            _down = newValue;
+
+            if(_down)
+            {
+                _light.TurnOn();
+            }
+            else
+            {
+                _light.TurnOff();
+            }
         }
 
     }
