@@ -11,8 +11,11 @@ namespace Kalevala
 
         private bool _skillshotSuccesful;
 
+        private SkillShotGate[] _gates;
+
         private void Awake()
         {
+            _gates = FindObjectsOfType<SkillShotGate>();
             PathDeactivate();
         }
         private void OnTriggerStay( Collider other )
@@ -24,6 +27,7 @@ namespace Kalevala
                 {
                     _skillshotSuccesful = true;
                     PathActivate();
+                    Scorekeeper.Instance.AddScore(Scorekeeper.ScoreType.Skillshot);
                 }
             }
         }
@@ -36,6 +40,13 @@ namespace Kalevala
 
         public void PathActivate()
         {
+            if(_gates.Length > 0)
+            {
+                foreach(SkillShotGate gate in _gates)
+                {
+                    gate.CloseGate();
+                }
+            }
             _skillshotPath.SetActive(true);
         }
 
