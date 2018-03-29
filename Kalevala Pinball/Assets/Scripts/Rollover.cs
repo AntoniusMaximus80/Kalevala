@@ -129,7 +129,7 @@ namespace Kalevala
 
             foreach (Rollover r in _instances)
             {
-                r.SetValue(current[(r.order+1)%6]);
+                r.SetValue(current[(r.order+1)%7]);
             }
         }
 
