@@ -341,6 +341,12 @@ namespace Kalevala {
                 PinballManager.Instance.DebugLoseBall();
             }
 
+            // Lighting 'Shoot Again'
+            if (Input.GetKeyDown(KeyCode.U))
+            {
+                PinballManager.Instance.ShootAgain = true;
+            }
+
             // Toggling heat map visibility
             if (Input.GetKeyDown(KeyCode.H))
             {

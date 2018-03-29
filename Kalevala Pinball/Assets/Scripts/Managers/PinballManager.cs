@@ -86,7 +86,48 @@ namespace Kalevala
         private int _nudgesLeft;
         
         private bool noNudges;
-       
+
+        private void Awake()
+        {
+            if (instance == null)
+            {
+                instance = this;
+            }
+            else if (instance != this)
+            {
+                Destroy(gameObject);
+                return;
+            }
+
+            Init();
+        }
+
+        private void Start()
+        {
+            ResetGame();
+        }
+
+        /// <summary>
+        /// Initializes the object.
+        /// </summary>
+        private void Init()
+        {
+            _ballDrainTopRightCorner.y = _ballDrainBottomLeftCorner.y;
+            
+            if (_allowedNudgeAmount <= 0)
+            {
+                noNudges = true;
+            }
+
+            if (!debug_useDefaultLaunchPoint &&
+                _startingPosition != null)
+            {
+                LaunchPoint = _startingPosition.position;
+            }
+        }
+
+        public bool ShootAgain { get; set; }
+
         public bool Tilt { get; private set; }
 
         public Vector3 LaunchPoint
@@ -147,50 +188,12 @@ namespace Kalevala
             }
         }
 
-        private void Awake()
-        {
-            if (instance == null)
-            {
-                instance = this;
-            }
-            else if (instance != this)
-            {
-                Destroy(gameObject);
-                return;
-            }
-
-            Init();
-        }
-
-        private void Start()
-        {
-            ResetGame();
-        }
-
-        /// <summary>
-        /// Initializes the object.
-        /// </summary>
-        private void Init()
-        {
-            _ballDrainTopRightCorner.y = _ballDrainBottomLeftCorner.y;
-            
-            if (_allowedNudgeAmount <= 0)
-            {
-                noNudges = true;
-            }
-
-            if (!debug_useDefaultLaunchPoint &&
-                _startingPosition != null)
-            {
-                LaunchPoint = _startingPosition.position;
-            }
-        }
-
         public void ResetGame()
         {
             _currentBallAmount = _startingBallAmount;
             _nudgesLeft = _allowedNudgeAmount;
             Tilt = false;
+            ShootAgain = false;
 
             _pinballs = new List<Pinball>(FindObjectsOfType<Pinball>());
             _activeBalls = _pinballs.Count;
@@ -222,11 +225,14 @@ namespace Kalevala
             if (_pinballs.Count > 0)
             {
                 // Removes all extra balls from play
+                _activeBalls = 1;
+
                 for (int i = 0; i < _pinballs.Count; i++)
                 {
-                    RemoveBall(_pinballs[i], true);
+                    _pinballs[i].gameObject.SetActive(false);
                 }
 
+                _pinballs[0].gameObject.SetActive(true);
                 InstanceNextBall(_pinballs[0]);
             }
 
@@ -236,9 +242,12 @@ namespace Kalevala
             //}
         }
 
-        public bool OutOfBalls()
+        public bool OutOfBalls
         {
-            return _currentBallAmount <= 0;
+            get
+            {
+                return _currentBallAmount <= 0;
+            }
         }
 
         public bool CheckIfBallIsLost(Pinball ball, bool freeBalls)
@@ -253,7 +262,7 @@ namespace Kalevala
                 }
                 else
                 {
-                    RemoveBall(ball, false);
+                    RemoveBall(ball);
                 }
 
                 return true;
@@ -276,37 +285,80 @@ namespace Kalevala
         public void InstanceNextBall(Pinball ball)
         {
             ball.transform.position = _ballLaunchPoint;
+            ball.StopMotion();
             //ball.SetPhysicsEnabled(false);
             Launcher.Instance.StartLaunch(ball);
         }
 
-        public void RemoveBall(Pinball pinball, bool removeExtraBallsOnly)
+        /// <summary>
+        /// Returns the ball next to the launcher.
+        /// If Shoot Again is lit, the ball is not lost.
+        /// </summary>
+        /// <param name="ball">A pinball that went down the drain</param>
+        /// <param name="lauchFreeBallOnly">Is the ball returned to the
+        /// launcher only if it's free</param>
+        /// <returns>Is the ball lost</returns>
+        public bool ReturnBallToLauncher(Pinball ball, bool lauchFreeBallOnly)
         {
-            if (Tilt)
+            // Returns the ball next to the launcher if it's
+            // free or if also non-free balls can be launched
+            if (ShootAgain || !lauchFreeBallOnly)
             {
-                Tilt = false;
+                InstanceNextBall(ball);
             }
+
+            // The ball is not lost but Shoot Again becomes unlit
+            if (ShootAgain)
+            {
+                ShootAgain = false;
+                return false;
+            }
+            // The ball is lost
+            else
+            {
+                return true;
+            }
+        }
+
+        public void RemoveBall(Pinball pinball)
+        {
+            Tilt = false;
 
             if (_activeBalls > 1)
             {
-                pinball.gameObject.SetActive(false);
-                _activeBalls--;
-            }
-            else if (!removeExtraBallsOnly)
-            {
-                if (!OutOfBalls())
-                {
-                    InstanceNextBall(pinball);
-                    _currentBallAmount--;
+                // Returns the ball next to the launcher
+                // only if Shoot Again is lit
+                bool ballLost = ReturnBallToLauncher(pinball, true);
 
-                    if (OutOfBalls())
+                // Removes the ball from play
+                if (ballLost)
+                {
+                    pinball.gameObject.SetActive(false);
+                    _activeBalls--;
+                }
+            }
+            else
+            {
+                if (!OutOfBalls)
+                {
+                    // Returns the ball next to the launcher
+                    // and gets whether the ball is lost
+                    bool ballLost = ReturnBallToLauncher(pinball, false);
+
+                    if (ballLost)
+                    {
+                        _currentBallAmount--;
+                    }
+
+                    if (OutOfBalls)
                     {
                         Debug.Log("Out of balls - game over");
                         GameManager.Instance.GameOver(true);
                     }
                     else
                     {
-                        Debug.Log("Balls left : " + _currentBallAmount.ToString());
+                        Debug.Log("Balls left : " +
+                            _currentBallAmount.ToString());
                     }
                 }
                 else
@@ -316,9 +368,12 @@ namespace Kalevala
             }
         }
 
+        /// <summary>
+        /// Removes a ball for debugging purposes.
+        /// </summary>
         public void DebugLoseBall()
         {
-            RemoveBall(_pinballs[0], false);
+            RemoveBall(_pinballs[0]);
         }
 
         /// <summary>
