@@ -22,6 +22,8 @@ namespace Kalevala
         private GameObject _hitParticles;
         [SerializeField]
         private AudioSource _hitSFX;
+        [SerializeField]
+        private float _LauncherAreLeftBorderOffset;
 
         public static Launcher Instance;
         
@@ -33,6 +35,8 @@ namespace Kalevala
         private bool _returnAxeToStartPosition = false;
         private SkillShotGate[] _gates;
         private SkillShotHandler _handler;
+        private bool _gatesClosed = false;
+        private float _launcherAreaLeftBorder;
 
 
         private void Awake()
@@ -48,6 +52,7 @@ namespace Kalevala
             Instance = this;
             _gates = FindObjectsOfType<SkillShotGate>();
             _handler = FindObjectOfType<SkillShotHandler>();
+            _launcherAreaLeftBorder = (transform.position + Vector3.right * _LauncherAreLeftBorderOffset).x;
         }
 
         private void Update()
@@ -69,6 +74,18 @@ namespace Kalevala
             {
                 _returnAxeToStartPosition = false;
                 _takeInput = true;
+            }
+            if(_pinball != null && !_gatesClosed)
+            {
+                if(_pinball.transform.position.x < _launcherAreaLeftBorder )
+                {
+                    foreach(SkillShotGate gate in _gates)
+                    {
+                        gate.CloseGate();
+                    }
+                    Debug.Log("Close the door");
+                    _gatesClosed = true;
+                }
             }
         }
 
@@ -121,6 +138,7 @@ namespace Kalevala
             _pinball = pinball;
             _returnAxeToStartPosition = true;
             _hingejoint.useLimits = true;
+            _gatesClosed = false;
             if(_handler != null)
             {
                 _handler.PathDeactivate();
@@ -131,6 +149,13 @@ namespace Kalevala
             }
 
             StateManager.ShowLaunch();
+        }
+
+        private void OnDrawGizmos()
+        {
+            Gizmos.color = Color.white;
+            Vector3 launcherLeftBorder = transform.position + Vector3.right * _LauncherAreLeftBorderOffset;
+            Gizmos.DrawLine(launcherLeftBorder, Vector3.forward * 80 + launcherLeftBorder);
         }
     }
 }
