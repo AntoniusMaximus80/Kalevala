@@ -128,6 +128,7 @@ namespace Kalevala
             _pinball.AddImpulseForce(Vector3.forward * _launcherForce * _launcherForceMultiplier);
             _launchDone = true;
             _launcherForce = _minForceTime;
+            PinballManager.Instance.ShootAgainDuration = 10f;
 
             StateManager.LaunchOver();
         }
