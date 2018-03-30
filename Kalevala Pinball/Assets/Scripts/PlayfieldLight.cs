@@ -18,4 +18,10 @@ public class PlayfieldLight : MonoBehaviour {
         Up.enabled = false;
         Down.enabled = false;
     }
+
+    public void Switch(bool onoff)
+    {
+        Up.enabled = onoff;
+        Down.enabled = onoff;
+    }
 }

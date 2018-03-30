@@ -50,6 +50,8 @@ namespace Kalevala
         public float _flipperMotorTargetVelocity;
         public float _springForce;
 
+        public PlayfieldLight shootAgainLight;
+
         [SerializeField]
         private float _rampGravity = -7;
 
@@ -90,10 +92,10 @@ namespace Kalevala
         [SerializeField] // Serialized for debugging purposes only
         private float _autosaveTimeRemaining;
 
-        [SerializeField]
-        private Vector3 _shootAgainLightPos; // Debugging purposes only
+        //[SerializeField]
+        //private Vector3 _shootAgainLightPos; // Debugging purposes only
 
-        //private bool _shootAgain;
+        private bool _shootAgain;
         private float _shootAgainTimeOut;
 
         private bool _noNudges;
@@ -122,6 +124,11 @@ namespace Kalevala
 
         private void Update()
         {
+            if(_shootAgain!= _shootAgainTimeOut > Time.time)
+            {
+                _shootAgain = _shootAgainTimeOut > Time.time;
+                shootAgainLight.Switch(_shootAgain);
+            }
             UpdateAutosave();
         }
 
@@ -564,18 +571,14 @@ namespace Kalevala
             DrawBallDrainAreaBorders();
 
             // Debugging purposes only, remove when an actual lights are implemented
-            // Shoot Again light
-            if (ShootAgain)
-            {
-                Gizmos.color = Color.yellow;
-                Gizmos.DrawSphere(_shootAgainLightPos, 1);
-            }
+            // Not sure about the autosave light, but I removed the shoot again light as unnecessary
+            // since Toni did the light long time ago and that broke the auto save light, oops!
             // Autosave light
-            if (Autosave)
-            {
-                Gizmos.color = Color.green;
-                Gizmos.DrawSphere(_shootAgainLightPos + Vector3.right * 2.2f, 1);
-            }
+            //if (Autosave)
+            //{
+            //    Gizmos.color = Color.green;
+            //    Gizmos.DrawSphere(_LightPos + Vector3.right * 2.2f, 1);
+            //}
         }
 
         private void DrawBallLaunchPoint()
