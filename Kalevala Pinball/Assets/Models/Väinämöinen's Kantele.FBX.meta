@@ -1,0 +1,326 @@
+fileFormatVersion: 2
+guid: 8f9e4d763a966e146a9613f8df46950d
+timeCreated: 1522393285
+licenseType: Free
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: Back Big Tooth
+    100002: Back Big Tooth001
+    100004: Big Tooth
+    100006: Big Tooth001
+    100008: Big Tooth002
+    100010: Big Tooth003
+    100012: Big Tooth004
+    100014: Big Tooth005
+    100016: Big Tooth006
+    100018: Big Tooth007
+    100020: Bolt
+    100022: Bolt001
+    100024: Bolt002
+    100026: Bolt003
+    100028: Bolt004
+    100030: Bumper.001
+    100032: Bumper.002
+    100034: Bumper.003
+    100036: Bumper.004
+    100038: Bumper.005
+    100040: Bumper.006
+    100042: Bumper.007
+    100044: Bumper.008
+    100046: Jaw
+    100048: Peg
+    100050: Peg001
+    100052: Peg002
+    100054: Peg003
+    100056: Peg004
+    100058: Small Tooth
+    100060: Small Tooth001
+    100062: Small Tooth002
+    100064: Small Tooth003
+    100066: Small Tooth004
+    100068: Small Tooth005
+    100070: Small Tooth006
+    100072: Small Tooth007
+    100074: Small Tooth008
+    100076: Small Tooth009
+    100078: Small Tooth010
+    100080: Small Tooth011
+    100082: Small Tooth012
+    100084: Small Tooth013
+    100086: Small Tooth014
+    100088: Small Tooth015
+    100090: Small Tooth016
+    100092: Small Tooth017
+    100094: //RootNode
+    400000: Back Big Tooth
+    400002: Back Big Tooth001
+    400004: Big Tooth
+    400006: Big Tooth001
+    400008: Big Tooth002
+    400010: Big Tooth003
+    400012: Big Tooth004
+    400014: Big Tooth005
+    400016: Big Tooth006
+    400018: Big Tooth007
+    400020: Bolt
+    400022: Bolt001
+    400024: Bolt002
+    400026: Bolt003
+    400028: Bolt004
+    400030: Bumper.001
+    400032: Bumper.002
+    400034: Bumper.003
+    400036: Bumper.004
+    400038: Bumper.005
+    400040: Bumper.006
+    400042: Bumper.007
+    400044: Bumper.008
+    400046: Jaw
+    400048: Peg
+    400050: Peg001
+    400052: Peg002
+    400054: Peg003
+    400056: Peg004
+    400058: Small Tooth
+    400060: Small Tooth001
+    400062: Small Tooth002
+    400064: Small Tooth003
+    400066: Small Tooth004
+    400068: Small Tooth005
+    400070: Small Tooth006
+    400072: Small Tooth007
+    400074: Small Tooth008
+    400076: Small Tooth009
+    400078: Small Tooth010
+    400080: Small Tooth011
+    400082: Small Tooth012
+    400084: Small Tooth013
+    400086: Small Tooth014
+    400088: Small Tooth015
+    400090: Small Tooth016
+    400092: Small Tooth017
+    400094: //RootNode
+    2100000: No Name
+    2300000: Back Big Tooth
+    2300002: Back Big Tooth001
+    2300004: Big Tooth
+    2300006: Big Tooth001
+    2300008: Big Tooth002
+    2300010: Big Tooth003
+    2300012: Big Tooth004
+    2300014: Big Tooth005
+    2300016: Big Tooth006
+    2300018: Big Tooth007
+    2300020: Bolt
+    2300022: Bolt001
+    2300024: Bolt002
+    2300026: Bolt003
+    2300028: Bolt004
+    2300030: Bumper.001
+    2300032: Bumper.002
+    2300034: Bumper.003
+    2300036: Bumper.004
+    2300038: Bumper.005
+    2300040: Bumper.006
+    2300042: Bumper.007
+    2300044: Bumper.008
+    2300046: Jaw
+    2300048: Peg
+    2300050: Peg001
+    2300052: Peg002
+    2300054: Peg003
+    2300056: Peg004
+    2300058: Small Tooth
+    2300060: Small Tooth001
+    2300062: Small Tooth002
+    2300064: Small Tooth003
+    2300066: Small Tooth004
+    2300068: Small Tooth005
+    2300070: Small Tooth006
+    2300072: Small Tooth007
+    2300074: Small Tooth008
+    2300076: Small Tooth009
+    2300078: Small Tooth010
+    2300080: Small Tooth011
+    2300082: Small Tooth012
+    2300084: Small Tooth013
+    2300086: Small Tooth014
+    2300088: Small Tooth015
+    2300090: Small Tooth016
+    2300092: Small Tooth017
+    3300000: Back Big Tooth
+    3300002: Back Big Tooth001
+    3300004: Big Tooth
+    3300006: Big Tooth001
+    3300008: Big Tooth002
+    3300010: Big Tooth003
+    3300012: Big Tooth004
+    3300014: Big Tooth005
+    3300016: Big Tooth006
+    3300018: Big Tooth007
+    3300020: Bolt
+    3300022: Bolt001
+    3300024: Bolt002
+    3300026: Bolt003
+    3300028: Bolt004
+    3300030: Bumper.001
+    3300032: Bumper.002
+    3300034: Bumper.003
+    3300036: Bumper.004
+    3300038: Bumper.005
+    3300040: Bumper.006
+    3300042: Bumper.007
+    3300044: Bumper.008
+    3300046: Jaw
+    3300048: Peg
+    3300050: Peg001
+    3300052: Peg002
+    3300054: Peg003
+    3300056: Peg004
+    3300058: Small Tooth
+    3300060: Small Tooth001
+    3300062: Small Tooth002
+    3300064: Small Tooth003
+    3300066: Small Tooth004
+    3300068: Small Tooth005
+    3300070: Small Tooth006
+    3300072: Small Tooth007
+    3300074: Small Tooth008
+    3300076: Small Tooth009
+    3300078: Small Tooth010
+    3300080: Small Tooth011
+    3300082: Small Tooth012
+    3300084: Small Tooth013
+    3300086: Small Tooth014
+    3300088: Small Tooth015
+    3300090: Small Tooth016
+    3300092: Small Tooth017
+    4300000: Bumper.002
+    4300002: Bumper.003
+    4300004: Bumper.004
+    4300006: Peg
+    4300008: Back Big Tooth
+    4300010: Bumper.008
+    4300012: Bumper.007
+    4300014: Bumper.006
+    4300016: Big Tooth
+    4300018: Bumper.005
+    4300020: Small Tooth
+    4300022: Jaw
+    4300024: Bolt
+    4300026: Bumper.001
+    4300028: Peg001
+    4300030: Peg002
+    4300032: Peg003
+    4300034: Peg004
+    4300036: Bolt001
+    4300038: Bolt002
+    4300040: Bolt003
+    4300042: Bolt004
+    4300044: Back Big Tooth001
+    4300046: Big Tooth001
+    4300048: Big Tooth002
+    4300050: Big Tooth003
+    4300052: Big Tooth004
+    4300054: Big Tooth005
+    4300056: Big Tooth006
+    4300058: Big Tooth007
+    4300060: Small Tooth001
+    4300062: Small Tooth002
+    4300064: Small Tooth003
+    4300066: Small Tooth004
+    4300068: Small Tooth005
+    4300070: Small Tooth006
+    4300072: Small Tooth007
+    4300074: Small Tooth008
+    4300076: Small Tooth009
+    4300078: Small Tooth010
+    4300080: Small Tooth011
+    4300082: Small Tooth012
+    4300084: Small Tooth013
+    4300086: Small Tooth014
+    4300088: Small Tooth015
+    4300090: Small Tooth016
+    4300092: Small Tooth017
+    9500000: //RootNode
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
