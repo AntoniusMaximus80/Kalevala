@@ -18,7 +18,8 @@ namespace Kalevala
                 // If no instance exists, all the values will be wrong and the code using this will not work anyway.
                 // So there is no real point proofing this again people forgetting to set pinballmanager,
                 // just remind them and stop execution.
-                if (!instance) {
+                if (!instance)
+                {
                     Debug.LogError("No pinballmanager instance set in the scene.");
                     Debug.Break();
                 }
@@ -92,7 +93,9 @@ namespace Kalevala
         [SerializeField]
         private Vector3 _shootAgainLightPos; // Debugging purposes only
 
-        private bool _shootAgain;
+        //private bool _shootAgain;
+        private float _shootAgainTimeOut;
+
         private bool _noNudges;
 
         private void Awake()
@@ -128,7 +131,7 @@ namespace Kalevala
         private void Init()
         {
             _ballDrainTopRightCorner.y = _ballDrainBottomLeftCorner.y;
-            
+
             if (_allowedNudgeAmount <= 0)
             {
                 _noNudges = true;
@@ -147,16 +150,29 @@ namespace Kalevala
         {
             get
             {
-                return _shootAgain;
+                return _shootAgainTimeOut > Time.time;
             }
+
             set
             {
-                _shootAgain = value;
 
                 if (value)
                 {
-                    Debug.Log("Shoot Again activated");
+                    _shootAgainTimeOut = Mathf.Max(_shootAgainTimeOut, Time.time) + 60f;
+                    Debug.Log("Shoot Again activated for one minute");
                 }
+                else
+                {
+                    _shootAgainTimeOut = -1f;
+                }
+            }
+        }
+
+        public float ShootAgainDuration
+        {
+            set
+            {
+                _shootAgainTimeOut = Mathf.Max(_shootAgainTimeOut, Time.time) + value;
             }
         }
 

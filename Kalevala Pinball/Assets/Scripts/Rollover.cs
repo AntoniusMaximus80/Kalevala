@@ -28,7 +28,7 @@ namespace Kalevala
 
         private static AudioSource _leftSound, _rightSound;
 
-        private static int _count;
+        private static int _count, _completedCount;
 
 
         public static bool IsComplete
@@ -43,7 +43,7 @@ namespace Kalevala
         {
             get
             {
-                return _count;
+                return _count + _completedCount;
             }
         }
 
@@ -115,21 +115,33 @@ namespace Kalevala
 
             _count++;
 
-            //if(IsComplete) ChangeGameMode();
+            if (IsComplete)
+            {
+                PinballManager.Instance.ShootAgain = true;
+
+                foreach (Rollover r in _instances)
+                {
+                    r.SetValue(false);
+                }
+
+                _count = 0;
+                _completedCount++;
+
+            }
 
         }
 
         public static void RollLeft()
         {
             bool[] current = new bool[7];
-            foreach(Rollover r in _instances)
+            foreach (Rollover r in _instances)
             {
                 current[r.order] = r._down;
             }
 
             foreach (Rollover r in _instances)
             {
-                r.SetValue(current[(r.order+1)%7]);
+                r.SetValue(current[(r.order + 1) % 7]);
             }
         }
 
@@ -143,20 +155,20 @@ namespace Kalevala
 
             foreach (Rollover r in _instances)
             {
-                r.SetValue(current[(r.order==0?6:r.order-1)]);
+                r.SetValue(current[(r.order == 0 ? 6 : r.order - 1)]);
             }
         }
 
         private void SetValue(bool newValue)
         {
-            if(newValue != _down)
+            if (newValue != _down)
             {
                 _elapsedTime = duration - _elapsedTime;
             }
 
             _down = newValue;
 
-            if(_down)
+            if (_down)
             {
                 _light.TurnOn();
             }
