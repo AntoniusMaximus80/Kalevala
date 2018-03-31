@@ -82,6 +82,10 @@ ModelImporter:
     100148: Upper Hinge001 1
     100150: Upper Hinge002
     100152: Upper Platform
+    100154: Hinge
+    100156: Hinge 1
+    100158: Hinge001
+    100160: Hinge001 1
     400000: Back Big Tooth
     400002: Back Big Tooth001
     400004: Big Tooth
@@ -159,6 +163,10 @@ ModelImporter:
     400148: Upper Hinge001 1
     400150: Upper Hinge002
     400152: Upper Platform
+    400154: Hinge
+    400156: Hinge 1
+    400158: Hinge001
+    400160: Hinge001 1
     2100000: No Name
     2100002: Clear Plastic
     2100004: Steel Blue
@@ -232,6 +240,10 @@ ModelImporter:
     2300134: Upper Hinge001 1
     2300136: Upper Hinge002
     2300138: Upper Platform
+    2300140: Hinge
+    2300142: Hinge 1
+    2300144: Hinge001
+    2300146: Hinge001 1
     3300000: Back Big Tooth
     3300002: Back Big Tooth001
     3300004: Big Tooth
@@ -302,6 +314,10 @@ ModelImporter:
     3300134: Upper Hinge001 1
     3300136: Upper Hinge002
     3300138: Upper Platform
+    3300140: Hinge
+    3300142: Hinge 1
+    3300144: Hinge001
+    3300146: Hinge001 1
     4300000: Bumper.002
     4300002: Bumper.003
     4300004: Bumper.004
@@ -372,6 +388,10 @@ ModelImporter:
     4300134: String002
     4300136: String003
     4300138: String004
+    4300140: Hinge
+    4300142: Hinge
+    4300144: Hinge001
+    4300146: Hinge001
     9500000: //RootNode
   externalObjects: {}
   materials:
