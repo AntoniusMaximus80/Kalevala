@@ -53,6 +53,35 @@ ModelImporter:
     100090: Small Tooth016
     100092: Small Tooth017
     100094: //RootNode
+    100096: Axle
+    100098: Axle001
+    100100: Bolts
+    100102: Mount
+    100104: Platform Door
+    100106: Platform End
+    100108: Right Side Wall
+    100110: Right Side Wall001
+    100112: Side Wall
+    100114: Side Wall Support
+    100116: Side Wall Support001
+    100118: Side Wall Support002
+    100120: Side Wall Support003
+    100122: Side Wall Support004
+    100124: Side Wall Support005
+    100126: Side Wall001
+    100128: String
+    100130: String001
+    100132: String002
+    100134: String003
+    100136: String004
+    100138: Strings
+    100140: Tuning Pegs
+    100142: Twisted Bar Support
+    100144: Upper Hinge
+    100146: Upper Hinge001
+    100148: Upper Hinge001 1
+    100150: Upper Hinge002
+    100152: Upper Platform
     400000: Back Big Tooth
     400002: Back Big Tooth001
     400004: Big Tooth
@@ -101,7 +130,38 @@ ModelImporter:
     400090: Small Tooth016
     400092: Small Tooth017
     400094: //RootNode
+    400096: Axle
+    400098: Axle001
+    400100: Bolts
+    400102: Mount
+    400104: Platform Door
+    400106: Platform End
+    400108: Right Side Wall
+    400110: Right Side Wall001
+    400112: Side Wall
+    400114: Side Wall Support
+    400116: Side Wall Support001
+    400118: Side Wall Support002
+    400120: Side Wall Support003
+    400122: Side Wall Support004
+    400124: Side Wall Support005
+    400126: Side Wall001
+    400128: String
+    400130: String001
+    400132: String002
+    400134: String003
+    400136: String004
+    400138: Strings
+    400140: Tuning Pegs
+    400142: Twisted Bar Support
+    400144: Upper Hinge
+    400146: Upper Hinge001
+    400148: Upper Hinge001 1
+    400150: Upper Hinge002
+    400152: Upper Platform
     2100000: No Name
+    2100002: Clear Plastic
+    2100004: Steel Blue
     2300000: Back Big Tooth
     2300002: Back Big Tooth001
     2300004: Big Tooth
@@ -149,6 +209,29 @@ ModelImporter:
     2300088: Small Tooth015
     2300090: Small Tooth016
     2300092: Small Tooth017
+    2300094: Axle
+    2300096: Axle001
+    2300098: Mount
+    2300100: Platform End
+    2300102: Side Wall
+    2300104: Side Wall Support
+    2300106: Side Wall Support001
+    2300108: Side Wall Support002
+    2300110: Side Wall Support003
+    2300112: Side Wall Support004
+    2300114: Side Wall Support005
+    2300116: Side Wall001
+    2300118: String
+    2300120: String001
+    2300122: String002
+    2300124: String003
+    2300126: String004
+    2300128: Twisted Bar Support
+    2300130: Upper Hinge
+    2300132: Upper Hinge001
+    2300134: Upper Hinge001 1
+    2300136: Upper Hinge002
+    2300138: Upper Platform
     3300000: Back Big Tooth
     3300002: Back Big Tooth001
     3300004: Big Tooth
@@ -196,6 +279,29 @@ ModelImporter:
     3300088: Small Tooth015
     3300090: Small Tooth016
     3300092: Small Tooth017
+    3300094: Axle
+    3300096: Axle001
+    3300098: Mount
+    3300100: Platform End
+    3300102: Side Wall
+    3300104: Side Wall Support
+    3300106: Side Wall Support001
+    3300108: Side Wall Support002
+    3300110: Side Wall Support003
+    3300112: Side Wall Support004
+    3300114: Side Wall Support005
+    3300116: Side Wall001
+    3300118: String
+    3300120: String001
+    3300122: String002
+    3300124: String003
+    3300126: String004
+    3300128: Twisted Bar Support
+    3300130: Upper Hinge
+    3300132: Upper Hinge001
+    3300134: Upper Hinge001 1
+    3300136: Upper Hinge002
+    3300138: Upper Platform
     4300000: Bumper.002
     4300002: Bumper.003
     4300004: Bumper.004
@@ -243,10 +349,33 @@ ModelImporter:
     4300088: Small Tooth015
     4300090: Small Tooth016
     4300092: Small Tooth017
+    4300094: Upper Platform
+    4300096: Twisted Bar Support
+    4300098: Upper Hinge
+    4300100: Axle
+    4300102: Platform End
+    4300104: Upper Hinge001
+    4300106: Upper Hinge002
+    4300108: Upper Hinge001
+    4300110: Axle001
+    4300112: Mount
+    4300114: Side Wall
+    4300116: Side Wall Support
+    4300118: Side Wall Support001
+    4300120: Side Wall Support002
+    4300122: Side Wall001
+    4300124: Side Wall Support003
+    4300126: Side Wall Support004
+    4300128: Side Wall Support005
+    4300130: String
+    4300132: String001
+    4300134: String002
+    4300136: String003
+    4300138: String004
     9500000: //RootNode
   externalObjects: {}
   materials:
-    importMaterials: 1
+    importMaterials: 0
     materialName: 0
     materialSearch: 1
     materialLocation: 1
@@ -279,8 +408,8 @@ ModelImporter:
     addColliders: 0
     importVisibility: 1
     importBlendShapes: 1
-    importCameras: 1
-    importLights: 1
+    importCameras: 0
+    importLights: 0
     swapUVChannels: 0
     generateSecondaryUV: 0
     useFileUnits: 1
@@ -299,7 +428,7 @@ ModelImporter:
     normalImportMode: 0
     tangentImportMode: 3
     normalCalculationMode: 4
-  importAnimation: 1
+  importAnimation: 0
   copyAvatar: 0
   humanDescription:
     serializedVersion: 2
