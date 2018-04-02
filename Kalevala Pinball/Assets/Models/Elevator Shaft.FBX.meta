@@ -1,33 +1,16 @@
 fileFormatVersion: 2
-guid: df5e9353b49f7bb4b88da1699b14ebca
-timeCreated: 1520439252
+guid: 53599b62c30bd8244a05fa6859b377ce
+timeCreated: 1522678196
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
     100000: //RootNode
-    100002: Toy Elevator 1
-    100004: Toy Elevator Shield
-    100006: Base
-    100008: Shield
     400000: //RootNode
-    400002: Toy Elevator 1
-    400004: Toy Elevator Shield
-    400006: Base
-    400008: Shield
-    2100000: Placeholder
-    2300000: Toy Elevator 1
-    2300002: Toy Elevator Shield
-    2300004: Base
-    2300006: Shield
-    3300000: Toy Elevator 1
-    3300002: Toy Elevator Shield
-    3300004: Base
-    3300006: Shield
-    4300000: Toy Elevator
-    4300002: Toy Elevator Shield
-    4300004: Base
-    4300006: Shield
+    2100000: Playfield Surface
+    2300000: //RootNode
+    3300000: //RootNode
+    4300000: Elevator Shaft
     9500000: //RootNode
   externalObjects: {}
   materials:
