@@ -1,0 +1,295 @@
+fileFormatVersion: 2
+guid: 1c57c951f57fe3f4fb39e1cd37fcb53d
+timeCreated: 1522653328
+licenseType: Free
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: Base019
+    100002: Base020
+    100004: Base021
+    100006: Base022
+    100008: Base023
+    100010: Base024
+    100012: Base025
+    100014: //RootNode
+    100016: Left Light
+    100018: Light003
+    100020: Light004
+    100022: Light005
+    100024: Light006
+    100026: Light007
+    100028: Light008
+    100030: Light009
+    100032: Miss Light
+    100034: Miss Light001
+    100036: Miss Light002
+    100038: Miss Light003
+    100040: Miss Light004
+    100042: Miss Lights
+    100044: Panel
+    100046: Right Light
+    100048: Rivet
+    100050: Rivet035
+    100052: Rivet036
+    100054: Rivet037
+    100056: Rivet038
+    100058: Rivet039
+    100060: Rivet040
+    100062: Rivet041
+    100064: Rivet042
+    100066: Rivet043
+    100068: Rivet044
+    100070: Rivet045
+    100072: Rivet046
+    100074: Rivet047
+    100076: Rivet048
+    100078: Rivet049
+    100080: Rivet050
+    100082: Rivet051
+    100084: Rivet052
+    100086: Rivet053
+    100088: Rivet054
+    100090: Rivet055
+    100092: Rivets
+    400000: Base019
+    400002: Base020
+    400004: Base021
+    400006: Base022
+    400008: Base023
+    400010: Base024
+    400012: Base025
+    400014: //RootNode
+    400016: Left Light
+    400018: Light003
+    400020: Light004
+    400022: Light005
+    400024: Light006
+    400026: Light007
+    400028: Light008
+    400030: Light009
+    400032: Miss Light
+    400034: Miss Light001
+    400036: Miss Light002
+    400038: Miss Light003
+    400040: Miss Light004
+    400042: Miss Lights
+    400044: Panel
+    400046: Right Light
+    400048: Rivet
+    400050: Rivet035
+    400052: Rivet036
+    400054: Rivet037
+    400056: Rivet038
+    400058: Rivet039
+    400060: Rivet040
+    400062: Rivet041
+    400064: Rivet042
+    400066: Rivet043
+    400068: Rivet044
+    400070: Rivet045
+    400072: Rivet046
+    400074: Rivet047
+    400076: Rivet048
+    400078: Rivet049
+    400080: Rivet050
+    400082: Rivet051
+    400084: Rivet052
+    400086: Rivet053
+    400088: Rivet054
+    400090: Rivet055
+    400092: Rivets
+    2100000: No Name
+    2100002: Kantele Hero Panel
+    2300000: Base019
+    2300002: Base020
+    2300004: Base021
+    2300006: Base022
+    2300008: Base023
+    2300010: Base024
+    2300012: Base025
+    2300014: Light003
+    2300016: Light004
+    2300018: Light005
+    2300020: Light006
+    2300022: Light007
+    2300024: Light008
+    2300026: Light009
+    2300028: Panel
+    2300030: Rivet
+    2300032: Rivet035
+    2300034: Rivet036
+    2300036: Rivet037
+    2300038: Rivet038
+    2300040: Rivet039
+    2300042: Rivet040
+    2300044: Rivet041
+    2300046: Rivet042
+    2300048: Rivet043
+    2300050: Rivet044
+    2300052: Rivet045
+    2300054: Rivet046
+    2300056: Rivet047
+    2300058: Rivet048
+    2300060: Rivet049
+    2300062: Rivet050
+    2300064: Rivet051
+    2300066: Rivet052
+    2300068: Rivet053
+    2300070: Rivet054
+    2300072: Rivet055
+    3300000: Base019
+    3300002: Base020
+    3300004: Base021
+    3300006: Base022
+    3300008: Base023
+    3300010: Base024
+    3300012: Base025
+    3300014: Light003
+    3300016: Light004
+    3300018: Light005
+    3300020: Light006
+    3300022: Light007
+    3300024: Light008
+    3300026: Light009
+    3300028: Panel
+    3300030: Rivet
+    3300032: Rivet035
+    3300034: Rivet036
+    3300036: Rivet037
+    3300038: Rivet038
+    3300040: Rivet039
+    3300042: Rivet040
+    3300044: Rivet041
+    3300046: Rivet042
+    3300048: Rivet043
+    3300050: Rivet044
+    3300052: Rivet045
+    3300054: Rivet046
+    3300056: Rivet047
+    3300058: Rivet048
+    3300060: Rivet049
+    3300062: Rivet050
+    3300064: Rivet051
+    3300066: Rivet052
+    3300068: Rivet053
+    3300070: Rivet054
+    3300072: Rivet055
+    4300000: Rivet055
+    4300002: Rivet054
+    4300004: Rivet053
+    4300006: Rivet052
+    4300008: Rivet051
+    4300010: Rivet050
+    4300012: Rivet049
+    4300014: Rivet048
+    4300016: Rivet047
+    4300018: Rivet046
+    4300020: Rivet045
+    4300022: Rivet044
+    4300024: Rivet043
+    4300026: Rivet042
+    4300028: Rivet041
+    4300030: Rivet040
+    4300032: Rivet039
+    4300034: Rivet038
+    4300036: Rivet037
+    4300038: Rivet036
+    4300040: Rivet035
+    4300042: Rivet
+    4300044: Panel
+    4300046: Base019
+    4300048: Light003
+    4300050: Base020
+    4300052: Light004
+    4300054: Base025
+    4300056: Light009
+    4300058: Base021
+    4300060: Light005
+    4300062: Base022
+    4300064: Light006
+    4300066: Base023
+    4300068: Light007
+    4300070: Base024
+    4300072: Light008
+    9500000: //RootNode
+  externalObjects: {}
+  materials:
+    importMaterials: 0
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 0
+    importLights: 0
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 0
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
