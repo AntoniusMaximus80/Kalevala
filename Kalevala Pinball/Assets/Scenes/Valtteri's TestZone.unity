@@ -7142,6 +7142,16 @@ Prefab:
       propertyPath: m_Motor.force
       value: 80000
       objectReference: {fileID: 0}
+    - target: {fileID: 59695877476655368, guid: cb8d526b8ed70d347a1e3a90b5970289,
+        type: 2}
+      propertyPath: m_Limits.bounceMinVelocity
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 59695877476655368, guid: cb8d526b8ed70d347a1e3a90b5970289,
+        type: 2}
+      propertyPath: m_EnablePreprocessing
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cb8d526b8ed70d347a1e3a90b5970289, type: 2}
   m_IsPrefabParent: 0
@@ -14503,7 +14513,7 @@ Prefab:
     - target: {fileID: 114602248010753546, guid: 211d40b776f371a499e88a8daab2dc4d,
         type: 2}
       propertyPath: debug_useDefaultLaunchPoint
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 211d40b776f371a499e88a8daab2dc4d, type: 2}
@@ -22791,7 +22801,7 @@ HingeJoint:
   m_BreakForce: Infinity
   m_BreakTorque: Infinity
   m_EnableCollision: 0
-  m_EnablePreprocessing: 1
+  m_EnablePreprocessing: 0
   m_MassScale: 2
   m_ConnectedMassScale: 2
 --- !u!65 &1456441216
@@ -28408,6 +28418,11 @@ Prefab:
       propertyPath: m_Motor.force
       value: 10000
       objectReference: {fileID: 0}
+    - target: {fileID: 59339142755674438, guid: d3f1272fd70bc0d4db95d54a0b8b2b74,
+        type: 2}
+      propertyPath: m_EnablePreprocessing
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d3f1272fd70bc0d4db95d54a0b8b2b74, type: 2}
   m_IsPrefabParent: 0
@@ -29345,6 +29360,11 @@ Prefab:
       propertyPath: m_Motor.force
       value: 80000
       objectReference: {fileID: 0}
+    - target: {fileID: 59344277632517976, guid: 1ef246b180ffafc4ea27fd3c80a57eaa,
+        type: 2}
+      propertyPath: m_EnablePreprocessing
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1ef246b180ffafc4ea27fd3c80a57eaa, type: 2}
   m_IsPrefabParent: 0
@@ -29814,6 +29834,11 @@ Prefab:
         type: 2}
       propertyPath: m_Motor.force
       value: 80000
+      objectReference: {fileID: 0}
+    - target: {fileID: 59344277632517976, guid: 1ef246b180ffafc4ea27fd3c80a57eaa,
+        type: 2}
+      propertyPath: m_EnablePreprocessing
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1ef246b180ffafc4ea27fd3c80a57eaa, type: 2}
