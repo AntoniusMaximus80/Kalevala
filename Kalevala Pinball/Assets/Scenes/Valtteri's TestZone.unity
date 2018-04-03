@@ -4594,11 +4594,11 @@ MonoBehaviour:
     lineCount: 1
     pageCount: 1
     materialCount: 1
-  m_havePropertiesChanged: 0
+  m_havePropertiesChanged: 1
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_isInputParsingRequired: 0
+  m_isInputParsingRequired: 1
   m_inputSource: 0
   m_hasFontAssetChanged: 0
   m_subTextObjects:
@@ -7126,6 +7126,21 @@ Prefab:
     - target: {fileID: 4517897313540764, guid: cb8d526b8ed70d347a1e3a90b5970289, type: 2}
       propertyPath: m_RootOrder
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 59695877476655368, guid: cb8d526b8ed70d347a1e3a90b5970289,
+        type: 2}
+      propertyPath: m_Spring.spring
+      value: 80000
+      objectReference: {fileID: 0}
+    - target: {fileID: 59695877476655368, guid: cb8d526b8ed70d347a1e3a90b5970289,
+        type: 2}
+      propertyPath: m_Motor.targetVelocity
+      value: 80000
+      objectReference: {fileID: 0}
+    - target: {fileID: 59695877476655368, guid: cb8d526b8ed70d347a1e3a90b5970289,
+        type: 2}
+      propertyPath: m_Motor.force
+      value: 80000
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cb8d526b8ed70d347a1e3a90b5970289, type: 2}
@@ -9992,7 +10007,7 @@ MeshCollider:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 566890462}
-  m_Material: {fileID: 13400000, guid: 24ec76bc4ab070744b4ff17fcc84929c, type: 2}
+  m_Material: {fileID: 13400000, guid: 52e12ae3b0a26884db070e1e8c3701aa, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -13143,7 +13158,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 876090092}
   m_LocalRotation: {x: -0, y: -0.9885598, z: 0, w: -0.15082955}
-  m_LocalPosition: {x: 3.5, y: -1.684, z: 23.3}
+  m_LocalPosition: {x: 2.4, y: -1.684, z: 26.63}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 373959047}
@@ -14475,6 +14490,21 @@ Prefab:
       propertyPath: shootAgainLight
       value: 
       objectReference: {fileID: 129548630}
+    - target: {fileID: 114602248010753546, guid: 211d40b776f371a499e88a8daab2dc4d,
+        type: 2}
+      propertyPath: _ballLaunchPoint.x
+      value: 13.467479
+      objectReference: {fileID: 0}
+    - target: {fileID: 114602248010753546, guid: 211d40b776f371a499e88a8daab2dc4d,
+        type: 2}
+      propertyPath: _ballLaunchPoint.z
+      value: -34.187378
+      objectReference: {fileID: 0}
+    - target: {fileID: 114602248010753546, guid: 211d40b776f371a499e88a8daab2dc4d,
+        type: 2}
+      propertyPath: debug_useDefaultLaunchPoint
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 211d40b776f371a499e88a8daab2dc4d, type: 2}
   m_IsPrefabParent: 0
@@ -18198,6 +18228,22 @@ MonoBehaviour:
   _pathType: 2
   _pathColor: {r: 0, g: 0, b: 1, a: 1}
   _drawPath: 1
+--- !u!1 &1356263540 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 100018, guid: 1ab90b44778df1a4eb94c188e10c942b, type: 3}
+  m_PrefabInternal: {fileID: 1842785016}
+--- !u!65 &1356263544
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1356263540}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.48311806, y: 0.6232225, z: 3.2999718}
+  m_Center: {x: 21.16352, y: -8.358414, z: 1.6499859}
 --- !u!1001 &1367771803
 Prefab:
   m_ObjectHideFlags: 0
@@ -18296,6 +18342,10 @@ Prefab:
     - target: {fileID: 400008, guid: df5e9353b49f7bb4b88da1699b14ebca, type: 3}
       propertyPath: m_LocalPosition.z
       value: -9.999949
+      objectReference: {fileID: 0}
+    - target: {fileID: 9500000, guid: df5e9353b49f7bb4b88da1699b14ebca, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: df5e9353b49f7bb4b88da1699b14ebca, type: 3}
@@ -18774,7 +18824,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: -1625534500
+  randomSeed: 939487735
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -22723,18 +22773,18 @@ HingeJoint:
   m_ConnectedAnchor: {x: 25.5, y: 0, z: 34}
   m_UseSpring: 1
   m_Spring:
-    spring: 1000
-    damper: 100
+    spring: 10000
+    damper: 1000
     targetPosition: 1
   m_UseMotor: 0
   m_Motor:
-    targetVelocity: 1000
-    force: 1000
+    targetVelocity: 10000
+    force: 10000
     freeSpin: 0
   m_UseLimits: 1
   m_Limits:
     min: 0
-    max: 20
+    max: 22
     bounciness: 0
     bounceMinVelocity: 0.2
     contactDistance: 0
@@ -22763,7 +22813,7 @@ Rigidbody:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1456441214}
   serializedVersion: 2
-  m_Mass: 5
+  m_Mass: 50
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
@@ -23913,11 +23963,11 @@ MonoBehaviour:
     lineCount: 1
     pageCount: 1
     materialCount: 1
-  m_havePropertiesChanged: 0
+  m_havePropertiesChanged: 1
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_isInputParsingRequired: 0
+  m_isInputParsingRequired: 1
   m_inputSource: 0
   m_hasFontAssetChanged: 0
   m_subTextObjects:
@@ -25191,11 +25241,11 @@ MonoBehaviour:
     lineCount: 1
     pageCount: 1
     materialCount: 1
-  m_havePropertiesChanged: 0
+  m_havePropertiesChanged: 1
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_isInputParsingRequired: 0
+  m_isInputParsingRequired: 1
   m_inputSource: 0
   m_hasFontAssetChanged: 0
   m_subTextObjects:
@@ -26077,6 +26127,22 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!1 &1729747760 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 100016, guid: 1ab90b44778df1a4eb94c188e10c942b, type: 3}
+  m_PrefabInternal: {fileID: 1842785016}
+--- !u!65 &1729747764
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1729747760}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.48311806, y: 0.6232225, z: 3.2999718}
+  m_Center: {x: -16.412975, y: 12.205328, z: 1.6499859}
 --- !u!1 &1730921164
 GameObject:
   m_ObjectHideFlags: 0
@@ -27933,6 +27999,18 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!65 &1842785028
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1842785019}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 3.1535163, y: 0.078541525, z: 2.9000008}
+  m_Center: {x: -1.5740566, y: -0.1649698, z: 0.00000047683622}
 --- !u!1 &1850144009
 GameObject:
   m_ObjectHideFlags: 0
@@ -28308,27 +28386,27 @@ Prefab:
     - target: {fileID: 54057810051128534, guid: d3f1272fd70bc0d4db95d54a0b8b2b74,
         type: 2}
       propertyPath: m_Mass
-      value: 5
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 59339142755674438, guid: d3f1272fd70bc0d4db95d54a0b8b2b74,
         type: 2}
       propertyPath: m_Spring.spring
-      value: 1000
+      value: 10000
       objectReference: {fileID: 0}
     - target: {fileID: 59339142755674438, guid: d3f1272fd70bc0d4db95d54a0b8b2b74,
         type: 2}
       propertyPath: m_Spring.damper
-      value: 100
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 59339142755674438, guid: d3f1272fd70bc0d4db95d54a0b8b2b74,
         type: 2}
       propertyPath: m_Motor.targetVelocity
-      value: 1000
+      value: 10000
       objectReference: {fileID: 0}
     - target: {fileID: 59339142755674438, guid: d3f1272fd70bc0d4db95d54a0b8b2b74,
         type: 2}
       propertyPath: m_Motor.force
-      value: 1000
+      value: 10000
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d3f1272fd70bc0d4db95d54a0b8b2b74, type: 2}
@@ -29248,6 +29326,25 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1486853492705456, guid: 1ef246b180ffafc4ea27fd3c80a57eaa, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 59344277632517976, guid: 1ef246b180ffafc4ea27fd3c80a57eaa,
+        type: 2}
+      propertyPath: m_Spring.spring
+      value: 80000
+      objectReference: {fileID: 0}
+    - target: {fileID: 59344277632517976, guid: 1ef246b180ffafc4ea27fd3c80a57eaa,
+        type: 2}
+      propertyPath: m_Motor.targetVelocity
+      value: 80000
+      objectReference: {fileID: 0}
+    - target: {fileID: 59344277632517976, guid: 1ef246b180ffafc4ea27fd3c80a57eaa,
+        type: 2}
+      propertyPath: m_Motor.force
+      value: 80000
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1ef246b180ffafc4ea27fd3c80a57eaa, type: 2}
   m_IsPrefabParent: 0
@@ -29698,6 +29795,25 @@ Prefab:
     - target: {fileID: 4158322413436454, guid: 1ef246b180ffafc4ea27fd3c80a57eaa, type: 2}
       propertyPath: m_LocalScale.x
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1486853492705456, guid: 1ef246b180ffafc4ea27fd3c80a57eaa, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 59344277632517976, guid: 1ef246b180ffafc4ea27fd3c80a57eaa,
+        type: 2}
+      propertyPath: m_Spring.spring
+      value: 80000
+      objectReference: {fileID: 0}
+    - target: {fileID: 59344277632517976, guid: 1ef246b180ffafc4ea27fd3c80a57eaa,
+        type: 2}
+      propertyPath: m_Motor.targetVelocity
+      value: 80000
+      objectReference: {fileID: 0}
+    - target: {fileID: 59344277632517976, guid: 1ef246b180ffafc4ea27fd3c80a57eaa,
+        type: 2}
+      propertyPath: m_Motor.force
+      value: 80000
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1ef246b180ffafc4ea27fd3c80a57eaa, type: 2}
@@ -30949,11 +31065,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6857320fd1ac9c648992b8d1215ca88a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _kickoutForce: 75
+  _kickoutForce: 200
   _timeToWait: 2
-  _kickDirection: {x: 0.5, y: 0, z: -1}
+  _kickDirection: {x: 0.35, y: 0, z: -1}
   gizmoLenght: 41
-  _teleportEndPosition: {x: 22.9, y: 1, z: 34.6}
+  _teleportEndPosition: {x: 22.04, y: 1, z: 38.4}
   _endRampEntrance: {fileID: 876090093}
 --- !u!114 &2092229643
 MonoBehaviour:

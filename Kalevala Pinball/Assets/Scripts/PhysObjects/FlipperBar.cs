@@ -21,16 +21,18 @@ namespace Kalevala
 
         private PinballManager _pinballManager;
 
+        private bool _flipperMaterialBouncinessChanged = false;
+
         public AudioSource _flipperBarUpAudioSource,
             _flipperBarDownAudioSource;
 
         void Start()
         {
-            GetComponent<Rigidbody>().maxAngularVelocity = 0; // Set the maximum angular velocity to infinite.
             MakeMaterial();
             _pinballManager = FindObjectOfType<PinballManager>();
             _rb = GetComponent<Rigidbody>();
             _hingeJoint = GetComponent<HingeJoint>();
+            _rb.maxAngularVelocity = 0; // Set the maximum angular velocity to infinite.
             _jointSpring = _hingeJoint.spring;
             _jointMotor = _hingeJoint.motor;
 
@@ -45,11 +47,13 @@ namespace Kalevala
 
         private void FixedUpdate()
         {
-            if(_rb.angularVelocity.y > 2 || _rb.angularVelocity.y < -2)
+            if(_rb.angularVelocity.y > 2 || _rb.angularVelocity.y < -2 && !_flipperMaterialBouncinessChanged)
             {
                 _flipperMaterial.bounciness = 0.6f;
-            } else
+                _flipperMaterialBouncinessChanged = true;
+            } else if (_rb.angularVelocity.y < 2 && _rb.angularVelocity.y > -2f && _flipperMaterialBouncinessChanged)
             {
+                _flipperMaterialBouncinessChanged = false;
                 _flipperMaterial.bounciness = 0.2f;
             }
         }
