@@ -47,7 +47,6 @@ namespace Kalevala
         {
             if(_rb.angularVelocity.y > 2 || _rb.angularVelocity.y < -2)
             {
-                Debug.Log(_flipperMaterial.bounciness);
                 _flipperMaterial.bounciness = 0.6f;
             } else
             {
