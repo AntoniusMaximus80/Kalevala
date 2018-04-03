@@ -220,19 +220,27 @@ namespace Kalevala
             //return _screenStates.FirstOrDefault(state => state.State == stateType);
         }
 
-        public ScreenStateType Screen
+        public StateManager StateManager
         {
             get
             {
-                return _stateManager.CurrentScreenState.State;
+                return _stateManager;
             }
         }
 
-        public GameModeStateType GameMode
+        public ScreenStateBase Screen
         {
             get
             {
-                return _stateManager.CurrentGameModeState.State;
+                return _stateManager.CurrentScreenState;
+            }
+        }
+
+        public GameModeStateBase GameMode
+        {
+            get
+            {
+                return _stateManager.CurrentGameModeState;
             }
         }
 

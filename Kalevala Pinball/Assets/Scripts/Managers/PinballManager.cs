@@ -50,8 +50,6 @@ namespace Kalevala
         public float _flipperMotorTargetVelocity;
         public float _springForce;
 
-        public PlayfieldLight shootAgainLight;
-
         [SerializeField]
         private float _rampGravity = -7;
 
@@ -82,6 +80,8 @@ namespace Kalevala
 
         [SerializeField, Tooltip("The prefab for creating extra balls.")]
         private Pinball _pinballPrefab;
+
+        private StatusPanelManager _status;
 
         private List<Pinball> _pinballs;
         private List<Pinball> _autosavedPinballs;
@@ -117,6 +117,7 @@ namespace Kalevala
 
         private void Start()
         {
+            _status = GetComponentInChildren<StatusPanelManager>();
             _autosavedPinballs = new List<Pinball>();
 
             ResetGame();
@@ -124,11 +125,7 @@ namespace Kalevala
 
         private void Update()
         {
-            if(_shootAgain!= _shootAgainTimeOut > Time.time)
-            {
-                _shootAgain = _shootAgainTimeOut > Time.time;
-                shootAgainLight.Switch(_shootAgain);
-            }
+            UpdateShootAgain();
             UpdateAutosave();
         }
 
@@ -150,8 +147,6 @@ namespace Kalevala
                 LaunchPoint = _startingPosition.position;
             }
         }
-
-        public bool Autosave { get; private set; }
 
         public bool ShootAgain
         {
@@ -180,8 +175,11 @@ namespace Kalevala
             set
             {
                 _shootAgainTimeOut = Mathf.Max(_shootAgainTimeOut, Time.time) + value;
+                Debug.Log("Shoot Again activated for " + value + " seconds");
             }
         }
+
+        public bool Autosave { get; private set; }
 
         public bool Tilt { get; private set; }
 
@@ -250,6 +248,7 @@ namespace Kalevala
             Tilt = false;
             Autosave = false;
             ShootAgain = false;
+            _status.ResetStatus();
 
             _pinballs = new List<Pinball>(FindObjectsOfType<Pinball>());
             _autosavedPinballs.Clear();
@@ -266,6 +265,16 @@ namespace Kalevala
             foreach (Pinball ball in _pinballs)
             {
                 ball.UpdatePinball();
+            }
+        }
+
+        private void UpdateShootAgain()
+        {
+            if (_shootAgain != _shootAgainTimeOut > Time.time)
+            {
+                _shootAgain = _shootAgainTimeOut > Time.time;
+                _status.SwitchLight
+                    (StatusPanelManager.PanelType.ShootAgain, _shootAgain);
             }
         }
 

@@ -9,7 +9,7 @@ namespace Kalevala
         None = 0,
         Attract = 1,
         Normal = 2,
-        ForgingOfSampo = 3,
+        Sampo = 3,
         TheftOfSampo = 4,
         Sauna = 5
     }

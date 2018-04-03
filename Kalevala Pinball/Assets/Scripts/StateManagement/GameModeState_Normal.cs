@@ -10,6 +10,7 @@ namespace Kalevala
         public GameModeState_Normal(StateManager owner)
             : base(owner, GameModeStateType.Normal)
         {
+            AddTransition(GameModeStateType.Sampo);
             //AddTransition(GameModeStateType.X);
             //AddTransition(GameModeStateType.Y);
         }

@@ -101,7 +101,9 @@ namespace Kalevala
         private void InitGameModes()
         {
             GameModeState_Normal normal = new GameModeState_Normal(this);
+            GameModeState_Sampo sampo = new GameModeState_Sampo(this);
             _gameModeStates.Add(normal);
+            _gameModeStates.Add(sampo);
 
             SetState(CurrentGameModeState, normal);
         }
@@ -169,18 +171,12 @@ namespace Kalevala
                     pauseState.ResumeGame();
                 }
 
-                // Game over state
-                else if (targetState == ScreenStateType.GameOver)
-                {
-                    GameOver(true);
-                }
-
                 SetState(CurrentScreenState, state);
                 result = true;
             }
             else
             {
-                Debug.LogError(targetState + " object is missing.");
+                Debug.LogError(targetState + " screen object is missing.");
             }
 
             return result;
@@ -205,7 +201,7 @@ namespace Kalevala
             }
             else
             {
-                Debug.LogError(targetState + " object is missing.");
+                Debug.LogError(targetState + " mode object is missing.");
             }
 
             return result;

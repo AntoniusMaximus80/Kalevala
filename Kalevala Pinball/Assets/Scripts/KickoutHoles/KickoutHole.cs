@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -18,6 +19,12 @@ namespace Kalevala
         protected Pinball _ball;
         protected RampEntrance _myEntrance;
         private float _startTime = -1;
+
+        /// <summary>
+        /// An event which is fired when a
+        /// pinball enters the kickout hole.
+        /// </summary>
+        public event Action BallEntered;
 
         public float KickForce
         {
@@ -57,14 +64,15 @@ namespace Kalevala
             }
         }
 
-        protected void BallInsideHole(bool exit)
+        protected virtual void BallInsideHole(bool exit)
         {
-
             _ball.IsInKickoutHole = true;
             _startTime = Time.time;
             _ball.ExitingRamp -= BallInsideHole;
             _ball.SetPhysicsEnabled(false);
 
+            // Fires an event that the status panel manager can listen to
+            BallEntered();
         }
 
         protected virtual void KickOut()
