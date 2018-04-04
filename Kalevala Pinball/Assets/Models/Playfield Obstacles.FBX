@@ -8,11 +8,11 @@ FBXHeaderExtension:  {
 		Version: 1000
 		Year: 2018
 		Month: 4
-		Day: 2
+		Day: 4
 		Hour: 10
-		Minute: 9
-		Second: 48
-		Millisecond: 978
+		Minute: 0
+		Second: 17
+		Millisecond: 295
 	}
 	Creator: "FBX SDK/FBX Plugins version 2018.1"
 	SceneInfo: "SceneInfo::GlobalInfo", "UserData" {
@@ -34,15 +34,15 @@ FBXHeaderExtension:  {
 			P: "Original|ApplicationVendor", "KString", "", "", "Autodesk"
 			P: "Original|ApplicationName", "KString", "", "", "3ds Max"
 			P: "Original|ApplicationVersion", "KString", "", "", "2018"
-			P: "Original|DateTime_GMT", "DateTime", "", "", "02/04/2018 07:09:48.976"
+			P: "Original|DateTime_GMT", "DateTime", "", "", "04/04/2018 07:00:17.294"
 			P: "Original|FileName", "KString", "", "", "C:\Users\Toni\Desktop\Kalevala\Kalevala Pinball\Assets\Models\Playfield Obstacles.FBX"
 			P: "LastSaved", "Compound", "", ""
 			P: "LastSaved|ApplicationVendor", "KString", "", "", "Autodesk"
 			P: "LastSaved|ApplicationName", "KString", "", "", "3ds Max"
 			P: "LastSaved|ApplicationVersion", "KString", "", "", "2018"
-			P: "LastSaved|DateTime_GMT", "DateTime", "", "", "02/04/2018 07:09:48.976"
+			P: "LastSaved|DateTime_GMT", "DateTime", "", "", "04/04/2018 07:00:17.294"
 			P: "Original|ApplicationActiveProject", "KString", "", "", "C:\Users\Toni\Documents\3dsMax"
-			P: "Original|ApplicationNativeFile", "KString", "", "", "C:\Users\Toni\Dropbox\+ Spring 2018 Project\Kalevala Pinball.max"
+			P: "Original|ApplicationNativeFile", "KString", "", "", "C:\Users\Toni\Dropbox\+ Spring 2018 Project\Ukonkuula.max"
 		}
 	}
 }
@@ -77,7 +77,7 @@ GlobalSettings:  {
 
 Documents:  {
 	Count: 1
-	Document: 2158850766752, "", "Scene" {
+	Document: 2528151581456, "", "Scene" {
 		Properties70:  {
 			P: "SourceObject", "object", "", ""
 			P: "ActiveAnimStackName", "KString", "", "", ""
@@ -97,7 +97,7 @@ References:  {
 
 Definitions:  {
 	Version: 100
-	Count: 25
+	Count: 23
 	ObjectType: "GlobalSettings" {
 		Count: 1
 	}
@@ -114,7 +114,7 @@ Definitions:  {
 		}
 	}
 	ObjectType: "Model" {
-		Count: 11
+		Count: 10
 		PropertyTemplate: "FbxNode" {
 			Properties70:  {
 				P: "QuaternionInterpolate", "enum", "", "",0
@@ -202,7 +202,7 @@ Definitions:  {
 		}
 	}
 	ObjectType: "Geometry" {
-		Count: 10
+		Count: 9
 		PropertyTemplate: "FbxMesh" {
 			Properties70:  {
 				P: "Color", "ColorRGB", "Color", "",0.8,0.8,0.8
@@ -249,10 +249,10 @@ Definitions:  {
 ;------------------------------------------------------------------
 
 Objects:  {
-	NodeAttribute: 2160027907440, "NodeAttribute::", "Null" {
+	NodeAttribute: 2527724919856, "NodeAttribute::", "Null" {
 		TypeFlags: "Null"
 	}
-	Geometry: 2159162998240, "Geometry::", "Mesh" {
+	Geometry: 2528155544800, "Geometry::", "Mesh" {
 		Properties70:  {
 			P: "Color", "ColorRGB", "Color", "",0.345098039215686,0.345098039215686,0.882352941176471
 		}
@@ -330,18 +330,18 @@ Objects:  {
 			}
 		}
 	}
-	Geometry: 2159162974848, "Geometry::", "Mesh" {
+	Geometry: 2528155544256, "Geometry::", "Mesh" {
 		Properties70:  {
 			P: "Color", "ColorRGB", "Color", "",0.83921568627451,0.898039215686275,0.650980392156863
 		}
-		Vertices: *24 {
-			a: -2.50303077697754,-5.40533447265625,-2.50339508056641e-06,2.50983047485352,-7.40533447265625,0,-2.50303077697754,0.482465744018555,1.19209289550781e-07,2.50983047485352,3.85400390625,0,-2.50303077697754,-5.40533447265625,2.89999771118164,2.50983047485352,-7.40533447265625,2.90000009536743,-2.50303077697754,0.482465744018555,2.90000033378601,2.50983047485352,3.85400390625,2.90000009536743
+		Vertices: *36 {
+			a: -2.50303077697754,-5.40533447265625,-2.50339508056641e-06,2.50983047485352,-7.40533447265625,0,-2.50303077697754,0.755903244018555,8.34465026855469e-07,2.50983047485352,3.85400390625,0,-2.50303077697754,-5.40533542633057,3.29998207092285,2.50983047485352,-7.40533542633057,3.29998469352722,-2.50303077697754,0.755902290344238,3.29998540878296,2.50983047485352,3.85400295257568,3.29998445510864,-0.348944664001465,3.85399961471558,4.88758087158203e-06,-0.348944664001465,-6.26475811004639,-1.42765634336683e-06,-0.348944664001465,-6.2647590637207,3.29998302459717,-0.348944664001465,3.85399866104126,3.29998922348022
 		} 
-		PolygonVertexIndex: *16 {
-			a: 4,5,7,-7,0,1,5,-5,3,2,6,-8,2,0,4,-7
+		PolygonVertexIndex: *28 {
+			a: 10,11,6,-5,9,10,4,-1,8,11,7,-4,2,0,4,-7,5,7,11,-11,1,5,10,-10,2,6,11,-9
 		} 
-		Edges: *11 {
-			a: 12,8,4,0,1,2,3,5,7,11,9
+		Edges: *18 {
+			a: 12,11,7,3,16,17,2,20,6,10,24,27,23,19,1,0,4,8
 		} 
 		GeometryVersion: 124
 		LayerElementNormal: 0 {
@@ -349,11 +349,11 @@ Objects:  {
 			Name: ""
 			MappingInformationType: "ByPolygonVertex"
 			ReferenceInformationType: "Direct"
-			Normals: *48 {
-				a: -1.93102721368632e-07,-1.52947052356467e-07,1,-1.93102721368632e-07,-1.52947052356467e-07,1,-1.93102721368632e-07,-1.52947052356467e-07,1,-1.93102735579487e-07,-1.52947052356467e-07,1,-0.370568811893463,-0.928804993629456,0,-0.370568752288818,-0.928804934024811,0,-0.370568811893463,-0.928804993629456,0,-0.370568752288818,-0.928804934024811,0,-0.558091223239899,0.829779624938965,0,-0.558091223239899,0.829779624938965,0,-0.558091223239899,0.829779624938965,0,-0.558091223239899,0.829779624938965,0,-1,0,0,-0.999999940395355,0,0,-1,0,0,-0.999999940395355,0,0
+			Normals: *84 {
+				a: -2.22736762367504e-09,-3.95208473946695e-07,1,1.26991238857954e-07,-3.64431713251179e-07,1,-8.02421027401579e-07,-5.85795248753129e-07,1,-8.0242097055816e-07,-5.8579519190971e-07,1,-0.370568782091141,-0.928804993629456,-2.65393907739053e-07,-0.370568782091141,-0.928804993629456,-2.65393907739053e-07,-0.370568752288818,-0.9288050532341,-2.725823549099e-07,-0.370568782091141,-0.9288050532341,-2.7258238333161e-07,-0.463214337825775,0.886246263980865,2.49461550083652e-07,-0.463214635848999,0.886246204376221,2.49461550083652e-07,-1.50117887187662e-06,1,2.88993561525785e-07,-1.50117887187662e-06,1,2.88993561525785e-07,-0.999999940395355,0,0,-1,0,0,-0.999999940395355,0,0,-1,0,0,4.86473481942085e-07,-2.78811739917728e-07,1,4.86473425098666e-07,-2.78811739917728e-07,0.999999940395355,1.26991238857954e-07,-3.64431713251179e-07,1,-2.22736762367504e-09,-3.95208473946695e-07,1,-0.370568752288818,-0.928804934024811,-2.58205432146497e-07,-0.370568811893463,-0.9288050532341,-2.58205460568206e-07,-0.370568782091141,-0.928804993629456,-2.65393907739053e-07,-0.370568782091141,-0.928804993629456,-2.65393907739053e-07,-0.821043252944946,0.570865988731384,1.53175506056868e-07,-0.821043193340302,0.570865988731384,1.53175491846014e-07,-0.463214635848999,0.886246204376221,2.49461550083652e-07,-0.463214337825775,0.886246263980865,2.49461550083652e-07
 			} 
-			NormalsW: *16 {
-				a: 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+			NormalsW: *28 {
+				a: 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 			} 
 		}
 		LayerElementUV: 0 {
@@ -361,11 +361,11 @@ Objects:  {
 			Name: "UVChannel_1"
 			MappingInformationType: "ByPolygonVertex"
 			ReferenceInformationType: "IndexToDirect"
-			UV: *30 {
-				a: -5.96046447753906e-08,-8.34465026855469e-07,0.999999403953552,2.98023223876953e-08,0.299443632364273,5.96046447753906e-08,0,2.98023223876953e-08,-5.96046447753906e-08,0.177630424499512,0.999999403953552,-5.96046447753906e-08,2.08616256713867e-07,0.700556397438049,0.999999940395355,1,0.999999403953552,0.99999988079071,-5.96046447753906e-08,0.999999046325684,0.299443632364273,1,0,0.99999988079071,0.822369575500488,-8.34465026855469e-07,0.822369575500488,0.999999046325684,0.299443632364273,1
+			UV: *48 {
+				a: -5.96046447753906e-08,-8.34465026855469e-07,0.999999403953552,2.98023223876953e-08,0.275158226490021,3.27825546264648e-07,5.96046447753906e-08,2.98023223876953e-08,-5.96046447753906e-08,0.177630305290222,0.999999403953552,-1.19209289550781e-07,2.08616256713867e-07,0.724841713905334,5.96046447753906e-08,1.13792550563812,0.570287883281708,1.72853469848633e-06,0.429711610078812,-4.76837158203125e-07,0.429711610078812,0.101300418376923,0.429712116718292,0.999999582767487,0.429711610078812,1.13792502880096,-5.96046447753906e-08,1.1379246711731,0.570287883281708,1.13792717456818,0.822369575500488,-8.34465026855469e-07,0.822369694709778,1.1379246711731,0.275158315896988,1.13792586326599,0.999999940395355,0.99999988079071,0.999999403953552,1.13792562484741,0.429711610078812,1.13792502880096,3.57627868652344e-07,1.72853469848633e-06,0.275158315896988,1.13792586326599,4.17232513427734e-07,1.13792717456818
 			} 
-			UVIndex: *16 {
-				a: 4,5,7,6,0,1,8,9,3,2,10,11,2,12,13,14
+			UVIndex: *28 {
+				a: 10,11,6,4,9,12,13,0,8,14,7,3,2,15,16,17,5,18,11,10,1,19,20,9,2,22,23,21
 			} 
 		}
 		LayerElementSmoothing: 0 {
@@ -373,8 +373,8 @@ Objects:  {
 			Name: ""
 			MappingInformationType: "ByPolygon"
 			ReferenceInformationType: "Direct"
-			Smoothing: *4 {
-				a: 4,8,32,64
+			Smoothing: *7 {
+				a: 4,8,32,64,4,8,32
 			} 
 		}
 		LayerElementMaterial: 0 {
@@ -406,83 +406,7 @@ Objects:  {
 			}
 		}
 	}
-	Geometry: 2159162968864, "Geometry::", "Mesh" {
-		Properties70:  {
-			P: "Color", "ColorRGB", "Color", "",0.83921568627451,0.898039215686275,0.650980392156863
-		}
-		Vertices: *24 {
-			a: 2.50983047485352,-7.40533447265625,0,-2.43061637878418,2.87183928489685,0,2.50983047485352,9.76492118835449,0,2.50983047485352,-7.40533399581909,2.90000009536743,-2.43061637878418,2.87183904647827,2.90000009536743,2.50983047485352,9.76492118835449,2.90000009536743,-2.43061637878418,5.97183847427368,0,-2.43061637878418,5.97183847427368,2.90000009536743
-		} 
-		PolygonVertexIndex: *16 {
-			a: 5,7,4,-4,2,6,7,-6,1,0,3,-5,6,1,4,-8
-		} 
-		Edges: *11 {
-			a: 8,4,3,0,2,9,7,5,12,14,13
-		} 
-		GeometryVersion: 124
-		LayerElementNormal: 0 {
-			Version: 102
-			Name: ""
-			MappingInformationType: "ByPolygonVertex"
-			ReferenceInformationType: "Direct"
-			Normals: *48 {
-				a: 0,0,1,0,0,1,0,0,1,0,0,1,-0.608978152275085,0.793187022209167,0,-0.608978152275085,0.793187022209167,0,-0.608978152275085,0.793187022209167,0,-0.608978152275085,0.793187022209167,0,-0.901269614696503,-0.433258682489395,0,-0.901269614696503,-0.433258682489395,0,-0.901269614696503,-0.433258682489395,0,-0.901269614696503,-0.433258682489395,0,-1,0,0,-1,0,0,-1,0,0,-1,0,0
-			} 
-			NormalsW: *16 {
-				a: 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-			} 
-		}
-		LayerElementUV: 0 {
-			Version: 101
-			Name: "UVChannel_1"
-			MappingInformationType: "ByPolygonVertex"
-			ReferenceInformationType: "IndexToDirect"
-			UV: *28 {
-				a: 1,2.98023223876953e-08,0.401454746723175,2.98023223876953e-08,0,2.98023223876953e-08,0.999999165534973,5.96046447753906e-08,2.98023223876953e-08,0.598545253276825,1,1,0.220910012722015,2.98023223876953e-08,1.78813934326172e-07,0.779089987277985,0.220910012722015,1,0,1,0.999999940395355,1,0.401454746723175,1,0.401454746723175,1,0.220910012722015,1
-			} 
-			UVIndex: *16 {
-				a: 5,7,4,3,2,6,8,9,1,0,10,11,6,1,12,13
-			} 
-		}
-		LayerElementSmoothing: 0 {
-			Version: 102
-			Name: ""
-			MappingInformationType: "ByPolygon"
-			ReferenceInformationType: "Direct"
-			Smoothing: *4 {
-				a: 1,2,2,4
-			} 
-		}
-		LayerElementMaterial: 0 {
-			Version: 101
-			Name: ""
-			MappingInformationType: "AllSame"
-			ReferenceInformationType: "IndexToDirect"
-			Materials: *1 {
-				a: 0
-			} 
-		}
-		Layer: 0 {
-			Version: 100
-			LayerElement:  {
-				Type: "LayerElementNormal"
-				TypedIndex: 0
-			}
-			LayerElement:  {
-				Type: "LayerElementMaterial"
-				TypedIndex: 0
-			}
-			LayerElement:  {
-				Type: "LayerElementSmoothing"
-				TypedIndex: 0
-			}
-			LayerElement:  {
-				Type: "LayerElementUV"
-				TypedIndex: 0
-			}
-		}
-	}
-	Geometry: 2159162970496, "Geometry::", "Mesh" {
+	Geometry: 2528155545344, "Geometry::", "Mesh" {
 		Properties70:  {
 			P: "Color", "ColorRGB", "Color", "",0.83921568627451,0.898039215686275,0.650980392156863
 		}
@@ -558,7 +482,7 @@ Objects:  {
 			}
 		}
 	}
-	Geometry: 2159162997152, "Geometry::", "Mesh" {
+	Geometry: 2528155545888, "Geometry::", "Mesh" {
 		Properties70:  {
 			P: "Color", "ColorRGB", "Color", "",0.83921568627451,0.898039215686275,0.650980392156863
 		}
@@ -634,7 +558,7 @@ Objects:  {
 			}
 		}
 	}
-	Geometry: 2159162981376, "Geometry::", "Mesh" {
+	Geometry: 2528155548608, "Geometry::", "Mesh" {
 		Properties70:  {
 			P: "Color", "ColorRGB", "Color", "",0.345098039215686,0.345098039215686,0.882352941176471
 		}
@@ -715,7 +639,7 @@ Objects:  {
 			}
 		}
 	}
-	Geometry: 2159162977024, "Geometry::", "Mesh" {
+	Geometry: 2528155546432, "Geometry::", "Mesh" {
 		Properties70:  {
 			P: "Color", "ColorRGB", "Color", "",0.345098039215686,0.345098039215686,0.882352941176471
 		}
@@ -801,7 +725,7 @@ Objects:  {
 			}
 		}
 	}
-	Geometry: 2159162998784, "Geometry::", "Mesh" {
+	Geometry: 2528155547520, "Geometry::", "Mesh" {
 		Properties70:  {
 			P: "Color", "ColorRGB", "Color", "",0.345098039215686,0.345098039215686,0.882352941176471
 		}
@@ -885,7 +809,7 @@ Objects:  {
 			}
 		}
 	}
-	Geometry: 2159162987360, "Geometry::", "Mesh" {
+	Geometry: 2528155549152, "Geometry::", "Mesh" {
 		Properties70:  {
 			P: "Color", "ColorRGB", "Color", "",0.345098039215686,0.345098039215686,0.882352941176471
 		}
@@ -962,7 +886,7 @@ Objects:  {
 			}
 		}
 	}
-	Geometry: 2159162987904, "Geometry::", "Mesh" {
+	Geometry: 2528155542080, "Geometry::", "Mesh" {
 		Properties70:  {
 			P: "Color", "ColorRGB", "Color", "",0.83921568627451,0.898039215686275,0.650980392156863
 		}
@@ -1039,7 +963,7 @@ Objects:  {
 			}
 		}
 	}
-	Model: 2159295686544, "Model::Playfield Obstacles", "Null" {
+	Model: 2528214695232, "Model::Playfield Obstacles", "Null" {
 		Version: 232
 		Properties70:  {
 			P: "PreRotation", "Vector3D", "Vector", "",-90,-0,0
@@ -1054,7 +978,7 @@ Objects:  {
 		Shading: T
 		Culling: "CullingOff"
 	}
-	Model: 2159295717232, "Model::Left Back Orbit", "Mesh" {
+	Model: 2528214701808, "Model::Left Back Orbit", "Mesh" {
 		Version: 232
 		Properties70:  {
 			P: "InheritType", "enum", "", "",1
@@ -1069,7 +993,7 @@ Objects:  {
 		Shading: T
 		Culling: "CullingOff"
 	}
-	Model: 2159295721616, "Model::Structure005", "Mesh" {
+	Model: 2528214697424, "Model::Structure005", "Mesh" {
 		Version: 232
 		Properties70:  {
 			P: "InheritType", "enum", "", "",1
@@ -1085,23 +1009,7 @@ Objects:  {
 		Shading: T
 		Culling: "CullingOff"
 	}
-	Model: 2159295693120, "Model::Structure004", "Mesh" {
-		Version: 232
-		Properties70:  {
-			P: "InheritType", "enum", "", "",1
-			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
-			P: "GeometricTranslation", "Vector3D", "Vector", "",-0.0396080017089844,1.17979741096497,1.44999670982361
-			P: "GeometricRotation", "Vector3D", "Vector", "",179.999847412109,-0,0
-			P: "DefaultAttributeIndex", "int", "Integer", "",0
-			P: "Lcl Translation", "Lcl Translation", "", "A",-23.2497787475586,-4.32209396362305,1.45001125335693
-			P: "Lcl Rotation", "Lcl Rotation", "", "A",1.73028444180998e-05,-0,0
-			P: "Lcl Scaling", "Lcl Scaling", "", "A",-1,-1,-1
-			P: "MaxHandle", "int", "Integer", "UH",2301
-		}
-		Shading: T
-		Culling: "CullingOff"
-	}
-	Model: 2159295723808, "Model::Structure006", "Mesh" {
+	Model: 2528214699616, "Model::Structure006", "Mesh" {
 		Version: 232
 		Properties70:  {
 			P: "InheritType", "enum", "", "",1
@@ -1114,7 +1022,7 @@ Objects:  {
 		Shading: T
 		Culling: "CullingOff"
 	}
-	Model: 2159295697504, "Model::Structure007", "Mesh" {
+	Model: 2528214690848, "Model::Structure007", "Mesh" {
 		Version: 232
 		Properties70:  {
 			P: "InheritType", "enum", "", "",1
@@ -1127,7 +1035,7 @@ Objects:  {
 		Shading: T
 		Culling: "CullingOff"
 	}
-	Model: 2159295695312, "Model::Structure003", "Mesh" {
+	Model: 2528214710576, "Model::Structure003", "Mesh" {
 		Version: 232
 		Properties70:  {
 			P: "InheritType", "enum", "", "",1
@@ -1141,7 +1049,7 @@ Objects:  {
 		Shading: T
 		Culling: "CullingOff"
 	}
-	Model: 2159295726000, "Model::Structure002", "Mesh" {
+	Model: 2528214723728, "Model::Structure002", "Mesh" {
 		Version: 232
 		Properties70:  {
 			P: "InheritType", "enum", "", "",1
@@ -1155,7 +1063,7 @@ Objects:  {
 		Shading: T
 		Culling: "CullingOff"
 	}
-	Model: 2159295728192, "Model::Structure001", "Mesh" {
+	Model: 2528214719344, "Model::Structure001", "Mesh" {
 		Version: 232
 		Properties70:  {
 			P: "InheritType", "enum", "", "",1
@@ -1168,7 +1076,7 @@ Objects:  {
 		Shading: T
 		Culling: "CullingOff"
 	}
-	Model: 2159295715040, "Model::Right Back Orbit", "Mesh" {
+	Model: 2528214725920, "Model::Right Back Orbit", "Mesh" {
 		Version: 232
 		Properties70:  {
 			P: "InheritType", "enum", "", "",1
@@ -1181,7 +1089,7 @@ Objects:  {
 		Shading: T
 		Culling: "CullingOff"
 	}
-	Model: 2159295719424, "Model::Structure008", "Mesh" {
+	Model: 2528214721536, "Model::Structure008", "Mesh" {
 		Version: 232
 		Properties70:  {
 			P: "InheritType", "enum", "", "",1
@@ -1196,7 +1104,7 @@ Objects:  {
 		Shading: T
 		Culling: "CullingOff"
 	}
-	Material: 2159169858352, "Material::Placeholder", "" {
+	Material: 2528155110336, "Material::Placeholder", "" {
 		Version: 102
 		ShadingModel: "phong"
 		MultiLayer: 0
@@ -1218,7 +1126,7 @@ Objects:  {
 			P: "Reflectivity", "double", "Number", "",0
 		}
 	}
-	AnimationStack: 2159297826800, "AnimStack::Take 001", "" {
+	AnimationStack: 2527996256688, "AnimStack::Take 001", "" {
 		Properties70:  {
 			P: "LocalStop", "KTime", "Time", "",7389785280
 			P: "ReferenceStop", "KTime", "Time", "",7389785280
@@ -1232,98 +1140,89 @@ Objects:  {
 Connections:  {
 	
 	;Model::Playfield Obstacles, Model::RootNode
-	C: "OO",2159295686544,0
+	C: "OO",2528214695232,0
 	
 	;Model::Left Back Orbit, Model::Playfield Obstacles
-	C: "OO",2159295717232,2159295686544
+	C: "OO",2528214701808,2528214695232
 	
 	;Model::Structure005, Model::Playfield Obstacles
-	C: "OO",2159295721616,2159295686544
-	
-	;Model::Structure004, Model::Playfield Obstacles
-	C: "OO",2159295693120,2159295686544
+	C: "OO",2528214697424,2528214695232
 	
 	;Model::Structure006, Model::Playfield Obstacles
-	C: "OO",2159295723808,2159295686544
+	C: "OO",2528214699616,2528214695232
 	
 	;Model::Structure007, Model::Playfield Obstacles
-	C: "OO",2159295697504,2159295686544
+	C: "OO",2528214690848,2528214695232
 	
 	;Model::Structure003, Model::Playfield Obstacles
-	C: "OO",2159295695312,2159295686544
+	C: "OO",2528214710576,2528214695232
 	
 	;Model::Structure002, Model::Playfield Obstacles
-	C: "OO",2159295726000,2159295686544
+	C: "OO",2528214723728,2528214695232
 	
 	;Model::Structure001, Model::Playfield Obstacles
-	C: "OO",2159295728192,2159295686544
+	C: "OO",2528214719344,2528214695232
 	
 	;Model::Right Back Orbit, Model::Playfield Obstacles
-	C: "OO",2159295715040,2159295686544
+	C: "OO",2528214725920,2528214695232
 	
 	;Model::Structure008, Model::Playfield Obstacles
-	C: "OO",2159295719424,2159295686544
+	C: "OO",2528214721536,2528214695232
 	
 	;NodeAttribute::, Model::Playfield Obstacles
-	C: "OO",2160027907440,2159295686544
+	C: "OO",2527724919856,2528214695232
 	
 	;Geometry::, Model::Left Back Orbit
-	C: "OO",2159162998240,2159295717232
+	C: "OO",2528155544800,2528214701808
 	
 	;Material::Placeholder, Model::Left Back Orbit
-	C: "OO",2159169858352,2159295717232
+	C: "OO",2528155110336,2528214701808
 	
 	;Geometry::, Model::Structure005
-	C: "OO",2159162974848,2159295721616
+	C: "OO",2528155544256,2528214697424
 	
 	;Material::Placeholder, Model::Structure005
-	C: "OO",2159169858352,2159295721616
-	
-	;Geometry::, Model::Structure004
-	C: "OO",2159162968864,2159295693120
-	
-	;Material::Placeholder, Model::Structure004
-	C: "OO",2159169858352,2159295693120
+	C: "OO",2528155110336,2528214697424
 	
 	;Geometry::, Model::Structure006
-	C: "OO",2159162970496,2159295723808
+	C: "OO",2528155545344,2528214699616
 	
 	;Material::Placeholder, Model::Structure006
-	C: "OO",2159169858352,2159295723808
+	C: "OO",2528155110336,2528214699616
 	
 	;Geometry::, Model::Structure007
-	C: "OO",2159162997152,2159295697504
+	C: "OO",2528155545888,2528214690848
 	
 	;Material::Placeholder, Model::Structure007
-	C: "OO",2159169858352,2159295697504
+	C: "OO",2528155110336,2528214690848
 	
 	;Geometry::, Model::Structure003
-	C: "OO",2159162981376,2159295695312
+	C: "OO",2528155548608,2528214710576
 	
 	;Material::Placeholder, Model::Structure003
-	C: "OO",2159169858352,2159295695312
+	C: "OO",2528155110336,2528214710576
 	
 	;Geometry::, Model::Structure002
-	C: "OO",2159162977024,2159295726000
+	C: "OO",2528155546432,2528214723728
 	
 	;Material::Placeholder, Model::Structure002
-	C: "OO",2159169858352,2159295726000
+	C: "OO",2528155110336,2528214723728
 	
 	;Geometry::, Model::Structure001
-	C: "OO",2159162998784,2159295728192
+	C: "OO",2528155547520,2528214719344
 	
 	;Material::Placeholder, Model::Structure001
-	C: "OO",2159169858352,2159295728192
+	C: "OO",2528155110336,2528214719344
 	
 	;Geometry::, Model::Right Back Orbit
-	C: "OO",2159162987360,2159295715040
+	C: "OO",2528155549152,2528214725920
 	
 	;Material::Placeholder, Model::Right Back Orbit
-	C: "OO",2159169858352,2159295715040
+	C: "OO",2528155110336,2528214725920
 	
 	;Geometry::, Model::Structure008
-	C: "OO",2159162987904,2159295719424
+	C: "OO",2528155542080,2528214721536
 	
 	;Material::Placeholder, Model::Structure008
-	C: "OO",2159169858352,2159295719424
+	C: "OO",2528155110336,2528214721536
 }

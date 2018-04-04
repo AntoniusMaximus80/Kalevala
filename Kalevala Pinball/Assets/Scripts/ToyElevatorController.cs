@@ -24,6 +24,7 @@ namespace Kalevala
         // Update is called once per frame
         void Update()
         {
+        // Loop animations for testing purposes.
         _animationCounter += Time.deltaTime;
             if (_animationCounter > _animationDuration) {
                 _animationCounter = 0f;
@@ -39,13 +40,13 @@ namespace Kalevala
             }
         }
 
-        void RaiseElevator()
+        public void RaiseElevator()
         {
             _toyElevatorAnimator.SetBool("Rise", true);
             _irisDoorAnimator.SetBool("Open", true);
         }
 
-        void LowerElevator()
+        public void LowerElevator()
         {
             _toyElevatorAnimator.SetBool("Rise", false);
             _irisDoorAnimator.SetBool("Open", false);

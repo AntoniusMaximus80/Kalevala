@@ -1,0 +1,219 @@
+fileFormatVersion: 2
+guid: c3d1a20aa76b17b4ea5362b5bfeffea9
+timeCreated: 1522825427
+licenseType: Free
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: Base
+    100002: Base028
+    100004: Base029
+    100006: Cover
+    100008: Drop Target
+    100010: Drop Target001
+    100012: Drop Target002
+    100014: Drop Targets
+    100016: Kickout Hole
+    100018: //RootNode
+    100020: Plastic Rail
+    100022: Plastic Rail001
+    100024: Plastic Rails
+    100026: Rivet
+    100028: Rivet001
+    100030: Rivet002
+    100032: Rivet003
+    100034: Rivets
+    100036: Steel Post
+    100038: Steel Post001
+    100040: Steel Post002
+    100042: Steel Post003
+    100044: Steel Posts
+    100046: Strobe Light Base001
+    100048: Strobe Light Bulb001
+    100050: Strobe Light Cover001
+    100052: Strobe Light001
+    100054: Target
+    100056: Target001
+    100058: Target002
+    100060: Moss
+    400000: Base
+    400002: Base028
+    400004: Base029
+    400006: Cover
+    400008: Drop Target
+    400010: Drop Target001
+    400012: Drop Target002
+    400014: Drop Targets
+    400016: Kickout Hole
+    400018: //RootNode
+    400020: Plastic Rail
+    400022: Plastic Rail001
+    400024: Plastic Rails
+    400026: Rivet
+    400028: Rivet001
+    400030: Rivet002
+    400032: Rivet003
+    400034: Rivets
+    400036: Steel Post
+    400038: Steel Post001
+    400040: Steel Post002
+    400042: Steel Post003
+    400044: Steel Posts
+    400046: Strobe Light Base001
+    400048: Strobe Light Bulb001
+    400050: Strobe Light Cover001
+    400052: Strobe Light001
+    400054: Target
+    400056: Target001
+    400058: Target002
+    400060: Moss
+    2100000: Placeholder
+    2100002: Dark Brown Plastic
+    2100004: Clear Plastic
+    2300000: Base
+    2300002: Base028
+    2300004: Base029
+    2300006: Cover
+    2300008: Kickout Hole
+    2300010: Plastic Rail
+    2300012: Plastic Rail001
+    2300014: Rivet
+    2300016: Rivet001
+    2300018: Rivet002
+    2300020: Rivet003
+    2300022: Steel Post
+    2300024: Steel Post001
+    2300026: Steel Post002
+    2300028: Steel Post003
+    2300030: Strobe Light Base001
+    2300032: Strobe Light Bulb001
+    2300034: Strobe Light Cover001
+    2300036: Target
+    2300038: Target001
+    2300040: Target002
+    2300042: Moss
+    3300000: Base
+    3300002: Base028
+    3300004: Base029
+    3300006: Cover
+    3300008: Kickout Hole
+    3300010: Plastic Rail
+    3300012: Plastic Rail001
+    3300014: Rivet
+    3300016: Rivet001
+    3300018: Rivet002
+    3300020: Rivet003
+    3300022: Steel Post
+    3300024: Steel Post001
+    3300026: Steel Post002
+    3300028: Steel Post003
+    3300030: Strobe Light Base001
+    3300032: Strobe Light Bulb001
+    3300034: Strobe Light Cover001
+    3300036: Target
+    3300038: Target001
+    3300040: Target002
+    3300042: Moss
+    4300000: Target
+    4300002: Base
+    4300004: Base028
+    4300006: Target001
+    4300008: Base029
+    4300010: Target002
+    4300012: Steel Post
+    4300014: Steel Post001
+    4300016: Steel Post002
+    4300018: Steel Post003
+    4300020: Cover
+    4300022: Rivet003
+    4300024: Rivet001
+    4300026: Rivet
+    4300028: Rivet002
+    4300030: Kickout Hole
+    4300032: Plastic Rail001
+    4300034: Plastic Rail
+    4300036: Strobe Light Base001
+    4300038: Strobe Light Bulb001
+    4300040: Strobe Light Cover001
+    4300042: Moss
+    9500000: //RootNode
+  externalObjects: {}
+  materials:
+    importMaterials: 0
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 0
+    importLights: 0
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 0
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
