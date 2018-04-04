@@ -8,11 +8,11 @@ FBXHeaderExtension:  {
 		Version: 1000
 		Year: 2018
 		Month: 4
-		Day: 2
-		Hour: 17
-		Minute: 18
-		Second: 24
-		Millisecond: 732
+		Day: 4
+		Hour: 15
+		Minute: 42
+		Second: 5
+		Millisecond: 401
 	}
 	Creator: "FBX SDK/FBX Plugins version 2018.1"
 	SceneInfo: "SceneInfo::GlobalInfo", "UserData" {
@@ -34,13 +34,13 @@ FBXHeaderExtension:  {
 			P: "Original|ApplicationVendor", "KString", "", "", "Autodesk"
 			P: "Original|ApplicationName", "KString", "", "", "3ds Max"
 			P: "Original|ApplicationVersion", "KString", "", "", "2018"
-			P: "Original|DateTime_GMT", "DateTime", "", "", "02/04/2018 14:18:24.731"
+			P: "Original|DateTime_GMT", "DateTime", "", "", "04/04/2018 12:42:05.400"
 			P: "Original|FileName", "KString", "", "", "C:\Users\Toni\Desktop\Kalevala\Kalevala Pinball\Assets\Models\Iris Door.FBX"
 			P: "LastSaved", "Compound", "", ""
 			P: "LastSaved|ApplicationVendor", "KString", "", "", "Autodesk"
 			P: "LastSaved|ApplicationName", "KString", "", "", "3ds Max"
 			P: "LastSaved|ApplicationVersion", "KString", "", "", "2018"
-			P: "LastSaved|DateTime_GMT", "DateTime", "", "", "02/04/2018 14:18:24.731"
+			P: "LastSaved|DateTime_GMT", "DateTime", "", "", "04/04/2018 12:42:05.400"
 			P: "Original|ApplicationActiveProject", "KString", "", "", "C:\Users\Toni\Documents\3dsMax"
 			P: "Original|ApplicationNativeFile", "KString", "", "", "C:\Users\Toni\Dropbox\+ Spring 2018 Project\Ukonkuula.max"
 		}
@@ -77,7 +77,7 @@ GlobalSettings:  {
 
 Documents:  {
 	Count: 1
-	Document: 2228233488704, "", "Scene" {
+	Document: 2174789464704, "", "Scene" {
 		Properties70:  {
 			P: "SourceObject", "object", "", ""
 			P: "ActiveAnimStackName", "KString", "", "", ""
@@ -249,10 +249,10 @@ Definitions:  {
 ;------------------------------------------------------------------
 
 Objects:  {
-	NodeAttribute: 2228038664400, "NodeAttribute::", "Null" {
+	NodeAttribute: 2174571570768, "NodeAttribute::", "Null" {
 		TypeFlags: "Null"
 	}
-	Geometry: 2228809806768, "Geometry::", "Mesh" {
+	Geometry: 2174889555280, "Geometry::", "Mesh" {
 		Properties70:  {
 			P: "Color", "ColorRGB", "Color", "",0.882352941176471,0.556862745098039,0.337254901960784
 		}
@@ -333,7 +333,7 @@ Objects:  {
 			}
 		}
 	}
-	Geometry: 2228809802960, "Geometry::", "Mesh" {
+	Geometry: 2174889549296, "Geometry::", "Mesh" {
 		Properties70:  {
 			P: "Color", "ColorRGB", "Color", "",0.882352941176471,0.556862745098039,0.337254901960784
 		}
@@ -414,7 +414,7 @@ Objects:  {
 			}
 		}
 	}
-	Geometry: 2228809805136, "Geometry::", "Mesh" {
+	Geometry: 2174889553648, "Geometry::", "Mesh" {
 		Properties70:  {
 			P: "Color", "ColorRGB", "Color", "",0.882352941176471,0.556862745098039,0.337254901960784
 		}
@@ -495,7 +495,7 @@ Objects:  {
 			}
 		}
 	}
-	Geometry: 2228809800240, "Geometry::", "Mesh" {
+	Geometry: 2174889529712, "Geometry::", "Mesh" {
 		Properties70:  {
 			P: "Color", "ColorRGB", "Color", "",0.882352941176471,0.556862745098039,0.337254901960784
 		}
@@ -576,7 +576,7 @@ Objects:  {
 			}
 		}
 	}
-	Model: 2228328730384, "Model::Iris Door", "Null" {
+	Model: 2174892048368, "Model::Iris Door", "Null" {
 		Version: 232
 		Properties70:  {
 			P: "PreRotation", "Vector3D", "Vector", "",-90,-0,0
@@ -592,7 +592,7 @@ Objects:  {
 		Shading: T
 		Culling: "CullingOff"
 	}
-	Model: 2228328743536, "Model::Iris Door Quadrant003", "Mesh" {
+	Model: 2174892037408, "Model::Iris Door Quadrant003", "Mesh" {
 		Version: 232
 		Properties70:  {
 			P: "InheritType", "enum", "", "",1
@@ -600,7 +600,7 @@ Objects:  {
 			P: "GeometricTranslation", "Vector3D", "Vector", "",-18.7159156799316,-18.6251258850098,-3.28491592407227
 			P: "GeometricScaling", "Vector3D", "Vector", "",0.855837225914001,0.855837225914001,0.999999821186066
 			P: "DefaultAttributeIndex", "int", "Integer", "",0
-			P: "Lcl Translation", "Lcl Translation", "", "A",-7.53749847412109,-5.65873146057129,-0.399999499320984
+			P: "Lcl Translation", "Lcl Translation", "", "A",-7.53749847412109,-5.65873146057129,-0.499999493360519
 			P: "Lcl Rotation", "Lcl Rotation", "", "A",0,-0,-90.0000093346676
 			P: "UDP3DSMAX", "KString", "", "U", "MapChannel:1 = UVChannel_1&cr;&lf;"
 			P: "MaxHandle", "int", "Integer", "UH",3185
@@ -608,7 +608,7 @@ Objects:  {
 		Shading: T
 		Culling: "CullingOff"
 	}
-	Model: 2228328750112, "Model::Iris Door Quadrant002", "Mesh" {
+	Model: 2174892030832, "Model::Iris Door Quadrant002", "Mesh" {
 		Version: 232
 		Properties70:  {
 			P: "InheritType", "enum", "", "",1
@@ -616,7 +616,7 @@ Objects:  {
 			P: "GeometricTranslation", "Vector3D", "Vector", "",-18.7159156799316,-18.6251258850098,-3.28491616249084
 			P: "GeometricScaling", "Vector3D", "Vector", "",0.855837225914001,0.855837225914001,0.999999821186066
 			P: "DefaultAttributeIndex", "int", "Integer", "",0
-			P: "Lcl Translation", "Lcl Translation", "", "A",-7.53921604156494,5.65701484680176,-0.399999141693115
+			P: "Lcl Translation", "Lcl Translation", "", "A",-7.53921604156494,5.65701484680176,-0.499999135732651
 			P: "Lcl Rotation", "Lcl Rotation", "", "A",0,-0,179.999991348578
 			P: "UDP3DSMAX", "KString", "", "U", "MapChannel:1 = UVChannel_1&cr;&lf;"
 			P: "MaxHandle", "int", "Integer", "UH",3184
@@ -624,7 +624,7 @@ Objects:  {
 		Shading: T
 		Culling: "CullingOff"
 	}
-	Model: 2228328752304, "Model::Iris Door Quadrant001", "Mesh" {
+	Model: 2174892039600, "Model::Iris Door Quadrant001", "Mesh" {
 		Version: 232
 		Properties70:  {
 			P: "InheritType", "enum", "", "",1
@@ -632,7 +632,7 @@ Objects:  {
 			P: "GeometricTranslation", "Vector3D", "Vector", "",-18.7159156799316,-18.6251258850098,-3.28491616249084
 			P: "GeometricScaling", "Vector3D", "Vector", "",0.855837225914001,0.855837225914001,0.999999821186066
 			P: "DefaultAttributeIndex", "int", "Integer", "",0
-			P: "Lcl Translation", "Lcl Translation", "", "A",3.77652788162231,5.65873432159424,-0.39999920129776
+			P: "Lcl Translation", "Lcl Translation", "", "A",3.77652788162231,5.65873432159424,-0.499999195337296
 			P: "Lcl Rotation", "Lcl Rotation", "", "A",0,-0,90.0000025044781
 			P: "UDP3DSMAX", "KString", "", "U", "MapChannel:1 = UVChannel_1&cr;&lf;"
 			P: "MaxHandle", "int", "Integer", "UH",3186
@@ -640,7 +640,7 @@ Objects:  {
 		Shading: T
 		Culling: "CullingOff"
 	}
-	Model: 2228328754496, "Model::Iris Door Quadrant", "Mesh" {
+	Model: 2174892050560, "Model::Iris Door Quadrant", "Mesh" {
 		Version: 232
 		Properties70:  {
 			P: "InheritType", "enum", "", "",1
@@ -648,14 +648,14 @@ Objects:  {
 			P: "GeometricTranslation", "Vector3D", "Vector", "",-18.7159156799316,-18.6251258850098,-3.28491592407227
 			P: "GeometricScaling", "Vector3D", "Vector", "",0.855837225914001,0.855837225914001,0.999999821186066
 			P: "DefaultAttributeIndex", "int", "Integer", "",0
-			P: "Lcl Translation", "Lcl Translation", "", "A",3.77652788162231,-5.65701293945313,-0.399999499320984
+			P: "Lcl Translation", "Lcl Translation", "", "A",3.77652788162231,-5.65701293945313,-0.499999493360519
 			P: "UDP3DSMAX", "KString", "", "U", "MapChannel:1 = UVChannel_1&cr;&lf;"
 			P: "MaxHandle", "int", "Integer", "UH",3187
 		}
 		Shading: T
 		Culling: "CullingOff"
 	}
-	Material: 2228047530128, "Material::Gold (S)", "" {
+	Material: 2174690391120, "Material::Gold (S)", "" {
 		Version: 102
 		ShadingModel: "phong"
 		MultiLayer: 0
@@ -677,7 +677,7 @@ Objects:  {
 			P: "Reflectivity", "double", "Number", "",0
 		}
 	}
-	AnimationStack: 2228229653792, "AnimStack::Take 001", "" {
+	AnimationStack: 2174784811376, "AnimStack::Take 001", "" {
 		Properties70:  {
 			P: "LocalStop", "KTime", "Time", "",7389785280
 			P: "ReferenceStop", "KTime", "Time", "",7389785280
@@ -691,44 +691,44 @@ Objects:  {
 Connections:  {
 	
 	;Model::Iris Door, Model::RootNode
-	C: "OO",2228328730384,0
+	C: "OO",2174892048368,0
 	
 	;Model::Iris Door Quadrant003, Model::Iris Door
-	C: "OO",2228328743536,2228328730384
+	C: "OO",2174892037408,2174892048368
 	
 	;Model::Iris Door Quadrant002, Model::Iris Door
-	C: "OO",2228328750112,2228328730384
+	C: "OO",2174892030832,2174892048368
 	
 	;Model::Iris Door Quadrant001, Model::Iris Door
-	C: "OO",2228328752304,2228328730384
+	C: "OO",2174892039600,2174892048368
 	
 	;Model::Iris Door Quadrant, Model::Iris Door
-	C: "OO",2228328754496,2228328730384
+	C: "OO",2174892050560,2174892048368
 	
 	;NodeAttribute::, Model::Iris Door
-	C: "OO",2228038664400,2228328730384
+	C: "OO",2174571570768,2174892048368
 	
 	;Geometry::, Model::Iris Door Quadrant003
-	C: "OO",2228809806768,2228328743536
+	C: "OO",2174889555280,2174892037408
 	
 	;Material::Gold (S), Model::Iris Door Quadrant003
-	C: "OO",2228047530128,2228328743536
+	C: "OO",2174690391120,2174892037408
 	
 	;Geometry::, Model::Iris Door Quadrant002
-	C: "OO",2228809802960,2228328750112
+	C: "OO",2174889549296,2174892030832
 	
 	;Material::Gold (S), Model::Iris Door Quadrant002
-	C: "OO",2228047530128,2228328750112
+	C: "OO",2174690391120,2174892030832
 	
 	;Geometry::, Model::Iris Door Quadrant001
-	C: "OO",2228809805136,2228328752304
+	C: "OO",2174889553648,2174892039600
 	
 	;Material::Gold (S), Model::Iris Door Quadrant001
-	C: "OO",2228047530128,2228328752304
+	C: "OO",2174690391120,2174892039600
 	
 	;Geometry::, Model::Iris Door Quadrant
-	C: "OO",2228809800240,2228328754496
+	C: "OO",2174889529712,2174892050560
 	
 	;Material::Gold (S), Model::Iris Door Quadrant
-	C: "OO",2228047530128,2228328754496
+	C: "OO",2174690391120,2174892050560
 }
