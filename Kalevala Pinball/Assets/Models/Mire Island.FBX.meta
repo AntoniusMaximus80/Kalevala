@@ -73,6 +73,22 @@ ModelImporter:
     100130: Pine Needles013
     100132: Trunk
     100134: Trunk 1
+    100136: Bolt
+    100138: Bolt001
+    100140: Bolt002
+    100142: Bolt003
+    100144: Bolts
+    100146: Branch002
+    100148: Branch003
+    100150: Branch004
+    100152: Branch005
+    100154: Branch006
+    100156: Dead Pine 003
+    100158: Dead Pine 004
+    100160: Dead Pine 005
+    100162: Trunk001
+    100164: Trunk002
+    100166: Trunk003
     400000: Base
     400002: Base028
     400004: Base029
@@ -141,6 +157,22 @@ ModelImporter:
     400130: Pine Needles013
     400132: Trunk
     400134: Trunk 1
+    400136: Bolt
+    400138: Bolt001
+    400140: Bolt002
+    400142: Bolt003
+    400144: Bolts
+    400146: Branch002
+    400148: Branch003
+    400150: Branch004
+    400152: Branch005
+    400154: Branch006
+    400156: Dead Pine 003
+    400158: Dead Pine 004
+    400160: Dead Pine 005
+    400162: Trunk001
+    400164: Trunk002
+    400166: Trunk003
     2100000: Placeholder
     2100002: Dark Brown Plastic
     2100004: Clear Plastic
@@ -199,6 +231,18 @@ ModelImporter:
     2300104: Pine Needles013
     2300106: Trunk
     2300108: Trunk 1
+    2300110: Bolt
+    2300112: Bolt001
+    2300114: Bolt002
+    2300116: Bolt003
+    2300118: Branch002
+    2300120: Branch003
+    2300122: Branch004
+    2300124: Branch005
+    2300126: Branch006
+    2300128: Trunk001
+    2300130: Trunk002
+    2300132: Trunk003
     3300000: Base
     3300002: Base028
     3300004: Base029
@@ -254,6 +298,18 @@ ModelImporter:
     3300104: Pine Needles013
     3300106: Trunk
     3300108: Trunk 1
+    3300110: Bolt
+    3300112: Bolt001
+    3300114: Bolt002
+    3300116: Bolt003
+    3300118: Branch002
+    3300120: Branch003
+    3300122: Branch004
+    3300124: Branch005
+    3300126: Branch006
+    3300128: Trunk001
+    3300130: Trunk002
+    3300132: Trunk003
     4300000: Target
     4300002: Base
     4300004: Base028
@@ -309,6 +365,18 @@ ModelImporter:
     4300104: Pine Needles011
     4300106: Pine Needles012
     4300108: Pine Needles013
+    4300110: Bolt003
+    4300112: Bolt002
+    4300114: Bolt001
+    4300116: Bolt
+    4300118: Branch002
+    4300120: Trunk001
+    4300122: Branch003
+    4300124: Branch004
+    4300126: Trunk002
+    4300128: Branch005
+    4300130: Branch006
+    4300132: Trunk003
     9500000: //RootNode
   externalObjects: {}
   materials:
