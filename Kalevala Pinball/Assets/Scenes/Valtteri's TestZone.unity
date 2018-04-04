@@ -31536,12 +31536,12 @@ Prefab:
     - target: {fileID: 114602248010753546, guid: 211d40b776f371a499e88a8daab2dc4d,
         type: 2}
       propertyPath: _ballLaunchPoint.x
-      value: 1.1297808
+      value: 6.066044
       objectReference: {fileID: 0}
     - target: {fileID: 114602248010753546, guid: 211d40b776f371a499e88a8daab2dc4d,
         type: 2}
       propertyPath: _ballLaunchPoint.z
-      value: -42.418655
+      value: -38.839745
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 211d40b776f371a499e88a8daab2dc4d, type: 2}
