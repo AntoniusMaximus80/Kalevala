@@ -83,7 +83,6 @@ namespace Kalevala
                     {
                         gate.CloseGate();
                     }
-                    Debug.Log("Close the door");
                     _gatesClosed = true;
                 }
             }

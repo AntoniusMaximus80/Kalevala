@@ -7,7 +7,7 @@ namespace Kalevala
     public class TeleportKOH: KickoutHole
     {
         [SerializeField]
-        private Vector3 _teleportEndPosition;
+        private Transform _teleportEndPosition;
         [SerializeField]
         private Transform _endRampEntrance;
         private bool _doOnce = true;
@@ -31,7 +31,7 @@ namespace Kalevala
         protected override void OnDrawGizmos()
         {
             Gizmos.color = Color.cyan;
-            Vector3 startpos = _teleportEndPosition;
+            Vector3 startpos = _teleportEndPosition.position;
             Vector3 endpos = Vector3.zero;
             float gravity = 0;
             for(int i = 0; i < gizmoLenght; i++)
@@ -42,7 +42,7 @@ namespace Kalevala
                 gravity -= 0.017f;
             }
             Gizmos.color = Color.yellow;
-            Gizmos.DrawWireSphere(_teleportEndPosition, 1f);
+            Gizmos.DrawWireSphere(_teleportEndPosition.position, 1f);
         }
     }
 }
