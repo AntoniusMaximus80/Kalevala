@@ -36,6 +36,43 @@ ModelImporter:
     100056: Target001
     100058: Target002
     100060: Moss
+    100062: Mire Pine
+    100064: Mire Pine Branch
+    100066: Mire Pine Branch001
+    100068: Mire Pine Branch002
+    100070: Mire Pine Branch004
+    100072: Mire Pine Branch005
+    100074: Mire Pine Trunk
+    100076: Pine Needles
+    100078: Pine Needles001
+    100080: Pine Needles002
+    100082: Pine Needles003
+    100084: Pine Needles004
+    100086: Pine Needles005
+    100088: Pine Needles006
+    100090: Mire Pine Branch003
+    100092: Branch
+    100094: Branch 1
+    100096: Branch001
+    100098: Dead Pine 1
+    100100: Dead Pine 2
+    100102: Mire Pine Branch006
+    100104: Mire Pine Branch007
+    100106: Mire Pine Branch008
+    100108: Mire Pine Branch009
+    100110: Mire Pine Branch010
+    100112: Mire Pine Branch011
+    100114: Mire Pine Trunk001
+    100116: Mire Pine001
+    100118: Pine Needles007
+    100120: Pine Needles008
+    100122: Pine Needles009
+    100124: Pine Needles010
+    100126: Pine Needles011
+    100128: Pine Needles012
+    100130: Pine Needles013
+    100132: Trunk
+    100134: Trunk 1
     400000: Base
     400002: Base028
     400004: Base029
@@ -67,6 +104,43 @@ ModelImporter:
     400056: Target001
     400058: Target002
     400060: Moss
+    400062: Mire Pine
+    400064: Mire Pine Branch
+    400066: Mire Pine Branch001
+    400068: Mire Pine Branch002
+    400070: Mire Pine Branch004
+    400072: Mire Pine Branch005
+    400074: Mire Pine Trunk
+    400076: Pine Needles
+    400078: Pine Needles001
+    400080: Pine Needles002
+    400082: Pine Needles003
+    400084: Pine Needles004
+    400086: Pine Needles005
+    400088: Pine Needles006
+    400090: Mire Pine Branch003
+    400092: Branch
+    400094: Branch 1
+    400096: Branch001
+    400098: Dead Pine 1
+    400100: Dead Pine 2
+    400102: Mire Pine Branch006
+    400104: Mire Pine Branch007
+    400106: Mire Pine Branch008
+    400108: Mire Pine Branch009
+    400110: Mire Pine Branch010
+    400112: Mire Pine Branch011
+    400114: Mire Pine Trunk001
+    400116: Mire Pine001
+    400118: Pine Needles007
+    400120: Pine Needles008
+    400122: Pine Needles009
+    400124: Pine Needles010
+    400126: Pine Needles011
+    400128: Pine Needles012
+    400130: Pine Needles013
+    400132: Trunk
+    400134: Trunk 1
     2100000: Placeholder
     2100002: Dark Brown Plastic
     2100004: Clear Plastic
@@ -92,6 +166,39 @@ ModelImporter:
     2300038: Target001
     2300040: Target002
     2300042: Moss
+    2300044: Mire Pine Branch
+    2300046: Mire Pine Branch001
+    2300048: Mire Pine Branch002
+    2300050: Mire Pine Branch004
+    2300052: Mire Pine Branch005
+    2300054: Mire Pine Trunk
+    2300056: Pine Needles
+    2300058: Pine Needles001
+    2300060: Pine Needles002
+    2300062: Pine Needles003
+    2300064: Pine Needles004
+    2300066: Pine Needles005
+    2300068: Pine Needles006
+    2300070: Mire Pine Branch003
+    2300072: Branch
+    2300074: Branch 1
+    2300076: Branch001
+    2300078: Mire Pine Branch006
+    2300080: Mire Pine Branch007
+    2300082: Mire Pine Branch008
+    2300084: Mire Pine Branch009
+    2300086: Mire Pine Branch010
+    2300088: Mire Pine Branch011
+    2300090: Mire Pine Trunk001
+    2300092: Pine Needles007
+    2300094: Pine Needles008
+    2300096: Pine Needles009
+    2300098: Pine Needles010
+    2300100: Pine Needles011
+    2300102: Pine Needles012
+    2300104: Pine Needles013
+    2300106: Trunk
+    2300108: Trunk 1
     3300000: Base
     3300002: Base028
     3300004: Base029
@@ -114,6 +221,39 @@ ModelImporter:
     3300038: Target001
     3300040: Target002
     3300042: Moss
+    3300044: Mire Pine Branch
+    3300046: Mire Pine Branch001
+    3300048: Mire Pine Branch002
+    3300050: Mire Pine Branch004
+    3300052: Mire Pine Branch005
+    3300054: Mire Pine Trunk
+    3300056: Pine Needles
+    3300058: Pine Needles001
+    3300060: Pine Needles002
+    3300062: Pine Needles003
+    3300064: Pine Needles004
+    3300066: Pine Needles005
+    3300068: Pine Needles006
+    3300070: Mire Pine Branch003
+    3300072: Branch
+    3300074: Branch 1
+    3300076: Branch001
+    3300078: Mire Pine Branch006
+    3300080: Mire Pine Branch007
+    3300082: Mire Pine Branch008
+    3300084: Mire Pine Branch009
+    3300086: Mire Pine Branch010
+    3300088: Mire Pine Branch011
+    3300090: Mire Pine Trunk001
+    3300092: Pine Needles007
+    3300094: Pine Needles008
+    3300096: Pine Needles009
+    3300098: Pine Needles010
+    3300100: Pine Needles011
+    3300102: Pine Needles012
+    3300104: Pine Needles013
+    3300106: Trunk
+    3300108: Trunk 1
     4300000: Target
     4300002: Base
     4300004: Base028
@@ -136,6 +276,39 @@ ModelImporter:
     4300038: Strobe Light Bulb001
     4300040: Strobe Light Cover001
     4300042: Moss
+    4300044: Mire Pine Trunk
+    4300046: Mire Pine Branch004
+    4300048: Mire Pine Branch
+    4300050: Mire Pine Branch002
+    4300052: Mire Pine Branch001
+    4300054: Mire Pine Branch005
+    4300056: Pine Needles
+    4300058: Pine Needles001
+    4300060: Pine Needles002
+    4300062: Pine Needles003
+    4300064: Pine Needles004
+    4300066: Pine Needles006
+    4300068: Pine Needles005
+    4300070: Mire Pine Branch003
+    4300072: Trunk
+    4300074: Branch
+    4300076: Branch001
+    4300078: Trunk
+    4300080: Branch
+    4300082: Mire Pine Branch006
+    4300084: Mire Pine Branch007
+    4300086: Mire Pine Branch008
+    4300088: Mire Pine Branch009
+    4300090: Mire Pine Branch010
+    4300092: Mire Pine Branch011
+    4300094: Mire Pine Trunk001
+    4300096: Pine Needles007
+    4300098: Pine Needles008
+    4300100: Pine Needles009
+    4300102: Pine Needles010
+    4300104: Pine Needles011
+    4300106: Pine Needles012
+    4300108: Pine Needles013
     9500000: //RootNode
   externalObjects: {}
   materials:
