@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 namespace Kalevala
@@ -8,14 +9,35 @@ namespace Kalevala
     {
         public StateManager _stateManager;
 
-        // Use this for initialization
-        void Start()
-        {
+        // references to the viewscreen texts.
+        public TextMeshProUGUI
+            _scoreUGUI,
+            _incrementUGUI,
+            _ballCounter,
+            _smallScore,
+            _gameMode;
 
+        private Viewscreen _instance;
+
+        
+        // Use this for initialization
+        void Awake()
+        {
+            _instance = this;
         }
 
         // Update is called once per frame
         void Update()
+        {
+
+        }
+
+        public static void FormatScore(int score)
+        {
+
+        }
+
+        public static void FormatScoreIncrement(int score)
         {
 
         }

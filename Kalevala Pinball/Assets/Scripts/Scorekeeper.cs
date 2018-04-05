@@ -111,6 +111,7 @@ namespace Kalevala
             }
 
             // To do: Apply possible score modifiers here.
+            // VN : remember that some score modifiers are type dependent and go inside the switch statement.
 
             _totalScore += _score;
             _scoreUGUI.text = FormatScore();

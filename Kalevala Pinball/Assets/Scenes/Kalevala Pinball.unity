@@ -891,6 +891,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _stateManager: {fileID: 438256136}
+  _scoreUGUI: {fileID: 503891537}
+  _incrementUGUI: {fileID: 1341091687}
+  _ballCounter: {fileID: 269762930}
+  _smallScore: {fileID: 290599449}
+  _gameMode: {fileID: 1208923694}
 --- !u!1 &114270281
 GameObject:
   m_ObjectHideFlags: 0
