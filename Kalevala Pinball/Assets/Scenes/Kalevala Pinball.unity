@@ -896,6 +896,7 @@ MonoBehaviour:
   _ballCounter: {fileID: 269762930}
   _smallScore: {fileID: 290599449}
   _gameMode: {fileID: 1208923694}
+  _incrementVisible: 5
 --- !u!1 &114270281
 GameObject:
   m_ObjectHideFlags: 0
@@ -3657,6 +3658,16 @@ Prefab:
       propertyPath: m_RootOrder
       value: 11
       objectReference: {fileID: 0}
+    - target: {fileID: 114599638252755998, guid: 211d40b776f371a499e88a8daab2dc4d,
+        type: 2}
+      propertyPath: _shootAgainLight
+      value: 
+      objectReference: {fileID: 1560778856}
+    - target: {fileID: 114599638252755998, guid: 211d40b776f371a499e88a8daab2dc4d,
+        type: 2}
+      propertyPath: _workshopKOH
+      value: 
+      objectReference: {fileID: 868912749}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 211d40b776f371a499e88a8daab2dc4d, type: 2}
   m_IsPrefabParent: 0
