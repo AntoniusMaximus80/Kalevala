@@ -95,6 +95,7 @@ namespace Kalevala
 
             _totalScore += _score;
 
+            // Refactored the string processing to happen in the viewscreen class.
             Viewscreen.FormatScore(_totalScore);
             Viewscreen.FormatScoreIncrement(_score);
 
@@ -104,12 +105,6 @@ namespace Kalevala
         }
 
        
-
-        public string FormatIncrement(int amount)
-        {
-            string formattedIncrement = "+" + amount.ToString("N0");
-            return formattedIncrement;
-        }
 
         public void ResetScore()
         {

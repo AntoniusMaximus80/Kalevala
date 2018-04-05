@@ -258,6 +258,8 @@ namespace Kalevala
 
             ResetAllPinballs();
             //SetPinballPhysicsEnabled(false);
+
+            Viewscreen.BallCount(_currentBallAmount);
         }
 
         public void UpdatePinballs()
@@ -471,6 +473,7 @@ namespace Kalevala
                     if (ballLost)
                     {
                         _currentBallAmount--;
+                        Viewscreen.BallCount(_currentBallAmount);
                     }
 
                     if (OutOfBalls)

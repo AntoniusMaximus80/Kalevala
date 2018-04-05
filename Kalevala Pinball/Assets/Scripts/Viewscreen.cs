@@ -49,12 +49,18 @@ namespace Kalevala
         public static void FormatScore(int score)
         {
             _instance._scoreUGUI.text = score.ToString("N0");
+            _instance._smallScore.text = score.ToString("N0");
         }
 
         public static void FormatScoreIncrement(int score)
         {
             _instance._incrementUGUI.text = score.ToString("N0");
             _incrementVisibleCountdown = _instance._incrementVisible;
+        }
+
+        public static void BallCount(int balls)
+        {
+            _instance._ballCounter.text = "Balls left: " + balls.ToString("N0");
         }
     }
 }
