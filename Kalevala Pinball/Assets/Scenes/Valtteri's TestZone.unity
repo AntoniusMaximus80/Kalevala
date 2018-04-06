@@ -2239,6 +2239,10 @@ Prefab:
       propertyPath: m_Layer
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 100172, guid: c3d1a20aa76b17b4ea5362b5bfeffea9, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c3d1a20aa76b17b4ea5362b5bfeffea9, type: 3}
   m_IsPrefabParent: 0
@@ -2937,7 +2941,12 @@ Prefab:
     - target: {fileID: 114819745745679100, guid: babcca75daa603e479cbcfe048191f33,
         type: 2}
       propertyPath: debug_freeBalls
-      value: 1
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 54386035720384152, guid: babcca75daa603e479cbcfe048191f33,
+        type: 2}
+      propertyPath: m_Mass
+      value: 0.6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: babcca75daa603e479cbcfe048191f33, type: 2}
@@ -11479,6 +11488,24 @@ Transform:
   m_PrefabParentObject: {fileID: 4869589876850152, guid: c42b693b45227ae48a74ca112dabeb31,
     type: 2}
   m_PrefabInternal: {fileID: 926000323}
+--- !u!1 &946612700 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 100172, guid: c3d1a20aa76b17b4ea5362b5bfeffea9, type: 3}
+  m_PrefabInternal: {fileID: 139078319}
+--- !u!64 &946612704
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 946612700}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300134, guid: c3d1a20aa76b17b4ea5362b5bfeffea9, type: 3}
 --- !u!1001 &947307139
 Prefab:
   m_ObjectHideFlags: 0
@@ -12515,6 +12542,10 @@ Prefab:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: be635fa7dfe99d04abc0afe89b111e78, type: 2}
+    - target: {fileID: 400014, guid: f5e7f5730c6fe5f41a1ba30914731443, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f5e7f5730c6fe5f41a1ba30914731443, type: 3}
   m_IsPrefabParent: 0
@@ -23194,6 +23225,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _stateManager: {fileID: 1914986379}
+  _scoreUGUI: {fileID: 501147439}
+  _incrementUGUI: {fileID: 362585899}
+  _ballCounter: {fileID: 555798870}
+  _smallScore: {fileID: 1000641106}
+  _gameMode: {fileID: 1552582665}
+  _incrementVisible: 5
 --- !u!1 &1655752435
 GameObject:
   m_ObjectHideFlags: 0
@@ -33596,7 +33633,7 @@ HingeJoint:
   m_UseLimits: 1
   m_Limits:
     min: 0
-    max: 20
+    max: 22
     bounciness: 0
     bounceMinVelocity: 0.2
     contactDistance: 0
