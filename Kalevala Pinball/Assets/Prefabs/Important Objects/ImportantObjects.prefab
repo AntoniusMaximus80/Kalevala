@@ -2315,7 +2315,7 @@ MonoBehaviour:
   _flipperMotorForce: 32000
   _flipperMotorTargetVelocity: 64000
   _springForce: 32000
-  _rampGravity: -7
+  _rampGravityMultiplier: 7
   _rampExitMomentumFactor: 0.75
   _startingBallAmount: 3
   _allowedNudgeAmount: 4

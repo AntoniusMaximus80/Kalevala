@@ -389,7 +389,10 @@ namespace Kalevala
 
         public void SetCameraFocus(CameraController.CameraPosition camPos)
         {
-            _cameraCtrl.MoveCurrentCamTo(camPos, false);
+            if ( !_stateManager.GameIsPaused(true) )
+            {
+                _cameraCtrl.MoveCurrentCamTo(camPos, false);
+            }
         }
     }
 }

@@ -136,11 +136,18 @@ namespace Kalevala
 
         public Vector3 GetRampSegmentDirection()
         {
-            if(_kickOut)
+            Vector3 result;
+
+            if ( !_kickOut )
             {
-                return _kickoutHole.KickDirection;
+                result = CurrentWaypoint.Position - _prevWaypoint.Position;
             }
-            return (CurrentWaypoint.Position - _prevWaypoint.Position).normalized;
+            else
+            {
+                result = _kickoutHole.KickDirection;
+            }
+
+            return result.normalized;
         }
 
         private bool MoveUsingSpeed(Vector3 waypointPos, bool leftOverOnly)
@@ -151,8 +158,6 @@ namespace Kalevala
             Vector3 targetPosition = waypointPos;
 
             Vector3 direction = GetRampSegmentDirection();
-            float incline = direction.y;
-            //Debug.Log("incline: " + incline);
 
             if (leftOverOnly)
             {
@@ -160,18 +165,21 @@ namespace Kalevala
             }
             else
             {
-                movingDistance = Time.deltaTime * _speed;
-                _speed = GetSpeedAffectedByGravity(incline);
+                movingDistance = _speed * Time.deltaTime;
+                _speed = GetSpeedAffectedByGravity(direction);
             }
 
+            // The direction on the ramp has not changed
             if (_direction == _startDirection)
             {
+                // Changes direction on the ramp
                 if (_speed < 0)
                 {
                     ChangeDirection();
                     targetPosition = CurrentWaypoint.Position;
                 }
             }
+            // The direction on the ramp has changed
             else
             {
                 // The maximum distance from the start of
@@ -193,8 +201,7 @@ namespace Kalevala
                 startPosition, targetPosition, movingDistance);
 
             // Updates the leftover distance
-            _leftoverDistance = 
-                movingDistance -
+            _leftoverDistance = movingDistance -
                 Vector3.Distance(startPosition, transform.position);
 
             // Checks if the segment is finished
@@ -212,16 +219,37 @@ namespace Kalevala
             return false;
         }
 
-        private float GetSpeedAffectedByGravity(float incline)
+        private float GetSpeedAffectedByGravity(Vector3 direction)
         {
             float result = _speed;
 
-            if(!_kickOut)
+            if (!_kickOut)
             {
+                // TODO: Fix
+
+                float gravityRatioY = Physics.gravity.y /
+                    (Physics.gravity.y + Physics.gravity.z);
+                float gravityRatioZ = Physics.gravity.z /
+                    (Physics.gravity.y + Physics.gravity.z);
+                //float gravityRatioZ2 = Physics.gravity.z / Physics.gravity.y;
+
+                //float inclineRatioY = direction.y /
+                //    (direction.y + direction.z);
+                //float inclineRatioZ = direction.z /
+                //    (direction.y + direction.z);
+
+                float incline = direction.y * gravityRatioY + direction.z * gravityRatioZ;
+                //float incline = direction.y;
+                //Debug.Log("incline: " + incline);
+
+                //Physics.gravity;
+
+
                 //Debug.Log("Speed change: " + incline * _gravity * 10);
                 //Debug.Log("_gravity: " + _gravity);
-                result += incline * PinballManager.Instance.RampGravity;
+                result -= incline * PinballManager.Instance.RampGravityMultiplier;
             }
+
             return result;
         }
 

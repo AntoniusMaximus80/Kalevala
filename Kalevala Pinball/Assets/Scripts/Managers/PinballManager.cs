@@ -51,7 +51,7 @@ namespace Kalevala
         public float _springForce;
 
         [SerializeField]
-        private float _rampGravity = -7;
+        private float _rampGravityMultiplier = 7;
 
         [SerializeField]
         private float _rampExitMomentumFactor = 0.75f;
@@ -225,11 +225,11 @@ namespace Kalevala
             }
         }
 
-        public float RampGravity
+        public float RampGravityMultiplier
         {
             get
             {
-                return _rampGravity;
+                return _rampGravityMultiplier;
             }
         }
 

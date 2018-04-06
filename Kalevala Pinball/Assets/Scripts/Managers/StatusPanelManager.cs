@@ -28,7 +28,7 @@ namespace Kalevala
         {
             if (_workshopKOH != null)
             {
-                // Listens to an event which is fired when a ball enters it
+                // Listens to an event which is fired when a ball enters Ilmarinen's workshop
                 _workshopKOH.BallEntered += WorkshopKOHEntered;
             }
             else
@@ -77,7 +77,7 @@ namespace Kalevala
         private void StartGameMode(GameModeStateType gameMode)
         {
             GameManager.Instance.StateManager.
-                        PerformTransition(GameModeStateType.Sampo);
+                PerformTransition(GameModeStateType.Sampo);
 
             Debug.Log("Starting game mode: " + gameMode.ToString());
         }
