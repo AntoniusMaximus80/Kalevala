@@ -70,6 +70,11 @@ namespace Kalevala
                 if (_workshopKOHEnteredNum >= _workshopKOHEnteredRequirement)
                 {
                     StartGameMode(GameModeStateType.Sampo);
+                    Viewscreen.StartSampoMode();
+                }
+                else
+                {
+                    Viewscreen.WorkShopEntered(_workshopKOHEnteredRequirement - _workshopKOHEnteredNum);
                 }
             }
         }
