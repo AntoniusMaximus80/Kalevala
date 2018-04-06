@@ -30,14 +30,6 @@ namespace Kalevala
             _skillshot
            ;
 
-        public TextMeshProUGUI _scoreUGUI,
-            _incrementUGUI;
-
-        public float _incrementVisible;
-
-        private float _incrementVisibleCountdown;
-
-        private Color _fade;
 
         private static Scorekeeper _instance;
 
@@ -60,21 +52,9 @@ namespace Kalevala
         private void Start()
         {
             ResetScore();
-            _incrementVisibleCountdown = _incrementVisible;
-            _fade = new Color(1f, 1f, 1f, 1f);
+            
         }
 
-        private void Update()
-        {
-            if (_incrementVisibleCountdown != 0f)
-            {
-                _incrementVisibleCountdown -=  Time.deltaTime;
-                Mathf.Clamp01(_incrementVisibleCountdown);
-                float ratio = _incrementVisibleCountdown / _incrementVisible;
-                _fade.a = ratio;
-                _incrementUGUI.color = _fade;
-            }
-        }
 
         public void AddScore(ScoreType scoreType)
         {
@@ -111,29 +91,26 @@ namespace Kalevala
             }
 
             // To do: Apply possible score modifiers here.
+            // VN : remember that some score modifiers are type dependent and go inside the switch statement.
 
             _totalScore += _score;
-            _scoreUGUI.text = FormatScore();
-            _incrementUGUI.text = FormatIncrement(_score);
-            _incrementVisibleCountdown = _incrementVisible;
+
+            // Refactored the string processing to happen in the viewscreen class.
+            Viewscreen.FormatScore(_totalScore);
+            Viewscreen.FormatScoreIncrement(_score);
+
+            
+            //_incrementUGUI.text = FormatIncrement(_score);
+            //_incrementVisibleCountdown = _incrementVisible;
         }
 
-        public string FormatScore()
-        {
-            string formattedScore = _totalScore.ToString("N0");
-            return formattedScore;
-        }
-
-        public string FormatIncrement(int amount)
-        {
-            string formattedIncrement = "+" + amount.ToString("N0");
-            return formattedIncrement;
-        }
+       
 
         public void ResetScore()
         {
             _totalScore = 0;
-            _scoreUGUI.text = FormatScore();
+            Viewscreen.FormatScore(_totalScore);
+            
         }
     }
 }

@@ -89,6 +89,9 @@ ModelImporter:
     100162: Trunk001
     100164: Trunk002
     100166: Trunk003
+    100168: Bolt005
+    100170: Bolt006
+    100172: Plastic Rail008
     400000: Base
     400002: Base028
     400004: Base029
@@ -173,6 +176,9 @@ ModelImporter:
     400162: Trunk001
     400164: Trunk002
     400166: Trunk003
+    400168: Bolt005
+    400170: Bolt006
+    400172: Plastic Rail008
     2100000: Placeholder
     2100002: Dark Brown Plastic
     2100004: Clear Plastic
@@ -243,6 +249,9 @@ ModelImporter:
     2300128: Trunk001
     2300130: Trunk002
     2300132: Trunk003
+    2300134: Bolt005
+    2300136: Bolt006
+    2300138: Plastic Rail008
     3300000: Base
     3300002: Base028
     3300004: Base029
@@ -310,6 +319,9 @@ ModelImporter:
     3300128: Trunk001
     3300130: Trunk002
     3300132: Trunk003
+    3300134: Bolt005
+    3300136: Bolt006
+    3300138: Plastic Rail008
     4300000: Target
     4300002: Base
     4300004: Base028
@@ -377,6 +389,9 @@ ModelImporter:
     4300128: Branch005
     4300130: Branch006
     4300132: Trunk003
+    4300134: Plastic Rail008
+    4300136: Bolt005
+    4300138: Bolt006
     9500000: //RootNode
   externalObjects: {}
   materials:

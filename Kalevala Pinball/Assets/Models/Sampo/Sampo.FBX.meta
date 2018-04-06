@@ -41,6 +41,15 @@ ModelImporter:
     100066: Sampo Top Edge
     100068: Sampo Top Inner Layer
     100070: Sampo Top Outer Layer
+    100072: Bottom
+    100074: Inner Glow
+    100076: Middle
+    100078: Top Inner Layer
+    100080: Top Outer Layer
+    100082: Outer Layer Bottom
+    100084: Outer Layer Top
+    100086: Inner Layer
+    100088: Outer Layer
     400000: Bottom Joint L
     400002: Bottom Joint R
     400004: Foot L
@@ -77,6 +86,15 @@ ModelImporter:
     400066: Sampo Top Edge
     400068: Sampo Top Inner Layer
     400070: Sampo Top Outer Layer
+    400072: Bottom
+    400074: Inner Glow
+    400076: Middle
+    400078: Top Inner Layer
+    400080: Top Outer Layer
+    400082: Outer Layer Bottom
+    400084: Outer Layer Top
+    400086: Inner Layer
+    400088: Outer Layer
     2100000: No Name
     2300000: Bottom Joint L
     2300002: Bottom Joint R
@@ -113,6 +131,15 @@ ModelImporter:
     2300064: Sampo Top Edge
     2300066: Sampo Top Inner Layer
     2300068: Sampo Top Outer Layer
+    2300070: Bottom
+    2300072: Inner Glow
+    2300074: Middle
+    2300076: Top Inner Layer
+    2300078: Top Outer Layer
+    2300080: Outer Layer Bottom
+    2300082: Outer Layer Top
+    2300084: Inner Layer
+    2300086: Outer Layer
     3300000: Bottom Joint L
     3300002: Bottom Joint R
     3300004: Foot L
@@ -148,6 +175,15 @@ ModelImporter:
     3300064: Sampo Top Edge
     3300066: Sampo Top Inner Layer
     3300068: Sampo Top Outer Layer
+    3300070: Bottom
+    3300072: Inner Glow
+    3300074: Middle
+    3300076: Top Inner Layer
+    3300078: Top Outer Layer
+    3300080: Outer Layer Bottom
+    3300082: Outer Layer Top
+    3300084: Inner Layer
+    3300086: Outer Layer
     4300000: Foot R
     4300002: Lower Leg R
     4300004: Upper Leg R
@@ -183,6 +219,15 @@ ModelImporter:
     4300064: Handle R
     4300066: Handle Bar 1 R
     4300068: Light Plane
+    4300070: Bottom
+    4300072: Inner Glow
+    4300074: Middle
+    4300076: Top Outer Layer
+    4300078: Top Inner Layer
+    4300080: Outer Layer Bottom
+    4300082: Outer Layer Top
+    4300084: Inner Layer
+    4300086: Outer Layer
     7400000: Open / Close Doors
     7400002: Rise Up
     7400004: Sit Down
