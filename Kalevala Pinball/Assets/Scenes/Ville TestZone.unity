@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.4482491, g: 0.49827605, b: 0.5755833, a: 1}
+  m_IndirectSpecularColor: {r: 0.4482482, g: 0.49827528, b: 0.5755824, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -607,7 +607,7 @@ Transform:
   - {fileID: 10994979}
   - {fileID: 1707181873}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 21
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &343060019
 GameObject:
@@ -749,7 +749,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 54, y: 180, z: 0}
 --- !u!1 &400578480
 GameObject:
@@ -965,14 +965,16 @@ MonoBehaviour:
   _flipperMotorTargetVelocity: 64000
   _springForce: 32000
   _rampGravity: -7
+  _rampExitMomentumFactor: 0.75
   _startingBallAmount: 5
   _allowedNudgeAmount: 0
+  debug_useDefaultLaunchPoint: 0
   _ballLaunchPoint: {x: -24.4, y: 0, z: 0}
   _ballDrainBottomLeftCorner: {x: 10, y: 0, z: 60}
   _ballDrainTopRightCorner: {x: -10, y: 0, z: 55}
-  _pinballs: []
-  _currentBallAmount: 0
-  _activeBalls: 0
+  _startingPosition: {fileID: 0}
+  _pinballPrefab: {fileID: 0}
+  _autosaveTimeRemaining: 0
 --- !u!4 &444942425
 Transform:
   m_ObjectHideFlags: 0
@@ -984,7 +986,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 20
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &447625743
 GameObject:
@@ -1198,8 +1200,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4eff12b85e61ee14197e0b2d3bb9da07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _flipperOrientation: 1
-  _pinballManager: {fileID: 444942424}
+  _flipperBarOrientation: 0
+  _flipperBarUpAudioSource: {fileID: 0}
+  _flipperBarDownAudioSource: {fileID: 0}
 --- !u!59 &515031138
 HingeJoint:
   m_ObjectHideFlags: 0
@@ -1310,90 +1313,6 @@ ReflectionProbe:
   m_UseOcclusionCulling: 1
   m_Importance: 1
   m_CustomBakedTexture: {fileID: 0}
---- !u!1 &573109607
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 573109611}
-  - component: {fileID: 573109610}
-  - component: {fileID: 573109609}
-  - component: {fileID: 573109608}
-  m_Layer: 10
-  m_Name: Cube (1)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!23 &573109608
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 573109607}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_PreserveUVs: 1
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 0
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
---- !u!65 &573109609
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 573109607}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!33 &573109610
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 573109607}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!4 &573109611
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 573109607}
-  m_LocalRotation: {x: -0, y: -0.38268325, z: -0, w: 0.9238796}
-  m_LocalPosition: {x: -11.341984, y: 3, z: -30.657547}
-  m_LocalScale: {x: 24, y: 4, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 18
-  m_LocalEulerAnglesHint: {x: 0, y: -45.000004, z: 0}
 --- !u!1 &577028977
 GameObject:
   m_ObjectHideFlags: 0
@@ -1476,7 +1395,7 @@ Transform:
   m_LocalScale: {x: 24, y: 4, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 26
+  m_RootOrder: 25
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!1 &590087775 stripped
 GameObject:
@@ -1525,7 +1444,7 @@ MonoBehaviour:
   _wobblyingAmount: 0.5
   _stabilizeRotationSpeed: 1
   _stabilizingThreshold: 0.7
-  _scoreEachHalfRound: 0
+  _maxAngularVelocity: 0
 --- !u!1 &593859045
 GameObject:
   m_ObjectHideFlags: 0
@@ -1772,7 +1691,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 135, y: -45, z: 0}
 --- !u!1001 &657911936
 Prefab:
@@ -1864,8 +1783,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4eff12b85e61ee14197e0b2d3bb9da07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _flipperOrientation: 0
-  _pinballManager: {fileID: 444942424}
+  _flipperBarOrientation: 0
+  _flipperBarUpAudioSource: {fileID: 0}
+  _flipperBarDownAudioSource: {fileID: 0}
 --- !u!59 &657911940
 HingeJoint:
   m_ObjectHideFlags: 0
@@ -2340,10 +2260,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e4958aa9a1eb0545a8a9f96b45d05c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _score: 0
-  _scoreUGUI: {fileID: 716014157}
-  _incrementUGUI: {fileID: 1024270835}
-  _incrementVisible: 0.5
+  _totalScore: 0
+  _spruceBumper: 0
+  _kanteleBumper: 0
+  _spinner: 0
+  _dropTarget: 0
+  _ilmarinenKOH: 0
+  _teleportKOH: 0
+  _tuonelaRollover: 0
+  _skillshot: 0
 --- !u!4 &805773622
 Transform:
   m_ObjectHideFlags: 0
@@ -2355,7 +2280,7 @@ Transform:
   m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 23
+  m_RootOrder: 22
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &846700952
 GameObject:
@@ -2439,7 +2364,7 @@ Transform:
   m_LocalScale: {x: 24, y: 4, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 25
+  m_RootOrder: 24
   m_LocalEulerAnglesHint: {x: 0, y: 45.000004, z: 0}
 --- !u!1 &856396417
 GameObject:
@@ -2791,7 +2716,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   debug_rampSpeed: 15
   debug_useDebugRampSpeed: 0
-  debug_autoReinstance: 0
+  debug_freeBalls: 0
   debug_addImpulseForce: 0
   debug_stopMotion: 0
   debug_exitRamp: 0
@@ -3823,6 +3748,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _launcherForceMultiplier: 130
   _timeToMaxForce: 3
+  _minForceTime: 0
+  _useDebugs: 0
+  _hingejoint: {fileID: 0}
+  _hitParticles: {fileID: 0}
+  _hitSFX: {fileID: 0}
+  _LauncherAreLeftBorderOffset: 0
 --- !u!4 &1389349156
 Transform:
   m_ObjectHideFlags: 0
@@ -3834,7 +3765,7 @@ Transform:
   m_LocalScale: {x: 24.000015, y: 4, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 28
+  m_RootOrder: 27
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1404912177
 GameObject:
@@ -3863,10 +3794,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 511e09df59ecf85478558b9b2fd6a955, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _canvasGR: {fileID: 0}
   _launcher: {fileID: 1389349155}
   _leftFlipper: {fileID: 657911939}
   _rightFlipper: {fileID: 515031137}
-  _nudgeStrenght: 10
+  _topRightFlipper: {fileID: 0}
+  _nudgeStrength: 0
 --- !u!4 &1404912179
 Transform:
   m_ObjectHideFlags: 0
@@ -3878,7 +3811,7 @@ Transform:
   m_LocalScale: {x: 10, y: 4, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 29
+  m_RootOrder: 28
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1420219273
 GameObject:
@@ -3943,7 +3876,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 135, y: 45, z: 0}
 --- !u!1 &1499455526
 GameObject:
@@ -4538,7 +4471,7 @@ Transform:
   m_LocalScale: {x: 24, y: 4, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 27
+  m_RootOrder: 26
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!1 &1649226001
 GameObject:
@@ -4948,7 +4881,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   debug_rampSpeed: 15
   debug_useDebugRampSpeed: 0
-  debug_autoReinstance: 0
+  debug_freeBalls: 0
   debug_addImpulseForce: 0
   debug_stopMotion: 0
   debug_exitRamp: 0
@@ -5125,7 +5058,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   debug_rampSpeed: 15
   debug_useDebugRampSpeed: 0
-  debug_autoReinstance: 0
+  debug_freeBalls: 0
   debug_addImpulseForce: 0
   debug_stopMotion: 0
   debug_exitRamp: 0
@@ -5458,7 +5391,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 15aada412e5655b42be0639e2d0afdd1, type: 3}
       propertyPath: m_RootOrder
-      value: 24
+      value: 23
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 15aada412e5655b42be0639e2d0afdd1, type: 3}
       propertyPath: m_LocalScale.x
@@ -5783,7 +5716,7 @@ Transform:
   m_LocalScale: {x: 10, y: 4, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 30
+  m_RootOrder: 29
   m_LocalEulerAnglesHint: {x: 0, y: 45, z: 0}
 --- !u!1001 &2007854631
 Prefab:
@@ -5937,7 +5870,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2042354871
 GameObject:
