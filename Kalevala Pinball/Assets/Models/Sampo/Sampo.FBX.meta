@@ -50,6 +50,13 @@ ModelImporter:
     100084: Outer Layer Top
     100086: Inner Layer
     100088: Outer Layer
+    100090: Beard
+    100092: Beard001
+    100094: Beard002
+    100096: Body
+    100098: Grill
+    100100: Grill001
+    100102: Grill002
     400000: Bottom Joint L
     400002: Bottom Joint R
     400004: Foot L
@@ -95,6 +102,13 @@ ModelImporter:
     400084: Outer Layer Top
     400086: Inner Layer
     400088: Outer Layer
+    400090: Beard
+    400092: Beard001
+    400094: Beard002
+    400096: Body
+    400098: Grill
+    400100: Grill001
+    400102: Grill002
     2100000: No Name
     2300000: Bottom Joint L
     2300002: Bottom Joint R
@@ -140,6 +154,12 @@ ModelImporter:
     2300082: Outer Layer Top
     2300084: Inner Layer
     2300086: Outer Layer
+    2300088: Beard
+    2300090: Beard001
+    2300092: Beard002
+    2300094: Grill
+    2300096: Grill001
+    2300098: Grill002
     3300000: Bottom Joint L
     3300002: Bottom Joint R
     3300004: Foot L
@@ -184,6 +204,12 @@ ModelImporter:
     3300082: Outer Layer Top
     3300084: Inner Layer
     3300086: Outer Layer
+    3300088: Beard
+    3300090: Beard001
+    3300092: Beard002
+    3300094: Grill
+    3300096: Grill001
+    3300098: Grill002
     4300000: Foot R
     4300002: Lower Leg R
     4300004: Upper Leg R
@@ -228,12 +254,20 @@ ModelImporter:
     4300082: Outer Layer Top
     4300084: Inner Layer
     4300086: Outer Layer
+    4300088: Beard002
+    4300090: Beard001
+    4300092: Beard
+    4300094: Grill002
+    4300096: Grill001
+    4300098: Grill
     7400000: Open / Close Doors
     7400002: Rise Up
     7400004: Sit Down
     7400006: Slow Down
     7400008: Bow Down
     7400010: Up Idle
+    7400012: Sampo Stand Up
+    7400014: Sampo Idle
     9500000: //RootNode
   externalObjects: {}
   materials:
@@ -263,10 +297,10 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Open / Close Doors
+      name: Sampo Stand Up
       takeName: Take 001
       firstFrame: 0
-      lastFrame: 49
+      lastFrame: 59
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -291,94 +325,10 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Rise Up
+      name: Sampo Idle
       takeName: Take 001
-      firstFrame: 51
-      lastFrame: 175
-      wrapMode: 0
-      orientationOffsetY: 0
-      level: 0
-      cycleOffset: 0
-      loop: 0
-      hasAdditiveReferencePose: 0
-      loopTime: 0
-      loopBlend: 0
-      loopBlendOrientation: 0
-      loopBlendPositionY: 0
-      loopBlendPositionXZ: 0
-      keepOriginalOrientation: 0
-      keepOriginalPositionY: 1
-      keepOriginalPositionXZ: 0
-      heightFromFeet: 0
-      mirror: 0
-      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
-      curves: []
-      events: []
-      transformMask: []
-      maskType: 3
-      maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 0
-    - serializedVersion: 16
-      name: Slow Down
-      takeName: Take 001
-      firstFrame: 176
-      lastFrame: 224
-      wrapMode: 0
-      orientationOffsetY: 0
-      level: 0
-      cycleOffset: 0
-      loop: 0
-      hasAdditiveReferencePose: 0
-      loopTime: 0
-      loopBlend: 0
-      loopBlendOrientation: 0
-      loopBlendPositionY: 0
-      loopBlendPositionXZ: 0
-      keepOriginalOrientation: 0
-      keepOriginalPositionY: 1
-      keepOriginalPositionXZ: 0
-      heightFromFeet: 0
-      mirror: 0
-      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
-      curves: []
-      events: []
-      transformMask: []
-      maskType: 3
-      maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 0
-    - serializedVersion: 16
-      name: Bow Down
-      takeName: Take 001
-      firstFrame: 225
-      lastFrame: 299
-      wrapMode: 0
-      orientationOffsetY: 0
-      level: 0
-      cycleOffset: 0
-      loop: 0
-      hasAdditiveReferencePose: 0
-      loopTime: 0
-      loopBlend: 0
-      loopBlendOrientation: 0
-      loopBlendPositionY: 0
-      loopBlendPositionXZ: 0
-      keepOriginalOrientation: 0
-      keepOriginalPositionY: 1
-      keepOriginalPositionXZ: 0
-      heightFromFeet: 0
-      mirror: 0
-      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
-      curves: []
-      events: []
-      transformMask: []
-      maskType: 3
-      maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 0
-    - serializedVersion: 16
-      name: Up Idle
-      takeName: Take 001
-      firstFrame: 224
-      lastFrame: 225
+      firstFrame: 59
+      lastFrame: 59
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
