@@ -1,12 +1,11 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Kalevala
 {
     public class SampoLayer : MonoBehaviour
     {
-        public bool _rotating;
+        public bool _rotating,
+            _right;
         public float _rotationMultiplier;
         private float _rotationZ = 0;
 
@@ -21,7 +20,12 @@ namespace Kalevala
         {
             if (_rotating)
             {
-                transform.Rotate(new Vector3(0f, 0f, _rotationZ));
+                if (_right) {
+                    transform.Rotate(new Vector3(0f, 0f, _rotationZ));
+                } else
+                {
+                    transform.Rotate(new Vector3(0f, 0f, -_rotationZ));
+                }
             }
         }
     }

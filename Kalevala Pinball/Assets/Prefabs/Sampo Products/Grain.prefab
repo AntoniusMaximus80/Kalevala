@@ -21,7 +21,6 @@ GameObject:
   - component: {fileID: 4572035695938478}
   - component: {fileID: 33225457360766850}
   - component: {fileID: 23758747372190798}
-  - component: {fileID: 95529075065917840}
   - component: {fileID: 54838530762866338}
   - component: {fileID: 65318462220382200}
   - component: {fileID: 114608404348699040}
@@ -107,29 +106,12 @@ BoxCollider:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1040548159915542}
-  m_Material: {fileID: 13400000, guid: ea83217789c0bab4589e559fd3148cda, type: 2}
+  m_Material: {fileID: 13400000, guid: 24ec76bc4ab070744b4ff17fcc84929c, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 0.14, y: 0.24, z: 0.04}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!95 &95529075065917840
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1040548159915542}
-  m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: 10e9940825b22244cbe13ba89c53854e, type: 3}
-  m_Controller: {fileID: 0}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &114608404348699040
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -141,5 +123,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 146c671573b08764183b6a4ee0d13775, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _startFadingOutTime: 1
+  _startFadingOutTime: 0.5
   _fadeOutTime: 0.25
