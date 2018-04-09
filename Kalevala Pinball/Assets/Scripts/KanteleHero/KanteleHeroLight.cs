@@ -52,6 +52,10 @@ namespace Kalevala
             _waypointSpeed = Vector3.Distance(transform.position, Waypoints[_currentWaypointIndex].transform.position);
         }
 
+        /// <summary>
+        /// Returns the moving light back to pool, so it can be used again
+        /// </summary>
+        /// <param name="parent"> parent of the light</param>
         public void BackToPool(KanteleHeroPanel parent)
         {
             _speed = 0;

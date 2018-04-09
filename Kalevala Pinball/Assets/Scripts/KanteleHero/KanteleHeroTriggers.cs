@@ -22,6 +22,12 @@ namespace Kalevala
             _parent = parent;
         }
 
+        /// <summary>
+        /// Activates the trigger and starts the timer 
+        /// in which the player needs to press corresponding button to succesfully play the kantele
+        /// </summary>
+        /// <param name="triggerActiveTimeBeforeMiss"> The time before the trigger shuts itself
+        /// and increases misses on the panel by 1 </param>
         public void ActivateLight(float triggerActiveTimeBeforeMiss )
         {
             if(_myLight.activeInHierarchy)
@@ -32,12 +38,15 @@ namespace Kalevala
             _startTime = 0;
             _triggerActiveTimeBeforeMiss = triggerActiveTimeBeforeMiss;
         }
-
+        
         public void DeactivateLight()
         {
             _myLight.SetActive(false);
         }
 
+        /// <summary>
+        /// Runs the timer before the trigger shuts itself
+        /// </summary>
         private void Update()
         {
             if(_myLight.activeInHierarchy)
@@ -53,6 +62,11 @@ namespace Kalevala
             }
         }
 
+        /// <summary>
+        /// Gets input from player if corresponding button is pressed
+        /// if the button is pressed when the light is not on,
+        /// player gets 1 miss on the panel
+        /// </summary>
         public void TriggerPressed()
         {
             if(_myLight.activeInHierarchy)

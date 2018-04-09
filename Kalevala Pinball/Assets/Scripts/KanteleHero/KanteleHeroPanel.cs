@@ -55,6 +55,11 @@ namespace Kalevala
             DeactivateAllMissLights();
         }
 
+        /// <summary>
+        /// Spawns light on the panel that start moving towards the end of the rail
+        /// </summary>
+        /// <param name="waypoints"> Waypoints for the correct side </param>
+        /// <param name="side"> Decide which side the light moves on the panel </param>
         private void SpawnLight(GameObject[] waypoints, LightSide side)
         {
             KanteleHeroLight light = _kanteleLights.GetPooledObject();
@@ -110,6 +115,9 @@ namespace Kalevala
             }
         }
 
+        /// <summary>
+        /// updates the spawntimer to know when the next light should be spawned
+        /// </summary>
         private void UpdateSpawnTimer()
         {
             if(!_canSpawn)
@@ -122,6 +130,10 @@ namespace Kalevala
             }
         }
 
+        /// <summary>
+        /// Returns light to the pool after it has reached the end of the waypoints.
+        /// </summary>
+        /// <param name="light"> Light that should be placed back to the pool </param>
         public void ReturnLightToPool(KanteleHeroLight light)
         {
             if(!_kanteleLights.ReturnObject(light))
@@ -130,6 +142,10 @@ namespace Kalevala
             }
         }
 
+        /// <summary>
+        /// Randomizes the side which the light should spawn
+        /// </summary>
+        /// <returns> Random side which the light moves </returns>
         private LightSide RandomSide()
         {
             if(Random.Range(0f,2f) > 1f)
@@ -139,6 +155,12 @@ namespace Kalevala
             return LightSide.left;
         }
 
+        /// <summary>
+        /// If light has spawned before minimum light spawn time, 
+        /// always spawn it to other side of the panel
+        /// </summary>
+        /// <param name="side"> Which side the light was spawned before </param>
+        /// <returns> opposite side of the panel </returns>
         private LightSide SpawnOnOtherSide(LightSide side)
         {
             LightSide result = LightSide.right;
@@ -159,6 +181,10 @@ namespace Kalevala
             _rightTrigger.TriggerPressed();
         }
 
+        /// <summary>
+        /// If player presses trigger when it's not active or fails to press the trigger
+        /// before it's timer runs out. Activate next misslight
+        /// </summary>
         public void LightMissed()
         {
             if(_missLights.Length > _misses)
@@ -184,12 +210,19 @@ namespace Kalevala
             }
         }
 
+        /// <summary>
+        /// Starts the Kantelehero panel minigame
+        /// </summary>
         public void ActivatePanel()
         {
             PanelActive = true;
             _misses = 0;
         }
 
+        /// <summary>
+        /// Deactivates the kantelehero panel minigame and all lights on it
+        /// also reset all variables for the next round
+        /// </summary>
         public void DeactivatePanel()
         {
             _misses = 0;
