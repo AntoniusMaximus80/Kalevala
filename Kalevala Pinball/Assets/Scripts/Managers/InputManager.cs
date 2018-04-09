@@ -40,9 +40,11 @@ namespace Kalevala {
         private HighscoreList _highscoreList;
         private MouseCursorController _cursor;
         private HeatMap _heatMap;
-
+        private KanteleHeroPanel _kantelePanel;
         private bool _alwaysDisplayScoreboard;
         private bool _pauseMenuActive;
+        private bool _KanteleHeroLeftTriggerDown;
+        private bool _KanteleHeroRightTriggerDown;
         //private bool _gameOver;
 
         /// <summary>
@@ -76,7 +78,7 @@ namespace Kalevala {
             _highscoreList = GameManager.Instance.HighscoreList;
             _cursor = FindObjectOfType<MouseCursorController>();
             _heatMap = FindObjectOfType<HeatMap>();
-
+            _kantelePanel = FindObjectOfType<KanteleHeroPanel>();
             // Allows the cursor to select the current menu's
             // default selected button when it is hidden
             _cursor.SelectMenuButtonAction = SelectDefaultSelectedMenuButton;
@@ -239,10 +241,20 @@ namespace Kalevala {
         private void GameInput()
         {
             // Accepts both KB+M and gamepad input
-
+            if(Input.GetKeyDown(KeyCode.L))
+            {
+                _kantelePanel.ActivatePanel();
+            }
             LaunchInput();
-            FlipperInput();
-
+            if(_kantelePanel.PanelActive)
+            {
+                KantelePanelInput();
+            }
+            else
+            {
+                FlipperInput();
+            }
+            
             // Ugly nudge hack.
             _nudgeVector.x = 0;
             if (Input.GetButtonDown("NudgeLeft")) DoNudge(-1);
@@ -316,6 +328,28 @@ namespace Kalevala {
                 _topRightFlipper.UseSpring();
             }
 
+        }
+
+        private void KantelePanelInput()
+        {
+            if(Input.GetAxis(_LEFTFLIPPERHIT) > 0 && !_KanteleHeroLeftTriggerDown)
+            {
+                _kantelePanel.LeftTriggerPressed();
+                _KanteleHeroLeftTriggerDown = true;
+            } else if (Input.GetAxis(_LEFTFLIPPERHIT) == 0 && _KanteleHeroLeftTriggerDown)
+            {
+                _KanteleHeroLeftTriggerDown = false;
+            }
+
+            if(Input.GetAxis(_RIGHTFLIPPERHIT) > 0 && !_KanteleHeroRightTriggerDown)
+            {
+                _kantelePanel.RightTriggerPressed();
+                _KanteleHeroRightTriggerDown = true;
+            }
+            else if (Input.GetAxis(_RIGHTFLIPPERHIT) == 0 && _KanteleHeroRightTriggerDown)
+            {
+                _KanteleHeroRightTriggerDown = false;
+            }
         }
 
         private void DoNudge(int direction)

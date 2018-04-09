@@ -4,6 +4,7 @@ using UnityEngine;
 
 namespace Kalevala
 {
+
     public class KanteleHeroLight: MonoBehaviour
     {
         public GameObject[] Waypoints;
@@ -15,6 +16,7 @@ namespace Kalevala
         private float startTime;
         private float _waypointSpeed;
         private KanteleHeroPanel _parent;
+        private LightSide _side;
         // Update is called once per frame
 
         void Update()
@@ -23,6 +25,13 @@ namespace Kalevala
             {
                 _reachedEnd = MoveTowards(_currentWaypointIndex);
             }
+
+            if(_reachedEnd)
+            {
+                _parent.TurnTriggetLightOn(_side);
+                _reachedEnd = false;
+                BackToPool(_parent);
+            }
         }
 
         /// <summary>
@@ -30,15 +39,29 @@ namespace Kalevala
         /// </summary>
         /// <param name="waypoints"> Waypoints that the light moves along</param>
         /// <param name="parent"> the panel that initializes the light</param>
-        public void Init( GameObject[] waypoints, KanteleHeroPanel parent, float speed)
+        public void Init( GameObject[] waypoints, KanteleHeroPanel parent, float speed, LightSide side)
         {
             _speed = speed;
             _parent = parent;
-            _currentWaypointIndex = 0;
+            _currentWaypointIndex = 1;
             Waypoints = waypoints;
+            transform.position = waypoints[0].transform.position;
             _startPos = transform.position;
             startTime = 0;
+            _side = side;
             _waypointSpeed = Vector3.Distance(transform.position, Waypoints[_currentWaypointIndex].transform.position);
+        }
+
+        public void BackToPool(KanteleHeroPanel parent)
+        {
+            _speed = 0;
+            _parent = null;
+            _currentWaypointIndex = 0;
+            Waypoints = null;
+            _startPos = transform.position;
+            startTime = 0;
+            _waypointSpeed = 0;
+            parent.ReturnLightToPool(this);
         }
 
         /// <summary>
@@ -63,10 +86,10 @@ namespace Kalevala
                     _waypointSpeed = Vector3.Distance(transform.position, Waypoints[_currentWaypointIndex].transform.position);
                 } else
                 {
-                    _parent.TurnLeftLightOn();
+                    return true;
                 }
             }
-            return true;
+            return false;
         }
     }
 }
