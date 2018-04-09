@@ -146,7 +146,24 @@ namespace Kalevala
             {
                 LaunchPoint = _startingPosition.position;
             }
+
+            //InitGravity();
         }
+
+        ///// <summary>
+        ///// Initializes gravity.
+        ///// </summary>
+        //private void InitGravity()
+        //{
+        //    //float totalGravity = Physics.gravity.y + Physics.gravity.z;
+
+        //    //float gravityRatioY = Physics.gravity.y / totalGravity;
+        //    //float gravityRatioZ = Physics.gravity.z / totalGravity;
+
+        //    Gravity = Physics.gravity.normalized;
+        //}
+
+        //public Vector3 Gravity { get; private set; }
 
         public bool ShootAgain
         {

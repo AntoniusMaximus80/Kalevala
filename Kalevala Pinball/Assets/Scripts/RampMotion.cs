@@ -247,7 +247,7 @@ namespace Kalevala
 
                 //Debug.Log("Speed change: " + incline * _gravity * 10);
                 //Debug.Log("_gravity: " + _gravity);
-                result -= incline * PinballManager.Instance.RampGravityMultiplier;
+                result += -1f * incline * PinballManager.Instance.RampGravityMultiplier;
             }
 
             return result;

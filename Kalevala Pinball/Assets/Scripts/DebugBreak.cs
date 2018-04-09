@@ -6,6 +6,7 @@ namespace Kalevala
     {
         protected override void Activate()
         {
+            Debug.Log("[Debug] Paused");
             Debug.Break();
         }
     }

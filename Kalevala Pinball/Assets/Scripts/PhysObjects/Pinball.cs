@@ -320,6 +320,7 @@ namespace Kalevala
             PinballManager.Instance.InstanceNextBall(this);
             StopMotion();
             AbortRamp();
+            SetPhysicsEnabled(true);
         }
 
         //public bool SameDirections(Vector3 direction1, Vector3 direction2, float angleTolerance)
