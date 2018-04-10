@@ -5793,6 +5793,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 10, y: 20, z: 3.43}
   m_Center: {x: -0.68, y: -14.57, z: 6.04}
+--- !u!114 &449546380
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 449546376}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5766b74a80da3c544aaea4ba8b65122e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _rotationAmount: 20
+  _turnSpeed: 10
 --- !u!1 &449641877
 GameObject:
   m_ObjectHideFlags: 0
@@ -8313,19 +8326,19 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400094, guid: 8f9e4d763a966e146a9613f8df46950d, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.3279153
+      value: -0.4960797
       objectReference: {fileID: 0}
     - target: {fileID: 400094, guid: 8f9e4d763a966e146a9613f8df46950d, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.61876297
+      value: 0.49426815
       objectReference: {fileID: 0}
     - target: {fileID: 400094, guid: 8f9e4d763a966e146a9613f8df46950d, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.63089865
+      value: 0.504058
       objectReference: {fileID: 0}
     - target: {fileID: 400094, guid: 8f9e4d763a966e146a9613f8df46950d, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.3340222
+      value: 0.50549924
       objectReference: {fileID: 0}
     - target: {fileID: 400094, guid: 8f9e4d763a966e146a9613f8df46950d, type: 3}
       propertyPath: m_RootOrder
@@ -8481,7 +8494,7 @@ Prefab:
       objectReference: {fileID: 2100000, guid: be635fa7dfe99d04abc0afe89b111e78, type: 2}
     - target: {fileID: 400094, guid: 8f9e4d763a966e146a9613f8df46950d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: -54.62201
+      value: -88.98901
       objectReference: {fileID: 0}
     - target: {fileID: 100124, guid: 8f9e4d763a966e146a9613f8df46950d, type: 3}
       propertyPath: m_Layer
@@ -14345,6 +14358,7 @@ MonoBehaviour:
     type: 2}
   _leftTrigger: {fileID: 2067540491}
   _rightTrigger: {fileID: 2048898816}
+  _haukiKantele: {fileID: 449546380}
 --- !u!1001 &1160346525
 Prefab:
   m_ObjectHideFlags: 0

@@ -142,13 +142,11 @@ namespace Kalevala
         {
             if(transform.rotation.eulerAngles.x >= 0 && transform.rotation.eulerAngles.x <= 90 && !_fullRound)
             {
-                Debug.Log("Score added");
                 _fullRound = true;
                 Scorekeeper.Instance.AddScore(Scorekeeper.ScoreType.Spinner);
             }
             else if(transform.rotation.eulerAngles.x >= 270 && transform.rotation.eulerAngles.x <= 360 && _fullRound)
             {
-                Debug.Log("Score added");
                 _fullRound = false;
                 Scorekeeper.Instance.AddScore(Scorekeeper.ScoreType.Spinner);
             }

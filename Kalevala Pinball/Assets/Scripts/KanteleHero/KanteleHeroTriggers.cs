@@ -11,6 +11,7 @@ namespace Kalevala
         private KanteleHeroPanel _parent;
         private float _startTime;
         private float _triggerActiveTimeBeforeMiss;
+        private int _noteNumber;
         // Use this for initialization
         void Start()
         {
@@ -28,14 +29,15 @@ namespace Kalevala
         /// </summary>
         /// <param name="triggerActiveTimeBeforeMiss"> The time before the trigger shuts itself
         /// and increases misses on the panel by 1 </param>
-        public void ActivateLight(float triggerActiveTimeBeforeMiss )
+        public void ActivateLight(float triggerActiveTimeBeforeMiss, int noteNumber )
         {
             if(_myLight.activeInHierarchy)
             {
-                _parent.LightMissed();
+                _parent.LightMissed(noteNumber);
             }
             _myLight.SetActive(true);
             _startTime = 0;
+            _noteNumber = noteNumber;
             _triggerActiveTimeBeforeMiss = triggerActiveTimeBeforeMiss;
         }
         
@@ -56,7 +58,7 @@ namespace Kalevala
                 {
 
                     Debug.Log("LightMissed");
-                    _parent.LightMissed();
+                    _parent.LightMissed(_noteNumber);
                     DeactivateLight();
                 }
             }
@@ -71,10 +73,11 @@ namespace Kalevala
         {
             if(_myLight.activeInHierarchy)
             {
+                _parent.LightHit(_noteNumber);
                 DeactivateLight();
             } else
             {
-                _parent.LightMissed();
+                _parent.LightMissed(_noteNumber);
             }
         }
     }

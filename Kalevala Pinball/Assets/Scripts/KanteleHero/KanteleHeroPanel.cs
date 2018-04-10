@@ -32,14 +32,19 @@ namespace Kalevala
         private KanteleHeroTriggers _leftTrigger;
         [SerializeField]
         private KanteleHeroTriggers _rightTrigger;
+        [SerializeField]
+        private HauenLeukaKantele _haukiKantele;
 
+        private List<Note> _notes = new List<Note>();
         private int _misses;
         private Pool<KanteleHeroLight> _kanteleLights;
         private float _spawnTimer;
         private bool _canSpawn;
         private LightSide _spawnSide;
-
         private bool _panelActive = false;
+        private int _currentNote = 0;
+        private int _noteCount;
+        private float _difficulty;
 
         public bool PanelActive
         {
@@ -49,10 +54,19 @@ namespace Kalevala
         // Use this for initialization
         void Start()
         {
+            for(int i = 0; i < 10; i++)
+            {
+                if(i % 2 == 0)
+                {
+                    _notes.Add(new Note(i, 0.5f));
+                }
+            }
             _kanteleLights = new Pool<KanteleHeroLight>(4, true, _movingLightPrefab);
             _leftTrigger.Init(this);
             _rightTrigger.Init(this);
             DeactivateAllMissLights();
+            _spawnTimer = 0;
+            _difficulty = 1;
         }
 
         /// <summary>
@@ -60,21 +74,27 @@ namespace Kalevala
         /// </summary>
         /// <param name="waypoints"> Waypoints for the correct side </param>
         /// <param name="side"> Decide which side the light moves on the panel </param>
-        private void SpawnLight(GameObject[] waypoints, LightSide side)
+        private void SpawnLight(GameObject[] waypoints, LightSide side, int noteNumber)
         {
             KanteleHeroLight light = _kanteleLights.GetPooledObject();
             if(light != null)
             {
-                light.Init(waypoints, this, _lightMoveSpeed,side);
+                light.Init(waypoints, this, _lightMoveSpeed,side, noteNumber);
             }
         }
 
         // Update is called once per frame
         void Update()
         {
+            
             if(PanelActive)
             {
-                UpdateSpawnTimer();
+                Debug.Log("Current index: " + _currentNote + " noteCount " + _noteCount);
+                if(_currentNote < _noteCount)
+                {
+                    UpdateSpawnTimer();
+                }
+
                 if(_canSpawn)
                 {
                     if(_spawnTimer > _minSpawnOnSameSide)
@@ -86,17 +106,18 @@ namespace Kalevala
                     }
                     if(_spawnSide == LightSide.left)
                     {
-                        SpawnLight(_LeftWaypoints, _spawnSide);
+                        SpawnLight(_LeftWaypoints, _spawnSide,_currentNote - 1);
                     } else if (_spawnSide == LightSide.right)
                     {
-                        SpawnLight(_rightWaypoints, _spawnSide);
+                        SpawnLight(_rightWaypoints, _spawnSide, _currentNote - 1);
                     }
                     _canSpawn = false;
-                    _spawnTimer = 0;
+                    
                 }
             }
             if(_misses >= _missLights.Length)
             {
+                _misses = 0;
                 DeactivatePanel();
             }
         }
@@ -104,14 +125,14 @@ namespace Kalevala
         /// <summary>
         /// Turns the left light on and 
         /// </summary>
-        public void TurnTriggetLightOn(LightSide side)
+        public void TurnTriggetLightOn(LightSide side, int noteNumber)
         {
             if(side == LightSide.left)
             {
-                _leftTrigger.ActivateLight(_triggerActiveTimeBeforeMiss);
+                _leftTrigger.ActivateLight(_triggerActiveTimeBeforeMiss, noteNumber);
             } else if(side == LightSide.right)
             {
-                _rightTrigger.ActivateLight(_triggerActiveTimeBeforeMiss);
+                _rightTrigger.ActivateLight(_triggerActiveTimeBeforeMiss, noteNumber);
             }
         }
 
@@ -120,11 +141,12 @@ namespace Kalevala
         /// </summary>
         private void UpdateSpawnTimer()
         {
-            if(!_canSpawn)
+            _spawnTimer += Time.deltaTime * _difficulty;
+            if(!_canSpawn && _currentNote < _noteCount)
             {
-                _spawnTimer += Time.deltaTime;
-                if(_spawnTimer >= _spawnInterval)
+                if(_spawnTimer >= _notes[_currentNote].SpawnTime)
                 {
+                    _currentNote++;
                     _canSpawn = true;
                 }
             }
@@ -185,13 +207,28 @@ namespace Kalevala
         /// If player presses trigger when it's not active or fails to press the trigger
         /// before it's timer runs out. Activate next misslight
         /// </summary>
-        public void LightMissed()
+        public void LightMissed(int noteNumber)
         {
             if(_missLights.Length > _misses)
             {
                 _missLights[_misses].SetActive(true);
             }
             _misses++;
+            if(noteNumber >= _noteCount - 1)
+            {
+                DeactivatePanel();
+            }
+        }
+
+        public void LightHit(int noteNumber)
+        {
+            float pitch = _notes[noteNumber].Pitch;
+            // TODO: play sound with pitch taken from given note.
+            _haukiKantele.GetRotation();
+            if(noteNumber >= _noteCount - 1)
+            {
+                DeactivatePanel();
+            }
         }
         
         private void ActivateAllMissLights()
@@ -210,13 +247,24 @@ namespace Kalevala
             }
         }
 
+        private void CheckMissLights()
+        {
+            for(int i = 0; i < _misses; i++)
+            {
+                _missLights[i].SetActive(true);
+            }
+        }
+
         /// <summary>
         /// Starts the Kantelehero panel minigame
         /// </summary>
         public void ActivatePanel()
         {
             PanelActive = true;
-            _misses = 0;
+            _spawnTimer = 0;
+            _currentNote = 0;
+            _noteCount = _notes.Count;
+            CheckMissLights();
         }
 
         /// <summary>
@@ -225,7 +273,6 @@ namespace Kalevala
         /// </summary>
         public void DeactivatePanel()
         {
-            _misses = 0;
             DeactivateAllMissLights();
             _leftTrigger.DeactivateLight();
             _rightTrigger.DeactivateLight();

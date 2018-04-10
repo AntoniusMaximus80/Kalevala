@@ -17,6 +17,7 @@ namespace Kalevala
         private float _waypointSpeed;
         private KanteleHeroPanel _parent;
         private LightSide _side;
+        private int _noteNumber;
         // Update is called once per frame
 
         void Update()
@@ -28,7 +29,7 @@ namespace Kalevala
 
             if(_reachedEnd)
             {
-                _parent.TurnTriggetLightOn(_side);
+                _parent.TurnTriggetLightOn(_side, _noteNumber);
                 _reachedEnd = false;
                 BackToPool(_parent);
             }
@@ -39,11 +40,12 @@ namespace Kalevala
         /// </summary>
         /// <param name="waypoints"> Waypoints that the light moves along</param>
         /// <param name="parent"> the panel that initializes the light</param>
-        public void Init( GameObject[] waypoints, KanteleHeroPanel parent, float speed, LightSide side)
+        public void Init( GameObject[] waypoints, KanteleHeroPanel parent, float speed, LightSide side, int noteNumber)
         {
             _speed = speed;
             _parent = parent;
             _currentWaypointIndex = 1;
+            _noteNumber = noteNumber;
             Waypoints = waypoints;
             transform.position = waypoints[0].transform.position;
             _startPos = transform.position;
