@@ -10,33 +10,26 @@ namespace Kalevala
         private Animator _toyElevatorAnimator,
             _irisDoorAnimator;
 
-        private bool _elevatorUp = false;
+        public GameObject _sampo;
 
-        private float _animationDuration = 4f,
-            _animationCounter = 0f;
+        private GameModeStateType _currentGameModeState;
 
-        // Use this for initialization
-        void Start()
+        public bool _debugSampoModeStart = false;
+
+        private void Start()
         {
-
+            _currentGameModeState = GameModeStateType.Normal;
         }
 
         // Update is called once per frame
         void Update()
         {
-        // Loop animations for testing purposes.
-        _animationCounter += Time.deltaTime;
-            if (_animationCounter > _animationDuration) {
-                _animationCounter = 0f;
-                if (_elevatorUp)
-                {
-                    _elevatorUp = false;
-                    LowerElevator();
-                } else
-                {
-                    _elevatorUp = true;
-                    RaiseElevator();
-                }
+            if (_debugSampoModeStart)
+            {
+                StartGameMode(GameModeStateType.Sampo);
+            } else
+            {
+                DeactivateToy();
             }
         }
 
@@ -50,6 +43,41 @@ namespace Kalevala
         {
             _toyElevatorAnimator.SetBool("Rise", false);
             _irisDoorAnimator.SetBool("Open", false);
+        }
+
+        /// <summary>
+        /// This method instructs the ToyElevatorController to start a specific game mode.
+        /// </summary>
+        /// <param name="gameModeStateType">The type of GameModeStateType that is to be started.</param>
+        public void StartGameMode(GameModeStateType gameModeStateType)
+        {
+            if (gameModeStateType == GameModeStateType.Sampo)
+            {
+                _sampo.SetActive(true);
+                _currentGameModeState = GameModeStateType.Sampo;
+                RaiseElevator();
+            }
+        }
+
+        public void EndGameMode()
+        {
+            LowerElevator();
+        }
+
+        public void ActivateToy()
+        {
+            if (_currentGameModeState == GameModeStateType.Sampo)
+            {
+                _sampo.GetComponent<Animator>().SetBool("Stand", true);
+            }
+        }
+
+        public void DeactivateToy()
+        {
+            if (_currentGameModeState == GameModeStateType.Sampo)
+            {
+                _sampo.GetComponent<Animator>().SetBool("Stand", false);
+            }
         }
     }
 }

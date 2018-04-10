@@ -2,7 +2,7 @@
 
 namespace Kalevala
 {
-    public class SampoLayer : MonoBehaviour
+    public class SampoRotator : MonoBehaviour
     {
         public bool _rotating,
             _right;
