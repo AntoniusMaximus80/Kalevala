@@ -246,7 +246,7 @@ namespace Kalevala {
                 _kantelePanel.ActivatePanel();
             }
             LaunchInput();
-            if(_kantelePanel.PanelActive)
+            if(_kantelePanel != null && _kantelePanel.PanelActive)
             {
                 KantelePanelInput();
             }
