@@ -6,6 +6,16 @@ namespace Kalevala
 {
     public class ToyElevatorController : MonoBehaviour
     {
+        public enum ToyElevatorState
+        {
+            Start,
+            Moving,
+            Idle,
+            End
+        }
+
+        public ToyElevatorState _currentToyElevatorState;
+
         [SerializeField]
         private Animator _toyElevatorAnimator,
             _irisDoorAnimator;
@@ -19,6 +29,7 @@ namespace Kalevala
         private void Start()
         {
             _currentGameModeState = GameModeStateType.Normal;
+            _currentToyElevatorState = ToyElevatorState.Start;
         }
 
         // Update is called once per frame
@@ -31,18 +42,38 @@ namespace Kalevala
             {
                 DeactivateToy();
             }
+
+            if (_currentToyElevatorState == ToyElevatorState.End)
+            {
+
+                EndGameMode();
+            }
         }
 
+        /// <summary>
+        /// This method opens the iris door and raises the elevator to the surface.
+        /// </summary>
         public void RaiseElevator()
         {
-            _toyElevatorAnimator.SetBool("Rise", true);
+            _currentToyElevatorState = ToyElevatorState.Moving;
             _irisDoorAnimator.SetBool("Open", true);
+            _toyElevatorAnimator.SetBool("Rise", true);
+        }
+
+        public void ActivateToy()
+        {
+            _currentToyElevatorState = ToyElevatorState.Idle;
+            if (_currentGameModeState == GameModeStateType.Sampo)
+            {
+                _sampo.GetComponent<Animator>().SetBool("Stand", true);
+            }
         }
 
         public void LowerElevator()
         {
-            _toyElevatorAnimator.SetBool("Rise", false);
+            _currentToyElevatorState = ToyElevatorState.Moving;
             _irisDoorAnimator.SetBool("Open", false);
+            _toyElevatorAnimator.SetBool("Rise", false);
         }
 
         /// <summary>
@@ -53,8 +84,8 @@ namespace Kalevala
         {
             if (gameModeStateType == GameModeStateType.Sampo)
             {
-                _sampo.SetActive(true);
                 _currentGameModeState = GameModeStateType.Sampo;
+                _sampo.SetActive(true);
                 RaiseElevator();
             }
         }
@@ -62,14 +93,6 @@ namespace Kalevala
         public void EndGameMode()
         {
             LowerElevator();
-        }
-
-        public void ActivateToy()
-        {
-            if (_currentGameModeState == GameModeStateType.Sampo)
-            {
-                _sampo.GetComponent<Animator>().SetBool("Stand", true);
-            }
         }
 
         public void DeactivateToy()

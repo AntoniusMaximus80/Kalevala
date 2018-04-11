@@ -5,6 +5,7 @@ namespace Kalevala
     public class SampoProduct : MonoBehaviour
     {
         public float _startFadingOutTime,
+            _startFadingOutTimeVariance,
             _fadeOutTime;
         private float _startFadingOutTimeCounter = 0f,
             _fadeOutTimeCountdown;
@@ -14,6 +15,7 @@ namespace Kalevala
         void Start()
         {
             _currentColor = GetComponent<Renderer>().material.color;
+            _fadeOutTime += Random.Range(-_startFadingOutTimeVariance, _startFadingOutTimeVariance);
             _fadeOutTimeCountdown = _fadeOutTime;
         }
 
@@ -27,6 +29,7 @@ namespace Kalevala
             {
                 _fadeOutTimeCountdown -= Time.deltaTime;
                 _currentColor.a = Mathf.Clamp01(_fadeOutTimeCountdown / _fadeOutTime);
+                GetComponent<Renderer>().material.color = _currentColor;
                 if (_fadeOutTimeCountdown <= 0f)
                 {
                     Destroy(gameObject);
