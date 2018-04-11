@@ -12708,7 +12708,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4675286489772938, guid: cf1c56009140d034e8cd9c4478c719e8, type: 2}
       propertyPath: m_LocalPosition.z
-      value: -19.1
+      value: -21.6
       objectReference: {fileID: 0}
     - target: {fileID: 4675286489772938, guid: cf1c56009140d034e8cd9c4478c719e8, type: 2}
       propertyPath: m_LocalRotation.x
@@ -12742,6 +12742,10 @@ Prefab:
         type: 2}
       propertyPath: m_IsTrigger
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4675286489772938, guid: cf1c56009140d034e8cd9c4478c719e8, type: 2}
+      propertyPath: m_LocalScale.z
+      value: 1.9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cf1c56009140d034e8cd9c4478c719e8, type: 2}
@@ -15387,6 +15391,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _toyElevatorAnimator: {fileID: 1837268848}
   _irisDoorAnimator: {fileID: 133192974}
+  _sampo: {fileID: 0}
+  _debugSampoModeStart: 0
 --- !u!1 &1618175936
 GameObject:
   m_ObjectHideFlags: 0
@@ -17200,29 +17206,11 @@ Prefab:
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: df5e9353b49f7bb4b88da1699b14ebca, type: 3}
   m_PrefabInternal: {fileID: 1837268845}
---- !u!1 &1837268847 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 100008, guid: df5e9353b49f7bb4b88da1699b14ebca, type: 3}
-  m_PrefabInternal: {fileID: 1837268845}
 --- !u!95 &1837268848 stripped
 Animator:
   m_PrefabParentObject: {fileID: 9500000, guid: df5e9353b49f7bb4b88da1699b14ebca,
     type: 3}
   m_PrefabInternal: {fileID: 1837268845}
---- !u!64 &1837268849
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1837268847}
-  m_Material: {fileID: 13400000, guid: 24ec76bc4ab070744b4ff17fcc84929c, type: 2}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 0
-  m_CookingOptions: 14
-  m_SkinWidth: 0.01
-  m_Mesh: {fileID: 4300006, guid: df5e9353b49f7bb4b88da1699b14ebca, type: 3}
 --- !u!1 &1849815139
 GameObject:
   m_ObjectHideFlags: 0
@@ -17526,12 +17514,12 @@ Prefab:
     - target: {fileID: 114602248010753546, guid: 211d40b776f371a499e88a8daab2dc4d,
         type: 2}
       propertyPath: _ballLaunchPoint.x
-      value: -12.14
+      value: -12.582429
       objectReference: {fileID: 0}
     - target: {fileID: 114602248010753546, guid: 211d40b776f371a499e88a8daab2dc4d,
         type: 2}
       propertyPath: _ballLaunchPoint.z
-      value: -38.2
+      value: -37.770565
       objectReference: {fileID: 0}
     - target: {fileID: 114602248010753546, guid: 211d40b776f371a499e88a8daab2dc4d,
         type: 2}

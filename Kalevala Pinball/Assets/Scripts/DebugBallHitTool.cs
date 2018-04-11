@@ -30,7 +30,7 @@ namespace Kalevala
 
         protected abstract void Activate();
 
-        protected virtual void OnCollisionEnter(Collider other)
+        protected virtual void OnTriggerEnter(Collider other)
         {
             if (!resting)
             {
