@@ -56,10 +56,7 @@ namespace Kalevala
         {
             for(int i = 0; i < 10; i++)
             {
-                if(i % 2 == 0)
-                {
-                    _notes.Add(new Note(i, 0.5f));
-                }
+                 _notes.Add(new Note(i, 0.5f));
             }
             _kanteleLights = new Pool<KanteleHeroLight>(4, true, _movingLightPrefab);
             _leftTrigger.Init(this);
