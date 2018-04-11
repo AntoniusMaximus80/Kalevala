@@ -386,7 +386,7 @@ namespace Kalevala {
             // Resetting the ball
             if (Input.GetButtonDown("ResetBall"))
             {
-                PinballManager.Instance.Pinballs[0].ResetBall();
+                PinballManager.Instance.DebugResetBall();
             }
 
             // Losing and resetting the ball

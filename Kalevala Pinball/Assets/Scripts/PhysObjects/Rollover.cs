@@ -117,7 +117,8 @@ namespace Kalevala
 
             if (IsComplete)
             {
-                PinballManager.Instance.ShootAgain = true;
+                // One minute of Shoot Again
+                PinballManager.Instance.ActivateShootAgain(60);
 
                 foreach (Rollover r in _instances)
                 {

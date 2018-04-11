@@ -301,7 +301,10 @@ namespace Kalevala
         {
             foreach (Pinball ball in _pinballs)
             {
-                ball.UpdatePinball();
+                if (ball.gameObject.activeSelf)
+                {
+                    ball.UpdatePinball();
+                }
             }
         }
 
@@ -471,6 +474,8 @@ namespace Kalevala
         /// <returns>Is the ball lost</returns>
         public bool ReturnBallToLauncher(Pinball ball, bool lauchFreeBallOnly)
         {
+            // TODO: Figure out the mess dealing with Shoot Again, Autosave and extra balls
+
             // Returns the ball next to the launcher if it's
             // free or if also non-free balls can be launched
             if (Autosave)
@@ -518,9 +523,36 @@ namespace Kalevala
             
         //}
 
+        public bool RemoveExtraBall(Pinball pinball)
+        {
+            // TODO: Figure out the mess dealing with Shoot Again, Autosave and extra balls
+
+            if (_activeBalls > 1)
+            {
+                // Returns the ball next to the launcher
+                // only if Shoot Again is lit
+                bool ballLost = ReturnBallToLauncher(pinball, true);
+
+                // Removes the ball from play
+                if (ballLost)
+                {
+                    pinball.gameObject.SetActive(false);
+                    _activeBalls--;
+                }
+
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
         public void RemoveBall(Pinball pinball)
         {
             Tilt = false;
+
+            Debug.Log("Active balls before losing: " + _activeBalls);
 
             if (_activeBalls > 1)
             {
@@ -576,6 +608,22 @@ namespace Kalevala
         }
 
         /// <summary>
+        /// Resets a ball for debugging purposes.
+        /// The first active ball is reset.
+        /// </summary>
+        public void DebugResetBall()
+        {
+            foreach (Pinball ball in _pinballs)
+            {
+                if (ball.gameObject.activeSelf)
+                {
+                    ball.ResetBall();
+                    return;
+                }
+            }
+        }
+
+        /// <summary>
         /// The method to launch extra balls.
         /// </summary>
         /// <param name="location">Transform giving the position,
@@ -590,6 +638,7 @@ namespace Kalevala
             if (!ball)
             {
                 ball = Instantiate<Pinball>(_pinballPrefab);
+                ball.Init(true);
                 _pinballs.Add(ball);
             }
 

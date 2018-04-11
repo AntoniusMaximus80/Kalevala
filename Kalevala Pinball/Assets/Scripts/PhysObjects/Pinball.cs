@@ -48,6 +48,11 @@ namespace Kalevala
 
         private void Awake()
         {
+            Init(false);
+        }
+
+        public void Init(bool physicsEnabled)
+        {
             _radius = GetComponent<Collider>().bounds.size.x / 2;
             _rb = GetComponent<Rigidbody>();
             _sphColl = GetComponent<SphereCollider>();
@@ -55,8 +60,8 @@ namespace Kalevala
             debug_upTableVelocity = new Vector3(0f, 10 * 0.1742402f, 10 * -10.31068f);
 
             RampMotion = GetComponent<RampMotion>();
-            //_pbm = FindObjectOfType<PinballManager>();
-            //RampMotion.PinballManager = _pbm;
+
+            SetPhysicsEnabled(physicsEnabled);
         }
 
         /// <summary>
@@ -71,7 +76,7 @@ namespace Kalevala
             //}
 
             //UpdatePause();
-            if(_heatBall)
+            if (_heatBall)
             {
                 _heatBall = HeatUpBall(_heatColor);
             } else if (_coolDown)
