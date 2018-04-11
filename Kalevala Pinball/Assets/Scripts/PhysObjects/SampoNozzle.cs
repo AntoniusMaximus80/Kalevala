@@ -11,7 +11,7 @@ namespace Kalevala
             gold
         }
 
-        public bool _sampoProducing;
+        public bool _generate;
         public GameObject _grainPrefab,
             _saltPrefab,
             _goldCoinPrefab,
@@ -23,7 +23,7 @@ namespace Kalevala
 
         void Update()
         {
-            if (_sampoProducing)
+            if (_generate)
             {
                 if (_sampoProduct == SampoProduct.grain)
                 {

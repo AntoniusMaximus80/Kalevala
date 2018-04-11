@@ -44,11 +44,19 @@ namespace Kalevala
                 return instance;
             }
         }
+
+        internal static void WorkshopExtraBalls()
+        {
+            Instance.StartCoroutine(Instance.WorkShopExtraBallRoutine());
+        }        
+
         #endregion Statics
 
         public float _flipperMotorForce;
         public float _flipperMotorTargetVelocity;
         public float _springForce;
+
+
 
         [SerializeField]
         private float _rampGravityMultiplier = 7;
@@ -58,6 +66,12 @@ namespace Kalevala
 
         [SerializeField, Range(1, 10)]
         private int _startingBallAmount;
+
+        [SerializeField, Range(1, 5)]
+        private int _workshopExtraBalls;
+
+        [SerializeField]
+        private Transform _workshopLocation;
 
         [SerializeField]
         public int _allowedNudgeAmount;
@@ -99,6 +113,7 @@ namespace Kalevala
         private float _shootAgainTimeOut;
 
         private bool _noNudges;
+        
 
         private void Awake()
         {
@@ -552,6 +567,21 @@ namespace Kalevala
             {
                 ball.AddImpulseForce(impulse);
             }
+        }
+
+        private IEnumerator WorkShopExtraBallRoutine()
+        {
+            int addCount = 0;
+
+            while(addCount < _workshopExtraBalls)
+            {
+                ExtraBall(_workshopLocation, Vector3.zero);
+                addCount++;
+
+
+                yield return new WaitForSeconds(2f);
+            }
+
         }
 
         private Pinball RecycleBall()

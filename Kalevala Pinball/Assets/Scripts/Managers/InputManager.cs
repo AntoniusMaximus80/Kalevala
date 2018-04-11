@@ -381,6 +381,11 @@ namespace Kalevala {
                 PinballManager.Instance.ShootAgain = true;
             }
 
+            if (Input.GetKeyDown(KeyCode.M))
+            {
+                PinballManager.WorkshopExtraBalls();
+            }
+
             // Activating 15 seconds of autosave
             if (Input.GetKeyDown(KeyCode.U))
             {
