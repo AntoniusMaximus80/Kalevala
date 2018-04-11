@@ -60,6 +60,8 @@ namespace Kalevala
 
         public LanguageStateBase Language { get; set; }
 
+        public string _playerName = "Player";
+
         private float _musicVolume;
         private float _effectVolume;
 
@@ -249,9 +251,6 @@ namespace Kalevala
             // NOTE: Called by ScreenState_Play
             //_stateManager.EndGame(saveScore);
 
-            // TODO: Allow the player to set a name
-            string playerName = "Player";
-
             // Saves the score if it's high enough
             // and the player actually finished
             // the game instead of giving up
@@ -259,7 +258,7 @@ namespace Kalevala
             {
                 //bool isHighscore =
                 _highscoreList.CompareScoreAndSave
-                    (playerName, Scorekeeper.Instance._totalScore);
+                    (_playerName, Scorekeeper.Instance._totalScore);
 
                 //if (isHighscore)
                 //{

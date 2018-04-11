@@ -33,10 +33,14 @@ namespace Kalevala {
         [SerializeField]
         private float _nudgeStrength;
 
+        [SerializeField]
+        private Text _playerName;
+
         private static Vector3 _nudgeVector = Vector3.zero;
 
         private StateManager _stateManager;
         private ConfirmationDialog _confirmation;
+        private TextInput _textInput;
         private HighscoreList _highscoreList;
         private MouseCursorController _cursor;
         private HeatMap _heatMap;
@@ -75,6 +79,7 @@ namespace Kalevala {
             }
 
             _confirmation = GetComponentInChildren<ConfirmationDialog>();
+            _textInput = GetComponentInChildren<TextInput>();
             _highscoreList = GameManager.Instance.HighscoreList;
             _cursor = FindObjectOfType<MouseCursorController>();
             _heatMap = FindObjectOfType<HeatMap>();
@@ -168,9 +173,24 @@ namespace Kalevala {
             }
 
             // Quitting the game
-            if (Input.GetButtonUp(_CANCEL))
+            //if (Input.GetButtonUp(_CANCEL))
+            //{
+            //    QuitGame(false);
+            //}
+
+            PlayerNameInput();
+        }
+
+        private void PlayerNameInput()
+        {
+            _textInput.CheckKeyboardInput();
+            if (_textInput._textChanged)
             {
-                QuitGame(false);
+                GameManager.Instance._playerName = _textInput.GetText();
+                if (_playerName != null)
+                {
+                    _playerName.text = _textInput.GetText();
+                }
             }
         }
 
@@ -378,7 +398,8 @@ namespace Kalevala {
             // Activating 'Shoot Again'
             if (Input.GetKeyDown(KeyCode.Y))
             {
-                PinballManager.Instance.ShootAgain = true;
+                // One minute of Shoot Again
+                PinballManager.Instance.ActivateShootAgain(60);
             }
 
             if (Input.GetKeyDown(KeyCode.M))

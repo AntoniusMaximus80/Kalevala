@@ -104,13 +104,16 @@ namespace Kalevala
         private int _nudgesLeft;
 
         [SerializeField] // Serialized for debugging purposes only
+        private float _shootAgainTimeRemaining;
+
+        [SerializeField] // Serialized for debugging purposes only
         private float _autosaveTimeRemaining;
 
         //[SerializeField]
         //private Vector3 _shootAgainLightPos; // Debugging purposes only
 
-        private bool _shootAgain;
-        private float _shootAgainTimeOut;
+        //private bool _shootAgain;
+        //private float _shootAgainTimeOut;
 
         private bool _noNudges;
         
@@ -180,36 +183,36 @@ namespace Kalevala
 
         //public Vector3 Gravity { get; private set; }
 
-        public bool ShootAgain
-        {
-            get
-            {
-                return _shootAgainTimeOut > Time.time;
-            }
+        public bool ShootAgain { get; private set; }
+        //{
+            //get
+            //{
+            //    return _shootAgainTimeOut > Time.time;
+            //}
 
-            set
-            {
+            //set
+            //{
 
-                if (value)
-                {
-                    _shootAgainTimeOut = Mathf.Max(_shootAgainTimeOut, Time.time) + 60f;
-                    Debug.Log("Shoot Again activated for one minute");
-                }
-                else
-                {
-                    _shootAgainTimeOut = -1f;
-                }
-            }
-        }
+            //    if (value)
+            //    {
+            //        _shootAgainTimeOut = Mathf.Max(_shootAgainTimeOut, Time.time) + 60f;
+            //        Debug.Log("Shoot Again activated for one minute");
+            //    }
+            //    else
+            //    {
+            //        _shootAgainTimeOut = -1f;
+            //    }
+            //}
+        //}
 
-        public float ShootAgainDuration
-        {
-            set
-            {
-                _shootAgainTimeOut = Mathf.Max(_shootAgainTimeOut, Time.time) + value;
-                Debug.Log("Shoot Again activated for " + value + " seconds");
-            }
-        }
+        //public float ShootAgainDuration
+        //{
+        //    set
+        //    {
+        //        _shootAgainTimeOut = Mathf.Max(_shootAgainTimeOut, Time.time) + value;
+        //        Debug.Log("Shoot Again activated for " + value + " seconds");
+        //    }
+        //}
 
         public bool Autosave { get; private set; }
 
@@ -302,14 +305,58 @@ namespace Kalevala
             }
         }
 
+        /// <summary>
+        /// Activates Shoot again for the given duration.
+        /// </summary>
+        /// <param name="duration">The duration of
+        /// Shoot again in seconds</param>
+        public void ActivateShootAgain(float duration)
+        {
+            ShootAgain = true;
+
+            // Adds time so any existing time still counts
+            _shootAgainTimeRemaining += duration;
+
+            _status.SwitchLight
+                (StatusPanelManager.PanelType.ShootAgain, true);
+
+            Debug.Log("Shoot Again activated for " + duration + " seconds");
+        }
+
         private void UpdateShootAgain()
         {
-            if (_shootAgain != _shootAgainTimeOut > Time.time)
+            if (ShootAgain)
             {
-                _shootAgain = _shootAgainTimeOut > Time.time;
-                _status.SwitchLight
-                    (StatusPanelManager.PanelType.ShootAgain, _shootAgain);
+                _shootAgainTimeRemaining -= Time.deltaTime;
+
+                // The shoot again is deactivated
+                if (_shootAgainTimeRemaining <= 0)
+                {
+                    ShootAgain = false;
+                    _shootAgainTimeRemaining = 0;
+                    _status.SwitchLight
+                        (StatusPanelManager.PanelType.ShootAgain, false);
+                }
             }
+
+            //if (_shootAgain != _shootAgainTimeOut > Time.time)
+            //{
+            //    _shootAgain = _shootAgainTimeOut > Time.time;
+            //    _status.SwitchLight
+            //        (StatusPanelManager.PanelType.ShootAgain, _shootAgain);
+            //}
+        }
+
+        /// <summary>
+        /// Activates Autosave for the given duration.
+        /// </summary>
+        /// <param name="duration">The duration of Autosave in seconds</param>
+        public void ActivateAutosave(float duration)
+        {
+            Autosave = true;
+            _autosaveTimeRemaining = duration;
+
+            Debug.Log("Autosave activated for " + duration + " seconds");
         }
 
         private void UpdateAutosave()
@@ -330,21 +377,10 @@ namespace Kalevala
                 if (_autosaveTimeRemaining <= 0)
                 {
                     Autosave = false;
+                    _autosaveTimeRemaining = 0;
                     _autosavedPinballs.Clear();
                 }
             }
-        }
-
-        /// <summary>
-        /// Activates Autosave for the given duration.
-        /// </summary>
-        /// <param name="duration">The duration of Autosave in seconds</param>
-        public void ActivateAutosave(float duration)
-        {
-            Autosave = true;
-            _autosaveTimeRemaining = duration;
-
-            Debug.Log("Autosave activated");
         }
 
         public void ResetPinball()
@@ -476,6 +512,11 @@ namespace Kalevala
                 return true;
             }
         }
+
+        //public bool ReturnBallToWorkshopKOH(Pinball ball)
+        //{
+            
+        //}
 
         public void RemoveBall(Pinball pinball)
         {
