@@ -32,7 +32,13 @@ namespace Kalevala
             _pinballManager = FindObjectOfType<PinballManager>();
             _rb = GetComponent<Rigidbody>();
             _hingeJoint = GetComponent<HingeJoint>();
-            _rb.maxAngularVelocity = 0; // Set the maximum angular velocity to infinite.
+
+            // Trying to improve physics by overriding the defaults.
+            _rb.maxAngularVelocity = 0;
+            _rb.maxDepenetrationVelocity = _rb.maxDepenetrationVelocity * 5;
+            _rb.solverIterations = 12;
+            _rb.solverVelocityIterations = 5;
+
             _jointSpring = _hingeJoint.spring;
             _jointMotor = _hingeJoint.motor;
 
