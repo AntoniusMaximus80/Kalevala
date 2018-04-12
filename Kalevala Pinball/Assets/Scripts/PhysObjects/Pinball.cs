@@ -53,7 +53,7 @@ namespace Kalevala
             // Trying to improve physics by overriding the defaults for the ball.
             _rb.maxAngularVelocity = 0;
             _rb.maxDepenetrationVelocity = _rb.maxDepenetrationVelocity * 5;
-            _rb.solverIterations = 12;
+            _rb.solverIterations = 30;
             _rb.solverVelocityIterations = 5;
             _sphColl.contactOffset = 0.1f;
           
