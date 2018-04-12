@@ -23,11 +23,14 @@ namespace Kalevala
         public override void Activate()
         {
             base.Activate();
-            _toyElevatorController = UnityEngine.Object.FindObjectOfType<ToyElevatorController>();
-            _toyElevatorController.StartGameMode(GameModeStateType.Sampo);
 
             // When Sampo mode is activated, give extra balls thru the workshop.
             PinballManager.WorkshopExtraBalls();
+
+            _toyElevatorController = UnityEngine.Object.FindObjectOfType<ToyElevatorController>();
+            _toyElevatorController.StartGameMode(GameModeStateType.Sampo);
+
+            
         }
     }
 }
