@@ -12,7 +12,6 @@ namespace Kalevala
         public float debug_rampSpeed = 15;
         public bool debug_useDebugRampSpeed;
 
-        public bool debug_freeBalls;
         public bool debug_addImpulseForce;
         public bool debug_stopMotion;
         public bool debug_exitRamp;
@@ -51,6 +50,9 @@ namespace Kalevala
             Init(false);
         }
 
+        /// <summary>
+        /// Initializes the object.
+        /// </summary>
         public void Init(bool physicsEnabled)
         {
             _radius = GetComponent<Collider>().bounds.size.x / 2;
@@ -99,7 +101,7 @@ namespace Kalevala
             if (!InputManager.NudgeVector.Equals(Vector3.zero))
                 AddImpulseForce(InputManager.NudgeVector);
 
-            PinballManager.Instance.CheckIfBallIsLost(this, debug_freeBalls);
+            PinballManager.Instance.CheckIfBallIsLost(this);
 
             HandleDebug();
         }
@@ -310,7 +312,7 @@ namespace Kalevala
         {
             if (IsOnRamp)
             {
-                Debug.Log("ramp aborted");
+                Debug.Log("Ramp aborted");
                 RampMotion.Deactivate();
                 _dropAtEnd = true;
                 ExitRamp();
@@ -322,9 +324,8 @@ namespace Kalevala
         /// </summary>
         public void ResetBall()
         {
-            PinballManager.Instance.InstanceNextBall(this);
-            StopMotion();
             AbortRamp();
+            PinballManager.Instance.InstanceNextBall(this);
             SetPhysicsEnabled(true);
         }
 

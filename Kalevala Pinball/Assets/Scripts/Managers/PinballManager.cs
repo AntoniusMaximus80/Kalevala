@@ -56,7 +56,13 @@ namespace Kalevala
         public float _flipperMotorTargetVelocity;
         public float _springForce;
 
+        [SerializeField, Tooltip
+            ("Use the wire sphere gizmo's position as the launch point.")]
+        private bool debug_useDefaultLaunchPoint;
 
+        [SerializeField, Tooltip
+            ("Balls are never lost.")]
+        private bool debug_freeBalls;
 
         [SerializeField]
         private float _rampGravityMultiplier = 7;
@@ -75,10 +81,6 @@ namespace Kalevala
 
         [SerializeField]
         public int _allowedNudgeAmount;
-
-        [SerializeField, Tooltip
-            ("Use the wire sphere gizmo's position as the launch point.")]
-        private bool debug_useDefaultLaunchPoint;
 
         [SerializeField]
         private Vector3 _ballLaunchPoint;
@@ -366,13 +368,13 @@ namespace Kalevala
         {
             if (Autosave)
             {
-                if (_autosavedPinballs.Count > 0 &&
-                    Launcher.Instance.LaunchAreaIsEmpty)
-                {
-                    ReturnBallToLauncher
-                        (_autosavedPinballs[0], true);
-                    _autosavedPinballs.RemoveAt(0);
-                }
+                //if (_autosavedPinballs.Count > 0 &&
+                //    Launcher.Instance.LaunchAreaIsEmpty)
+                //{
+                //    ReturnBallToLauncher
+                //        (_autosavedPinballs[0], true);
+                //    _autosavedPinballs.RemoveAt(0);
+                //}
 
                 _autosaveTimeRemaining -= Time.deltaTime;
 
@@ -383,14 +385,6 @@ namespace Kalevala
                     _autosaveTimeRemaining = 0;
                     _autosavedPinballs.Clear();
                 }
-            }
-        }
-
-        public void ResetPinball()
-        {
-            if (_pinballs.Count > 0)
-            {
-                InstanceNextBall(_pinballs[0]);
             }
         }
 
@@ -424,20 +418,22 @@ namespace Kalevala
             }
         }
 
-        public bool CheckIfBallIsLost(Pinball ball, bool freeBalls)
+        public bool CheckIfBallIsLost(Pinball pinball)
         {
-            if (PositionIsInDrain(ball.transform.position))
+            if (PositionIsInDrain(pinball.transform.position))
             {
+                RemoveOrSaveBall(pinball);
+
                 // If balls are free, a ball in drain is moved
                 // back to the launcher without consuming "lives"
-                if (freeBalls)
-                {
-                    InstanceNextBall(ball);
-                }
-                else
-                {
-                    RemoveBall(ball);
-                }
+                //if (freeBalls)
+                //{
+                //    InstanceNextBall(pinball);
+                //}
+                //else
+                //{
+                //    RemoveBall(pinball);
+                //}
 
                 return true;
             }
@@ -456,13 +452,113 @@ namespace Kalevala
             return /*inDrainZ;*/ withinX && withinZ;
         }
 
-        public void InstanceNextBall(Pinball ball)
+        /// <summary>
+        /// Shoot again, autosave or remove ball?
+        /// </summary>
+        /// <param name="pinball">A drained pinball</param>
+        /// <returns>Is the ball removed</returns>
+        public bool RemoveOrSaveBall(Pinball pinball)
         {
-            ball.transform.position = _ballLaunchPoint;
-            ball.StopMotion();
-            //ball.SetPhysicsEnabled(false);
-            Launcher.Instance.StartLaunch(ball);
+            bool ballRemoved = false;
+
+            // Multiball
+            if (_activeBalls > 1)
+            {
+                // Shoot again does not matter; if it's active, it stays active
+
+                // Save the ball and put it in Ilmarinen's workshop
+                if (Autosave)
+                {
+                    ballRemoved = false;
+                }
+                // Remove the ball
+                else
+                {
+                    RemoveExtraBall(pinball);
+                    ballRemoved = true;
+                }
+            }
+            // Only one ball
+            else
+            {
+                Tilt = false;
+
+                // Autosave can't be active without multiball
+
+                // Save the ball and put it next to the launcher
+                if (ShootAgain || debug_freeBalls)
+                {
+                    InstanceNextBall(pinball);
+                    ShootAgain = false;
+                    ballRemoved = false;
+                }
+                // Remove the ball and put it next to the launcher
+                else
+                {
+                    RemoveBall(pinball);
+                    ballRemoved = true;
+                }
+            }
+
+            return ballRemoved;
         }
+
+        public void InstanceNextBall(Pinball pinball)
+        {
+            pinball.transform.position = _ballLaunchPoint;
+            pinball.StopMotion();
+            //pinball.SetPhysicsEnabled(false);
+            Launcher.Instance.StartLaunch(pinball);
+        }
+
+        public void InstanceBallToWorkshopKOH(Pinball pinball)
+        {
+            pinball.transform.position = _workshopLocation.position;
+            pinball.StopMotion();
+            //pinball.SetPhysicsEnabled(false);
+        }
+
+        private void RemoveBall(Pinball pinball)
+        {
+            if (!OutOfBalls)
+            {
+                // Returns the ball next to the launcher
+                // and gets whether the ball is lost
+                InstanceNextBall(pinball);
+
+                _currentBallAmount--;
+                Viewscreen.BallCount(_currentBallAmount);
+
+                if (OutOfBalls)
+                {
+                    Debug.Log("Out of balls - game over");
+                    GameManager.Instance.GameOver(true);
+                }
+                else
+                {
+                    Debug.Log("Balls left : " +
+                        _currentBallAmount.ToString());
+                }
+            }
+            else
+            {
+                Debug.Log("Out of balls");
+            }
+        }
+
+        private void RemoveExtraBall(Pinball pinball)
+        {
+            pinball.gameObject.SetActive(false);
+            _activeBalls--;
+        }
+
+        //public void InstanceNextBall(Pinball ball)
+        //{
+        //    ball.transform.position = _ballLaunchPoint;
+        //    ball.StopMotion();
+        //    //ball.SetPhysicsEnabled(false);
+        //    Launcher.Instance.StartLaunch(ball);
+        //}
 
         /// <summary>
         /// Returns the ball next to the launcher.
@@ -472,139 +568,117 @@ namespace Kalevala
         /// <param name="lauchFreeBallOnly">Is the ball returned to the
         /// launcher only if it's free</param>
         /// <returns>Is the ball lost</returns>
-        public bool ReturnBallToLauncher(Pinball ball, bool lauchFreeBallOnly)
-        {
-            // TODO: Figure out the mess dealing with Shoot Again, Autosave and extra balls
-
-            // Returns the ball next to the launcher if it's
-            // free or if also non-free balls can be launched
-            if (Autosave)
-            {
-                // The ball is returned to the launcher if there's not
-                // already a ball there. If there is, the ball is added
-                // to a queue and will be returned to the launcher when
-                // the previous one is launched.
-                if (Launcher.Instance.LaunchAreaIsEmpty)
-                {
-                    InstanceNextBall(ball);
-                }
-                else
-                {
-                    _autosavedPinballs.Add(ball);
-                }
-            }
-            else if (ShootAgain || !lauchFreeBallOnly)
-            {
-                InstanceNextBall(ball);
-            }
-
-            // The ball is not lost
-            if (Autosave)
-            {
-                Debug.Log("Ball autosaved");
-                return false;
-            }
-            // The ball is not lost but Shoot Again becomes unlit
-            else if (ShootAgain)
-            {
-                Debug.Log("Shooting ball again");
-                ShootAgain = false;
-                return false;
-            }
-            // The ball is lost
-            else
-            {
-                return true;
-            }
-        }
-
-        //public bool ReturnBallToWorkshopKOH(Pinball ball)
+        //public bool ReturnBallToLauncher(Pinball ball, bool lauchFreeBallOnly)
         //{
-            
+        //    // TODO: Figure out the mess dealing with Shoot Again, Autosave and extra balls
+
+        //    // Returns the ball next to the launcher if it's
+        //    // free or if also non-free balls can be launched
+        //    if (Autosave)
+        //    {
+        //        // The ball is returned to the launcher if there's not
+        //        // already a ball there. If there is, the ball is added
+        //        // to a queue and will be returned to the launcher when
+        //        // the previous one is launched.
+        //        if (Launcher.Instance.LaunchAreaIsEmpty)
+        //        {
+        //            InstanceNextBall(ball);
+        //        }
+        //        else
+        //        {
+        //            _autosavedPinballs.Add(ball);
+        //        }
+        //    }
+        //    else if (ShootAgain || !lauchFreeBallOnly)
+        //    {
+        //        InstanceNextBall(ball);
+        //    }
+
+        //    // The ball is not lost
+        //    if (Autosave)
+        //    {
+        //        Debug.Log("Ball autosaved");
+        //        return false;
+        //    }
+        //    // The ball is not lost but Shoot Again becomes unlit
+        //    else if (ShootAgain)
+        //    {
+        //        Debug.Log("Shooting ball again");
+        //        ShootAgain = false;
+        //        return false;
+        //    }
+        //    // The ball is lost
+        //    else
+        //    {
+        //        return true;
+        //    }
         //}
 
-        public bool RemoveExtraBall(Pinball pinball)
-        {
-            // TODO: Figure out the mess dealing with Shoot Again, Autosave and extra balls
+        //public void RemoveBall(Pinball pinball)
+        //{
+        //    Tilt = false;
 
-            if (_activeBalls > 1)
-            {
-                // Returns the ball next to the launcher
-                // only if Shoot Again is lit
-                bool ballLost = ReturnBallToLauncher(pinball, true);
+        //    Debug.Log("Active balls before losing: " + _activeBalls);
 
-                // Removes the ball from play
-                if (ballLost)
-                {
-                    pinball.gameObject.SetActive(false);
-                    _activeBalls--;
-                }
+        //    if (_activeBalls > 1)
+        //    {
+        //        // Returns the ball next to the launcher
+        //        // only if Shoot Again is lit
+        //        bool ballLost = ReturnBallToLauncher(pinball, true);
 
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
+        //        // Removes the ball from play
+        //        if (ballLost)
+        //        {
+        //            pinball.gameObject.SetActive(false);
+        //            _activeBalls--;
+        //        }
+        //    }
+        //    else
+        //    {
+        //        if (!OutOfBalls)
+        //        {
+        //            // Returns the ball next to the launcher
+        //            // and gets whether the ball is lost
+        //            bool ballLost = ReturnBallToLauncher(pinball, false);
 
-        public void RemoveBall(Pinball pinball)
-        {
-            Tilt = false;
+        //            if (ballLost)
+        //            {
+        //                _currentBallAmount--;
+        //                Viewscreen.BallCount(_currentBallAmount);
+        //            }
 
-            Debug.Log("Active balls before losing: " + _activeBalls);
-
-            if (_activeBalls > 1)
-            {
-                // Returns the ball next to the launcher
-                // only if Shoot Again is lit
-                bool ballLost = ReturnBallToLauncher(pinball, true);
-
-                // Removes the ball from play
-                if (ballLost)
-                {
-                    pinball.gameObject.SetActive(false);
-                    _activeBalls--;
-                }
-            }
-            else
-            {
-                if (!OutOfBalls)
-                {
-                    // Returns the ball next to the launcher
-                    // and gets whether the ball is lost
-                    bool ballLost = ReturnBallToLauncher(pinball, false);
-
-                    if (ballLost)
-                    {
-                        _currentBallAmount--;
-                        Viewscreen.BallCount(_currentBallAmount);
-                    }
-
-                    if (OutOfBalls)
-                    {
-                        Debug.Log("Out of balls - game over");
-                        GameManager.Instance.GameOver(true);
-                    }
-                    else
-                    {
-                        Debug.Log("Balls left : " +
-                            _currentBallAmount.ToString());
-                    }
-                }
-                else
-                {
-                    Debug.Log("Out of balls");
-                }
-            }
-        }
+        //            if (OutOfBalls)
+        //            {
+        //                Debug.Log("Out of balls - game over");
+        //                GameManager.Instance.GameOver(true);
+        //            }
+        //            else
+        //            {
+        //                Debug.Log("Balls left : " +
+        //                    _currentBallAmount.ToString());
+        //            }
+        //        }
+        //        else
+        //        {
+        //            Debug.Log("Out of balls");
+        //        }
+        //    }
+        //}
 
         /// <summary>
         /// Removes a ball for debugging purposes.
+        /// The first active ball is removed.
         /// </summary>
         public void DebugLoseBall()
         {
-            RemoveBall(_pinballs[0]);
+            foreach (Pinball ball in _pinballs)
+            {
+                if (ball.gameObject.activeSelf)
+                {
+                    RemoveBall(ball);
+                    return;
+                }
+            }
         }
 
         /// <summary>
@@ -637,11 +711,8 @@ namespace Kalevala
             // If not create a new ball from prefab.
             if (!ball)
             {
-                ball = Instantiate<Pinball>(_pinballPrefab);
-                ball.Init(true);
-                _pinballs.Add(ball);
+                ball = CreateNewBall();
             }
-
             // If it was found activate it.
             else
             {
@@ -657,6 +728,14 @@ namespace Kalevala
             {
                 ball.AddImpulseForce(impulse);
             }
+        }
+
+        private Pinball CreateNewBall()
+        {
+            Pinball ball = Instantiate<Pinball>(_pinballPrefab);
+            ball.Init(true);
+            _pinballs.Add(ball);
+            return ball;
         }
 
         private IEnumerator WorkShopExtraBallRoutine()
