@@ -319,8 +319,10 @@ namespace Kalevala
         {
             ShootAgain = true;
 
+            _shootAgainTimeRemaining = duration;
+
             // Adds time so any existing time still counts
-            _shootAgainTimeRemaining += duration;
+            //_shootAgainTimeRemaining += duration;
 
             _status.SwitchLight
                 (StatusPanelManager.PanelType.ShootAgain, true);
