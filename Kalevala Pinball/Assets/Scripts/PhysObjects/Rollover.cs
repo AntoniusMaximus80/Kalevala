@@ -79,7 +79,7 @@ namespace Kalevala
             _down = false;
 
             // The light should start off.
-            _light.TurnOff();
+            _light.Switch(_down);
 
             _count = 0;
         }
@@ -106,7 +106,7 @@ namespace Kalevala
             if (_down) return;
 
             _down = true;
-            _light.TurnOn();
+            _light.Switch(_down);
             _elapsedTime = duration - _elapsedTime;
 
             (transform.position.x < 0 ? _leftSound : _rightSound).Play();
@@ -165,18 +165,14 @@ namespace Kalevala
             if (newValue != _down)
             {
                 _elapsedTime = duration - _elapsedTime;
+
+                _down = newValue;
+
+                _light.Switch(_down);
             }
 
-            _down = newValue;
+            
 
-            if (_down)
-            {
-                _light.TurnOn();
-            }
-            else
-            {
-                _light.TurnOff();
-            }
         }
 
     }
