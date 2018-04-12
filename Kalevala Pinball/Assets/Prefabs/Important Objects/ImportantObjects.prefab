@@ -2375,14 +2375,15 @@ MonoBehaviour:
   _flipperMotorForce: 32000
   _flipperMotorTargetVelocity: 64000
   _springForce: 32000
+  debug_useDefaultLaunchPoint: 1
+  debug_freeBalls: 0
   _rampGravityMultiplier: 7
   _rampExitMomentumFactor: 0.75
   _startingBallAmount: 3
   _workshopExtraBalls: 3
   _workshopLocation: {fileID: 0}
   _allowedNudgeAmount: 4
-  debug_useDefaultLaunchPoint: 1
-  _ballLaunchPoint: {x: 15.719184, y: 1.35, z: -28.171816}
+  _ballLaunchPoint: {x: 24.4, y: 1.35, z: -42.6}
   _ballDrainBottomLeftCorner: {x: 6, y: 1.35, z: -54}
   _ballDrainTopRightCorner: {x: 10, y: 1.35, z: -48}
   _startingPosition: {fileID: 0}
