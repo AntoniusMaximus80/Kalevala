@@ -34,6 +34,8 @@ namespace Kalevala
         private KanteleHeroTriggers _rightTrigger;
         [SerializeField]
         private HauenLeukaKantele _haukiKantele;
+        public Material RedLight;
+        public Material BlueLight;
 
         private List<Note> _notes = new List<Note>();
         private int _misses;
@@ -76,7 +78,15 @@ namespace Kalevala
             KanteleHeroLight light = _kanteleLights.GetPooledObject();
             if(light != null)
             {
-                light.Init(waypoints, this, _lightMoveSpeed,side, noteNumber);
+                if(side == LightSide.left)
+                {
+                    light.Init(waypoints, this, _lightMoveSpeed, side, noteNumber);
+                    light.GetComponent<Renderer>().material = RedLight;
+                } else
+                {
+                    light.Init(waypoints, this, _lightMoveSpeed, side, noteNumber);
+                    light.GetComponent<Renderer>().material = BlueLight;
+                }
             }
         }
 
