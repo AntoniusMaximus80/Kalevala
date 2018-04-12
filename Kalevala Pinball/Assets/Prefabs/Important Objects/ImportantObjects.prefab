@@ -287,22 +287,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
   m_IsActive: 1
---- !u!1 &1305503022923746
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 4519287496656588}
-  - component: {fileID: 114471397010391782}
-  m_Layer: 0
-  m_Name: ToyElevatorController
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
 --- !u!1 &1341472588645354
 GameObject:
   m_ObjectHideFlags: 1
@@ -472,7 +456,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1547491755608636
 GameObject:
@@ -1015,7 +999,6 @@ Transform:
   - {fileID: 4183187500323966}
   - {fileID: 4702102499247448}
   - {fileID: 224676833644186990}
-  - {fileID: 4519287496656588}
   - {fileID: 4667534215834764}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -1141,19 +1124,6 @@ Transform:
   m_Father: {fileID: 4113696463926870}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &4519287496656588
-Transform:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1305503022923746}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 4113696463926870}
-  m_RootOrder: 10
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4667534215834764
 Transform:
   m_ObjectHideFlags: 1
@@ -1165,7 +1135,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4113696463926870}
-  m_RootOrder: 11
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4702102499247448
 Transform:
@@ -2121,22 +2091,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _textID: quitGame
---- !u!114 &114471397010391782
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1305503022923746}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d4c574ede4f08414a91893536ec91e0f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _currentToyElevatorState: 0
-  _toyElevatorAnimator: {fileID: 0}
-  _irisDoorAnimator: {fileID: 0}
-  _sampo: {fileID: 0}
-  _debugSampoModeStart: 0
 --- !u!114 &114475701819444706
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2424,15 +2378,16 @@ MonoBehaviour:
   _rampGravityMultiplier: 7
   _rampExitMomentumFactor: 0.75
   _startingBallAmount: 3
-  _workshopExtraBalls: 0
+  _workshopExtraBalls: 3
   _workshopLocation: {fileID: 0}
   _allowedNudgeAmount: 4
   debug_useDefaultLaunchPoint: 1
-  _ballLaunchPoint: {x: -12.582429, y: 1.35, z: -37.770565}
+  _ballLaunchPoint: {x: 15.719184, y: 1.35, z: -28.171816}
   _ballDrainBottomLeftCorner: {x: 6, y: 1.35, z: -54}
   _ballDrainTopRightCorner: {x: 10, y: 1.35, z: -48}
   _startingPosition: {fileID: 0}
   _pinballPrefab: {fileID: 0}
+  _shootAgainTimeRemaining: 0
   _autosaveTimeRemaining: 0
 --- !u!114 &114635116687291534
 MonoBehaviour:
