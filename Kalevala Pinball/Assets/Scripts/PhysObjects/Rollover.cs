@@ -165,11 +165,13 @@ namespace Kalevala
             if (newValue != _down)
             {
                 _elapsedTime = duration - _elapsedTime;
+
+                _down = newValue;
+
+                _light.Switch(_down);
             }
 
-            _down = newValue;
-
-            _light.Switch(_down);
+            
 
         }
 
