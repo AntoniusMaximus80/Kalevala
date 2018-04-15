@@ -868,11 +868,6 @@ Prefab:
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: f1fa97002074bf24299754660991fd34, type: 3}
   m_PrefabInternal: {fileID: 133192972}
---- !u!95 &133192974 stripped
-Animator:
-  m_PrefabParentObject: {fileID: 9500000, guid: f1fa97002074bf24299754660991fd34,
-    type: 3}
-  m_PrefabInternal: {fileID: 133192972}
 --- !u!1 &216530429
 GameObject:
   m_ObjectHideFlags: 0
@@ -13445,26 +13440,6 @@ Prefab:
       propertyPath: _horizontalCamera
       value: 
       objectReference: {fileID: 1436590004}
-    - target: {fileID: 114599638252755998, guid: 211d40b776f371a499e88a8daab2dc4d,
-        type: 2}
-      propertyPath: _workshopKOH
-      value: 
-      objectReference: {fileID: 715483309}
-    - target: {fileID: 114599638252755998, guid: 211d40b776f371a499e88a8daab2dc4d,
-        type: 2}
-      propertyPath: _shootAgainLight
-      value: 
-      objectReference: {fileID: 217704612}
-    - target: {fileID: 114602248010753546, guid: 211d40b776f371a499e88a8daab2dc4d,
-        type: 2}
-      propertyPath: _startingPosition
-      value: 
-      objectReference: {fileID: 1412602703}
-    - target: {fileID: 114602248010753546, guid: 211d40b776f371a499e88a8daab2dc4d,
-        type: 2}
-      propertyPath: _pinballPrefab
-      value: 
-      objectReference: {fileID: 1412602702}
     - target: {fileID: 114011568283334892, guid: 211d40b776f371a499e88a8daab2dc4d,
         type: 2}
       propertyPath: _launcher
@@ -13485,36 +13460,31 @@ Prefab:
       propertyPath: _topRightFlipper
       value: 
       objectReference: {fileID: 70969515}
-    - target: {fileID: 114471397010391782, guid: 211d40b776f371a499e88a8daab2dc4d,
+    - target: {fileID: 114599638252755998, guid: 211d40b776f371a499e88a8daab2dc4d,
         type: 2}
-      propertyPath: _toyElevatorAnimator
+      propertyPath: _workshopKOH
       value: 
-      objectReference: {fileID: 1837268848}
-    - target: {fileID: 114471397010391782, guid: 211d40b776f371a499e88a8daab2dc4d,
+      objectReference: {fileID: 715483309}
+    - target: {fileID: 114599638252755998, guid: 211d40b776f371a499e88a8daab2dc4d,
         type: 2}
-      propertyPath: _irisDoorAnimator
+      propertyPath: _shootAgainLight
       value: 
-      objectReference: {fileID: 133192974}
-    - target: {fileID: 114602248010753546, guid: 211d40b776f371a499e88a8daab2dc4d,
-        type: 2}
-      propertyPath: debug_useDefaultLaunchPoint
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114602248010753546, guid: 211d40b776f371a499e88a8daab2dc4d,
-        type: 2}
-      propertyPath: _ballLaunchPoint.x
-      value: -6.3744316
-      objectReference: {fileID: 0}
-    - target: {fileID: 114602248010753546, guid: 211d40b776f371a499e88a8daab2dc4d,
-        type: 2}
-      propertyPath: _ballLaunchPoint.z
-      value: -9.889034
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 217704612}
     - target: {fileID: 114602248010753546, guid: 211d40b776f371a499e88a8daab2dc4d,
         type: 2}
       propertyPath: _workshopLocation
       value: 
       objectReference: {fileID: 715483311}
+    - target: {fileID: 114602248010753546, guid: 211d40b776f371a499e88a8daab2dc4d,
+        type: 2}
+      propertyPath: _startingPosition
+      value: 
+      objectReference: {fileID: 1412602703}
+    - target: {fileID: 114602248010753546, guid: 211d40b776f371a499e88a8daab2dc4d,
+        type: 2}
+      propertyPath: _pinballPrefab
+      value: 
+      objectReference: {fileID: 1412602702}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 211d40b776f371a499e88a8daab2dc4d, type: 2}
   m_IsPrefabParent: 0
@@ -17407,11 +17377,6 @@ Prefab:
 --- !u!4 &1837268846 stripped
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: df5e9353b49f7bb4b88da1699b14ebca, type: 3}
-  m_PrefabInternal: {fileID: 1837268845}
---- !u!95 &1837268848 stripped
-Animator:
-  m_PrefabParentObject: {fileID: 9500000, guid: df5e9353b49f7bb4b88da1699b14ebca,
-    type: 3}
   m_PrefabInternal: {fileID: 1837268845}
 --- !u!1 &1849815139
 GameObject:

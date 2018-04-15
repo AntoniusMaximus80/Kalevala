@@ -393,5 +393,14 @@ namespace Kalevala
                 _cameraCtrl.MoveCurrentCamTo(camPos, false);
             }
         }
+
+        public void ShakeCamera(Vector3 direction,
+            float randomDirAngle, float force, float duration)
+        {
+            if (!_stateManager.GameIsPaused(true))
+            {
+                _cameraCtrl.Shake(direction, randomDirAngle, force, duration);
+            }
+        }
     }
 }

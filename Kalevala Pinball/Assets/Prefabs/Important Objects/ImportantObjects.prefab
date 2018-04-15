@@ -2383,7 +2383,7 @@ MonoBehaviour:
   _workshopExtraBalls: 3
   _workshopLocation: {fileID: 0}
   _allowedNudgeAmount: 4
-  _ballLaunchPoint: {x: 24.4, y: 1.35, z: -42.6}
+  _ballLaunchPoint: {x: -6.3744316, y: 1.35, z: -9.889034}
   _ballDrainBottomLeftCorner: {x: 6, y: 1.35, z: -54}
   _ballDrainTopRightCorner: {x: 10, y: 1.35, z: -48}
   _startingPosition: {fileID: 0}

@@ -45,9 +45,10 @@ namespace Kalevala
 
         [SerializeField, Range(0f, 5f)]
         private float _movementTime = 1f;
-        
+
         private float _elapsedTime;
         private bool _moving;
+        private bool _shaking;
 
         /// <summary>
         /// The currently used camera.
@@ -61,7 +62,14 @@ namespace Kalevala
 
         private void Start()
         {
-            if (_defaultCamera == null)
+            if (_defaultCamera != null)
+            {
+                _defaultCamPlayfieldTransform.position =
+                    _defaultCamera.transform.position;
+                _defaultCamPlayfieldTransform.rotation =
+                    _defaultCamera.transform.rotation;
+            }
+            else 
             {
                 Debug.LogError("Default camera is not set.");
             }
@@ -206,6 +214,46 @@ namespace Kalevala
             }
 
             _moving = false;
+        }
+
+        public void Shake(Vector3 direction, float randomDirAngle,
+            float force, float duration)
+        {
+            StartCoroutine(
+                ShakeRoutine(direction, randomDirAngle, force, duration));
+        }
+
+        private IEnumerator ShakeRoutine(Vector3 direction,
+            float randomDirAngle, float force, float duration)
+        {
+            // Breaks if a new shake can't be started
+            if (_moving || _shaking)
+            {
+                yield break;
+            }
+
+            Vector3 startPosition = CurrentCamera.transform.position;
+            Vector3 shakeDir = direction;
+            float elapsedTime = 0;
+
+            while (elapsedTime < duration)
+            {
+                float waitTime = 0.03f;
+
+                elapsedTime += waitTime;
+
+                // TODO: Random direction
+                //Vector3 randDir = direction * randomDirAngle * Random.Range(-0.5f, 1);
+
+                float randForce = force * Random.Range(-0.5f, 1);
+
+                Vector3 newPosition = startPosition + direction * randForce;
+                CurrentCamera.transform.position = newPosition;
+
+                yield return new WaitForSeconds(waitTime);
+            }
+
+            CurrentCamera.transform.position = startPosition;
         }
 
         private Transform GetPlayfieldCamTransform()

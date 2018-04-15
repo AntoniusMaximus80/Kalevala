@@ -374,11 +374,16 @@ namespace Kalevala {
 
         private void DoNudge(int direction)
         {
-            // TODO : This really needs a sound effect, maybe the camera shake Toni suggested?
-            // Not sure as nudge is not really THAT powerful.
+            // TODO : This really needs a sound effect
             _nudgeVector.x = direction * _nudgeStrength;
 
             //PinballManager.Instance.SpendNudge();
+
+            Vector3 shakeDir =
+                (direction < 0 ? Vector3.left : Vector3.right);
+
+            GameManager.Instance.ShakeCamera
+                (shakeDir, 0, 0.3f, 0.1f);
         }
 
         private void DebugInput()
@@ -434,6 +439,13 @@ namespace Kalevala {
             {
                 GameManager.Instance.SetCameraFocus
                     (CameraController.CameraPosition.Launcher);
+            }
+
+            // Camera shake
+            if (Input.GetKeyUp(KeyCode.S))
+            {
+                GameManager.Instance.ShakeCamera
+                    (Vector3.forward, 0, 0.8f, 0.2f);
             }
         }
 
