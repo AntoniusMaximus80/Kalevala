@@ -466,17 +466,21 @@ namespace Kalevala
             // Multiball
             if (_activeBalls > 1)
             {
+                _activeBalls--;
+
                 // Shoot again does not matter; if it's active, it stays active
 
                 // Save the ball and put it in Ilmarinen's workshop
                 if (Autosave)
                 {
+                    ExtraBall(_workshopLocation, Vector3.zero);
                     ballRemoved = false;
                 }
                 // Remove the ball
                 else
                 {
-                    RemoveExtraBall(pinball);
+                    pinball.gameObject.SetActive(false);
+                    //RemoveExtraBall(pinball);
                     ballRemoved = true;
                 }
             }
@@ -548,11 +552,11 @@ namespace Kalevala
             }
         }
 
-        private void RemoveExtraBall(Pinball pinball)
-        {
-            pinball.gameObject.SetActive(false);
-            _activeBalls--;
-        }
+        //private void RemoveExtraBall(Pinball pinball)
+        //{
+        //    pinball.gameObject.SetActive(false);
+        //    _activeBalls--;
+        //}
 
         //public void InstanceNextBall(Pinball ball)
         //{
