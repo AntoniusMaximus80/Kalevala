@@ -45,6 +45,7 @@ namespace Kalevala {
         private MouseCursorController _cursor;
         private HeatMap _heatMap;
         private KanteleHeroPanel _kantelePanel;
+        private CollectableSpawner _collSpawner;
         private bool _alwaysDisplayScoreboard;
         private bool _pauseMenuActive;
         private bool _KanteleHeroLeftTriggerDown;
@@ -84,6 +85,8 @@ namespace Kalevala {
             _cursor = FindObjectOfType<MouseCursorController>();
             _heatMap = FindObjectOfType<HeatMap>();
             _kantelePanel = FindObjectOfType<KanteleHeroPanel>();
+            _collSpawner = FindObjectOfType<CollectableSpawner>();
+
             // Allows the cursor to select the current menu's
             // default selected button when it is hidden
             _cursor.SelectMenuButtonAction = SelectDefaultSelectedMenuButton;
@@ -379,11 +382,10 @@ namespace Kalevala {
 
             //PinballManager.Instance.SpendNudge();
 
+            // Camera shake
             Vector3 shakeDir =
                 (direction < 0 ? Vector3.left : Vector3.right);
-
-            GameManager.Instance.ShakeCamera
-                (shakeDir, 0, 0.3f, 0.1f);
+            GameManager.Instance.ShakeCamera(shakeDir, 0, 0.3f, 0.1f);
         }
 
         private void DebugInput()
@@ -407,6 +409,7 @@ namespace Kalevala {
                 PinballManager.Instance.ActivateShootAgain(60);
             }
 
+            // Starting multiball mode
             if (Input.GetKeyDown(KeyCode.M))
             {
                 PinballManager.WorkshopExtraBalls();
@@ -446,6 +449,20 @@ namespace Kalevala {
             {
                 GameManager.Instance.ShakeCamera
                     (Vector3.forward, 0, 0.8f, 0.2f);
+            }
+
+            // Spawning one collectable
+            if (Input.GetKeyUp(KeyCode.C))
+            {
+                _collSpawner.SpawnCollectable
+                    (Collectable.CollectableType.Gold, false);
+            }
+
+            // Spawning all collectables
+            if (Input.GetKeyUp(KeyCode.X))
+            {
+                _collSpawner.SpawnCollectable
+                    (Collectable.CollectableType.Salt, true);
             }
         }
 

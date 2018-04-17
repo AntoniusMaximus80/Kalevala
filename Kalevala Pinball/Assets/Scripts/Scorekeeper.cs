@@ -16,7 +16,10 @@ namespace Kalevala
             IlmarinenKOH,
             TeleportKOH,
             TuonelaRollover,
-            Skillshot
+            Skillshot,
+            CollectableGrain,
+            CollectableSalt,
+            CollectableGold
         }
 
         public int _totalScore,
@@ -27,7 +30,10 @@ namespace Kalevala
             _ilmarinenKOH,
             _teleportKOH,
             _tuonelaRollover,
-            _skillshot
+            _skillshot,
+            _collectableGrain,
+            _collectableSalt,
+            _collectableGold
            ;
 
 
@@ -84,6 +90,15 @@ namespace Kalevala
                     break;
                 case ScoreType.Skillshot:
                     _score += _skillshot;
+                    break;
+                case ScoreType.CollectableGrain:
+                    _score += _collectableGrain;
+                    break;
+                case ScoreType.CollectableSalt:
+                    _score += _collectableSalt;
+                    break;
+                case ScoreType.CollectableGold:
+                    _score += _collectableGold;
                     break;
                 default:
                     Debug.LogError("ScoreType not recognized.");

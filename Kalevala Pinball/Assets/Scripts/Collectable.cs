@@ -3,10 +3,24 @@
 namespace Kalevala
 {
     [RequireComponent(typeof(Collider))]
-    public class CollectableItem : MonoBehaviour
+    public class Collectable : MonoBehaviour
     {
+        public enum CollectableType
+        {
+            None = 0,
+            Grain = 1,
+            Salt = 2,
+            Gold = 3
+        }
+
         [SerializeField]
-        private GameObject _collectableObject;
+        private GameObject _grainModel;
+
+        [SerializeField]
+        private GameObject _saltModel;
+
+        [SerializeField]
+        private GameObject _goldModel;
 
         [SerializeField]
         private bool _removedWhenCollected;
@@ -26,10 +40,17 @@ namespace Kalevala
         [SerializeField]
         private float _restingTime;
 
-        private Vector3 _position;
-        private Quaternion _rotation;
+        /// <summary>
+        /// The collectable item's model, or, if it has
+        /// not been set, this component's game object
+        /// </summary>
+        private GameObject _collectableObject;
+
+        private Vector3 _defaultPosition;
+        private Quaternion _defaultRotation;
 
         private ParticleSystem _particles;
+        private CollectableSpawner _handler;
 
         private bool _active = false;
         private bool _motionCompleted = false;
@@ -39,16 +60,14 @@ namespace Kalevala
         private bool _resting = false;
         private float _elapsedRestingTime = 0;
 
+        public CollectableType Type { get; private set; }
+        private Scorekeeper.ScoreType _scoreType;
+
+        /// <summary>
+        /// Initializes the object.
+        /// </summary>
         private void Start()
         {
-            if (_collectableObject == null)
-            {
-                _collectableObject = gameObject;
-            }
-
-            _position = _collectableObject.transform.position;
-            _rotation = _collectableObject.transform.rotation;
-
             _particles = GetComponent<ParticleSystem>();
 
             if (_particles != null)
@@ -64,18 +83,77 @@ namespace Kalevala
             }
         }
 
+        public void InitDefaults()
+        {
+            _defaultPosition = _collectableObject.transform.position;
+            _defaultRotation = _collectableObject.transform.rotation;
+        }
+
+        public void ResetToDefaults()
+        {
+            _collectableObject.transform.position = _defaultPosition;
+            _collectableObject.transform.rotation = _defaultRotation;
+        }
+
+        public void SetHandler(CollectableSpawner handler)
+        {
+            _handler = handler;
+        }
+
+        public void SetCollectableType(CollectableType type)
+        {
+            Type = type;
+
+            switch (Type)
+            {
+                case CollectableType.Grain:
+                {
+                    _collectableObject = _grainModel;
+                    _scoreType = Scorekeeper.ScoreType.CollectableGrain;
+                    break;
+                }
+                case CollectableType.Salt:
+                {
+                    _collectableObject = _saltModel;
+                    _scoreType = Scorekeeper.ScoreType.CollectableSalt;
+                    break;
+                }
+                case CollectableType.Gold:
+                {
+                    _collectableObject = _goldModel;
+                    _scoreType = Scorekeeper.ScoreType.CollectableGold;
+                    break;
+                }
+                default:
+                {
+                    _collectableObject = null;
+                    Debug.LogError("Invalid collectable type.");
+                    break;
+                }
+            }
+
+            InitDefaults();
+        }
+
         /// <summary>
         /// Update is called once per frame.
         /// </summary>
         protected virtual void Update()
         {
-            if (_active)
+            if (_collectableObject != null)
             {
-                UpdateActivity();
-            }
-            else if (_resting)
-            {
-                UpdateRest();
+                if (_active)
+                {
+                    UpdateActivity();
+                }
+                else if (_resting)
+                {
+                    UpdateRest();
+                }
+                else
+                {
+                    UpdateIdleMotion();
+                }
             }
         }
 
@@ -88,7 +166,6 @@ namespace Kalevala
             if (_elapsedActiveTime > _activeTime)
             {
                 _active = false;
-                Debug.Log("_active: " + _active);
                 _motionCompleted = false;
                 _elapsedActiveTime = 0;
 
@@ -111,7 +188,7 @@ namespace Kalevala
                     }
                     else
                     {
-                        ResetPosAndRot();
+                        ResetToDefaults();
                     }
                 }
                 else if (_elapsedActiveTime > _particleTime)
@@ -132,7 +209,7 @@ namespace Kalevala
 
                 if (_respawnsAfterRest)
                 {
-                    Spawn();
+                    Respawn();
                 }
             }
         }
@@ -149,57 +226,69 @@ namespace Kalevala
             _collectableObject.transform.rotation = Quaternion.Euler(newRotation);
         }
 
+        protected virtual void UpdateIdleMotion()
+        {
+            Vector3 newRotation = _collectableObject.transform.rotation.eulerAngles;
+            newRotation.y += 75 * _motionSpeed * Time.deltaTime;
+
+            _collectableObject.transform.rotation = Quaternion.Euler(newRotation);
+        }
+
         public virtual void Activate()
         {
-            // TODO: What happens when collected?
-
             // Returns if already collected
-            if ( !_collectableObject.activeSelf )
+            if (!_collectableObject.activeSelf)
             {
                 return;
             }
 
             _active = true;
 
+            // Gives score based on the collectable type
+            if (Type != CollectableType.None)
+            {
+                Scorekeeper.Instance.AddScore(_scoreType);
+            }
+
+            // Plays a particle effect
             if (_particles != null)
             {
                 _particles.Play();
             }
 
-            //Debug.Log(name + " collected");
+            Debug.Log(Type + " collected");
         }
 
-        public virtual void Spawn()
+        public virtual void Respawn()
         {
-            // TODO: Take from pool
-
-            ResetPosAndRot();
+            ResetToDefaults();
             ShowCollectableObject(true);
         }
 
         public virtual void Remove()
         {
-            // TODO: Return to pool
+            ResetToDefaults();
+            _handler.ReturnItemToPool(this);
 
             // If _cO is this.gameObject, respawning doesn't work
             // (Update is not called)
-            _collectableObject.SetActive(false);
+            //if (!(_respawnsAfterRest && _collectableObject == gameObject))
+            //{
+            //    _collectableObject.SetActive(false);
+            //}
         }
 
-        protected virtual void ShowCollectableObject(bool show)
+        public void ShowCollectableObject(bool show)
         {
-            _collectableObject.SetActive(show);
-        }
-
-        private void ResetPosAndRot()
-        {
-            _collectableObject.transform.position = _position;
-            _collectableObject.transform.rotation = _rotation;
+            if (_collectableObject != null)
+            {
+                _collectableObject.SetActive(show);
+            }
         }
 
         protected virtual void OnTriggerEnter(Collider other)
         {
-            if (!_resting)
+            if (_collectableObject.activeSelf && !_active && !_resting)
             {
                 Pinball pinball = other.GetComponent<Pinball>();
                 if (pinball != null)
