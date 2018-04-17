@@ -20,7 +20,8 @@ namespace Kalevala
 
         public Vector3 debug_upTableVelocity;
 
-        public float _speed; // public for debugging
+        public float _speed, // public for debugging
+            _maximumVelocity;
         private float _radius;
         private bool _physicsEnabled = true;
 
@@ -423,6 +424,17 @@ namespace Kalevala
                 debug_addImpulseForce = false;
                 AddImpulseForce(debug_upTableVelocity);
             }
+        }
+
+        /// <summary>
+        /// Experimental method for limiting the pinball's maximum velocity in different axis.
+        /// The pinball sometimes passes through the flipper bars, because the colliders pass each other within a single frame.
+        /// </summary>
+        private void ClampVelocity()
+        {
+            Mathf.Clamp(_rb.velocity.x, -_maximumVelocity, _maximumVelocity); // X.
+            Mathf.Clamp(_rb.velocity.y, -_maximumVelocity, _maximumVelocity / 10f); // Y. We should limit upwards vertical movement more than other velocities.
+            Mathf.Clamp(_rb.velocity.z, -_maximumVelocity, _maximumVelocity); // Z.
         }
     }
 }

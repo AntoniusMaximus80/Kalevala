@@ -26,6 +26,10 @@ namespace Kalevala
         public AudioSource _flipperBarUpAudioSource,
             _flipperBarDownAudioSource;
 
+        public GameObject _booster;
+
+        public float _boosterForce;
+
         void Start()
         {
             MakeMaterial();
@@ -130,7 +134,25 @@ namespace Kalevala
             _flipperMaterial.bounceCombine = PhysicMaterialCombine.Maximum;
             _flipperMaterial.bounciness = 0.2f;
             GetComponent<Collider>().material = _flipperMaterial;
+        }
 
+        private void OnDrawGizmos()
+        {
+            Gizmos.color = Color.green;
+            Gizmos.DrawWireSphere(_booster.transform.position, 4f);
+        }
+
+        private void OnCollisionEnter(Collision collision)
+        {
+            if (_hingeJoint.useMotor &&
+                _hingeJoint.angle < 40f)
+            {
+                //collision.gameObject.GetComponent<Pinball>().StopMotion();
+                float distanceBetweenPinballAndBooster = Vector3.Distance(collision.transform.position, _booster.transform.position);
+                float _boosterForceMultiplier = Mathf.Clamp(4f - distanceBetweenPinballAndBooster, 0f, 4f);
+                collision.gameObject.GetComponent<Rigidbody>().AddForce(new Vector3(0f, 0f, _boosterForce * _boosterForceMultiplier), ForceMode.Impulse);
+                Debug.Log("Booster activated! Upward force: " + _boosterForce * _boosterForceMultiplier);
+            }
         }
     }
 }

@@ -59,7 +59,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 81456733795510b458742c5459f50e71, type: 2}
+  - {fileID: 2100000, guid: 1d63ae0d617f7544bbe5d46b6310cd85, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -126,12 +126,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   debug_rampSpeed: 70
   debug_useDebugRampSpeed: 0
-  debug_freeBalls: 0
   debug_addImpulseForce: 0
   debug_stopMotion: 0
   debug_exitRamp: 0
   debug_upTableVelocity: {x: 0, y: 0, z: 0}
   _speed: 0
+  _maximumVelocity: 1.2
 --- !u!135 &135222423811756674
 SphereCollider:
   m_ObjectHideFlags: 1
