@@ -72,7 +72,10 @@ namespace Kalevala
             _ball.SetPhysicsEnabled(false);
 
             // Fires an event that the status panel manager can listen to
-            BallEntered();
+            if(BallEntered != null)
+            {
+                BallEntered();
+            }
         }
 
         protected virtual void KickOut()

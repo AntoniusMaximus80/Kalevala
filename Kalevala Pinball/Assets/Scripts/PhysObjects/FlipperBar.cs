@@ -57,7 +57,9 @@ namespace Kalevala
 
         private void FixedUpdate()
         {
-            if(_rb.angularVelocity.y > 2 || _rb.angularVelocity.y < -2 && !_flipperMaterialBouncinessChanged)
+            if(((_rb.angularVelocity.y > 2 && FlipperOrientation.Right == _flipperBarOrientation) ||
+                (_rb.angularVelocity.y < -2 && _flipperBarOrientation == FlipperOrientation.Left)) &&
+                !_flipperMaterialBouncinessChanged)
             {
                 _flipperMaterial.bounciness = 0.6f;
                 _flipperMaterialBouncinessChanged = true;
@@ -145,7 +147,8 @@ namespace Kalevala
         private void OnCollisionEnter(Collision collision)
         {
             if (_hingeJoint.useMotor &&
-                _hingeJoint.angle < 40f)
+               ((_rb.angularVelocity.y > 2 && FlipperOrientation.Right == _flipperBarOrientation) ||
+               (_rb.angularVelocity.y < -2 && _flipperBarOrientation == FlipperOrientation.Left)) )
             {
                 //collision.gameObject.GetComponent<Pinball>().StopMotion();
                 float distanceBetweenPinballAndBooster = Vector3.Distance(collision.transform.position, _booster.transform.position);
