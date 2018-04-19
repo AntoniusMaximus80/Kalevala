@@ -48,6 +48,7 @@ namespace Kalevala {
         private CollectableSpawner _collSpawner;
         private bool _alwaysDisplayScoreboard;
         private bool _pauseMenuActive;
+        private bool _textInputActive;
         private bool _KanteleHeroLeftTriggerDown;
         private bool _KanteleHeroRightTriggerDown;
         //private bool _gameOver;
@@ -163,6 +164,12 @@ namespace Kalevala {
             }
 
             DebugInput();
+
+            if (_textInputActive &&
+                _stateManager.CurrentScreenState.State != ScreenStateType.MainMenu)
+            {
+                DeactivateTextInput();
+            }
         }
 
         private void MainMenuInput()
@@ -175,16 +182,29 @@ namespace Kalevala {
                 return;
             }
 
-            // Quitting the game
-            //if (Input.GetButtonUp(_CANCEL))
-            //{
-            //    QuitGame(false);
-            //}
+            // Text input for the player's name
+            if (_textInputActive)
+            {
+                TextInput();
 
-            PlayerNameInput();
+                // Closing the text input
+                // TODO: Esc works, backspace doesn't
+                //if (Input.GetButtonUp(_CANCEL))
+                //{
+                //    DeactivateTextInput();
+                //}
+            }
+            else
+            {
+                // Quitting the game
+                if (Input.GetButtonUp(_CANCEL))
+                {
+                    QuitGame(false);
+                }
+            }
         }
 
-        private void PlayerNameInput()
+        private void TextInput()
         {
             _textInput.CheckKeyboardInput();
             if (_textInput._textChanged)
@@ -538,6 +558,11 @@ namespace Kalevala {
             _confirmation.Activate(confType);
             _stateManager.ShowCurrentMenu(false);
             HighlightMenuDefaultButton();
+
+            if (_textInputActive)
+            {
+                DeactivateTextInput();
+            }
         }
 
         private void ExitConfirm()
@@ -627,6 +652,31 @@ namespace Kalevala {
             else
             {
                 // TODO
+            }
+        }
+
+        public void ActivateTextInput()
+        {
+            _textInputActive = true;
+            _playerName.color =
+                new Color(105f / 255f, 243f / 255f, 1, 1); // #69F3FFFF
+        }
+
+        public void DeactivateTextInput()
+        {
+            _textInputActive = false;
+            _playerName.color = Color.white;
+        }
+
+        public void ToggleTextInput()
+        {
+            if (_textInputActive)
+            {
+                DeactivateTextInput();
+            }
+            else
+            {
+                ActivateTextInput();
             }
         }
 

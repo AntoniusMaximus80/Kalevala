@@ -47,6 +47,7 @@ namespace Kalevala
 
         internal static void WorkshopExtraBalls()
         {
+            Debug.Log("Multiball mode activated");
             Instance.StartCoroutine(Instance.WorkShopExtraBallRoutine());
         }        
 
@@ -118,7 +119,6 @@ namespace Kalevala
         //private float _shootAgainTimeOut;
 
         private bool _noNudges;
-        
 
         private void Awake()
         {
@@ -301,7 +301,11 @@ namespace Kalevala
 
         public void UpdatePinballs()
         {
-            foreach (Pinball ball in _pinballs)
+            // Creates a backup list because multiball
+            // mode breaks this otherwise
+            List<Pinball> pbList = new List<Pinball>(_pinballs);
+
+            foreach (Pinball ball in pbList)
             {
                 if (ball.gameObject.activeSelf)
                 {
@@ -746,17 +750,18 @@ namespace Kalevala
 
         private IEnumerator WorkShopExtraBallRoutine()
         {
-            int addCount = 0;
+            //int addCount = 0;
 
-            while(addCount < _workshopExtraBalls)
+            // Activates autosave for 15 seconds
+            ActivateAutosave(15);
+
+            while (_activeBalls - 1 < _workshopExtraBalls)
             {
                 ExtraBall(_workshopLocation, Vector3.zero);
-                addCount++;
-
+                //addCount++;
 
                 yield return new WaitForSeconds(2f);
             }
-
         }
 
         private Pinball RecycleBall()

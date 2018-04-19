@@ -17,6 +17,7 @@ namespace Kalevala
         protected override string settingsMenu { get { return "Asetukset"; } }
         protected override string resume { get { return "Jatka peliä"; } }
         protected override string quitGame { get { return "Poistu pelistä"; } }
+        protected override string setName { get { return "Syötä pelaajan nimi"; } }
         protected override string highscores { get { return "Huippupisteet"; } }
         protected override string next { get { return "Seuraava"; } }
         protected override string previous { get { return "Edellinen"; } }

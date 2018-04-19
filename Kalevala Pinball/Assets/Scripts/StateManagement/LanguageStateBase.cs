@@ -63,6 +63,10 @@ namespace Kalevala
             {
                 return gameOver;
             }
+            else if (textID.Equals("setName"))
+            {
+                return setName;
+            }
             else if (textID.Equals("highscores"))
             {
                 return highscores;
@@ -172,6 +176,7 @@ namespace Kalevala
         protected virtual string resume { get { return "Resume"; } }
         protected virtual string restart { get { return "Play Again"; } }
         protected virtual string quitGame { get { return "Quit Game"; } }
+        protected virtual string setName { get { return "Set player name"; } }
         protected virtual string highscores { get { return "Highscores"; } }
         protected virtual string next { get { return "Next"; } }
         protected virtual string previous { get { return "Previous"; } }
