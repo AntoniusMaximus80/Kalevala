@@ -130,8 +130,8 @@ namespace Kalevala
         private void MakeMaterial()
         {
             _flipperMaterial = new PhysicMaterial("Flipper");
-            _flipperMaterial.dynamicFriction = 0.1f;
-            _flipperMaterial.staticFriction = 0.5f;
+            _flipperMaterial.dynamicFriction = 0.2f;
+            _flipperMaterial.staticFriction = 0.2f;
             _flipperMaterial.frictionCombine = PhysicMaterialCombine.Average;
             _flipperMaterial.bounceCombine = PhysicMaterialCombine.Maximum;
             _flipperMaterial.bounciness = 0.2f;

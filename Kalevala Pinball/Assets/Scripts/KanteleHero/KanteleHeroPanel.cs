@@ -26,6 +26,10 @@ namespace Kalevala
         private GameObject[] _rightWaypoints;
         [SerializeField]
         private GameObject[] _missLights;
+        [SerializeField, Tooltip("Correct order: D, E, F, G")]
+        private AudioClip[] _noteClips;
+        [SerializeField]
+        private AudioSource _audiosource;
         [SerializeField]
         private KanteleHeroLight _movingLightPrefab;
         [SerializeField]
@@ -56,16 +60,13 @@ namespace Kalevala
         // Use this for initialization
         void Start()
         {
-            for(int i = 0; i < 10; i++)
-            {
-                 _notes.Add(new Note(i, 0.5f));
-            }
+            CreateNotes();
             _kanteleLights = new Pool<KanteleHeroLight>(4, true, _movingLightPrefab);
             _leftTrigger.Init(this);
             _rightTrigger.Init(this);
             DeactivateAllMissLights();
             _spawnTimer = 0;
-            _difficulty = 1;
+            _difficulty = 2;
         }
 
         /// <summary>
@@ -93,10 +94,14 @@ namespace Kalevala
         // Update is called once per frame
         void Update()
         {
-            
+            if(Input.GetKeyDown(KeyCode.C))
+            {
+                ActivatePanel();
+                Debug.Log(_noteCount);
+                
+            }
             if(PanelActive)
             {
-                Debug.Log("Current index: " + _currentNote + " noteCount " + _noteCount);
                 if(_currentNote < _noteCount)
                 {
                     UpdateSpawnTimer();
@@ -229,8 +234,8 @@ namespace Kalevala
 
         public void LightHit(int noteNumber)
         {
-            float pitch = _notes[noteNumber].Pitch;
-            // TODO: play sound with pitch taken from given note.
+            PlayNote(_notes[noteNumber].NotePitch);
+            
             _haukiKantele.GetRotation();
             if(noteNumber >= _noteCount - 1)
             {
@@ -262,6 +267,28 @@ namespace Kalevala
             }
         }
 
+        private void PlayNote(NotePitch notePitch)
+        {
+            switch(notePitch) {
+                case NotePitch.D:
+                    _audiosource.PlayOneShot(_noteClips[0]);
+                    Debug.Log("D");
+                    break;
+                case NotePitch.E:
+                    _audiosource.PlayOneShot(_noteClips[1]);
+                    Debug.Log("E");
+                    break;
+                case NotePitch.F:
+                    _audiosource.PlayOneShot(_noteClips[2]);
+                    Debug.Log("F");
+                    break;
+                case NotePitch.G:
+                    _audiosource.PlayOneShot(_noteClips[3]);
+                    Debug.Log("G");
+                    break;
+            }
+        }
+
         /// <summary>
         /// Starts the Kantelehero panel minigame
         /// </summary>
@@ -285,6 +312,27 @@ namespace Kalevala
             _rightTrigger.DeactivateLight();
             _kanteleLights.DeactivateAllObjects();
             PanelActive = false;
+        }
+
+        private void CreateNotes()
+        {
+            _notes.Add(new Note(1f, NotePitch.D));
+            _notes.Add(new Note(2f, NotePitch.D));
+            _notes.Add(new Note(3f, NotePitch.E));
+            _notes.Add(new Note(4f, NotePitch.E));
+            _notes.Add(new Note(5f, NotePitch.F));
+            _notes.Add(new Note(6f, NotePitch.G));
+            _notes.Add(new Note(7f, NotePitch.E));
+            _notes.Add(new Note(9f, NotePitch.E));
+
+            _notes.Add(new Note(11f, NotePitch.F));
+            _notes.Add(new Note(12f, NotePitch.D));
+            _notes.Add(new Note(13f, NotePitch.G));
+            _notes.Add(new Note(14f, NotePitch.F));
+            _notes.Add(new Note(15f, NotePitch.E));
+            _notes.Add(new Note(16f, NotePitch.F));
+            _notes.Add(new Note(17f, NotePitch.D));
+            _notes.Add(new Note(19f, NotePitch.D));
         }
     }
 }
