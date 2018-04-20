@@ -25,13 +25,13 @@ namespace Kalevala
 
         public void ActivateKantele()
         {
-            _door.transform.rotation = DoorUp.rotation;
+           StartCoroutine(Rotate(new Vector3(-23f, 0f, 0f),1f));
             ActivateBumpers();
         }
 
         public void DeactivateKantele ()
         {
-            _door.transform.rotation = DoorDown.rotation;
+            StartCoroutine(Rotate(new Vector3(132f, 0f, 0f), 1f));
             DeactivateBumpers();
         }
 
@@ -49,6 +49,21 @@ namespace Kalevala
             {
                 bumper.DeactivateColliders();
             }
+        }
+
+        private IEnumerator Rotate(Vector3 target, float duration)
+        {
+            float ratio = 0f;
+            float startTime = Time.time;
+            Quaternion startRotation = _door.transform.localRotation;
+            Quaternion targetRotation = Quaternion.Euler(target);
+            while(ratio < 1)
+            {
+                ratio = (Time.time - startTime) / duration;
+                _door.transform.localRotation = Quaternion.Lerp(startRotation, targetRotation, ratio);
+                yield return 0;
+            }
+            _door.transform.localRotation = targetRotation;
         }
 
     }
