@@ -1,28 +1,16 @@
 fileFormatVersion: 2
-guid: 13192d38eb7806e4e8f2b8a7a038bbc2
-timeCreated: 1521650522
+guid: ffe8611cd15a5c84eaf64f2fa681b121
+timeCreated: 1524117873
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
-    100000: Divider
-    100002: Divider002
-    100004: Divider003
-    100006: //RootNode
-    400000: Divider
-    400002: Divider002
-    400004: Divider003
-    400006: //RootNode
-    2100000: Placeholder
-    2300000: Divider
-    2300002: Divider002
-    2300004: Divider003
-    3300000: Divider
-    3300002: Divider002
-    3300004: Divider003
-    4300000: Divider003
-    4300002: Divider002
-    4300004: Divider
+    100000: //RootNode
+    400000: //RootNode
+    2100000: No Name
+    2300000: //RootNode
+    3300000: //RootNode
+    4300000: Rounded Rectangle Light
     9500000: //RootNode
   externalObjects: {}
   materials:
