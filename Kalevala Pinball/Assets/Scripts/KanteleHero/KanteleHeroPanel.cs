@@ -26,7 +26,7 @@ namespace Kalevala
         private GameObject[] _rightWaypoints;
         [SerializeField]
         private GameObject[] _missLights;
-        [SerializeField, Tooltip("Correct order: D, E, F, G")]
+        [SerializeField, Tooltip("Correct order: A, D, E, F, G")]
         private AudioClip[] _noteClips;
         [SerializeField]
         private AudioSource _audiosource;
@@ -52,6 +52,8 @@ namespace Kalevala
         private int _noteCount;
         private float _difficulty;
 
+        private CameraController _cameroController;
+
         public bool PanelActive
         {
             get { return _panelActive; }
@@ -61,12 +63,13 @@ namespace Kalevala
         void Start()
         {
             CreateNotes();
+            _cameroController = FindObjectOfType<CameraController>();
             _kanteleLights = new Pool<KanteleHeroLight>(4, true, _movingLightPrefab);
             _leftTrigger.Init(this);
             _rightTrigger.Init(this);
             DeactivateAllMissLights();
             _spawnTimer = 0;
-            _difficulty = 2;
+            _difficulty = 2f;
         }
 
         /// <summary>
@@ -130,6 +133,7 @@ namespace Kalevala
             if(_misses >= _missLights.Length)
             {
                 _misses = 0;
+                _difficulty = 4f;
                 DeactivatePanel();
             }
         }
@@ -228,6 +232,7 @@ namespace Kalevala
             _misses++;
             if(noteNumber >= _noteCount - 1)
             {
+                _difficulty += 0.5f;
                 DeactivatePanel();
             }
         }
@@ -235,10 +240,10 @@ namespace Kalevala
         public void LightHit(int noteNumber)
         {
             PlayNote(_notes[noteNumber].NotePitch);
-            
-            _haukiKantele.GetRotation();
+            Scorekeeper.Instance.AddScore(Scorekeeper.ScoreType.KanteleLight);
             if(noteNumber >= _noteCount - 1)
             {
+                _difficulty += 0.5f;
                 DeactivatePanel();
             }
         }
@@ -270,20 +275,24 @@ namespace Kalevala
         private void PlayNote(NotePitch notePitch)
         {
             switch(notePitch) {
-                case NotePitch.D:
+                case NotePitch.A:
                     _audiosource.PlayOneShot(_noteClips[0]);
+                    Debug.Log("A");
+                    break;
+                case NotePitch.D:
+                    _audiosource.PlayOneShot(_noteClips[1]);
                     Debug.Log("D");
                     break;
                 case NotePitch.E:
-                    _audiosource.PlayOneShot(_noteClips[1]);
+                    _audiosource.PlayOneShot(_noteClips[2]);
                     Debug.Log("E");
                     break;
                 case NotePitch.F:
-                    _audiosource.PlayOneShot(_noteClips[2]);
+                    _audiosource.PlayOneShot(_noteClips[3]);
                     Debug.Log("F");
                     break;
                 case NotePitch.G:
-                    _audiosource.PlayOneShot(_noteClips[3]);
+                    _audiosource.PlayOneShot(_noteClips[4]);
                     Debug.Log("G");
                     break;
             }
@@ -294,11 +303,14 @@ namespace Kalevala
         /// </summary>
         public void ActivatePanel()
         {
+            _cameroController.MoveCurrentCamTo(CameraController.CameraPosition.Kantele, false);
+            //Physics.gravity = new Vector3(25f, -98.1f, -25f);
             PanelActive = true;
             _spawnTimer = 0;
             _currentNote = 0;
             _noteCount = _notes.Count;
             CheckMissLights();
+            _haukiKantele.ActivateKantele();
         }
 
         /// <summary>
@@ -307,32 +319,44 @@ namespace Kalevala
         /// </summary>
         public void DeactivatePanel()
         {
+            _cameroController.MoveCurrentCamTo(CameraController.CameraPosition.Playfield, false);
             DeactivateAllMissLights();
             _leftTrigger.DeactivateLight();
             _rightTrigger.DeactivateLight();
             _kanteleLights.DeactivateAllObjects();
+            _haukiKantele.DeactivateKantele();
+            //Physics.gravity = new Vector3(0f, -98.1f, -65f);
             PanelActive = false;
         }
 
         private void CreateNotes()
         {
-            _notes.Add(new Note(1f, NotePitch.D));
-            _notes.Add(new Note(2f, NotePitch.D));
-            _notes.Add(new Note(3f, NotePitch.E));
-            _notes.Add(new Note(4f, NotePitch.E));
-            _notes.Add(new Note(5f, NotePitch.F));
-            _notes.Add(new Note(6f, NotePitch.G));
-            _notes.Add(new Note(7f, NotePitch.E));
-            _notes.Add(new Note(9f, NotePitch.E));
+            float waitTime = 3f * _difficulty;
+            _notes.Add(new Note(3f + waitTime, NotePitch.D));
+            _notes.Add(new Note(4f + waitTime, NotePitch.D));
+            _notes.Add(new Note(5f + waitTime, NotePitch.E));
+            _notes.Add(new Note(6f + waitTime, NotePitch.E));
+            _notes.Add(new Note(7f + waitTime, NotePitch.F));
+            _notes.Add(new Note(8f + waitTime, NotePitch.A));
+            _notes.Add(new Note(9f + waitTime, NotePitch.E));
+            _notes.Add(new Note(11f + waitTime, NotePitch.E));
 
-            _notes.Add(new Note(11f, NotePitch.F));
-            _notes.Add(new Note(12f, NotePitch.D));
-            _notes.Add(new Note(13f, NotePitch.G));
-            _notes.Add(new Note(14f, NotePitch.F));
-            _notes.Add(new Note(15f, NotePitch.E));
-            _notes.Add(new Note(16f, NotePitch.F));
-            _notes.Add(new Note(17f, NotePitch.D));
-            _notes.Add(new Note(19f, NotePitch.D));
+            _notes.Add(new Note(13f + waitTime, NotePitch.F));
+            _notes.Add(new Note(14f + waitTime, NotePitch.D));
+            _notes.Add(new Note(15f + waitTime, NotePitch.G));
+            _notes.Add(new Note(16f + waitTime, NotePitch.F));
+            _notes.Add(new Note(17f + waitTime, NotePitch.E));
+            _notes.Add(new Note(18f + waitTime, NotePitch.F));
+            _notes.Add(new Note(19f + waitTime, NotePitch.D));
+            _notes.Add(new Note(21f + waitTime, NotePitch.D));
+        }
+
+        private void OnTriggerEnter( Collider other )
+        {
+            if(!_panelActive)
+            {
+                ActivatePanel();
+            }
         }
     }
 }

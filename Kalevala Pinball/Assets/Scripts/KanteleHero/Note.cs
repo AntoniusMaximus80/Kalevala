@@ -6,10 +6,11 @@ namespace Kalevala
 {
     public enum NotePitch
     {
-        D = 0,
-        E = 1,
-        F = 2,
-        G = 3
+        A = 0,
+        D = 1,
+        E = 2,
+        F = 3,
+        G = 4
     }
 
     public class Note
