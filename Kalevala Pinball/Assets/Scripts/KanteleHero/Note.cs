@@ -4,26 +4,32 @@ using UnityEngine;
 
 namespace Kalevala
 {
+    public enum NotePitch
+    {
+        D = 0,
+        E = 1,
+        F = 2,
+        G = 3
+    }
+
     public class Note
     {
-        private float _spawnTime;
-        private float _pitch;
 
-        public Note(float spawnTime, float pitch)
+        public Note(float spawnTime, NotePitch notePitch)
         {
             SpawnTime = spawnTime;
-            Pitch = pitch;
+            NotePitch = notePitch;
         }
 
         public float SpawnTime
         {
-            get { return _spawnTime; }
-            private set { _spawnTime = value; }
+            get;
+            private set;
         }
-        public float Pitch
+        public NotePitch NotePitch
         {
-            get { return _pitch; }
-            private set { _pitch = value; }
+            get;
+            private set;
         }
 
     }
