@@ -474,15 +474,14 @@ namespace Kalevala {
             // Spawning one collectable
             if (Input.GetKeyUp(KeyCode.C))
             {
-                _collSpawner.SpawnCollectable
-                    (Collectable.CollectableType.Gold, false);
+                _collSpawner.SpawnCollectable(Collectable.CollectableType.Gold);
             }
 
             // Spawning all collectables
             if (Input.GetKeyUp(KeyCode.X))
             {
-                _collSpawner.SpawnCollectable
-                    (Collectable.CollectableType.Salt, true);
+                _collSpawner.SpawnCollectables
+                    (Collectable.CollectableType.Salt, 5, 0.5f, true);
             }
         }
 

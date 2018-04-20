@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 
 namespace Kalevala
 {
@@ -11,6 +12,15 @@ namespace Kalevala
             Grain = 1,
             Salt = 2,
             Gold = 3
+        }
+
+        private enum CollectableState
+        {
+            Off = 0,
+            Idle = 1,
+            Active = 2,
+            Vanish = 3,
+            Rest = 4
         }
 
         [SerializeField]
@@ -31,12 +41,30 @@ namespace Kalevala
         [SerializeField]
         private float _motionSpeed;
 
-        [SerializeField]
-        private float _motionTime = 1;
+        /// <summary>
+        /// The time (in seconds) until the collectable expires.
+        /// Unlimited if the value is 0.
+        /// </summary>
+        [SerializeField, Tooltip("The time (in seconds) until the collectable expires. Unlimited if the value is 0.")]
+        private float _lifeTime = 10;
 
+        /// <summary>
+        /// The time (in seconds) after being collected
+        /// until the collectable is made invisible
+        /// </summary>
+        [SerializeField]
+        private float _vanishMotionTime = 1;
+
+        /// <summary>
+        /// The duration (in seconds) of particle
+        /// effects after being collected
+        /// </summary>
         [SerializeField]
         private float _particleTime = 1;
 
+        /// <summary>
+        /// The duration (in seconds) of rest before being respawned
+        /// </summary>
         [SerializeField]
         private float _restingTime;
 
@@ -52,13 +80,10 @@ namespace Kalevala
         private ParticleSystem _particles;
         private CollectableSpawner _handler;
 
-        private bool _active = false;
+        private CollectableState State { get; set; }
         private bool _motionCompleted = false;
         private float _activeTime = 0;
-        private float _elapsedActiveTime = 0;
-
-        private bool _resting = false;
-        private float _elapsedRestingTime = 0;
+        private float _elapsedTime = 0;
 
         public CollectableType Type { get; private set; }
         private Scorekeeper.ScoreType _scoreType;
@@ -75,32 +100,15 @@ namespace Kalevala
                 ParticleSystem.MainModule psMain = _particles.main;
                 psMain.duration = _particleTime;
 
-                _activeTime = Mathf.Max(_motionTime, _particleTime);
+                _activeTime = Mathf.Max(_vanishMotionTime, _particleTime);
             }
             else
             {
-                _activeTime = _motionTime;
+                _activeTime = _vanishMotionTime;
             }
         }
 
-        public void InitDefaults()
-        {
-            _defaultPosition = _collectableObject.transform.position;
-            _defaultRotation = _collectableObject.transform.rotation;
-        }
-
-        public void ResetToDefaults()
-        {
-            _collectableObject.transform.position = _defaultPosition;
-            _collectableObject.transform.rotation = _defaultRotation;
-        }
-
-        public void SetHandler(CollectableSpawner handler)
-        {
-            _handler = handler;
-        }
-
-        public void SetCollectableType(CollectableType type)
+        public void Init(CollectableType type)
         {
             Type = type;
 
@@ -132,7 +140,32 @@ namespace Kalevala
                 }
             }
 
-            InitDefaults();
+            SetDefaults();
+
+            _motionCompleted = false;
+            _elapsedTime = 0;
+
+            State = CollectableState.Idle;
+        }
+
+        public void SetDefaults()
+        {
+            _defaultPosition = _collectableObject.transform.position;
+            _defaultRotation = _collectableObject.transform.rotation;
+        }
+
+        public void ResetToDefaults()
+        {
+            if (_collectableObject != null)
+            {
+                _collectableObject.transform.position = _defaultPosition;
+                _collectableObject.transform.rotation = _defaultRotation;
+            }
+        }
+
+        public void SetHandler(CollectableSpawner handler)
+        {
+            _handler = handler;
         }
 
         /// <summary>
@@ -142,17 +175,28 @@ namespace Kalevala
         {
             if (_collectableObject != null)
             {
-                if (_active)
+                switch (State)
                 {
-                    UpdateActivity();
-                }
-                else if (_resting)
-                {
-                    UpdateRest();
-                }
-                else
-                {
-                    UpdateIdleMotion();
+                    case CollectableState.Idle:
+                    {
+                        UpdateIdle();
+                        break;
+                    }
+                    case CollectableState.Active:
+                    {
+                        UpdateActivity();
+                        break;
+                    }
+                    case CollectableState.Vanish:
+                    {
+                        UpdateVanishing();
+                        break;
+                    }
+                    case CollectableState.Rest:
+                    {
+                        UpdateRest();
+                        break;
+                    }
                 }
             }
         }
@@ -161,24 +205,30 @@ namespace Kalevala
         {
             UpdateActiveMotion();
 
-            _elapsedActiveTime += Time.deltaTime;
+            _elapsedTime += Time.deltaTime;
 
-            if (_elapsedActiveTime > _activeTime)
+            if (_elapsedTime > _activeTime)
             {
-                _active = false;
                 _motionCompleted = false;
-                _elapsedActiveTime = 0;
+                _elapsedTime = 0;
 
                 if (_removedWhenCollected)
                 {
                     Remove();
                 }
-
+                else if (_restingTime > 0)
+                {
+                    State = CollectableState.Rest;
+                }
+                else
+                {
+                    State = CollectableState.Idle;
+                }
             }
             else
             {
                 if (!_motionCompleted &&
-                    _elapsedActiveTime > _motionTime)
+                    _elapsedTime > _vanishMotionTime)
                 {
                     _motionCompleted = true;
 
@@ -191,25 +241,60 @@ namespace Kalevala
                         ResetToDefaults();
                     }
                 }
-                else if (_elapsedActiveTime > _particleTime)
+            }
+        }
+
+        protected virtual void UpdateVanishing()
+        {
+            UpdateVanishMotion();
+
+            _elapsedTime += Time.deltaTime;
+
+            if (_elapsedTime > _activeTime)
+            {
+                _motionCompleted = false;
+                _elapsedTime = 0;
+                Remove();
+            }
+            else
+            {
+                if (!_motionCompleted &&
+                    _elapsedTime > _vanishMotionTime)
                 {
-                    // Does nothing
+                    _motionCompleted = true;
+                    ShowCollectableObject(false);
                 }
             }
         }
 
         protected virtual void UpdateRest()
         {
-            _elapsedRestingTime += Time.deltaTime;
+            _elapsedTime += Time.deltaTime;
 
-            if (_elapsedRestingTime > _restingTime)
+            if (_elapsedTime > _restingTime)
             {
-                _elapsedRestingTime = 0;
-                _resting = false;
+                State = CollectableState.Idle;
+                _elapsedTime = 0;
 
                 if (_respawnsAfterRest)
                 {
                     Respawn();
+                }
+            }
+        }
+
+        protected virtual void UpdateIdle()
+        {
+            UpdateIdleMotion();
+
+            if (_lifeTime > 0)
+            {
+                _elapsedTime += Time.deltaTime;
+
+                if (_elapsedTime > _lifeTime)
+                {
+                    _elapsedTime = 0;
+                    State = CollectableState.Vanish;
                 }
             }
         }
@@ -224,6 +309,13 @@ namespace Kalevala
 
             _collectableObject.transform.position = newPosition;
             _collectableObject.transform.rotation = Quaternion.Euler(newRotation);
+        }
+
+        protected virtual void UpdateVanishMotion()
+        {
+            Vector3 newPosition = _collectableObject.transform.position;
+            newPosition.y -= _motionSpeed * Time.deltaTime;
+            _collectableObject.transform.position = newPosition;
         }
 
         protected virtual void UpdateIdleMotion()
@@ -242,7 +334,8 @@ namespace Kalevala
                 return;
             }
 
-            _active = true;
+            State = CollectableState.Active;
+            _elapsedTime = 0;
 
             // Gives score based on the collectable type
             if (Type != CollectableType.None)
@@ -261,12 +354,14 @@ namespace Kalevala
 
         public virtual void Respawn()
         {
+            State = CollectableState.Idle;
             ResetToDefaults();
             ShowCollectableObject(true);
         }
 
         public virtual void Remove()
         {
+            State = CollectableState.Off;
             ResetToDefaults();
             _handler.ReturnItemToPool(this);
 
@@ -286,19 +381,46 @@ namespace Kalevala
             }
         }
 
+        public void LaunchToPosition(Vector3 launchPosition, float duration)
+        {
+            if (duration > 0)
+            {
+                Vector3 targetPosition = _collectableObject.transform.position;
+
+                StartCoroutine(
+                    FlyToPosition(launchPosition, targetPosition, duration));
+            }
+        }
+
+        private IEnumerator FlyToPosition(Vector3 start, Vector3 target,
+            float duration)
+        {
+            float startTime = Time.time;
+            float ratio = 0;
+
+            _collectableObject.transform.position = start;
+
+            while (ratio < 1)
+            {
+                ratio = (Time.time - startTime) / duration;
+
+                _collectableObject.transform.position =
+                    Vector3.Slerp(start, target, ratio);
+
+                yield return 0;
+            }
+
+            _collectableObject.transform.position = target;
+        }
+
         protected virtual void OnTriggerEnter(Collider other)
         {
-            if (_collectableObject.activeSelf && !_active && !_resting)
+            if (State == CollectableState.Idle)
             {
                 Pinball pinball = other.GetComponent<Pinball>();
                 if (pinball != null)
                 {
                     Activate();
-
-                    if (!_removedWhenCollected || _respawnsAfterRest)
-                    {
-                        _resting = true;
-                    }
                 }
             }
         }

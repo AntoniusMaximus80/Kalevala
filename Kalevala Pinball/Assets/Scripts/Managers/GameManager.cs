@@ -51,6 +51,7 @@ namespace Kalevala
 
         private StateManager _stateManager;
         private Playfield _playfield;
+        private CollectableSpawner _collectableSpawner;
         private CameraController _cameraCtrl;
         private HighscoreList _highscoreList;
         private SaveSystem _saveSystem;
@@ -165,12 +166,8 @@ namespace Kalevala
                 Debug.LogError("Playfield object not found in the scene.");
             }
 
+            _collectableSpawner = FindObjectOfType<CollectableSpawner>();
             _cameraCtrl = FindObjectOfType<CameraController>();
-            if (_cameraCtrl == null)
-            {
-                Debug.LogError
-                    ("CameraController object not found in the scene.");
-            }
 
             // Initializes languages
             InitLanguages();
@@ -275,6 +272,7 @@ namespace Kalevala
             PinballManager.Instance.ResetGame();
             _playfield.ResetPlayfield();
             Scorekeeper.Instance.ResetScore();
+            _collectableSpawner.ResetCollectables();
         }
 
         /// <summary>
