@@ -19,12 +19,14 @@ namespace Kalevala
             Skillshot,
             CollectableGrain,
             CollectableSalt,
-            CollectableGold
+            CollectableGold,
+            KanteleBumper,
+            KanteleLight
         }
 
         public int _totalScore,
             _spruceBumper,
-            _kanteleBumper,
+            _slightshot,
             _spinner,
             _dropTarget,
             _ilmarinenKOH,
@@ -33,7 +35,9 @@ namespace Kalevala
             _skillshot,
             _collectableGrain,
             _collectableSalt,
-            _collectableGold
+            _collectableGold,
+            _kanteleBumper,
+            _kanteleLight
            ;
 
 
@@ -71,7 +75,7 @@ namespace Kalevala
                     _score += _spruceBumper;
                     break;
                 case ScoreType.Slingshot:
-                    _score += _kanteleBumper;
+                    _score += _slightshot;
                     break;
                 case ScoreType.Spinner:
                     _score += _spinner;
@@ -99,6 +103,12 @@ namespace Kalevala
                     break;
                 case ScoreType.CollectableGold:
                     _score += _collectableGold;
+                    break;
+                case ScoreType.KanteleBumper:
+                    _score += _kanteleBumper;
+                    break;
+                case ScoreType.KanteleLight:
+                    _score += _kanteleLight;
                     break;
                 default:
                     Debug.LogError("ScoreType not recognized.");

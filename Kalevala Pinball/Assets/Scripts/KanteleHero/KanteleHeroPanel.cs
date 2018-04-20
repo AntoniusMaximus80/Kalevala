@@ -26,7 +26,7 @@ namespace Kalevala
         private GameObject[] _rightWaypoints;
         [SerializeField]
         private GameObject[] _missLights;
-        [SerializeField, Tooltip("Correct order: D, E, F, G")]
+        [SerializeField, Tooltip("Correct order: A, D, E, F, G")]
         private AudioClip[] _noteClips;
         [SerializeField]
         private AudioSource _audiosource;
@@ -66,7 +66,7 @@ namespace Kalevala
             _rightTrigger.Init(this);
             DeactivateAllMissLights();
             _spawnTimer = 0;
-            _difficulty = 2;
+            _difficulty = 3.5f;
         }
 
         /// <summary>
@@ -235,8 +235,7 @@ namespace Kalevala
         public void LightHit(int noteNumber)
         {
             PlayNote(_notes[noteNumber].NotePitch);
-            
-            _haukiKantele.GetRotation();
+            Scorekeeper.Instance.AddScore(Scorekeeper.ScoreType.KanteleLight);
             if(noteNumber >= _noteCount - 1)
             {
                 DeactivatePanel();
@@ -270,20 +269,24 @@ namespace Kalevala
         private void PlayNote(NotePitch notePitch)
         {
             switch(notePitch) {
-                case NotePitch.D:
+                case NotePitch.A:
                     _audiosource.PlayOneShot(_noteClips[0]);
+                    Debug.Log("A");
+                    break;
+                case NotePitch.D:
+                    _audiosource.PlayOneShot(_noteClips[1]);
                     Debug.Log("D");
                     break;
                 case NotePitch.E:
-                    _audiosource.PlayOneShot(_noteClips[1]);
+                    _audiosource.PlayOneShot(_noteClips[2]);
                     Debug.Log("E");
                     break;
                 case NotePitch.F:
-                    _audiosource.PlayOneShot(_noteClips[2]);
+                    _audiosource.PlayOneShot(_noteClips[3]);
                     Debug.Log("F");
                     break;
                 case NotePitch.G:
-                    _audiosource.PlayOneShot(_noteClips[3]);
+                    _audiosource.PlayOneShot(_noteClips[4]);
                     Debug.Log("G");
                     break;
             }
@@ -294,11 +297,13 @@ namespace Kalevala
         /// </summary>
         public void ActivatePanel()
         {
+            //Physics.gravity = new Vector3(25f, -98.1f, -25f);
             PanelActive = true;
             _spawnTimer = 0;
             _currentNote = 0;
             _noteCount = _notes.Count;
             CheckMissLights();
+            _haukiKantele.ActivateKantele();
         }
 
         /// <summary>
@@ -311,6 +316,8 @@ namespace Kalevala
             _leftTrigger.DeactivateLight();
             _rightTrigger.DeactivateLight();
             _kanteleLights.DeactivateAllObjects();
+            _haukiKantele.DeactivateKantele();
+            //Physics.gravity = new Vector3(0f, -98.1f, -65f);
             PanelActive = false;
         }
 
@@ -321,7 +328,7 @@ namespace Kalevala
             _notes.Add(new Note(3f, NotePitch.E));
             _notes.Add(new Note(4f, NotePitch.E));
             _notes.Add(new Note(5f, NotePitch.F));
-            _notes.Add(new Note(6f, NotePitch.G));
+            _notes.Add(new Note(6f, NotePitch.A));
             _notes.Add(new Note(7f, NotePitch.E));
             _notes.Add(new Note(9f, NotePitch.E));
 
