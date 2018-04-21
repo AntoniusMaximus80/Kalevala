@@ -381,11 +381,13 @@ namespace Kalevala
             }
         }
 
-        public void LaunchToPosition(Vector3 launchPosition, float duration)
+        public void LaunchToPosition(Vector3 launchPosition, float speed)
         {
-            if (duration > 0)
+            if (speed > 0)
             {
                 Vector3 targetPosition = _collectableObject.transform.position;
+                float duration =
+                    Vector3.Distance(launchPosition, targetPosition) / speed;
 
                 StartCoroutine(
                     FlyToPosition(launchPosition, targetPosition, duration));
@@ -399,18 +401,28 @@ namespace Kalevala
             float ratio = 0;
 
             _collectableObject.transform.position = start;
+            Vector3 baseScale = _collectableObject.transform.localScale;
 
             while (ratio < 1)
             {
                 ratio = (Time.time - startTime) / duration;
 
+                // Moves the object in an arc towards the target position
                 _collectableObject.transform.position =
                     Vector3.Slerp(start, target, ratio);
+
+                // Increases the object's size as it
+                // gets closer to the target position
+                _collectableObject.transform.localScale =
+                    new Vector3(ratio * baseScale.x,
+                                ratio * baseScale.y,
+                                ratio * baseScale.z);
 
                 yield return 0;
             }
 
             _collectableObject.transform.position = target;
+            _collectableObject.transform.localScale = baseScale;
         }
 
         protected virtual void OnTriggerEnter(Collider other)

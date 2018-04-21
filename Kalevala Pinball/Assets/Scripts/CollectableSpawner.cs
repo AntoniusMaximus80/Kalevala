@@ -6,9 +6,14 @@ namespace Kalevala
 {
     public class CollectableSpawner : MonoBehaviour
     {
+        [SerializeField]
+        private bool _launchToPosition = true;
+
+        [SerializeField]
+        private float _launchSpeed = 20f;
+
         private Collectable[] _collectables;
 
-        private bool _launchToPosition;
         private bool _spawnMultiple;
         private Collectable.CollectableType _collType;
         private float _spawnInterval;
@@ -65,8 +70,18 @@ namespace Kalevala
             }
         }
 
-        public void SpawnCollectables(
-            Collectable.CollectableType type, int amount, float interval, bool launchToPosition)
+        public void SpawnCollectables(Collectable.CollectableType type,
+            int amount, float interval, bool launchToPosition)
+        {
+            // True: the collectable flies to its position
+            // False: the collectable just appears at its position
+            _launchToPosition = launchToPosition;
+
+            SpawnCollectables(type, amount, interval);
+        }
+
+        public void SpawnCollectables(Collectable.CollectableType type,
+            int amount, float interval)
         {
             _spawnMultiple = true;
             _collType = type;
@@ -75,10 +90,6 @@ namespace Kalevala
 
             // Ensures that one collectable is spawned immediately
             _elapsedTime = interval;
-
-            // True: the collectable flies to its position
-            // False: the collectable just appears at its position
-            _launchToPosition = launchToPosition;
 
             //StartCoroutine(SpawnCollectablesRoutine(type, amount, interval));
         }
@@ -105,6 +116,16 @@ namespace Kalevala
         //        }
         //    }
         //}
+
+        public Collectable SpawnCollectable(Collectable.CollectableType type,
+                                            bool launchToPosition)
+        {
+            // True: the collectable flies to its position
+            // False: the collectable just appears at its position
+            _launchToPosition = launchToPosition;
+
+            return SpawnCollectable(type);
+        }
 
         public Collectable SpawnCollectable(Collectable.CollectableType type)
         {
@@ -143,8 +164,8 @@ namespace Kalevala
             {
                 // Launches the collectable from the spawner's position
                 // to the collectable's own target position
-                float flightDuration = 2f;
-                collectable.LaunchToPosition(transform.position, flightDuration);
+                collectable.LaunchToPosition
+                    (transform.position, _launchSpeed);
             }
         }
 
@@ -194,9 +215,9 @@ namespace Kalevala
         {
             _collType = Collectable.CollectableType.None;
             _spawnMultiple = false;
-            _launchToPosition = false;
             _elapsedTime = 0;
             _leftToSpawn = 0;
+            //_launchToPosition = false;
         }
     }
 }

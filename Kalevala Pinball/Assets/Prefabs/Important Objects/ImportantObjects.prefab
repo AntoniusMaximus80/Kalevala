@@ -1385,6 +1385,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 233d3f50aad00ff4d9083c1218bf71cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _launchToPosition: 1
+  _launchSpeed: 25
 --- !u!114 &114006815542182856
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1911,7 +1913,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _totalScore: 0
   _spruceBumper: 10000
-  _kanteleBumper: 5000
+  _slightshot: 0
   _spinner: 1000
   _dropTarget: 10000
   _ilmarinenKOH: 0
@@ -1921,6 +1923,8 @@ MonoBehaviour:
   _collectableGrain: 0
   _collectableSalt: 0
   _collectableGold: 0
+  _kanteleBumper: 5000
+  _kanteleLight: 0
 --- !u!114 &114370753247544838
 MonoBehaviour:
   m_ObjectHideFlags: 1

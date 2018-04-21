@@ -13614,16 +13614,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 5
       objectReference: {fileID: 0}
-    - target: {fileID: 114959818721151298, guid: 211d40b776f371a499e88a8daab2dc4d,
-        type: 2}
-      propertyPath: _defaultCamera
-      value: 
-      objectReference: {fileID: 581948856}
-    - target: {fileID: 114959818721151298, guid: 211d40b776f371a499e88a8daab2dc4d,
-        type: 2}
-      propertyPath: _horizontalCamera
-      value: 
-      objectReference: {fileID: 1436590004}
     - target: {fileID: 114602248010753546, guid: 211d40b776f371a499e88a8daab2dc4d,
         type: 2}
       propertyPath: _workshopLocation
@@ -13669,6 +13659,16 @@ Prefab:
       propertyPath: _topRightFlipper
       value: 
       objectReference: {fileID: 70969515}
+    - target: {fileID: 114959818721151298, guid: 211d40b776f371a499e88a8daab2dc4d,
+        type: 2}
+      propertyPath: _defaultCamera
+      value: 
+      objectReference: {fileID: 581948856}
+    - target: {fileID: 114959818721151298, guid: 211d40b776f371a499e88a8daab2dc4d,
+        type: 2}
+      propertyPath: _horizontalCamera
+      value: 
+      objectReference: {fileID: 1436590004}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 211d40b776f371a499e88a8daab2dc4d, type: 2}
   m_IsPrefabParent: 0

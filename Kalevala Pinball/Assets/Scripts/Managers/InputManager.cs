@@ -472,16 +472,17 @@ namespace Kalevala {
             }
 
             // Spawning one collectable
-            if (Input.GetKeyUp(KeyCode.C))
+            if (Input.GetKeyUp(KeyCode.Z))
             {
-                _collSpawner.SpawnCollectable(Collectable.CollectableType.Gold);
+                _collSpawner.SpawnCollectable
+                    (Collectable.CollectableType.Gold);
             }
 
             // Spawning all collectables
             if (Input.GetKeyUp(KeyCode.X))
             {
                 _collSpawner.SpawnCollectables
-                    (Collectable.CollectableType.Salt, 5, 0.5f, true);
+                    (Collectable.CollectableType.Salt, 5, 0.5f);
             }
         }
 
