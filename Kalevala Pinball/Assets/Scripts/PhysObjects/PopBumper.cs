@@ -91,6 +91,9 @@ namespace Kalevala
             // Scoring.
             Scorekeeper.Instance.AddScore(Scorekeeper.ScoreType.PopBumper);
 
+            //Add Resources
+            GameManager.Instance.ChangeResources(1);
+
             // Physics.
             other.GetComponent<Pinball>().StopMotion(); // Stop the pinball's velocity.
             Vector3 forceDirection = Vector3.Normalize(other.transform.position - transform.position) + // Calculate the force direction.

@@ -69,14 +69,17 @@ namespace Kalevala
         private HighscoreList _highscoreList;
         private SaveSystem _saveSystem;
 
-        private IList<LanguageStateBase> _langStates =
-            new List<LanguageStateBase>();
+        //private IList<LanguageStateBase> _langStates =
+        //    new List<LanguageStateBase>();
+
+        //public LanguageStateBase Language { get; set; }
 
         private string _playerName;
         private float _musicVolume;
         private float _effectVolume;
 
-        //public LanguageStateBase Language { get; set; }
+        public event Action ResourcesChanged;
+        private int _resources;
 
         public float MusicVolume
         {
@@ -101,6 +104,23 @@ namespace Kalevala
             {
                 _effectVolume = value;
                 SFXPlayer.Instance.SetVolume(value);
+            }
+        }
+
+        public int Resources
+        {
+            get
+            {
+                return _resources;
+            }
+            private set
+            {
+                Debug.Log(_resources);
+                _resources = (int) Mathf.Clamp(_resources + value,0,45f);
+                if(ResourcesChanged != null)
+                {
+                    ResourcesChanged();
+                }
             }
         }
 
@@ -484,6 +504,11 @@ namespace Kalevala
             {
                 _cameraCtrl.Shake(direction, randomDirAngle, force, duration);
             }
+        }
+
+        public void ChangeResources(int amount)
+        {
+            Resources = amount;
         }
     }
 }

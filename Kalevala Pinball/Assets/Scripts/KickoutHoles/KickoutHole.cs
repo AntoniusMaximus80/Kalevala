@@ -70,12 +70,6 @@ namespace Kalevala
             _startTime = Time.time;
             _ball.ExitingRamp -= BallInsideHole;
             _ball.SetPhysicsEnabled(false);
-
-            // Fires an event that the status panel manager can listen to
-            if(BallEntered != null)
-            {
-                BallEntered();
-            }
         }
 
         protected virtual void KickOut()
@@ -84,6 +78,16 @@ namespace Kalevala
             _ball.SetPhysicsEnabled(true);
             _startTime = -1;
             _ball = null;
+        }
+
+        protected void TriggerEvents()
+        {
+
+            // Fires an event that the status panel manager can listen to
+            if(BallEntered != null)
+            {
+                BallEntered();
+            }
         }
 
         protected virtual void KickOutUpdate() { }
