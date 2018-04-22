@@ -170,6 +170,18 @@ namespace Kalevala
             //InitGravity();
         }
 
+        public int ActivePinballs
+        {
+            get
+            {
+                return _activeBalls;
+            }
+            set
+            {
+                _activeBalls = value;
+            }
+        }
+
         ///// <summary>
         ///// Initializes gravity.
         ///// </summary>
@@ -740,9 +752,9 @@ namespace Kalevala
             }
         }
 
-        private Pinball CreateNewBall()
+        public Pinball CreateNewBall()
         {
-            Pinball ball = Instantiate<Pinball>(_pinballPrefab);
+            Pinball ball = Instantiate(_pinballPrefab);
             ball.Init(true);
             _pinballs.Add(ball);
             return ball;
@@ -764,7 +776,7 @@ namespace Kalevala
             }
         }
 
-        private Pinball RecycleBall()
+        public Pinball RecycleBall()
         {
             foreach (Pinball ball in _pinballs)
             {

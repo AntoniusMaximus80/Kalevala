@@ -327,11 +327,11 @@ InputManager:
     joyNum: 0
   - serializedVersion: 3
     m_Name: Cancel
-    descriptiveName: Cancel
-    descriptiveNegativeName: Cancel
+    descriptiveName: 
+    descriptiveNegativeName: 
     negativeButton: 
     positiveButton: escape
-    altNegativeButton: backspace
+    altNegativeButton: 
     altPositiveButton: joystick button 1
     gravity: 1000
     dead: 0.001
@@ -342,9 +342,25 @@ InputManager:
     axis: 0
     joyNum: 0
   - serializedVersion: 3
+    m_Name: EraseCharacter
+    descriptiveName: Erase typed character
+    descriptiveNegativeName: 
+    negativeButton: 
+    positiveButton: backspace
+    altNegativeButton: 
+    altPositiveButton: joystick button 3
+    gravity: 1000
+    dead: 0.001
+    sensitivity: 1000
+    snap: 0
+    invert: 0
+    type: 0
+    axis: 0
+    joyNum: 0
+  - serializedVersion: 3
     m_Name: Pause
-    descriptiveName: Pause
-    descriptiveNegativeName: Pause
+    descriptiveName: 
+    descriptiveNegativeName: 
     negativeButton: 
     positiveButton: escape
     altNegativeButton: backspace

@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using Kalevala.Localization;
+using L10n = Kalevala.Localization.Localization;
 
 namespace Kalevala {
     public class InputManager: MonoBehaviour {
@@ -12,8 +14,10 @@ namespace Kalevala {
         private const string _VERT_AXIS = "Vertical";
         private const string _SUBMIT = "Submit";
         private const string _CANCEL = "Cancel";
+        private const string _ERASE = "EraseCharacter";
         private const string _PAUSE = "Pause";
         private const string _SHOW_SCORES = "ShowHighscores";
+        private const string _CONTROLLER_BUTTON_A = "joystick button 0";
 
         [SerializeField]
         private GraphicRaycaster _canvasGR;
@@ -34,13 +38,16 @@ namespace Kalevala {
         private float _nudgeStrength;
 
         [SerializeField]
+        private TextInput _playerNameTextInput;
+
+        [SerializeField]
         private Text _playerName;
 
         private static Vector3 _nudgeVector = Vector3.zero;
 
+        private EventSystem _eventSystem;
         private StateManager _stateManager;
         private ConfirmationDialog _confirmation;
-        private TextInput _textInput;
         private HighscoreList _highscoreList;
         private MouseCursorController _cursor;
         private HeatMap _heatMap;
@@ -56,13 +63,20 @@ namespace Kalevala {
         /// <summary>
         /// Is the submit button still held down from the previous screen
         /// </summary>
-        private bool submitHoldover;
+        private bool _submitHoldover;
+
+        #region Settings
 
         /// <summary>
         /// The screen type to which should be returned
         /// after exiting the settings menu
         /// </summary>
-        private ScreenStateType settingsAccessorScreen;
+        private ScreenStateType _settingsAccessorScreen;
+
+        private LangCode _oldLangCode;
+        private bool _oldEnableEventCam;
+
+        #endregion Settings
 
         public static Vector3 NudgeVector
         {
@@ -74,6 +88,7 @@ namespace Kalevala {
 
         private void Start()
         {
+            _eventSystem = FindObjectOfType<EventSystem>();
             _stateManager = FindObjectOfType<StateManager>();
             if (_stateManager == null)
             {
@@ -81,7 +96,6 @@ namespace Kalevala {
             }
 
             _confirmation = GetComponentInChildren<ConfirmationDialog>();
-            _textInput = GetComponentInChildren<TextInput>();
             _highscoreList = GameManager.Instance.HighscoreList;
             _cursor = FindObjectOfType<MouseCursorController>();
             _heatMap = FindObjectOfType<HeatMap>();
@@ -109,6 +123,9 @@ namespace Kalevala {
             // Changes the scoreboard's visibility to what it
             // was before accessing the pause menu
             _stateManager.PauseMenuDeactivated += PauseMenuExited;
+
+            L10n.LanguageLoaded += OnLanguageLoaded;
+            OnLanguageLoaded();
         }
 
         private void OnDestroy()
@@ -163,12 +180,18 @@ namespace Kalevala {
                 }
             }
 
-            DebugInput();
-
+            // Deactivating text input when exiting the main menu
             if (_textInputActive &&
                 _stateManager.CurrentScreenState.State != ScreenStateType.MainMenu)
             {
                 DeactivateTextInput();
+            }
+
+            // Debug input uses various keys on the keyboard so
+            // it cannot be active at the same time as text input 
+            if (!_textInputActive)
+            {
+                DebugInput();
             }
         }
 
@@ -188,16 +211,21 @@ namespace Kalevala {
                 TextInput();
 
                 // Closing the text input
-                // TODO: Esc works, backspace doesn't
-                //if (Input.GetButtonUp(_CANCEL))
-                //{
-                //    DeactivateTextInput();
-                //}
+                if (_playerNameTextInput.CanBeClosed())
+                {
+                    if (Input.GetKeyDown(KeyCode.Return) ||
+                        Input.GetKeyDown(_CONTROLLER_BUTTON_A) ||
+                        Input.GetButtonUp(_CANCEL))
+                    {
+                        DeactivateTextInput();
+                    }
+                }
             }
             else
             {
                 // Quitting the game
-                if (Input.GetButtonUp(_CANCEL))
+                if (Input.GetButtonUp(_CANCEL) ||
+                    Input.GetButtonUp(_PAUSE))
                 {
                     QuitGame(false);
                 }
@@ -206,14 +234,42 @@ namespace Kalevala {
 
         private void TextInput()
         {
-            _textInput.CheckKeyboardInput();
-            if (_textInput._textChanged)
+            _playerNameTextInput.CheckKeyboardInput();
+            if (_playerNameTextInput.TextChanged)
             {
-                GameManager.Instance._playerName = _textInput.GetText();
-                if (_playerName != null)
+                SetPlayerName(_playerNameTextInput.GetText());
+            }
+        }
+
+        private void SetPlayerName(string name)
+        {
+            GameManager.Instance.PlayerName = name;
+            UpdatePlayerNameUIText();
+        }
+
+        private void UpdatePlayerNameUIText()
+        {
+            if (_playerName != null)
+            {
+                string startActiveMarker = "> ";
+                string endActiveMarker = " <";
+
+                string text;
+
+                if (_textInputActive)
                 {
-                    _playerName.text = _textInput.GetText();
+                    // Uses markers around the text input field to
+                    // make it clear that text input is active
+                    text = startActiveMarker +
+                           GameManager.Instance.PlayerName +
+                           endActiveMarker;
                 }
+                else
+                {
+                    text = GameManager.Instance.PlayerName;
+                }
+
+                _playerName.text = text;
             }
         }
 
@@ -316,7 +372,7 @@ namespace Kalevala {
         private void LaunchInput()
         {
             // The launcher cannot be used until the submit button is released
-            if (!submitHoldover)
+            if (!_submitHoldover)
             {
                 if (Input.GetAxis(_LAUNCH) != 0)
                 {
@@ -400,7 +456,7 @@ namespace Kalevala {
             // TODO : This really needs a sound effect
             _nudgeVector.x = direction * _nudgeStrength;
 
-            //PinballManager.Instance.SpendNudge();
+            PinballManager.Instance.SpendNudge();
 
             // Camera shake
             Vector3 shakeDir =
@@ -510,7 +566,7 @@ namespace Kalevala {
                 {
                     case ConfirmationType.SaveSettings:
                     {
-                        ExitSettings();
+                        ExitSettings(false);
                         break;
                     }
                 }
@@ -592,14 +648,14 @@ namespace Kalevala {
             }
             else
             {
-                submitHoldover = true;
+                _submitHoldover = true;
                 _stateManager.StartNewGame();
             }
         }
 
         public void ResumeGame()
         {
-            submitHoldover = true;
+            _submitHoldover = true;
             _stateManager.PerformTransition(ScreenStateType.Play);
         }
 
@@ -618,7 +674,12 @@ namespace Kalevala {
 
         public void GoToSettings()
         {
-            settingsAccessorScreen = _stateManager.CurrentScreenState.State;
+            // Stores the screen from where settings were accessed
+            _settingsAccessorScreen = _stateManager.CurrentScreenState.State;
+
+            // Stores old settings
+            _oldLangCode = L10n.CurrentLanguage.LanguageCode;
+
             _stateManager.PerformTransition(ScreenStateType.SettingsMenu);
             HighlightMenuDefaultButton();
         }
@@ -631,14 +692,24 @@ namespace Kalevala {
             }
             else
             {
-                GameManager.Instance.SaveSettings();
-                ExitSettings();
+                ExitSettings(true);
             }
         }
 
-        private void ExitSettings()
+        private void ExitSettings(bool saveSettings)
         {
-            _stateManager.PerformTransition(settingsAccessorScreen);
+            // Saves the settings
+            if (saveSettings)
+            {
+                GameManager.Instance.SaveSettings();
+            }
+            // Reverts any changes to the settings
+            else
+            {
+                L10n.LoadLanguage(_oldLangCode);
+            }
+            
+            _stateManager.PerformTransition(_settingsAccessorScreen);
             //_stateManager.GoToPauseState();
             HighlightMenuDefaultButton();
         }
@@ -651,21 +722,47 @@ namespace Kalevala {
             }
             else
             {
-                // TODO
+                _highscoreList.ResetList();
             }
         }
 
         public void ActivateTextInput()
         {
+            _playerNameTextInput.Activate();
             _textInputActive = true;
             _playerName.color =
                 new Color(105f / 255f, 243f / 255f, 1, 1); // #69F3FFFF
+            _eventSystem.sendNavigationEvents = false;
+
+            if (GameManager.Instance.DefaultNameUsed)
+            {
+                SetPlayerName("");
+            }
+            else
+            {
+                UpdatePlayerNameUIText();
+            }
+
+            // Clears the menu button selection
+            EventSystem.current.SetSelectedGameObject(null);
         }
 
         public void DeactivateTextInput()
         {
+            if (GameManager.Instance.PlayerName.Length == 0)
+            {
+                GameManager.Instance.SetPlayerNameToDefault();
+            }
+
+            _playerNameTextInput.Deactivate();
             _textInputActive = false;
             _playerName.color = Color.white;
+            _eventSystem.sendNavigationEvents = true;
+            UpdatePlayerNameUIText();
+
+            // Clears the menu button selection
+            EventSystem.current.SetSelectedGameObject(null);
+            HighlightMenuDefaultButton();
         }
 
         public void ToggleTextInput()
@@ -682,9 +779,9 @@ namespace Kalevala {
 
         private void CheckIfSubmitReleased()
         {
-            if (submitHoldover && !Input.GetButton(_SUBMIT))
+            if (_submitHoldover && !Input.GetButton(_SUBMIT))
             {
-                submitHoldover = false;
+                _submitHoldover = false;
             }
         }
 
@@ -713,6 +810,12 @@ namespace Kalevala {
 
         private bool NonMouseInputUsed()
         {
+            // Text input does not count
+            if (_textInputActive)
+            {
+                return false;
+            }
+
             bool directionalInputUsed =
                 Input.GetAxisRaw(_HOR_AXIS) != 0 ||
                 Input.GetAxisRaw(_VERT_AXIS) != 0;
@@ -818,6 +921,11 @@ namespace Kalevala {
         {
             _pauseMenuActive = false;
             _highscoreList.Visible = _alwaysDisplayScoreboard;
+        }
+
+        private void OnLanguageLoaded()
+        {
+            _playerName.text = GameManager.Instance.PlayerName;
         }
     }
 }
