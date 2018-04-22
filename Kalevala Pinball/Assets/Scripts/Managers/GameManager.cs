@@ -66,6 +66,9 @@ namespace Kalevala
         private float _musicVolume;
         private float _effectVolume;
 
+        public event Action ResourcesChanged;
+        private int _resources;
+
         public float MusicVolume
         {
             get
@@ -89,6 +92,23 @@ namespace Kalevala
             {
                 _effectVolume = value;
                 SFXPlayer.Instance.SetVolume(value);
+            }
+        }
+
+        public int Resources
+        {
+            get
+            {
+                return _resources;
+            }
+            private set
+            {
+                Debug.Log(_resources);
+                _resources = (int) Mathf.Clamp(_resources + value,0,45f);
+                if(ResourcesChanged != null)
+                {
+                    ResourcesChanged();
+                }
             }
         }
 
@@ -399,6 +419,11 @@ namespace Kalevala
             {
                 _cameraCtrl.Shake(direction, randomDirAngle, force, duration);
             }
+        }
+
+        public void ChangeResources(int amount)
+        {
+            Resources = amount;
         }
     }
 }
