@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Kalevala
 {
-    [RequireComponent(typeof(KickoutHole))]
+    //[RequireComponent(typeof(KickoutHole))]
     public class ExtraBallSpawner : MonoBehaviour
     {
         [SerializeField, Tooltip("Transform giving the position, " +
@@ -14,10 +14,10 @@ namespace Kalevala
             "launching. Use Vector3.zero if not needed.")]
         private Vector3 _impulse;
 
-        //[SerializeField]
-        //private float _minSpawnInterval;
+        [SerializeField]
+        private float _minSpawnInterval = 1f;
 
-        //private float _elapsedSpawnTime;
+        private float _elapsedSpawnTime;
 
         private bool _active;
         private int _ballsLeftToSpawn;
@@ -34,9 +34,13 @@ namespace Kalevala
             {
                 if (_ballsLeftToSpawn > 0)
                 {
-                    if (SpawnLocationIsAvailable())
+                    _elapsedSpawnTime += Time.deltaTime;
+                    bool waitTimeOver = _elapsedSpawnTime > _minSpawnInterval;
+
+                    if (SpawnLocationIsAvailable() && waitTimeOver)
                     {
                         LaunchExtraBall();
+                        _elapsedSpawnTime = 0;
                     }
                 }
                 else
@@ -46,22 +50,41 @@ namespace Kalevala
             }
         }
 
-        public void Activate(int extraBallAmount)
+        public void Activate(int extraBallCount, bool addToQueue)
         {
+            if (_active && !addToQueue)
+            {
+                Debug.LogWarning("Spawning extra balls is already active.");
+            }
+
             _active = true;
-            _ballsLeftToSpawn = extraBallAmount;
+
+            if (addToQueue)
+            {
+                _ballsLeftToSpawn += extraBallCount;
+            }
+            else
+            {
+                _ballsLeftToSpawn = extraBallCount;
+
+                // Makes sure that one ball is spawned immediately
+                _elapsedSpawnTime = _minSpawnInterval;
+            }
+
+            Debug.Log("Extra balls to spawn: " + extraBallCount);
         }
 
         public void Deactivate()
         {
             _active = false;
-            _ballsLeftToSpawn = 0;
+            _elapsedSpawnTime = 0f;
             _mostRecentExtraBall = null;
         }
 
         private bool SpawnLocationIsAvailable()
         {
-            return _mostRecentExtraBall.PhysicsEnabled;
+            return _mostRecentExtraBall == null ||
+                   _mostRecentExtraBall.PhysicsEnabled;
         }
 
         /// <summary>
@@ -89,8 +112,26 @@ namespace Kalevala
                 ball.gameObject.SetActive(true);
             }
 
+            LaunchExtraBall(ball);
+
+            //Debug.Log("Extra balls left to spawn: " + _ballsLeftToSpawn);
+        }
+
+        /// <summary>
+        /// Launches a given ball as an extra ball.
+        /// </summary>
+        public void LaunchExtraBall(Pinball ball)
+        {
+            if (_location == null)
+            {
+                Debug.LogError("No extra ball launch location set.");
+                return;
+            }
+
+            ball.gameObject.SetActive(true);
+
             // Update active ball counter and set ball location.
-            PinballManager.Instance.ActivePinballs++;
+            PinballManager.Instance.AdjustActiveBallCounter(true);
             ball.transform.position = _location.position;
 
             // If given a valid impulse vector apply it.

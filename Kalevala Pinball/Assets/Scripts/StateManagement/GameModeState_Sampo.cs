@@ -25,7 +25,7 @@ namespace Kalevala
             base.Activate();
 
             // When Sampo mode is activated, give extra balls thru the workshop.
-            PinballManager.WorkshopExtraBalls();
+            PinballManager.ActivateWorkshopExtraBalls();
 
             _toyElevatorController = UnityEngine.Object.FindObjectOfType<ToyElevatorController>();
             _toyElevatorController.StartGameMode(GameModeStateType.Sampo);

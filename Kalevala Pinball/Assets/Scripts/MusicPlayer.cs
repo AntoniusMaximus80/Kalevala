@@ -124,7 +124,7 @@ namespace Kalevala
             audioSrc = GetComponent<AudioSource>();
 
             // Initializes the volume
-            audioSrc.volume = GameManager.Instance.MusicVolume;
+            audioSrc.volume = Settings.Instance.MusicVolume;
 
             // Initializes the fade speed
             fadeSpeed = audioSrc.volume / 5f;
@@ -419,7 +419,7 @@ namespace Kalevala
         {
             fadeOut = false;
             Stop();
-            SetVolume(GameManager.Instance.MusicVolume);
+            SetVolume(Settings.Instance.MusicVolume);
         }
     }
 }

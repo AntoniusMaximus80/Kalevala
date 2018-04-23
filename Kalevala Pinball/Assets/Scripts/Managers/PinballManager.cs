@@ -45,10 +45,10 @@ namespace Kalevala
             }
         }
 
-        internal static void WorkshopExtraBalls()
+        internal static void ActivateWorkshopExtraBalls()
         {
-            Debug.Log("Multiball mode activated");
-            Instance.StartCoroutine(Instance.WorkShopExtraBallRoutine());
+            Instance.ActivateMultiball();
+            //Instance.StartCoroutine(Instance.WorkShopExtraBallRoutine());
         }        
 
         #endregion Statics
@@ -98,12 +98,14 @@ namespace Kalevala
         [SerializeField, Tooltip("The prefab for creating extra balls.")]
         private Pinball _pinballPrefab;
 
+        [SerializeField]
+        private ExtraBallSpawner _extraBallSpawner;
+
         private StatusPanelManager _status;
 
         private List<Pinball> _pinballs;
-        private List<Pinball> _autosavedPinballs;
 
-        private int _currentBallAmount, _activeBalls;
+        private int _currentBallCount, _activeBalls;
         private int _nudgesLeft;
 
         [SerializeField] // Serialized for debugging purposes only
@@ -168,7 +170,6 @@ namespace Kalevala
         private void Start()
         {
             _status = GetComponentInChildren<StatusPanelManager>();
-            _autosavedPinballs = new List<Pinball>();
 
             ResetGame();
         }
@@ -198,18 +199,6 @@ namespace Kalevala
             }
 
             //InitGravity();
-        }
-
-        public int ActivePinballs
-        {
-            get
-            {
-                return _activeBalls;
-            }
-            set
-            {
-                _activeBalls = value;
-            }
         }
 
         ///// <summary>
@@ -322,23 +311,23 @@ namespace Kalevala
 
         public void ResetGame()
         {
-            _currentBallAmount = _startingBallAmount;
+            _currentBallCount = _startingBallAmount;
             _nudgesLeft = _allowedNudgeAmount;
             Tilt = false;
             Autosave = false;
             ShootAgain = false;
+            _extraBallSpawner.Deactivate();
             _status.ResetStatus();
 
             _pinballs = new List<Pinball>(FindObjectsOfType<Pinball>());
-            _autosavedPinballs.Clear();
             _activeBalls = _pinballs.Count;
-            Debug.Log("Total balls : " + _currentBallAmount.ToString());
+            Debug.Log("Total balls : " + _currentBallCount.ToString());
             Debug.Log("Initial balls : " + _activeBalls.ToString());
 
             ResetAllPinballs();
             //SetPinballPhysicsEnabled(false);
 
-            Viewscreen.BallCount(_currentBallAmount);
+            Viewscreen.BallCount(_currentBallCount);
         }
 
         public void UpdatePinballs()
@@ -426,12 +415,12 @@ namespace Kalevala
 
                 _autosaveTimeRemaining -= Time.deltaTime;
 
-                // The autosave is deactivated and the queue is cleared
+                // The autosave is deactivated
                 if (_autosaveTimeRemaining <= 0)
                 {
                     Autosave = false;
                     _autosaveTimeRemaining = 0;
-                    _autosavedPinballs.Clear();
+                    Debug.Log("Autosave ended");
                 }
             }
         }
@@ -462,7 +451,7 @@ namespace Kalevala
         {
             get
             {
-                return _currentBallAmount <= 0;
+                return _currentBallCount <= 0;
             }
         }
 
@@ -512,22 +501,26 @@ namespace Kalevala
             // Multiball
             if (_activeBalls > 1)
             {
-                _activeBalls--;
+                AdjustActiveBallCounter(false);
+                pinball.gameObject.SetActive(false);
 
                 // Shoot again does not matter; if it's active, it stays active
 
-                // Save the ball and put it in Ilmarinen's workshop
+                // Spawn a new ball
                 if (Autosave)
                 {
-                    ExtraBall(_workshopLocation, Vector3.zero);
+                    _extraBallSpawner.Activate(1, true);
                     ballRemoved = false;
                 }
-                // Remove the ball
+                // Just remove the ball
                 else
                 {
-                    pinball.gameObject.SetActive(false);
-                    //RemoveExtraBall(pinball);
                     ballRemoved = true;
+
+                    if (_activeBalls == 1)
+                    {
+                        Debug.Log("All extra balls are drained");
+                    }
                 }
             }
             // Only one ball
@@ -578,8 +571,8 @@ namespace Kalevala
                 // and gets whether the ball is lost
                 InstanceNextBall(pinball);
 
-                _currentBallAmount--;
-                Viewscreen.BallCount(_currentBallAmount);
+                _currentBallCount--;
+                Viewscreen.BallCount(_currentBallCount);
 
                 if (OutOfBalls)
                 {
@@ -588,8 +581,8 @@ namespace Kalevala
                 }
                 else
                 {
-                    Debug.Log("Balls left : " +
-                        _currentBallAmount.ToString());
+                    Debug.Log("Balls left: " +
+                        _currentBallCount.ToString());
                 }
             }
             else
@@ -772,7 +765,7 @@ namespace Kalevala
             }
 
             // Update active ball counter and set ball location.
-            _activeBalls++;
+            AdjustActiveBallCounter(true);
             ball.transform.position = location.position;
 
             // If given a valid impulse vector apply it.
@@ -782,12 +775,29 @@ namespace Kalevala
             }
         }
 
+        public void AdjustActiveBallCounter(bool increment)
+        {
+            _activeBalls += (increment ? 1 : -1);
+            //Debug.Log("Active balls: " + _activeBalls);
+        }
+
         public Pinball CreateNewBall()
         {
             Pinball ball = Instantiate(_pinballPrefab);
             ball.Init(true);
             _pinballs.Add(ball);
             return ball;
+        }
+
+        private void ActivateMultiball()
+        {
+            Debug.Log("Multiball mode activated");
+
+            // Activates autosave for 15 seconds
+            ActivateAutosave(15);
+
+            // Activates extra ball spawner
+            _extraBallSpawner.Activate(_workshopExtraBalls, false);
         }
 
         private IEnumerator WorkShopExtraBallRoutine()
@@ -838,6 +848,7 @@ namespace Kalevala
                 if (_nudgesLeft == 0)
                 {
                     Tilt = true;
+                    Debug.Log("Tilt!");
                 }
 
                 return true;

@@ -284,7 +284,10 @@ namespace Kalevala
 
         public static void ShowLaunch()
         {
-            _staticFocusShow.SetActive(true);
+            if (Settings.Instance.EnableEventCamera)
+            {
+                _staticFocusShow.SetActive(true);
+            }
         }
 
         public static void LaunchOver()

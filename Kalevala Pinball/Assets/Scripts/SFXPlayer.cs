@@ -143,7 +143,7 @@ namespace Kalevala
             InitPool();
 
             // Sets the volume
-            volume = GameManager.Instance.EffectVolume;
+            volume = Settings.Instance.EffectVolume;
 
             noDuplicates = new int[3];
             noDuplicates[0] = -1;

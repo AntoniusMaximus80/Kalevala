@@ -299,13 +299,13 @@ namespace Kalevala {
             // Volume control
             if (Input.GetKey(KeyCode.UpArrow))
             {
-                GameManager.Instance.MusicVolume =
-                    Mathf.Clamp(GameManager.Instance.MusicVolume + 0.01f, 0, 1);
+                Settings.Instance.MusicVolume =
+                    Settings.Instance.MusicVolume + 0.01f;
             }
             if (Input.GetKey(KeyCode.DownArrow))
             {
-                GameManager.Instance.MusicVolume =
-                    Mathf.Clamp(GameManager.Instance.MusicVolume - 0.01f, 0, 1);
+                Settings.Instance.MusicVolume =
+                    Settings.Instance.MusicVolume - 0.01f;
             }
 
             // Changing the camera mode
@@ -453,15 +453,16 @@ namespace Kalevala {
 
         private void DoNudge(int direction)
         {
-            // TODO : This really needs a sound effect
-            _nudgeVector.x = direction * _nudgeStrength;
+            if (PinballManager.Instance.SpendNudge())
+            {
+                // TODO : This really needs a sound effect
+                _nudgeVector.x = direction * _nudgeStrength;
 
-            PinballManager.Instance.SpendNudge();
-
-            // Camera shake
-            Vector3 shakeDir =
-                (direction < 0 ? Vector3.left : Vector3.right);
-            GameManager.Instance.ShakeCamera(shakeDir, 0, 0.3f, 0.1f);
+                // Camera shake
+                Vector3 shakeDir =
+                    (direction < 0 ? Vector3.left : Vector3.right);
+                GameManager.Instance.ShakeCamera(shakeDir, 0, 0.3f, 0.1f);
+            }
         }
 
         private void DebugInput()
@@ -488,7 +489,7 @@ namespace Kalevala {
             // Starting multiball mode
             if (Input.GetKeyDown(KeyCode.M))
             {
-                PinballManager.WorkshopExtraBalls();
+                PinballManager.ActivateWorkshopExtraBalls();
             }
 
             // Activating 15 seconds of autosave
@@ -679,6 +680,7 @@ namespace Kalevala {
 
             // Stores old settings
             _oldLangCode = L10n.CurrentLanguage.LanguageCode;
+            _oldEnableEventCam = Settings.Instance.EnableEventCamera;
 
             _stateManager.PerformTransition(ScreenStateType.SettingsMenu);
             HighlightMenuDefaultButton();
@@ -707,6 +709,7 @@ namespace Kalevala {
             else
             {
                 L10n.LoadLanguage(_oldLangCode);
+                Settings.Instance.EnableEventCamera = _oldEnableEventCam;
             }
             
             _stateManager.PerformTransition(_settingsAccessorScreen);

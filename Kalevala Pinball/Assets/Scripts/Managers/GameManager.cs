@@ -59,9 +59,6 @@ namespace Kalevala
         [SerializeField]
         private LangCode _defaultLanguage = LangCode.EN;
 
-        [SerializeField]
-        private bool _autoplayMusic;
-
         private StateManager _stateManager;
         private Playfield _playfield;
         private CollectableSpawner _collectableSpawner;
@@ -75,38 +72,6 @@ namespace Kalevala
         //public LanguageStateBase Language { get; set; }
 
         private string _playerName;
-        private float _musicVolume;
-        private float _effectVolume;
-
-
-
-        public float MusicVolume
-        {
-            get
-            {
-                return _musicVolume;
-            }
-            set
-            {
-                _musicVolume = value;
-                MusicPlayer.Instance.SetVolume(value);
-            }
-        }
-
-        public float EffectVolume
-        {
-            get
-            {
-                return _effectVolume;
-            }
-            set
-            {
-                _effectVolume = value;
-                SFXPlayer.Instance.SetVolume(value);
-            }
-        }
-
-
 
         public HighscoreList HighscoreList
         {
@@ -161,13 +126,10 @@ namespace Kalevala
 
         private void Start()
         {
-            if (_autoplayMusic)
-            {
-                // TODO: If _autoplayMusic is off, call InitAudio
-                // when starting playing music
+            // TODO: If _autoplayMusic is off, call InitAudio
+            // when starting playing music
 
-                InitAudio();
-            }
+            //Settings.Instance.InitAudio(_autoplayMusic);
         }
 
         private void Update()
@@ -255,14 +217,14 @@ namespace Kalevala
             //SetLanguage(_defaultLanguage);
         //}
 
-        private void InitAudio()
-        {
-            // Creates a new MusicPlayer instance
-            // if one does not already exist
-            //MusicPlayer.Instance.Create();
+        //private void InitAudio()
+        //{
+        //    // Creates a new MusicPlayer instance
+        //    // if one does not already exist
+        //    //MusicPlayer.Instance.Create();
 
-            MusicPlayer.Instance.SetVolume(MusicVolume);
-        }
+        //    MusicPlayer.Instance.SetVolume(MusicVolume);
+        //}
 
         public void SetLanguage(Localization.LangCode languageCode)
         {
@@ -434,8 +396,10 @@ namespace Kalevala
 
             // Loads audio volumes but doesn't set them to the audio
             // players because they have not been initialized yet
-            _musicVolume = PlayerPrefs.GetFloat("musicVolume", 0.25f);
-            _effectVolume = PlayerPrefs.GetFloat("effectVolume", 0.25f);
+            Settings.Instance.MusicVolume =
+                PlayerPrefs.GetFloat("musicVolume", 0.25f);
+            Settings.Instance.EffectVolume =
+                PlayerPrefs.GetFloat("effectVolume", 0.25f);
 
             Debug.Log("--[ Game loaded ]--");
         }
@@ -449,10 +413,7 @@ namespace Kalevala
             PlayerPrefs.SetInt(LanguageKey,
                 (int) L10n.CurrentLanguage.LanguageCode);
 
-            //Debug.Log("musicVolume: " + _musicVolume);
-            //Debug.Log("effectVolume: " + _effectVolume);
-            PlayerPrefs.SetFloat("musicVolume", MusicVolume);
-            PlayerPrefs.SetFloat("effectVolume", EffectVolume);
+            Settings.Instance.Save();
 
             PlayerPrefs.Save();
             Debug.Log("Settings saved");
@@ -489,7 +450,5 @@ namespace Kalevala
                 _cameraCtrl.Shake(direction, randomDirAngle, force, duration);
             }
         }
-
-
     }
 }

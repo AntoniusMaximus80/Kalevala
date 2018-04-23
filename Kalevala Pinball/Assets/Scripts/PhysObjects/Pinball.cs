@@ -55,7 +55,6 @@ namespace Kalevala
             _rb.solverIterations = 30;
             _rb.solverVelocityIterations = 5;
             _sphColl.contactOffset = 0.1f;
-          
         }
 
         /// <summary>
@@ -66,12 +65,12 @@ namespace Kalevala
             _radius = GetComponent<Collider>().bounds.size.x / 2;
             _rb = GetComponent<Rigidbody>();
             _sphColl = GetComponent<SphereCollider>();
-
-            debug_upTableVelocity = new Vector3(0f, 10 * 0.1742402f, 10 * -10.31068f);
-
             RampMotion = GetComponent<RampMotion>();
+            InitPhysics(physicsEnabled);
 
-            SetPhysicsEnabled(physicsEnabled);
+            // Debugging
+            debug_upTableVelocity =
+                new Vector3(0f, 10 * 0.1742402f, 10 * -10.31068f);
         }
 
         /// <summary>
@@ -185,6 +184,16 @@ namespace Kalevala
                 _rb.velocity = Vector3.zero;
                 _rb.angularVelocity = Vector3.zero;
             }
+        }
+
+        private void InitPhysics(bool enablePhysics)
+        {
+            // Makes sure that PhysicsEnabled doesn't prevent
+            // SetPhysicsEnabled from doing what it's supposed to
+            PhysicsEnabled = !enablePhysics;
+
+            // Enables or disables the pinball's physics
+            SetPhysicsEnabled(enablePhysics);
         }
 
         public void SetPhysicsEnabled(bool enable)

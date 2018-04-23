@@ -81,24 +81,16 @@ namespace Kalevala
         {
             CurrentCamera.gameObject.SetActive(false);
 
-            bool useDefault = false;
+            bool useDefault = true;
 
             switch (camType)
             {
-                case CameraType.Default:
-                {
-                    useDefault = true;
-                    break;
-                }
                 case CameraType.Horizontal:
                 {
                     if (_horizontalCamera != null)
                     {
                         CurrentCamera = _horizontalCamera;
-                    }
-                    else
-                    {
-                        useDefault = true;
+                        useDefault = false;
                     }
                     break;
                 }
@@ -229,6 +221,7 @@ namespace Kalevala
             // Breaks if a new shake can't be started
             if (_moving || _shaking)
             {
+                Debug.LogWarning("Can't shake the camera.");
                 yield break;
             }
 

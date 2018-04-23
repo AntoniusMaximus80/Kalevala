@@ -363,9 +363,9 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4490303428390978}
-  - component: {fileID: 114599638252755998}
+  - component: {fileID: 114608500991614028}
   m_Layer: 0
-  m_Name: StatusPanelManager
+  m_Name: ExtraBallSpawner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -655,6 +655,22 @@ GameObject:
   - component: {fileID: 114011568283334892}
   m_Layer: 0
   m_Name: InputManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 4294967295
+  m_IsActive: 1
+--- !u!1 &1600512037037118
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4652904601944360}
+  - component: {fileID: 114599638252755998}
+  m_Layer: 0
+  m_Name: StatusPanelManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -961,6 +977,21 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1774417447553444
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4658985689406780}
+  m_Layer: 0
+  m_Name: DefaultKanteleCam
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1775399875131220
 GameObject:
@@ -1323,12 +1354,12 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1341472588645354}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4770323251890058}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4505920951134128
 Transform:
@@ -1344,9 +1375,36 @@ Transform:
   - {fileID: 4221107961793282}
   - {fileID: 4715345940524332}
   - {fileID: 4406533871349730}
+  - {fileID: 4658985689406780}
   m_Father: {fileID: 4113696463926870}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4652904601944360
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1600512037037118}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4770323251890058}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4658985689406780
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1774417447553444}
+  m_LocalRotation: {x: -0.20602776, y: -0.031688463, z: 0.006671901, w: -0.9780102}
+  m_LocalPosition: {x: -21.14999, y: 23.75697, z: -27.288918}
+  m_LocalScale: {x: 0.9999999, y: 1, z: 0.9999999}
+  m_Children: []
+  m_Father: {fileID: 4505920951134128}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 49.04, y: 0, z: -5.92}
 --- !u!4 &4667534215834764
 Transform:
   m_ObjectHideFlags: 1
@@ -1396,6 +1454,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 4652904601944360}
   - {fileID: 4490303428390978}
   m_Father: {fileID: 4113696463926870}
   m_RootOrder: 0
@@ -2883,7 +2942,7 @@ MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1341472588645354}
+  m_GameObject: {fileID: 1600512037037118}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b73118ba0bbebcc418bd204a9d1efba3, type: 3}
@@ -2906,21 +2965,37 @@ MonoBehaviour:
   _flipperMotorForce: 32000
   _flipperMotorTargetVelocity: 64000
   _springForce: 32000
-  debug_useDefaultLaunchPoint: 0
+  debug_useDefaultLaunchPoint: 1
   debug_freeBalls: 0
-  _rampGravityMultiplier: 7
+  _rampGravityMultiplier: 3
   _rampExitMomentumFactor: 0.75
   _startingBallAmount: 3
-  _workshopExtraBalls: 3
+  _workshopExtraBalls: 2
   _workshopLocation: {fileID: 0}
   _allowedNudgeAmount: 4
-  _ballLaunchPoint: {x: -19.366272, y: 1.35, z: -30.286995}
+  _ballLaunchPoint: {x: 11.453768, y: 1.35, z: -36.30419}
   _ballDrainBottomLeftCorner: {x: 6, y: 1.35, z: -54}
   _ballDrainTopRightCorner: {x: 10, y: 1.35, z: -48}
   _startingPosition: {fileID: 0}
   _pinballPrefab: {fileID: 0}
+  _extraBallSpawner: {fileID: 114608500991614028}
   _shootAgainTimeRemaining: 0
   _autosaveTimeRemaining: 0
+  _maxResources: 45
+--- !u!114 &114608500991614028
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1341472588645354}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 587deadbce91fae46a16a508541123ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _location: {fileID: 0}
+  _impulse: {x: 0, y: 0, z: 0}
+  _minSpawnInterval: 1
 --- !u!114 &114622554598223406
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4113,7 +4188,7 @@ MonoBehaviour:
   _horizontalCamera: {fileID: 0}
   _eventCamera: {fileID: 0}
   _defaultCamPlayfieldTransform: {fileID: 4175429408299692}
-  _defaultCamKanteleTransform: {fileID: 4221107961793282}
+  _defaultCamKanteleTransform: {fileID: 4658985689406780}
   _horizontalCamPlayfieldTransform: {fileID: 4715345940524332}
   _horizontalCamKanteleTransform: {fileID: 4406533871349730}
   _eventCamLaunchTransform: {fileID: 4851703086779858}
