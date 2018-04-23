@@ -302,24 +302,24 @@ namespace Kalevala
         //    Debug.Log("Selected language: " + Language.State);
         //}
 
-        private LanguageStateBase GetLanguage(LanguageStateType stateType)
-        {
-            // Returns the first object from the state list whose State property's
-            // value equals to stateType. If no object was found, null is returned.
+        //private LanguageStateBase GetLanguage(LanguageStateType stateType)
+        //{
+        //    // Returns the first object from the state list whose State property's
+        //    // value equals to stateType. If no object was found, null is returned.
 
-            foreach (LanguageStateBase state in _langStates)
-            {
-                if (state.State == stateType)
-                {
-                    return state;
-                }
-            }
+        //    foreach (LanguageStateBase state in _langStates)
+        //    {
+        //        if (state.State == stateType)
+        //        {
+        //            return state;
+        //        }
+        //    }
 
-            return null;
+        //    return null;
 
-            // Does the same as all of the previous lines
-            //return _screenStates.FirstOrDefault(state => state.State == stateType);
-        }
+        //    // Does the same as all of the previous lines
+        //    //return _screenStates.FirstOrDefault(state => state.State == stateType);
+        //}
 
         public StateManager StateManager
         {
