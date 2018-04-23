@@ -15832,6 +15832,11 @@ Prefab:
       propertyPath: m_ConnectedAnchor.z
       value: -42.399963
       objectReference: {fileID: 0}
+    - target: {fileID: 114140998674355354, guid: 1ef246b180ffafc4ea27fd3c80a57eaa,
+        type: 2}
+      propertyPath: _boosterForce
+      value: 32
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1ef246b180ffafc4ea27fd3c80a57eaa, type: 2}
   m_IsPrefabParent: 0
