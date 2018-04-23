@@ -28,7 +28,7 @@ namespace Kalevala {
         private void ResourcesChanged ()
         {
             float resources = GameManager.Instance.Resources;
-            fill = resources / 45;
+            fill = resources / GameManager.Instance.MaxResources;
         }
     }
 }

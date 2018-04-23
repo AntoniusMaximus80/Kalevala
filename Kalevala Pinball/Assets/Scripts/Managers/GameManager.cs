@@ -68,6 +68,8 @@ namespace Kalevala
 
         public event Action ResourcesChanged;
         private int _resources;
+        [SerializeField]
+        private int _maxResources;
 
         public float MusicVolume
         {
@@ -103,13 +105,21 @@ namespace Kalevala
             }
             private set
             {
-                Debug.Log(_resources);
-                _resources = (int) Mathf.Clamp(_resources + value,0,45f);
+                if(_resources < MaxResources)
+                {
+                    //Add score for excessive recourses
+                }
+                _resources = (int) Mathf.Clamp(_resources + value,0,MaxResources);
                 if(ResourcesChanged != null)
                 {
                     ResourcesChanged();
                 }
             }
+        }
+
+        public float MaxResources
+        {
+            get { return _maxResources; }
         }
 
         public HighscoreList HighscoreList
