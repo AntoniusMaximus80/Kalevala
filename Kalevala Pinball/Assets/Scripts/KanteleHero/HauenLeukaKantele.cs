@@ -8,8 +8,6 @@ namespace Kalevala
     {
         private KanteleBumper[] _bumpers;
         public GameObject _door;
-
-        public Transform DoorUp, DoorDown;
         // Use this for initialization
         void Start()
         {
