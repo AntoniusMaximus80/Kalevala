@@ -120,6 +120,36 @@ namespace Kalevala
 
         private bool _noNudges;
 
+        public event Action ResourcesChanged;
+        private int _resources;
+        [SerializeField]
+        private int _maxResources;
+
+        public int Resources
+        {
+            get
+            {
+                return _resources;
+            }
+            private set
+            {
+                if(_resources < MaxResources)
+                {
+                    //Add score for excessive recourses
+                }
+                _resources = (int)Mathf.Clamp(_resources + value, 0, MaxResources);
+                if(ResourcesChanged != null)
+                {
+                    ResourcesChanged();
+                }
+            }
+        }
+
+        public float MaxResources
+        {
+            get { return _maxResources; }
+        }
+
         private void Awake()
         {
             if (instance == null)
@@ -863,6 +893,11 @@ namespace Kalevala
             Gizmos.DrawLine(corner2, corner3);
             Gizmos.DrawLine(corner3, corner4);
             Gizmos.DrawLine(corner4, corner1);
+        }
+
+        public void ChangeResources( int amount )
+        {
+            Resources = amount;
         }
     }
 }

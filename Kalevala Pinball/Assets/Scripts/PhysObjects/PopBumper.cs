@@ -92,7 +92,7 @@ namespace Kalevala
             Scorekeeper.Instance.AddScore(Scorekeeper.ScoreType.PopBumper);
 
             //Add Resources
-            GameManager.Instance.ChangeResources(1);
+            PinballManager.Instance.ChangeResources(1);
 
             // Physics.
             other.GetComponent<Pinball>().StopMotion(); // Stop the pinball's velocity.

@@ -23,9 +23,9 @@ namespace Kalevala
         {
             if(_doOnce)
             {
-                if(GameManager.Instance.Resources >= 15)
+                if(PinballManager.Instance.Resources >= 15)
                 {
-                    GameManager.Instance.ChangeResources(-15);
+                    PinballManager.Instance.ChangeResources(-15);
                     _hadResources = true;
                     _bellows.SetBool("Pumping", true);
                     _ball.SetHeatBall(_timeToWait);

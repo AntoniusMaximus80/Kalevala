@@ -2317,6 +2317,24 @@ MeshCollider:
   m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300034, guid: c3d1a20aa76b17b4ea5362b5bfeffea9, type: 3}
+--- !u!1 &139078324 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 100016, guid: c3d1a20aa76b17b4ea5362b5bfeffea9, type: 3}
+  m_PrefabInternal: {fileID: 139078319}
+--- !u!64 &139078325
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 139078324}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300030, guid: c3d1a20aa76b17b4ea5362b5bfeffea9, type: 3}
 --- !u!1001 &143877126
 Prefab:
   m_ObjectHideFlags: 0
@@ -11465,6 +11483,7 @@ MonoBehaviour:
   _haukiKantele: {fileID: 449546380}
   RedLight: {fileID: 2100000, guid: d19f0282c9c3a2341a9a1bd956132a7c, type: 2}
   BlueLight: {fileID: 2100000, guid: 4d04f1aa0a4f9674ea2341ddf4f374ba, type: 2}
+  _difficulty: 2
 --- !u!82 &1157521173
 AudioSource:
   m_ObjectHideFlags: 0
@@ -12761,7 +12780,7 @@ MonoBehaviour:
   _dropBallAtEnd: 0
   _rampDirection: {x: 0.9367389, y: 0, z: 0.8850047}
   _distanceTolerance: 3
-  _directionAngleTolerance: 180
+  _directionAngleTolerance: 89
   _gizmosColor: {r: 0, g: 0, b: 1, a: 1}
   _kickoutHole: {fileID: 0}
 --- !u!1 &1290471414
@@ -13298,7 +13317,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1354636384}
   m_LocalRotation: {x: -0, y: -1, z: -0, w: 0.0000032633543}
-  m_LocalPosition: {x: -1.4, y: 1.94, z: -36.73}
+  m_LocalPosition: {x: -0.69, y: 1.94, z: -40.43}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 804759855}
@@ -13321,9 +13340,9 @@ MonoBehaviour:
   _path: {fileID: 537706106}
   _isPathStart: 1
   _dropBallAtEnd: 0
-  _rampDirection: {x: 0.9367389, y: 0, z: 0.8850047}
+  _rampDirection: {x: -0.042458754, y: 0, z: 0.5815694}
   _distanceTolerance: 3
-  _directionAngleTolerance: 180
+  _directionAngleTolerance: 89
   _gizmosColor: {r: 0, g: 0, b: 1, a: 1}
   _kickoutHole: {fileID: 0}
 --- !u!1 &1358824719
@@ -14605,7 +14624,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1446805267}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -19.75, y: 10.115, z: 4.17}
+  m_LocalPosition: {x: -19.11, y: 10.115, z: 0.25}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 537706105}
@@ -23656,12 +23675,12 @@ Prefab:
     - target: {fileID: 114602248010753546, guid: 211d40b776f371a499e88a8daab2dc4d,
         type: 2}
       propertyPath: _ballLaunchPoint.x
-      value: -18.115479
+      value: 14.087442
       objectReference: {fileID: 0}
     - target: {fileID: 114602248010753546, guid: 211d40b776f371a499e88a8daab2dc4d,
         type: 2}
       propertyPath: _ballLaunchPoint.z
-      value: -34.730774
+      value: -35.012737
       objectReference: {fileID: 0}
     - target: {fileID: 114602248010753546, guid: 211d40b776f371a499e88a8daab2dc4d,
         type: 2}
@@ -24179,7 +24198,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   debug_SkipMainMenu: 0
   _defaultLanguage: 0
-  _playerName: Player
+  _autoplayMusic: 0
+  _maxResources: 45
 --- !u!4 &1948799481
 Transform:
   m_ObjectHideFlags: 0

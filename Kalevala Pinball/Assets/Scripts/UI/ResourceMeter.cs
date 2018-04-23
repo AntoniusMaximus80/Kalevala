@@ -12,7 +12,7 @@ namespace Kalevala {
         // Use this for initialization
         void Start() {
             _myImage = GetComponent<Image>();
-            GameManager.Instance.ResourcesChanged += ResourcesChanged;
+            PinballManager.Instance.ResourcesChanged += ResourcesChanged;
         }
 
         // Update is called once per frame
@@ -22,13 +22,13 @@ namespace Kalevala {
 
         private void OnDestroy()
         {
-            GameManager.Instance.ResourcesChanged -= ResourcesChanged;
+            PinballManager.Instance.ResourcesChanged -= ResourcesChanged;
         }
 
         private void ResourcesChanged ()
         {
-            float resources = GameManager.Instance.Resources;
-            fill = resources / GameManager.Instance.MaxResources;
+            float resources = PinballManager.Instance.Resources;
+            fill = resources / PinballManager.Instance.MaxResources;
         }
     }
 }

@@ -50,7 +50,8 @@ namespace Kalevala
         private bool _panelActive = false;
         private int _currentNote = 0;
         private int _noteCount;
-        private float _difficulty;
+        [SerializeField]
+        private float _difficulty = 2;
 
         private CameraController _cameroController;
 
@@ -69,7 +70,6 @@ namespace Kalevala
             _rightTrigger.Init(this);
             DeactivateAllMissLights();
             _spawnTimer = 0;
-            _difficulty = 2f;
         }
 
         /// <summary>
@@ -133,7 +133,7 @@ namespace Kalevala
             if(_misses >= _missLights.Length)
             {
                 _misses = 0;
-                _difficulty = 4f;
+                _difficulty = 2f;
                 DeactivatePanel();
             }
         }
@@ -332,23 +332,23 @@ namespace Kalevala
         private void CreateNotes()
         {
             float waitTime = 3f * _difficulty;
-            _notes.Add(new Note(3f + waitTime, NotePitch.D));
-            _notes.Add(new Note(4f + waitTime, NotePitch.D));
-            _notes.Add(new Note(5f + waitTime, NotePitch.E));
-            _notes.Add(new Note(6f + waitTime, NotePitch.E));
-            _notes.Add(new Note(7f + waitTime, NotePitch.F));
-            _notes.Add(new Note(8f + waitTime, NotePitch.A));
+            _notes.Add(new Note(1f + waitTime, NotePitch.D));
+            _notes.Add(new Note(2f + waitTime, NotePitch.D));
+            _notes.Add(new Note(3f + waitTime, NotePitch.E));
+            _notes.Add(new Note(4f + waitTime, NotePitch.E));
+            _notes.Add(new Note(5f + waitTime, NotePitch.F));
+            _notes.Add(new Note(6f + waitTime, NotePitch.A));
+            _notes.Add(new Note(7f + waitTime, NotePitch.E));
             _notes.Add(new Note(9f + waitTime, NotePitch.E));
-            _notes.Add(new Note(11f + waitTime, NotePitch.E));
 
-            _notes.Add(new Note(13f + waitTime, NotePitch.F));
-            _notes.Add(new Note(14f + waitTime, NotePitch.D));
-            _notes.Add(new Note(15f + waitTime, NotePitch.G));
+            _notes.Add(new Note(11f + waitTime, NotePitch.F));
+            _notes.Add(new Note(12f + waitTime, NotePitch.D));
+            _notes.Add(new Note(13f + waitTime, NotePitch.G));
+            _notes.Add(new Note(14f + waitTime, NotePitch.F));
+            _notes.Add(new Note(15f + waitTime, NotePitch.E));
             _notes.Add(new Note(16f + waitTime, NotePitch.F));
-            _notes.Add(new Note(17f + waitTime, NotePitch.E));
-            _notes.Add(new Note(18f + waitTime, NotePitch.F));
+            _notes.Add(new Note(17f + waitTime, NotePitch.D));
             _notes.Add(new Note(19f + waitTime, NotePitch.D));
-            _notes.Add(new Note(21f + waitTime, NotePitch.D));
         }
 
         private void OnTriggerEnter( Collider other )
