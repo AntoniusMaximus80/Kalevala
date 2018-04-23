@@ -128,6 +128,7 @@ namespace Kalevala
                     {
                         //Debug.Log("cursor shown");
 
+                        // Clears the menu button selection
                         EventSystem.current.SetSelectedGameObject(null);
                     }
                     else

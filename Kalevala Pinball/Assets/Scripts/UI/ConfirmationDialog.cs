@@ -1,9 +1,10 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
-using System;
+using L10n = Kalevala.Localization.Localization;
 
 namespace Kalevala
 {
@@ -41,7 +42,7 @@ namespace Kalevala
         [SerializeField]
         private Text _altDeclineText;
 
-        private LanguageStateBase _language;
+        //private LanguageStateBase _language;
         private InputType _input = InputType.NoInput;
 
         private Button[] _menuButtons;
@@ -50,7 +51,7 @@ namespace Kalevala
 
         private void Start()
         {
-            UpdateLanguage();
+            //UpdateLanguage();
 
             if (_dialogBox == null)
             {
@@ -79,15 +80,15 @@ namespace Kalevala
             }
             else
             {
-                _altDeclineText.text = _language.GetText("cancel");
+                _altDeclineText.text = L10n.CurrentLanguage.GetTranslation("cancel");
                 _altDeclineText.transform.parent.gameObject.SetActive(false);
             }
         }
 
-        public void UpdateLanguage()
-        {
-            _language = GameManager.Instance.Language;
-        }
+        //public void UpdateLanguage()
+        //{
+        //    _language = GameManager.Instance.Language;
+        //}
 
         /// <summary>
         /// Is the confirmation screen active
@@ -119,27 +120,28 @@ namespace Kalevala
                 {
                     case ConfirmationType.StartGame:
                     {
-                        _acceptText.text = _language.GetText("yes");
-                        _declineText.text = _language.GetText("no");
+                        _acceptText.text = L10n.CurrentLanguage.GetTranslation("yes");
+                        _declineText.text = L10n.CurrentLanguage.GetTranslation("no");
                         break;
                     }
                     case ConfirmationType.SaveSettings:
                     {
                         _altDeclineText.transform.parent.gameObject.SetActive(true);
-                        _acceptText.text = _language.GetText("apply");
-                        _declineText.text = _language.GetText("revert");
+                        _altDeclineText.text = L10n.CurrentLanguage.GetTranslation("cancel");
+                        _acceptText.text = L10n.CurrentLanguage.GetTranslation("apply");
+                        _declineText.text = L10n.CurrentLanguage.GetTranslation("revert");
                         break;
                     }
                     case ConfirmationType.EraseHighscores:
                     {
-                        _acceptText.text = _language.GetText("accept");
-                        _declineText.text = _language.GetText("cancel");
+                        _acceptText.text = L10n.CurrentLanguage.GetTranslation("accept");
+                        _declineText.text = L10n.CurrentLanguage.GetTranslation("cancel");
                         break;
                     }
                     default:
                     {
-                        _acceptText.text = _language.GetText("ok");
-                        _declineText.text = _language.GetText("cancel");
+                        _acceptText.text = L10n.CurrentLanguage.GetTranslation("ok");
+                        _declineText.text = L10n.CurrentLanguage.GetTranslation("cancel");
                         break;
                     }
                 }
@@ -182,23 +184,23 @@ namespace Kalevala
                 {
                     case ConfirmationType.QuitGame:
                     {
-                        return _language.GetText("confirmExitGame");
+                        return L10n.CurrentLanguage.GetTranslation("confirmExitGame");
                     }
                     case ConfirmationType.StartGame:
                     {
-                        return _language.GetText("confirmStartGame");
+                        return L10n.CurrentLanguage.GetTranslation("confirmStartGame");
                     }
                     case ConfirmationType.ReturnToMainMenu:
                     {
-                        return _language.GetText("confirmReturnToMainMenu");
+                        return L10n.CurrentLanguage.GetTranslation("confirmReturnToMainMenu");
                     }
                     case ConfirmationType.SaveSettings:
                     {
-                        return _language.GetText("confirmSaveSettings");
+                        return L10n.CurrentLanguage.GetTranslation("confirmSaveSettings");
                     }
                     case ConfirmationType.EraseHighscores:
                     {
-                        return _language.GetText("confirmEraseHighscores");
+                        return L10n.CurrentLanguage.GetTranslation("confirmEraseHighscores");
                     }
                 }
             }

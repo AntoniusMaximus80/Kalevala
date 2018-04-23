@@ -41,7 +41,7 @@ namespace Kalevala
             Owner = GameManager.Instance;
         }
 
-        public string GetText(string textID)
+        public string GetTranslation(string textID)
         {
             if (textID.Equals("play"))
             {
@@ -70,6 +70,10 @@ namespace Kalevala
             else if (textID.Equals("highscores"))
             {
                 return highscores;
+            }
+            else if (textID.Equals("player"))
+            {
+                return player;
             }
             else if (textID.Equals("resume"))
             {
@@ -178,10 +182,11 @@ namespace Kalevala
         protected virtual string quitGame { get { return "Quit Game"; } }
         protected virtual string setName { get { return "Set player name"; } }
         protected virtual string highscores { get { return "Highscores"; } }
+        protected virtual string player { get { return "Player"; } }
         protected virtual string next { get { return "Next"; } }
         protected virtual string previous { get { return "Previous"; } }
         protected virtual string back { get { return "Back"; } }
-        protected virtual string accept { get { return "accept"; } }
+        protected virtual string accept { get { return "Accept"; } }
         protected virtual string ok { get { return "OK"; } }
         protected virtual string cancel { get { return "Cancel"; } }
         protected virtual string yes { get { return "Yes"; } }
@@ -205,7 +210,7 @@ namespace Kalevala
         protected virtual string launchHelp
         { get { return "Press and hold the Space bar and then release it to lauch a ball."; } }
         protected virtual string flippersHelp
-        { get { return "Press A to use the flipper bats on the left and L to use the ones on the right."; } }
+        { get { return "Press Left Control to use the flipper bat on the left and Numpad Enter to use the ones on the right."; } }
         protected virtual string nudgeHelp
         { get { return "Press Q or O to nudge the ball left or right, respectively."; } }
     }

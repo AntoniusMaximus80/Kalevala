@@ -20,26 +20,6 @@ namespace Kalevala.Editor
         public override void OnInspectorGUI()
         {
             base.OnInspectorGUI();
-
-            //AddDebugLabels();
-        }
-
-        private void AddDebugLabels()
-        {
-            EditorGUILayout.LabelField(
-                    string.Format("Language test:"));
-
-            if (Application.isPlaying)
-            {
-                EditorGUILayout.LabelField(
-                    string.Format("play: " + targetGM.Language.GetText("play")));
-                EditorGUILayout.LabelField(
-                    string.Format("launchHelp: " + targetGM.Language.GetText("launchHelp")));
-            }
-            else
-            {
-                EditorGUILayout.LabelField("(play mode only)");
-            }
         }
     }
 }

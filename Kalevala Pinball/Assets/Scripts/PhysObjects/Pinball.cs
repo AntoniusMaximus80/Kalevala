@@ -23,7 +23,6 @@ namespace Kalevala
         public float _speed, // public for debugging
             _maximumVelocity;
         private float _radius;
-        private bool _physicsEnabled = true;
 
         private Path _ramp;
         private bool _dropAtEnd;
@@ -128,6 +127,8 @@ namespace Kalevala
         //    }
         //}
 
+        public bool PhysicsEnabled { get; private set; }
+
         public RampMotion RampMotion { get; private set; }
 
         /// <summary>
@@ -139,7 +140,7 @@ namespace Kalevala
         {
             get
             {
-                if (_physicsEnabled)
+                if (PhysicsEnabled)
                 {
                     return _rb.velocity.magnitude;
                 }
@@ -179,7 +180,7 @@ namespace Kalevala
 
         public void StopMotion()
         {
-            if (_physicsEnabled)
+            if (PhysicsEnabled)
             {
                 _rb.velocity = Vector3.zero;
                 _rb.angularVelocity = Vector3.zero;
@@ -190,18 +191,18 @@ namespace Kalevala
         {
             if (enable)
             {
-                if (!_physicsEnabled)
+                if (!PhysicsEnabled)
                 {
-                    _physicsEnabled = true;
+                    PhysicsEnabled = true;
                     _rb.isKinematic = false;
                     _rb.useGravity = true;
                     _sphColl.enabled = true;
                 }
             }
-            else if (_physicsEnabled)
+            else if (PhysicsEnabled)
             {
                 StopMotion();
-                _physicsEnabled = false;
+                PhysicsEnabled = false;
                 _rb.isKinematic = true;
                 _rb.useGravity = false;
                 _sphColl.enabled = false;
@@ -210,7 +211,7 @@ namespace Kalevala
 
         public void AddImpulseForce(Vector3 force)
         {
-            if (_physicsEnabled)
+            if (PhysicsEnabled)
             {
                 _rb.AddForce(force, ForceMode.Impulse);
                 // Debug.Log(force);

@@ -5,6 +5,8 @@ using System.IO;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using Kalevala.Persistence;
+using Kalevala.Localization;
+using L10n = Kalevala.Localization.Localization;
 
 namespace Kalevala
 {
@@ -42,12 +44,23 @@ namespace Kalevala
         }
         #endregion Statics
 
+        /// <summary>
+        /// Preferences key for the saved language setting
+        /// </summary>
+        private const string LanguageKey = "Language";
+
         // DEBUGGING
         public bool debug_SkipMainMenu;
 
+        //[SerializeField]
+        //private LanguageStateType _defaultLanguage =
+        //    LanguageStateType.English;
+
         [SerializeField]
-        private LanguageStateType _defaultLanguage =
-            LanguageStateType.English;
+        private LangCode _defaultLanguage = LangCode.EN;
+
+        [SerializeField]
+        private bool _autoplayMusic;
 
         private StateManager _stateManager;
         private Playfield _playfield;
@@ -56,13 +69,12 @@ namespace Kalevala
         private HighscoreList _highscoreList;
         private SaveSystem _saveSystem;
 
-        private IList<LanguageStateBase> _langStates =
-            new List<LanguageStateBase>();
+        //private IList<LanguageStateBase> _langStates =
+        //    new List<LanguageStateBase>();
 
-        public LanguageStateBase Language { get; set; }
+        //public LanguageStateBase Language { get; set; }
 
-        public string _playerName = "Player";
-
+        private string _playerName;
         private float _musicVolume;
         private float _effectVolume;
 
@@ -130,6 +142,25 @@ namespace Kalevala
             }
         }
 
+        public string PlayerName
+        {
+            get
+            {
+                return _playerName;
+            }
+            set
+            {
+                if (DefaultNameUsed)
+                {
+                    DefaultNameUsed = false;
+                }
+
+                _playerName = value;
+            }
+        }
+
+        public bool DefaultNameUsed { get; private set; }
+
         public string SavePath
         {
             get
@@ -156,7 +187,13 @@ namespace Kalevala
 
         private void Start()
         {
-            InitAudio();
+            if (_autoplayMusic)
+            {
+                // TODO: If _autoplayMusic is off, call InitAudio
+                // when starting playing music
+
+                InitAudio();
+            }
         }
 
         private void Update()
@@ -164,10 +201,10 @@ namespace Kalevala
             //InitScene();
 
             // DEBUGGING
-            if (_defaultLanguage != Language.State)
-            {
-                SetLanguage(_defaultLanguage);
-            }
+            //if (_defaultLanguage != Language.State)
+            //{
+            //    SetLanguage(_defaultLanguage);
+            //}
         }
 
         private void Init()
@@ -199,21 +236,50 @@ namespace Kalevala
             _collectableSpawner = FindObjectOfType<CollectableSpawner>();
             _cameraCtrl = FindObjectOfType<CameraController>();
 
-            // Initializes languages
-            InitLanguages();
+            // Initializes localization
+            InitLocalization();
+
+            // If a player name was not loaded,
+            // the default player name is used
+            if (DefaultNameUsed)
+            {
+                SetPlayerNameToDefault();
+            }
 
             DontDestroyOnLoad(gameObject);
         }
 
-        private void InitLanguages()
+        /// <summary>
+        /// Initializes localization.
+        /// </summary>
+        private void InitLocalization()
         {
-            LanguageStateBase lang_english = new LanguageStateBase();
-            LanguageState_Finnish lang_finnish = new LanguageState_Finnish();
-            _langStates.Add(lang_english);
-            _langStates.Add(lang_finnish);
-
-            SetLanguage(_defaultLanguage);
+            LangCode currentLang =
+                (LangCode) PlayerPrefs.GetInt(LanguageKey, (int) _defaultLanguage);
+            L10n.LoadLanguage(currentLang);
+            L10n.LanguageLoaded += OnLanguageLoaded;
         }
+
+        /// <summary>
+        /// Called when a LanguageLoaded event is fired.
+        /// </summary>
+        private void OnLanguageLoaded()
+        {
+            if (DefaultNameUsed)
+            {
+                SetPlayerNameToDefault();
+            }
+        }
+
+        //private void InitLanguages()
+        //{
+            //LanguageStateBase lang_english = new LanguageStateBase();
+            //LanguageState_Finnish lang_finnish = new LanguageState_Finnish();
+            //_langStates.Add(lang_english);
+            //_langStates.Add(lang_finnish);
+
+            //SetLanguage(_defaultLanguage);
+        //}
 
         private void InitAudio()
         {
@@ -224,11 +290,17 @@ namespace Kalevala
             MusicPlayer.Instance.SetVolume(MusicVolume);
         }
 
-        public void SetLanguage(LanguageStateType language)
+        public void SetLanguage(Localization.LangCode languageCode)
         {
-            Language = GetLanguage(language);
-            Debug.Log("Selected language: " + Language.State);
+            L10n.LoadLanguage(languageCode);
+            Debug.Log("Selected language: " + languageCode);
         }
+
+        //public void SetLanguage(LanguageStateType language)
+        //{
+        //    Language = GetLanguage(language);
+        //    Debug.Log("Selected language: " + Language.State);
+        //}
 
         private LanguageStateBase GetLanguage(LanguageStateType stateType)
         {
@@ -315,6 +387,12 @@ namespace Kalevala
             SaveGame("Saving reset highscores");
         }
 
+        public void SetPlayerNameToDefault()
+        {
+            PlayerName = L10n.CurrentLanguage.GetTranslation("player");
+            DefaultNameUsed = true;
+        }
+
         //private void InitFade()
         //{
         //    fade = FindObjectOfType<FadeToColor>();
@@ -377,6 +455,9 @@ namespace Kalevala
             // Loads highscores and sets them to the scoreboard
             HighscoreList.LoadHighscores(data);
 
+            // TODO: Load player name
+            DefaultNameUsed = true;
+
             // Loads audio volumes but doesn't set them to the audio
             // players because they have not been initialized yet
             _musicVolume = PlayerPrefs.GetFloat("musicVolume", 0.25f);
@@ -390,8 +471,12 @@ namespace Kalevala
             // Note: Saved data can be found in
             // regedit > Tietokone\HKEY_CURRENT_USER\Software\Unity\UnityEditor\TeamAF\not - broforce
 
-            Debug.Log("musicVolume: " + _musicVolume);
-            Debug.Log("effectVolume: " + _effectVolume);
+            // Saves the currently selected language
+            PlayerPrefs.SetInt(LanguageKey,
+                (int) L10n.CurrentLanguage.LanguageCode);
+
+            //Debug.Log("musicVolume: " + _musicVolume);
+            //Debug.Log("effectVolume: " + _effectVolume);
             PlayerPrefs.SetFloat("musicVolume", MusicVolume);
             PlayerPrefs.SetFloat("effectVolume", EffectVolume);
 
