@@ -83,6 +83,8 @@ namespace Kalevala
         public void SpawnCollectables(Collectable.CollectableType type,
             int amount, float interval)
         {
+            // TODO: Use SampoProduct enum for collectable type
+
             _spawnMultiple = true;
             _collType = type;
             _leftToSpawn = amount;

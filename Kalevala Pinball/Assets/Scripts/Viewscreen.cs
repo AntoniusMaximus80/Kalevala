@@ -3,11 +3,17 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using L10n = Kalevala.Localization.Localization;
 
 namespace Kalevala
 {
     public class Viewscreen : MonoBehaviour
     {
+        private const string CurrentBallKey = "currentBall";
+        private const string JackpotKey = "jackpot";
+        private const string SampoModeRequirementKey = "sampoModeRequirement";
+        private const string SampoModeActivationKey = "sampoModeActivated";
+
         public StateManager _stateManager;
 
         // references to the viewscreen texts.
@@ -27,14 +33,20 @@ namespace Kalevala
         private static Viewscreen _instance;
         private bool _showMode, _displayMode;
 
-        private static String[] _numbers = { "zero","One", "Two", "Three", "Four", "Five", "Six", "Seven" };
-
+        private static string[] _numbers; /* = { "Zero", "One", "Two", "Three", "Four", "Five", "Six", "Seven" };*/
 
         // Use this for initialization
         void Awake()
         {
             _instance = this;
             _incrementVisibleCountdown = _incrementVisible;
+
+        }
+
+        private void Start()
+        {
+            _numbers = new string[8];
+            OnLanguageLoaded();
         }
 
         // Update is called once per frame
@@ -74,7 +86,9 @@ namespace Kalevala
 
         public static void WorkShopEntered(int entriesNeeded)
         {
-            _instance._gameMode.text = _numbers[entriesNeeded]+" more to activate Sampo mode.";
+            string translation = L10n.CurrentLanguage.GetTranslation(SampoModeRequirementKey);
+            _instance._gameMode.text = string.Format(translation, _numbers[entriesNeeded]);
+            //_instance._gameMode.text = _numbers[entriesNeeded]+" more to activate Sampo mode.";
             _instance._showMode = true;
         }
 
@@ -86,13 +100,29 @@ namespace Kalevala
 
         public static void BallCount(int balls)
         {
-            _instance._ballCounter.text = "Balls left: " + balls.ToString("N0");
+            string translation = L10n.CurrentLanguage.GetTranslation(CurrentBallKey);
+            _instance._ballCounter.text = string.Format(translation, balls.ToString("N0"));
+            //_instance._ballCounter.text = "Balls left: " + balls.ToString("N0");
         }
 
         public static void StartSampoMode()
         {
-            _instance._gameMode.text = "Sampo mode activated.";
+            string translation = L10n.CurrentLanguage.GetTranslation(SampoModeActivationKey);
+            _instance._gameMode.text = translation;
+            //_instance._gameMode.text = "Sampo mode activated.";
             _instance._showMode = true;
+        }
+
+        private void OnLanguageLoaded()
+        {
+            _numbers[0] = L10n.CurrentLanguage.GetTranslation("zero");
+            _numbers[1] = L10n.CurrentLanguage.GetTranslation("one");
+            _numbers[2] = L10n.CurrentLanguage.GetTranslation("two");
+            _numbers[3] = L10n.CurrentLanguage.GetTranslation("three");
+            _numbers[4] = L10n.CurrentLanguage.GetTranslation("four");
+            _numbers[5] = L10n.CurrentLanguage.GetTranslation("five");
+            _numbers[6] = L10n.CurrentLanguage.GetTranslation("six");
+            _numbers[7] = L10n.CurrentLanguage.GetTranslation("seven");
         }
     }
 }

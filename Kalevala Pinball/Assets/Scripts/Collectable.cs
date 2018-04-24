@@ -77,6 +77,7 @@ namespace Kalevala
         private Vector3 _defaultPosition;
         private Quaternion _defaultRotation;
 
+        private Material _material;
         private ParticleSystem _particles;
         private CollectableSpawner _handler;
 
@@ -152,6 +153,7 @@ namespace Kalevala
         {
             _defaultPosition = _collectableObject.transform.position;
             _defaultRotation = _collectableObject.transform.rotation;
+            _material = _collectableObject.GetComponentInChildren<Renderer>().material;
         }
 
         public void ResetToDefaults()
@@ -389,12 +391,12 @@ namespace Kalevala
                 float duration =
                     Vector3.Distance(launchPosition, targetPosition) / speed;
 
-                StartCoroutine(
-                    FlyToPosition(launchPosition, targetPosition, duration));
+                StartCoroutine(FlyToPositionRoutine
+                                   (launchPosition, targetPosition, duration));
             }
         }
 
-        private IEnumerator FlyToPosition(Vector3 start, Vector3 target,
+        private IEnumerator FlyToPositionRoutine(Vector3 start, Vector3 target,
             float duration)
         {
             float startTime = Time.time;
@@ -402,6 +404,7 @@ namespace Kalevala
 
             _collectableObject.transform.position = start;
             Vector3 baseScale = _collectableObject.transform.localScale;
+            Color baseColor = _material.color;
 
             while (ratio < 1)
             {
@@ -418,11 +421,17 @@ namespace Kalevala
                                 ratio * baseScale.y,
                                 ratio * baseScale.z);
 
+                // Changes the object's transparency
+                Color newColor = _material.color;
+                newColor.a = ratio;
+                _material.color = newColor;
+
                 yield return 0;
             }
 
             _collectableObject.transform.position = target;
             _collectableObject.transform.localScale = baseScale;
+            _material.color = baseColor;
         }
 
         protected virtual void OnTriggerEnter(Collider other)

@@ -11,11 +11,15 @@ namespace Kalevala.Editor
     public class LocalizationWindow : EditorWindow
     {
         private const string LocalizationKey = "Localization";
+        private const int MaxEntriesPerPage = 20;
 
         public LangCode CurrentLanguage = LangCode.None;
 
-        private Dictionary<string, string> localizations =
+        private Dictionary<string, string> _localizations =
             new Dictionary<string, string>();
+
+        private int _page = 0;
+        private int _lastPage = 0;
 
         /// <summary>
         /// Opens a localization editor window.
@@ -24,7 +28,7 @@ namespace Kalevala.Editor
         private static void OpenWindow()
         {
             LocalizationWindow window =
-                GetWindow<LocalizationWindow>("Edit Localization");
+                GetWindow<LocalizationWindow>("Localization");
             window.Show();
         }
 
@@ -37,6 +41,10 @@ namespace Kalevala.Editor
 
         private void OnGUI()
         {
+            int currentIndex = 0;
+            int startIndex = _page * MaxEntriesPerPage;
+            _lastPage = (_localizations.Count - 1) / MaxEntriesPerPage;
+
             LangCode langCode = (LangCode) EditorGUILayout.
                 EnumPopup(CurrentLanguage);
             SetLanguage(langCode);
@@ -48,8 +56,19 @@ namespace Kalevala.Editor
 
             List<string> deletedKeys = new List<string>();
 
-            foreach (var localization in localizations)
+            foreach (var localization in _localizations)
             {
+                // Separates entries to pages.
+                // There's a maximum number of entries displayed
+                // on each page but they are all still saved to JSON.
+                if (currentIndex < startIndex ||
+                    currentIndex >= startIndex + MaxEntriesPerPage)
+                {
+                    newValues.Add(localization.Key, localization.Value);
+                    currentIndex++;
+                    continue;
+                }
+
                 EditorGUILayout.BeginHorizontal();
 
                 string key = EditorGUILayout.TextField(localization.Key);
@@ -63,15 +82,17 @@ namespace Kalevala.Editor
                 }
 
                 EditorGUILayout.EndHorizontal();
+
+                currentIndex++;
             }
 
-            localizations = newValues;
+            _localizations = newValues;
 
             DeleteKeys(deletedKeys);
 
             AddValueButton();
-
             SaveButton();
+            PageButtons();
 
             EditorGUILayout.EndVertical();
         }
@@ -80,9 +101,9 @@ namespace Kalevala.Editor
         {
             foreach (var deletedKey in deletedKeys)
             {
-                if (localizations.ContainsKey(deletedKey))
+                if (_localizations.ContainsKey(deletedKey))
                 {
-                    localizations.Remove(deletedKey);
+                    _localizations.Remove(deletedKey);
                 }
             }
         }
@@ -96,9 +117,11 @@ namespace Kalevala.Editor
         {
             if (GUILayout.Button("Add Value"))
             {
-                if ( !localizations.ContainsKey("") )
+                if ( !_localizations.ContainsKey("") )
                 {
-                    localizations.Add("", "");
+                    _localizations.Add("", "");
+                    _lastPage = _localizations.Count / MaxEntriesPerPage;
+                    _page = _lastPage;
                 }
             }
         }
@@ -107,9 +130,56 @@ namespace Kalevala.Editor
         {
             if (GUILayout.Button("Save"))
             {
-                L10n.CurrentLanguage.SetValues(localizations);
+                L10n.CurrentLanguage.SetValues(_localizations);
                 L10n.SaveCurrentLanguage();
             }
+        }
+
+        private void PageButtons()
+        {
+            EditorGUILayout.BeginHorizontal();
+
+            // Previous page button
+            if (ButtonPressed("Prev", _page > 0))
+            {
+                _page--;
+            }
+
+            // Centering a label
+            GUIStyle centeredStyle = GUI.skin.GetStyle("Label");
+            centeredStyle.alignment = TextAnchor.UpperCenter;
+
+            // Current page and last page numbers
+            EditorGUILayout.LabelField(string.Format("Page: {0} / {1}",
+                _page + 1, _lastPage + 1), centeredStyle);
+
+            // Next page button
+            if (ButtonPressed("Next", _page < _lastPage))
+            {
+                _page++;
+            }
+
+            EditorGUILayout.EndHorizontal();
+        }
+
+        private bool ButtonPressed(string buttonLabel, bool requirement)
+        {
+            bool result = false;
+
+            if (!requirement)
+            {
+                GUI.enabled = false;
+            }
+
+            bool pressed = GUILayout.Button(buttonLabel);
+            result = requirement && pressed;
+
+            if (!requirement)
+            {
+                GUI.enabled = true;
+            }
+
+            return result;
         }
 
         private void SetLanguage(LangCode langCode)
@@ -122,11 +192,11 @@ namespace Kalevala.Editor
 
             CurrentLanguage = langCode;
             EditorPrefs.SetInt(LocalizationKey, (int) CurrentLanguage);
-            localizations.Clear();
+            _localizations.Clear();
 
             // Load localization file
             L10n.LoadLanguage(CurrentLanguage);
-            localizations = L10n.CurrentLanguage.GetValues();
+            _localizations = L10n.CurrentLanguage.GetValues();
         }
     }
 }

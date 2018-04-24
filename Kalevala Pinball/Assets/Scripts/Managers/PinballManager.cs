@@ -72,7 +72,7 @@ namespace Kalevala
         private float _rampExitMomentumFactor = 0.75f;
 
         [SerializeField, Range(1, 10)]
-        private int _startingBallAmount;
+        private int _startingBallCount;
 
         [SerializeField, Range(1, 5)]
         private int _workshopExtraBalls;
@@ -216,6 +216,14 @@ namespace Kalevala
 
         //public Vector3 Gravity { get; private set; }
 
+        public int CurrentBallNumber
+        {
+            get
+            {
+                return _startingBallCount - _currentBallCount + 1;
+            }
+        }
+
         public bool ShootAgain { get; private set; }
         //{
             //get
@@ -311,7 +319,7 @@ namespace Kalevala
 
         public void ResetGame()
         {
-            _currentBallCount = _startingBallAmount;
+            _currentBallCount = _startingBallCount;
             _nudgesLeft = _allowedNudgeAmount;
             Tilt = false;
             Autosave = false;
@@ -327,7 +335,7 @@ namespace Kalevala
             ResetAllPinballs();
             //SetPinballPhysicsEnabled(false);
 
-            Viewscreen.BallCount(_currentBallCount);
+            Viewscreen.BallCount(CurrentBallNumber);
         }
 
         public void UpdatePinballs()
@@ -572,7 +580,7 @@ namespace Kalevala
                 InstanceNextBall(pinball);
 
                 _currentBallCount--;
-                Viewscreen.BallCount(_currentBallCount);
+                Viewscreen.BallCount(CurrentBallNumber);
 
                 if (OutOfBalls)
                 {

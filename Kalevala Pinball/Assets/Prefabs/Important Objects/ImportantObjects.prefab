@@ -2969,7 +2969,7 @@ MonoBehaviour:
   debug_freeBalls: 0
   _rampGravityMultiplier: 3
   _rampExitMomentumFactor: 0.75
-  _startingBallAmount: 3
+  _startingBallCount: 3
   _workshopExtraBalls: 2
   _workshopLocation: {fileID: 0}
   _allowedNudgeAmount: 4

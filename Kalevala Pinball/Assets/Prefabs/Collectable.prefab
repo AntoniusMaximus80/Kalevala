@@ -319,7 +319,7 @@ GameObject:
   - component: {fileID: 65907442770843048}
   - component: {fileID: 199896613988852272}
   m_Layer: 10
-  m_Name: CollectableArrow
+  m_Name: Collectable
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1428,7 +1428,8 @@ MonoBehaviour:
   _removedWhenCollected: 1
   _respawnsAfterRest: 0
   _motionSpeed: 2
-  _motionTime: 0.6
+  _lifeTime: 10
+  _vanishMotionTime: 1
   _particleTime: 0.6
   _restingTime: 1
 --- !u!137 &137478350691133836
