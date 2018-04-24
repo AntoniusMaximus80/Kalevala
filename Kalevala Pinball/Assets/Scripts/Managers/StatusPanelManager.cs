@@ -79,10 +79,18 @@ namespace Kalevala
             }
         }
 
+        public void EndSampoMode()
+        {
+            StartGameMode(GameModeStateType.Normal);
+
+            //TODO add endSampoMode to viewScreen
+            //Viewscreen.EndSampoMode();
+        }    
+
         private void StartGameMode(GameModeStateType gameMode)
         {
             GameManager.Instance.StateManager.
-                PerformTransition(GameModeStateType.Sampo);
+                PerformTransition(gameMode);
 
             Debug.Log("Starting game mode: " + gameMode.ToString());
         }

@@ -135,7 +135,7 @@ namespace Kalevala
             }
             private set
             {
-                if(_resources < MaxResources)
+                if(_resources + value >= MaxResources)
                 {
                     //Add score for excessive recourses
                 }
