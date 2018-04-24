@@ -303,6 +303,7 @@ namespace Kalevala
         /// </summary>
         public void ActivatePanel()
         {
+            MusicPlayer.Instance.Pause();
             _cameroController.MoveCurrentCamTo(CameraController.CameraPosition.Kantele, false);
             //Physics.gravity = new Vector3(25f, -98.1f, -25f);
             PanelActive = true;
@@ -319,6 +320,7 @@ namespace Kalevala
         /// </summary>
         public void DeactivatePanel()
         {
+            MusicPlayer.Instance.Unpause();
             _cameroController.MoveCurrentCamTo(CameraController.CameraPosition.Playfield, false);
             DeactivateAllMissLights();
             _leftTrigger.DeactivateLight();
