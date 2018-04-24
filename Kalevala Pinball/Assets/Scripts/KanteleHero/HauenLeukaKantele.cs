@@ -15,10 +15,9 @@ namespace Kalevala
             DeactivateBumpers();
         }
 
-        // Update is called once per frame
-        void Update()
+        public void OpenDoor()
         {
-
+            StartCoroutine(Rotate(new Vector3(132f, 0f, 0f), 1f));
         }
 
         public void ActivateKantele()

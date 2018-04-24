@@ -176,6 +176,10 @@ namespace Kalevala
 
         private void Update()
         {
+            if(Input.GetKey(KeyCode.A))
+            {
+                Resources = 45;
+            }
             UpdateShootAgain();
             UpdateAutosave();
         }

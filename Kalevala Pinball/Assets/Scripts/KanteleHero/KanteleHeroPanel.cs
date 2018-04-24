@@ -303,6 +303,11 @@ namespace Kalevala
         /// </summary>
         public void ActivatePanel()
         {
+            if(GameManager.Instance.StateManager.CurrentGameModeState.State == GameModeStateType.Sampo)
+            {
+                _haukiKantele.OpenDoor();
+                return;
+            }
             MusicPlayer.Instance.Pause();
             _cameroController.MoveCurrentCamTo(CameraController.CameraPosition.Kantele, false);
             //Physics.gravity = new Vector3(25f, -98.1f, -25f);
