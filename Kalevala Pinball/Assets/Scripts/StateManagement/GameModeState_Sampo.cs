@@ -32,5 +32,13 @@ namespace Kalevala
 
             
         }
+
+        public override void Deactivate()
+        {
+            base.Deactivate();
+
+            _toyElevatorController = UnityEngine.Object.FindObjectOfType<ToyElevatorController>();
+            _toyElevatorController.EndGameMode();
+        }
     }
 }

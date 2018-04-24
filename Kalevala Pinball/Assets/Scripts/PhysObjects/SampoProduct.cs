@@ -2,21 +2,45 @@
 
 namespace Kalevala
 {
+    public enum SampoProductType
+    {
+        Grain,
+        Salt,
+        Gold,
+        None
+    }
+
     public class SampoProduct : MonoBehaviour
     {
         public float _startFadingOutTime,
             _startFadingOutTimeVariance,
-            _fadeOutTime;
+            _fadeOutTimeBase;
         private float _startFadingOutTimeCounter = 0f,
-            _fadeOutTimeCountdown;
-        private Color _currentColor;
+            _fadeOutTimeCountdown,
+            _fadeOutTimeModified;
+        public Color _originalColor;
+        private Color _newColor;
+        private SampoProductType _sampoProductType;
+        private Sampo _sampo;
 
-        // Use this for initialization
-        void Start()
+        public SampoProductType Type
         {
-            _currentColor = GetComponent<Renderer>().material.color;
-            _fadeOutTime += Random.Range(-_startFadingOutTimeVariance, _startFadingOutTimeVariance);
-            _fadeOutTimeCountdown = _fadeOutTime;
+            get
+            {
+                return _sampoProductType;
+            }
+        }
+
+        public void Init (SampoProductType sampoProductType, Sampo sampo, Vector3 spawnPosition)
+        {
+            _sampoProductType = sampoProductType;
+            _sampo = sampo;
+            transform.position = spawnPosition;
+            _fadeOutTimeModified = _fadeOutTimeBase + Random.Range(-_startFadingOutTimeVariance, _startFadingOutTimeVariance);
+            _fadeOutTimeCountdown = _fadeOutTimeModified;
+            GetComponent<Renderer>().material.color = _originalColor;
+            _newColor = _originalColor;
+            _startFadingOutTimeCounter = 0f;
         }
 
         // Update is called once per frame
@@ -28,11 +52,17 @@ namespace Kalevala
             } else
             {
                 _fadeOutTimeCountdown -= Time.deltaTime;
-                _currentColor.a = Mathf.Clamp01(_fadeOutTimeCountdown / _fadeOutTime);
-                GetComponent<Renderer>().material.color = _currentColor;
+                _newColor.a = Mathf.Clamp01(_fadeOutTimeCountdown / _fadeOutTimeModified);
+                GetComponent<Renderer>().material.color = _newColor;
                 if (_fadeOutTimeCountdown <= 0f)
                 {
-                    Destroy(gameObject);
+                    // Reset the product's color before returning it to the pool.
+                    GetComponent<Renderer>().material.color = _originalColor;
+
+                    // Reset the product's velocity before returning it to the pool.
+                    GetComponent<Rigidbody>().velocity = Vector3.zero;
+
+                    _sampo.ReturnProductToPool(this);
                 }
             }
         }

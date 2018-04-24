@@ -4,83 +4,78 @@ namespace Kalevala
 {
     public class SampoNozzle : MonoBehaviour
     {
-        public enum SampoProduct
-        {
-            grain,
-            salt,
-            gold
-        }
-
         public bool _generate;
-        public GameObject _grainPrefab,
-            _saltPrefab,
-            _goldCoinPrefab,
-            _body;
         public float _launchForceMultiplier,
             _launchForceVariance,
             _randomDirectionMultiplier;
-        public SampoProduct _sampoProduct;
+        public Sampo _sampo;
+        private SampoProduct _sampoProduct;
+        public SampoProductType _sampoProductType;
+        public GameObject _sampoMiddle;
+        public int _spawnInterval;
+        private int _spawnIntervalCountdown;
+
+        private void Start()
+        {
+            _spawnIntervalCountdown = _spawnInterval;
+        }
 
         void Update()
         {
             if (_generate)
             {
-                if (_sampoProduct == SampoProduct.grain)
-                {
-                    InstantiateProduct(_grainPrefab);
-                }
-                if (_sampoProduct == SampoProduct.salt)
-                {
-                    InstantiateProduct(_saltPrefab);
-                }
-                if (_sampoProduct == SampoProduct.gold)
-                {
-                    InstantiateProduct(_goldCoinPrefab);
+                _spawnIntervalCountdown--;
+                if (_spawnIntervalCountdown == 0) {
+                    _spawnIntervalCountdown = _spawnInterval;
+                    SpawnSampoProduct(_sampoProductType);
                 }
             }
         }
 
-        public void InstantiateProduct(GameObject _prefab)
+        public void SpawnSampoProduct(SampoProductType sampoProduct)
         {
-            int randomProductAmount = 0;
-
-            if (_sampoProduct == SampoProduct.grain || _sampoProduct == SampoProduct.salt)
+            switch (sampoProduct)
             {
-                randomProductAmount = Random.Range(2, 4);
-            } else
-            {
-                randomProductAmount = 1;
+                case SampoProductType.Grain:
+                    _sampoProduct = _sampo._grainPool.GetPooledObject();
+                    break;
+                case SampoProductType.Salt:
+                    _sampoProduct = _sampo._saltPool.GetPooledObject();
+                    break;
+                case SampoProductType.Gold:
+                    _sampoProduct = _sampo._goldPool.GetPooledObject();
+                    break;
             }
 
-            for (int i = 0; i < randomProductAmount; i++)
-            {
-                // Instantiate a sampo product close to the _instancingPoint with a random rotation.
-                GameObject newProduct = Instantiate(_prefab,
-                    transform.position + new Vector3(Random.Range(-0.2f, 0.2f), Random.Range(-0.2f, 0.2f), Random.Range(-0.2f, 0.2f)),
-                    Quaternion.Euler(Random.Range(0f, 360f), Random.Range(0f, 360f), Random.Range(0f, 360f)));
+            if (_sampoProduct != null) {
 
+                _sampoProduct.Init(sampoProduct, _sampo, transform.position);
+
+                #region Scaling
                 // Scale the sampo product randomly, to make them look more unique.
-                float productScale = 1f;
+                float productScale = 1.5f;
 
-                if (_sampoProduct == SampoProduct.grain)
+                if (_sampoProductType == SampoProductType.Grain)
                 {
-                    productScale = Random.Range(1f, 2f);
+                    productScale = Random.Range(1.5f, 3f);
                 }
 
-                if (_sampoProduct == SampoProduct.salt)
+                if (_sampoProductType == SampoProductType.Salt)
                 {
-                    productScale = Random.Range(1f, 2f);
+                    productScale = Random.Range(1.5f, 3f);
                 }
-                newProduct.transform.localScale = new Vector3(productScale, productScale, productScale);
+
+                _sampoProduct.transform.localScale = new Vector3(productScale, productScale, productScale);
+                #endregion
 
                 // Calculate the direction toward which the sampo product should be launched towards.
-                Vector3 launchDirection = (transform.position - _body.transform.position) +
+                Vector3 launchDirection = (transform.position - _sampoMiddle.transform.position) +
                     new Vector3(Random.Range(-_randomDirectionMultiplier, _randomDirectionMultiplier), 0f, Random.Range(-_randomDirectionMultiplier, _randomDirectionMultiplier));
                 launchDirection.y = 0f; // Null the vertical direction.
                 launchDirection.Normalize();
 
                 // Launch the sampo product along the launchDirection vector.
-                newProduct.GetComponent<Rigidbody>().AddForce(launchDirection * (_launchForceMultiplier + Random.Range(-_launchForceVariance, _launchForceVariance)), ForceMode.Impulse);
+                _sampoProduct.GetComponent<Rigidbody>().AddForce(launchDirection * (_launchForceMultiplier + Random.Range(-_launchForceVariance, _launchForceVariance)), ForceMode.Impulse);
             }
         }
     }
