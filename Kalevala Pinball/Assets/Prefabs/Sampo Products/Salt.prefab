@@ -92,7 +92,7 @@ Rigidbody:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1199780280009704}
   serializedVersion: 2
-  m_Mass: 4
+  m_Mass: 1
   m_Drag: 1
   m_AngularDrag: 1
   m_UseGravity: 1
@@ -123,6 +123,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 146c671573b08764183b6a4ee0d13775, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _startFadingOutTime: 0.25
-  _startFadingOutTimeVariance: 0.1
-  _fadeOutTime: 0.25
+  _startFadingOutTime: 0.5
+  _startFadingOutTimeVariance: 0.25
+  _fadeOutTimeBase: 0.5
+  _originalColor: {r: 0.9254902, g: 0.9254902, b: 0.9254902, a: 0.89411765}

@@ -26,6 +26,21 @@ namespace Kalevala
 
         public ToyElevatorController _toyElevatorController;
 
+        public SampoProduct _grainPrefab,
+            _saltPrefab,
+            _goldPrefab;
+
+        public Pool<SampoProduct> _grainPool,
+            _saltPool,
+            _goldPool;
+
+        private void Start()
+        {
+            _grainPool = new Pool<SampoProduct>(32, false, _grainPrefab);
+            _saltPool = new Pool<SampoProduct>(32, false, _saltPrefab);
+            _goldPool = new Pool<SampoProduct>(32, false, _goldPrefab);
+        }
+
         private void Update()
         {
             if (_sampoState == SampoStateType.End) {
@@ -87,6 +102,22 @@ namespace Kalevala
         private void LowerElevator()
         {
             _toyElevatorController.LowerElevator();
+        }
+
+        public void ReturnProductToPool(SampoProduct sampoProduct)
+        {
+            switch (sampoProduct.Type)
+            {
+                case SampoProductType.Grain:
+                    _grainPool.ReturnObject(sampoProduct);
+                    break;
+                case SampoProductType.Salt:
+                    _saltPool.ReturnObject(sampoProduct);
+                    break;
+                case SampoProductType.Gold:
+                    _goldPool.ReturnObject(sampoProduct);
+                    break;
+            }
         }
     }
 }
