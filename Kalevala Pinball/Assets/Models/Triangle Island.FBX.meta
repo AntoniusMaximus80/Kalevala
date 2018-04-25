@@ -1,45 +1,54 @@
 fileFormatVersion: 2
-guid: 4adc4a93d7a8bf046a47b6d6e64ffeb3
-timeCreated: 1523437006
+guid: 40aa9c26991a5444e9e78ea837d3d2c7
+timeCreated: 1524644768
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
-    100000: Entrance
-    100002: Ramp
-    100004: //RootNode
-    100006: Plate
-    100008: Plate Rivet
-    100010: Plate Rivet001
-    100012: Ramp Entrance Plate
-    400000: Entrance
-    400002: Ramp
-    400004: //RootNode
-    400006: Plate
-    400008: Plate Rivet
-    400010: Plate Rivet001
-    400012: Ramp Entrance Plate
-    2100000: Placeholder
-    2100002: 17 - Default
-    2300000: Entrance
-    2300002: Ramp
-    2300004: Plate
-    2300006: Plate Rivet
-    2300008: Plate Rivet001
-    3300000: Entrance
-    3300002: Ramp
-    3300004: Plate
-    3300006: Plate Rivet
-    3300008: Plate Rivet001
-    4300000: Entrance
-    4300002: Ramp
-    4300004: Plate
-    4300006: Plate Rivet
-    4300008: Plate Rivet001
+    100000: Bolt012
+    100002: Bolt013
+    100004: Bolt014
+    100006: Bolt015
+    100008: Cover
+    100010: Plastic Rail009
+    100012: Plastic Rail010
+    100014: //RootNode
+    400000: Bolt012
+    400002: Bolt013
+    400004: Bolt014
+    400006: Bolt015
+    400008: Cover
+    400010: Plastic Rail009
+    400012: Plastic Rail010
+    400014: //RootNode
+    2100000: Dark Brown Plastic
+    2100002: Placeholder
+    2100004: No Name
+    2300000: Bolt012
+    2300002: Bolt013
+    2300004: Bolt014
+    2300006: Bolt015
+    2300008: Cover
+    2300010: Plastic Rail009
+    2300012: Plastic Rail010
+    3300000: Bolt012
+    3300002: Bolt013
+    3300004: Bolt014
+    3300006: Bolt015
+    3300008: Cover
+    3300010: Plastic Rail009
+    3300012: Plastic Rail010
+    4300000: Plastic Rail010
+    4300002: Plastic Rail009
+    4300004: Bolt013
+    4300006: Bolt015
+    4300008: Bolt014
+    4300010: Bolt012
+    4300012: Cover
     9500000: //RootNode
   externalObjects: {}
   materials:
-    importMaterials: 0
+    importMaterials: 1
     materialName: 0
     materialSearch: 1
     materialLocation: 1
@@ -72,8 +81,8 @@ ModelImporter:
     addColliders: 0
     importVisibility: 1
     importBlendShapes: 1
-    importCameras: 0
-    importLights: 0
+    importCameras: 1
+    importLights: 1
     swapUVChannels: 0
     generateSecondaryUV: 0
     useFileUnits: 1
@@ -92,7 +101,7 @@ ModelImporter:
     normalImportMode: 0
     tangentImportMode: 3
     normalCalculationMode: 4
-  importAnimation: 0
+  importAnimation: 1
   copyAvatar: 0
   humanDescription:
     serializedVersion: 2
