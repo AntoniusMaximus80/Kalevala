@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 
 namespace Kalevala
 {
@@ -31,7 +32,7 @@ namespace Kalevala
         [SerializeField]
         private bool _autoplayMusic = true;
 
-        [SerializeField]
+        //[SerializeField]
         private bool _enableEventCamera = true;
 
         private bool _settingsLoaded;
@@ -115,6 +116,15 @@ namespace Kalevala
             set
             {
                 _enableEventCamera = value;
+
+                if (!value)
+                {
+                    StateManager.HideLaunch();
+                }
+                else if (Launcher.Instance.BallOnLauncher)
+                {
+                    StateManager.ShowLaunch();
+                }
             }
         }
 
@@ -128,9 +138,9 @@ namespace Kalevala
             EffectVolume = value;
         }
 
-        public void SetEnableEventCamera(bool enable)
+        public void SetEnableEventCamera(Toggle toggle)
         {
-            EnableEventCamera = enable;
+            EnableEventCamera = toggle.isOn;
         }
 
         public void Save()

@@ -1507,13 +1507,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1719483381453372}
-  m_LocalRotation: {x: 0.14991334, y: 0.6584216, z: -0.111089654, w: 0.7291544}
-  m_LocalPosition: {x: 5.8, y: 15.4, z: -42.2}
+  m_LocalRotation: {x: 0.7195543, y: 0.0039491737, z: 0.0041734055, w: 0.69441247}
+  m_LocalPosition: {x: -1.4, y: 13.8, z: -17.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4113696463926870}
   m_RootOrder: 6
-  m_LocalEulerAnglesHint: {x: 21.402, y: 84.576004, z: 2.18}
+  m_LocalEulerAnglesHint: {x: 92.14099, y: -17.912994, z: -17.894989}
 --- !u!4 &4895772739060030
 Transform:
   m_ObjectHideFlags: 1
@@ -2245,7 +2245,7 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 0
+          m_BoolArgument: 1
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
@@ -2920,7 +2920,7 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 0
+          m_BoolArgument: 1
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
@@ -3117,7 +3117,18 @@ MonoBehaviour:
   m_Group: {fileID: 0}
   onValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_MethodName: SetEnableEventCamera
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 114647152259157590}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Toggle, UnityEngine.UI
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Toggle+ToggleEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
   m_IsOn: 1
@@ -4215,8 +4226,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _defaultCamera: {fileID: 0}
   _horizontalCamera: {fileID: 0}
-  _scoreBoardCamera: {fileID: 0}
-  _scoreBoardView: {fileID: 0}
+  _scoreBoardCamera: {fileID: 20825400929398592}
+  _scoreBoardView: {fileID: 1059176824858850}
   _defaultCamPlayfieldTransform: {fileID: 4175429408299692}
   _defaultCamKanteleTransform: {fileID: 4744888124810460}
   _horizontalCamPlayfieldTransform: {fileID: 4715345940524332}

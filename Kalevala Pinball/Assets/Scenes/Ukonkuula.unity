@@ -291,6 +291,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _isPartOfCurve: 1
   _curveName: HoleCurves
+--- !u!114 &27246064 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114006160368389968, guid: 18998b030096b7146b60c36d62c17c2c,
+    type: 2}
+  m_PrefabInternal: {fileID: 1204947641}
+  m_Script: {fileID: 11500000, guid: 3a3ebc1f7c1f0cc42bc8ce03a1ae1afe, type: 3}
 --- !u!1001 &31478565
 Prefab:
   m_ObjectHideFlags: 0
@@ -6262,6 +6268,51 @@ Prefab:
       propertyPath: m_RootOrder
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 114656357482212084, guid: 211d40b776f371a499e88a8daab2dc4d,
+        type: 2}
+      propertyPath: _toyElevatorAnimator
+      value: 
+      objectReference: {fileID: 588159930}
+    - target: {fileID: 114656357482212084, guid: 211d40b776f371a499e88a8daab2dc4d,
+        type: 2}
+      propertyPath: _irisDoorAnimator
+      value: 
+      objectReference: {fileID: 48126706}
+    - target: {fileID: 114656357482212084, guid: 211d40b776f371a499e88a8daab2dc4d,
+        type: 2}
+      propertyPath: _sampo
+      value: 
+      objectReference: {fileID: 1773381718}
+    - target: {fileID: 114602248010753546, guid: 211d40b776f371a499e88a8daab2dc4d,
+        type: 2}
+      propertyPath: _workshopLocation
+      value: 
+      objectReference: {fileID: 379159809}
+    - target: {fileID: 114602248010753546, guid: 211d40b776f371a499e88a8daab2dc4d,
+        type: 2}
+      propertyPath: _startingPosition
+      value: 
+      objectReference: {fileID: 1054959848}
+    - target: {fileID: 114602248010753546, guid: 211d40b776f371a499e88a8daab2dc4d,
+        type: 2}
+      propertyPath: _pinballPrefab
+      value: 
+      objectReference: {fileID: 1054959847}
+    - target: {fileID: 114959818721151298, guid: 211d40b776f371a499e88a8daab2dc4d,
+        type: 2}
+      propertyPath: _defaultCamera
+      value: 
+      objectReference: {fileID: 318112937}
+    - target: {fileID: 114959818721151298, guid: 211d40b776f371a499e88a8daab2dc4d,
+        type: 2}
+      propertyPath: _horizontalCamera
+      value: 
+      objectReference: {fileID: 722378372}
+    - target: {fileID: 114647152259157590, guid: 211d40b776f371a499e88a8daab2dc4d,
+        type: 2}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 27246064}
     - target: {fileID: 114011568283334892, guid: 211d40b776f371a499e88a8daab2dc4d,
         type: 2}
       propertyPath: _launcher
@@ -6292,101 +6343,15 @@ Prefab:
       propertyPath: _shootAgainLight
       value: 
       objectReference: {fileID: 1560778856}
-    - target: {fileID: 114602248010753546, guid: 211d40b776f371a499e88a8daab2dc4d,
-        type: 2}
-      propertyPath: _workshopLocation
-      value: 
-      objectReference: {fileID: 379159809}
-    - target: {fileID: 114602248010753546, guid: 211d40b776f371a499e88a8daab2dc4d,
-        type: 2}
-      propertyPath: _startingPosition
-      value: 
-      objectReference: {fileID: 1054959848}
-    - target: {fileID: 114602248010753546, guid: 211d40b776f371a499e88a8daab2dc4d,
-        type: 2}
-      propertyPath: _pinballPrefab
-      value: 
-      objectReference: {fileID: 1054959847}
     - target: {fileID: 114608500991614028, guid: 211d40b776f371a499e88a8daab2dc4d,
         type: 2}
       propertyPath: _location
       value: 
       objectReference: {fileID: 379159809}
-    - target: {fileID: 114959818721151298, guid: 211d40b776f371a499e88a8daab2dc4d,
-        type: 2}
-      propertyPath: _defaultCamera
-      value: 
-      objectReference: {fileID: 318112937}
-    - target: {fileID: 114959818721151298, guid: 211d40b776f371a499e88a8daab2dc4d,
-        type: 2}
-      propertyPath: _horizontalCamera
-      value: 
-      objectReference: {fileID: 722378372}
-    - target: {fileID: 114656357482212084, guid: 211d40b776f371a499e88a8daab2dc4d,
-        type: 2}
-      propertyPath: _toyElevatorAnimator
-      value: 
-      objectReference: {fileID: 588159930}
-    - target: {fileID: 114656357482212084, guid: 211d40b776f371a499e88a8daab2dc4d,
-        type: 2}
-      propertyPath: _irisDoorAnimator
-      value: 
-      objectReference: {fileID: 48126706}
-    - target: {fileID: 114656357482212084, guid: 211d40b776f371a499e88a8daab2dc4d,
-        type: 2}
-      propertyPath: _sampo
-      value: 
-      objectReference: {fileID: 1773381718}
-    - target: {fileID: 4851703086779858, guid: 211d40b776f371a499e88a8daab2dc4d, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: -1.4
+    - target: {fileID: 1719483381453372, guid: 211d40b776f371a499e88a8daab2dc4d, type: 2}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 4851703086779858, guid: 211d40b776f371a499e88a8daab2dc4d, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 13.8
-      objectReference: {fileID: 0}
-    - target: {fileID: 4851703086779858, guid: 211d40b776f371a499e88a8daab2dc4d, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: -17.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4851703086779858, guid: 211d40b776f371a499e88a8daab2dc4d, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0.7195543
-      objectReference: {fileID: 0}
-    - target: {fileID: 4851703086779858, guid: 211d40b776f371a499e88a8daab2dc4d, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0.0039491737
-      objectReference: {fileID: 0}
-    - target: {fileID: 4851703086779858, guid: 211d40b776f371a499e88a8daab2dc4d, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0.0041734055
-      objectReference: {fileID: 0}
-    - target: {fileID: 4851703086779858, guid: 211d40b776f371a499e88a8daab2dc4d, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 0.69441247
-      objectReference: {fileID: 0}
-    - target: {fileID: 4851703086779858, guid: 211d40b776f371a499e88a8daab2dc4d, type: 2}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 92.14099
-      objectReference: {fileID: 0}
-    - target: {fileID: 4851703086779858, guid: 211d40b776f371a499e88a8daab2dc4d, type: 2}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: -17.912994
-      objectReference: {fileID: 0}
-    - target: {fileID: 4851703086779858, guid: 211d40b776f371a499e88a8daab2dc4d, type: 2}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: -17.894989
-      objectReference: {fileID: 0}
-    - target: {fileID: 114959818721151298, guid: 211d40b776f371a499e88a8daab2dc4d,
-        type: 2}
-      propertyPath: _scoreBoardCamera
-      value: 
-      objectReference: {fileID: 779501284}
-    - target: {fileID: 114959818721151298, guid: 211d40b776f371a499e88a8daab2dc4d,
-        type: 2}
-      propertyPath: _scoreBoardView
-      value: 
-      objectReference: {fileID: 623287954}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 211d40b776f371a499e88a8daab2dc4d, type: 2}
   m_IsPrefabParent: 0
@@ -9517,11 +9482,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _isPartOfCurve: 0
   _curveName: 
---- !u!1 &623287954 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1059176824858850, guid: 211d40b776f371a499e88a8daab2dc4d,
-    type: 2}
-  m_PrefabInternal: {fileID: 440138567}
 --- !u!1 &628988313
 GameObject:
   m_ObjectHideFlags: 0
@@ -12344,11 +12304,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _isPartOfCurve: 0
   _curveName: 
---- !u!20 &779501284 stripped
-Camera:
-  m_PrefabParentObject: {fileID: 20825400929398592, guid: 211d40b776f371a499e88a8daab2dc4d,
-    type: 2}
-  m_PrefabInternal: {fileID: 440138567}
 --- !u!108 &785421362 stripped
 Light:
   m_PrefabParentObject: {fileID: 108807213355824614, guid: 33b73e934d0e43a458fabc01f795f734,

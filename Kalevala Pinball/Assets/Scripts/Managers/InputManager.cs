@@ -73,8 +73,8 @@ namespace Kalevala {
         /// </summary>
         private ScreenStateType _settingsAccessorScreen;
 
-        private LangCode _oldLangCode;
-        private bool _oldEnableEventCam;
+        //private LangCode _oldLangCode;
+        //private bool _oldEnableEventCam;
 
         #endregion Settings
 
@@ -290,7 +290,7 @@ namespace Kalevala {
             if (Input.GetButtonUp(_CANCEL) ||
                 Input.GetButtonUp(_PAUSE))
             {
-                SaveSettings(false);
+                SaveSettings(true);
             }
 
             // Debugging
@@ -679,8 +679,8 @@ namespace Kalevala {
             _settingsAccessorScreen = _stateManager.CurrentScreenState.State;
 
             // Stores old settings
-            _oldLangCode = L10n.CurrentLanguage.LanguageCode;
-            _oldEnableEventCam = Settings.Instance.EnableEventCamera;
+            //_oldLangCode = L10n.CurrentLanguage.LanguageCode;
+            //_oldEnableEventCam = Settings.Instance.EnableEventCamera;
 
             _stateManager.PerformTransition(ScreenStateType.SettingsMenu);
             HighlightMenuDefaultButton();
@@ -706,11 +706,11 @@ namespace Kalevala {
                 GameManager.Instance.SaveSettings();
             }
             // Reverts any changes to the settings
-            else
-            {
-                L10n.LoadLanguage(_oldLangCode);
-                Settings.Instance.EnableEventCamera = _oldEnableEventCam;
-            }
+            //else
+            //{
+            //    L10n.LoadLanguage(_oldLangCode);
+            //    Settings.Instance.EnableEventCamera = _oldEnableEventCam;
+            //}
             
             _stateManager.PerformTransition(_settingsAccessorScreen);
             //_stateManager.GoToPauseState();

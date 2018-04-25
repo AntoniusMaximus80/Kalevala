@@ -70,44 +70,45 @@ namespace Kalevala
                 _upperCase = Input.GetKey(KeyCode.LeftShift);
 
                 if (GetKey(KeyCode.Backspace)) { RemoveLastChar(); }
-                else if (GetKey(KeyCode.A)) { AddChar(UpperOrLowerChar('a')); }
-                else if (GetKey(KeyCode.B)) { AddChar(UpperOrLowerChar('b')); }
-                else if (GetKey(KeyCode.C)) { AddChar(UpperOrLowerChar('c')); }
-                else if (GetKey(KeyCode.D)) { AddChar(UpperOrLowerChar('d')); }
-                else if (GetKey(KeyCode.E)) { AddChar(UpperOrLowerChar('e')); }
-                else if (GetKey(KeyCode.F)) { AddChar(UpperOrLowerChar('f')); }
-                else if (GetKey(KeyCode.G)) { AddChar(UpperOrLowerChar('g')); }
-                else if (GetKey(KeyCode.H)) { AddChar(UpperOrLowerChar('h')); }
-                else if (GetKey(KeyCode.I)) { AddChar(UpperOrLowerChar('i')); }
-                else if (GetKey(KeyCode.J)) { AddChar(UpperOrLowerChar('j')); }
-                else if (GetKey(KeyCode.K)) { AddChar(UpperOrLowerChar('k')); }
-                else if (GetKey(KeyCode.L)) { AddChar(UpperOrLowerChar('l')); }
-                else if (GetKey(KeyCode.M)) { AddChar(UpperOrLowerChar('m')); }
-                else if (GetKey(KeyCode.N)) { AddChar(UpperOrLowerChar('n')); }
-                else if (GetKey(KeyCode.O)) { AddChar(UpperOrLowerChar('o')); }
-                else if (GetKey(KeyCode.P)) { AddChar(UpperOrLowerChar('p')); }
-                else if (GetKey(KeyCode.Q)) { AddChar(UpperOrLowerChar('q')); }
-                else if (GetKey(KeyCode.R)) { AddChar(UpperOrLowerChar('r')); }
-                else if (GetKey(KeyCode.S)) { AddChar(UpperOrLowerChar('s')); }
-                else if (GetKey(KeyCode.T)) { AddChar(UpperOrLowerChar('t')); }
-                else if (GetKey(KeyCode.U)) { AddChar(UpperOrLowerChar('u')); }
-                else if (GetKey(KeyCode.V)) { AddChar(UpperOrLowerChar('v')); }
-                else if (GetKey(KeyCode.W)) { AddChar(UpperOrLowerChar('w')); }
-                else if (GetKey(KeyCode.X)) { AddChar(UpperOrLowerChar('x')); }
-                else if (GetKey(KeyCode.Y)) { AddChar(UpperOrLowerChar('y')); }
-                else if (GetKey(KeyCode.Z)) { AddChar(UpperOrLowerChar('z')); }
-                else if (GetKey(KeyCode.Alpha0)) { AddChar('0'); }
-                else if (GetKey(KeyCode.Alpha1)) { AddChar('1'); }
-                else if (GetKey(KeyCode.Alpha2)) { AddChar('2'); }
-                else if (GetKey(KeyCode.Alpha3)) { AddChar('3'); }
-                else if (GetKey(KeyCode.Alpha4)) { AddChar('4'); }
-                else if (GetKey(KeyCode.Alpha5)) { AddChar('5'); }
-                else if (GetKey(KeyCode.Alpha6)) { AddChar('6'); }
-                else if (GetKey(KeyCode.Alpha7)) { AddChar('7'); }
-                else if (GetKey(KeyCode.Alpha8)) { AddChar('8'); }
-                else if (GetKey(KeyCode.Alpha9)) { AddChar('9'); }
-                else if (GetKey(KeyCode.Space)) { AddChar(' '); }
-                else if (GetKey(KeyCode.Minus)) { AddChar('-'); }
+                else if (Input.GetKeyDown(KeyCode.A)) { AddChar(UpperOrLowerChar('a')); }
+                else if (Input.GetKeyDown(KeyCode.B)) { AddChar(UpperOrLowerChar('b')); }
+                else if (Input.GetKeyDown(KeyCode.C)) { AddChar(UpperOrLowerChar('c')); }
+                else if (Input.GetKeyDown(KeyCode.D)) { AddChar(UpperOrLowerChar('d')); }
+                else if (Input.GetKeyDown(KeyCode.E)) { AddChar(UpperOrLowerChar('e')); }
+                else if (Input.GetKeyDown(KeyCode.F)) { AddChar(UpperOrLowerChar('f')); }
+                else if (Input.GetKeyDown(KeyCode.G)) { AddChar(UpperOrLowerChar('g')); }
+                else if (Input.GetKeyDown(KeyCode.H)) { AddChar(UpperOrLowerChar('h')); }
+                else if (Input.GetKeyDown(KeyCode.I)) { AddChar(UpperOrLowerChar('i')); }
+                else if (Input.GetKeyDown(KeyCode.J)) { AddChar(UpperOrLowerChar('j')); }
+                else if (Input.GetKeyDown(KeyCode.K)) { AddChar(UpperOrLowerChar('k')); }
+                else if (Input.GetKeyDown(KeyCode.L)) { AddChar(UpperOrLowerChar('l')); }
+                else if (Input.GetKeyDown(KeyCode.M)) { AddChar(UpperOrLowerChar('m')); }
+                else if (Input.GetKeyDown(KeyCode.N)) { AddChar(UpperOrLowerChar('n')); }
+                else if (Input.GetKeyDown(KeyCode.O)) { AddChar(UpperOrLowerChar('o')); }
+                else if (Input.GetKeyDown(KeyCode.P)) { AddChar(UpperOrLowerChar('p')); }
+                else if (Input.GetKeyDown(KeyCode.Q)) { AddChar(UpperOrLowerChar('q')); }
+                else if (Input.GetKeyDown(KeyCode.R)) { AddChar(UpperOrLowerChar('r')); }
+                else if (Input.GetKeyDown(KeyCode.S)) { AddChar(UpperOrLowerChar('s')); }
+                else if (Input.GetKeyDown(KeyCode.T)) { AddChar(UpperOrLowerChar('t')); }
+                else if (Input.GetKeyDown(KeyCode.U)) { AddChar(UpperOrLowerChar('u')); }
+                else if (Input.GetKeyDown(KeyCode.V)) { AddChar(UpperOrLowerChar('v')); }
+                else if (Input.GetKeyDown(KeyCode.W)) { AddChar(UpperOrLowerChar('w')); }
+                else if (Input.GetKeyDown(KeyCode.X)) { AddChar(UpperOrLowerChar('x')); }
+                else if (Input.GetKeyDown(KeyCode.Y)) { AddChar(UpperOrLowerChar('y')); }
+                else if (Input.GetKeyDown(KeyCode.Z)) { AddChar(UpperOrLowerChar('z')); }
+                else if (Input.GetKeyDown(KeyCode.Alpha0)) { AddChar('0'); }
+                else if (Input.GetKeyDown(KeyCode.Alpha1)) { AddChar('1'); }
+                else if (Input.GetKeyDown(KeyCode.Alpha2)) { AddChar('2'); }
+                else if (Input.GetKeyDown(KeyCode.Alpha3)) { AddChar('3'); }
+                else if (Input.GetKeyDown(KeyCode.Alpha4)) { AddChar('4'); }
+                else if (Input.GetKeyDown(KeyCode.Alpha5)) { AddChar('5'); }
+                else if (Input.GetKeyDown(KeyCode.Alpha6)) { AddChar('6'); }
+                else if (Input.GetKeyDown(KeyCode.Alpha7)) { AddChar('7'); }
+                else if (Input.GetKeyDown(KeyCode.Alpha8)) { AddChar('8'); }
+                else if (Input.GetKeyDown(KeyCode.Alpha9)) { AddChar('9'); }
+                else if (Input.GetKeyDown(KeyCode.Space)) { AddChar(' '); }
+                else if (Input.GetKeyDown(KeyCode.Minus)) { AddChar('-'); }
+                else if (Input.GetKeyDown(KeyCode.Period)) { AddChar('.'); }
 
                 UpdateButtonHoldInterval();
             }

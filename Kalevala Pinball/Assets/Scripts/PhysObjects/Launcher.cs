@@ -131,7 +131,7 @@ namespace Kalevala
             // 10 seconds of Shoot Again
             PinballManager.Instance.ActivateShootAgain(10);
 
-            StateManager.LaunchOver();
+            StateManager.HideLaunch();
         }
 
         public void StartLaunch(Pinball pinball)
@@ -153,18 +153,11 @@ namespace Kalevala
             StateManager.ShowLaunch();
         }
 
-        public bool LaunchAreaIsEmpty
+        public bool BallOnLauncher
         {
-            // TODO:
-            // There will be a design flaw if autosave feature
-            // is implemented and the player starts a multiball:
-            // either the gates block launched balls or any ball
-            // can return to the launch area.
-            // Solve this.
-
             get
             {
-                return _gatesClosed;
+                return _takeInput;
             }
         }
 
