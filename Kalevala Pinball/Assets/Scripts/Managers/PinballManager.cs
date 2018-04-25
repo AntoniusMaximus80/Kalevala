@@ -14,16 +14,19 @@ namespace Kalevala
         {
             get
             {
-
-                // If no instance exists, all the values will be wrong and the code using this will not work anyway.
-                // So there is no real point proofing this again people forgetting to set pinballmanager,
-                // just remind them and stop execution.
                 if (!instance)
                 {
-                    Debug.LogError("No pinballmanager instance set in the scene.");
-                    Debug.Break();
-                }
+                    instance = FindObjectOfType<PinballManager>();
 
+                    // If no instance exists, all the values will be wrong and the code using this will not work anyway.
+                    // So there is no real point proofing this again people forgetting to set pinballmanager,
+                    // just remind them and stop execution.
+                    if (!instance)
+                    {
+                        Debug.LogError("No pinballmanager instance set in the scene.");
+                        Debug.Break();
+                    }
+                }
 
                 //if (instance == null)
                 //{

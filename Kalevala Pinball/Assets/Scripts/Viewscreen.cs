@@ -40,12 +40,13 @@ namespace Kalevala
         {
             _instance = this;
             _incrementVisibleCountdown = _incrementVisible;
-
         }
 
         private void Start()
         {
             _numbers = new string[8];
+
+            L10n.LanguageLoaded += OnLanguageLoaded;
             OnLanguageLoaded();
         }
 
@@ -123,6 +124,8 @@ namespace Kalevala
             _numbers[5] = L10n.CurrentLanguage.GetTranslation("five");
             _numbers[6] = L10n.CurrentLanguage.GetTranslation("six");
             _numbers[7] = L10n.CurrentLanguage.GetTranslation("seven");
+
+            BallCount(PinballManager.Instance.CurrentBallNumber);
         }
     }
 }
