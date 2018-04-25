@@ -49,6 +49,8 @@ namespace Kalevala
         }
         #endregion Statics
 
+        private const string PlayerKey = "player";
+
         /// <summary>
         /// Preferences key for the saved language setting
         /// </summary>
@@ -157,13 +159,20 @@ namespace Kalevala
                 Debug.LogError("HighscoreList object not found in the scene.");
             }
 
+            // Initializes localization
+            InitLocalization();
+
             // Initializes the save system and loads data
             _saveSystem = new SaveSystem(new JSONPersistence(SavePath));
             LoadGame();
 
             // Initializes states
             _stateManager = FindObjectOfType<StateManager>();
-            if (_stateManager == null)
+            if (_stateManager != null)
+            {
+                _stateManager.Init();
+            }
+            else
             {
                 Debug.LogError("StateManager object not found in the scene.");
             }
@@ -176,16 +185,6 @@ namespace Kalevala
 
             _collectableSpawner = FindObjectOfType<CollectableSpawner>();
             _cameraCtrl = FindObjectOfType<CameraController>();
-
-            // Initializes localization
-            InitLocalization();
-
-            // If a player name was not loaded,
-            // the default player name is used
-            if (DefaultNameUsed)
-            {
-                SetPlayerNameToDefault();
-            }
 
             DontDestroyOnLoad(gameObject);
         }
@@ -212,55 +211,11 @@ namespace Kalevala
             }
         }
 
-        //private void InitLanguages()
-        //{
-            //LanguageStateBase lang_english = new LanguageStateBase();
-            //LanguageState_Finnish lang_finnish = new LanguageState_Finnish();
-            //_langStates.Add(lang_english);
-            //_langStates.Add(lang_finnish);
-
-            //SetLanguage(_defaultLanguage);
-        //}
-
-        //private void InitAudio()
-        //{
-        //    // Creates a new MusicPlayer instance
-        //    // if one does not already exist
-        //    //MusicPlayer.Instance.Create();
-
-        //    MusicPlayer.Instance.SetVolume(MusicVolume);
-        //}
-
-        public void SetLanguage(Localization.LangCode languageCode)
+        public void SetLanguage(LangCode languageCode)
         {
             L10n.LoadLanguage(languageCode);
             Debug.Log("Selected language: " + languageCode);
         }
-
-        //public void SetLanguage(LanguageStateType language)
-        //{
-        //    Language = GetLanguage(language);
-        //    Debug.Log("Selected language: " + Language.State);
-        //}
-
-        //private LanguageStateBase GetLanguage(LanguageStateType stateType)
-        //{
-        //    // Returns the first object from the state list whose State property's
-        //    // value equals to stateType. If no object was found, null is returned.
-
-        //    foreach (LanguageStateBase state in _langStates)
-        //    {
-        //        if (state.State == stateType)
-        //        {
-        //            return state;
-        //        }
-        //    }
-
-        //    return null;
-
-        //    // Does the same as all of the previous lines
-        //    //return _screenStates.FirstOrDefault(state => state.State == stateType);
-        //}
 
         public StateManager StateManager
         {
@@ -330,8 +285,9 @@ namespace Kalevala
 
         public void SetPlayerNameToDefault()
         {
-            PlayerName = L10n.CurrentLanguage.GetTranslation("player");
+            PlayerName = L10n.CurrentLanguage.GetTranslation(PlayerKey);
             DefaultNameUsed = true;
+            Debug.Log("Setting player name to default");
         }
 
         //private void InitFade()
@@ -396,8 +352,7 @@ namespace Kalevala
             // Loads highscores and sets them to the scoreboard
             HighscoreList.LoadHighscores(data);
 
-            // TODO: Load player name
-            DefaultNameUsed = true;
+            LoadPlayerName();
 
             // Loads audio volumes but doesn't set them to the audio
             // players because they have not been initialized yet
@@ -422,6 +377,33 @@ namespace Kalevala
 
             PlayerPrefs.Save();
             Debug.Log("Settings saved");
+        }
+
+        public void SavePlayerName()
+        {
+            if (DefaultNameUsed)
+            {
+                PlayerPrefs.SetString(PlayerKey, "");
+            }
+            else
+            {
+                PlayerPrefs.SetString(PlayerKey, PlayerName);
+            }
+        }
+
+        public void LoadPlayerName()
+        {
+            string savedPlayerName = PlayerPrefs.GetString(PlayerKey, "");
+
+            // If no name is saved, use default name
+            if (savedPlayerName.Length == 0)
+            {
+                SetPlayerNameToDefault();
+            }
+            else
+            {
+                PlayerName = savedPlayerName;
+            }
         }
 
         public void LoadScene(string sceneName)

@@ -90,11 +90,6 @@ namespace Kalevala {
         {
             _eventSystem = FindObjectOfType<EventSystem>();
             _stateManager = FindObjectOfType<StateManager>();
-            if (_stateManager == null)
-            {
-                Debug.LogError("StateManager object not found in the scene.");
-            }
-
             _confirmation = GetComponentInChildren<ConfirmationDialog>();
             _highscoreList = GameManager.Instance.HighscoreList;
             _cursor = FindObjectOfType<MouseCursorController>();
@@ -757,6 +752,8 @@ namespace Kalevala {
                 GameManager.Instance.SetPlayerNameToDefault();
             }
 
+            GameManager.Instance.SavePlayerName();
+
             _playerNameTextInput.Deactivate();
             _textInputActive = false;
             _playerName.color = Color.white;
@@ -928,7 +925,15 @@ namespace Kalevala {
 
         private void OnLanguageLoaded()
         {
-            _playerName.text = GameManager.Instance.PlayerName;
+            string name = GameManager.Instance.PlayerName;
+            _playerName.text = name;
+
+            Debug.Log("A");
+            if ( !GameManager.Instance.DefaultNameUsed )
+            {
+                Debug.Log("B");
+                _playerNameTextInput.SetText(name);
+            }
         }
     }
 }

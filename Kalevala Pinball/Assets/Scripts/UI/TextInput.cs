@@ -34,7 +34,13 @@ namespace Kalevala
 
         private void Start()
         {
-            _text = new List<char>();
+            // If the text has not been already set by
+            // another object, initializes the char list
+            if (_text == null)
+            {
+                _text = new List<char>();
+            }
+
             _lastPressedKey = KeyCode.None;
         }
 
@@ -254,6 +260,16 @@ namespace Kalevala
             TextChanged = false;
 
             return textString;
+        }
+
+        public void SetText(string text)
+        {
+            _text.Clear();
+
+            foreach (char c in text)
+            {
+                _text.Add(c);
+            }
         }
 
         /// <summary>

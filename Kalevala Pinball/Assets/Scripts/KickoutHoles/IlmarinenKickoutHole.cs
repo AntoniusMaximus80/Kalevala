@@ -23,9 +23,10 @@ namespace Kalevala
         {
             if(_doOnce)
             {
-                if(PinballManager.Instance.Resources >= 15 || GameManager.Instance.StateManager.CurrentGameModeState.State == GameModeStateType.Sampo)
+                if(PinballManager.Instance.Resources >= 15 ||
+                   GameManager.Instance.GameMode.State == GameModeStateType.Sampo)
                 {
-                    if(GameManager.Instance.StateManager.CurrentGameModeState.State != GameModeStateType.Sampo)
+                    if(GameManager.Instance.GameMode.State != GameModeStateType.Sampo)
                     {
                         PinballManager.Instance.ChangeResources(-15);
                     }

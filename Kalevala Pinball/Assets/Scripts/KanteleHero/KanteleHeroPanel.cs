@@ -303,7 +303,7 @@ namespace Kalevala
         /// </summary>
         public void ActivatePanel()
         {
-            if(GameManager.Instance.StateManager.CurrentGameModeState.State == GameModeStateType.Sampo)
+            if(GameManager.Instance.GameMode.State == GameModeStateType.Sampo)
             {
                 _haukiKantele.OpenDoor();
                 return;

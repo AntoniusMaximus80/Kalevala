@@ -58,7 +58,7 @@ namespace Kalevala
             _staticFocusShow = _focusShow;
         }
 
-        private void Start()
+        public void Init()
         {
             InitScreens();
             InitGameModes();
