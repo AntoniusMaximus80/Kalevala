@@ -1109,6 +1109,21 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
   m_IsActive: 1
+--- !u!1 &1898537162330224
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4744888124810460}
+  m_Layer: 0
+  m_Name: DefaultKanteleCam
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 4294967295
+  m_IsActive: 1
 --- !u!1 &1929839749862296
 GameObject:
   m_ObjectHideFlags: 1
@@ -1375,6 +1390,7 @@ Transform:
   - {fileID: 4221107961793282}
   - {fileID: 4715345940524332}
   - {fileID: 4406533871349730}
+  - {fileID: 4744888124810460}
   - {fileID: 4658985689406780}
   m_Father: {fileID: 4113696463926870}
   m_RootOrder: 5
@@ -1403,7 +1419,7 @@ Transform:
   m_LocalScale: {x: 0.9999999, y: 1, z: 0.9999999}
   m_Children: []
   m_Father: {fileID: 4505920951134128}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 49.04, y: 0, z: -5.92}
 --- !u!4 &4667534215834764
 Transform:
@@ -1444,6 +1460,19 @@ Transform:
   m_Father: {fileID: 4505920951134128}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 37.730003, y: 0, z: -90}
+--- !u!4 &4744888124810460
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1898537162330224}
+  m_LocalRotation: {x: -0.20602776, y: -0.031688463, z: 0.006671901, w: -0.9780102}
+  m_LocalPosition: {x: -21.14999, y: 23.75697, z: -27.288918}
+  m_LocalScale: {x: 0.9999999, y: 1, z: 0.9999999}
+  m_Children: []
+  m_Father: {fileID: 4505920951134128}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 49.04, y: 0, z: -5.92}
 --- !u!4 &4770323251890058
 Transform:
   m_ObjectHideFlags: 1
@@ -2965,7 +2994,7 @@ MonoBehaviour:
   _flipperMotorForce: 32000
   _flipperMotorTargetVelocity: 64000
   _springForce: 32000
-  debug_useDefaultLaunchPoint: 1
+  debug_useDefaultLaunchPoint: 0
   debug_freeBalls: 0
   _rampGravityMultiplier: 3
   _rampExitMomentumFactor: 0.75
@@ -2973,7 +3002,7 @@ MonoBehaviour:
   _workshopExtraBalls: 2
   _workshopLocation: {fileID: 0}
   _allowedNudgeAmount: 4
-  _ballLaunchPoint: {x: 11.453768, y: 1.35, z: -36.30419}
+  _ballLaunchPoint: {x: -13.589039, y: 1.35, z: -37.38699}
   _ballDrainBottomLeftCorner: {x: 6, y: 1.35, z: -54}
   _ballDrainTopRightCorner: {x: 10, y: 1.35, z: -48}
   _startingPosition: {fileID: 0}
@@ -4188,7 +4217,7 @@ MonoBehaviour:
   _horizontalCamera: {fileID: 0}
   _eventCamera: {fileID: 0}
   _defaultCamPlayfieldTransform: {fileID: 4175429408299692}
-  _defaultCamKanteleTransform: {fileID: 4658985689406780}
+  _defaultCamKanteleTransform: {fileID: 4744888124810460}
   _horizontalCamPlayfieldTransform: {fileID: 4715345940524332}
   _horizontalCamKanteleTransform: {fileID: 4406533871349730}
   _eventCamLaunchTransform: {fileID: 4851703086779858}
