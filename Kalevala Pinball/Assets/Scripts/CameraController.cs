@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -25,8 +26,12 @@ namespace Kalevala
         [SerializeField]
         private Camera _horizontalCamera;
 
+        // These two used for showing the scoreboard when in Kantele mode.
+        // Not sure if we need "event camera" otherwise.
         [SerializeField]
-        private Camera _eventCamera;
+        private Camera _scoreBoardCamera;
+        [SerializeField]
+        private GameObject _scoreBoardView;
 
         [SerializeField]
         private Transform _defaultCamPlayfieldTransform;
@@ -126,6 +131,9 @@ namespace Kalevala
 
             CamPosition = camPosition;
 
+            // Show or hide scoreboard extra view based on need.
+            ShowScoreBoard(camPosition);
+            
             switch (camPosition)
             {
                 case CameraPosition.Playfield:
@@ -148,6 +156,19 @@ namespace Kalevala
                 }
             }
         }
+
+        /// <summary>
+        /// Show or hide scoreboard extra view based on need.
+        /// Currently only needed when camera is showing the Kantele.
+        /// </summary>
+        /// <param name="camPosition">The current (or coming) camera position</param>
+        private void ShowScoreBoard(CameraPosition camPosition)
+        {
+            _scoreBoardCamera.enabled = (camPosition == CameraPosition.Kantele);
+            _scoreBoardView.SetActive(camPosition == CameraPosition.Kantele);
+        }
+
+
 
         /// <summary>
         /// A coroutine.
@@ -238,7 +259,7 @@ namespace Kalevala
                 // TODO: Random direction
                 //Vector3 randDir = direction * randomDirAngle * Random.Range(-0.5f, 1);
 
-                float randForce = force * Random.Range(-0.5f, 1);
+                float randForce = force * UnityEngine.Random.Range(-0.5f, 1);
 
                 Vector3 newPosition = startPosition + direction * randForce;
                 CurrentCamera.transform.position = newPosition;

@@ -840,7 +840,7 @@ GameObject:
   - component: {fileID: 4851703086779858}
   - component: {fileID: 20825400929398592}
   m_Layer: 0
-  m_Name: LauncherCamera
+  m_Name: ScoreBoardCamera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4215,7 +4215,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _defaultCamera: {fileID: 0}
   _horizontalCamera: {fileID: 0}
-  _eventCamera: {fileID: 0}
+  _scoreBoardCamera: {fileID: 0}
+  _scoreBoardView: {fileID: 0}
   _defaultCamPlayfieldTransform: {fileID: 4175429408299692}
   _defaultCamKanteleTransform: {fileID: 4744888124810460}
   _horizontalCamPlayfieldTransform: {fileID: 4715345940524332}

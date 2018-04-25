@@ -22,7 +22,9 @@ namespace Kalevala {
             //Up.enabled = onoff;
             //Down.enabled = onoff;
 
-           
+            _cover.material.SetFloat("_EmissionScaleUI", onoff ? 1 : .1f);
+            _lightBulb.SetActive(onoff);
+            _pointLight.enabled = onoff;
 
             _switchTime = Time.time;
         }
@@ -49,6 +51,9 @@ namespace Kalevala {
             //Up.enabled = value;
             //Down.enabled = value;
 
+            _cover.material.SetFloat("_EmissionScaleUI", value ? 1 : .1f);
+            _lightBulb.SetActive(value);
+            _pointLight.enabled = value;
 
         }
 
