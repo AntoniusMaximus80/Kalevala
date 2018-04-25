@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.IO.IsolatedStorage;
 using System.Text;
 using UnityEngine;
 
@@ -48,6 +49,11 @@ namespace Kalevala.Persistence
             catch (FileNotFoundException e)
             {
                 Debug.LogWarning("No save file created yet.\n" + e);
+                return default(T);
+            }
+            catch (IsolatedStorageException e2)
+            {
+                Debug.LogWarning("No save file created yet.\n" + e2);
                 return default(T);
             }
         }
