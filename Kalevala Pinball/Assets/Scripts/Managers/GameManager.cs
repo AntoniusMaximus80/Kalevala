@@ -354,12 +354,7 @@ namespace Kalevala
 
             LoadPlayerName();
 
-            // Loads audio volumes but doesn't set them to the audio
-            // players because they have not been initialized yet
-            Settings.Instance.MusicVolume =
-                PlayerPrefs.GetFloat("musicVolume", 0.25f);
-            Settings.Instance.EffectVolume =
-                PlayerPrefs.GetFloat("effectVolume", 0.25f);
+            Settings.Instance.Load();
 
             Debug.Log("--[ Game loaded ]--");
         }
@@ -376,9 +371,13 @@ namespace Kalevala
             Settings.Instance.Save();
 
             PlayerPrefs.Save();
+
             Debug.Log("Settings saved");
         }
 
+        /// <summary>
+        /// Saves the player's name if it's not the default name.
+        /// </summary>
         public void SavePlayerName()
         {
             if (DefaultNameUsed)
@@ -395,7 +394,7 @@ namespace Kalevala
         {
             string savedPlayerName = PlayerPrefs.GetString(PlayerKey, "");
 
-            // If no name is saved, use default name
+            // If no name is saved, the default name is used
             if (savedPlayerName.Length == 0)
             {
                 SetPlayerNameToDefault();

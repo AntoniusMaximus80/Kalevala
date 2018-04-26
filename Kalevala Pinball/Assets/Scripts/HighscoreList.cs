@@ -9,7 +9,7 @@ namespace Kalevala
 {
     public class HighscoreList : MonoBehaviour
     {
-        private const string _DEFAULT_PLAYER_NAME = "Creativium";
+        private const string _EMPTY_PLAYER_NAME = "Empty";
         private const int _DEFAULT_SCORE = 0;
 
         [SerializeField]
@@ -50,7 +50,16 @@ namespace Kalevala
 
         private string GetHighscoreText(Highscore highscore, int placement)
         {
-            return placement + ". " + highscore.ToString();
+            string hsText = placement + ". " + highscore.ToString();
+
+            // Adds a space in the beginning of any string
+            // where the placement is in the single digits
+            if (placement < 10)
+            {
+                hsText = " " + hsText;
+            }
+
+            return hsText;
         }
 
         /// <summary>
@@ -237,7 +246,7 @@ namespace Kalevala
             for (int i = 0; i < _highscores.Length; i++)
             {
                 _highscores[i] = new Highscore(i);
-                _highscores[i]._playerName = _DEFAULT_PLAYER_NAME;
+                _highscores[i]._playerName = _EMPTY_PLAYER_NAME;
                 _highscores[i]._score = _DEFAULT_SCORE;
             }
 

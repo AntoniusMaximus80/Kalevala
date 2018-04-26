@@ -5239,7 +5239,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!82 &378331660
 AudioSource:
   m_ObjectHideFlags: 0
@@ -6296,9 +6296,57 @@ Prefab:
       propertyPath: _kanteleLight
       value: 10000
       objectReference: {fileID: 0}
+    - target: {fileID: 114898397851683212, guid: 211d40b776f371a499e88a8daab2dc4d,
+        type: 2}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 27246064}
+    - target: {fileID: 114898397851683212, guid: 211d40b776f371a499e88a8daab2dc4d,
+        type: 2}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnEffectVolumeValueChanged
+      objectReference: {fileID: 0}
+    - target: {fileID: 114490750989978960, guid: 211d40b776f371a499e88a8daab2dc4d,
+        type: 2}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 27246064}
+    - target: {fileID: 114490750989978960, guid: 211d40b776f371a499e88a8daab2dc4d,
+        type: 2}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnMusicVolumeValueChanged
+      objectReference: {fileID: 0}
+    - target: {fileID: 114566912571384548, guid: 211d40b776f371a499e88a8daab2dc4d,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 27246064}
+    - target: {fileID: 114566912571384548, guid: 211d40b776f371a499e88a8daab2dc4d,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: EraseHighscores
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 211d40b776f371a499e88a8daab2dc4d, type: 2}
   m_IsPrefabParent: 0
+--- !u!114 &440138568 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114647152259157590, guid: 211d40b776f371a499e88a8daab2dc4d,
+    type: 2}
+  m_PrefabInternal: {fileID: 440138567}
+  m_Script: {fileID: 2109663825, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+--- !u!114 &440138569 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114898397851683212, guid: 211d40b776f371a499e88a8daab2dc4d,
+    type: 2}
+  m_PrefabInternal: {fileID: 440138567}
+  m_Script: {fileID: -113659843, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+--- !u!114 &440138570 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114490750989978960, guid: 211d40b776f371a499e88a8daab2dc4d,
+    type: 2}
+  m_PrefabInternal: {fileID: 440138567}
+  m_Script: {fileID: -113659843, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!1001 &449186266
 Prefab:
   m_ObjectHideFlags: 0
@@ -17164,14 +17212,19 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 114006160368389968, guid: 18998b030096b7146b60c36d62c17c2c,
         type: 2}
-      propertyPath: _autoplayMusic
-      value: 0
-      objectReference: {fileID: 0}
+      propertyPath: _musicVolumeSlider
+      value: 
+      objectReference: {fileID: 440138570}
     - target: {fileID: 114006160368389968, guid: 18998b030096b7146b60c36d62c17c2c,
         type: 2}
-      propertyPath: _enableEventCamera
-      value: 0
-      objectReference: {fileID: 0}
+      propertyPath: _effectVolumeSlider
+      value: 
+      objectReference: {fileID: 440138569}
+    - target: {fileID: 114006160368389968, guid: 18998b030096b7146b60c36d62c17c2c,
+        type: 2}
+      propertyPath: _enableEventCamToggle
+      value: 
+      objectReference: {fileID: 440138568}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 18998b030096b7146b60c36d62c17c2c, type: 2}
   m_IsPrefabParent: 0

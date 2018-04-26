@@ -30,8 +30,26 @@ namespace Kalevala
         }
         #endregion Statics
 
+        private const string MusicVolumeKey = "musicVolume";
+        private const string EffectVolumeKey = "effectVolume";
+
+        [SerializeField]
+        private float _defaultMusicVolume = 0.1f;
+
+        [SerializeField]
+        private float _defaultEffectVolume = 0.1f;
+
         [SerializeField]
         private bool _autoplayMusic = true;
+
+        [SerializeField]
+        private Slider _musicVolumeSlider;
+
+        [SerializeField]
+        private Slider _effectVolumeSlider;
+
+        [SerializeField]
+        private Toggle _enableEventCamToggle;
 
         //[SerializeField]
         private bool _enableEventCamera = true;
@@ -61,20 +79,27 @@ namespace Kalevala
         {
             _input = FindObjectOfType<InputManager>();
             InitAudio();
-            EnableEventCamera = _enableEventCamera;
+            InitUIObjects();
+            //EnableEventCamera = _enableEventCamera;
         }
 
-        public void InitAudio()
+        private void InitAudio()
         {
             _audioInitialized = true;
 
-            MusicPlayer.Instance.SetVolume(_musicVolume);
+            //MusicPlayer.Instance.SetVolume(_musicVolume);
             //SFXPlayer.Instance.SetVolume(_effectVolume);
 
             if (!_autoplayMusic)
             {
                 MusicPlayer.Instance.Stop();
             }
+        }
+
+        private void InitUIObjects()
+        {
+            _musicVolumeSlider.value = MusicVolume;
+            _effectVolumeSlider.value = EffectVolume;
         }
 
         public float MusicVolume
@@ -132,47 +157,53 @@ namespace Kalevala
             }
         }
 
-        public void SetMusicVolume(float value)
+        public void OnMusicVolumeValueChanged()
         {
-            MusicVolume = value;
+            MusicVolume = _musicVolumeSlider.value;
         }
 
-        public void SetEffectVolume(float value)
+        public void OnEffectVolumeValueChanged()
         {
-            EffectVolume = value;
+            EffectVolume = _effectVolumeSlider.value;
         }
 
-        public void SetEnableEventCamera(Toggle toggle)
+        public void OnEnableEventCameraValueChanged()
         {
-            EnableEventCamera = toggle.isOn;
+            EnableEventCamera = _enableEventCamToggle.isOn;
         }
 
-        public void EraseHighscores()
+        public void EraseHighscores(bool skipConfirmation)
         {
-            GameManager.Instance.EraseLocalHighscores();
-
-            // Highlight the default menu button if the mouse is not used
-            if ( !_input.HighlightMenuDefaultButton() )
+            if (!skipConfirmation)
             {
-                // Clears the menu button selection if the mouse is used
-                EventSystem.current.SetSelectedGameObject(null);
+                _input.Confirm(ConfirmationType.EraseHighscores);
+            }
+            else
+            {
+                GameManager.Instance.EraseLocalHighscores();
+
+                // Highlight the default menu button if the mouse is not used
+                if (!_input.HighlightMenuDefaultButton())
+                {
+                    // Clears the menu button selection if the mouse is used
+                    EventSystem.current.SetSelectedGameObject(null);
+                }
             }
         }
 
         public void Save()
         {
-            //Debug.Log("musicVolume: " + _musicVolume);
-            //Debug.Log("effectVolume: " + _effectVolume);
-            PlayerPrefs.SetFloat("musicVolume", _musicVolume);
-            PlayerPrefs.SetFloat("effectVolume", _effectVolume);
+            PlayerPrefs.SetFloat(MusicVolumeKey, _musicVolume);
+            PlayerPrefs.SetFloat(EffectVolumeKey, _effectVolume);
+            // PlayerPrefs.Save();
         }
 
         public void Load()
         {
-            //Debug.Log("musicVolume: " + _musicVolume);
-            //Debug.Log("effectVolume: " + _effectVolume);
-            PlayerPrefs.SetFloat("musicVolume", _musicVolume);
-            PlayerPrefs.SetFloat("effectVolume", _effectVolume);
+            MusicVolume = PlayerPrefs.GetFloat
+                (MusicVolumeKey, _defaultMusicVolume);
+            EffectVolume = PlayerPrefs.GetFloat
+                (EffectVolumeKey, _defaultEffectVolume);
         }
     }
 }

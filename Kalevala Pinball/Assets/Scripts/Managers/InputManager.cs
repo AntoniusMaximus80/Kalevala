@@ -587,7 +587,7 @@ namespace Kalevala {
                     }
                     case ConfirmationType.EraseHighscores:
                     {
-                        EraseHighscores(true);
+                        Settings.Instance.EraseHighscores(true);
                         break;
                     }
                 }
@@ -599,7 +599,7 @@ namespace Kalevala {
             }
         }
 
-        private void Confirm(ConfirmationType confType)
+        public void Confirm(ConfirmationType confType)
         {
             _confirmation.Activate(confType);
             _stateManager.ShowCurrentMenu(false);
@@ -704,18 +704,6 @@ namespace Kalevala {
             _stateManager.PerformTransition(_settingsAccessorScreen);
             //_stateManager.GoToPauseState();
             HighlightMenuDefaultButton();
-        }
-
-        public void EraseHighscores(bool skipConfirm)
-        {
-            if (!skipConfirm)
-            {
-                Confirm(ConfirmationType.EraseHighscores);
-            }
-            else
-            {
-                _highscoreList.ResetList();
-            }
         }
 
         public void ActivateTextInput()
@@ -919,12 +907,15 @@ namespace Kalevala {
 
         private void OnLanguageLoaded()
         {
-            string name = GameManager.Instance.PlayerName;
-            _playerName.text = name;
-
-            if ( !GameManager.Instance.DefaultNameUsed )
+            if (Application.isPlaying)
             {
-                _playerNameTextInput.SetText(name);
+                string name = GameManager.Instance.PlayerName;
+                _playerName.text = name;
+
+                if ( !GameManager.Instance.DefaultNameUsed )
+                {
+                    _playerNameTextInput.SetText(name);
+                }
             }
         }
     }

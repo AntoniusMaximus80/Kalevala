@@ -2204,6 +2204,12 @@ MonoBehaviour:
   _directionAngleTolerance: 89
   _gizmosColor: {r: 1, g: 0, b: 0, a: 1}
   _kickoutHole: {fileID: 251655820}
+--- !u!114 &251863789 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114647152259157590, guid: 211d40b776f371a499e88a8daab2dc4d,
+    type: 2}
+  m_PrefabInternal: {fileID: 1261067221}
+  m_Script: {fileID: 2109663825, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!1 &254094012
 GameObject:
   m_ObjectHideFlags: 0
@@ -14525,6 +14531,16 @@ Prefab:
       propertyPath: m_RootOrder
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 114898397851683212, guid: 211d40b776f371a499e88a8daab2dc4d,
+        type: 2}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 295742165}
+    - target: {fileID: 114490750989978960, guid: 211d40b776f371a499e88a8daab2dc4d,
+        type: 2}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 295742165}
     - target: {fileID: 114566912571384548, guid: 211d40b776f371a499e88a8daab2dc4d,
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -14565,6 +14581,11 @@ Prefab:
       propertyPath: _topRightFlipper
       value: 
       objectReference: {fileID: 321643236}
+    - target: {fileID: 114647152259157590, guid: 211d40b776f371a499e88a8daab2dc4d,
+        type: 2}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 295742165}
     - target: {fileID: 114959818721151298, guid: 211d40b776f371a499e88a8daab2dc4d,
         type: 2}
       propertyPath: _defaultCamera
@@ -15851,6 +15872,12 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2, y: 2, z: 2.7}
   m_Center: {x: 0, y: 0, z: 1.35}
+--- !u!114 &1332734827 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114898397851683212, guid: 211d40b776f371a499e88a8daab2dc4d,
+    type: 2}
+  m_PrefabInternal: {fileID: 1261067221}
+  m_Script: {fileID: -113659843, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!1 &1355949049
 GameObject:
   m_ObjectHideFlags: 0
@@ -19695,14 +19722,19 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 114006160368389968, guid: 18998b030096b7146b60c36d62c17c2c,
         type: 2}
-      propertyPath: _autoplayMusic
-      value: 0
-      objectReference: {fileID: 0}
+      propertyPath: _musicVolumeSlider
+      value: 
+      objectReference: {fileID: 2077049139}
     - target: {fileID: 114006160368389968, guid: 18998b030096b7146b60c36d62c17c2c,
         type: 2}
-      propertyPath: _enableEventCamera
-      value: 0
-      objectReference: {fileID: 0}
+      propertyPath: _effectVolumeSlider
+      value: 
+      objectReference: {fileID: 1332734827}
+    - target: {fileID: 114006160368389968, guid: 18998b030096b7146b60c36d62c17c2c,
+        type: 2}
+      propertyPath: _enableEventCamToggle
+      value: 
+      objectReference: {fileID: 251863789}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 18998b030096b7146b60c36d62c17c2c, type: 2}
   m_IsPrefabParent: 0
@@ -20000,6 +20032,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _isPartOfCurve: 1
   _curveName: TeleportCurves
+--- !u!114 &2077049139 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114490750989978960, guid: 211d40b776f371a499e88a8daab2dc4d,
+    type: 2}
+  m_PrefabInternal: {fileID: 1261067221}
+  m_Script: {fileID: -113659843, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!1 &2079119885
 GameObject:
   m_ObjectHideFlags: 0
