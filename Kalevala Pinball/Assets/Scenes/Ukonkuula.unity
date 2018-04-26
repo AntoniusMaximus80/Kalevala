@@ -1178,6 +1178,8 @@ MonoBehaviour:
   _cover: {fileID: 61730601}
   _lightBulb: {fileID: 61730600}
   _pointLight: {fileID: 61730599}
+  _offColor: {r: 0, g: 0, b: 0, a: 1}
+  _baseColor: {r: 1, g: 0, b: 1, a: 1}
 --- !u!1 &61893221
 GameObject:
   m_ObjectHideFlags: 0
@@ -1373,6 +1375,8 @@ MonoBehaviour:
   _cover: {fileID: 68062542}
   _lightBulb: {fileID: 68062541}
   _pointLight: {fileID: 68062540}
+  _offColor: {r: 0, g: 0, b: 0, a: 1}
+  _baseColor: {r: 1, g: 0, b: 1, a: 1}
 --- !u!1 &76192252
 GameObject:
   m_ObjectHideFlags: 0
@@ -6201,7 +6205,7 @@ Prefab:
         type: 2}
       propertyPath: _shootAgainLight
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1564406797}
     - target: {fileID: 114608500991614028, guid: 211d40b776f371a499e88a8daab2dc4d,
         type: 2}
       propertyPath: _location
@@ -23911,6 +23915,8 @@ MonoBehaviour:
   _cover: {fileID: 1494680862}
   _lightBulb: {fileID: 1494680861}
   _pointLight: {fileID: 1494680860}
+  _offColor: {r: 0, g: 0, b: 0, a: 1}
+  _baseColor: {r: 1, g: 0, b: 1, a: 1}
 --- !u!1001 &1496929678
 Prefab:
   m_ObjectHideFlags: 0
@@ -24576,6 +24582,24 @@ Prefab:
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: ffe8611cd15a5c84eaf64f2fa681b121, type: 3}
   m_PrefabInternal: {fileID: 1564406794}
+--- !u!1 &1564406796 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 100000, guid: ffe8611cd15a5c84eaf64f2fa681b121, type: 3}
+  m_PrefabInternal: {fileID: 1564406794}
+--- !u!114 &1564406797
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1564406796}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca7e24e65666d324ca325e17b60310fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Up: {fileID: 937913761}
+  _offColor: {r: 0, g: 0, b: 0, a: 1}
+  _baseColor: {r: 1, g: 0, b: 1, a: 1}
 --- !u!1 &1564914157
 GameObject:
   m_ObjectHideFlags: 0
