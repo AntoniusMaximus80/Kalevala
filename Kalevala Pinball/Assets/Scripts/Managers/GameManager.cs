@@ -194,8 +194,8 @@ namespace Kalevala
         /// </summary>
         private void InitLocalization()
         {
-            LangCode currentLang =
-                (LangCode) PlayerPrefs.GetInt(LanguageKey, (int) _defaultLanguage);
+            LangCode currentLang = _defaultLanguage;
+                //(LangCode) PlayerPrefs.GetInt(LanguageKey, (int) _defaultLanguage);
             L10n.LoadLanguage(currentLang);
             L10n.LanguageLoaded += OnLanguageLoaded;
         }

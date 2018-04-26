@@ -5340,7 +5340,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!82 &378331660
 AudioSource:
   m_ObjectHideFlags: 0
@@ -6268,51 +6268,21 @@ Prefab:
       propertyPath: m_RootOrder
       value: 8
       objectReference: {fileID: 0}
-    - target: {fileID: 114656357482212084, guid: 211d40b776f371a499e88a8daab2dc4d,
+    - target: {fileID: 114608500991614028, guid: 211d40b776f371a499e88a8daab2dc4d,
         type: 2}
-      propertyPath: _toyElevatorAnimator
-      value: 
-      objectReference: {fileID: 588159930}
-    - target: {fileID: 114656357482212084, guid: 211d40b776f371a499e88a8daab2dc4d,
-        type: 2}
-      propertyPath: _irisDoorAnimator
-      value: 
-      objectReference: {fileID: 48126706}
-    - target: {fileID: 114656357482212084, guid: 211d40b776f371a499e88a8daab2dc4d,
-        type: 2}
-      propertyPath: _sampo
-      value: 
-      objectReference: {fileID: 1773381718}
-    - target: {fileID: 114602248010753546, guid: 211d40b776f371a499e88a8daab2dc4d,
-        type: 2}
-      propertyPath: _workshopLocation
+      propertyPath: _location
       value: 
       objectReference: {fileID: 379159809}
-    - target: {fileID: 114602248010753546, guid: 211d40b776f371a499e88a8daab2dc4d,
+    - target: {fileID: 114599638252755998, guid: 211d40b776f371a499e88a8daab2dc4d,
         type: 2}
-      propertyPath: _startingPosition
+      propertyPath: _workshopKOH
       value: 
-      objectReference: {fileID: 1054959848}
-    - target: {fileID: 114602248010753546, guid: 211d40b776f371a499e88a8daab2dc4d,
+      objectReference: {fileID: 868912749}
+    - target: {fileID: 114599638252755998, guid: 211d40b776f371a499e88a8daab2dc4d,
         type: 2}
-      propertyPath: _pinballPrefab
+      propertyPath: _shootAgainLight
       value: 
-      objectReference: {fileID: 1054959847}
-    - target: {fileID: 114959818721151298, guid: 211d40b776f371a499e88a8daab2dc4d,
-        type: 2}
-      propertyPath: _defaultCamera
-      value: 
-      objectReference: {fileID: 318112937}
-    - target: {fileID: 114959818721151298, guid: 211d40b776f371a499e88a8daab2dc4d,
-        type: 2}
-      propertyPath: _horizontalCamera
-      value: 
-      objectReference: {fileID: 722378372}
-    - target: {fileID: 114647152259157590, guid: 211d40b776f371a499e88a8daab2dc4d,
-        type: 2}
-      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 27246064}
+      objectReference: {fileID: 1560778856}
     - target: {fileID: 114011568283334892, guid: 211d40b776f371a499e88a8daab2dc4d,
         type: 2}
       propertyPath: _launcher
@@ -6333,25 +6303,51 @@ Prefab:
       propertyPath: _topRightFlipper
       value: 
       objectReference: {fileID: 81130876}
-    - target: {fileID: 114599638252755998, guid: 211d40b776f371a499e88a8daab2dc4d,
+    - target: {fileID: 114647152259157590, guid: 211d40b776f371a499e88a8daab2dc4d,
         type: 2}
-      propertyPath: _workshopKOH
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 868912749}
-    - target: {fileID: 114599638252755998, guid: 211d40b776f371a499e88a8daab2dc4d,
+      objectReference: {fileID: 27246064}
+    - target: {fileID: 114959818721151298, guid: 211d40b776f371a499e88a8daab2dc4d,
         type: 2}
-      propertyPath: _shootAgainLight
+      propertyPath: _defaultCamera
       value: 
-      objectReference: {fileID: 1560778856}
-    - target: {fileID: 114608500991614028, guid: 211d40b776f371a499e88a8daab2dc4d,
+      objectReference: {fileID: 318112937}
+    - target: {fileID: 114959818721151298, guid: 211d40b776f371a499e88a8daab2dc4d,
         type: 2}
-      propertyPath: _location
+      propertyPath: _horizontalCamera
+      value: 
+      objectReference: {fileID: 722378372}
+    - target: {fileID: 114602248010753546, guid: 211d40b776f371a499e88a8daab2dc4d,
+        type: 2}
+      propertyPath: _workshopLocation
       value: 
       objectReference: {fileID: 379159809}
-    - target: {fileID: 1719483381453372, guid: 211d40b776f371a499e88a8daab2dc4d, type: 2}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
+    - target: {fileID: 114602248010753546, guid: 211d40b776f371a499e88a8daab2dc4d,
+        type: 2}
+      propertyPath: _startingPosition
+      value: 
+      objectReference: {fileID: 1054959848}
+    - target: {fileID: 114602248010753546, guid: 211d40b776f371a499e88a8daab2dc4d,
+        type: 2}
+      propertyPath: _pinballPrefab
+      value: 
+      objectReference: {fileID: 1054959847}
+    - target: {fileID: 114656357482212084, guid: 211d40b776f371a499e88a8daab2dc4d,
+        type: 2}
+      propertyPath: _toyElevatorAnimator
+      value: 
+      objectReference: {fileID: 588159930}
+    - target: {fileID: 114656357482212084, guid: 211d40b776f371a499e88a8daab2dc4d,
+        type: 2}
+      propertyPath: _irisDoorAnimator
+      value: 
+      objectReference: {fileID: 48126706}
+    - target: {fileID: 114656357482212084, guid: 211d40b776f371a499e88a8daab2dc4d,
+        type: 2}
+      propertyPath: _sampo
+      value: 
+      objectReference: {fileID: 1773381718}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 211d40b776f371a499e88a8daab2dc4d, type: 2}
   m_IsPrefabParent: 0
@@ -17180,7 +17176,7 @@ Prefab:
     - target: {fileID: 114006160368389968, guid: 18998b030096b7146b60c36d62c17c2c,
         type: 2}
       propertyPath: _autoplayMusic
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114006160368389968, guid: 18998b030096b7146b60c36d62c17c2c,
         type: 2}

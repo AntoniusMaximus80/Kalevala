@@ -41,21 +41,33 @@ namespace Kalevala.Persistence
         /// <returns>loaded data of the given type</returns>
         public T Load<T>()
         {
-            try
+            if (File.Exists(FilePath))
             {
+                Debug.Log("Data loaded");
                 string jsonData = File.ReadAllText(FilePath, Encoding.UTF8);
                 return JsonUtility.FromJson<T>(jsonData);
             }
-            catch (FileNotFoundException e)
+            else
             {
-                Debug.LogWarning("No save file created yet.\n" + e);
+                Debug.Log("Data doesn't exist");
                 return default(T);
             }
-            catch (IsolatedStorageException e2)
-            {
-                Debug.LogWarning("No save file created yet.\n" + e2);
-                return default(T);
-            }
+
+            //try
+            //{
+            //    string jsonData = File.ReadAllText(FilePath, Encoding.UTF8);
+            //    return JsonUtility.FromJson<T>(jsonData);
+            //}
+            //catch (FileNotFoundException e)
+            //{
+            //    Debug.LogWarning("No save file created yet.\n" + e);
+            //    return default(T);
+            //}
+            //catch (IsolatedStorageException e2)
+            //{
+            //    Debug.LogWarning("No save file created yet.\n" + e2);
+            //    return default(T);
+            //}
         }
     }
 }
