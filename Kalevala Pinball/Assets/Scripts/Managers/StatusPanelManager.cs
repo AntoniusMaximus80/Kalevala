@@ -20,7 +20,7 @@ namespace Kalevala
         private IlmarinenKickoutHole _workshopKOH;
 
         [SerializeField]
-        private PlayfieldLight _shootAgainLight;
+        private LiveAgainLight _shootAgainLight;
 
         private int _workshopKOHEnteredNum;
 

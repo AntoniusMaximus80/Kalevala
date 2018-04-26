@@ -6,7 +6,7 @@ Material:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: T
+  m_Name: Live Again Light
   m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
   m_ShaderKeywords: _ALPHATEST_ON _EMISSION
   m_LightmapFlags: 1
@@ -36,11 +36,11 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _EmissionMap:
-        m_Texture: {fileID: 2800000, guid: de5146dd387a1ef41b18c8405ea5d60e, type: 3}
+        m_Texture: {fileID: 2800000, guid: 788700cd1af06e145823f4f13f1be90b, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 5163b5b1c980fdc4cadbe9e9c20325ae, type: 3}
+        m_Texture: {fileID: 2800000, guid: 903a3ef9c4214fb4c8afcf57e38a3eeb, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
@@ -74,4 +74,4 @@ Material:
     - _ZWrite: 1
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _EmissionColor: {r: 4, g: 1.2058823, b: 1.2058823, a: 1}
+    - _EmissionColor: {r: 2.4705882, g: 1.4522849, b: 0.16349481, a: 1}

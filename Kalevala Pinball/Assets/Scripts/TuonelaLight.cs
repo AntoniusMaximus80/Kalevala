@@ -2,23 +2,27 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayfieldLight : MonoBehaviour
-{
+public class TuonelaLight : MonoBehaviour {
 
+    public Light Up;
 
-    public Light Up, Down;
+    public Color _offColor = Color.black;
 
     private bool _state;
 
+    public Color _baseColor = Color.magenta;
+
     private float _switchTime = -10f;
 
+    
 
     public void Switch(bool onoff)
     {
         _state = onoff;
 
         Up.enabled = onoff;
-        Down.enabled = onoff;
+        gameObject.GetComponent<Renderer>().material.EnableKeyword("_Emission");
+        gameObject.GetComponent<Renderer>().material.SetColor("_EmissionColor", onoff ? _baseColor : _offColor);
 
         _switchTime = Time.time;
     }
@@ -43,10 +47,8 @@ public class PlayfieldLight : MonoBehaviour
         }
 
         Up.enabled = value;
-        Down.enabled = value;
+        gameObject.GetComponent<Renderer>().material.SetColor("_EmissionColor", value ? _baseColor: _offColor);
 
 
     }
-
-
 }

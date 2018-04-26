@@ -95,7 +95,7 @@ namespace Kalevala
 
         public static void FormatScoreIncrement(int score)
         {
-            _instance._incrementUGUI.text = score.ToString("N0");
+            _instance._incrementUGUI.text = "+"+score.ToString("N0");
             _incrementVisibleCountdown = _instance._incrementVisible;
         }
 

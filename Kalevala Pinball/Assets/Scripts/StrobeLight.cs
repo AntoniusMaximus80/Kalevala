@@ -10,6 +10,10 @@ namespace Kalevala {
         public GameObject _lightBulb;
         public Light _pointLight;
 
+        // onoff color values for the emission.
+        public Color _offColor = Color.black;
+        public Color _baseColor = Color.magenta;
+
         private bool _state;
 
         private float _switchTime = -10f;
@@ -22,7 +26,7 @@ namespace Kalevala {
             //Up.enabled = onoff;
             //Down.enabled = onoff;
 
-            _cover.material.SetFloat("_EmissionScaleUI", onoff ? 1 : .1f);
+            _cover.material.SetColor("_EmissionColor", onoff ? _baseColor : _offColor);
             _lightBulb.SetActive(onoff);
             _pointLight.enabled = onoff;
 
@@ -51,7 +55,7 @@ namespace Kalevala {
             //Up.enabled = value;
             //Down.enabled = value;
 
-            _cover.material.SetFloat("_EmissionScaleUI", value ? 1 : .1f);
+            _cover.material.SetColor("_EmissionColor", value ? _baseColor : _offColor);
             _lightBulb.SetActive(value);
             _pointLight.enabled = value;
 

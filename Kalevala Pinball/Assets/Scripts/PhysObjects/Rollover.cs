@@ -10,7 +10,7 @@ namespace Kalevala
 
         public Transform wire;
 
-        public PlayfieldLight _light;
+        public TuonelaLight _light;
 
         public int order;
 
