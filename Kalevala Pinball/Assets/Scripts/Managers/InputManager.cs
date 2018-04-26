@@ -314,12 +314,6 @@ namespace Kalevala {
                 GameManager.Instance.SetCameraMode
                     (CameraController.CameraType.Horizontal);
             }
-
-            // Reset highscores
-            if (Input.GetKeyUp(KeyCode.R))
-            {
-                GameManager.Instance.EraseLocalHighscores();
-            }
         }
 
         private void GameOverInput()
@@ -853,17 +847,17 @@ namespace Kalevala {
             }
         }
 
-        private void HighlightMenuDefaultButton()
+        public bool HighlightMenuDefaultButton()
         {
             if (!_cursor.PlayingUsingMouse)
             {
-                //cursor.ClearCursorHighlight();
-
                 // Selects the menu's default selected button
                 SelectDefaultSelectedMenuButton();
-
-                //EventSystem.current.SetSelectedGameObject
-                //    (EventSystem.current.firstSelectedGameObject);
+                return true;
+            }
+            else
+            {
+                return false;
             }
         }
 
@@ -928,10 +922,8 @@ namespace Kalevala {
             string name = GameManager.Instance.PlayerName;
             _playerName.text = name;
 
-            Debug.Log("A");
             if ( !GameManager.Instance.DefaultNameUsed )
             {
-                Debug.Log("B");
                 _playerNameTextInput.SetText(name);
             }
         }

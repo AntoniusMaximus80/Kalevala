@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 namespace Kalevala
 {
@@ -41,6 +42,8 @@ namespace Kalevala
         private float _musicVolume;
         private float _effectVolume;
 
+        private InputManager _input;
+
         private void Awake()
         {
             if (instance == null)
@@ -56,6 +59,7 @@ namespace Kalevala
 
         private void Start()
         {
+            _input = FindObjectOfType<InputManager>();
             InitAudio();
             EnableEventCamera = _enableEventCamera;
         }
@@ -141,6 +145,18 @@ namespace Kalevala
         public void SetEnableEventCamera(Toggle toggle)
         {
             EnableEventCamera = toggle.isOn;
+        }
+
+        public void EraseHighscores()
+        {
+            GameManager.Instance.EraseLocalHighscores();
+
+            // Highlight the default menu button if the mouse is not used
+            if ( !_input.HighlightMenuDefaultButton() )
+            {
+                // Clears the menu button selection if the mouse is used
+                EventSystem.current.SetSelectedGameObject(null);
+            }
         }
 
         public void Save()

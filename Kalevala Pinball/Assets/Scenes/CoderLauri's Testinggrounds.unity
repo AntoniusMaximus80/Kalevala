@@ -3090,6 +3090,12 @@ ReflectionProbe:
   m_UseOcclusionCulling: 1
   m_Importance: 1
   m_CustomBakedTexture: {fileID: 0}
+--- !u!114 &295742165 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114006160368389968, guid: 18998b030096b7146b60c36d62c17c2c,
+    type: 2}
+  m_PrefabInternal: {fileID: 1942757482}
+  m_Script: {fileID: 11500000, guid: 3a3ebc1f7c1f0cc42bc8ce03a1ae1afe, type: 3}
 --- !u!1001 &296890710
 Prefab:
   m_ObjectHideFlags: 0
@@ -10354,10 +10360,6 @@ Prefab:
 GameObject:
   m_PrefabParentObject: {fileID: 100002, guid: 4adc4a93d7a8bf046a47b6d6e64ffeb3, type: 3}
   m_PrefabInternal: {fileID: 762295602}
---- !u!1 &762295604 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 100000, guid: 4adc4a93d7a8bf046a47b6d6e64ffeb3, type: 3}
-  m_PrefabInternal: {fileID: 762295602}
 --- !u!64 &762295605
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -10372,20 +10374,6 @@ MeshCollider:
   m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300002, guid: 4adc4a93d7a8bf046a47b6d6e64ffeb3, type: 3}
---- !u!64 &762295606
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 762295604}
-  m_Material: {fileID: 13400000, guid: f6c6668c8718a0e479fc90dda820aee9, type: 2}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 0
-  m_CookingOptions: 14
-  m_SkinWidth: 0.01
-  m_Mesh: {fileID: 4300000, guid: 4adc4a93d7a8bf046a47b6d6e64ffeb3, type: 3}
 --- !u!1 &772689743
 GameObject:
   m_ObjectHideFlags: 0
@@ -11109,17 +11097,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _generate: 0
-  _grainPrefab: {fileID: 1040548159915542, guid: 2fe7b460d41ffdb40820a164c1b50531,
-    type: 2}
-  _saltPrefab: {fileID: 1199780280009704, guid: f4dc766adef6ea845be1d0606505818d,
-    type: 2}
-  _goldCoinPrefab: {fileID: 1833740733157892, guid: 19c1800bce0742c42abe29888f2a89a1,
-    type: 2}
-  _body: {fileID: 259102757}
   _launchForceMultiplier: 64
   _launchForceVariance: 1
   _randomDirectionMultiplier: 2
-  _sampoProduct: 2
+  _sampo: {fileID: 0}
+  _sampoProductType: 0
+  _sampoMiddle: {fileID: 0}
+  _spawnInterval: 0
 --- !u!1001 &924017944
 Prefab:
   m_ObjectHideFlags: 0
@@ -11547,17 +11531,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _generate: 0
-  _grainPrefab: {fileID: 1040548159915542, guid: 2fe7b460d41ffdb40820a164c1b50531,
-    type: 2}
-  _saltPrefab: {fileID: 1199780280009704, guid: f4dc766adef6ea845be1d0606505818d,
-    type: 2}
-  _goldCoinPrefab: {fileID: 1833740733157892, guid: 19c1800bce0742c42abe29888f2a89a1,
-    type: 2}
-  _body: {fileID: 259102757}
   _launchForceMultiplier: 64
   _launchForceVariance: 1
   _randomDirectionMultiplier: 2
-  _sampoProduct: 1
+  _sampo: {fileID: 0}
+  _sampoProductType: 0
+  _sampoMiddle: {fileID: 0}
+  _spawnInterval: 0
 --- !u!1 &940662264
 GameObject:
   m_ObjectHideFlags: 0
@@ -14545,36 +14525,16 @@ Prefab:
       propertyPath: m_RootOrder
       value: 8
       objectReference: {fileID: 0}
-    - target: {fileID: 114959818721151298, guid: 211d40b776f371a499e88a8daab2dc4d,
+    - target: {fileID: 114566912571384548, guid: 211d40b776f371a499e88a8daab2dc4d,
         type: 2}
-      propertyPath: _defaultCamera
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 333778139}
-    - target: {fileID: 114959818721151298, guid: 211d40b776f371a499e88a8daab2dc4d,
-        type: 2}
-      propertyPath: _horizontalCamera
-      value: 
-      objectReference: {fileID: 975248452}
+      objectReference: {fileID: 295742165}
     - target: {fileID: 114608500991614028, guid: 211d40b776f371a499e88a8daab2dc4d,
         type: 2}
       propertyPath: _location
       value: 
       objectReference: {fileID: 498433991}
-    - target: {fileID: 114602248010753546, guid: 211d40b776f371a499e88a8daab2dc4d,
-        type: 2}
-      propertyPath: _workshopLocation
-      value: 
-      objectReference: {fileID: 498433991}
-    - target: {fileID: 114602248010753546, guid: 211d40b776f371a499e88a8daab2dc4d,
-        type: 2}
-      propertyPath: _startingPosition
-      value: 
-      objectReference: {fileID: 1839946995}
-    - target: {fileID: 114602248010753546, guid: 211d40b776f371a499e88a8daab2dc4d,
-        type: 2}
-      propertyPath: _pinballPrefab
-      value: 
-      objectReference: {fileID: 1839946994}
     - target: {fileID: 114599638252755998, guid: 211d40b776f371a499e88a8daab2dc4d,
         type: 2}
       propertyPath: _workshopKOH
@@ -14605,6 +14565,31 @@ Prefab:
       propertyPath: _topRightFlipper
       value: 
       objectReference: {fileID: 321643236}
+    - target: {fileID: 114959818721151298, guid: 211d40b776f371a499e88a8daab2dc4d,
+        type: 2}
+      propertyPath: _defaultCamera
+      value: 
+      objectReference: {fileID: 333778139}
+    - target: {fileID: 114959818721151298, guid: 211d40b776f371a499e88a8daab2dc4d,
+        type: 2}
+      propertyPath: _horizontalCamera
+      value: 
+      objectReference: {fileID: 975248452}
+    - target: {fileID: 114602248010753546, guid: 211d40b776f371a499e88a8daab2dc4d,
+        type: 2}
+      propertyPath: _workshopLocation
+      value: 
+      objectReference: {fileID: 498433991}
+    - target: {fileID: 114602248010753546, guid: 211d40b776f371a499e88a8daab2dc4d,
+        type: 2}
+      propertyPath: _startingPosition
+      value: 
+      objectReference: {fileID: 1839946995}
+    - target: {fileID: 114602248010753546, guid: 211d40b776f371a499e88a8daab2dc4d,
+        type: 2}
+      propertyPath: _pinballPrefab
+      value: 
+      objectReference: {fileID: 1839946994}
     - target: {fileID: 114656357482212084, guid: 211d40b776f371a499e88a8daab2dc4d,
         type: 2}
       propertyPath: _toyElevatorAnimator
@@ -19267,17 +19252,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _generate: 0
-  _grainPrefab: {fileID: 1040548159915542, guid: 2fe7b460d41ffdb40820a164c1b50531,
-    type: 2}
-  _saltPrefab: {fileID: 1199780280009704, guid: f4dc766adef6ea845be1d0606505818d,
-    type: 2}
-  _goldCoinPrefab: {fileID: 1833740733157892, guid: 19c1800bce0742c42abe29888f2a89a1,
-    type: 2}
-  _body: {fileID: 259102757}
   _launchForceMultiplier: 64
   _launchForceVariance: 1
   _randomDirectionMultiplier: 2
-  _sampoProduct: 0
+  _sampo: {fileID: 0}
+  _sampoProductType: 0
+  _sampoMiddle: {fileID: 0}
+  _spawnInterval: 0
 --- !u!1001 &1852335056
 Prefab:
   m_ObjectHideFlags: 0
