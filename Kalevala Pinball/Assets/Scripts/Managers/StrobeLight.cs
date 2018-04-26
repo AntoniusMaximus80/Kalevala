@@ -57,7 +57,7 @@ namespace Kalevala {
 
             _cover.material.SetColor("_EmissionColor", value ? _baseColor : _offColor);
             _lightBulb.SetActive(value);
-            _pointLight.enabled = value;s
+            _pointLight.enabled = value;
 
         }
 
