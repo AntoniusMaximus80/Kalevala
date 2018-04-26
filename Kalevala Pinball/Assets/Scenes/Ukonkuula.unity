@@ -1607,6 +1607,24 @@ Prefab:
     - {fileID: 9500000, guid: ffe8611cd15a5c84eaf64f2fa681b121, type: 3}
   m_ParentPrefab: {fileID: 100100000, guid: ffe8611cd15a5c84eaf64f2fa681b121, type: 3}
   m_IsPrefabParent: 0
+--- !u!1 &96135381 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 100000, guid: ffe8611cd15a5c84eaf64f2fa681b121, type: 3}
+  m_PrefabInternal: {fileID: 96135380}
+--- !u!114 &96135382
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 96135381}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e785758dd27860f458853be7bf1f9de3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Up: {fileID: 1871360147}
+  _offColor: {r: 0, g: 0, b: 0, a: 1}
+  _baseColor: {r: 1, g: 0, b: 1, a: 1}
 --- !u!1001 &97721298
 Prefab:
   m_ObjectHideFlags: 0
@@ -1726,7 +1744,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   wire: {fileID: 97721303}
-  _light: {fileID: 0}
+  _light: {fileID: 2041311878}
   order: 3
   downPositionZ: -0.5
   duration: 0.5
@@ -4813,6 +4831,24 @@ Prefab:
     - {fileID: 9500000, guid: ffe8611cd15a5c84eaf64f2fa681b121, type: 3}
   m_ParentPrefab: {fileID: 100100000, guid: ffe8611cd15a5c84eaf64f2fa681b121, type: 3}
   m_IsPrefabParent: 0
+--- !u!1 &314181522 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 100000, guid: ffe8611cd15a5c84eaf64f2fa681b121, type: 3}
+  m_PrefabInternal: {fileID: 314181521}
+--- !u!114 &314181523
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 314181522}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e785758dd27860f458853be7bf1f9de3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Up: {fileID: 1001947223}
+  _offColor: {r: 0, g: 0, b: 0, a: 1}
+  _baseColor: {r: 1, g: 0, b: 1, a: 1}
 --- !u!1001 &318112936
 Prefab:
   m_ObjectHideFlags: 0
@@ -8054,7 +8090,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   wire: {fileID: 533560192}
-  _light: {fileID: 0}
+  _light: {fileID: 1266739099}
   order: 4
   downPositionZ: -0.5
   duration: 0.5
@@ -12115,7 +12151,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   wire: {fileID: 737871380}
-  _light: {fileID: 0}
+  _light: {fileID: 96135382}
   order: 2
   downPositionZ: -0.5
   duration: 0.5
@@ -12662,6 +12698,24 @@ Prefab:
     - {fileID: 9500000, guid: ffe8611cd15a5c84eaf64f2fa681b121, type: 3}
   m_ParentPrefab: {fileID: 100100000, guid: ffe8611cd15a5c84eaf64f2fa681b121, type: 3}
   m_IsPrefabParent: 0
+--- !u!1 &831345858 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 100000, guid: ffe8611cd15a5c84eaf64f2fa681b121, type: 3}
+  m_PrefabInternal: {fileID: 831345857}
+--- !u!114 &831345859
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 831345858}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e785758dd27860f458853be7bf1f9de3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Up: {fileID: 905313977}
+  _offColor: {r: 0, g: 0, b: 0, a: 1}
+  _baseColor: {r: 1, g: 0, b: 1, a: 1}
 --- !u!1 &835805587
 GameObject:
   m_ObjectHideFlags: 0
@@ -13402,6 +13456,24 @@ Prefab:
     - {fileID: 9500000, guid: ffe8611cd15a5c84eaf64f2fa681b121, type: 3}
   m_ParentPrefab: {fileID: 100100000, guid: ffe8611cd15a5c84eaf64f2fa681b121, type: 3}
   m_IsPrefabParent: 0
+--- !u!1 &879300766 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 100000, guid: ffe8611cd15a5c84eaf64f2fa681b121, type: 3}
+  m_PrefabInternal: {fileID: 879300765}
+--- !u!114 &879300767
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 879300766}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e785758dd27860f458853be7bf1f9de3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Up: {fileID: 1210954408}
+  _offColor: {r: 0, g: 0, b: 0, a: 1}
+  _baseColor: {r: 1, g: 0, b: 1, a: 1}
 --- !u!1 &887359468
 GameObject:
   m_ObjectHideFlags: 0
@@ -16885,7 +16957,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   wire: {fileID: 1202434628}
-  _light: {fileID: 0}
+  _light: {fileID: 1590333440}
   order: 1
   downPositionZ: -0.5
   duration: 0.5
@@ -21257,6 +21329,24 @@ Prefab:
     - {fileID: 9500000, guid: ffe8611cd15a5c84eaf64f2fa681b121, type: 3}
   m_ParentPrefab: {fileID: 100100000, guid: ffe8611cd15a5c84eaf64f2fa681b121, type: 3}
   m_IsPrefabParent: 0
+--- !u!1 &1266739098 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 100000, guid: ffe8611cd15a5c84eaf64f2fa681b121, type: 3}
+  m_PrefabInternal: {fileID: 1266739097}
+--- !u!114 &1266739099
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1266739098}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e785758dd27860f458853be7bf1f9de3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Up: {fileID: 54115303}
+  _offColor: {r: 0, g: 0, b: 0, a: 1}
+  _baseColor: {r: 1, g: 0, b: 1, a: 1}
 --- !u!1 &1272333308
 GameObject:
   m_ObjectHideFlags: 0
@@ -24761,7 +24851,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   wire: {fileID: 1567879959}
-  _light: {fileID: 0}
+  _light: {fileID: 879300767}
   order: 6
   downPositionZ: -0.5
   duration: 0.5
@@ -25290,7 +25380,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   wire: {fileID: 1580688115}
-  _light: {fileID: 0}
+  _light: {fileID: 831345859}
   order: 5
   downPositionZ: -0.5
   duration: 0.5
@@ -25397,6 +25487,24 @@ Prefab:
     - {fileID: 9500000, guid: ffe8611cd15a5c84eaf64f2fa681b121, type: 3}
   m_ParentPrefab: {fileID: 100100000, guid: ffe8611cd15a5c84eaf64f2fa681b121, type: 3}
   m_IsPrefabParent: 0
+--- !u!1 &1590333439 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 100000, guid: ffe8611cd15a5c84eaf64f2fa681b121, type: 3}
+  m_PrefabInternal: {fileID: 1590333438}
+--- !u!114 &1590333440
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1590333439}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e785758dd27860f458853be7bf1f9de3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Up: {fileID: 1972431763}
+  _offColor: {r: 0, g: 0, b: 0, a: 1}
+  _baseColor: {r: 1, g: 0, b: 1, a: 1}
 --- !u!1 &1592740175
 GameObject:
   m_ObjectHideFlags: 0
@@ -27096,7 +27204,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   wire: {fileID: 1869006359}
-  _light: {fileID: 0}
+  _light: {fileID: 314181523}
   order: 0
   downPositionZ: -0.5
   duration: 0.5
@@ -28949,6 +29057,24 @@ Prefab:
     - {fileID: 9500000, guid: ffe8611cd15a5c84eaf64f2fa681b121, type: 3}
   m_ParentPrefab: {fileID: 100100000, guid: ffe8611cd15a5c84eaf64f2fa681b121, type: 3}
   m_IsPrefabParent: 0
+--- !u!1 &2041311877 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 100000, guid: ffe8611cd15a5c84eaf64f2fa681b121, type: 3}
+  m_PrefabInternal: {fileID: 2041311876}
+--- !u!114 &2041311878
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2041311877}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e785758dd27860f458853be7bf1f9de3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Up: {fileID: 1243059193}
+  _offColor: {r: 0, g: 0, b: 0, a: 1}
+  _baseColor: {r: 1, g: 0, b: 1, a: 1}
 --- !u!1 &2043139281 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 100078, guid: 01e988705986e1344be4f5abe5965221, type: 3}
