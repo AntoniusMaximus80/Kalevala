@@ -468,6 +468,12 @@ namespace Kalevala {
                 PinballManager.Instance.DebugLoseBall();
             }
 
+            // Giving impulse force to the ball
+            if (Input.GetKeyDown(KeyCode.KeypadPlus))
+            {
+                FindObjectOfType<Pinball>().AddDebugImpulseForce();
+            }
+
             // Activating 'Shoot Again'
             if (Input.GetKeyDown(KeyCode.Y))
             {

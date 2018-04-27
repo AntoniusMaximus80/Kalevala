@@ -22,18 +22,33 @@ namespace Kalevala
         private Waypoint _prevWaypoint;
         private Direction _startDirection;
         private Direction _direction;
+        private float _rampGravityMultiplier;
         private float _leftoverDistance;
         private bool _getNextWaypoint;
+        private bool _directionChanged;
+        private bool _dropAtEnd;
         private bool _kickOut;
         private KickoutHole _kickoutHole;
         public Waypoint CurrentWaypoint { get; private set; }
 
-        public void Activate(Path path, Direction direction, Waypoint startWaypoint, float speed, KickoutHole kickouthole)
+        public bool DropAtEnd
+        {
+            get
+            {
+                return _dropAtEnd && !_directionChanged;
+            }
+        }
+
+        public void Activate(Path path, Direction direction,
+            Waypoint startWaypoint, float speed, float rampGravityMultiplier,
+            bool dropAtEnd, KickoutHole kickouthole)
         {
             if (speed > 0)
             {
                 _onRamp = true;
                 _getNextWaypoint = true;
+                _directionChanged = false;
+                _dropAtEnd = dropAtEnd;
                 _kickOut = kickouthole != null;
                 _path = path;
                 _startDirection = direction;
@@ -42,16 +57,22 @@ namespace Kalevala
                 _prevWaypoint = startWaypoint;
                 CurrentWaypoint = startWaypoint;
                 _speed = speed;
+                _rampGravityMultiplier = rampGravityMultiplier;
                 _leftoverDistance = 0;
                 _kickoutHole = kickouthole;
                 //Debug.Log("Direction on path: " + direction);
             }
         }
 
-        public void Deactivate()
+        public void Deactivate(bool abortRamp)
         {
             _onRamp = false;
             _getNextWaypoint = false;
+
+            if (abortRamp)
+            {
+                _dropAtEnd = true;
+            }
         }
 
         public bool MoveAlongRamp()
@@ -108,7 +129,7 @@ namespace Kalevala
 
                 if (result == null)
                 {
-                    Deactivate();
+                    Deactivate(false);
                 }
                 else
                 {
@@ -191,7 +212,7 @@ namespace Kalevala
                 if (Vector3.Distance(transform.position, _startWaypoint.Position) < rampExitDistance)
                 {
                     //Debug.Log("Returned to the start of the ramp");
-                    Deactivate();
+                    Deactivate(false);
                     return true;
                 }
             }
@@ -247,7 +268,8 @@ namespace Kalevala
 
                 //Debug.Log("Speed change: " + incline * _gravity * 10);
                 //Debug.Log("_gravity: " + _gravity);
-                result += -1f * incline * PinballManager.Instance.RampGravityMultiplier;
+                result += -1f * incline * _rampGravityMultiplier *
+                     PinballManager.Instance.GlobalRampGravityMultiplier;
             }
 
             return result;
@@ -256,6 +278,8 @@ namespace Kalevala
         private void ChangeDirection()
         {
             //Debug.Log("Direction changed");
+
+            _directionChanged = true;
 
             _speed = -1f * _speed;
             _direction = (_direction == Direction.Forward ?

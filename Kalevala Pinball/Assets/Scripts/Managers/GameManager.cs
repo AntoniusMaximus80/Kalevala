@@ -265,11 +265,11 @@ namespace Kalevala
         /// <summary>
         /// Resets the playfield and the current score for a clean start.
         /// </summary>
-        public void ResetPlay()
+        public void ResetAll()
         {
             PinballManager.Instance.ResetGame();
-            _playfield.ResetPlayfield();
             Scorekeeper.Instance.ResetScore();
+            _playfield.ResetPlayfield();
             _collectableSpawner.ResetCollectables();
         }
 

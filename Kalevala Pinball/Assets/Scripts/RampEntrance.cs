@@ -25,6 +25,12 @@ namespace Kalevala
         [SerializeField]
         private float _directionAngleTolerance = 30;
 
+        [SerializeField, Range(0f, 2f)]
+        private float _rampEnterSpeedMultiplier = 1f;
+
+        [SerializeField, Range(0.1f, 3f)]
+        private float _rampGravityMultiplier = 1f;
+
         [SerializeField]
         private Color _gizmosColor = Color.blue;
 
@@ -123,8 +129,9 @@ namespace Kalevala
                     }
                     if(available)
                     {
-                        ball.EnterRamp(_path, _direction,
-                            _startWaypoint, _dropBallAtEnd, _kickoutHole);
+                        ball.EnterRamp(_path, _direction, _startWaypoint,
+                            _rampEnterSpeedMultiplier, _rampGravityMultiplier,
+                            _dropBallAtEnd, _kickoutHole);
                     }
                     return;
                 }

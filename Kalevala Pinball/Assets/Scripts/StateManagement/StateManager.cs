@@ -115,7 +115,7 @@ namespace Kalevala
 
         public void StartNewGame()
         {
-            GameManager.Instance.ResetPlay();
+            GameManager.Instance.ResetAll();
             PerformTransition(ScreenStateType.Play);
             ShowLaunch();
         }

@@ -138,7 +138,7 @@ namespace Kalevala
             }
             else
             {
-                Debug.Log("No collectables in pool.");
+                Debug.LogWarning("No collectables in pool.");
             }
 
             return collectable;
