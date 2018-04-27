@@ -29,7 +29,20 @@ namespace Kalevala
         private bool _dropAtEnd;
         private bool _kickOut;
         private KickoutHole _kickoutHole;
+
         public Waypoint CurrentWaypoint { get; private set; }
+
+        public float Speed
+        {
+            get
+            {
+                return _speed;
+            }
+            set
+            {
+                _speed = value;
+            }
+        }
 
         public bool DropAtEnd
         {

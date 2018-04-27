@@ -25,6 +25,7 @@ namespace Kalevala
         private float _radius;
 
         private Path _ramp;
+        private bool _useGlobalRampExitSpeedMult;
         //private bool _dropAtEnd;
         private bool _heatBall;
         private bool _coolDown;
@@ -74,13 +75,6 @@ namespace Kalevala
         /// </summary>
         public void UpdatePinball()
         {
-            //// Does not update if the game is paused
-            //if (GameManager.Instance.Screen != ScreenStateType.Play)
-            //{
-            //    return;
-            //}
-
-            //UpdatePause();
             if (_heatBall)
             {
                 _heatBall = HeatUpBall(_heatColor);
@@ -96,7 +90,6 @@ namespace Kalevala
 
                 if (rampEnded)
                 {
-                    //Debug.Log("exiting ramp, ramp ended");
                     ExitRamp();
                 }
             }
@@ -108,19 +101,6 @@ namespace Kalevala
 
             HandleDebug();
         }
-
-        //private void UpdatePause()
-        //{
-        //    bool inPlayScreen =
-        //        GameManager.Instance.Screen == ScreenStateType.Play;
-
-        //    if (_physicsEnabled != inPlayScreen)
-        //    {
-        //        // NOTE: If the ball is paused with this (in the
-        //        // current state), its velocity resets to zero
-        //        SetPhysicsEnabled(inPlayScreen);
-        //    }
-        //}
 
         public bool PhysicsEnabled { get; private set; }
 
@@ -141,7 +121,7 @@ namespace Kalevala
                 }
                 else
                 {
-                    return RampMotion._speed;
+                    return RampMotion.Speed;
                 }
             }
         }
@@ -281,7 +261,7 @@ namespace Kalevala
 
         public void EnterRamp(Path path, Direction direction, Waypoint startWP,
             float rampEnterMomentumFactor, float rampGravityMultiplier,
-            bool dropAtEnd, KickoutHole kickoutHole)
+            bool dropAtEnd, bool useGlobalRampExitSpeedMult, KickoutHole kickoutHole)
         {
             float speedEnteringRamp = Speed * rampEnterMomentumFactor;
             if(kickoutHole != null)
@@ -296,6 +276,7 @@ namespace Kalevala
             //Debug.Log("Ramp entered - speed: " + speedEnteringRamp);
             _ramp = path;
             //_dropAtEnd = dropAtEnd;
+            _useGlobalRampExitSpeedMult = useGlobalRampExitSpeedMult;
             SetPhysicsEnabled(false);
             RampMotion.Activate(_ramp, direction, startWP, speedEnteringRamp,
                 rampGravityMultiplier, dropAtEnd, kickoutHole);
@@ -305,7 +286,7 @@ namespace Kalevala
         {
             //Debug.Log("Ramp exited");
             float speedExitingRamp = Speed;
-            RampMotion._speed = 0;
+            RampMotion.Speed = 0;
             if(!IsInKickoutHole)
             {
                 SetPhysicsEnabled(true);
@@ -315,9 +296,16 @@ namespace Kalevala
             // keep the momentum it had on the ramp
             if ( !RampMotion.DropAtEnd )
             {
-                AddImpulseForce(RampMotion.GetRampSegmentDirection() *
-                    PinballManager.Instance.RampExitMomentumFactor *
-                    speedExitingRamp);
+                Vector3 force =
+                    RampMotion.GetRampSegmentDirection() * speedExitingRamp;
+
+                if (_useGlobalRampExitSpeedMult)
+                {
+                    force = force *
+                        PinballManager.Instance.GlobalRampExitMomentumFactor;
+                }
+
+                AddImpulseForce(force);
             }
 
             if(ExitingRamp != null)

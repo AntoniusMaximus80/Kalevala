@@ -316,7 +316,7 @@ namespace Kalevala
             }
         }
 
-        public float RampExitMomentumFactor
+        public float GlobalRampExitMomentumFactor
         {
             get
             {
