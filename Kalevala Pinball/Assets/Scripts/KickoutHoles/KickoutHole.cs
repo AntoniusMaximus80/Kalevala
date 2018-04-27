@@ -64,7 +64,7 @@ namespace Kalevala
             }
         }
 
-        protected virtual void BallInsideHole(bool exit)
+        protected virtual void BallInsideHole()
         {
             _ball.IsInKickoutHole = true;
             _startTime = Time.time;

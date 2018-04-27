@@ -44,7 +44,7 @@ namespace Kalevala
         private Rigidbody _rb;
         private SphereCollider _sphColl;
 
-        public event Action<bool> ExitingRamp;
+        public event Action ExitingRamp;
 
         private void Awake()
         {
@@ -310,7 +310,7 @@ namespace Kalevala
 
             if(ExitingRamp != null)
             {
-                ExitingRamp(true);
+                ExitingRamp();
             }
 
             _ramp = null;
