@@ -15,6 +15,8 @@ namespace Kalevala
         #region Statics
         private static GameManager instance;
 
+        private static int _timeModulo;
+
         public static GameManager Instance
         {
             get
@@ -47,6 +49,20 @@ namespace Kalevala
                 return instance;
             }
         }
+            public static int TimeModulo
+        {
+            get
+            {
+                return _timeModulo;
+            }
+
+            set
+            {
+                
+                _timeModulo = value % 5;
+            }
+        }
+    
         #endregion Statics
 
         private const string PlayerKey = "player";
@@ -148,6 +164,8 @@ namespace Kalevala
             //{
             //    SetLanguage(_defaultLanguage);
             //}
+
+            TimeModulo = Mathf.CeilToInt(Time.time*10);
         }
 
         private void Init()
@@ -240,6 +258,8 @@ namespace Kalevala
                 return _stateManager.CurrentGameModeState;
             }
         }
+
+        
 
         public void GameOver(bool saveScore)
         {

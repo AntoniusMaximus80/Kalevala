@@ -1,10 +1,11 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 namespace Kalevala {
 
-    public class StrobeLight : MonoBehaviour
+    public class StrobeLight : BaseLight
     {
         public Renderer _cover;
         public GameObject _lightBulb;
@@ -16,8 +17,10 @@ namespace Kalevala {
 
         private bool _state;
 
+        
         private float _switchTime = -10f;
 
+        
 
         public void Switch(bool onoff)
         {
@@ -49,7 +52,7 @@ namespace Kalevala {
             }
             else
             {
-                value = _state;
+                value = _state ^ Sweep();
             }
 
             //Up.enabled = value;
@@ -61,5 +64,6 @@ namespace Kalevala {
 
         }
 
+        
     }
 }
