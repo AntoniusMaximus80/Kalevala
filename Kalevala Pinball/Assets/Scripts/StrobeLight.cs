@@ -15,7 +15,7 @@ namespace Kalevala {
         public Color _offColor = Color.black;
         public Color _baseColor = Color.magenta;
 
-        private bool _state;
+        private bool _state = true;
 
         
         private float _switchTime = -10f;
@@ -41,9 +41,9 @@ namespace Kalevala {
 
             bool value;
 
-            if ((Time.time - _switchTime) < .5f)
+            if (Viewscreen.TimeSinceIncrement < .2f)
             {
-                int time = Mathf.RoundToInt((Time.time - _switchTime) * 100);
+                int time = Mathf.RoundToInt((Viewscreen.TimeSinceIncrement) * 100);
 
                 int cycle = time / 10;
                 int phase = time % 5;
@@ -52,9 +52,10 @@ namespace Kalevala {
             }
             else
             {
-                value = _state ^ Sweep();
+                value = _state;
             }
 
+            //if(Sweep()) _switchTime = Time.time;
             //Up.enabled = value;
             //Down.enabled = value;
 

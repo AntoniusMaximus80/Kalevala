@@ -35,7 +35,16 @@ namespace Kalevala
 
         private static string[] _numbers; /* = { "Zero", "One", "Two", "Three", "Four", "Five", "Six", "Seven" };*/
         private string _score;
-        private float _timeSinceIncrement;
+        private static float _incrementTime;
+
+        public static float TimeSinceIncrement
+        {
+            get
+            {
+                return (Time.time - _incrementTime);
+            }
+
+        }
 
         // Use this for initialization
         void Awake()
@@ -67,6 +76,7 @@ namespace Kalevala
                 {
                     _instance._scoreUGUI.text = _score;
                     _instance._scoreUGUI.fontSize = 4;
+                    
                 }
             }
 
@@ -95,6 +105,7 @@ namespace Kalevala
             _instance._smallScore.text = score.ToString("N0");
             _instance._incrementUGUI.text = "+" + score.ToString("N0");
             _incrementVisibleCountdown = _instance._incrementVisible;
+            _incrementTime = Time.time;
 
         }
 
