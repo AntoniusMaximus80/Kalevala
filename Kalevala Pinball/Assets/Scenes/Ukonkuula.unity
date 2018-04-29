@@ -5386,6 +5386,7 @@ MonoBehaviour:
   _directionAngleTolerance: 180
   _rampEnterSpeedMultiplier: 1
   _rampGravityMultiplier: 1
+  _useGlobalRampExitSpeedMult: 1
   _gizmosColor: {r: 0, g: 0, b: 1, a: 1}
   _kickoutHole: {fileID: 868912749}
 --- !u!1 &386722548
@@ -6327,6 +6328,56 @@ Prefab:
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: EraseHighscores
+      objectReference: {fileID: 0}
+    - target: {fileID: 4851703086779858, guid: 211d40b776f371a499e88a8daab2dc4d, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 8.21
+      objectReference: {fileID: 0}
+    - target: {fileID: 4851703086779858, guid: 211d40b776f371a499e88a8daab2dc4d, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -17.85
+      objectReference: {fileID: 0}
+    - target: {fileID: 4851703086779858, guid: 211d40b776f371a499e88a8daab2dc4d, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -1.49
+      objectReference: {fileID: 0}
+    - target: {fileID: 4851703086779858, guid: 211d40b776f371a499e88a8daab2dc4d, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 4851703086779858, guid: 211d40b776f371a499e88a8daab2dc4d, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4851703086779858, guid: 211d40b776f371a499e88a8daab2dc4d, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4851703086779858, guid: 211d40b776f371a499e88a8daab2dc4d, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 4851703086779858, guid: 211d40b776f371a499e88a8daab2dc4d, type: 2}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 4851703086779858, guid: 211d40b776f371a499e88a8daab2dc4d, type: 2}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4851703086779858, guid: 211d40b776f371a499e88a8daab2dc4d, type: 2}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224539232829128114, guid: 211d40b776f371a499e88a8daab2dc4d,
+        type: 2}
+      propertyPath: m_SizeDelta.y
+      value: 128
+      objectReference: {fileID: 0}
+    - target: {fileID: 224539232829128114, guid: 211d40b776f371a499e88a8daab2dc4d,
+        type: 2}
+      propertyPath: m_SizeDelta.x
+      value: 240
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 211d40b776f371a499e88a8daab2dc4d, type: 2}
@@ -13351,6 +13402,7 @@ MonoBehaviour:
   _directionAngleTolerance: 89
   _rampEnterSpeedMultiplier: 1
   _rampGravityMultiplier: 1
+  _useGlobalRampExitSpeedMult: 1
   _gizmosColor: {r: 1, g: 0, b: 0, a: 1}
   _kickoutHole: {fileID: 868912749}
 --- !u!4 &868912751
@@ -13421,6 +13473,7 @@ MonoBehaviour:
   _directionAngleTolerance: 180
   _rampEnterSpeedMultiplier: 1
   _rampGravityMultiplier: 1
+  _useGlobalRampExitSpeedMult: 1
   _gizmosColor: {r: 1, g: 0, b: 0, a: 1}
   _kickoutHole: {fileID: 868912749}
 --- !u!1001 &879300765
@@ -22431,6 +22484,7 @@ MonoBehaviour:
   _directionAngleTolerance: 89
   _rampEnterSpeedMultiplier: 0.4
   _rampGravityMultiplier: 0.2
+  _useGlobalRampExitSpeedMult: 1
   _gizmosColor: {r: 0, g: 0, b: 1, a: 1}
   _kickoutHole: {fileID: 0}
 --- !u!1 &1378205081
@@ -22923,6 +22977,7 @@ MonoBehaviour:
   _directionAngleTolerance: 89
   _rampEnterSpeedMultiplier: 1
   _rampGravityMultiplier: 1
+  _useGlobalRampExitSpeedMult: 1
   _gizmosColor: {r: 1, g: 0, b: 0, a: 1}
   _kickoutHole: {fileID: 1420218946}
 --- !u!1001 &1420891340
@@ -23474,6 +23529,7 @@ MonoBehaviour:
   _directionAngleTolerance: 180
   _rampEnterSpeedMultiplier: 1
   _rampGravityMultiplier: 1
+  _useGlobalRampExitSpeedMult: 1
   _gizmosColor: {r: 1, g: 0, b: 0, a: 1}
   _kickoutHole: {fileID: 1808540910}
 --- !u!1 &1426750146
@@ -26431,6 +26487,7 @@ MonoBehaviour:
   _directionAngleTolerance: 89
   _rampEnterSpeedMultiplier: 1
   _rampGravityMultiplier: 1
+  _useGlobalRampExitSpeedMult: 1
   _gizmosColor: {r: 0, g: 0, b: 1, a: 1}
   _kickoutHole: {fileID: 0}
 --- !u!1 &1762374925
@@ -26899,6 +26956,7 @@ MonoBehaviour:
   _directionAngleTolerance: 89
   _rampEnterSpeedMultiplier: 1
   _rampGravityMultiplier: 1
+  _useGlobalRampExitSpeedMult: 1
   _gizmosColor: {r: 0.15862082, g: 1, b: 0, a: 1}
   _kickoutHole: {fileID: 1808540910}
 --- !u!4 &1808540912
@@ -27724,6 +27782,7 @@ MonoBehaviour:
   _directionAngleTolerance: 180
   _rampEnterSpeedMultiplier: 1
   _rampGravityMultiplier: 1
+  _useGlobalRampExitSpeedMult: 1
   _gizmosColor: {r: 1, g: 0, b: 0, a: 1}
   _kickoutHole: {fileID: 1420218946}
 --- !u!1001 &1918396388
@@ -30179,6 +30238,7 @@ MonoBehaviour:
   _directionAngleTolerance: 89
   _rampEnterSpeedMultiplier: 1
   _rampGravityMultiplier: 1
+  _useGlobalRampExitSpeedMult: 1
   _gizmosColor: {r: 0.11724138, g: 1, b: 0, a: 1}
   _kickoutHole: {fileID: 0}
 --- !u!1 &2123032365

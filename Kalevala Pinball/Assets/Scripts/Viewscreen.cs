@@ -26,7 +26,7 @@ namespace Kalevala
 
         public float _incrementVisible = 5f;
 
-        private static float _incrementVisibleCountdown, _displayModeCountdown;
+        private static float _incrementVisibleCountdown, _displayModeCountdown = 2f;
 
         private Color _fade = new Color(1f, 1f, 1f, 1f);
 
@@ -34,6 +34,8 @@ namespace Kalevala
         private bool _showMode, _displayMode;
 
         private static string[] _numbers; /* = { "Zero", "One", "Two", "Three", "Four", "Five", "Six", "Seven" };*/
+        private string _score;
+        private float _timeSinceIncrement;
 
         // Use this for initialization
         void Awake()
@@ -60,6 +62,12 @@ namespace Kalevala
                 float ratio = _incrementVisibleCountdown / _incrementVisible;
                 _fade.a = ratio;
                 _incrementUGUI.color = _fade;
+
+                if (_incrementVisibleCountdown <= 0f)
+                {
+                    _instance._scoreUGUI.text = _score;
+                    _instance._scoreUGUI.fontSize = 4;
+                }
             }
 
             if(_showMode)
@@ -79,10 +87,15 @@ namespace Kalevala
             }
         }
 
-        public static void FormatScore(int score)
+        public static void FormatScore(int score, int increase, string message)
         {
-            _instance._scoreUGUI.text = score.ToString("N0");
+            _instance._score = score.ToString("N0");
+            _instance._scoreUGUI.text = String.Format(message, increase);
+            _instance._scoreUGUI.fontSize = 3;
             _instance._smallScore.text = score.ToString("N0");
+            _instance._incrementUGUI.text = "+" + score.ToString("N0");
+            _incrementVisibleCountdown = _instance._incrementVisible;
+
         }
 
         public static void WorkShopEntered(int entriesNeeded)
@@ -93,10 +106,12 @@ namespace Kalevala
             _instance._showMode = true;
         }
 
-        public static void FormatScoreIncrement(int score)
+        public static void FormatScoreIncrement(int score, String message)
         {
             _instance._incrementUGUI.text = "+"+score.ToString("N0");
             _incrementVisibleCountdown = _instance._incrementVisible;
+            _instance._gameMode.text = message;
+            _instance._showMode = true;
         }
 
         public static void BallCount(int balls)
@@ -104,6 +119,20 @@ namespace Kalevala
             string translation = L10n.CurrentLanguage.GetTranslation(CurrentBallKey);
             _instance._ballCounter.text = string.Format(translation, balls.ToString("N0"));
             //_instance._ballCounter.text = "Balls left: " + balls.ToString("N0");
+        }
+
+        // Added a proper method for restting this. It was needed but did not exist, oops.
+        internal static void ResetScore()
+        {
+            _instance._score ="0";
+            _instance._scoreUGUI.text = _instance._score;
+            _instance._scoreUGUI.fontSize = 4;
+            _instance._smallScore.text = _instance._score;
+            _instance._showMode = false;
+            _incrementVisibleCountdown = 0;
+            _displayModeCountdown = 2f;
+            
+
         }
 
         public static void StartSampoMode()

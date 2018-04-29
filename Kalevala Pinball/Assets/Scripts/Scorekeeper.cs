@@ -69,49 +69,64 @@ namespace Kalevala
         public void AddScore(ScoreType scoreType)
         {
             int _score = 0;
+            string _message = "";
             switch(scoreType)
             {
                 case ScoreType.PopBumper:
                     _score += _spruceBumper;
+                    _message = "Spruce bumber hit for {0} points.";
                     break;
                 case ScoreType.Slingshot:
                     _score += _slightshot;
+                    _message = "Slingshot hit for {0} points.";
                     break;
                 case ScoreType.Spinner:
                     _score += _spinner;
+                    _message = "Spinner gave you {0} points.";
                     break;
                 case ScoreType.DropTarget:
                     _score += _dropTarget;
+                    _message = "{0} points from the drop target.";
                     break;
                 case ScoreType.IlmarinenKOH:
                     _score += _ilmarinenKOH;
+                    _message = "The workshop gave {0} points.";
                     break;
                 case ScoreType.TeleportKOH:
                     _score += _teleportKOH;
+                    _message = "{0} points from the teleporter.";
                     break;
                 case ScoreType.TuonelaRollover:
                     _score += _tuonelaRollover * Rollover.ScoreMultiplier;
+                    _message = "Tuonela rollovers gave {0} points.";
                     break;
                 case ScoreType.Skillshot:
                     _score += _skillshot;
+                    _message = "Skill shot made for {0} points.";
                     break;
                 case ScoreType.CollectableGrain:
                     _score += _collectableGrain;
+                    _message = "{0} points from grain.";
                     break;
                 case ScoreType.CollectableSalt:
                     _score += _collectableSalt;
+                    _message = "{0} points from salt.";
                     break;
                 case ScoreType.CollectableGold:
                     _score += _collectableGold;
+                    _message = "{0} points from gold.";
                     break;
                 case ScoreType.KanteleBumper:
                     _score += _kanteleBumper;
+                    _message = "Kantele bumber hit for {0} points.";
                     break;
                 case ScoreType.KanteleLight:
                     _score += _kanteleLight;
+                    _message = "Kantele light gave {0} points.";
                     break;
                 default:
                     Debug.LogError("ScoreType not recognized.");
+                    _message = "Something broke. No score.";
                     break;
             }
 
@@ -121,12 +136,11 @@ namespace Kalevala
             _totalScore += _score;
 
             // Refactored the string processing to happen in the viewscreen class.
-            Viewscreen.FormatScore(_totalScore);
-            Viewscreen.FormatScoreIncrement(_score);
+            // Why was I calling two functions that are always used together separately?
+            Viewscreen.FormatScore(_totalScore, _score, _message);
+            //Viewscreen.FormatScoreIncrement();
 
             
-            //_incrementUGUI.text = FormatIncrement(_score);
-            //_incrementVisibleCountdown = _incrementVisible;
         }
 
        
@@ -134,7 +148,7 @@ namespace Kalevala
         public void ResetScore()
         {
             _totalScore = 0;
-            Viewscreen.FormatScore(_totalScore);
+            Viewscreen.ResetScore();
             
         }
     }
