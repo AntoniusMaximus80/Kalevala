@@ -114,7 +114,8 @@ namespace Kalevala
         /// </summary>
         private List<AudioSource> audioSrcPool;
 
-        private int[] noDuplicates; 
+        private float pitch; 
+        private int[] noDuplicates;
 
         /// <summary>
         /// The object is initialized on start.
@@ -226,6 +227,18 @@ namespace Kalevala
         /// <param name="sound">a sound's name</param>
         public AudioSource Play(Sound sound)
         {
+            return Play((int) sound);
+        }
+
+        /// <summary>
+        /// Plays a sound clip which corresponds with the given name
+        /// and has the given pitch.
+        /// </summary>
+        /// <param name="sound">a sound's name</param>
+        /// <param name="pitch">sound's pitch</param>
+        public AudioSource Play(Sound sound, float pitch)
+        {
+            this.pitch = pitch;
             return Play((int) sound);
         }
 
@@ -351,7 +364,13 @@ namespace Kalevala
                 // Testing
                 //audioSrc.clip = clip;
 
-                audioSrc.PlayOneShot(clip, volume);
+                audioSrc.clip = clip;
+                audioSrc.volume = volume;
+                audioSrc.pitch = pitch;
+                audioSrc.Play();
+                //audioSrc.PlayOneShot(clip, volume);
+
+                pitch = 1;
             }
             // Otherwise prints debug data
             //else
