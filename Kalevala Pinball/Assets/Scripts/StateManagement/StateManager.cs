@@ -117,7 +117,6 @@ namespace Kalevala
         {
             GameManager.Instance.ResetAll();
             PerformTransition(ScreenStateType.Play);
-            ShowLaunch();
         }
 
         public void ReturnToMainMenu()
@@ -125,7 +124,7 @@ namespace Kalevala
             EndGame(false);
             //GameManager.Instance.ResetAll();
             PerformTransition(ScreenStateType.MainMenu);
-            HideLaunch();
+            HideEventCam();
         }
 
         /// <summary>
@@ -284,7 +283,7 @@ namespace Kalevala
             //Debug.Log("Changed from " + currentState + " to " + newState);
         }
 
-        public static void ShowLaunch()
+        public static void ShowEventCam()
         {
             if (GameManager.Instance.Screen.State == ScreenStateType.Play &&
                 Settings.Instance.EnableEventCamera)
@@ -293,7 +292,7 @@ namespace Kalevala
             }
         }
 
-        public static void HideLaunch()
+        public static void HideEventCam()
         {
             _staticFocusShow.SetActive(false);
         }
