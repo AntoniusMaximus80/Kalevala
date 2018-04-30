@@ -35,6 +35,7 @@ namespace Kalevala
         private SkillShotHandler _handler;
         private bool _gatesClosed = false;
         private float _launcherAreaLeftBorder;
+        public bool SkillShotSuccesful;
 
 
         private void Awake()
@@ -119,7 +120,7 @@ namespace Kalevala
 
         private void Launch()
         {
-            SFXPlayer.Instance.Play(12);
+            SFXPlayer.Instance.Play(11);
             _hitParticles.SetActive(true);
             PinballManager.Instance.SetPinballPhysicsEnabled(true);
             _pinball.AddImpulseForce(Vector3.forward * _launcherForce * _launcherForceMultiplier);
