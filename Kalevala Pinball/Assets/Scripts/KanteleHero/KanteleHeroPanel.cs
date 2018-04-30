@@ -223,8 +223,12 @@ namespace Kalevala
         /// If player presses trigger when it's not active or fails to press the trigger
         /// before it's timer runs out. Activate next misslight
         /// </summary>
-        public void LightMissed(int noteNumber)
+        public void LightMissed(int noteNumber, bool playErrorSound)
         {
+            if(playErrorSound)
+            {
+                SFXPlayer.Instance.Play(3);
+            }
             if(_missLights.Length > _misses)
             {
                 _missLights[_misses].SetActive(true);
