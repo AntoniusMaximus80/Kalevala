@@ -12011,11 +12011,11 @@ MonoBehaviour:
   - {fileID: 697888704}
   - {fileID: 50439486}
   _noteClips:
-  - {fileID: 8300000, guid: 8b7ea17ff3def0444a751fc41a095bd7, type: 3}
-  - {fileID: 8300000, guid: dcb5f9730ac2aa04b8a12d1020747b11, type: 3}
-  - {fileID: 8300000, guid: 0c0b5c54a9b045c41a1895e5c88781bd, type: 3}
-  - {fileID: 8300000, guid: a755e7fa756faa3439ecf55dd94e8187, type: 3}
-  - {fileID: 8300000, guid: d4e0a361c59b40e4181318399b189594, type: 3}
+  - {fileID: 8300000, guid: 70ec3556449673c46b06e06e2ec101ed, type: 3}
+  - {fileID: 8300000, guid: b1f46161dd1c65f46814262c8e806ba9, type: 3}
+  - {fileID: 8300000, guid: 6b915d3704b3d9645a1e55fd4761a399, type: 3}
+  - {fileID: 8300000, guid: 073cd72924f24484cb1c7437286687f1, type: 3}
+  - {fileID: 8300000, guid: 0b14b19b04f6ec94aad8956be5af91c6, type: 3}
   _audiosource: {fileID: 737108031}
   _movingLightPrefab: {fileID: 114147424319800644, guid: caba7888b47490248a95c07bdb8740c6,
     type: 2}
@@ -12063,7 +12063,7 @@ AudioSource:
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
-  Mute: 0
+  Mute: 1
   Spatialize: 0
   SpatializePostEffects: 0
   Priority: 128
