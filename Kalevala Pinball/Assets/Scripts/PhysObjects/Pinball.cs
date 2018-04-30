@@ -93,7 +93,10 @@ namespace Kalevala
                     ExitRamp();
                 }
             }
-
+            if(transform.position.y < -20f)
+            {
+                BallOutOfBounds();
+            }
             if (!InputManager.NudgeVector.Equals(Vector3.zero))
                 AddImpulseForce(InputManager.NudgeVector);
 
@@ -440,5 +443,24 @@ namespace Kalevala
         {
             AddImpulseForce(debug_impulseVelocity);
         }
+
+        /// <summary>
+        /// If ball falls from the table put it to savekickout hole.
+        /// </summary>
+        private void BallOutOfBounds()
+        {
+            _rb.velocity = Vector3.zero;
+            transform.position = new Vector3(0, 1f, 0f);
+        }
+
+        private void OnCollisionEnter( Collision collision )
+        {
+            if(Speed > 70)
+            {
+                SFXPlayer.Instance.Play(5);
+            }
+        }
+
+
     }
 }

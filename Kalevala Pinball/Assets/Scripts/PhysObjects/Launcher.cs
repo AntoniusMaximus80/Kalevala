@@ -21,8 +21,6 @@ namespace Kalevala
         [SerializeField]
         private GameObject _hitParticles;
         [SerializeField]
-        private AudioSource _hitSFX;
-        [SerializeField]
         private float _LauncherAreLeftBorderOffset;
 
         public static Launcher Instance;
@@ -121,7 +119,7 @@ namespace Kalevala
 
         private void Launch()
         {
-            _hitSFX.Play();
+            SFXPlayer.Instance.Play(12);
             _hitParticles.SetActive(true);
             PinballManager.Instance.SetPinballPhysicsEnabled(true);
             _pinball.AddImpulseForce(Vector3.forward * _launcherForce * _launcherForceMultiplier);
