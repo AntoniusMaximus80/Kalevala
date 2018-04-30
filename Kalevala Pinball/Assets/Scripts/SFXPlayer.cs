@@ -361,9 +361,6 @@ namespace Kalevala
             // Plays a sound
             if (audioSrc != null)
             {
-                // Testing
-                //audioSrc.clip = clip;
-
                 audioSrc.clip = clip;
                 audioSrc.volume = volume;
                 audioSrc.pitch = pitch;
