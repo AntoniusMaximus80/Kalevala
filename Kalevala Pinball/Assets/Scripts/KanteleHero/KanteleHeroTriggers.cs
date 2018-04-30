@@ -80,5 +80,10 @@ namespace Kalevala
                 _parent.LightMissed(_noteNumber, true);
             }
         }
+
+        public void ResetNoteNumber()
+        {
+            _noteNumber = 0;
+        }
     }
 }

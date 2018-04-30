@@ -455,10 +455,10 @@ namespace Kalevala
 
         private void OnCollisionEnter( Collision collision )
         {
-            if(Speed > 70)
-            {
-                SFXPlayer.Instance.Play(5);
-            }
+            //if(Speed > 70)
+            //{
+            //    SFXPlayer.Instance.Play(5);
+            //}
         }
 
 
