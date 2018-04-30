@@ -33,7 +33,7 @@ namespace Kalevala
         {
             if(_myLight.activeInHierarchy)
             {
-                _parent.LightMissed(noteNumber);
+                _parent.LightMissed(noteNumber, false);
             }
             _myLight.SetActive(true);
             _startTime = 0;
@@ -58,7 +58,7 @@ namespace Kalevala
                 {
 
                     Debug.Log("LightMissed");
-                    _parent.LightMissed(_noteNumber);
+                    _parent.LightMissed(_noteNumber, false);
                     DeactivateLight();
                 }
             }
@@ -77,7 +77,7 @@ namespace Kalevala
                 DeactivateLight();
             } else
             {
-                _parent.LightMissed(_noteNumber);
+                _parent.LightMissed(_noteNumber, true);
             }
         }
     }

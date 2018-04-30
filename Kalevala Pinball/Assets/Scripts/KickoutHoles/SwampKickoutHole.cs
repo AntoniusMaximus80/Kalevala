@@ -11,6 +11,7 @@ namespace Kalevala {
         {
             if(_doOnce)
             {
+                SFXPlayer.Instance.Play(1);
                 Scorekeeper.Instance.AddScore(Scorekeeper.ScoreType.IlmarinenKOH);
                 _doOnce = false;
             }
