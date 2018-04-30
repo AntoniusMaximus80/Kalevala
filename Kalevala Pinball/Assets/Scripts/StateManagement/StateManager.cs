@@ -43,14 +43,9 @@ namespace Kalevala
         public event Action<bool> GameOver;
 
         /// <summary>
-        /// An event which is fired when the pause menu is activated.
+        /// An event which is fired when the screen state changes.
         /// </summary>
-        public event Action PauseMenuActivated;
-
-        /// <summary>
-        /// An event which is fired when the pause menu is deactivated.
-        /// </summary>
-        public event Action PauseMenuDeactivated;
+        public event Action<ScreenStateType> ScreenStateChanged;
 
         private void Awake()
         {
@@ -267,6 +262,11 @@ namespace Kalevala
                 CurrentScreenState = screenState;
                 CurrentScreenState.Activate();
 
+                if (ScreenStateChanged != null)
+                {
+                    ScreenStateChanged(screenState.State);
+                }
+
                 // Debugging
                 _screen = CurrentScreenState.State;
             }
@@ -297,21 +297,21 @@ namespace Kalevala
             _staticFocusShow.SetActive(false);
         }
 
-        /// <summary>
-        /// Fires the PauseMenuActivated event.
-        /// </summary>
-        public void ActivatePauseMenu()
-        {
-            PauseMenuActivated();
-        }
+        ///// <summary>
+        ///// Fires the PauseMenuActivated event.
+        ///// </summary>
+        //public void ActivatePauseMenu()
+        //{
+        //    PauseMenuActivated();
+        //}
 
-        /// <summary>
-        /// Fires the PauseMenuDeactivated event.
-        /// </summary>
-        public void DeactivatePauseMenu()
-        {
-            PauseMenuDeactivated();
-        }
+        ///// <summary>
+        ///// Fires the PauseMenuDeactivated event.
+        ///// </summary>
+        //public void DeactivatePauseMenu()
+        //{
+        //    PauseMenuDeactivated();
+        //}
 
         /// <summary>
         /// Checks whether the game is paused or not.

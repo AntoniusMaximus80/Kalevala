@@ -53,8 +53,8 @@ namespace Kalevala {
         private HeatMap _heatMap;
         private KanteleHeroPanel _kantelePanel;
         private CollectableSpawner _collSpawner;
-        private bool _alwaysDisplayScoreboard;
-        private bool _pauseMenuActive;
+        private bool _scoreboardVisibilityBeforeMenu;
+        private bool _keepScoreboardVisible;
         private bool _textInputActive;
         private bool _KanteleHeroLeftTriggerDown;
         private bool _KanteleHeroRightTriggerDown;
@@ -109,15 +109,19 @@ namespace Kalevala {
             // button in the game over menu is highlighted
             _stateManager.GameOver += HighlightGameOverMenuButton;
 
-            // Registers to listen to the PauseMenuActivated event.
-            // Makes the scoreboard visible and doesn't allow
-            // hiding it in the pause menu
-            _stateManager.PauseMenuActivated += PauseMenuEntered;
+            //// Registers to listen to the PauseMenuActivated event.
+            //// Makes the scoreboard visible and doesn't allow
+            //// hiding it in the pause menu
+            //_stateManager.PauseMenuActivated += PauseMenuEntered;
 
-            // Registers to listen to the PauseMenuDeactivated event.
-            // Changes the scoreboard's visibility to what it
-            // was before accessing the pause menu
-            _stateManager.PauseMenuDeactivated += PauseMenuExited;
+            //// Registers to listen to the PauseMenuDeactivated event.
+            //// Changes the scoreboard's visibility to what it
+            //// was before accessing the pause menu
+            //_stateManager.PauseMenuDeactivated += PauseMenuExited;
+
+            // Registers to listen to the ScreenStateChanged event.
+            _stateManager.ScreenStateChanged += OnScreenStateChanged;
+            OnScreenStateChanged(ScreenStateType.MainMenu);
 
             L10n.LanguageLoaded += OnLanguageLoaded;
             OnLanguageLoaded();
@@ -126,8 +130,9 @@ namespace Kalevala {
         private void OnDestroy()
         {
             _stateManager.GameOver -= HighlightGameOverMenuButton;
-            _stateManager.PauseMenuActivated -= PauseMenuEntered;
-            _stateManager.PauseMenuDeactivated -= PauseMenuExited;
+            //_stateManager.PauseMenuActivated -= PauseMenuEntered;
+            //_stateManager.PauseMenuDeactivated -= PauseMenuExited;
+            _stateManager.ScreenStateChanged -= OnScreenStateChanged;
         }
 
         /// <summary>
@@ -541,10 +546,10 @@ namespace Kalevala {
         private void ScoreboardInput()
         {
             // Toggling scoreboard visibility
-            if (!_pauseMenuActive && Input.GetButtonUp(_SHOW_SCORES))
+            if (!_keepScoreboardVisible && Input.GetButtonUp(_SHOW_SCORES))
             {
                 _highscoreList.Visible = !_highscoreList.Visible;
-                _alwaysDisplayScoreboard = _highscoreList.Visible;
+                _scoreboardVisibilityBeforeMenu = _highscoreList.Visible;
             }
         }
 
@@ -892,23 +897,43 @@ namespace Kalevala {
             HighlightMenuDefaultButton();
         }
 
-        /// <summary>
-        /// Makes the scoreboard visible.
-        /// </summary>
-        private void PauseMenuEntered()
-        {
-            _pauseMenuActive = true;
-            _highscoreList.Visible = true;
-        }
+        ///// <summary>
+        ///// Makes the scoreboard visible.
+        ///// </summary>
+        //private void PauseMenuEntered()
+        //{
+        //    _pauseMenuActive = true;
+        //    _highscoreList.Visible = true;
+        //}
+
+        ///// <summary>
+        ///// Changes the scoreboard's visibility to what
+        ///// it was before accessing the pause menu.
+        ///// </summary>
+        //private void PauseMenuExited()
+        //{
+        //    _pauseMenuActive = false;
+        //    _highscoreList.Visible = _alwaysDisplayScoreboard;
+        //}
 
         /// <summary>
-        /// Changes the scoreboard's visibility to what
-        /// it was before accessing the pause menu.
+        /// Changes the scoreboard's visibility if
+        /// entering/exiting the main or pause menu.
         /// </summary>
-        private void PauseMenuExited()
+        /// <param name="nextScreen">The next screen state</param>
+        private void OnScreenStateChanged(ScreenStateType nextScreen)
         {
-            _pauseMenuActive = false;
-            _highscoreList.Visible = _alwaysDisplayScoreboard;
+            if (nextScreen == ScreenStateType.MainMenu ||
+                nextScreen == ScreenStateType.Pause)
+            {
+                _keepScoreboardVisible = true;
+                _highscoreList.Visible = true;
+            }
+            else
+            {
+                _keepScoreboardVisible = false;
+                _highscoreList.Visible = _scoreboardVisibilityBeforeMenu;
+            }
         }
 
         private void OnLanguageLoaded()

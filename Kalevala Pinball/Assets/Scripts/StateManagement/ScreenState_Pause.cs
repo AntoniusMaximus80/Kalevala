@@ -36,14 +36,14 @@ namespace Kalevala
                 Time.timeScale = 0f;
             }
 
-            Owner.ActivatePauseMenu();
+            //Owner.ActivatePauseMenu();
         }
 
         public override void Deactivate()
         {
             base.Deactivate();
 
-            Owner.DeactivatePauseMenu();
+            //Owner.DeactivatePauseMenu();
         }
 
         /// <summary>

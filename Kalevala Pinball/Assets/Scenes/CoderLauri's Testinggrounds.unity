@@ -6836,13 +6836,6 @@ MonoBehaviour:
   - {fileID: 2009200368}
   - {fileID: 647295116}
   - {fileID: 2038912399}
-  _noteClips:
-  - {fileID: 8300000, guid: 8b7ea17ff3def0444a751fc41a095bd7, type: 3}
-  - {fileID: 8300000, guid: dcb5f9730ac2aa04b8a12d1020747b11, type: 3}
-  - {fileID: 8300000, guid: 0c0b5c54a9b045c41a1895e5c88781bd, type: 3}
-  - {fileID: 8300000, guid: a755e7fa756faa3439ecf55dd94e8187, type: 3}
-  - {fileID: 8300000, guid: d4e0a361c59b40e4181318399b189594, type: 3}
-  _audiosource: {fileID: 212006065}
   _movingLightPrefab: {fileID: 114147424319800644, guid: caba7888b47490248a95c07bdb8740c6,
     type: 2}
   _leftTrigger: {fileID: 212006064}
@@ -7373,8 +7366,8 @@ MonoBehaviour:
   _useDebugs: 0
   _hingejoint: {fileID: 970588466}
   _hitParticles: {fileID: 65055205}
-  _hitSFX: {fileID: 72664551}
   _LauncherAreLeftBorderOffset: -2
+  SkillShotSuccesful: 0
 --- !u!4 &227705787
 Transform:
   m_ObjectHideFlags: 0
@@ -9725,11 +9718,6 @@ Prefab:
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1028805486}
-    - target: {fileID: 114602248010753546, guid: 211d40b776f371a499e88a8daab2dc4d,
-        type: 2}
-      propertyPath: debug_useDefaultLaunchPoint
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 211d40b776f371a499e88a8daab2dc4d, type: 2}
   m_IsPrefabParent: 0
