@@ -129,8 +129,6 @@ namespace Kalevala
 
             // 10 seconds of Shoot Again
             PinballManager.Instance.ActivateShootAgain(10);
-
-            StateManager.HideLaunch();
         }
 
         public void StartLaunch(Pinball pinball)
@@ -148,8 +146,6 @@ namespace Kalevala
             {
                 gate.OpenGate();
             }
-
-            StateManager.ShowLaunch();
         }
 
         public bool BallOnLauncher

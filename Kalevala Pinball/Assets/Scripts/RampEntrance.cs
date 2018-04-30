@@ -101,12 +101,11 @@ namespace Kalevala
         }
 
         /// <summary>
-        /// Makes a pinball that hits the ramp entrance
-        /// and goes in the right direction enter the ramp.
+        /// Puts a pinball on the ramp if it hits the ramp
+        /// entrance and goes in the right direction.
         /// </summary>
         private void PutPinballOnRamp()
         {
-            
             foreach (Pinball ball in PinballManager.Instance.Pinballs)
             {
                 if (!ball.IsOnRamp && !ball.IsInKickoutHole &&

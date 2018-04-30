@@ -146,12 +146,14 @@ namespace Kalevala
 
                 if (!value)
                 {
-                    StateManager.HideLaunch();
+                    StateManager.HideEventCam();
                 }
-                else if (Launcher.Instance.BallOnLauncher)
-                {
-                    StateManager.ShowLaunch();
-                }
+
+                // TODO
+                //else if (Launcher.Instance.BallOnLauncher)
+                //{
+                //    StateManager.ShowEventCam();
+                //}
             }
         }
 
