@@ -116,10 +116,17 @@ namespace Kalevala
 
         public void ReturnToMainMenu()
         {
-            EndGame(false);
+            bool gameOver =
+                CurrentScreenState.State == ScreenStateType.GameOver;
+
+            if (!gameOver)
+            {
+                EndGame(false);
+            }
+
+            GameManager.Instance.HighscoreList.ResetScoreboardColors();
             //GameManager.Instance.ResetAll();
             PerformTransition(ScreenStateType.MainMenu);
-            HideEventCam();
         }
 
         /// <summary>
@@ -127,7 +134,7 @@ namespace Kalevala
         /// normally and their score is saved. The score is not saved if the
         /// player drops out by returning to the main menu.
         /// </summary>
-        /// <param name="saveScore">is the score saved</param>
+        /// <param name="saveScore">Is the score saved</param>
         public void EndGame(bool saveScore)
         {
             if (CurrentGameModeState.State != GameModeStateType.Normal)
@@ -135,7 +142,14 @@ namespace Kalevala
                 PerformTransition(GameModeStateType.Normal);
             }
 
+            HideEventCam();
             PinballManager.Instance.SetPinballPhysicsEnabled(false);
+            GameManager.Instance.SaveOrRevertHighscores(saveScore);
+
+            // TODO: End Kantele mode
+            // TODO: End Sampo mode
+            // TODO: Stop Spinners
+
             GameOver(saveScore);
         }
 

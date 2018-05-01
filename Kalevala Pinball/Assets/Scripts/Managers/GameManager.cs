@@ -259,27 +259,20 @@ namespace Kalevala
             }
         }
 
-        
-
-        public void GameOver(bool saveScore)
+        public void SaveOrRevertHighscores(bool saveScores)
         {
-            // NOTE: Called by ScreenState_Play
-            //_stateManager.EndGame(saveScore);
-
             // Saves the score if it's high enough
             // and the player actually finished
             // the game instead of giving up
-            if (saveScore)
+            if (saveScores)
             {
-                //bool isHighscore =
-                _highscoreList.SaveHighscore();
+                _highscoreList.SaveHighscores();
                 //_highscoreList.CompareScoreAndSave
                 //    (_playerName, Scorekeeper.Instance._totalScore);
-
-                //if (isHighscore)
-                //{
-
-                //}
+            }
+            else
+            {
+                _highscoreList.RevertHighscores();
             }
         }
 
@@ -290,7 +283,7 @@ namespace Kalevala
         {
             PinballManager.Instance.ResetGame();
             Scorekeeper.Instance.ResetScore();
-            _highscoreList.ResetCurrentRanking();
+            _highscoreList.InitPlay();
             _playfield.ResetPlayfield();
             _collectableSpawner.ResetCollectables();
         }
@@ -301,7 +294,6 @@ namespace Kalevala
         public void EraseLocalHighscores()
         {
             _highscoreList.ResetList();
-            _highscoreList.UpdateScoreboard();
             SaveGame("Saving reset highscores");
         }
 

@@ -592,7 +592,9 @@ namespace Kalevala
                 if (OutOfBalls)
                 {
                     Debug.Log("Out of balls - game over");
-                    GameManager.Instance.GameOver(true);
+                    //GameManager.Instance.SaveOrRevertHighscores(true);
+
+                    // The game is ended by ScreenState_Play
                 }
                 else
                 {

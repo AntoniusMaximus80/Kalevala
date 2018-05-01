@@ -307,21 +307,6 @@ namespace Kalevala {
                 SaveSettings(true);
             }
 
-            // Debugging
-            // TODO: UI for these settings
-
-            // Volume control
-            if (Input.GetKey(KeyCode.UpArrow))
-            {
-                Settings.Instance.MusicVolume =
-                    Settings.Instance.MusicVolume + 0.01f;
-            }
-            if (Input.GetKey(KeyCode.DownArrow))
-            {
-                Settings.Instance.MusicVolume =
-                    Settings.Instance.MusicVolume - 0.01f;
-            }
-
             // Changing the camera mode
             if (Input.GetKeyUp(KeyCode.F))
             {
@@ -519,21 +504,21 @@ namespace Kalevala {
             }
 
             // Moving the camera
-            if (Input.GetKeyUp(KeyCode.V))
-            {
-                GameManager.Instance.SetCameraFocus
-                    (CameraController.CameraPosition.Playfield);
-            }
-            if (Input.GetKeyUp(KeyCode.B))
-            {
-                GameManager.Instance.SetCameraFocus
-                    (CameraController.CameraPosition.Kantele);
-            }
-            if (Input.GetKeyUp(KeyCode.N))
-            {
-                GameManager.Instance.SetCameraFocus
-                    (CameraController.CameraPosition.Launcher);
-            }
+            //if (Input.GetKeyUp(KeyCode.V))
+            //{
+            //    GameManager.Instance.SetCameraFocus
+            //        (CameraController.CameraPosition.Playfield);
+            //}
+            //if (Input.GetKeyUp(KeyCode.B))
+            //{
+            //    GameManager.Instance.SetCameraFocus
+            //        (CameraController.CameraPosition.Kantele);
+            //}
+            //if (Input.GetKeyUp(KeyCode.N))
+            //{
+            //    GameManager.Instance.SetCameraFocus
+            //        (CameraController.CameraPosition.Launcher);
+            //}
 
             // Camera shake
             if (Input.GetKeyUp(KeyCode.S))

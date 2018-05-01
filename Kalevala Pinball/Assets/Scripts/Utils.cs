@@ -796,5 +796,19 @@ namespace Kalevala
         //    return Vector3.Lerp(GetCurvePoint(p0, p1, p2, t),
         //                        GetCurvePoint(p1, p2, p3, t), t);
         //}
+
+        public static Highscore[] CopyHighscores(Highscore[] highscores)
+        {
+            Highscore[] copy = new Highscore[highscores.Length];
+
+            for (int i = 0; i < highscores.Length; i++)
+            {
+                copy[i] = new Highscore(i);
+                copy[i].PlayerName = highscores[i].PlayerName;
+                copy[i].Score = highscores[i].Score;
+            }
+
+            return copy;
+        }
     }
 }
