@@ -40,6 +40,7 @@ namespace Kalevala
             _kanteleLight
            ;
 
+        private HighscoreList _highscores;
 
         private static Scorekeeper _instance;
 
@@ -61,8 +62,8 @@ namespace Kalevala
 
         private void Start()
         {
+            _highscores = GameManager.Instance.HighscoreList;
             ResetScore();
-            
         }
 
 
@@ -140,7 +141,7 @@ namespace Kalevala
             Viewscreen.FormatScore(_totalScore, _score, _message);
             //Viewscreen.FormatScoreIncrement();
 
-            
+            _highscores.UpdateCurrentRanking(_totalScore);
         }
 
        

@@ -24,13 +24,17 @@ namespace Kalevala
         [SerializeField, Range(0, 3)]
         private float _scoreSlotMoveDuration = 1f;
 
+        [SerializeField]
+        private Color _defaultScoreColor = Color.white;
+
+        [SerializeField]
+        private Color _currentScoreColor = Color.green;
+
         private Highscore[] _highscores;
         private List<Text> _scoreSlots;
 
-        private void Start()
-        {
-            //InitScoreboard();
-        }
+        private string _currentPlayerName;
+        private int _currentRank = -1;
 
         private void InitScoreboard()
         {
@@ -46,20 +50,6 @@ namespace Kalevala
             {
                 Debug.LogError("Scoreboard is not set.");
             }
-        }
-
-        private string GetHighscoreText(Highscore highscore, int placement)
-        {
-            string hsText = string.Format("{0,3} {1}", (placement + "."), highscore.ToString());
-
-            // Adds a space in the beginning of any string
-            // where the placement is in the single digits
-            //if (placement < 10)
-            //{
-            //    hsText = " " + hsText;
-            //}
-
-            return hsText;
         }
 
         /// <summary>
@@ -88,29 +78,117 @@ namespace Kalevala
         {
             bool isHighscore = false;
 
+            // Gets the ranking of the score
+            // (-1 if it isn't high enough to be on the scoreboard)
+            int highscoreIndex = CompareScore(score);
+
+            // Saves the score if it is higher than a previous highscore
+            if (highscoreIndex > -1)
+            {
+                isHighscore = true;
+
+                // Adds the new highscore to the slot at the index
+                // and moves lower scores down on the list
+                AddScore(playerName, score, highscoreIndex);
+
+                // Saves all highscores to a file
+                GameManager.Instance.SaveGame("Saving new highscore");
+
+                // Updates the scoreboard
+                UpdateScoreboard();
+            }
+
+            return isHighscore;
+        }
+
+        public bool SaveHighscore()
+        {
+            if (_currentRank != -1)
+            {
+                // Saves all highscores to a file
+                GameManager.Instance.SaveGame("Saving new highscore");
+                return true;
+            }
+
+            return false;
+        }
+
+        public bool RevertHighscores()
+        {
+            // TODO
+
+            return false;
+        }
+
+        private int CompareScore(int score)
+        {
+            int highscoreRank = -1;
+
+            // Checks if the score is higher than an existing highscore
             for (int i = 0; i < _highscores.Length; i++)
             {
-                // Checks if the score is higher than a
-                // previous highscore and if so, saves it
+                // If the score is higher, it takes the
+                // rank of the surpassed score 
                 if (score > _highscores[i]._score)
                 {
-                    isHighscore = true;
-
-                    // Adds the new highscore to the slot at the index
-                    // and moves lower scores down on the list
-                    AddScore(playerName, score, i);
-
-                    // Saves all highscores to a file
-                    GameManager.Instance.SaveGame("Saving new highscore");
-
-                    // Updates the scoreboard
-                    UpdateScoreboard();
-
+                    highscoreRank = i;
                     break;
                 }
             }
 
-            return isHighscore;
+            return highscoreRank;
+        }
+
+        private int CompareScoreWithNextRanks(int score)
+        {
+            int highscoreRank = _currentRank;
+
+            // No need to check if the top rank has already been reached
+            if (_currentRank != 0)
+            {
+                //int nextRank;
+
+                //// Targeting the lowest rank on the scoreboard
+                //if (_currentRank == -1)
+                //{
+                //    nextRank = _highscores.Length - 1;
+                //}
+                //// Targeting the next rank above the current one
+                //else
+                //{
+                //    nextRank = _currentRank - 1;
+                //}
+
+                //// Checks if the score high enough to get the next rank
+                //if (score > _highscores[nextRank]._score)
+                //{
+                //    highscoreRank = nextRank;
+                //}
+
+                int rankLimit;
+                if (_currentRank == -1)
+                {
+                    rankLimit = _highscores.Length;
+                }
+                else
+                {
+                    rankLimit = _currentRank;
+                }
+
+                // Checks if the score is higher than an existing highscore
+                for (int i = 0; i < rankLimit; i++)
+                {
+                    // If the score is higher, it takes the
+                    // rank of the surpassed score 
+                    if (score > _highscores[i]._score)
+                    {
+                        highscoreRank = i;
+                        break;
+                    }
+                }
+            }
+
+            return highscoreRank;
         }
 
         /// <summary>
@@ -119,13 +197,13 @@ namespace Kalevala
         /// </summary>
         /// <param name="playerName">The scoring player's name</param>
         /// <param name="score">A new highscore</param>
-        /// <param name="index">The highscore's index</param>
-        private void AddScore(string playerName, int score, int index)
+        /// <param name="rank">The highscore's rank</param>
+        private void AddScore(string playerName, int score, int rank)
         {
-            for (int i = _highscores.Length - 1; i >= index; i--)
+            for (int i = _highscores.Length - 1; i >= rank; i--)
             {
                 // Moves a lower score down in the list
-                if (i > index)
+                if (i > rank)
                 {
                     _highscores[i]._playerName = _highscores[i - 1]._playerName;
                     _highscores[i]._score = _highscores[i - 1]._score;
@@ -142,8 +220,46 @@ namespace Kalevala
             }
 
             string debugMsg = string.Format
-                ("New highscore ({0}): {1}", (index + 1), score);
+                ("New highscore ({0}): {1}", (rank + 1), score);
             Debug.Log(debugMsg);
+        }
+
+        /// <summary>
+        /// Edits a highscore in the slot at the index
+        /// </summary>
+        /// <param name="playerName">The scoring player's name</param>
+        /// <param name="score">A highscore</param>
+        /// <param name="index">The highscore's index</param>
+        private void EditScore(string playerName, int score, int index)
+        {
+            _highscores[index]._playerName = playerName;
+            _highscores[index]._score = score;
+        }
+
+        /// <summary>
+        /// Swaps two highscores' slots.
+        /// </summary>
+        /// <param name="rank">A highscore's index</param>
+        /// <param name="swapUp">Should the score swap places
+        /// with the score above it</param>
+        private void SwapScoreSlots(int rank, bool swapUp)
+        {
+            // Stops invalid swaps
+            if (rank == -1 ||
+                (rank == 0 && swapUp) ||
+                (rank == _highscores.Length - 1 && !swapUp))
+            {
+                return;
+            }
+
+            int otherRank = rank + (swapUp ? -1 : 1);
+
+            string tempName = _highscores[otherRank]._playerName;
+            int tempRank = _highscores[otherRank]._score;
+            _highscores[otherRank]._playerName = _highscores[rank]._playerName;
+            _highscores[otherRank]._score = _highscores[rank]._score;
+            _highscores[rank]._playerName = tempName;
+            _highscores[rank]._score = tempRank;
         }
 
         /// <summary>
@@ -189,11 +305,46 @@ namespace Kalevala
             scoreSlotTransform.anchoredPosition = newPos;
         }
 
+        public void UpdateCurrentRanking(int currentScore)
+        {
+            // Gets the ranking of the score
+            int rank = CompareScoreWithNextRanks(currentScore);
+
+            if (rank != _currentRank)
+            {
+                if (_currentRank == -1)
+                {
+                    // Adds the new highscore to the slot at the index
+                    // and moves lower scores down on the list
+                    AddScore(_currentPlayerName,
+                        currentScore, rank);
+                }
+                else
+                {
+                    // FIXME: Sometimes a name gets duplicated and another one is lost
+                    SwapScoreSlots(_currentRank, true);
+                    _scoreSlots[_currentRank].color = _defaultScoreColor;
+                }
+
+                _currentRank = rank;
+                _scoreSlots[_currentRank].color = _currentScoreColor;
+            }
+            else
+            {
+                EditScore(_currentPlayerName,
+                    currentScore, _currentRank);
+            }
+
+            // Updates the scoreboard
+            UpdateScoreboard();
+        }
+
         public void UpdateScoreboard()
         {
             for (int i = 0; i < _scoreSlots.Count; i++)
             {
-                _scoreSlots[i].text = GetHighscoreText(_highscores[i], i + 1);
+                _scoreSlots[i].text =
+                    GetHighscoreText(_highscores[i], i + 1);
             }
         }
 
@@ -241,6 +392,17 @@ namespace Kalevala
             UpdateScoreboard();
         }
 
+        public void ResetCurrentRanking()
+        {
+            _currentPlayerName = GameManager.Instance.PlayerName;
+            _currentRank = -1;
+
+            foreach (Text scoreText in _scoreSlots)
+            {
+                scoreText.color = _defaultScoreColor;
+            }
+        }
+
         public void ResetList()
         {
             for (int i = 0; i < _highscores.Length; i++)
@@ -279,6 +441,20 @@ namespace Kalevala
                         ("Highscore{0}", (scoreSlotIndex + 1).ToString("D2"));
                 }
             }
+        }
+
+        private string GetHighscoreText(Highscore highscore, int placement)
+        {
+            string hsText = string.Format("{0,3} {1}", (placement + "."), highscore.ToString());
+
+            // Adds a space in the beginning of any string
+            // where the placement is in the single digits
+            //if (placement < 10)
+            //{
+            //    hsText = " " + hsText;
+            //}
+
+            return hsText;
         }
     }
 }

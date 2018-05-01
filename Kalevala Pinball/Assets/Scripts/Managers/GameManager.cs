@@ -272,8 +272,9 @@ namespace Kalevala
             if (saveScore)
             {
                 //bool isHighscore =
-                _highscoreList.CompareScoreAndSave
-                    (_playerName, Scorekeeper.Instance._totalScore);
+                _highscoreList.SaveHighscore();
+                //_highscoreList.CompareScoreAndSave
+                //    (_playerName, Scorekeeper.Instance._totalScore);
 
                 //if (isHighscore)
                 //{
@@ -289,6 +290,7 @@ namespace Kalevala
         {
             PinballManager.Instance.ResetGame();
             Scorekeeper.Instance.ResetScore();
+            _highscoreList.ResetCurrentRanking();
             _playfield.ResetPlayfield();
             _collectableSpawner.ResetCollectables();
         }
