@@ -21,8 +21,6 @@ namespace Kalevala
         [SerializeField]
         private GameObject _hitParticles;
         [SerializeField]
-        private AudioSource _hitSFX;
-        [SerializeField]
         private float _LauncherAreLeftBorderOffset;
 
         public static Launcher Instance;
@@ -37,6 +35,7 @@ namespace Kalevala
         private SkillShotHandler _handler;
         private bool _gatesClosed = false;
         private float _launcherAreaLeftBorder;
+        public bool SkillShotSuccesful;
 
 
         private void Awake()
@@ -121,7 +120,7 @@ namespace Kalevala
 
         private void Launch()
         {
-            _hitSFX.Play();
+            SFXPlayer.Instance.Play(11);
             _hitParticles.SetActive(true);
             PinballManager.Instance.SetPinballPhysicsEnabled(true);
             _pinball.AddImpulseForce(Vector3.forward * _launcherForce * _launcherForceMultiplier);
@@ -130,8 +129,6 @@ namespace Kalevala
 
             // 10 seconds of Shoot Again
             PinballManager.Instance.ActivateShootAgain(10);
-
-            StateManager.HideLaunch();
         }
 
         public void StartLaunch(Pinball pinball)
@@ -149,8 +146,6 @@ namespace Kalevala
             {
                 gate.OpenGate();
             }
-
-            StateManager.ShowLaunch();
         }
 
         public bool BallOnLauncher

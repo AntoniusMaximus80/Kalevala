@@ -54,7 +54,7 @@ namespace Kalevala
         //[SerializeField]
         private bool _enableEventCamera = true;
 
-        private bool _settingsLoaded;
+        private bool _uiObjectsInitialized = false;
         private bool _audioInitialized = false;
 
         private float _musicVolume;
@@ -85,21 +85,19 @@ namespace Kalevala
 
         private void InitAudio()
         {
-            _audioInitialized = true;
-
-            //MusicPlayer.Instance.SetVolume(_musicVolume);
-            //SFXPlayer.Instance.SetVolume(_effectVolume);
-
             if (!_autoplayMusic)
             {
                 MusicPlayer.Instance.Stop();
             }
+
+            _audioInitialized = true;
         }
 
         private void InitUIObjects()
         {
             _musicVolumeSlider.value = MusicVolume;
             _effectVolumeSlider.value = EffectVolume;
+            _uiObjectsInitialized = true;
         }
 
         public float MusicVolume
@@ -148,28 +146,39 @@ namespace Kalevala
 
                 if (!value)
                 {
-                    StateManager.HideLaunch();
+                    StateManager.HideEventCam();
                 }
-                else if (Launcher.Instance.BallOnLauncher)
-                {
-                    StateManager.ShowLaunch();
-                }
+
+                // TODO
+                //else if (Launcher.Instance.BallOnLauncher)
+                //{
+                //    StateManager.ShowEventCam();
+                //}
             }
         }
 
         public void OnMusicVolumeValueChanged()
         {
-            MusicVolume = _musicVolumeSlider.value;
+            if (_uiObjectsInitialized)
+            {
+                MusicVolume = _musicVolumeSlider.value;
+            }
         }
 
         public void OnEffectVolumeValueChanged()
         {
-            EffectVolume = _effectVolumeSlider.value;
+            if (_uiObjectsInitialized)
+            {
+                EffectVolume = _effectVolumeSlider.value;
+            }
         }
 
         public void OnEnableEventCameraValueChanged()
         {
-            EnableEventCamera = _enableEventCamToggle.isOn;
+            if (_uiObjectsInitialized)
+            {
+                EnableEventCamera = _enableEventCamToggle.isOn;
+            }
         }
 
         public void EraseHighscores(bool skipConfirmation)

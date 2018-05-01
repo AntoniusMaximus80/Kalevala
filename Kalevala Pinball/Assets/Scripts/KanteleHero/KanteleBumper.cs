@@ -138,17 +138,29 @@ namespace Kalevala
 
         public void ActivateColliders()
         {
-            foreach(CapsuleCollider coll in _myColliders)
+            if(_myColliders != null)
             {
-                coll.enabled = true;
+                foreach(CapsuleCollider coll in _myColliders)
+                {
+                    if(coll != null)
+                    {
+                        coll.enabled = true;
+                    }
+                }
             }
         }
 
         public void DeactivateColliders()
         {
-            foreach(CapsuleCollider coll in _myColliders)
+            if(_myColliders != null)
             {
-                coll.enabled = false;
+                foreach(CapsuleCollider coll in _myColliders)
+                {
+                    if(coll != null)
+                    {
+                        coll.enabled = false;
+                    }
+                }
             }
         }
     }

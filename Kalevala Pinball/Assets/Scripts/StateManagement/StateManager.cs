@@ -43,14 +43,9 @@ namespace Kalevala
         public event Action<bool> GameOver;
 
         /// <summary>
-        /// An event which is fired when the pause menu is activated.
+        /// An event which is fired when the screen state changes.
         /// </summary>
-        public event Action PauseMenuActivated;
-
-        /// <summary>
-        /// An event which is fired when the pause menu is deactivated.
-        /// </summary>
-        public event Action PauseMenuDeactivated;
+        public event Action<ScreenStateType> ScreenStateChanged;
 
         private void Awake()
         {
@@ -115,9 +110,8 @@ namespace Kalevala
 
         public void StartNewGame()
         {
-            GameManager.Instance.ResetPlay();
+            GameManager.Instance.ResetAll();
             PerformTransition(ScreenStateType.Play);
-            ShowLaunch();
         }
 
         public void ReturnToMainMenu()
@@ -125,7 +119,7 @@ namespace Kalevala
             EndGame(false);
             //GameManager.Instance.ResetAll();
             PerformTransition(ScreenStateType.MainMenu);
-            HideLaunch();
+            HideEventCam();
         }
 
         /// <summary>
@@ -268,6 +262,11 @@ namespace Kalevala
                 CurrentScreenState = screenState;
                 CurrentScreenState.Activate();
 
+                if (ScreenStateChanged != null)
+                {
+                    ScreenStateChanged(screenState.State);
+                }
+
                 // Debugging
                 _screen = CurrentScreenState.State;
             }
@@ -284,7 +283,7 @@ namespace Kalevala
             //Debug.Log("Changed from " + currentState + " to " + newState);
         }
 
-        public static void ShowLaunch()
+        public static void ShowEventCam()
         {
             if (GameManager.Instance.Screen.State == ScreenStateType.Play &&
                 Settings.Instance.EnableEventCamera)
@@ -293,26 +292,26 @@ namespace Kalevala
             }
         }
 
-        public static void HideLaunch()
+        public static void HideEventCam()
         {
             _staticFocusShow.SetActive(false);
         }
 
-        /// <summary>
-        /// Fires the PauseMenuActivated event.
-        /// </summary>
-        public void ActivatePauseMenu()
-        {
-            PauseMenuActivated();
-        }
+        ///// <summary>
+        ///// Fires the PauseMenuActivated event.
+        ///// </summary>
+        //public void ActivatePauseMenu()
+        //{
+        //    PauseMenuActivated();
+        //}
 
-        /// <summary>
-        /// Fires the PauseMenuDeactivated event.
-        /// </summary>
-        public void DeactivatePauseMenu()
-        {
-            PauseMenuDeactivated();
-        }
+        ///// <summary>
+        ///// Fires the PauseMenuDeactivated event.
+        ///// </summary>
+        //public void DeactivatePauseMenu()
+        //{
+        //    PauseMenuDeactivated();
+        //}
 
         /// <summary>
         /// Checks whether the game is paused or not.

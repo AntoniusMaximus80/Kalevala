@@ -18,14 +18,15 @@ namespace Kalevala
         //public bool debug_stopPhysics;
         //public bool debug_startPhysics;
 
-        public Vector3 debug_upTableVelocity;
+        public Vector3 debug_impulseVelocity;
 
         public float _speed, // public for debugging
             _maximumVelocity;
         private float _radius;
 
         private Path _ramp;
-        private bool _dropAtEnd;
+        private bool _useGlobalRampExitSpeedMult;
+        //private bool _dropAtEnd;
         private bool _heatBall;
         private bool _coolDown;
         private Color _heatColor = new Color(0.7411765f, 0.2156863f, 0.03921569f);
@@ -43,7 +44,7 @@ namespace Kalevala
         private Rigidbody _rb;
         private SphereCollider _sphColl;
 
-        public event Action<bool> ExitingRamp;
+        public event Action ExitingRamp;
 
         private void Awake()
         {
@@ -67,10 +68,6 @@ namespace Kalevala
             _sphColl = GetComponent<SphereCollider>();
             RampMotion = GetComponent<RampMotion>();
             InitPhysics(physicsEnabled);
-
-            // Debugging
-            debug_upTableVelocity =
-                new Vector3(0f, 10 * 0.1742402f, 10 * -10.31068f);
         }
 
         /// <summary>
@@ -78,13 +75,6 @@ namespace Kalevala
         /// </summary>
         public void UpdatePinball()
         {
-            //// Does not update if the game is paused
-            //if (GameManager.Instance.Screen != ScreenStateType.Play)
-            //{
-            //    return;
-            //}
-
-            //UpdatePause();
             if (_heatBall)
             {
                 _heatBall = HeatUpBall(_heatColor);
@@ -100,11 +90,13 @@ namespace Kalevala
 
                 if (rampEnded)
                 {
-                    //Debug.Log("exiting ramp, ramp ended");
                     ExitRamp();
                 }
             }
-
+            if(transform.position.y < -20f)
+            {
+                BallOutOfBounds();
+            }
             if (!InputManager.NudgeVector.Equals(Vector3.zero))
                 AddImpulseForce(InputManager.NudgeVector);
 
@@ -112,19 +104,6 @@ namespace Kalevala
 
             HandleDebug();
         }
-
-        //private void UpdatePause()
-        //{
-        //    bool inPlayScreen =
-        //        GameManager.Instance.Screen == ScreenStateType.Play;
-
-        //    if (_physicsEnabled != inPlayScreen)
-        //    {
-        //        // NOTE: If the ball is paused with this (in the
-        //        // current state), its velocity resets to zero
-        //        SetPhysicsEnabled(inPlayScreen);
-        //    }
-        //}
 
         public bool PhysicsEnabled { get; private set; }
 
@@ -145,7 +124,7 @@ namespace Kalevala
                 }
                 else
                 {
-                    return RampMotion._speed;
+                    return RampMotion.Speed;
                 }
             }
         }
@@ -283,9 +262,11 @@ namespace Kalevala
             return result;
         } 
 
-        public void EnterRamp(Path path, Direction direction, Waypoint startWP, bool dropAtEnd, KickoutHole kickoutHole)
+        public void EnterRamp(Path path, Direction direction, Waypoint startWP,
+            float rampEnterMomentumFactor, float rampGravityMultiplier,
+            bool dropAtEnd, bool useGlobalRampExitSpeedMult, KickoutHole kickoutHole)
         {
-            float speedEnteringRamp = Speed;
+            float speedEnteringRamp = Speed * rampEnterMomentumFactor;
             if(kickoutHole != null)
             {
                 speedEnteringRamp = kickoutHole.KickForce;
@@ -297,16 +278,18 @@ namespace Kalevala
 
             //Debug.Log("Ramp entered - speed: " + speedEnteringRamp);
             _ramp = path;
-            _dropAtEnd = dropAtEnd;
+            //_dropAtEnd = dropAtEnd;
+            _useGlobalRampExitSpeedMult = useGlobalRampExitSpeedMult;
             SetPhysicsEnabled(false);
-            RampMotion.Activate(_ramp, direction, startWP, speedEnteringRamp, kickoutHole);
+            RampMotion.Activate(_ramp, direction, startWP, speedEnteringRamp,
+                rampGravityMultiplier, dropAtEnd, kickoutHole);
         }
 
         public void ExitRamp()
         {
             //Debug.Log("Ramp exited");
             float speedExitingRamp = Speed;
-            RampMotion._speed = 0;
+            RampMotion.Speed = 0;
             if(!IsInKickoutHole)
             {
                 SetPhysicsEnabled(true);
@@ -314,16 +297,25 @@ namespace Kalevala
 
             // Adds impulse force to the pinball to
             // keep the momentum it had on the ramp
-            if (!_dropAtEnd)
+            if ( !RampMotion.DropAtEnd )
             {
-                AddImpulseForce(RampMotion.GetRampSegmentDirection() *
-                    PinballManager.Instance.RampExitMomentumFactor *
-                    speedExitingRamp);
+                Vector3 force =
+                    RampMotion.GetRampSegmentDirection() * speedExitingRamp;
+
+                if (_useGlobalRampExitSpeedMult)
+                {
+                    force = force *
+                        PinballManager.Instance.GlobalRampExitMomentumFactor;
+                }
+
+                AddImpulseForce(force);
             }
+
             if(ExitingRamp != null)
             {
-                ExitingRamp(true);
+                ExitingRamp();
             }
+
             _ramp = null;
         }
 
@@ -332,8 +324,8 @@ namespace Kalevala
             if (IsOnRamp)
             {
                 Debug.Log("Ramp aborted");
-                RampMotion.Deactivate();
-                _dropAtEnd = true;
+                RampMotion.Deactivate(true);
+                //_dropAtEnd = true;
                 ExitRamp();
             }
         }
@@ -432,7 +424,7 @@ namespace Kalevala
             if (debug_addImpulseForce)
             {
                 debug_addImpulseForce = false;
-                AddImpulseForce(debug_upTableVelocity);
+                AddDebugImpulseForce();
             }
         }
 
@@ -446,5 +438,29 @@ namespace Kalevala
             Mathf.Clamp(_rb.velocity.y, -_maximumVelocity, _maximumVelocity / 10f); // Y. We should limit upwards vertical movement more than other velocities.
             Mathf.Clamp(_rb.velocity.z, -_maximumVelocity, _maximumVelocity); // Z.
         }
+
+        public void AddDebugImpulseForce()
+        {
+            AddImpulseForce(debug_impulseVelocity);
+        }
+
+        /// <summary>
+        /// If ball falls from the table put it to savekickout hole.
+        /// </summary>
+        private void BallOutOfBounds()
+        {
+            _rb.velocity = Vector3.zero;
+            transform.position = new Vector3(0, 1f, 0f);
+        }
+
+        private void OnCollisionEnter( Collision collision )
+        {
+            //if(Speed > 70)
+            //{
+            //    SFXPlayer.Instance.Play(5);
+            //}
+        }
+
+
     }
 }

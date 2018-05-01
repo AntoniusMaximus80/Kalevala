@@ -24,15 +24,21 @@ namespace Kalevala
             if(_doOnce)
             {
                 if(PinballManager.Instance.Resources >= 15 ||
-                   GameManager.Instance.GameMode.State == GameModeStateType.Sampo)
+                   GameManager.Instance.GameMode.State == GameModeStateType.Sampo ||
+                   Launcher.Instance.SkillShotSuccesful)
                 {
-                    if(GameManager.Instance.GameMode.State != GameModeStateType.Sampo)
+                    if(GameManager.Instance.GameMode.State != GameModeStateType.Sampo &&
+                        Launcher.Instance.SkillShotSuccesful)
                     {
                         PinballManager.Instance.ChangeResources(-15);
+                    } else if (Launcher.Instance.SkillShotSuccesful)
+                    {
+                        Launcher.Instance.SkillShotSuccesful = false;
                     }
                     _hadResources = true;
                     _bellows.SetBool("Pumping", true);
                     _ball.SetHeatBall(_timeToWait);
+                    SFXPlayer.Instance.Play(9);
                 }
                 Scorekeeper.Instance.AddScore(Scorekeeper.ScoreType.IlmarinenKOH);
                 _doOnce = false;

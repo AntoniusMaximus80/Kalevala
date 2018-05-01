@@ -50,14 +50,14 @@ namespace Kalevala
 
         private string GetHighscoreText(Highscore highscore, int placement)
         {
-            string hsText = placement + ". " + highscore.ToString();
+            string hsText = string.Format("{0,3} {1}", (placement + "."), highscore.ToString());
 
             // Adds a space in the beginning of any string
             // where the placement is in the single digits
-            if (placement < 10)
-            {
-                hsText = " " + hsText;
-            }
+            //if (placement < 10)
+            //{
+            //    hsText = " " + hsText;
+            //}
 
             return hsText;
         }

@@ -39,7 +39,8 @@ namespace Kalevala
 
         public override string ToString()
         {
-            return _playerName + ": " + _score;
+            return string.Format("{0}: {1:N0}", _playerName, _score);
+            //return _playerName + ": " + _score;
         }
     }
 }

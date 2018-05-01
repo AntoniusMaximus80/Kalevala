@@ -72,7 +72,7 @@ namespace Kalevala
         private float _rampGravityMultiplier = 7;
 
         [SerializeField]
-        private float _rampExitMomentumFactor = 0.75f;
+        private float _rampExitSpeedMultiplier = 0.75f;
 
         [SerializeField, Range(1, 10)]
         private int _startingBallCount;
@@ -308,7 +308,7 @@ namespace Kalevala
             }
         }
 
-        public float RampGravityMultiplier
+        public float GlobalRampGravityMultiplier
         {
             get
             {
@@ -316,11 +316,11 @@ namespace Kalevala
             }
         }
 
-        public float RampExitMomentumFactor
+        public float GlobalRampExitMomentumFactor
         {
             get
             {
-                return _rampExitMomentumFactor;
+                return _rampExitSpeedMultiplier;
             }
         }
 

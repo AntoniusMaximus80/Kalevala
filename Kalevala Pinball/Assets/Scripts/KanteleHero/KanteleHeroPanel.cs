@@ -26,10 +26,6 @@ namespace Kalevala
         private GameObject[] _rightWaypoints;
         [SerializeField]
         private GameObject[] _missLights;
-        [SerializeField, Tooltip("Correct order: A, D, E, F, G")]
-        private AudioClip[] _noteClips;
-        [SerializeField]
-        private AudioSource _audiosource;
         [SerializeField]
         private KanteleHeroLight _movingLightPrefab;
         [SerializeField]
@@ -223,8 +219,12 @@ namespace Kalevala
         /// If player presses trigger when it's not active or fails to press the trigger
         /// before it's timer runs out. Activate next misslight
         /// </summary>
-        public void LightMissed(int noteNumber)
+        public void LightMissed(int noteNumber, bool playErrorSound)
         {
+            if(playErrorSound)
+            {
+                SFXPlayer.Instance.Play(3);
+            }
             if(_missLights.Length > _misses)
             {
                 _missLights[_misses].SetActive(true);
@@ -276,23 +276,23 @@ namespace Kalevala
         {
             switch(notePitch) {
                 case NotePitch.A:
-                    _audiosource.PlayOneShot(_noteClips[0]);
+                    SFXPlayer.Instance.Play(12);
                     Debug.Log("A");
                     break;
                 case NotePitch.D:
-                    _audiosource.PlayOneShot(_noteClips[1]);
+                    SFXPlayer.Instance.Play(13);
                     Debug.Log("D");
                     break;
                 case NotePitch.E:
-                    _audiosource.PlayOneShot(_noteClips[2]);
+                    SFXPlayer.Instance.Play(14);
                     Debug.Log("E");
                     break;
                 case NotePitch.F:
-                    _audiosource.PlayOneShot(_noteClips[3]);
+                    SFXPlayer.Instance.Play(15);
                     Debug.Log("F");
                     break;
                 case NotePitch.G:
-                    _audiosource.PlayOneShot(_noteClips[4]);
+                    SFXPlayer.Instance.Play(16);
                     Debug.Log("G");
                     break;
             }
@@ -317,6 +317,8 @@ namespace Kalevala
             _noteCount = _notes.Count;
             CheckMissLights();
             _haukiKantele.ActivateKantele();
+            _rightTrigger.ResetNoteNumber();
+            _leftTrigger.ResetNoteNumber();
         }
 
         /// <summary>

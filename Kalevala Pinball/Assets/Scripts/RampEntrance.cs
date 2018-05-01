@@ -25,6 +25,15 @@ namespace Kalevala
         [SerializeField]
         private float _directionAngleTolerance = 30;
 
+        [SerializeField, Range(0f, 2f)]
+        private float _rampEnterSpeedMultiplier = 1f;
+
+        [SerializeField, Range(0.1f, 3f)]
+        private float _rampGravityMultiplier = 1f;
+
+        [SerializeField]
+        private bool _useGlobalRampExitSpeedMult = true;
+
         [SerializeField]
         private Color _gizmosColor = Color.blue;
 
@@ -92,12 +101,11 @@ namespace Kalevala
         }
 
         /// <summary>
-        /// Makes a pinball that hits the ramp entrance
-        /// and goes in the right direction enter the ramp.
+        /// Puts a pinball on the ramp if it hits the ramp
+        /// entrance and goes in the right direction.
         /// </summary>
         private void PutPinballOnRamp()
         {
-            
             foreach (Pinball ball in PinballManager.Instance.Pinballs)
             {
                 if (!ball.IsOnRamp && !ball.IsInKickoutHole &&
@@ -123,8 +131,9 @@ namespace Kalevala
                     }
                     if(available)
                     {
-                        ball.EnterRamp(_path, _direction,
-                            _startWaypoint, _dropBallAtEnd, _kickoutHole);
+                        ball.EnterRamp(_path, _direction, _startWaypoint,
+                            _rampEnterSpeedMultiplier, _rampGravityMultiplier,
+                            _dropBallAtEnd, _useGlobalRampExitSpeedMult, _kickoutHole);
                     }
                     return;
                 }
