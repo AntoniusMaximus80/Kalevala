@@ -48,6 +48,8 @@ ModelImporter:
     100080: Transparent Hay004
     100082: Transparent Hay005
     100084: Transparent Hay006
+    100086: LED
+    100088: Light Bulb Cover
     400000: Body
     400002: Bumper
     400004: //RootNode
@@ -91,6 +93,8 @@ ModelImporter:
     400080: Transparent Hay004
     400082: Transparent Hay005
     400084: Transparent Hay006
+    400086: LED
+    400088: Light Bulb Cover
     2100000: Placeholder
     2300000: Body
     2300002: Bumper
@@ -132,6 +136,8 @@ ModelImporter:
     2300074: Transparent Hay004
     2300076: Transparent Hay005
     2300078: Transparent Hay006
+    2300080: LED
+    2300082: Light Bulb Cover
     3300000: Body
     3300002: Bumper
     3300004: Stake
@@ -172,6 +178,8 @@ ModelImporter:
     3300074: Transparent Hay004
     3300076: Transparent Hay005
     3300078: Transparent Hay006
+    3300080: LED
+    3300082: Light Bulb Cover
     4300000: Body
     4300002: Bumper
     4300004: Straw Layer
@@ -212,6 +220,8 @@ ModelImporter:
     4300074: Transparent Hay004
     4300076: Transparent Hay005
     4300078: Transparent Hay006
+    4300080: Light Bulb Cover
+    4300082: LED
     9500000: //RootNode
   externalObjects: {}
   materials:

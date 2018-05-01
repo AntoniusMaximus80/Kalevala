@@ -10,11 +10,21 @@ ModelImporter:
     100004: //RootNode
     100006: Lower Ramp
     100008: Upper Ramp
+    100010: Plate Rivet004
+    100012: Plate Rivet005
+    100014: Plate005
+    100016: Ramp Entrance Plate002
+    100018: Ramp Entrance003
     400000: Ramp
     400002: Ramp Entrance
     400004: //RootNode
     400006: Lower Ramp
     400008: Upper Ramp
+    400010: Plate Rivet004
+    400012: Plate Rivet005
+    400014: Plate005
+    400016: Ramp Entrance Plate002
+    400018: Ramp Entrance003
     2100000: Clear Plastic
     2100002: Placeholder
     2100004: No Name
@@ -22,14 +32,26 @@ ModelImporter:
     2300002: Ramp Entrance
     2300004: Lower Ramp
     2300006: Upper Ramp
+    2300008: Plate Rivet004
+    2300010: Plate Rivet005
+    2300012: Plate005
+    2300014: Ramp Entrance003
     3300000: Ramp
     3300002: Ramp Entrance
     3300004: Lower Ramp
     3300006: Upper Ramp
+    3300008: Plate Rivet004
+    3300010: Plate Rivet005
+    3300012: Plate005
+    3300014: Ramp Entrance003
     4300000: Ramp
     4300002: Ramp Entrance
     4300004: Upper Ramp
     4300006: Lower Ramp
+    4300008: Plate Rivet004
+    4300010: Plate Rivet005
+    4300012: Plate005
+    4300014: Ramp Entrance003
     9500000: //RootNode
   externalObjects: {}
   materials:
