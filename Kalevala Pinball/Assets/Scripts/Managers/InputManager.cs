@@ -44,6 +44,9 @@ namespace Kalevala {
         private Text _playerName;
 
         [SerializeField]
+        private GameObject _howToPlayScreen;
+
+        [SerializeField]
         private GameObject _creditsScreen;
 
         private static Vector3 _nudgeVector = Vector3.zero;
@@ -208,13 +211,12 @@ namespace Kalevala {
                 return;
             }
 
-            // Exiting the credits screen
-            if (_creditsScreen.gameObject.activeSelf)
+            // Exiting a popup screen
+            if (DisplayingPopupScreen)
             {
-                if (Input.GetButtonUp(_SUBMIT) ||
-                    Input.GetButtonUp(_CANCEL))
+                if (Input.GetButtonUp(_CANCEL))
                 {
-                    DisplayCredits(false);
+                    DisplayPopupScreen(false);
                 }
             }
             // Text input for the player's name
@@ -653,6 +655,11 @@ namespace Kalevala {
 
         public void QuitGame(bool skipConfirm)
         {
+            if (DisplayingPopupScreen)
+            {
+                return;
+            }
+
             if (!skipConfirm)
             {
                 Confirm(ConfirmationType.QuitGame);
@@ -800,18 +807,43 @@ namespace Kalevala {
             }
         }
 
+        public void DisplayHowToPlay(bool display)
+        {
+            _howToPlayScreen.gameObject.SetActive(display);
+            DisplayPopupScreen(display);
+        }
+
         public void DisplayCredits(bool display)
         {
             _creditsScreen.gameObject.SetActive(display);
+            DisplayPopupScreen(display);
+        }
 
+        private bool DisplayingPopupScreen
+        {
+            get
+            {
+                return _howToPlayScreen.gameObject.activeSelf ||
+                       _creditsScreen.gameObject.activeSelf;
+            }
+        }
+
+        private void DisplayPopupScreen(bool display)
+        {
             if (display)
             {
                 // Clears the menu button selection
                 EventSystem.current.SetSelectedGameObject(null);
             }
-            else if (!_cursor.PlayingUsingMouse)
+            else
             {
-                SelectDefaultSelectedMenuButton();
+                _howToPlayScreen.gameObject.SetActive(false);
+                _creditsScreen.gameObject.SetActive(false);
+
+                if (!_cursor.PlayingUsingMouse)
+                {
+                    SelectDefaultSelectedMenuButton();
+                }
             }
         }
 
