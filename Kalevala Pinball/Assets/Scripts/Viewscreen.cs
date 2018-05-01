@@ -102,8 +102,8 @@ namespace Kalevala
             _instance._score = score.ToString("N0");
             _instance._scoreUGUI.text = String.Format(message, increase);
             _instance._scoreUGUI.fontSize = 2.7f;
-            _instance._smallScore.text = score.ToString("N0");
-            _instance._incrementUGUI.text = "+" + score.ToString("N0");
+            _instance._smallScore.text = increase.ToString("N0");
+            _instance._incrementUGUI.text = "+" + increase.ToString("N0");
             _incrementVisibleCountdown = _instance._incrementVisible;
             _incrementTime = Time.time;
 
