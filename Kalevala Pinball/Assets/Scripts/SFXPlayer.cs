@@ -23,9 +23,26 @@ namespace Kalevala
         // in this specific order for the right sound
         // to be played at the right time
 
-        A = 0,
-        B = 1,
-        C = 2,
+        Spinner = 0,
+        SuoKOH = 1,
+        ScoreGained = 2,
+        KanteleheroError = 3,
+        DropDownTarget = 4,
+        Bumper = 5,
+        DroppingCoins = 6,
+        FlipperBarUp = 7,
+        FlipperBarDown = 8,
+        IlmarisenKOH = 9,
+        Slingshot = 10,
+        UkonKirves = 11,
+        GuitarA = 12,
+        GuitarD = 13,
+        GuitarE = 14,
+        GuitarF = 15,
+        GuitarG = 16,
+        BallHit = 17,
+        BumperParticle = 18
+
     }
 
     public class SFXPlayer : MonoBehaviour

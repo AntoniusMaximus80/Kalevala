@@ -144,11 +144,11 @@ namespace Kalevala
             {
                 _fullRound = true;
                 Scorekeeper.Instance.AddScore(Scorekeeper.ScoreType.Spinner);
-                SFXPlayer.Instance.Play(0);
+                SFXPlayer.Instance.Play(Sound.Spinner);
             }
             else if(transform.rotation.eulerAngles.x >= 270 && transform.rotation.eulerAngles.x <= 360 && _fullRound)
             {
-                SFXPlayer.Instance.Play(0);
+                SFXPlayer.Instance.Play(Sound.Spinner);
                 _fullRound = false;
                 Scorekeeper.Instance.AddScore(Scorekeeper.ScoreType.Spinner);
             }

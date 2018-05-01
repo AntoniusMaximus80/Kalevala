@@ -120,7 +120,7 @@ namespace Kalevala
 
         private void Launch()
         {
-            SFXPlayer.Instance.Play(11);
+            SFXPlayer.Instance.Play(Sound.UkonKirves);
             _hitParticles.SetActive(true);
             PinballManager.Instance.SetPinballPhysicsEnabled(true);
             _pinball.AddImpulseForce(Vector3.forward * _launcherForce * _launcherForceMultiplier);

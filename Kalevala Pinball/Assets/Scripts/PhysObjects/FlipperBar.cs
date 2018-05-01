@@ -21,10 +21,9 @@ namespace Kalevala
 
         private PinballManager _pinballManager;
 
-        private bool _flipperMaterialBouncinessChanged = false;
-
-        public AudioSource _flipperBarUpAudioSource,
-            _flipperBarDownAudioSource;
+        private bool _flipperMaterialBouncinessChanged = false,
+            _usingMotor = false,
+            _usingSpring = false;
 
         public GameObject _booster;
 
@@ -75,48 +74,27 @@ namespace Kalevala
             _hingeJoint.useMotor = true;
             _hingeJoint.useSpring = false;
 
-            if (_flipperBarUpAudioSource == null)
-            {
-                return;
-            }
-
-            if (!_flipperBarUpAudioSource.isPlaying)
+            if(!_usingMotor)
             {
                 float randomPitch = Random.Range(0.95f, 1.05f);
-                _flipperBarUpAudioSource.pitch = randomPitch;
-                _flipperBarUpAudioSource.Play();
-            } else
-            {
-                _flipperBarUpAudioSource.Stop();
-                float randomPitch = Random.Range(0.95f, 1.05f);
-                _flipperBarUpAudioSource.pitch = randomPitch;
-                _flipperBarUpAudioSource.Play();
+                SFXPlayer.Instance.Play(Sound.FlipperBarUp, randomPitch);
             }
+            _usingMotor = true;
+            _usingSpring = false;
         }
 
         public void UseSpring()
         {
             _hingeJoint.useMotor = false;
             _hingeJoint.useSpring = true;
-
-            if (_flipperBarDownAudioSource == null)
+            
+            if(!_usingSpring)
             {
-                return;
+                float randomPitch = Random.Range(0.95f, 1.05f);
+                SFXPlayer.Instance.Play(Sound.FlipperBarDown, randomPitch);
             }
-
-            if (!_flipperBarDownAudioSource.isPlaying)
-            {
-                float randomPitch = Random.Range(0.9f, 1.1f);
-                _flipperBarDownAudioSource.pitch = randomPitch;
-                _flipperBarDownAudioSource.Play();
-            }
-            else
-            {
-                _flipperBarDownAudioSource.Stop();
-                float randomPitch = Random.Range(0.9f, 1.1f);
-                _flipperBarDownAudioSource.pitch = randomPitch;
-                _flipperBarDownAudioSource.Play();
-            }
+            _usingMotor = false;
+            _usingSpring = true;
         }
 
         public bool IsReset

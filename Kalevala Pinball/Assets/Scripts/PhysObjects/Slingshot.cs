@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using System.Collections;
 
 namespace Kalevala
 {
@@ -6,8 +7,6 @@ namespace Kalevala
     {
         public GameObject _slingshotForceOrigin,
             _strings;
-        public AudioSource _slingshotBumperAudioSource,
-            _slingshotKanteleAudioSource;
         public BoxCollider _slingshotActivationCollider;
         public Animator _animator;
 
@@ -25,22 +24,11 @@ namespace Kalevala
         [SerializeField, Range(0f, 1f)]
         private float _shakeMagnitude;
 
+        private Coroutine _coroutine;
+
         private void Start()
         {
             _stringsStartPosition = _strings.transform.position;
-        }
-
-        // Update is called once per frame
-        void Update()
-        {
-            if (_slingshotKanteleAudioSource.isPlaying)
-            {
-                _strings.transform.position = _stringsStartPosition;
-                HorizontalShake(_strings);
-            } else
-            {
-                _strings.transform.position = _stringsStartPosition;
-            }
         }
 
         private void OnTriggerEnter(Collider other)
@@ -57,28 +45,37 @@ namespace Kalevala
                     ForceMode.Impulse);
 
                 // Audio.
-                if (!_slingshotBumperAudioSource.isPlaying)
-                {
-                    float randomPitch = Random.Range(0.8f, 1.2f);
-                    _slingshotBumperAudioSource.pitch = randomPitch;
-                    _slingshotBumperAudioSource.Play();
-                }
-
-                if (!_slingshotKanteleAudioSource.isPlaying)
-                {
-                    float randomPitch = Random.Range(0.8f, 1.2f);
-                    _slingshotKanteleAudioSource.pitch = randomPitch;
-                    _slingshotKanteleAudioSource.Play();
-                }
+                float randomPitch = Random.Range(0.8f, 1.2f);
+                SFXPlayer.Instance.Play(Sound.Slingshot, randomPitch);
+                SFXPlayer.Instance.Play(Sound.Bumper, randomPitch);
 
                 // Animation.
                 _animator.SetTrigger("Activate");
+                if(_coroutine != null)
+                {
+                    StopCoroutine(_coroutine);
+                }
+                _coroutine = StartCoroutine(Shake(1f, _strings));
             }
         }
 
         private void HorizontalShake(GameObject gameObject)
         {
             gameObject.transform.position += new Vector3(Random.Range(-_shakeMagnitude, _shakeMagnitude), 0f, 0f);
+        }
+
+        private IEnumerator Shake(  float duration, GameObject strings)
+        {
+            float time = 0f;
+            float startTime = Time.time;
+            while(time < 1)
+            {
+                time = (Time.time - startTime) / duration;
+                strings.transform.position = _stringsStartPosition;
+                strings.transform.position += new Vector3(Random.Range(-_shakeMagnitude, _shakeMagnitude), 0f, 0f);
+                yield return 0;
+            }
+            strings.transform.position = _stringsStartPosition;
         }
     }
 }

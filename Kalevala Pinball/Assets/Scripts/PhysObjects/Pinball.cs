@@ -455,10 +455,16 @@ namespace Kalevala
 
         private void OnCollisionEnter( Collision collision )
         {
-            //if(Speed > 70)
-            //{
-            //    SFXPlayer.Instance.Play(5);
-            //}
+            float impulse = collision.impulse.y + collision.impulse.x + collision.impulse.z;
+            if(collision.gameObject.GetComponent<Collider>().sharedMaterial != null)
+            {
+                if(impulse > 5 && collision.gameObject.GetComponent<Collider>().sharedMaterial.name == "Plastic")
+                {
+                    Debug.Log(collision.gameObject.GetComponent<Collider>().sharedMaterial.name);
+                    float pitch = UnityEngine.Random.Range(0.8f, 1.2f);
+                    SFXPlayer.Instance.Play(Sound.BallHit, pitch);
+                }
+            }
         }
 
 

@@ -26,8 +26,6 @@ namespace Kalevala
 
         private static Rollover[] _instances = new Rollover[7];
 
-        private static AudioSource _leftSound, _rightSound;
-
         private static int _count, _completedCount;
 
 
@@ -54,12 +52,6 @@ namespace Kalevala
             Init();
 
             _instances[order] = this;
-
-            if (_leftSound == null)
-            {
-                _leftSound = GameObject.Find("RolloverLeftAudio").GetComponent<AudioSource>();
-                _rightSound = GameObject.Find("RolloverRightAudio").GetComponent<AudioSource>();
-            }
 
         }
 
@@ -109,7 +101,7 @@ namespace Kalevala
             _light.Switch(_down);
             _elapsedTime = duration - _elapsedTime;
 
-            (transform.position.x < 0 ? _leftSound : _rightSound).Play();
+            (transform.position.x < 0 ? SFXPlayer.Instance : SFXPlayer.Instance).Play(Sound.FlipperBarUp);
 
             Scorekeeper.Instance.AddScore(Scorekeeper.ScoreType.TuonelaRollover);
 

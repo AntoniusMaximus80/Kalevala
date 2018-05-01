@@ -7,9 +7,7 @@ namespace Kalevala
         public GameObject _bumper,
             _hayStake,
             _hayParticleSystem;
-
-        public AudioSource _popBumperAudioSource,
-            _hayAudioSource;
+        
 
         [SerializeField, Range(0f, 64f)]
         private float _bumperForce;
@@ -104,19 +102,9 @@ namespace Kalevala
                 ForceMode.Impulse);
 
             // Audio.
-            if (!_popBumperAudioSource.isPlaying)
-            {
-                float randomPitch = Random.Range(0.8f, 1.2f);
-                _popBumperAudioSource.pitch = randomPitch;
-                _popBumperAudioSource.Play();
-            }
-
-            if (!_hayAudioSource.isPlaying)
-            {
-                float randomPitch = Random.Range(0.8f, 1.2f);
-                _hayAudioSource.pitch = randomPitch;
-                _hayAudioSource.Play();
-            }
+            float randomPitch = Random.Range(0.8f, 1.2f);
+            SFXPlayer.Instance.Play(Sound.Bumper, randomPitch);
+            SFXPlayer.Instance.Play(Sound.BumperParticle, randomPitch);
 
             // Particle system.
             if (!_hayParticleSystem.activeInHierarchy)

@@ -38,7 +38,7 @@ namespace Kalevala
                     _hadResources = true;
                     _bellows.SetBool("Pumping", true);
                     _ball.SetHeatBall(_timeToWait);
-                    SFXPlayer.Instance.Play(9);
+                    SFXPlayer.Instance.Play(Sound.IlmarisenKOH);
                 }
                 Scorekeeper.Instance.AddScore(Scorekeeper.ScoreType.IlmarinenKOH);
                 _doOnce = false;
