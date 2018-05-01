@@ -43,6 +43,7 @@ namespace Kalevala
         [SerializeField]
         private KickoutHole _kickoutHole;
 
+        private bool _active = true;
         private bool _isKickHole = false;
 
         /* The ramp entrance knows the ramp it is a part of
@@ -80,6 +81,18 @@ namespace Kalevala
             PutPinballOnRamp();
         }
 
+        public bool Active
+        {
+            get
+            {
+                return _active;
+            }
+            set
+            {
+                _active = value;
+            }
+        }
+
         public bool IsPathStart
         {
             get
@@ -108,7 +121,7 @@ namespace Kalevala
         {
             foreach (Pinball ball in PinballManager.Instance.Pinballs)
             {
-                if (!ball.IsOnRamp && !ball.IsInKickoutHole &&
+                if (Active && !ball.IsOnRamp && !ball.IsInKickoutHole &&
                     Hit(ball.transform.position) &&
                     SameDirections(ball.PhysicsVelocity) )
 
@@ -201,15 +214,21 @@ namespace Kalevala
 
         private void DrawStartPoint()
         {
-            Gizmos.color = _gizmosColor;
-            Gizmos.DrawWireSphere(transform.position, _distanceTolerance);
+            if (Active)
+            {
+                Gizmos.color = _gizmosColor;
+                Gizmos.DrawWireSphere(transform.position, _distanceTolerance);
+            }
         }
 
         private void DrawDirection()
         {
-            Gizmos.color = _gizmosColor;
-            Gizmos.DrawLine(transform.position,
-                transform.position + _rampDirection);
+            if (Active)
+            {
+                Gizmos.color = _gizmosColor;
+                Gizmos.DrawLine(transform.position,
+                    transform.position + _rampDirection);
+            }
         }
     }
 }

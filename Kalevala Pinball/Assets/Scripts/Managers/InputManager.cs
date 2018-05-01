@@ -541,6 +541,16 @@ namespace Kalevala {
                 _collSpawner.SpawnCollectables
                     (Collectable.CollectableType.Salt, 5, 0.5f);
             }
+
+            // Toggling a ramp
+            if (Input.GetKeyUp(KeyCode.K))
+            {
+                RampChanger rc = FindObjectOfType<RampChanger>();
+                if (rc != null)
+                {
+                    rc.ToggleRamp(true);
+                }
+            }
         }
 
         private void ScoreboardInput()
