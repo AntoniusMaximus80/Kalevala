@@ -6,12 +6,9 @@ namespace Kalevala
 {
     public class KanteleBumper: MonoBehaviour
     {
-        public GameObject _bumper,
-           _tooth,
-           _toothParticleSystem;
-
-        public AudioSource _toothBumperAudioSource,
-            _toothAudioSource;
+        [SerializeField]
+        private GameObject _bumper,
+           _tooth;
 
         [SerializeField, Range(0f, 64f)]
         private float _bumperForce;
@@ -31,9 +28,7 @@ namespace Kalevala
 
         public float _halfAnimationDuration;
 
-        private float _animationFrame,
-            _toothParticleDuration = 1.5f,
-            _toothParticleCounter = 0f;
+        private float _animationFrame;
 
         private bool _bumping = false,
             _bumpingDown = true;
@@ -80,16 +75,6 @@ namespace Kalevala
                     _tooth.transform.position = _toothStartPosition; // Reset hay stake's position at the end of the animation.
                 }
             }
-
-            if(_toothParticleSystem.activeInHierarchy)
-            {
-                _toothParticleCounter += Time.deltaTime;
-                if(_toothParticleCounter >= _toothParticleDuration)
-                {
-                    _toothParticleCounter = 0f;
-                    _toothParticleSystem.SetActive(false);
-                }
-            }
         }
 
         private void OnTriggerEnter( Collider other )
@@ -107,25 +92,8 @@ namespace Kalevala
                 ForceMode.Impulse);
 
             // Audio.
-            if(!_toothBumperAudioSource.isPlaying)
-            {
-                float randomPitch = Random.Range(0.8f, 1.2f);
-                _toothBumperAudioSource.pitch = randomPitch;
-                _toothBumperAudioSource.Play();
-            }
-
-            if(!_toothAudioSource.isPlaying)
-            {
-                float randomPitch = Random.Range(0.8f, 1.2f);
-                _toothAudioSource.pitch = randomPitch;
-                _toothAudioSource.Play();
-            }
-
-            // Particle system.
-            if(!_toothParticleSystem.activeInHierarchy)
-            {
-                _toothParticleSystem.SetActive(true);
-            }
+            float randomPitch = Random.Range(0.8f, 1.2f);
+            SFXPlayer.Instance.Play(Sound.Bumper, randomPitch);
 
             // Animation.
             _bumping = true;

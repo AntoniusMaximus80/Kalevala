@@ -449,6 +449,7 @@ namespace Kalevala
         /// </summary>
         private void BallOutOfBounds()
         {
+            //TODO Add new KOH where the ball will be placed if it flies out of the playfield
             _rb.velocity = Vector3.zero;
             transform.position = new Vector3(0, 1f, 0f);
         }
@@ -460,7 +461,6 @@ namespace Kalevala
             {
                 if(impulse > 5 && collision.gameObject.GetComponent<Collider>().sharedMaterial.name == "Plastic")
                 {
-                    Debug.Log(collision.gameObject.GetComponent<Collider>().sharedMaterial.name);
                     float pitch = UnityEngine.Random.Range(0.8f, 1.2f);
                     SFXPlayer.Instance.Play(Sound.BallHit, pitch);
                 }

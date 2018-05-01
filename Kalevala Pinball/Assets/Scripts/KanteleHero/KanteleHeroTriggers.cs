@@ -56,8 +56,6 @@ namespace Kalevala
                 _startTime += Time.deltaTime;
                 if(_startTime > _triggerActiveTimeBeforeMiss)
                 {
-
-                    Debug.Log("LightMissed");
                     _parent.LightMissed(_noteNumber, false);
                     DeactivateLight();
                 }
