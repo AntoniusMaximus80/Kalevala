@@ -43,6 +43,9 @@ namespace Kalevala {
         [SerializeField]
         private Text _playerName;
 
+        [SerializeField]
+        private GameObject _creditsScreen;
+
         private static Vector3 _nudgeVector = Vector3.zero;
 
         private EventSystem _eventSystem;
@@ -205,8 +208,17 @@ namespace Kalevala {
                 return;
             }
 
+            // Exiting the credits screen
+            if (_creditsScreen.gameObject.activeSelf)
+            {
+                if (Input.GetButtonUp(_SUBMIT) ||
+                    Input.GetButtonUp(_CANCEL))
+                {
+                    DisplayCredits(false);
+                }
+            }
             // Text input for the player's name
-            if (_textInputActive)
+            else if (_textInputActive)
             {
                 TextInput();
 
@@ -785,6 +797,21 @@ namespace Kalevala {
             if (_submitHoldover && !Input.GetButton(_SUBMIT))
             {
                 _submitHoldover = false;
+            }
+        }
+
+        public void DisplayCredits(bool display)
+        {
+            _creditsScreen.gameObject.SetActive(display);
+
+            if (display)
+            {
+                // Clears the menu button selection
+                EventSystem.current.SetSelectedGameObject(null);
+            }
+            else if (!_cursor.PlayingUsingMouse)
+            {
+                SelectDefaultSelectedMenuButton();
             }
         }
 
