@@ -16,6 +16,8 @@ ModelImporter:
     100016: Structure006
     100018: Structure007
     100020: Structure008
+    100022: Box001
+    100024: Object002
     400000: Left Back Orbit
     400002: //RootNode
     400004: Right Back Orbit
@@ -27,6 +29,8 @@ ModelImporter:
     400016: Structure006
     400018: Structure007
     400020: Structure008
+    400022: Box001
+    400024: Object002
     2100000: Placeholder
     2300000: Left Back Orbit
     2300002: Right Back Orbit
@@ -38,6 +42,8 @@ ModelImporter:
     2300014: Structure006
     2300016: Structure007
     2300018: Structure008
+    2300020: Box001
+    2300022: Object002
     3300000: Left Back Orbit
     3300002: Right Back Orbit
     3300004: Structure001
@@ -48,6 +54,8 @@ ModelImporter:
     3300014: Structure006
     3300016: Structure007
     3300018: Structure008
+    3300020: Box001
+    3300022: Object002
     4300000: Structure005
     4300002: Structure004
     4300004: Structure006
@@ -58,6 +66,8 @@ ModelImporter:
     4300014: Structure001
     4300016: Right Back Orbit
     4300018: Structure008
+    4300020: Box001
+    4300022: Object002
     9500000: //RootNode
   externalObjects: {}
   materials:
