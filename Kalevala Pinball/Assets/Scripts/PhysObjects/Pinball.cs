@@ -97,6 +97,7 @@ namespace Kalevala
             {
                 BallOutOfBounds();
             }
+
             if (!InputManager.NudgeVector.Equals(Vector3.zero))
                 AddImpulseForce(InputManager.NudgeVector);
 
@@ -459,10 +460,18 @@ namespace Kalevala
             float impulse = collision.impulse.y + collision.impulse.x + collision.impulse.z;
             if(collision.gameObject.GetComponent<Collider>().sharedMaterial != null)
             {
-                if(impulse > 5 && collision.gameObject.GetComponent<Collider>().sharedMaterial.name == "Plastic")
+                if(impulse > 5)
                 {
                     float pitch = UnityEngine.Random.Range(0.8f, 1.2f);
-                    SFXPlayer.Instance.Play(Sound.BallHit, pitch);
+                    if(collision.gameObject.GetComponent<Collider>().sharedMaterial.name == "Plastic")
+                    {
+                        SFXPlayer.Instance.Play(Sound.BallHit, pitch);
+                    }
+                    else
+                    {
+                        SFXPlayer.Instance.Play(Sound.BallHitPlastic, pitch);
+                    }
+                    
                 }
             }
         }
