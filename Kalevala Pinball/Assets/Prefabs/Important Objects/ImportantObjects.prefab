@@ -2975,7 +2975,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e387222fe7ed1a469138d2d6bd8ad42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxTextLength: 20
+  _maxTextLength: 15
   _allowKeyboardInput: 1
   _buttonHoldInterval: 0.1
   _upperCase: 0
@@ -4852,6 +4852,7 @@ MonoBehaviour:
   _flipperMotorForce: 32000
   _flipperMotorTargetVelocity: 64000
   _springForce: 32000
+  GameOverDelay: 3
   debug_useDefaultLaunchPoint: 1
   debug_freeBalls: 0
   _rampGravityMultiplier: 3
@@ -6299,6 +6300,8 @@ MonoBehaviour:
     type: 2}
   _listSize: 10
   _scoreSlotMoveDuration: 0.5
+  _defaultScoreColor: {r: 1, g: 1, b: 1, a: 1}
+  _currentScoreColor: {r: 0, g: 1, b: 0, a: 1}
 --- !u!114 &114923408599343912
 MonoBehaviour:
   m_ObjectHideFlags: 1

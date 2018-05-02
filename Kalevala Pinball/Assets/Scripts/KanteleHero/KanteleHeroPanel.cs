@@ -93,6 +93,7 @@ namespace Kalevala
         // Update is called once per frame
         void Update()
         {
+            // Debugging purposes only
             if(Input.GetKeyDown(KeyCode.C))
             {
                 ActivatePanel();
