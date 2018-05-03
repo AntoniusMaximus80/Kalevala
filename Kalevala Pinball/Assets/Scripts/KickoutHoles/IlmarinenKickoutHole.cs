@@ -23,14 +23,14 @@ namespace Kalevala
         {
             if(_doOnce)
             {
-                if(PinballManager.Instance.Resources >= 15 ||
+                if(PinballManager.Instance.Resources >= (int)PinballManager.Instance.MaxResources / 3 ||
                    GameManager.Instance.GameMode.State == GameModeStateType.Sampo ||
                    Launcher.Instance.SkillShotSuccesful)
                 {
                     if(GameManager.Instance.GameMode.State != GameModeStateType.Sampo &&
                         Launcher.Instance.SkillShotSuccesful)
                     {
-                        PinballManager.Instance.ChangeResources(-15);
+                        PinballManager.Instance.ChangeResources(-(int)PinballManager.Instance.MaxResources / 3);
                     } else if (Launcher.Instance.SkillShotSuccesful)
                     {
                         Launcher.Instance.SkillShotSuccesful = false;
