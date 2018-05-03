@@ -74,9 +74,9 @@ namespace Kalevala
                 _returnAxeToStartPosition = false;
                 _takeInput = true;
             }
-            if(_pinball != null && !_gatesClosed)
+            if(_pinball != null && !_gatesClosed && !BallOnLauncher)
             {
-                if(_pinball.transform.position.x < _launcherAreaLeftBorder )
+                if( _pinball.transform.position.x < _launcherAreaLeftBorder )
                 {
                     foreach(SkillShotGate gate in _gates)
                     {
@@ -120,6 +120,7 @@ namespace Kalevala
 
         private void Launch()
         {
+            BallOnLauncher = false;
             SFXPlayer.Instance.Play(Sound.UkonKirves);
             _hitParticles.SetActive(true);
             PinballManager.Instance.SetPinballPhysicsEnabled(true);
@@ -133,6 +134,7 @@ namespace Kalevala
 
         public void StartLaunch(Pinball pinball)
         {
+            BallOnLauncher = true;
             _hitParticles.SetActive(false);
             _pinball = pinball;
             _returnAxeToStartPosition = true;
@@ -142,19 +144,14 @@ namespace Kalevala
             {
                 _handler.PathDeactivate();
             }
+
             foreach(SkillShotGate gate in _gates)
             {
                 gate.OpenGate();
             }
         }
 
-        public bool BallOnLauncher
-        {
-            get
-            {
-                return _takeInput;
-            }
-        }
+        public bool BallOnLauncher { get; private set; }
 
         private void OnDrawGizmos()
         {

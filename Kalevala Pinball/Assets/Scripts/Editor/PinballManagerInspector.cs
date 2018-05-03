@@ -29,7 +29,8 @@ namespace Kalevala.Editor
 
         private void OnSceneGUI()
         {
-            DisplayLaunchPointHandle();
+            DisplayPointHandle(targetPM.LaunchPoint, true);
+            DisplayPointHandle(targetPM.LaunchArrivalPoint, false);
         }
 
         private void MoveLaunchPointToBallButton()
@@ -45,7 +46,13 @@ namespace Kalevala.Editor
             }
         }
 
-        private void DisplayLaunchPointHandle()
+        /// <summary>
+        /// Displays a handle at the given point.
+        /// The point can be moved with the handle.
+        /// </summary>
+        /// <param name="changeLaunchPoint">True: launch point,
+        /// False: launch arrival point</param>
+        private void DisplayPointHandle(Vector3 point, bool changeLaunchPoint)
         {
             // Sets the handle's rotation based on
             // if Local or Global mode is active
@@ -53,19 +60,30 @@ namespace Kalevala.Editor
                 handleTransform.rotation : Quaternion.identity;
 
             // Transforms the position into world coordinates
-            Vector3 point =
-                handleTransform.TransformPoint(targetPM.LaunchPoint);
+            Vector3 worldPoint =
+                handleTransform.TransformPoint(point);
 
             EditorGUI.BeginChangeCheck();
 
-            point = Handles.DoPositionHandle(point, handleQuaternion);
+            worldPoint = Handles.DoPositionHandle(worldPoint, handleQuaternion);
 
             if (EditorGUI.EndChangeCheck())
             {
-                Undo.RecordObject(targetPM, "Move Ball Launch Point");
+                Undo.RecordObject(targetPM, "Move Point");
                 //EditorUtility.SetDirty(targetPM);
-                targetPM.LaunchPoint =
-                    handleTransform.InverseTransformPoint(point);
+
+                // An ugly way to change a variable point
+                // but I couldn't think of anything else
+                if (changeLaunchPoint)
+                {
+                    targetPM.LaunchPoint =
+                        handleTransform.InverseTransformPoint(worldPoint);
+                }
+                else
+                {
+                    targetPM.LaunchArrivalPoint =
+                        handleTransform.InverseTransformPoint(worldPoint);
+                }
             }
         }
     }

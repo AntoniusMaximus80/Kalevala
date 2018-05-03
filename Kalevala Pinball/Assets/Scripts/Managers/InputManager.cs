@@ -395,12 +395,9 @@ namespace Kalevala {
         private void FlipperInput()
         {
             // If the game is in tilt, the flippers are unavailable
-            if (PinballManager.Instance.Tilt)
-            {
-                return;
-            }
 
-            if (Input.GetAxis(_LEFTFLIPPERHIT) != 0)
+            if (!PinballManager.Instance.Tilt &&
+                Input.GetAxis(_LEFTFLIPPERHIT) != 0)
             {
                 _leftFlipper.UseMotor();
 
@@ -414,7 +411,8 @@ namespace Kalevala {
                 _leftFlipper.UseSpring();
             }
 
-            if (Input.GetAxis(_RIGHTFLIPPERHIT) != 0)
+            if (!PinballManager.Instance.Tilt &&
+                Input.GetAxis(_RIGHTFLIPPERHIT) != 0)
             {
                 _rightFlipper.UseMotor();
                 _topRightFlipper.UseMotor();

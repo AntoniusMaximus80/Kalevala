@@ -4853,7 +4853,7 @@ MonoBehaviour:
   _flipperMotorTargetVelocity: 64000
   _springForce: 32000
   GameOverDelay: 3
-  debug_useDefaultLaunchPoint: 1
+  debug_useDefaultLaunchPoint: 0
   debug_freeBalls: 0
   _rampGravityMultiplier: 3
   _rampExitSpeedMultiplier: 0.75
@@ -4861,7 +4861,9 @@ MonoBehaviour:
   _workshopExtraBalls: 2
   _workshopLocation: {fileID: 0}
   _allowedNudgeAmount: 4
-  _ballLaunchPoint: {x: 1.5450726, y: 1.35, z: 28.890873}
+  _ballLaunchPoint: {x: 1.9475822, y: 1.35, z: 23.448032}
+  _ballLaunchArrivalPoint: {x: 19.191685, y: 0, z: -44.143856}
+  _ballLaunchArrivalTime: 0.5
   _ballDrainBottomLeftCorner: {x: 6, y: 1.35, z: -54}
   _ballDrainTopRightCorner: {x: 10, y: 1.35, z: -48}
   _startingPosition: {fileID: 0}
