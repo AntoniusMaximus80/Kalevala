@@ -49,6 +49,13 @@ ModelImporter:
     100082: Fence Post044
     100084: Fence Post045
     100086: Fence Post046
+    100088: Fence Post047
+    100090: Fence Post048
+    100092: Fence Post049
+    100094: Fence Post050
+    100096: Fence Post051
+    100098: Fence Post052
+    100100: Fence Post053
     400000: Fence Post
     400002: Fence Post001
     400004: Fence Post002
@@ -93,6 +100,13 @@ ModelImporter:
     400082: Fence Post044
     400084: Fence Post045
     400086: Fence Post046
+    400088: Fence Post047
+    400090: Fence Post048
+    400092: Fence Post049
+    400094: Fence Post050
+    400096: Fence Post051
+    400098: Fence Post052
+    400100: Fence Post053
     2100000: 14 - Default
     2300000: Fence Post
     2300002: Fence Post001
@@ -137,6 +151,13 @@ ModelImporter:
     2300080: Fence Post044
     2300082: Fence Post045
     2300084: Fence Post046
+    2300086: Fence Post047
+    2300088: Fence Post048
+    2300090: Fence Post049
+    2300092: Fence Post050
+    2300094: Fence Post051
+    2300096: Fence Post052
+    2300098: Fence Post053
     3300000: Fence Post
     3300002: Fence Post001
     3300004: Fence Post002
@@ -180,6 +201,13 @@ ModelImporter:
     3300080: Fence Post044
     3300082: Fence Post045
     3300084: Fence Post046
+    3300086: Fence Post047
+    3300088: Fence Post048
+    3300090: Fence Post049
+    3300092: Fence Post050
+    3300094: Fence Post051
+    3300096: Fence Post052
+    3300098: Fence Post053
     4300000: Fence Post
     4300002: Fence Post001
     4300004: Fence Post002
@@ -223,6 +251,13 @@ ModelImporter:
     4300080: Fence Post044
     4300082: Fence Post045
     4300084: Fence Post046
+    4300086: Fence Post047
+    4300088: Fence Post048
+    4300090: Fence Post049
+    4300092: Fence Post050
+    4300094: Fence Post051
+    4300096: Fence Post052
+    4300098: Fence Post053
     9500000: //RootNode
   externalObjects: {}
   materials:

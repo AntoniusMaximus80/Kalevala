@@ -4,10 +4,25 @@ namespace Kalevala
 {
     public class PopBumper : MonoBehaviour
     {
-        public GameObject _bumper,
-            _hayStake,
-            _hayParticleSystem;
-        
+        public GameObject _bumper;
+
+        #region Light
+        public Light _light;
+        public float _strobeSpeed;
+        public float _lightMaximumIntensity;
+        private float _lightCurrentIntensity = 0f;
+        //public GameObject _body,
+        //    _cover,
+        //    _bulb;
+        //private float _lightMaximumIntensity,
+        //    _lightCurrentIntensity = 0f,
+        //    _bodyMaterialEmissionMax,
+        //    _coverEmissionMax,
+        //    _bulbEmissionMax,
+        //    _bodyEmissionCurrent = 0f,
+        //    _coverEmissionCurrent = 0f,
+        //    _bulbEmissionCurrent = 0f;
+        #endregion
 
         [SerializeField, Range(0f, 64f)]
         private float _bumperForce;
@@ -18,12 +33,11 @@ namespace Kalevala
         [SerializeField, Range(0f, 1f)]
         private float _randomForceVectorMagnitude;
 
-        [SerializeField, Range(0f, 1f)]
-        private float _shakeMagnitude;
+        //[SerializeField, Range(0f, 1f)]
+        //private float _shakeMagnitude;
 
         private Vector3 _bumperUpPosition,
-            _bumperDownPosition,
-            _hayStakeStartingPosition;
+            _bumperDownPosition;
 
         public float _halfAnimationDuration;
 
@@ -38,8 +52,13 @@ namespace Kalevala
         {
             _bumperUpPosition = _bumper.transform.position;
             _bumperDownPosition = _bumper.transform.position - new Vector3(0f, 1f, 0f);
-            _hayStakeStartingPosition = _hayStake.transform.position;
+            //_hayStakeStartingPosition = _hayStake.transform.position;
             _animationFrame = 0;
+            _light.intensity = _lightCurrentIntensity;
+            
+            //_bodyMaterialEmissionMax = _body.GetComponent<Renderer>().material.;
+            //_coverMaterial = _cover.GetComponent<Renderer>().material;
+            //_bulbMaterial = _bulb.GetComponent<Renderer>().material;
         }
 
         private void Update()
@@ -62,26 +81,37 @@ namespace Kalevala
                 float ratio = _animationFrame / _halfAnimationDuration;
                 //Debug.Log("Ratio == " + ratio);
                 _bumper.transform.position = Vector3.Lerp(_bumperUpPosition, _bumperDownPosition, ratio);
-                _hayStake.transform.position = _hayStakeStartingPosition; // Reset hay stake's position before shaking.
-                Shake(_hayStake);
+                //_hayStake.transform.position = _hayStakeStartingPosition; // Reset hay stake's position before shaking.
+                //Shake(_hayStake);
 
                 if (_animationFrame == 0)
                 {
                     _bumpingDown = true;
                     _bumping = false;
-                    _hayStake.transform.position = _hayStakeStartingPosition; // Reset hay stake's position at the end of the animation.
+                    //_hayStake.transform.position = _hayStakeStartingPosition; // Reset hay stake's position at the end of the animation.
                 }
+
+                _lightCurrentIntensity += Time.deltaTime * _strobeSpeed;
+                _light.intensity = _lightCurrentIntensity;
+                if (_lightCurrentIntensity >= _lightMaximumIntensity)
+                {
+                    _lightCurrentIntensity = 0f;
+                }
+            } else
+            {
+                _light.intensity = 0f;
+                _lightCurrentIntensity = 0f;
             }
 
-            if (_hayParticleSystem.activeInHierarchy)
-            {
-                _hayParticleCounter += Time.deltaTime;
-                if (_hayParticleCounter >= _hayParticleDuration)
-                {
-                    _hayParticleCounter = 0f;
-                    _hayParticleSystem.SetActive(false);
-                }
-            }
+            //if (_hayParticleSystem.activeInHierarchy)
+            //{
+            //    _hayParticleCounter += Time.deltaTime;
+            //    if (_hayParticleCounter >= _hayParticleDuration)
+            //    {
+            //        _hayParticleCounter = 0f;
+            //        _hayParticleSystem.SetActive(false);
+            //    }
+            //}
         }
 
         private void OnTriggerEnter(Collider other)
@@ -106,19 +136,19 @@ namespace Kalevala
             SFXPlayer.Instance.Play(Sound.Bumper, randomPitch);
             SFXPlayer.Instance.Play(Sound.BumperParticle, randomPitch);
 
-            // Particle system.
-            if (!_hayParticleSystem.activeInHierarchy)
-            {
-                _hayParticleSystem.SetActive(true);
-            }
+            //// Particle system.
+            //if (!_hayParticleSystem.activeInHierarchy)
+            //{
+            //    _hayParticleSystem.SetActive(true);
+            //}
 
             // Animation.
             _bumping = true;
         }
 
-        private void Shake(GameObject gameObject)
-        {
-            gameObject.transform.position += new Vector3(Random.Range(-_shakeMagnitude, _shakeMagnitude), 0f, Random.Range(-_shakeMagnitude, _shakeMagnitude));
-        }
+        //private void Shake(GameObject gameObject)
+        //{
+        //    gameObject.transform.position += new Vector3(Random.Range(-_shakeMagnitude, _shakeMagnitude), 0f, Random.Range(-_shakeMagnitude, _shakeMagnitude));
+        //}
     }
 }

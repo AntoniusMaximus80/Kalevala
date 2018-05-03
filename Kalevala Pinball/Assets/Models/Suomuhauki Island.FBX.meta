@@ -1,0 +1,151 @@
+fileFormatVersion: 2
+guid: 12ae4ab0b421ef74297aab625da1c67d
+timeCreated: 1525276133
+licenseType: Free
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: Bolt
+    100002: Bolt001
+    100004: Bolt002
+    100006: Bolt003
+    100008: Bolt005
+    100010: Bolt006
+    100012: Bolts
+    100014: Cover
+    100016: Kickout Hole
+    100018: Plastic Rail
+    100020: Plastic Rail001
+    100022: Plastic Rail008
+    100024: Plastic Rails
+    100026: //RootNode
+    400000: Bolt
+    400002: Bolt001
+    400004: Bolt002
+    400006: Bolt003
+    400008: Bolt005
+    400010: Bolt006
+    400012: Bolts
+    400014: Cover
+    400016: Kickout Hole
+    400018: Plastic Rail
+    400020: Plastic Rail001
+    400022: Plastic Rail008
+    400024: Plastic Rails
+    400026: //RootNode
+    2100000: Placeholder
+    2100002: Dark Brown Plastic
+    2300000: Bolt
+    2300002: Bolt001
+    2300004: Bolt002
+    2300006: Bolt003
+    2300008: Bolt005
+    2300010: Bolt006
+    2300012: Cover
+    2300014: Kickout Hole
+    2300016: Plastic Rail
+    2300018: Plastic Rail001
+    2300020: Plastic Rail008
+    3300000: Bolt
+    3300002: Bolt001
+    3300004: Bolt002
+    3300006: Bolt003
+    3300008: Bolt005
+    3300010: Bolt006
+    3300012: Cover
+    3300014: Kickout Hole
+    3300016: Plastic Rail
+    3300018: Plastic Rail001
+    3300020: Plastic Rail008
+    4300000: Cover
+    4300002: Kickout Hole
+    4300004: Plastic Rail001
+    4300006: Plastic Rail
+    4300008: Plastic Rail008
+    4300010: Bolt003
+    4300012: Bolt002
+    4300014: Bolt001
+    4300016: Bolt
+    4300018: Bolt005
+    4300020: Bolt006
+    9500000: //RootNode
+  externalObjects: {}
+  materials:
+    importMaterials: 0
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 0
+    importLights: 0
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 0
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
