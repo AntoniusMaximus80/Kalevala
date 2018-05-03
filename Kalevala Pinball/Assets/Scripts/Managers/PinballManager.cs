@@ -607,9 +607,12 @@ namespace Kalevala
             {
                 StartCoroutine(BallLaunchArrivalRoutine(pinball));
             }
-            
-            //pinball.transform.position = _ballLaunchPoint;
-            //pinball.StopMotion();
+            else
+            {
+                pinball.transform.position = _ballLaunchPoint;
+                Debug.LogWarning("A ball may already be in the launch area");
+            }
+
             pinball.SetPhysicsEnabled(true);
             Launcher.Instance.StartLaunch(pinball);
         }

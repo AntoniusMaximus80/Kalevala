@@ -124,7 +124,7 @@ namespace Kalevala
 
         public bool SaveHighscores()
         {
-            if (_currentRank != -1)
+            if (CurrentRankInScoreboard)
             {
                 // Saves all highscores to a file
                 GameManager.Instance.SaveGame("Saving new highscore");
@@ -187,7 +187,7 @@ namespace Kalevala
                 //}
 
                 int rankLimit;
-                if (_currentRank == -1)
+                if ( !CurrentRankInScoreboard )
                 {
                     rankLimit = _highscores.Length;
                 }
@@ -329,7 +329,7 @@ namespace Kalevala
 
             if (rank != _currentRank)
             {
-                if (_currentRank == -1)
+                if ( !CurrentRankInScoreboard )
                 {
                     // Adds the new highscore to the slot at the index
                     // and moves lower scores down on the list
@@ -345,7 +345,7 @@ namespace Kalevala
                 _currentRank = rank;
                 _scoreSlots[_currentRank].color = _currentScoreColor;
             }
-            else
+            else if (CurrentRankInScoreboard)
             {
                 EditScore(_currentPlayerName,
                     currentScore, _currentRank);
@@ -463,6 +463,14 @@ namespace Kalevala
             //}
 
             return hsText;
+        }
+
+        private bool CurrentRankInScoreboard
+        {
+            get
+            {
+                return _currentRank > -1;
+            }
         }
     }
 }
