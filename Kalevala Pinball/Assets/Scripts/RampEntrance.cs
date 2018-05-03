@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Kalevala.WaypointSystem;
+using System;
 
 namespace Kalevala
 {
@@ -45,6 +46,7 @@ namespace Kalevala
 
         private bool _active = true;
         private bool _isKickHole = false;
+        public event Action BallEnteredRamp;
 
         /* The ramp entrance knows the ramp it is a part of
          * When a pinball hits, the ramp is given to it and it disables its physics
@@ -126,6 +128,10 @@ namespace Kalevala
                     SameDirections(ball.PhysicsVelocity) )
 
                 {
+                    if(BallEnteredRamp != null)
+                    {
+                        BallEnteredRamp();
+                    }
                     bool available = true;
                     float kickforce = 0;
                     // Checks if either end of the ramp is attached to a kickouthole

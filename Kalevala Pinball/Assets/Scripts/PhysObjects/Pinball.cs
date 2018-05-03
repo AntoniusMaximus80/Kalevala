@@ -34,6 +34,8 @@ namespace Kalevala
         private float _elapsedColorChangeDuration;
         private float _coolDownTimer;
 
+        private AudioSource _currentAudio;
+
         public bool IsInKickoutHole
         {
             get;
@@ -97,7 +99,8 @@ namespace Kalevala
             {
                 BallOutOfBounds();
             }
-
+            float volume = Mathf.Clamp(0, 0, Settings.Instance.EffectVolume);
+            
             if (!InputManager.NudgeVector.Equals(Vector3.zero))
                 AddImpulseForce(InputManager.NudgeVector);
 

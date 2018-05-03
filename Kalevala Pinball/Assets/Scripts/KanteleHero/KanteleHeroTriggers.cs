@@ -12,6 +12,12 @@ namespace Kalevala
         private float _startTime;
         private float _triggerActiveTimeBeforeMiss;
         private int _noteNumber;
+        private bool _warmUp;
+        private bool _triggerLinger;
+        private float _triggerLingerTime = 0.02f;
+        private float _timeElapsed;
+        private float _warmUpTime;
+        private float _warmUpFlashTime;
         // Use this for initialization
         void Start()
         {
@@ -51,14 +57,36 @@ namespace Kalevala
         /// </summary>
         private void Update()
         {
+            if(_warmUp)
+            {
+                _warmUpTime += Time.deltaTime;
+                _warmUpFlashTime += Time.deltaTime;
+                if(_warmUpTime < 2f)
+                {
+                    if(_warmUpFlashTime >= 0.5f / _parent.CurrentDifficulty)
+                    {
+                        FlashTriggers();
+                    }
+                } else
+                {
+                    DeactivateLight();
+                    _warmUp = false;
+                    _warmUpTime = 0f;
+                }
+                return;
+            }
             if(_myLight.activeInHierarchy)
             {
                 _startTime += Time.deltaTime;
                 if(_startTime > _triggerActiveTimeBeforeMiss)
                 {
-                    _parent.LightMissed(_noteNumber, false);
+                    _parent.LightExpired(_noteNumber);
                     DeactivateLight();
                 }
+            }
+            if(_triggerLinger)
+            {
+                TriggerLinger();
             }
         }
 
@@ -69,19 +97,57 @@ namespace Kalevala
         /// </summary>
         public void TriggerPressed()
         {
+            if(!_warmUp) {
+                if(_triggerLinger)
+                {
+                    _parent.LightMissed(_noteNumber, true);
+                }
+                _triggerLinger = true;
+                _timeElapsed = 0f;
+            }
+        }
+
+        private void TriggerLinger()
+        {
+            _timeElapsed += Time.deltaTime;
+            
             if(_myLight.activeInHierarchy)
             {
                 _parent.LightHit(_noteNumber);
                 DeactivateLight();
-            } else
+                _triggerLinger = false;
+                _timeElapsed = 0f;
+            }
+            else
             {
-                _parent.LightMissed(_noteNumber, true);
+                if(_timeElapsed > _triggerLingerTime)
+                {
+                    _parent.LightMissed(_noteNumber, true);
+                    _triggerLinger = false;
+                    _timeElapsed = 0f;
+                }
             }
         }
 
         public void ResetNoteNumber()
         {
             _noteNumber = 0;
+            _warmUp = true;
+            _warmUpTime = 0f;
+            _warmUpFlashTime = 0f;
+        }
+
+        private void FlashTriggers()
+        {
+            if(_myLight.activeInHierarchy)
+            {
+                _myLight.SetActive(false);
+            }
+            else
+            {
+                _myLight.SetActive(true);
+            }
+            _warmUpFlashTime = 0f;
         }
     }
 }
