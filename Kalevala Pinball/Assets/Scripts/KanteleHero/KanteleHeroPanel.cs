@@ -237,7 +237,9 @@ namespace Kalevala
         /// </summary>
         public void LightMissed(int noteNumber, bool playErrorSound)
         {
-            if(playErrorSound)
+            if(PanelActive)
+            {
+                if(playErrorSound)
             {
                 SFXPlayer.Instance.Play(Sound.KanteleheroError);
             }
@@ -245,10 +247,10 @@ namespace Kalevala
             {
                 _missLights[_misses].SetActive(true);
             }
-            if(PanelActive)
-            {
+            
                 _misses++;
             }
+
             ComboManager.Instance.EndCombo();
             if(noteNumber >= _noteCount - 1)
             {
