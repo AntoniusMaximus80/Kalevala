@@ -245,7 +245,10 @@ namespace Kalevala
             {
                 _missLights[_misses].SetActive(true);
             }
-            _misses++;
+            if(PanelActive)
+            {
+                _misses++;
+            }
             ComboManager.Instance.EndCombo();
             if(noteNumber >= _noteCount - 1)
             {
