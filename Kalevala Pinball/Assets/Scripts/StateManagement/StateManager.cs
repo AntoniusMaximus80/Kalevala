@@ -83,7 +83,8 @@ namespace Kalevala
             ScreenState_Settings settingsScreen =
                 new ScreenState_Settings(this, _settingsMenu);
             ScreenState_GameOver gameOverScreen =
-                new ScreenState_GameOver(this, _gameOverScreen);
+                new ScreenState_GameOver
+                (this, _gameOverScreen, PinballManager.Instance.GameOverDelay);
             _screenStates.Add(mainMenuScreen);
             _screenStates.Add(playScreen);
             _screenStates.Add(pauseScreen);

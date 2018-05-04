@@ -64,7 +64,7 @@ namespace Kalevala {
         private bool _textInputActive;
         private bool _KanteleHeroLeftTriggerDown;
         private bool _KanteleHeroRightTriggerDown;
-        //private bool _gameOver;
+        private bool _debugEnabled;
 
         /// <summary>
         /// Is the submit button still held down from the previous screen
@@ -131,6 +131,12 @@ namespace Kalevala {
 
             L10n.LanguageLoaded += OnLanguageLoaded;
             OnLanguageLoaded();
+
+#if UNITY_EDITOR
+            _debugEnabled = true;
+#else
+            _debugEnabled = false;
+#endif
         }
 
         private void OnDestroy()
@@ -333,11 +339,15 @@ namespace Kalevala {
         private void GameInput()
         {
             // Accepts both KB+M and gamepad input
-            if(Input.GetKeyDown(KeyCode.L))
+
+            // Debugging purposes only
+            if (Input.GetKeyDown(KeyCode.L))
             {
                 _kantelePanel.ActivatePanel();
             }
+
             LaunchInput();
+
             if(_kantelePanel != null && _kantelePanel.PanelActive)
             {
                 KantelePanelInput();
@@ -385,12 +395,9 @@ namespace Kalevala {
         private void FlipperInput()
         {
             // If the game is in tilt, the flippers are unavailable
-            if (PinballManager.Instance.Tilt)
-            {
-                return;
-            }
 
-            if (Input.GetAxis(_LEFTFLIPPERHIT) != 0)
+            if (!PinballManager.Instance.Tilt &&
+                Input.GetAxis(_LEFTFLIPPERHIT) != 0)
             {
                 _leftFlipper.UseMotor();
 
@@ -404,7 +411,8 @@ namespace Kalevala {
                 _leftFlipper.UseSpring();
             }
 
-            if (Input.GetAxis(_RIGHTFLIPPERHIT) != 0)
+            if (!PinballManager.Instance.Tilt &&
+                Input.GetAxis(_RIGHTFLIPPERHIT) != 0)
             {
                 _rightFlipper.UseMotor();
                 _topRightFlipper.UseMotor();
@@ -458,8 +466,16 @@ namespace Kalevala {
             }
         }
 
+        /// <summary>
+        /// Handles debug input. Disabled in builds.
+        /// </summary>
         private void DebugInput()
         {
+            if (!_debugEnabled)
+            {
+                return;
+            }
+
             // Resetting the ball
             if (Input.GetButtonDown("ResetBall"))
             {

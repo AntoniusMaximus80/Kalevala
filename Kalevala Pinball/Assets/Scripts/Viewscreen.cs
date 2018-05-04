@@ -132,6 +132,12 @@ namespace Kalevala
             //_instance._ballCounter.text = "Balls left: " + balls.ToString("N0");
         }
 
+        public static void OutOfBalls()
+        {
+            //string translation = L10n.CurrentLanguage.GetTranslation(OutOfBallsKey);
+            _instance._ballCounter.text = "Out of balls";
+        }
+
         // Added a proper method for restting this. It was needed but did not exist, oops.
         internal static void ResetScore()
         {

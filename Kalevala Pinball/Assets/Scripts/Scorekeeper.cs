@@ -69,6 +69,10 @@ namespace Kalevala
 
         public void AddScore(ScoreType scoreType)
         {
+            if(GameManager.Instance.Screen.State != ScreenStateType.Play)
+            {
+                return;
+            }
             int _score = 0;
             string _message = "";
             switch(scoreType)
@@ -133,9 +137,8 @@ namespace Kalevala
 
             // To do: Apply possible score modifiers here.
             // VN : remember that some score modifiers are type dependent and go inside the switch statement.
-
-            _totalScore += _score;
-
+            _score = _score * ComboManager.Instance.ScoreMultiplier;
+           _totalScore += _score;
             // Refactored the string processing to happen in the viewscreen class.
             // Why was I calling two functions that are always used together separately?
             Viewscreen.FormatScore(_totalScore, _score, _message);

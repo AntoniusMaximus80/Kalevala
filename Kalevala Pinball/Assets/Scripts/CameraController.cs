@@ -51,6 +51,8 @@ namespace Kalevala
         [SerializeField, Range(0f, 5f)]
         private float _movementTime = 1f;
 
+        private Coroutine _currentCameraPan;
+
         private float _elapsedTime;
         private bool _moving;
         private bool _shaking;
@@ -134,23 +136,29 @@ namespace Kalevala
             // Show or hide scoreboard extra view based on need.
             ShowScoreBoard(camPosition);
             
+            if (_currentCameraPan != null)
+            {
+                StopCoroutine(_currentCameraPan);
+                EndCameraPan();
+            }
+
             switch (camPosition)
             {
                 case CameraPosition.Playfield:
                 {
-                    StartCoroutine(
+                    _currentCameraPan = StartCoroutine(
                         MoveCamera(GetPlayfieldCamTransform(), instantMove));
                     break;
                 }
                 case CameraPosition.Launcher:
                 {
-                    StartCoroutine(
+                    _currentCameraPan = StartCoroutine(
                         MoveCamera(GetLauncherCamTransform(), instantMove));
                     break;
                 }
                 case CameraPosition.Kantele:
                 {
-                    StartCoroutine(
+                    _currentCameraPan = StartCoroutine(
                         MoveCamera(GetKanteleCamTransform(), instantMove));
                     break;
                 }
@@ -226,7 +234,13 @@ namespace Kalevala
                 yield return null;
             }
 
+            EndCameraPan();
+        }
+
+        private void EndCameraPan()
+        {
             _moving = false;
+            _currentCameraPan = null;
         }
 
         public void Shake(Vector3 direction, float randomDirAngle,

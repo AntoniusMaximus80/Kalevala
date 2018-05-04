@@ -59,6 +59,7 @@ namespace Kalevala
         public float _flipperMotorForce;
         public float _flipperMotorTargetVelocity;
         public float _springForce;
+        public float GameOverDelay = 1f;
 
         [SerializeField, Tooltip
             ("Use the wire sphere gizmo's position as the launch point.")]
@@ -90,6 +91,12 @@ namespace Kalevala
         private Vector3 _ballLaunchPoint;
 
         [SerializeField]
+        private Vector3 _ballLaunchArrivalPoint;
+
+        [SerializeField]
+        private float _ballLaunchArrivalTime;
+
+        [SerializeField]
         private Vector3 _ballDrainBottomLeftCorner;
 
         [SerializeField]
@@ -105,11 +112,11 @@ namespace Kalevala
         private ExtraBallSpawner _extraBallSpawner;
 
         private StatusPanelManager _status;
-
         private List<Pinball> _pinballs;
 
         private int _currentBallCount, _activeBalls;
         private int _nudgesLeft;
+        private float _elapsedBallLaunchArrivalTime;
 
         [SerializeField] // Serialized for debugging purposes only
         private float _shootAgainTimeRemaining;
@@ -123,6 +130,7 @@ namespace Kalevala
         //private bool _shootAgain;
         //private float _shootAgainTimeOut;
 
+        private bool _tilt;
         private bool _noNudges;
 
         public event Action ResourcesChanged;
@@ -179,10 +187,12 @@ namespace Kalevala
 
         private void Update()
         {
+            // Debugging purposes only
             if(Input.GetKey(KeyCode.A))
             {
                 Resources = 45;
             }
+
             UpdateShootAgain();
             UpdateAutosave();
         }
@@ -264,7 +274,22 @@ namespace Kalevala
 
         public bool Autosave { get; private set; }
 
-        public bool Tilt { get; private set; }
+        public bool Tilt
+        {
+            get
+            {
+                return _tilt;
+            }
+            set
+            {
+                if (value == false)
+                {
+                    _nudgesLeft = _allowedNudgeAmount;
+                }
+
+                _tilt = value;
+            }
+        }
 
         public Vector3 LaunchPoint
         {
@@ -275,6 +300,18 @@ namespace Kalevala
             set
             {
                 _ballLaunchPoint = value;
+            }
+        }
+
+        public Vector3 LaunchArrivalPoint
+        {
+            get
+            {
+                return _ballLaunchArrivalPoint;
+            }
+            set
+            {
+                _ballLaunchArrivalPoint = value;
             }
         }
 
@@ -327,7 +364,6 @@ namespace Kalevala
         public void ResetGame()
         {
             _currentBallCount = _startingBallCount;
-            _nudgesLeft = _allowedNudgeAmount;
             Tilt = false;
             Autosave = false;
             ShootAgain = false;
@@ -565,10 +601,43 @@ namespace Kalevala
 
         public void InstanceNextBall(Pinball pinball)
         {
-            pinball.transform.position = _ballLaunchPoint;
-            pinball.StopMotion();
-            //pinball.SetPhysicsEnabled(false);
+            pinball.SetPhysicsEnabled(false);
+
+            if ( !Launcher.Instance.BallOnLauncher )
+            {
+                StartCoroutine(BallLaunchArrivalRoutine(pinball));
+            }
+            else
+            {
+                pinball.transform.position = _ballLaunchPoint;
+                Debug.LogWarning("A ball may already be in the launch area");
+            }
+
+            pinball.SetPhysicsEnabled(true);
             Launcher.Instance.StartLaunch(pinball);
+        }
+
+        private IEnumerator BallLaunchArrivalRoutine(Pinball pinball)
+        {
+            float ratio = 0;
+            _elapsedBallLaunchArrivalTime = 0;
+
+            Vector3 startPosition = _ballLaunchArrivalPoint;
+
+            while (ratio < 1f)
+            {
+                _elapsedBallLaunchArrivalTime += Time.deltaTime;
+
+                ratio = _elapsedBallLaunchArrivalTime /
+                    _ballLaunchArrivalTime;
+
+                pinball.transform.position =
+                    Vector3.Lerp(startPosition, _ballLaunchPoint, ratio);
+
+                yield return 0;
+            }
+
+            pinball.transform.position = _ballLaunchPoint;
         }
 
         public void InstanceBallToWorkshopKOH(Pinball pinball)
@@ -587,10 +656,10 @@ namespace Kalevala
                 InstanceNextBall(pinball);
 
                 _currentBallCount--;
-                Viewscreen.BallCount(CurrentBallNumber);
-
+                
                 if (OutOfBalls)
                 {
+                    Viewscreen.OutOfBalls();
                     Debug.Log("Out of balls - game over");
                     //GameManager.Instance.SaveOrRevertHighscores(true);
 
@@ -598,6 +667,7 @@ namespace Kalevala
                 }
                 else
                 {
+                    Viewscreen.BallCount(CurrentBallNumber);
                     Debug.Log("Balls left: " +
                         _currentBallCount.ToString());
                 }
@@ -749,6 +819,8 @@ namespace Kalevala
         /// </summary>
         public void DebugResetBall()
         {
+            Tilt = false;
+
             foreach (Pinball ball in _pinballs)
             {
                 if (ball.gameObject.activeSelf)
@@ -858,7 +930,8 @@ namespace Kalevala
 
         public bool SpendNudge()
         {
-            if (!_noNudges && _nudgesLeft > 0)
+            if (!Launcher.Instance.BallOnLauncher &&
+                !_noNudges && _nudgesLeft > 0)
             {
                 _nudgesLeft--;
 

@@ -6846,8 +6846,9 @@ MonoBehaviour:
   _leftTrigger: {fileID: 212006064}
   _rightTrigger: {fileID: 212006062}
   _haukiKantele: {fileID: 2142619177}
-  RedLight: {fileID: 2100000, guid: d19f0282c9c3a2341a9a1bd956132a7c, type: 2}
-  BlueLight: {fileID: 2100000, guid: 4d04f1aa0a4f9674ea2341ddf4f374ba, type: 2}
+  _kanteleHeroRamp: {fileID: 0}
+  LeftLightMaterial: {fileID: 0}
+  RightLightMaterial: {fileID: 0}
   _difficulty: 2
 --- !u!114 &212006064
 MonoBehaviour:
@@ -9674,31 +9675,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 10
       objectReference: {fileID: 0}
-    - target: {fileID: 114602248010753546, guid: 211d40b776f371a499e88a8daab2dc4d,
-        type: 2}
-      propertyPath: _workshopLocation
-      value: 
-      objectReference: {fileID: 1870512799}
-    - target: {fileID: 114602248010753546, guid: 211d40b776f371a499e88a8daab2dc4d,
-        type: 2}
-      propertyPath: _startingPosition
-      value: 
-      objectReference: {fileID: 652804908}
-    - target: {fileID: 114602248010753546, guid: 211d40b776f371a499e88a8daab2dc4d,
-        type: 2}
-      propertyPath: _pinballPrefab
-      value: 
-      objectReference: {fileID: 652804907}
-    - target: {fileID: 114959818721151298, guid: 211d40b776f371a499e88a8daab2dc4d,
-        type: 2}
-      propertyPath: _defaultCamera
-      value: 
-      objectReference: {fileID: 1614104078}
-    - target: {fileID: 114959818721151298, guid: 211d40b776f371a499e88a8daab2dc4d,
-        type: 2}
-      propertyPath: _horizontalCamera
-      value: 
-      objectReference: {fileID: 1769603574}
     - target: {fileID: 114011568283334892, guid: 211d40b776f371a499e88a8daab2dc4d,
         type: 2}
       propertyPath: _launcher
@@ -9719,6 +9695,11 @@ Prefab:
       propertyPath: _topRightFlipper
       value: 
       objectReference: {fileID: 784685345}
+    - target: {fileID: 114566912571384548, guid: 211d40b776f371a499e88a8daab2dc4d,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1028805486}
     - target: {fileID: 114599638252755998, guid: 211d40b776f371a499e88a8daab2dc4d,
         type: 2}
       propertyPath: _workshopKOH
@@ -9729,16 +9710,26 @@ Prefab:
       propertyPath: _shootAgainLight
       value: 
       objectReference: {fileID: 1017982573}
+    - target: {fileID: 114602248010753546, guid: 211d40b776f371a499e88a8daab2dc4d,
+        type: 2}
+      propertyPath: _workshopLocation
+      value: 
+      objectReference: {fileID: 1870512799}
+    - target: {fileID: 114602248010753546, guid: 211d40b776f371a499e88a8daab2dc4d,
+        type: 2}
+      propertyPath: _startingPosition
+      value: 
+      objectReference: {fileID: 652804908}
+    - target: {fileID: 114602248010753546, guid: 211d40b776f371a499e88a8daab2dc4d,
+        type: 2}
+      propertyPath: _pinballPrefab
+      value: 
+      objectReference: {fileID: 652804907}
     - target: {fileID: 114608500991614028, guid: 211d40b776f371a499e88a8daab2dc4d,
         type: 2}
       propertyPath: _location
       value: 
       objectReference: {fileID: 1870512799}
-    - target: {fileID: 114566912571384548, guid: 211d40b776f371a499e88a8daab2dc4d,
-        type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1028805486}
     - target: {fileID: 114798639311241274, guid: 211d40b776f371a499e88a8daab2dc4d,
         type: 2}
       propertyPath: _shots.Array.data[0]
@@ -9754,6 +9745,16 @@ Prefab:
       propertyPath: _shots.Array.data[2]
       value: 
       objectReference: {fileID: 2093187638}
+    - target: {fileID: 114959818721151298, guid: 211d40b776f371a499e88a8daab2dc4d,
+        type: 2}
+      propertyPath: _defaultCamera
+      value: 
+      objectReference: {fileID: 1614104078}
+    - target: {fileID: 114959818721151298, guid: 211d40b776f371a499e88a8daab2dc4d,
+        type: 2}
+      propertyPath: _horizontalCamera
+      value: 
+      objectReference: {fileID: 1769603574}
     - target: {fileID: 114656357482212084, guid: 211d40b776f371a499e88a8daab2dc4d,
         type: 2}
       propertyPath: _toyElevatorAnimator
@@ -9784,9 +9785,20 @@ Prefab:
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1028805486}
-    - target: {fileID: 1729810659660682, guid: 211d40b776f371a499e88a8daab2dc4d, type: 2}
-      propertyPath: m_IsActive
-      value: 0
+    - target: {fileID: 114602248010753546, guid: 211d40b776f371a499e88a8daab2dc4d,
+        type: 2}
+      propertyPath: debug_useDefaultLaunchPoint
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114602248010753546, guid: 211d40b776f371a499e88a8daab2dc4d,
+        type: 2}
+      propertyPath: _ballLaunchPoint.x
+      value: 2.0644233
+      objectReference: {fileID: 0}
+    - target: {fileID: 114602248010753546, guid: 211d40b776f371a499e88a8daab2dc4d,
+        type: 2}
+      propertyPath: _ballLaunchPoint.z
+      value: -17.396873
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 211d40b776f371a499e88a8daab2dc4d, type: 2}

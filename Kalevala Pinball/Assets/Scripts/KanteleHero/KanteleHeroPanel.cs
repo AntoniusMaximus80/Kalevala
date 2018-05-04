@@ -34,8 +34,10 @@ namespace Kalevala
         private KanteleHeroTriggers _rightTrigger;
         [SerializeField]
         private HauenLeukaKantele _haukiKantele;
-        public Material RedLight;
-        public Material BlueLight;
+        [SerializeField]
+        private RampEntrance _kanteleHeroRamp;
+        public Material LeftLightMaterial;
+        public Material RightLightMaterial;
 
         private List<Note> _notes = new List<Note>();
         private int _misses;
@@ -48,9 +50,15 @@ namespace Kalevala
         private int _noteCount;
         [SerializeField]
         private float _difficulty = 2;
+        private float _waitTimeElapsed;
+        private BoxCollider _kanteleEntranceCollider;
 
         private CameraController _cameroController;
 
+        public float CurrentDifficulty
+        {
+            get { return _difficulty; }
+        }
         public bool PanelActive
         {
             get { return _panelActive; }
@@ -59,6 +67,9 @@ namespace Kalevala
         // Use this for initialization
         void Start()
         {
+            _kanteleEntranceCollider = GetComponent<BoxCollider>();
+            _kanteleHeroRamp.BallEnteredRamp += ActivateEntranceCollider;
+            GameManager.Instance.StateManager.GameOver += ResetPanel;
             CreateNotes();
             _cameroController = FindObjectOfType<CameraController>();
             _kanteleLights = new Pool<KanteleHeroLight>(4, true, _movingLightPrefab);
@@ -81,11 +92,11 @@ namespace Kalevala
                 if(side == LightSide.left)
                 {
                     light.Init(waypoints, this, _lightMoveSpeed, side, noteNumber);
-                    light.GetComponent<Renderer>().material = RedLight;
+                    light.GetComponent<Renderer>().material = LeftLightMaterial;
                 } else
                 {
                     light.Init(waypoints, this, _lightMoveSpeed, side, noteNumber);
-                    light.GetComponent<Renderer>().material = BlueLight;
+                    light.GetComponent<Renderer>().material = RightLightMaterial;
                 }
             }
         }
@@ -93,10 +104,10 @@ namespace Kalevala
         // Update is called once per frame
         void Update()
         {
+            // Debugging purposes only
             if(Input.GetKeyDown(KeyCode.C))
             {
                 ActivatePanel();
-                Debug.Log(_noteCount);
                 
             }
             if(PanelActive)
@@ -153,6 +164,11 @@ namespace Kalevala
         /// </summary>
         private void UpdateSpawnTimer()
         {
+            if(_waitTimeElapsed <= 3f)
+            {
+                _waitTimeElapsed += Time.deltaTime;
+                return;
+            }
             _spawnTimer += Time.deltaTime * _difficulty;
             if(!_canSpawn && _currentNote < _noteCount)
             {
@@ -221,7 +237,9 @@ namespace Kalevala
         /// </summary>
         public void LightMissed(int noteNumber, bool playErrorSound)
         {
-            if(playErrorSound)
+            if(PanelActive)
+            {
+                if(playErrorSound)
             {
                 SFXPlayer.Instance.Play(Sound.KanteleheroError);
             }
@@ -229,7 +247,21 @@ namespace Kalevala
             {
                 _missLights[_misses].SetActive(true);
             }
-            _misses++;
+            
+                _misses++;
+            }
+
+            ComboManager.Instance.EndCombo();
+            if(noteNumber >= _noteCount - 1)
+            {
+                _difficulty += 0.5f;
+                DeactivatePanel();
+            }
+        }
+
+        public void LightExpired( int noteNumber )
+        {
+            ComboManager.Instance.EndCombo();
             if(noteNumber >= _noteCount - 1)
             {
                 _difficulty += 0.5f;
@@ -240,6 +272,7 @@ namespace Kalevala
         public void LightHit(int noteNumber)
         {
             PlayNote(_notes[noteNumber].NotePitch);
+            ComboManager.Instance.IncreaseMultiplier(this.gameObject);
             Scorekeeper.Instance.AddScore(Scorekeeper.ScoreType.KanteleLight);
             if(noteNumber >= _noteCount - 1)
             {
@@ -319,7 +352,8 @@ namespace Kalevala
             _haukiKantele.ActivateKantele();
             _rightTrigger.ResetNoteNumber();
             _leftTrigger.ResetNoteNumber();
-        }
+            _waitTimeElapsed = 0f;
+    }
 
         /// <summary>
         /// Deactivates the kantelehero panel minigame and all lights on it
@@ -338,26 +372,32 @@ namespace Kalevala
             PanelActive = false;
         }
 
+        public void ResetPanel(bool arg)
+        {
+            DeactivatePanel();
+            _misses = 0;
+            _difficulty = 2f;
+        }
+
         private void CreateNotes()
         {
-            float waitTime = 3f * _difficulty;
-            _notes.Add(new Note(1f + waitTime, NotePitch.D));
-            _notes.Add(new Note(2f + waitTime, NotePitch.D));
-            _notes.Add(new Note(3f + waitTime, NotePitch.E));
-            _notes.Add(new Note(4f + waitTime, NotePitch.E));
-            _notes.Add(new Note(5f + waitTime, NotePitch.F));
-            _notes.Add(new Note(6f + waitTime, NotePitch.A));
-            _notes.Add(new Note(7f + waitTime, NotePitch.E));
-            _notes.Add(new Note(9f + waitTime, NotePitch.E));
+            _notes.Add(new Note(1f, NotePitch.D));
+            _notes.Add(new Note(2f, NotePitch.D));
+            _notes.Add(new Note(3f, NotePitch.E));
+            _notes.Add(new Note(4f, NotePitch.E));
+            _notes.Add(new Note(5f, NotePitch.F));
+            _notes.Add(new Note(6f, NotePitch.A));
+            _notes.Add(new Note(7f, NotePitch.E));
+            _notes.Add(new Note(9f, NotePitch.E));
 
-            _notes.Add(new Note(11f + waitTime, NotePitch.F));
-            _notes.Add(new Note(12f + waitTime, NotePitch.D));
-            _notes.Add(new Note(13f + waitTime, NotePitch.G));
-            _notes.Add(new Note(14f + waitTime, NotePitch.F));
-            _notes.Add(new Note(15f + waitTime, NotePitch.E));
-            _notes.Add(new Note(16f + waitTime, NotePitch.F));
-            _notes.Add(new Note(17f + waitTime, NotePitch.D));
-            _notes.Add(new Note(19f + waitTime, NotePitch.D));
+            _notes.Add(new Note(11f, NotePitch.F));
+            _notes.Add(new Note(12f, NotePitch.D));
+            _notes.Add(new Note(13f, NotePitch.G));
+            _notes.Add(new Note(14f, NotePitch.F));
+            _notes.Add(new Note(15f, NotePitch.E));
+            _notes.Add(new Note(16f, NotePitch.F));
+            _notes.Add(new Note(17f, NotePitch.D));
+            _notes.Add(new Note(19f, NotePitch.D));
         }
 
         private void OnTriggerEnter( Collider other )
@@ -365,7 +405,13 @@ namespace Kalevala
             if(!_panelActive)
             {
                 ActivatePanel();
+                _kanteleEntranceCollider.enabled = false;
             }
+        }
+
+        private void ActivateEntranceCollider()
+        {
+            _kanteleEntranceCollider.enabled = true;
         }
     }
 }
