@@ -69,7 +69,7 @@ namespace Kalevala
                 Debug.LogError("Collider is missing.");
             }
             SFXPlayer.Instance.Play(Sound.DropDownTarget);
-            Scorekeeper.Instance.AddScore(Scorekeeper.ScoreType.DropTarget);
+            Scorekeeper.Instance.AddScore(Scorekeeper.ScoreType.DropTarget, this.gameObject);
         }
 
         public void ResetDropTarget()

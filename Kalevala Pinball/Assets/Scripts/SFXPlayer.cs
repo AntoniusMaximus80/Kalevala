@@ -40,7 +40,7 @@ namespace Kalevala
         GuitarE = 14,
         GuitarF = 15,
         GuitarG = 16,
-        BallHit = 17,
+        BallSaved = 17,
         BumperParticle = 18,
         BallHitPlastic = 19,
         BallRollTable = 20

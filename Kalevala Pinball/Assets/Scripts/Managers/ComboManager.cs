@@ -59,6 +59,7 @@ namespace Kalevala
             {
                 Destroy(this.gameObject);
             }
+            _scoreMultiplier = 1;
         }
 
         public void IncreaseMultiplier(GameObject obj, int value = 1)

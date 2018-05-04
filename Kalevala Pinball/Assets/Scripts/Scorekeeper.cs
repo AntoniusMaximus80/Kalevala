@@ -67,7 +67,7 @@ namespace Kalevala
         }
 
 
-        public void AddScore(ScoreType scoreType)
+        public void AddScore(ScoreType scoreType, GameObject scoreObject = null)
         {
             if(GameManager.Instance.Screen.State != ScreenStateType.Play)
             {
@@ -133,6 +133,12 @@ namespace Kalevala
                     Debug.LogError("ScoreType not recognized.");
                     _message = "Something broke. No score.";
                     break;
+            }
+
+            //Check if it was an objective
+            if(scoreObject != null)
+            {
+                ObjectiveManager.Instance.CheckObjective(scoreObject);
             }
 
             // To do: Apply possible score modifiers here.

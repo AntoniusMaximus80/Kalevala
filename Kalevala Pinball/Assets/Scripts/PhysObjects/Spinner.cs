@@ -143,14 +143,14 @@ namespace Kalevala
             if(transform.rotation.eulerAngles.x >= 0 && transform.rotation.eulerAngles.x <= 90 && !_fullRound)
             {
                 _fullRound = true;
-                Scorekeeper.Instance.AddScore(Scorekeeper.ScoreType.Spinner);
+                Scorekeeper.Instance.AddScore(Scorekeeper.ScoreType.Spinner, this.gameObject);
                 SFXPlayer.Instance.Play(Sound.Spinner);
             }
             else if(transform.rotation.eulerAngles.x >= 270 && transform.rotation.eulerAngles.x <= 360 && _fullRound)
             {
                 SFXPlayer.Instance.Play(Sound.Spinner);
                 _fullRound = false;
-                Scorekeeper.Instance.AddScore(Scorekeeper.ScoreType.Spinner);
+                Scorekeeper.Instance.AddScore(Scorekeeper.ScoreType.Spinner, this.gameObject);
             }
         }
 
