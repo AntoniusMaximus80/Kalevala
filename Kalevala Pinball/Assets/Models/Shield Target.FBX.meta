@@ -6,11 +6,36 @@ ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
     100000: //RootNode
+    100002: Support
+    100004: Target
+    100006: Metal Support001
+    100008: Plastic Support001
+    100010: Target001
     400000: //RootNode
+    400002: Support
+    400004: Target
+    400006: Metal Support001
+    400008: Plastic Support001
+    400010: Target001
     2100000: No Name
     2300000: //RootNode
+    2300002: Support
+    2300004: Target
+    2300006: Metal Support001
+    2300008: Plastic Support001
+    2300010: Target001
     3300000: //RootNode
+    3300002: Support
+    3300004: Target
+    3300006: Metal Support001
+    3300008: Plastic Support001
+    3300010: Target001
     4300000: Shield Target
+    4300002: Target
+    4300004: Support
+    4300006: Metal Support001
+    4300008: Plastic Support001
+    4300010: Target001
     9500000: //RootNode
   externalObjects: {}
   materials:

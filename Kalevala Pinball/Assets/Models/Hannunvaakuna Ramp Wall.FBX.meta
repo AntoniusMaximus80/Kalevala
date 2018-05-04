@@ -1,65 +1,31 @@
 fileFormatVersion: 2
-guid: 3691bb2f4c4cbf5448fbe1f15d259d36
-timeCreated: 1525326800
+guid: 6df810b9a9f925b4ebc23d9770cb284e
+timeCreated: 1525417893
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
     100000: //RootNode
-    100002: Plate Rivet006
-    100004: Plate Rivet007
-    100006: Plate006
-    100008: Ramp Entrance Plate003
-    100010: Ramp Entrance004
-    100012: Entrance
-    100014: Entrance Plate
-    100016: Plate Rivet008
-    100018: Plate Rivet009
-    100020: Plate007
-    100022: Ramp
-    100024: Ramp Entrance
+    100002: Plastic Cover001
+    100004: Post001
+    100006: Stopper Post004
+    100008: Wall
     400000: //RootNode
-    400002: Plate Rivet006
-    400004: Plate Rivet007
-    400006: Plate006
-    400008: Ramp Entrance Plate003
-    400010: Ramp Entrance004
-    400012: Entrance
-    400014: Entrance Plate
-    400016: Plate Rivet008
-    400018: Plate Rivet009
-    400020: Plate007
-    400022: Ramp
-    400024: Ramp Entrance
-    2100000: Clear Plastic
+    400002: Plastic Cover001
+    400004: Post001
+    400006: Stopper Post004
+    400008: Wall
+    2100000: Placeholder
     2100002: No Name
-    2300000: Plate Rivet006
-    2300002: Plate Rivet007
-    2300004: Plate006
-    2300006: Ramp Entrance004
-    2300008: Entrance
-    2300010: Plate Rivet008
-    2300012: Plate Rivet009
-    2300014: Plate007
-    2300016: Ramp
-    3300000: Plate Rivet006
-    3300002: Plate Rivet007
-    3300004: Plate006
-    3300006: Ramp Entrance004
-    3300008: Entrance
-    3300010: Plate Rivet008
-    3300012: Plate Rivet009
-    3300014: Plate007
-    3300016: Ramp
-    4300000: Ramp Entrance004
-    4300002: Plate Rivet006
-    4300004: Plate Rivet007
-    4300006: Plate006
-    4300008: Plate007
-    4300010: Plate Rivet008
-    4300012: Plate Rivet009
-    4300014: Entrance
-    4300016: Ramp
+    2300000: Plastic Cover001
+    2300002: Post001
+    2300004: Wall
+    3300000: Plastic Cover001
+    3300002: Post001
+    3300004: Wall
+    4300000: Wall
+    4300002: Plastic Cover001
+    4300004: Post001
     9500000: //RootNode
   externalObjects: {}
   materials:

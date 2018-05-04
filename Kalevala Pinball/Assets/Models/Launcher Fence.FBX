@@ -8,11 +8,11 @@ FBXHeaderExtension:  {
 		Version: 1000
 		Year: 2018
 		Month: 5
-		Day: 2
-		Hour: 10
-		Minute: 22
-		Second: 26
-		Millisecond: 707
+		Day: 4
+		Hour: 8
+		Minute: 58
+		Second: 15
+		Millisecond: 764
 	}
 	Creator: "FBX SDK/FBX Plugins version 2018.1"
 	SceneInfo: "SceneInfo::GlobalInfo", "UserData" {
@@ -34,13 +34,13 @@ FBXHeaderExtension:  {
 			P: "Original|ApplicationVendor", "KString", "", "", "Autodesk"
 			P: "Original|ApplicationName", "KString", "", "", "3ds Max"
 			P: "Original|ApplicationVersion", "KString", "", "", "2018"
-			P: "Original|DateTime_GMT", "DateTime", "", "", "02/05/2018 07:22:26.706"
+			P: "Original|DateTime_GMT", "DateTime", "", "", "04/05/2018 05:58:15.761"
 			P: "Original|FileName", "KString", "", "", "C:\Users\Toni\Desktop\Kalevala\Kalevala Pinball\Assets\Models\Launcher Fence.FBX"
 			P: "LastSaved", "Compound", "", ""
 			P: "LastSaved|ApplicationVendor", "KString", "", "", "Autodesk"
 			P: "LastSaved|ApplicationName", "KString", "", "", "3ds Max"
 			P: "LastSaved|ApplicationVersion", "KString", "", "", "2018"
-			P: "LastSaved|DateTime_GMT", "DateTime", "", "", "02/05/2018 07:22:26.706"
+			P: "LastSaved|DateTime_GMT", "DateTime", "", "", "04/05/2018 05:58:15.761"
 			P: "Original|ApplicationActiveProject", "KString", "", "", "C:\Users\Toni\Documents\3dsMax"
 			P: "Original|ApplicationNativeFile", "KString", "", "", "C:\Users\Toni\Dropbox\+ Spring 2018 Project\Ukonkuula v2.max"
 		}
@@ -77,7 +77,7 @@ GlobalSettings:  {
 
 Documents:  {
 	Count: 1
-	Document: 2114973207456, "", "Scene" {
+	Document: 1624242668656, "", "Scene" {
 		Properties70:  {
 			P: "SourceObject", "object", "", ""
 			P: "ActiveAnimStackName", "KString", "", "", ""
@@ -299,10 +299,10 @@ Definitions:  {
 ;------------------------------------------------------------------
 
 Objects:  {
-	NodeAttribute: 2114920701248, "NodeAttribute::", "Null" {
+	NodeAttribute: 1625789670128, "NodeAttribute::", "Null" {
 		TypeFlags: "Null"
 	}
-	Geometry: 2114876194288, "Geometry::", "Mesh" {
+	Geometry: 1625785490512, "Geometry::", "Mesh" {
 		Properties70:  {
 			P: "Color", "ColorRGB", "Color", "",0.109803921568627,0.584313725490196,0.694117647058824
 		}
@@ -379,7 +379,7 @@ Objects:  {
 			}
 		}
 	}
-	Geometry: 2114876166000, "Geometry::", "Mesh" {
+	Geometry: 1625798797968, "Geometry::", "Mesh" {
 		Properties70:  {
 			P: "Color", "ColorRGB", "Color", "",0.109803921568627,0.584313725490196,0.694117647058824
 		}
@@ -456,7 +456,7 @@ Objects:  {
 			}
 		}
 	}
-	Geometry: 2114876167088, "Geometry::", "Mesh" {
+	Geometry: 1625801255056, "Geometry::", "Mesh" {
 		Properties70:  {
 			P: "Color", "ColorRGB", "Color", "",0.109803921568627,0.584313725490196,0.694117647058824
 		}
@@ -533,7 +533,7 @@ Objects:  {
 			}
 		}
 	}
-	Geometry: 2114876167632, "Geometry::", "Mesh" {
+	Geometry: 1625801252880, "Geometry::", "Mesh" {
 		Properties70:  {
 			P: "Color", "ColorRGB", "Color", "",0.109803921568627,0.584313725490196,0.694117647058824
 		}
@@ -610,7 +610,7 @@ Objects:  {
 			}
 		}
 	}
-	Geometry: 2114876215504, "Geometry::", "Mesh" {
+	Geometry: 1625801254512, "Geometry::", "Mesh" {
 		Properties70:  {
 			P: "Color", "ColorRGB", "Color", "",0.109803921568627,0.584313725490196,0.694117647058824
 		}
@@ -687,7 +687,7 @@ Objects:  {
 			}
 		}
 	}
-	Geometry: 2114876199184, "Geometry::", "Mesh" {
+	Geometry: 1625801259408, "Geometry::", "Mesh" {
 		Properties70:  {
 			P: "Color", "ColorRGB", "Color", "",0.109803921568627,0.584313725490196,0.694117647058824
 		}
@@ -764,7 +764,7 @@ Objects:  {
 			}
 		}
 	}
-	Geometry: 2114876198640, "Geometry::", "Mesh" {
+	Geometry: 1625801253424, "Geometry::", "Mesh" {
 		Properties70:  {
 			P: "Color", "ColorRGB", "Color", "",0.109803921568627,0.584313725490196,0.694117647058824
 		}
@@ -841,7 +841,7 @@ Objects:  {
 			}
 		}
 	}
-	Geometry: 2114876223120, "Geometry::", "Mesh" {
+	Geometry: 1625801255600, "Geometry::", "Mesh" {
 		Properties70:  {
 			P: "Color", "ColorRGB", "Color", "",0.109803921568627,0.584313725490196,0.694117647058824
 		}
@@ -918,7 +918,7 @@ Objects:  {
 			}
 		}
 	}
-	Geometry: 2114876205168, "Geometry::", "Mesh" {
+	Geometry: 1625801256144, "Geometry::", "Mesh" {
 		Properties70:  {
 			P: "Color", "ColorRGB", "Color", "",0.109803921568627,0.584313725490196,0.694117647058824
 		}
@@ -995,7 +995,7 @@ Objects:  {
 			}
 		}
 	}
-	Geometry: 2114876216048, "Geometry::", "Mesh" {
+	Geometry: 1625801259952, "Geometry::", "Mesh" {
 		Properties70:  {
 			P: "Color", "ColorRGB", "Color", "",0.109803921568627,0.584313725490196,0.694117647058824
 		}
@@ -1072,7 +1072,7 @@ Objects:  {
 			}
 		}
 	}
-	Geometry: 2114876217680, "Geometry::", "Mesh" {
+	Geometry: 1625801258864, "Geometry::", "Mesh" {
 		Properties70:  {
 			P: "Color", "ColorRGB", "Color", "",0.109803921568627,0.584313725490196,0.694117647058824
 		}
@@ -1149,7 +1149,7 @@ Objects:  {
 			}
 		}
 	}
-	Geometry: 2114876199728, "Geometry::", "Mesh" {
+	Geometry: 1625801253968, "Geometry::", "Mesh" {
 		Properties70:  {
 			P: "Color", "ColorRGB", "Color", "",0.109803921568627,0.584313725490196,0.694117647058824
 		}
@@ -1226,7 +1226,7 @@ Objects:  {
 			}
 		}
 	}
-	Geometry: 2114876219312, "Geometry::", "Mesh" {
+	Geometry: 1625801256688, "Geometry::", "Mesh" {
 		Properties70:  {
 			P: "Color", "ColorRGB", "Color", "",0.109803921568627,0.584313725490196,0.694117647058824
 		}
@@ -1303,7 +1303,7 @@ Objects:  {
 			}
 		}
 	}
-	Geometry: 2114876219856, "Geometry::", "Mesh" {
+	Geometry: 1625801257232, "Geometry::", "Mesh" {
 		Properties70:  {
 			P: "Color", "ColorRGB", "Color", "",0.109803921568627,0.584313725490196,0.694117647058824
 		}
@@ -1380,7 +1380,7 @@ Objects:  {
 			}
 		}
 	}
-	Geometry: 2114876202448, "Geometry::", "Mesh" {
+	Geometry: 1625801257776, "Geometry::", "Mesh" {
 		Properties70:  {
 			P: "Color", "ColorRGB", "Color", "",0.109803921568627,0.584313725490196,0.694117647058824
 		}
@@ -1457,7 +1457,7 @@ Objects:  {
 			}
 		}
 	}
-	Geometry: 2114876226384, "Geometry::", "Mesh" {
+	Geometry: 1625801258320, "Geometry::", "Mesh" {
 		Properties70:  {
 			P: "Color", "ColorRGB", "Color", "",0.109803921568627,0.584313725490196,0.694117647058824
 		}
@@ -1534,7 +1534,7 @@ Objects:  {
 			}
 		}
 	}
-	Geometry: 2114876200816, "Geometry::", "Mesh" {
+	Geometry: 1625800993584, "Geometry::", "Mesh" {
 		Properties70:  {
 			P: "Color", "ColorRGB", "Color", "",0.109803921568627,0.584313725490196,0.694117647058824
 		}
@@ -1611,7 +1611,7 @@ Objects:  {
 			}
 		}
 	}
-	Geometry: 2114876201904, "Geometry::", "Mesh" {
+	Geometry: 1625800995760, "Geometry::", "Mesh" {
 		Properties70:  {
 			P: "Color", "ColorRGB", "Color", "",0.109803921568627,0.584313725490196,0.694117647058824
 		}
@@ -1688,7 +1688,7 @@ Objects:  {
 			}
 		}
 	}
-	Geometry: 2114876208976, "Geometry::", "Mesh" {
+	Geometry: 1625800996304, "Geometry::", "Mesh" {
 		Properties70:  {
 			P: "Color", "ColorRGB", "Color", "",0.109803921568627,0.584313725490196,0.694117647058824
 		}
@@ -1765,7 +1765,7 @@ Objects:  {
 			}
 		}
 	}
-	Geometry: 2114573068176, "Geometry::", "Mesh" {
+	Geometry: 1625800994128, "Geometry::", "Mesh" {
 		Properties70:  {
 			P: "Color", "ColorRGB", "Color", "",0.109803921568627,0.584313725490196,0.694117647058824
 		}
@@ -1842,7 +1842,7 @@ Objects:  {
 			}
 		}
 	}
-	Geometry: 2114573057840, "Geometry::", "Mesh" {
+	Geometry: 1625800996848, "Geometry::", "Mesh" {
 		Properties70:  {
 			P: "Color", "ColorRGB", "Color", "",0.109803921568627,0.584313725490196,0.694117647058824
 		}
@@ -1919,7 +1919,7 @@ Objects:  {
 			}
 		}
 	}
-	Geometry: 2114573061104, "Geometry::", "Mesh" {
+	Geometry: 1625800997392, "Geometry::", "Mesh" {
 		Properties70:  {
 			P: "Color", "ColorRGB", "Color", "",0.109803921568627,0.584313725490196,0.694117647058824
 		}
@@ -1996,7 +1996,7 @@ Objects:  {
 			}
 		}
 	}
-	Geometry: 2114573074704, "Geometry::", "Mesh" {
+	Geometry: 1625800995216, "Geometry::", "Mesh" {
 		Properties70:  {
 			P: "Color", "ColorRGB", "Color", "",0.109803921568627,0.584313725490196,0.694117647058824
 		}
@@ -2073,7 +2073,7 @@ Objects:  {
 			}
 		}
 	}
-	Geometry: 2114573069808, "Geometry::", "Mesh" {
+	Geometry: 1625800997936, "Geometry::", "Mesh" {
 		Properties70:  {
 			P: "Color", "ColorRGB", "Color", "",0.109803921568627,0.584313725490196,0.694117647058824
 		}
@@ -2150,7 +2150,7 @@ Objects:  {
 			}
 		}
 	}
-	Geometry: 2114573048592, "Geometry::", "Mesh" {
+	Geometry: 1625800998480, "Geometry::", "Mesh" {
 		Properties70:  {
 			P: "Color", "ColorRGB", "Color", "",0.109803921568627,0.584313725490196,0.694117647058824
 		}
@@ -2227,7 +2227,7 @@ Objects:  {
 			}
 		}
 	}
-	Geometry: 2114573049136, "Geometry::", "Mesh" {
+	Geometry: 1625800999024, "Geometry::", "Mesh" {
 		Properties70:  {
 			P: "Color", "ColorRGB", "Color", "",0.109803921568627,0.584313725490196,0.694117647058824
 		}
@@ -2304,7 +2304,7 @@ Objects:  {
 			}
 		}
 	}
-	Geometry: 2114573108432, "Geometry::", "Mesh" {
+	Geometry: 1625800994672, "Geometry::", "Mesh" {
 		Properties70:  {
 			P: "Color", "ColorRGB", "Color", "",0.109803921568627,0.584313725490196,0.694117647058824
 		}
@@ -2381,7 +2381,7 @@ Objects:  {
 			}
 		}
 	}
-	Geometry: 2114573098096, "Geometry::", "Mesh" {
+	Geometry: 1625800999568, "Geometry::", "Mesh" {
 		Properties70:  {
 			P: "Color", "ColorRGB", "Color", "",0.109803921568627,0.584313725490196,0.694117647058824
 		}
@@ -2458,7 +2458,7 @@ Objects:  {
 			}
 		}
 	}
-	Geometry: 2114573098640, "Geometry::", "Mesh" {
+	Geometry: 1625800992496, "Geometry::", "Mesh" {
 		Properties70:  {
 			P: "Color", "ColorRGB", "Color", "",0.109803921568627,0.584313725490196,0.694117647058824
 		}
@@ -2536,7 +2536,7 @@ Objects:  {
 			}
 		}
 	}
-	Geometry: 2114573082864, "Geometry::", "Mesh" {
+	Geometry: 1625800993040, "Geometry::", "Mesh" {
 		Properties70:  {
 			P: "Color", "ColorRGB", "Color", "",0.109803921568627,0.584313725490196,0.694117647058824
 		}
@@ -2613,7 +2613,7 @@ Objects:  {
 			}
 		}
 	}
-	Geometry: 2114573085584, "Geometry::", "Mesh" {
+	Geometry: 1625801161712, "Geometry::", "Mesh" {
 		Properties70:  {
 			P: "Color", "ColorRGB", "Color", "",0.109803921568627,0.584313725490196,0.694117647058824
 		}
@@ -2690,7 +2690,7 @@ Objects:  {
 			}
 		}
 	}
-	Geometry: 2114573102448, "Geometry::", "Mesh" {
+	Geometry: 1625801160624, "Geometry::", "Mesh" {
 		Properties70:  {
 			P: "Color", "ColorRGB", "Color", "",0.109803921568627,0.584313725490196,0.694117647058824
 		}
@@ -2767,7 +2767,7 @@ Objects:  {
 			}
 		}
 	}
-	Geometry: 2114573088848, "Geometry::", "Mesh" {
+	Geometry: 1625801167152, "Geometry::", "Mesh" {
 		Properties70:  {
 			P: "Color", "ColorRGB", "Color", "",0.109803921568627,0.584313725490196,0.694117647058824
 		}
@@ -2844,7 +2844,7 @@ Objects:  {
 			}
 		}
 	}
-	Geometry: 2114141455440, "Geometry::", "Mesh" {
+	Geometry: 1625801161168, "Geometry::", "Mesh" {
 		Properties70:  {
 			P: "Color", "ColorRGB", "Color", "",0.109803921568627,0.584313725490196,0.694117647058824
 		}
@@ -2921,7 +2921,7 @@ Objects:  {
 			}
 		}
 	}
-	Geometry: 2114141430960, "Geometry::", "Mesh" {
+	Geometry: 1625801166064, "Geometry::", "Mesh" {
 		Properties70:  {
 			P: "Color", "ColorRGB", "Color", "",0.109803921568627,0.584313725490196,0.694117647058824
 		}
@@ -2998,7 +2998,7 @@ Objects:  {
 			}
 		}
 	}
-	Geometry: 2114141446192, "Geometry::", "Mesh" {
+	Geometry: 1625801167696, "Geometry::", "Mesh" {
 		Properties70:  {
 			P: "Color", "ColorRGB", "Color", "",0.109803921568627,0.584313725490196,0.694117647058824
 		}
@@ -3075,7 +3075,7 @@ Objects:  {
 			}
 		}
 	}
-	Model: 2115504958320, "Model::Launcher Fence", "Null" {
+	Model: 1625800133968, "Model::Launcher Fence", "Null" {
 		Version: 232
 		Properties70:  {
 			P: "PreRotation", "Vector3D", "Vector", "",-90,-0,0
@@ -3090,7 +3090,7 @@ Objects:  {
 		Shading: T
 		Culling: "CullingOff"
 	}
-	Model: 2115504980240, "Model::Fence Post", "Mesh" {
+	Model: 1625800162464, "Model::Fence Post", "Mesh" {
 		Version: 232
 		Properties70:  {
 			P: "InheritType", "enum", "", "",1
@@ -3102,7 +3102,7 @@ Objects:  {
 		Shading: T
 		Culling: "CullingOff"
 	}
-	Model: 2115504956128, "Model::Fence Post001", "Mesh" {
+	Model: 1625800164656, "Model::Fence Post001", "Mesh" {
 		Version: 232
 		Properties70:  {
 			P: "InheritType", "enum", "", "",1
@@ -3115,7 +3115,7 @@ Objects:  {
 		Shading: T
 		Culling: "CullingOff"
 	}
-	Model: 2115504951744, "Model::Fence Post002", "Mesh" {
+	Model: 1625800136160, "Model::Fence Post002", "Mesh" {
 		Version: 232
 		Properties70:  {
 			P: "InheritType", "enum", "", "",1
@@ -3129,7 +3129,7 @@ Objects:  {
 		Shading: T
 		Culling: "CullingOff"
 	}
-	Model: 2115504982432, "Model::Fence Post003", "Mesh" {
+	Model: 1625800166848, "Model::Fence Post003", "Mesh" {
 		Version: 232
 		Properties70:  {
 			P: "InheritType", "enum", "", "",1
@@ -3143,7 +3143,7 @@ Objects:  {
 		Shading: T
 		Culling: "CullingOff"
 	}
-	Model: 2115504953936, "Model::Fence Post004", "Mesh" {
+	Model: 1625800138352, "Model::Fence Post004", "Mesh" {
 		Version: 232
 		Properties70:  {
 			P: "InheritType", "enum", "", "",1
@@ -3156,7 +3156,7 @@ Objects:  {
 		Shading: T
 		Culling: "CullingOff"
 	}
-	Model: 2115504984624, "Model::Fence Post005", "Mesh" {
+	Model: 1625800142736, "Model::Fence Post005", "Mesh" {
 		Version: 232
 		Properties70:  {
 			P: "InheritType", "enum", "", "",1
@@ -3169,7 +3169,7 @@ Objects:  {
 		Shading: T
 		Culling: "CullingOff"
 	}
-	Model: 2115504986816, "Model::Fence Post006", "Mesh" {
+	Model: 1625800160272, "Model::Fence Post006", "Mesh" {
 		Version: 232
 		Properties70:  {
 			P: "InheritType", "enum", "", "",1
@@ -3183,7 +3183,7 @@ Objects:  {
 		Shading: T
 		Culling: "CullingOff"
 	}
-	Model: 2115504989008, "Model::Fence Post007", "Mesh" {
+	Model: 1625800144928, "Model::Fence Post007", "Mesh" {
 		Version: 232
 		Properties70:  {
 			P: "InheritType", "enum", "", "",1
@@ -3197,7 +3197,7 @@ Objects:  {
 		Shading: T
 		Culling: "CullingOff"
 	}
-	Model: 2115504991200, "Model::Fence Post008", "Mesh" {
+	Model: 1625800153696, "Model::Fence Post008", "Mesh" {
 		Version: 232
 		Properties70:  {
 			P: "InheritType", "enum", "", "",1
@@ -3211,7 +3211,7 @@ Objects:  {
 		Shading: T
 		Culling: "CullingOff"
 	}
-	Model: 2115504604048, "Model::Fence Post009", "Mesh" {
+	Model: 1625800169040, "Model::Fence Post009", "Mesh" {
 		Version: 232
 		Properties70:  {
 			P: "InheritType", "enum", "", "",1
@@ -3224,7 +3224,7 @@ Objects:  {
 		Shading: T
 		Culling: "CullingOff"
 	}
-	Model: 2115504588704, "Model::Fence Post011", "Mesh" {
+	Model: 1625800140544, "Model::Fence Post011", "Mesh" {
 		Version: 232
 		Properties70:  {
 			P: "InheritType", "enum", "", "",1
@@ -3238,7 +3238,7 @@ Objects:  {
 		Shading: T
 		Culling: "CullingOff"
 	}
-	Model: 2115504606240, "Model::Fence Post012", "Mesh" {
+	Model: 1625800173424, "Model::Fence Post012", "Mesh" {
 		Version: 232
 		Properties70:  {
 			P: "InheritType", "enum", "", "",1
@@ -3252,7 +3252,7 @@ Objects:  {
 		Shading: T
 		Culling: "CullingOff"
 	}
-	Model: 2115504615008, "Model::Fence Post013", "Mesh" {
+	Model: 1625800158080, "Model::Fence Post013", "Mesh" {
 		Version: 232
 		Properties70:  {
 			P: "InheritType", "enum", "", "",1
@@ -3266,7 +3266,7 @@ Objects:  {
 		Shading: T
 		Culling: "CullingOff"
 	}
-	Model: 2115504608432, "Model::Fence Post014", "Mesh" {
+	Model: 1625800171232, "Model::Fence Post014", "Mesh" {
 		Version: 232
 		Properties70:  {
 			P: "InheritType", "enum", "", "",1
@@ -3280,7 +3280,7 @@ Objects:  {
 		Shading: T
 		Culling: "CullingOff"
 	}
-	Model: 2115504610624, "Model::Fence Post015", "Mesh" {
+	Model: 1625800175616, "Model::Fence Post015", "Mesh" {
 		Version: 232
 		Properties70:  {
 			P: "InheritType", "enum", "", "",1
@@ -3294,7 +3294,7 @@ Objects:  {
 		Shading: T
 		Culling: "CullingOff"
 	}
-	Model: 2115504590896, "Model::Fence Post016", "Mesh" {
+	Model: 1625800147120, "Model::Fence Post016", "Mesh" {
 		Version: 232
 		Properties70:  {
 			P: "InheritType", "enum", "", "",1
@@ -3306,7 +3306,7 @@ Objects:  {
 		Shading: T
 		Culling: "CullingOff"
 	}
-	Model: 2115504612816, "Model::Fence Post017", "Mesh" {
+	Model: 1625800177808, "Model::Fence Post017", "Mesh" {
 		Version: 232
 		Properties70:  {
 			P: "InheritType", "enum", "", "",1
@@ -3319,7 +3319,7 @@ Objects:  {
 		Shading: T
 		Culling: "CullingOff"
 	}
-	Model: 2115504593088, "Model::Fence Post018", "Mesh" {
+	Model: 1625800149312, "Model::Fence Post018", "Mesh" {
 		Version: 232
 		Properties70:  {
 			P: "InheritType", "enum", "", "",1
@@ -3333,7 +3333,7 @@ Objects:  {
 		Shading: T
 		Culling: "CullingOff"
 	}
-	Model: 2115504595280, "Model::Fence Post020", "Mesh" {
+	Model: 1625800180000, "Model::Fence Post020", "Mesh" {
 		Version: 232
 		Properties70:  {
 			P: "InheritType", "enum", "", "",1
@@ -3347,19 +3347,20 @@ Objects:  {
 		Shading: T
 		Culling: "CullingOff"
 	}
-	Model: 2115504586512, "Model::Fence Post021", "Mesh" {
+	Model: 1625800151504, "Model::Fence Post021", "Mesh" {
 		Version: 232
 		Properties70:  {
 			P: "InheritType", "enum", "", "",1
 			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
 			P: "DefaultAttributeIndex", "int", "Integer", "",0
 			P: "Lcl Translation", "Lcl Translation", "", "A",22.8227462768555,1.35591220855713,0
+			P: "Lcl Scaling", "Lcl Scaling", "", "A",1,1,0.818640530109406
 			P: "MaxHandle", "int", "Integer", "UH",2179
 		}
 		Shading: T
 		Culling: "CullingOff"
 	}
-	Model: 2115504617200, "Model::Fence Post022", "Mesh" {
+	Model: 1625800182192, "Model::Fence Post022", "Mesh" {
 		Version: 232
 		Properties70:  {
 			P: "InheritType", "enum", "", "",1
@@ -3367,12 +3368,13 @@ Objects:  {
 			P: "DefaultAttributeIndex", "int", "Integer", "",0
 			P: "Lcl Translation", "Lcl Translation", "", "A",21.8631973266602,1.09407138824463,0
 			P: "Lcl Rotation", "Lcl Rotation", "", "A",0,-0,-90.0000093346676
+			P: "Lcl Scaling", "Lcl Scaling", "", "A",1,1,0.799122333526611
 			P: "MaxHandle", "int", "Integer", "UH",2180
 		}
 		Shading: T
 		Culling: "CullingOff"
 	}
-	Model: 2115504619392, "Model::Fence Post023", "Mesh" {
+	Model: 1625800184384, "Model::Fence Post023", "Mesh" {
 		Version: 232
 		Properties70:  {
 			P: "InheritType", "enum", "", "",1
@@ -3386,7 +3388,7 @@ Objects:  {
 		Shading: T
 		Culling: "CullingOff"
 	}
-	Model: 2115504621584, "Model::Fence Post041", "Mesh" {
+	Model: 1625800155888, "Model::Fence Post041", "Mesh" {
 		Version: 232
 		Properties70:  {
 			P: "InheritType", "enum", "", "",1
@@ -3399,7 +3401,7 @@ Objects:  {
 		Shading: T
 		Culling: "CullingOff"
 	}
-	Model: 2115504625968, "Model::Fence Post042", "Mesh" {
+	Model: 1625800190960, "Model::Fence Post042", "Mesh" {
 		Version: 232
 		Properties70:  {
 			P: "InheritType", "enum", "", "",1
@@ -3412,7 +3414,7 @@ Objects:  {
 		Shading: T
 		Culling: "CullingOff"
 	}
-	Model: 2115504597472, "Model::Fence Post043", "Mesh" {
+	Model: 1625800201920, "Model::Fence Post043", "Mesh" {
 		Version: 232
 		Properties70:  {
 			P: "InheritType", "enum", "", "",1
@@ -3426,7 +3428,7 @@ Objects:  {
 		Shading: T
 		Culling: "CullingOff"
 	}
-	Model: 2115504623776, "Model::Fence Post044", "Mesh" {
+	Model: 1625800208496, "Model::Fence Post044", "Mesh" {
 		Version: 232
 		Properties70:  {
 			P: "InheritType", "enum", "", "",1
@@ -3440,7 +3442,7 @@ Objects:  {
 		Shading: T
 		Culling: "CullingOff"
 	}
-	Model: 2115504601856, "Model::Fence Post045", "Mesh" {
+	Model: 1625800186576, "Model::Fence Post045", "Mesh" {
 		Version: 232
 		Properties70:  {
 			P: "InheritType", "enum", "", "",1
@@ -3454,21 +3456,21 @@ Objects:  {
 		Shading: T
 		Culling: "CullingOff"
 	}
-	Model: 2115504628160, "Model::Fence Post046", "Mesh" {
+	Model: 1625800188768, "Model::Fence Post046", "Mesh" {
 		Version: 232
 		Properties70:  {
 			P: "InheritType", "enum", "", "",1
 			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
 			P: "DefaultAttributeIndex", "int", "Integer", "",0
 			P: "Lcl Translation", "Lcl Translation", "", "A",22.1665992736816,-9.53615760803223,-0.403319597244263
-			P: "Lcl Rotation", "Lcl Rotation", "", "A",-67.6538429539,-0.438443596479552,-2.71694978236731
-			P: "Lcl Scaling", "Lcl Scaling", "", "A",1.00000035762787,0.999999940395355,2.92799544334412
+			P: "Lcl Rotation", "Lcl Rotation", "", "A",-67.6538400453744,-0.438443704969463,-2.71694775291674
+			P: "Lcl Scaling", "Lcl Scaling", "", "A",1.00000035762787,1,2.30029058456421
 			P: "MaxHandle", "int", "Integer", "UH",3679
 		}
 		Shading: T
 		Culling: "CullingOff"
 	}
-	Model: 2115504599664, "Model::Fence Post010", "Mesh" {
+	Model: 1625800212880, "Model::Fence Post010", "Mesh" {
 		Version: 232
 		Properties70:  {
 			P: "InheritType", "enum", "", "",1
@@ -3480,7 +3482,7 @@ Objects:  {
 		Shading: T
 		Culling: "CullingOff"
 	}
-	Model: 2115504650080, "Model::Fence Post047", "Mesh" {
+	Model: 1625800210688, "Model::Fence Post047", "Mesh" {
 		Version: 232
 		Properties70:  {
 			P: "InheritType", "enum", "", "",1
@@ -3492,7 +3494,7 @@ Objects:  {
 		Shading: T
 		Culling: "CullingOff"
 	}
-	Model: 2115504641312, "Model::Fence Post048", "Mesh" {
+	Model: 1625800195344, "Model::Fence Post048", "Mesh" {
 		Version: 232
 		Properties70:  {
 			P: "InheritType", "enum", "", "",1
@@ -3506,7 +3508,7 @@ Objects:  {
 		Shading: T
 		Culling: "CullingOff"
 	}
-	Model: 2115504656656, "Model::Fence Post049", "Mesh" {
+	Model: 1625800221648, "Model::Fence Post049", "Mesh" {
 		Version: 232
 		Properties70:  {
 			P: "InheritType", "enum", "", "",1
@@ -3520,7 +3522,7 @@ Objects:  {
 		Shading: T
 		Culling: "CullingOff"
 	}
-	Model: 2115504643504, "Model::Fence Post050", "Mesh" {
+	Model: 1625800197536, "Model::Fence Post050", "Mesh" {
 		Version: 232
 		Properties70:  {
 			P: "InheritType", "enum", "", "",1
@@ -3534,7 +3536,7 @@ Objects:  {
 		Shading: T
 		Culling: "CullingOff"
 	}
-	Model: 2115504654464, "Model::Fence Post051", "Mesh" {
+	Model: 1625800193152, "Model::Fence Post051", "Mesh" {
 		Version: 232
 		Properties70:  {
 			P: "InheritType", "enum", "", "",1
@@ -3548,7 +3550,7 @@ Objects:  {
 		Shading: T
 		Culling: "CullingOff"
 	}
-	Model: 2115504647888, "Model::Fence Post052", "Mesh" {
+	Model: 1625800223840, "Model::Fence Post052", "Mesh" {
 		Version: 232
 		Properties70:  {
 			P: "InheritType", "enum", "", "",1
@@ -3562,7 +3564,7 @@ Objects:  {
 		Shading: T
 		Culling: "CullingOff"
 	}
-	Model: 2115504632544, "Model::Fence Post053", "Mesh" {
+	Model: 1625800204112, "Model::Fence Post053", "Mesh" {
 		Version: 232
 		Properties70:  {
 			P: "InheritType", "enum", "", "",1
@@ -3576,7 +3578,7 @@ Objects:  {
 		Shading: T
 		Culling: "CullingOff"
 	}
-	Material: 2114976728080, "Material::14 - Default", "" {
+	Material: 1624125654704, "Material::14 - Default", "" {
 		Version: 102
 		ShadingModel: "phong"
 		MultiLayer: 0
@@ -3599,7 +3601,7 @@ Objects:  {
 			P: "Reflectivity", "double", "Number", "",0
 		}
 	}
-	Video: 2114976731920, "Video::Map #10", "Clip" {
+	Video: 1624125665264, "Video::Map #10", "Clip" {
 		Type: "Clip"
 		Properties70:  {
 			P: "Path", "KString", "XRefUrl", "", "C:\Users\Toni\Dropbox\+ Spring 2018 Project\Final Textures\Fence Post Albedo.jpg"
@@ -3609,7 +3611,7 @@ Objects:  {
 		Filename: "C:\Users\Toni\Dropbox\+ Spring 2018 Project\Final Textures\Fence Post Albedo.jpg"
 		RelativeFilename: "..\..\..\..\..\Dropbox\+ Spring 2018 Project\Final Textures\Fence Post Albedo.jpg"
 	}
-	Video: 2114976730000, "Video::Map #11", "Clip" {
+	Video: 1624125658064, "Video::Map #11", "Clip" {
 		Type: "Clip"
 		Properties70:  {
 			P: "Path", "KString", "XRefUrl", "", "C:\Users\Toni\Dropbox\+ Spring 2018 Project\Final Textures\Fence Post Normal.jpg"
@@ -3619,7 +3621,7 @@ Objects:  {
 		Filename: "C:\Users\Toni\Dropbox\+ Spring 2018 Project\Final Textures\Fence Post Normal.jpg"
 		RelativeFilename: "..\..\..\..\..\Dropbox\+ Spring 2018 Project\Final Textures\Fence Post Normal.jpg"
 	}
-	Texture: 2114976733360, "Texture::Map #10", "" {
+	Texture: 1624125652304, "Texture::Map #10", "" {
 		Type: "TextureVideoClip"
 		Version: 202
 		TextureName: "Texture::Map #10"
@@ -3635,7 +3637,7 @@ Objects:  {
 		Texture_Alpha_Source: "None"
 		Cropping: 0,0,0,0
 	}
-	Texture: 2114976728560, "Texture::Map #11", "" {
+	Texture: 1624125662864, "Texture::Map #11", "" {
 		Type: "TextureVideoClip"
 		Version: 202
 		TextureName: "Texture::Map #11"
@@ -3651,7 +3653,7 @@ Objects:  {
 		Texture_Alpha_Source: "None"
 		Cropping: 0,0,0,0
 	}
-	AnimationStack: 2115367022304, "AnimStack::Take 001", "" {
+	AnimationStack: 1625798806080, "AnimStack::Take 001", "" {
 		Properties70:  {
 			P: "LocalStop", "KTime", "Time", "",7389785280
 			P: "ReferenceStop", "KTime", "Time", "",7389785280
@@ -3665,344 +3667,344 @@ Objects:  {
 Connections:  {
 	
 	;Model::Launcher Fence, Model::RootNode
-	C: "OO",2115504958320,0
+	C: "OO",1625800133968,0
 	
 	;Model::Fence Post, Model::Launcher Fence
-	C: "OO",2115504980240,2115504958320
+	C: "OO",1625800162464,1625800133968
 	
 	;Model::Fence Post001, Model::Launcher Fence
-	C: "OO",2115504956128,2115504958320
+	C: "OO",1625800164656,1625800133968
 	
 	;Model::Fence Post002, Model::Launcher Fence
-	C: "OO",2115504951744,2115504958320
+	C: "OO",1625800136160,1625800133968
 	
 	;Model::Fence Post003, Model::Launcher Fence
-	C: "OO",2115504982432,2115504958320
+	C: "OO",1625800166848,1625800133968
 	
 	;Model::Fence Post004, Model::Launcher Fence
-	C: "OO",2115504953936,2115504958320
+	C: "OO",1625800138352,1625800133968
 	
 	;Model::Fence Post005, Model::Launcher Fence
-	C: "OO",2115504984624,2115504958320
+	C: "OO",1625800142736,1625800133968
 	
 	;Model::Fence Post006, Model::Launcher Fence
-	C: "OO",2115504986816,2115504958320
+	C: "OO",1625800160272,1625800133968
 	
 	;Model::Fence Post007, Model::Launcher Fence
-	C: "OO",2115504989008,2115504958320
+	C: "OO",1625800144928,1625800133968
 	
 	;Model::Fence Post008, Model::Launcher Fence
-	C: "OO",2115504991200,2115504958320
+	C: "OO",1625800153696,1625800133968
 	
 	;Model::Fence Post009, Model::Launcher Fence
-	C: "OO",2115504604048,2115504958320
+	C: "OO",1625800169040,1625800133968
 	
 	;Model::Fence Post011, Model::Launcher Fence
-	C: "OO",2115504588704,2115504958320
+	C: "OO",1625800140544,1625800133968
 	
 	;Model::Fence Post012, Model::Launcher Fence
-	C: "OO",2115504606240,2115504958320
+	C: "OO",1625800173424,1625800133968
 	
 	;Model::Fence Post013, Model::Launcher Fence
-	C: "OO",2115504615008,2115504958320
+	C: "OO",1625800158080,1625800133968
 	
 	;Model::Fence Post014, Model::Launcher Fence
-	C: "OO",2115504608432,2115504958320
+	C: "OO",1625800171232,1625800133968
 	
 	;Model::Fence Post015, Model::Launcher Fence
-	C: "OO",2115504610624,2115504958320
+	C: "OO",1625800175616,1625800133968
 	
 	;Model::Fence Post016, Model::Launcher Fence
-	C: "OO",2115504590896,2115504958320
+	C: "OO",1625800147120,1625800133968
 	
 	;Model::Fence Post017, Model::Launcher Fence
-	C: "OO",2115504612816,2115504958320
+	C: "OO",1625800177808,1625800133968
 	
 	;Model::Fence Post018, Model::Launcher Fence
-	C: "OO",2115504593088,2115504958320
+	C: "OO",1625800149312,1625800133968
 	
 	;Model::Fence Post020, Model::Launcher Fence
-	C: "OO",2115504595280,2115504958320
+	C: "OO",1625800180000,1625800133968
 	
 	;Model::Fence Post021, Model::Launcher Fence
-	C: "OO",2115504586512,2115504958320
+	C: "OO",1625800151504,1625800133968
 	
 	;Model::Fence Post022, Model::Launcher Fence
-	C: "OO",2115504617200,2115504958320
+	C: "OO",1625800182192,1625800133968
 	
 	;Model::Fence Post023, Model::Launcher Fence
-	C: "OO",2115504619392,2115504958320
+	C: "OO",1625800184384,1625800133968
 	
 	;Model::Fence Post041, Model::Launcher Fence
-	C: "OO",2115504621584,2115504958320
+	C: "OO",1625800155888,1625800133968
 	
 	;Model::Fence Post042, Model::Launcher Fence
-	C: "OO",2115504625968,2115504958320
+	C: "OO",1625800190960,1625800133968
 	
 	;Model::Fence Post043, Model::Launcher Fence
-	C: "OO",2115504597472,2115504958320
+	C: "OO",1625800201920,1625800133968
 	
 	;Model::Fence Post044, Model::Launcher Fence
-	C: "OO",2115504623776,2115504958320
+	C: "OO",1625800208496,1625800133968
 	
 	;Model::Fence Post045, Model::Launcher Fence
-	C: "OO",2115504601856,2115504958320
+	C: "OO",1625800186576,1625800133968
 	
 	;Model::Fence Post046, Model::Launcher Fence
-	C: "OO",2115504628160,2115504958320
+	C: "OO",1625800188768,1625800133968
 	
 	;Model::Fence Post010, Model::Launcher Fence
-	C: "OO",2115504599664,2115504958320
+	C: "OO",1625800212880,1625800133968
 	
 	;Model::Fence Post047, Model::Launcher Fence
-	C: "OO",2115504650080,2115504958320
+	C: "OO",1625800210688,1625800133968
 	
 	;Model::Fence Post048, Model::Launcher Fence
-	C: "OO",2115504641312,2115504958320
+	C: "OO",1625800195344,1625800133968
 	
 	;Model::Fence Post049, Model::Launcher Fence
-	C: "OO",2115504656656,2115504958320
+	C: "OO",1625800221648,1625800133968
 	
 	;Model::Fence Post050, Model::Launcher Fence
-	C: "OO",2115504643504,2115504958320
+	C: "OO",1625800197536,1625800133968
 	
 	;Model::Fence Post051, Model::Launcher Fence
-	C: "OO",2115504654464,2115504958320
+	C: "OO",1625800193152,1625800133968
 	
 	;Model::Fence Post052, Model::Launcher Fence
-	C: "OO",2115504647888,2115504958320
+	C: "OO",1625800223840,1625800133968
 	
 	;Model::Fence Post053, Model::Launcher Fence
-	C: "OO",2115504632544,2115504958320
+	C: "OO",1625800204112,1625800133968
 	
 	;NodeAttribute::, Model::Launcher Fence
-	C: "OO",2114920701248,2115504958320
+	C: "OO",1625789670128,1625800133968
 	
 	;Geometry::, Model::Fence Post
-	C: "OO",2114876194288,2115504980240
+	C: "OO",1625785490512,1625800162464
 	
 	;Material::14 - Default, Model::Fence Post
-	C: "OO",2114976728080,2115504980240
+	C: "OO",1624125654704,1625800162464
 	
 	;Geometry::, Model::Fence Post001
-	C: "OO",2114876166000,2115504956128
+	C: "OO",1625798797968,1625800164656
 	
 	;Material::14 - Default, Model::Fence Post001
-	C: "OO",2114976728080,2115504956128
+	C: "OO",1624125654704,1625800164656
 	
 	;Geometry::, Model::Fence Post002
-	C: "OO",2114876167088,2115504951744
+	C: "OO",1625801255056,1625800136160
 	
 	;Material::14 - Default, Model::Fence Post002
-	C: "OO",2114976728080,2115504951744
+	C: "OO",1624125654704,1625800136160
 	
 	;Geometry::, Model::Fence Post003
-	C: "OO",2114876167632,2115504982432
+	C: "OO",1625801252880,1625800166848
 	
 	;Material::14 - Default, Model::Fence Post003
-	C: "OO",2114976728080,2115504982432
+	C: "OO",1624125654704,1625800166848
 	
 	;Geometry::, Model::Fence Post004
-	C: "OO",2114876215504,2115504953936
+	C: "OO",1625801254512,1625800138352
 	
 	;Material::14 - Default, Model::Fence Post004
-	C: "OO",2114976728080,2115504953936
+	C: "OO",1624125654704,1625800138352
 	
 	;Geometry::, Model::Fence Post005
-	C: "OO",2114876199184,2115504984624
+	C: "OO",1625801259408,1625800142736
 	
 	;Material::14 - Default, Model::Fence Post005
-	C: "OO",2114976728080,2115504984624
+	C: "OO",1624125654704,1625800142736
 	
 	;Geometry::, Model::Fence Post006
-	C: "OO",2114876198640,2115504986816
+	C: "OO",1625801253424,1625800160272
 	
 	;Material::14 - Default, Model::Fence Post006
-	C: "OO",2114976728080,2115504986816
+	C: "OO",1624125654704,1625800160272
 	
 	;Geometry::, Model::Fence Post007
-	C: "OO",2114876223120,2115504989008
+	C: "OO",1625801255600,1625800144928
 	
 	;Material::14 - Default, Model::Fence Post007
-	C: "OO",2114976728080,2115504989008
+	C: "OO",1624125654704,1625800144928
 	
 	;Geometry::, Model::Fence Post008
-	C: "OO",2114876205168,2115504991200
+	C: "OO",1625801256144,1625800153696
 	
 	;Material::14 - Default, Model::Fence Post008
-	C: "OO",2114976728080,2115504991200
+	C: "OO",1624125654704,1625800153696
 	
 	;Geometry::, Model::Fence Post009
-	C: "OO",2114876216048,2115504604048
+	C: "OO",1625801259952,1625800169040
 	
 	;Material::14 - Default, Model::Fence Post009
-	C: "OO",2114976728080,2115504604048
+	C: "OO",1624125654704,1625800169040
 	
 	;Geometry::, Model::Fence Post011
-	C: "OO",2114876217680,2115504588704
+	C: "OO",1625801258864,1625800140544
 	
 	;Material::14 - Default, Model::Fence Post011
-	C: "OO",2114976728080,2115504588704
+	C: "OO",1624125654704,1625800140544
 	
 	;Geometry::, Model::Fence Post012
-	C: "OO",2114876199728,2115504606240
+	C: "OO",1625801253968,1625800173424
 	
 	;Material::14 - Default, Model::Fence Post012
-	C: "OO",2114976728080,2115504606240
+	C: "OO",1624125654704,1625800173424
 	
 	;Geometry::, Model::Fence Post013
-	C: "OO",2114876219312,2115504615008
+	C: "OO",1625801256688,1625800158080
 	
 	;Material::14 - Default, Model::Fence Post013
-	C: "OO",2114976728080,2115504615008
+	C: "OO",1624125654704,1625800158080
 	
 	;Geometry::, Model::Fence Post014
-	C: "OO",2114876219856,2115504608432
+	C: "OO",1625801257232,1625800171232
 	
 	;Material::14 - Default, Model::Fence Post014
-	C: "OO",2114976728080,2115504608432
+	C: "OO",1624125654704,1625800171232
 	
 	;Geometry::, Model::Fence Post015
-	C: "OO",2114876202448,2115504610624
+	C: "OO",1625801257776,1625800175616
 	
 	;Material::14 - Default, Model::Fence Post015
-	C: "OO",2114976728080,2115504610624
+	C: "OO",1624125654704,1625800175616
 	
 	;Geometry::, Model::Fence Post016
-	C: "OO",2114876226384,2115504590896
+	C: "OO",1625801258320,1625800147120
 	
 	;Material::14 - Default, Model::Fence Post016
-	C: "OO",2114976728080,2115504590896
+	C: "OO",1624125654704,1625800147120
 	
 	;Geometry::, Model::Fence Post017
-	C: "OO",2114876200816,2115504612816
+	C: "OO",1625800993584,1625800177808
 	
 	;Material::14 - Default, Model::Fence Post017
-	C: "OO",2114976728080,2115504612816
+	C: "OO",1624125654704,1625800177808
 	
 	;Geometry::, Model::Fence Post018
-	C: "OO",2114876201904,2115504593088
+	C: "OO",1625800995760,1625800149312
 	
 	;Material::14 - Default, Model::Fence Post018
-	C: "OO",2114976728080,2115504593088
+	C: "OO",1624125654704,1625800149312
 	
 	;Geometry::, Model::Fence Post020
-	C: "OO",2114876208976,2115504595280
+	C: "OO",1625800996304,1625800180000
 	
 	;Material::14 - Default, Model::Fence Post020
-	C: "OO",2114976728080,2115504595280
+	C: "OO",1624125654704,1625800180000
 	
 	;Geometry::, Model::Fence Post021
-	C: "OO",2114573068176,2115504586512
+	C: "OO",1625800994128,1625800151504
 	
 	;Material::14 - Default, Model::Fence Post021
-	C: "OO",2114976728080,2115504586512
+	C: "OO",1624125654704,1625800151504
 	
 	;Geometry::, Model::Fence Post022
-	C: "OO",2114573057840,2115504617200
+	C: "OO",1625800996848,1625800182192
 	
 	;Material::14 - Default, Model::Fence Post022
-	C: "OO",2114976728080,2115504617200
+	C: "OO",1624125654704,1625800182192
 	
 	;Geometry::, Model::Fence Post023
-	C: "OO",2114573061104,2115504619392
+	C: "OO",1625800997392,1625800184384
 	
 	;Material::14 - Default, Model::Fence Post023
-	C: "OO",2114976728080,2115504619392
+	C: "OO",1624125654704,1625800184384
 	
 	;Geometry::, Model::Fence Post041
-	C: "OO",2114573074704,2115504621584
+	C: "OO",1625800995216,1625800155888
 	
 	;Material::14 - Default, Model::Fence Post041
-	C: "OO",2114976728080,2115504621584
+	C: "OO",1624125654704,1625800155888
 	
 	;Geometry::, Model::Fence Post042
-	C: "OO",2114573069808,2115504625968
+	C: "OO",1625800997936,1625800190960
 	
 	;Material::14 - Default, Model::Fence Post042
-	C: "OO",2114976728080,2115504625968
+	C: "OO",1624125654704,1625800190960
 	
 	;Geometry::, Model::Fence Post043
-	C: "OO",2114573048592,2115504597472
+	C: "OO",1625800998480,1625800201920
 	
 	;Material::14 - Default, Model::Fence Post043
-	C: "OO",2114976728080,2115504597472
+	C: "OO",1624125654704,1625800201920
 	
 	;Geometry::, Model::Fence Post044
-	C: "OO",2114573049136,2115504623776
+	C: "OO",1625800999024,1625800208496
 	
 	;Material::14 - Default, Model::Fence Post044
-	C: "OO",2114976728080,2115504623776
+	C: "OO",1624125654704,1625800208496
 	
 	;Geometry::, Model::Fence Post045
-	C: "OO",2114573108432,2115504601856
+	C: "OO",1625800994672,1625800186576
 	
 	;Material::14 - Default, Model::Fence Post045
-	C: "OO",2114976728080,2115504601856
+	C: "OO",1624125654704,1625800186576
 	
 	;Geometry::, Model::Fence Post046
-	C: "OO",2114573098096,2115504628160
+	C: "OO",1625800999568,1625800188768
 	
 	;Material::14 - Default, Model::Fence Post046
-	C: "OO",2114976728080,2115504628160
+	C: "OO",1624125654704,1625800188768
 	
 	;Geometry::, Model::Fence Post010
-	C: "OO",2114573098640,2115504599664
+	C: "OO",1625800992496,1625800212880
 	
 	;Material::14 - Default, Model::Fence Post010
-	C: "OO",2114976728080,2115504599664
+	C: "OO",1624125654704,1625800212880
 	
 	;Geometry::, Model::Fence Post047
-	C: "OO",2114573082864,2115504650080
+	C: "OO",1625800993040,1625800210688
 	
 	;Material::14 - Default, Model::Fence Post047
-	C: "OO",2114976728080,2115504650080
+	C: "OO",1624125654704,1625800210688
 	
 	;Geometry::, Model::Fence Post048
-	C: "OO",2114573085584,2115504641312
+	C: "OO",1625801161712,1625800195344
 	
 	;Material::14 - Default, Model::Fence Post048
-	C: "OO",2114976728080,2115504641312
+	C: "OO",1624125654704,1625800195344
 	
 	;Geometry::, Model::Fence Post049
-	C: "OO",2114573102448,2115504656656
+	C: "OO",1625801160624,1625800221648
 	
 	;Material::14 - Default, Model::Fence Post049
-	C: "OO",2114976728080,2115504656656
+	C: "OO",1624125654704,1625800221648
 	
 	;Geometry::, Model::Fence Post050
-	C: "OO",2114573088848,2115504643504
+	C: "OO",1625801167152,1625800197536
 	
 	;Material::14 - Default, Model::Fence Post050
-	C: "OO",2114976728080,2115504643504
+	C: "OO",1624125654704,1625800197536
 	
 	;Geometry::, Model::Fence Post051
-	C: "OO",2114141455440,2115504654464
+	C: "OO",1625801161168,1625800193152
 	
 	;Material::14 - Default, Model::Fence Post051
-	C: "OO",2114976728080,2115504654464
+	C: "OO",1624125654704,1625800193152
 	
 	;Geometry::, Model::Fence Post052
-	C: "OO",2114141430960,2115504647888
+	C: "OO",1625801166064,1625800223840
 	
 	;Material::14 - Default, Model::Fence Post052
-	C: "OO",2114976728080,2115504647888
+	C: "OO",1624125654704,1625800223840
 	
 	;Geometry::, Model::Fence Post053
-	C: "OO",2114141446192,2115504632544
+	C: "OO",1625801167696,1625800204112
 	
 	;Material::14 - Default, Model::Fence Post053
-	C: "OO",2114976728080,2115504632544
+	C: "OO",1624125654704,1625800204112
 	
 	;Texture::Map #10, Material::14 - Default
-	C: "OP",2114976733360,2114976728080, "DiffuseColor"
+	C: "OP",1624125652304,1624125654704, "DiffuseColor"
 	
 	;Texture::Map #11, Material::14 - Default
-	C: "OP",2114976728560,2114976728080, "NormalMap"
+	C: "OP",1624125662864,1624125654704, "NormalMap"
 	
 	;Video::Map #10, Texture::Map #10
-	C: "OO",2114976731920,2114976733360
+	C: "OO",1624125665264,1624125652304
 	
 	;Video::Map #11, Texture::Map #11
-	C: "OO",2114976730000,2114976728560
+	C: "OO",1624125658064,1624125662864
 }
