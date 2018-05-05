@@ -584,6 +584,8 @@ namespace Kalevala
                 // Save the ball and put it next to the launcher
                 if (ShootAgain || debug_freeBalls)
                 {
+                    SFXPlayer.Instance.Play(Sound.BallLost);
+                    SFXPlayer.Instance.Play(Sound.BallSaved);
                     InstanceNextBall(pinball);
                     ShootAgain = false;
                     ballRemoved = false;
@@ -591,6 +593,7 @@ namespace Kalevala
                 // Remove the ball and put it next to the launcher
                 else
                 {
+                    SFXPlayer.Instance.Play(Sound.BallLost);
                     RemoveBall(pinball);
                     ballRemoved = true;
                 }

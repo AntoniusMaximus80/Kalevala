@@ -43,7 +43,8 @@ namespace Kalevala
         BallSaved = 17,
         BumperParticle = 18,
         BallHitPlastic = 19,
-        BallRollTable = 20
+        BallRollTable = 20,
+        BallLost = 21
 
     }
 
