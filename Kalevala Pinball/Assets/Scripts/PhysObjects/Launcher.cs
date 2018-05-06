@@ -131,7 +131,7 @@ namespace Kalevala
             // 10 seconds of Shoot Again
             PinballManager.Instance.ActivateShootAgain(10);
             // No longer need to show launch prompt.
-            Viewscreen.ClearModeInfo();
+            Viewscreen.EndLaunch();
         }
 
         public void StartLaunch(Pinball pinball)
@@ -152,7 +152,7 @@ namespace Kalevala
                 gate.OpenGate();
             }
 
-            Viewscreen.BallLaunchInfo();
+            Viewscreen.StartLaunch();
         }
 
         public bool BallOnLauncher { get; private set; }

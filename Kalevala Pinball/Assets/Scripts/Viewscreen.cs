@@ -37,6 +37,9 @@ namespace Kalevala
         private string _score;
         private static float _incrementTime;
 
+        private static bool _launch, _kanteleHero, _sampo, _collect;
+        private static int _workshopCountdown;
+
         public static float TimeSinceIncrement
         {
             get
@@ -76,15 +79,15 @@ namespace Kalevala
                 {
                     _instance._scoreUGUI.text = _score;
                     _instance._scoreUGUI.fontSize = 4;
-                    
+
                 }
             }
 
-            if(_showMode)
+            if (_showMode)
             {
                 _displayModeCountdown -= Time.deltaTime;
 
-                if(_displayModeCountdown<=0)
+                if (_displayModeCountdown <= 0)
                 {
                     // Make the switch two seconds by default. I am assuming this is something
                     // that we won't change a lot.
@@ -113,37 +116,98 @@ namespace Kalevala
 
         public static void WorkShopEntered(int entriesNeeded)
         {
-            string translation = L10n.CurrentLanguage.GetTranslation(SampoModeRequirementKey);
-            DisplayModeInfo(string.Format(translation, _numbers[entriesNeeded]));
+            _workshopCountdown = entriesNeeded;
+            UpdateModeInfo();
+
         }
 
         public static void StartSampoMode()
         {
-            string translation = L10n.CurrentLanguage.GetTranslation(SampoModeActivationKey);
-            DisplayModeInfo(translation);            
+            _sampo = true;
+            UpdateModeInfo();
         }
 
-        public static void BallLaunchInfo()
+        public static void EndSampoMode()
         {
-            DisplayModeInfo("Launch the ball to start.");
+            _sampo = true;
+            UpdateModeInfo();
         }
 
-        public static void DisplayModeInfo(string info)
+        public static void StartCollect()
+        {
+            _collect = true;
+            UpdateModeInfo();
+        }
+
+        public static void EndCollect()
+        {
+            _collect = false;
+            UpdateModeInfo();
+        }
+
+        public static void StartLaunch()
+        {
+            _launch = true;
+            UpdateModeInfo();
+            
+        }
+
+        public static void EndLaunch()
+        {
+            _launch = false;
+            UpdateModeInfo();
+        }
+
+        private static void UpdateModeInfo()
+        {
+            if(_launch)
+            {
+                DisplayModeInfo("Launch the ball to start.");
+                return;
+            }
+
+            if(_kanteleHero)
+            {
+                DisplayModeInfo("Playing Kantele Hero.");
+                return;
+            }
+
+            if (_collect)
+            {
+                DisplayModeInfo("Collect products!");
+                return;
+            }
+
+            if (_sampo)
+            {
+                DisplayModeInfo("Spin Sampo spinner.");
+                return;
+            }
+            
+            if(PinballManager.Instance.Resources < PinballManager.Instance.MaxResources / 3)
+            {
+                DisplayModeInfo("Hit spruce bumbers for resources.");
+            }
+            else
+            {
+                string translation = L10n.CurrentLanguage.GetTranslation(SampoModeRequirementKey);
+                DisplayModeInfo(string.Format(translation, _numbers[_workshopCountdown]));
+            }
+        }
+
+        private static void DisplayModeInfo(string info)
         {
             _instance._gameMode.text = info;
             _instance._showMode = true;
         }
 
-        public static void ClearModeInfo()
-        {
-            _instance._showMode = false;
-        }
+
 
         #endregion
 
         public static void FormatScoreIncrement(int score, String message)
         {
-            _instance._incrementUGUI.text = "+"+score.ToString("N0");
+            _instance._incrementUGUI.text = "+" + score.ToString("N0");
             _incrementVisibleCountdown = _instance._incrementVisible;
             _instance._gameMode.text = message;
             _instance._showMode = true;
@@ -165,18 +229,18 @@ namespace Kalevala
         // Added a proper method for restting this. It was needed but did not exist, oops.
         internal static void ResetScore()
         {
-            _instance._score ="0";
+            _instance._score = "0";
             _instance._scoreUGUI.text = _instance._score;
             _instance._scoreUGUI.fontSize = 4;
             _instance._smallScore.text = _instance._score;
             _instance._showMode = false;
             _incrementVisibleCountdown = 0;
             _displayModeCountdown = 2f;
-            
+
 
         }
 
-       
+
 
         private void OnLanguageLoaded()
         {
