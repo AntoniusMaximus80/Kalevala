@@ -182,7 +182,12 @@ namespace Kalevala
 
         public static void UpdateModeInfo()
         {
-            if(_launch)
+
+            _instance._bumberIndicator.Switch(false);
+            _instance._workshopIndicator.Switch(false);
+
+
+            if (_launch)
             {
                 DisplayModeInfo("Launch the ball to start.");
                 return;
@@ -209,11 +214,13 @@ namespace Kalevala
             if(PinballManager.Instance.Resources < PinballManager.Instance.MaxResources / 3)
             {
                 DisplayModeInfo("Hit spruce bumbers for resources.");
+                _instance._bumberIndicator.Switch(true);
             }
             else
             {
                
                 DisplayModeInfo("Enter workshop to forge Sampo.");
+                _instance._workshopIndicator.Switch(true);
             }
         }
 
@@ -222,7 +229,6 @@ namespace Kalevala
             _instance._gameMode.text = info;
             _instance._showMode = true;
         }
-
 
 
         #endregion
