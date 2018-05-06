@@ -11,7 +11,8 @@ namespace Kalevala
         [SerializeField]
         private string _objectiveText;
 
-        //Add reference for the light of the objective
+        [SerializeField]
+        private StrobeLight _light;
 
         public GameObject MyObjective
         {
@@ -26,12 +27,14 @@ namespace Kalevala
                 _myObjective.GetComponent<DropTarget>().ResetDropTarget();
             }
             //turn on lights of the objective
+            if (_light != null) _light.Switch(true);
         }
 
         public void DeactivateObjective()
         {
             Debug.Log("objective cleared " + _objectiveText);
             //turn off the lights of the objective
+            if (_light != null) _light.Switch(false);
         }
         
     }
