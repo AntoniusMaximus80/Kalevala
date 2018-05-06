@@ -151,6 +151,11 @@ namespace Kalevala
                     //Add score for excessive recourses
                 }
                 _resources = (int)Mathf.Clamp(_resources + value, 0, MaxResources);
+
+                // Make Viewscreen update when resources are changed, so the text will change if the threshold is crossed.
+                // Not using the event since I would need to check the resource change anyway, so event gives no advantage.
+                Viewscreen.UpdateModeInfo();
+
                 if(ResourcesChanged != null)
                 {
                     ResourcesChanged();

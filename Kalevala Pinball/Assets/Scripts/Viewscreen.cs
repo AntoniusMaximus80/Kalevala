@@ -117,7 +117,9 @@ namespace Kalevala
         public static void WorkShopEntered(int entriesNeeded)
         {
             _workshopCountdown = entriesNeeded;
-            UpdateModeInfo();
+
+            //Since workshop reduces resources, this is triggered by the pinball manager.
+            //UpdateModeInfo();
 
         }
 
@@ -158,7 +160,7 @@ namespace Kalevala
             UpdateModeInfo();
         }
 
-        private static void UpdateModeInfo()
+        public static void UpdateModeInfo()
         {
             if(_launch)
             {
