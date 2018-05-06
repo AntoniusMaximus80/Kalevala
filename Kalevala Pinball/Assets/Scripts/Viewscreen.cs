@@ -26,6 +26,8 @@ namespace Kalevala
 
         public float _incrementVisible = 5f;
 
+        public StrobeLight _bumberIndicator, _workshopIndicator, _sampoIndicator;
+
         private static float _incrementVisibleCountdown, _displayModeCountdown = 2f;
 
         private Color _fade = new Color(1f, 1f, 1f, 1f);

@@ -2170,6 +2170,9 @@ MonoBehaviour:
   _smallScore: {fileID: 290599449}
   _gameMode: {fileID: 1208923694}
   _incrementVisible: 5
+  _bumberIndicator: {fileID: 176786535}
+  _workshopIndicator: {fileID: 1260461196}
+  _sampoIndicator: {fileID: 0}
 --- !u!1 &114270281
 GameObject:
   m_ObjectHideFlags: 0
@@ -3611,7 +3614,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1341481112705090, guid: a26a5c315455d1349933eaac512f2346, type: 2}
       propertyPath: m_Name
-      value: Triangle Light (8)
+      value: BumperIndicator
       objectReference: {fileID: 0}
     - target: {fileID: 108343162281006256, guid: a26a5c315455d1349933eaac512f2346,
         type: 2}
@@ -3626,6 +3629,12 @@ Transform:
   m_PrefabParentObject: {fileID: 4314033408447278, guid: a26a5c315455d1349933eaac512f2346,
     type: 2}
   m_PrefabInternal: {fileID: 176786533}
+--- !u!114 &176786535 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114009727398341768, guid: a26a5c315455d1349933eaac512f2346,
+    type: 2}
+  m_PrefabInternal: {fileID: 176786533}
+  m_Script: {fileID: 11500000, guid: e99d4274fb128a643b0a8880f42d7ae4, type: 3}
 --- !u!1 &191434140
 GameObject:
   m_ObjectHideFlags: 0
@@ -23848,7 +23857,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1341481112705090, guid: a26a5c315455d1349933eaac512f2346, type: 2}
       propertyPath: m_Name
-      value: Triangle Light (9)
+      value: WorkshopIndicator
       objectReference: {fileID: 0}
     - target: {fileID: 108343162281006256, guid: a26a5c315455d1349933eaac512f2346,
         type: 2}
@@ -23863,6 +23872,12 @@ Transform:
   m_PrefabParentObject: {fileID: 4314033408447278, guid: a26a5c315455d1349933eaac512f2346,
     type: 2}
   m_PrefabInternal: {fileID: 1260461194}
+--- !u!114 &1260461196 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114009727398341768, guid: a26a5c315455d1349933eaac512f2346,
+    type: 2}
+  m_PrefabInternal: {fileID: 1260461194}
+  m_Script: {fileID: 11500000, guid: e99d4274fb128a643b0a8880f42d7ae4, type: 3}
 --- !u!1 &1262358716
 GameObject:
   m_ObjectHideFlags: 0
