@@ -24,6 +24,6 @@ namespace Kalevala {
 
         protected bool Sweep()
         {
-            return _scaledY%5 == GameManager.TimeModulo;
+            return _scaledY % 10 == GameManager.TimeModulo;
         }
     } }

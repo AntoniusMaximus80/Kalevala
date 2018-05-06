@@ -55,6 +55,11 @@ namespace Kalevala
 
         }
 
+        public new void Start()
+        {
+            base.Start();
+            _baseColor = gameObject.GetComponent<Renderer>().material.GetColor("_EmissionColor");
+        }
 
     }
 }

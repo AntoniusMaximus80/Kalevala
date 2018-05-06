@@ -71,7 +71,7 @@ namespace Kalevala
 
                 case SampoStateType.Idle:
                     StopRotating();
-                    _sampoState = SampoStateType.Idle;
+                    _sampoState = SampoStateType.Idle;                 
                     break;
 
                 case SampoStateType.Generate:

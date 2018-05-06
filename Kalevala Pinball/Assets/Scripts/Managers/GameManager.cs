@@ -59,7 +59,7 @@ namespace Kalevala
             set
             {
                 
-                _timeModulo = value % 5;
+                _timeModulo = value;
             }
         }
     
@@ -157,18 +157,18 @@ namespace Kalevala
         //    //Settings.Instance.InitAudio(_autoplayMusic);
         //}
 
-        //private void Update()
-        //{
-        //    //InitScene();
+        private void Update()
+        {
+            //InitScene();
 
-        //    // DEBUGGING
-        //    //if (_defaultLanguage != Language.State)
-        //    //{
-        //    //    SetLanguage(_defaultLanguage);
-        //    //}
+            // DEBUGGING
+            //if (_defaultLanguage != Language.State)
+            //{
+            //    SetLanguage(_defaultLanguage);
+            //}
 
-        //    TimeModulo = Mathf.CeilToInt(Time.time*10);
-        //}
+            TimeModulo = Mathf.CeilToInt(Time.time * 10) % 10;
+        }
 
         private void Init()
         {

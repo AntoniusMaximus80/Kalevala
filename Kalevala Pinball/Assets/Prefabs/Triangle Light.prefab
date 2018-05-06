@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4314033408447278}
   - component: {fileID: 33907051749191280}
   - component: {fileID: 23400925417808742}
+  - component: {fileID: 114009727398341768}
   m_Layer: 10
   m_Name: Triangle Light
   m_TagString: Untagged
@@ -92,15 +93,15 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1341481112705090}
-  m_LocalRotation: {x: -0.6976662, y: 0.115159996, z: 0.11515998, w: 0.6976662}
-  m_LocalPosition: {x: -5.64, y: -0, z: -28.96}
-  m_LocalScale: {x: 1.5000012, y: 1.5000005, z: 1}
+  m_LocalRotation: {x: -0.6579539, y: -0.25903037, z: -0.25903034, w: 0.6579539}
+  m_LocalPosition: {x: 4.9, y: 0, z: -18.94}
+  m_LocalScale: {x: 1.5000001, y: 1.5000004, z: 1.0000001}
   m_Children:
   - {fileID: 4122166483848850}
   - {fileID: 4171785685002826}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: -89.99999, y: 180, z: 198.746}
+  m_LocalEulerAnglesHint: {x: -89.99999, y: 180, z: 137.022}
 --- !u!23 &23400925417808742
 MeshRenderer:
   m_ObjectHideFlags: 1
@@ -170,7 +171,7 @@ Light:
   m_RenderMode: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 4294836223
   m_Lightmapping: 4
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
@@ -178,6 +179,22 @@ Light:
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &114009727398341768
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1341481112705090}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e99d4274fb128a643b0a8880f42d7ae4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _cover: {fileID: 23400925417808742}
+  _lightBulb: {fileID: 1496193169060742}
+  _pointLight: {fileID: 108343162281006256}
+  _offColor: {r: 0, g: 0, b: 0, a: 1}
+  _baseColor: {r: 1, g: 0, b: 1, a: 1}
 --- !u!122 &122620488302749732
 Halo:
   m_ObjectHideFlags: 1

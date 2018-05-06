@@ -7473,32 +7473,6 @@ MeshCollider:
   m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300006, guid: 1e98769eb7d171b4489d2dbd8a5c47ca, type: 3}
---- !u!1 &403780961 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1341481112705090, guid: a26a5c315455d1349933eaac512f2346,
-    type: 2}
-  m_PrefabInternal: {fileID: 2057104161}
---- !u!114 &403780962
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 403780961}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e99d4274fb128a643b0a8880f42d7ae4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _cover: {fileID: 403780963}
-  _lightBulb: {fileID: 1386698896}
-  _pointLight: {fileID: 1658396065}
-  _offColor: {r: 0, g: 0, b: 0, a: 1}
-  _baseColor: {r: 0, g: 0.8235294, b: 1, a: 1}
---- !u!23 &403780963 stripped
-MeshRenderer:
-  m_PrefabParentObject: {fileID: 23400925417808742, guid: a26a5c315455d1349933eaac512f2346,
-    type: 2}
-  m_PrefabInternal: {fileID: 2057104161}
 --- !u!1 &409273252
 GameObject:
   m_ObjectHideFlags: 0
@@ -9427,42 +9401,6 @@ Transform:
   m_PrefabParentObject: {fileID: 4314033408447278, guid: a26a5c315455d1349933eaac512f2346,
     type: 2}
   m_PrefabInternal: {fileID: 540524586}
---- !u!1 &540524588 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1496193169060742, guid: a26a5c315455d1349933eaac512f2346,
-    type: 2}
-  m_PrefabInternal: {fileID: 540524586}
---- !u!108 &540524589 stripped
-Light:
-  m_PrefabParentObject: {fileID: 108343162281006256, guid: a26a5c315455d1349933eaac512f2346,
-    type: 2}
-  m_PrefabInternal: {fileID: 540524586}
---- !u!1 &540524590 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1341481112705090, guid: a26a5c315455d1349933eaac512f2346,
-    type: 2}
-  m_PrefabInternal: {fileID: 540524586}
---- !u!23 &540524591 stripped
-MeshRenderer:
-  m_PrefabParentObject: {fileID: 23400925417808742, guid: a26a5c315455d1349933eaac512f2346,
-    type: 2}
-  m_PrefabInternal: {fileID: 540524586}
---- !u!114 &540524592
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 540524590}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e99d4274fb128a643b0a8880f42d7ae4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _cover: {fileID: 540524591}
-  _lightBulb: {fileID: 540524588}
-  _pointLight: {fileID: 540524589}
-  _offColor: {r: 0, g: 0, b: 0, a: 1}
-  _baseColor: {r: 0, g: 0.8235294, b: 1, a: 1}
 --- !u!1 &544897953
 GameObject:
   m_ObjectHideFlags: 0
@@ -9505,7 +9443,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _myObjective: {fileID: 1720806049}
   _objectiveText: SwampUpperTarget
-  _light: {fileID: 540524592}
+  _light: {fileID: 0}
 --- !u!1001 &553355705
 Prefab:
   m_ObjectHideFlags: 0
@@ -10913,7 +10851,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _myObjective: {fileID: 1995039356}
   _objectiveText: Left spinner
-  _light: {fileID: 403780962}
+  _light: {fileID: 0}
 --- !u!1 &624791196
 GameObject:
   m_ObjectHideFlags: 0
@@ -13935,7 +13873,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _myObjective: {fileID: 9289867}
   _objectiveText: Left Spinner
-  _light: {fileID: 1935272095}
+  _light: {fileID: 0}
 --- !u!1 &839804332
 GameObject:
   m_ObjectHideFlags: 0
@@ -13978,6 +13916,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _isPartOfCurve: 0
   _curveName: 
+--- !u!108 &840265157 stripped
+Light:
+  m_PrefabParentObject: {fileID: 108343162281006256, guid: a26a5c315455d1349933eaac512f2346,
+    type: 2}
+  m_PrefabInternal: {fileID: 1707381987}
 --- !u!1 &842043544
 GameObject:
   m_ObjectHideFlags: 0
@@ -19814,42 +19757,6 @@ Transform:
   m_PrefabParentObject: {fileID: 4314033408447278, guid: a26a5c315455d1349933eaac512f2346,
     type: 2}
   m_PrefabInternal: {fileID: 1228636757}
---- !u!1 &1228636759 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1496193169060742, guid: a26a5c315455d1349933eaac512f2346,
-    type: 2}
-  m_PrefabInternal: {fileID: 1228636757}
---- !u!108 &1228636760 stripped
-Light:
-  m_PrefabParentObject: {fileID: 108343162281006256, guid: a26a5c315455d1349933eaac512f2346,
-    type: 2}
-  m_PrefabInternal: {fileID: 1228636757}
---- !u!1 &1228636761 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1341481112705090, guid: a26a5c315455d1349933eaac512f2346,
-    type: 2}
-  m_PrefabInternal: {fileID: 1228636757}
---- !u!23 &1228636762 stripped
-MeshRenderer:
-  m_PrefabParentObject: {fileID: 23400925417808742, guid: a26a5c315455d1349933eaac512f2346,
-    type: 2}
-  m_PrefabInternal: {fileID: 1228636757}
---- !u!114 &1228636763
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1228636761}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e99d4274fb128a643b0a8880f42d7ae4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _cover: {fileID: 1228636762}
-  _lightBulb: {fileID: 1228636759}
-  _pointLight: {fileID: 1228636760}
-  _offColor: {r: 0, g: 0, b: 0, a: 1}
-  _baseColor: {r: 0, g: 0.8235294, b: 1, a: 1}
 --- !u!1 &1231240065
 GameObject:
   m_ObjectHideFlags: 0
@@ -25461,11 +25368,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _isPartOfCurve: 0
   _curveName: 
---- !u!1 &1386698896 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1496193169060742, guid: a26a5c315455d1349933eaac512f2346,
-    type: 2}
-  m_PrefabInternal: {fileID: 2057104161}
 --- !u!1 &1402934938
 GameObject:
   m_ObjectHideFlags: 0
@@ -26396,7 +26298,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _myObjective: {fileID: 509716286}
   _objectiveText: SwampLowerTarget
-  _light: {fileID: 1228636763}
+  _light: {fileID: 0}
 --- !u!1 &1430600370
 GameObject:
   m_ObjectHideFlags: 0
@@ -26804,6 +26706,32 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _toyElevatorController: {fileID: 12670988}
+--- !u!1 &1453739349 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1341481112705090, guid: a26a5c315455d1349933eaac512f2346,
+    type: 2}
+  m_PrefabInternal: {fileID: 1707381987}
+--- !u!23 &1453739350 stripped
+MeshRenderer:
+  m_PrefabParentObject: {fileID: 23400925417808742, guid: a26a5c315455d1349933eaac512f2346,
+    type: 2}
+  m_PrefabInternal: {fileID: 1707381987}
+--- !u!114 &1453739351
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1453739349}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e99d4274fb128a643b0a8880f42d7ae4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _cover: {fileID: 1453739350}
+  _lightBulb: {fileID: 1509264248}
+  _pointLight: {fileID: 840265157}
+  _offColor: {r: 0, g: 0, b: 0, a: 1}
+  _baseColor: {r: 1, g: 0, b: 1, a: 1}
 --- !u!1 &1458231378
 GameObject:
   m_ObjectHideFlags: 0
@@ -27556,6 +27484,11 @@ MonoBehaviour:
   _pathType: 2
   _pathColor: {r: 0, g: 0, b: 1, a: 1}
   _drawPath: 1
+--- !u!1 &1509264248 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1496193169060742, guid: a26a5c315455d1349933eaac512f2346,
+    type: 2}
+  m_PrefabInternal: {fileID: 1707381987}
 --- !u!1 &1510208944
 GameObject:
   m_ObjectHideFlags: 0
@@ -29210,11 +29143,6 @@ ReflectionProbe:
   m_UseOcclusionCulling: 1
   m_Importance: 1
   m_CustomBakedTexture: {fileID: 0}
---- !u!108 &1658396065 stripped
-Light:
-  m_PrefabParentObject: {fileID: 108343162281006256, guid: a26a5c315455d1349933eaac512f2346,
-    type: 2}
-  m_PrefabInternal: {fileID: 2057104161}
 --- !u!1 &1672765760
 GameObject:
   m_ObjectHideFlags: 0
@@ -31967,34 +31895,9 @@ Prefab:
       propertyPath: m_RootOrder
       value: 34
       objectReference: {fileID: 0}
-    - target: {fileID: 4314033408447278, guid: a26a5c315455d1349933eaac512f2346, type: 2}
-      propertyPath: m_LocalScale.x
-      value: 1.5000001
-      objectReference: {fileID: 0}
-    - target: {fileID: 4314033408447278, guid: a26a5c315455d1349933eaac512f2346, type: 2}
-      propertyPath: m_LocalScale.y
-      value: 1.5000004
-      objectReference: {fileID: 0}
-    - target: {fileID: 4314033408447278, guid: a26a5c315455d1349933eaac512f2346, type: 2}
-      propertyPath: m_LocalScale.z
-      value: 1.0000001
-      objectReference: {fileID: 0}
-    - target: {fileID: 4314033408447278, guid: a26a5c315455d1349933eaac512f2346, type: 2}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: -89.99999
-      objectReference: {fileID: 0}
-    - target: {fileID: 4314033408447278, guid: a26a5c315455d1349933eaac512f2346, type: 2}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 137.022
-      objectReference: {fileID: 0}
     - target: {fileID: 1341481112705090, guid: a26a5c315455d1349933eaac512f2346, type: 2}
       propertyPath: m_Name
       value: Triangle Light (2)
-      objectReference: {fileID: 0}
-    - target: {fileID: 108343162281006256, guid: a26a5c315455d1349933eaac512f2346,
-        type: 2}
-      propertyPath: m_CullingMask.m_Bits
-      value: 4294836223
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a26a5c315455d1349933eaac512f2346, type: 2}
@@ -32833,42 +32736,6 @@ Transform:
   m_PrefabParentObject: {fileID: 4314033408447278, guid: a26a5c315455d1349933eaac512f2346,
     type: 2}
   m_PrefabInternal: {fileID: 1935272089}
---- !u!1 &1935272091 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1496193169060742, guid: a26a5c315455d1349933eaac512f2346,
-    type: 2}
-  m_PrefabInternal: {fileID: 1935272089}
---- !u!108 &1935272092 stripped
-Light:
-  m_PrefabParentObject: {fileID: 108343162281006256, guid: a26a5c315455d1349933eaac512f2346,
-    type: 2}
-  m_PrefabInternal: {fileID: 1935272089}
---- !u!1 &1935272093 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1341481112705090, guid: a26a5c315455d1349933eaac512f2346,
-    type: 2}
-  m_PrefabInternal: {fileID: 1935272089}
---- !u!23 &1935272094 stripped
-MeshRenderer:
-  m_PrefabParentObject: {fileID: 23400925417808742, guid: a26a5c315455d1349933eaac512f2346,
-    type: 2}
-  m_PrefabInternal: {fileID: 1935272089}
---- !u!114 &1935272095
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1935272093}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e99d4274fb128a643b0a8880f42d7ae4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _cover: {fileID: 1935272094}
-  _lightBulb: {fileID: 1935272091}
-  _pointLight: {fileID: 1935272092}
-  _offColor: {r: 0, g: 0, b: 0, a: 1}
-  _baseColor: {r: 0, g: 0.8235294, b: 1, a: 1}
 --- !u!1001 &1946928964
 Prefab:
   m_ObjectHideFlags: 0
