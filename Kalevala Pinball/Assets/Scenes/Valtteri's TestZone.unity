@@ -22654,7 +22654,7 @@ MonoBehaviour:
   _flipperMotorTargetVelocity: 64000
   _springForce: 32000
   GameOverDelay: 3
-  debug_useDefaultLaunchPoint: 0
+  debug_useDefaultLaunchPoint: 1
   debug_freeBalls: 0
   _rampGravityMultiplier: 3
   _rampExitSpeedMultiplier: 0.75
@@ -22662,7 +22662,7 @@ MonoBehaviour:
   _workshopExtraBalls: 2
   _workshopLocation: {fileID: 1294882637}
   _allowedNudgeAmount: 4
-  _ballLaunchPoint: {x: 7.9006443, y: 1.35, z: -37.826942}
+  _ballLaunchPoint: {x: -11.937368, y: 1.35, z: -37.198376}
   _ballLaunchArrivalPoint: {x: 19.191685, y: 0, z: -44.143856}
   _ballLaunchArrivalTime: 0.5
   _ballDrainBottomLeftCorner: {x: 6, y: 1.35, z: -54}
@@ -35283,11 +35283,6 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 114320268130557522, guid: eb55088027a88154fa301a5b0f60ab36,
-        type: 2}
-      propertyPath: sounds.Array.size
-      value: 22
-      objectReference: {fileID: 0}
     - target: {fileID: 4053180790779268, guid: eb55088027a88154fa301a5b0f60ab36, type: 2}
       propertyPath: m_LocalPosition.x
       value: -15.149809
@@ -35322,9 +35317,9 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 114320268130557522, guid: eb55088027a88154fa301a5b0f60ab36,
         type: 2}
-      propertyPath: sounds.Array.data[21]
+      propertyPath: sounds.Array.data[20]
       value: 
-      objectReference: {fileID: 8300000, guid: 47bd71bbe50713140b7abdfd0b98c882, type: 3}
+      objectReference: {fileID: 8300000, guid: 848af6b3405a9f54d94117cbc2f9ce94, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: eb55088027a88154fa301a5b0f60ab36, type: 2}
   m_IsPrefabParent: 0
