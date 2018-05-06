@@ -353,6 +353,8 @@ namespace Kalevala
             _rightTrigger.ResetNoteNumber();
             _leftTrigger.ResetNoteNumber();
             _waitTimeElapsed = 0f;
+
+            Viewscreen.StartKH();
     }
 
         /// <summary>
@@ -370,6 +372,8 @@ namespace Kalevala
             _haukiKantele.DeactivateKantele();
             //Physics.gravity = new Vector3(0f, -98.1f, -65f);
             PanelActive = false;
+
+            Viewscreen.EndKH();
         }
 
         public void ResetPanel(bool arg)

@@ -147,6 +147,19 @@ namespace Kalevala
             UpdateModeInfo();
         }
 
+        public static void StartKH()
+        {
+            _kanteleHero = true;
+            UpdateModeInfo();
+
+        }
+
+        public static void EndKH()
+        {
+            _kanteleHero = false;
+            UpdateModeInfo();
+        }
+
         public static void StartLaunch()
         {
             _launch = true;
