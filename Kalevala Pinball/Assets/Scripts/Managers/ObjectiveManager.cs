@@ -50,6 +50,10 @@ namespace Kalevala
             {
                 Destroy(this.gameObject);
             }
+            foreach(Objective objective in _objectives)
+            {
+                objective.DeactivateObjective();
+            }
             StartRandomObjective();
         }
 
