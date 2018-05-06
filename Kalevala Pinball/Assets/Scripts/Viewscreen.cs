@@ -109,13 +109,37 @@ namespace Kalevala
 
         }
 
+        #region game modes
+
         public static void WorkShopEntered(int entriesNeeded)
         {
             string translation = L10n.CurrentLanguage.GetTranslation(SampoModeRequirementKey);
-            _instance._gameMode.text = string.Format(translation, _numbers[entriesNeeded]);
-            //_instance._gameMode.text = _numbers[entriesNeeded]+" more to activate Sampo mode.";
+            DisplayModeInfo(string.Format(translation, _numbers[entriesNeeded]));
+        }
+
+        public static void StartSampoMode()
+        {
+            string translation = L10n.CurrentLanguage.GetTranslation(SampoModeActivationKey);
+            DisplayModeInfo(translation);            
+        }
+
+        public static void BallLaunchInfo()
+        {
+            DisplayModeInfo("Launch the ball to start.");
+        }
+
+        public static void DisplayModeInfo(string info)
+        {
+            _instance._gameMode.text = info;
             _instance._showMode = true;
         }
+
+        public static void ClearModeInfo()
+        {
+            _instance._showMode = false;
+        }
+
+        #endregion
 
         public static void FormatScoreIncrement(int score, String message)
         {
@@ -152,13 +176,7 @@ namespace Kalevala
 
         }
 
-        public static void StartSampoMode()
-        {
-            string translation = L10n.CurrentLanguage.GetTranslation(SampoModeActivationKey);
-            _instance._gameMode.text = translation;
-            //_instance._gameMode.text = "Sampo mode activated.";
-            _instance._showMode = true;
-        }
+       
 
         private void OnLanguageLoaded()
         {
