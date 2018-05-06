@@ -65,8 +65,9 @@ namespace Kalevala {
 
         }
 
-        public void Start()
+        public new void Start()
         {
+            base.Start();
             _baseColor = _cover.material.GetColor("_EmissionColor");
         }
 
