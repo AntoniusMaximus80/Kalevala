@@ -126,12 +126,14 @@ namespace Kalevala
         public static void StartSampoMode()
         {
             _sampo = true;
+            _collect = false;
             UpdateModeInfo();
         }
 
         public static void EndSampoMode()
         {
-            _sampo = true;
+            _sampo = false;
+            _collect = false;
             UpdateModeInfo();
         }
 

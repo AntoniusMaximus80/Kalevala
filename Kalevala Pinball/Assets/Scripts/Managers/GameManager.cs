@@ -147,26 +147,28 @@ namespace Kalevala
             Init();
         }
 
-        private void Start()
-        {
-            // TODO: If _autoplayMusic is off, call InitAudio
-            // when starting playing music
+        //Neither currently does anythin but since they existed Unity was still calling them. So commented out for now.
 
-            //Settings.Instance.InitAudio(_autoplayMusic);
-        }
+        //private void Start()
+        //{
+        //    // TODO: If _autoplayMusic is off, call InitAudio
+        //    // when starting playing music
 
-        private void Update()
-        {
-            //InitScene();
+        //    //Settings.Instance.InitAudio(_autoplayMusic);
+        //}
 
-            // DEBUGGING
-            //if (_defaultLanguage != Language.State)
-            //{
-            //    SetLanguage(_defaultLanguage);
-            //}
+        //private void Update()
+        //{
+        //    //InitScene();
 
-            TimeModulo = Mathf.CeilToInt(Time.time*10);
-        }
+        //    // DEBUGGING
+        //    //if (_defaultLanguage != Language.State)
+        //    //{
+        //    //    SetLanguage(_defaultLanguage);
+        //    //}
+
+        //    TimeModulo = Mathf.CeilToInt(Time.time*10);
+        //}
 
         private void Init()
         {
