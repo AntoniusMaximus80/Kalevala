@@ -126,6 +126,7 @@ namespace Kalevala
         public static void StartSampoMode()
         {
             _sampo = true;
+            _launch = false;
             _collect = false;
             UpdateModeInfo();
         }
@@ -152,6 +153,7 @@ namespace Kalevala
         public static void StartKH()
         {
             _kanteleHero = true;
+            _launch = false;
             UpdateModeInfo();
 
         }
@@ -159,6 +161,7 @@ namespace Kalevala
         public static void EndKH()
         {
             _kanteleHero = false;
+
             UpdateModeInfo();
         }
 
@@ -207,8 +210,8 @@ namespace Kalevala
             }
             else
             {
-                string translation = L10n.CurrentLanguage.GetTranslation(SampoModeRequirementKey);
-                DisplayModeInfo(string.Format(translation, _numbers[_workshopCountdown]));
+               
+                DisplayModeInfo("Enter workshop to forge Sampo.");
             }
         }
 

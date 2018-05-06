@@ -19,11 +19,16 @@ namespace Kalevala {
         public void Start()
         {
             // This should scale y to range 0-50. Since all objects have done awake, min and max are known.
-            _scaledY = Mathf.CeilToInt((gameObject.transform.position.y - _min) * 50f / (_max - _min));
+            _scaledY = Mathf.CeilToInt((gameObject.transform.position.y - _min) * 50f) % 10;
         }
 
         protected bool Sweep()
         {
             return _scaledY % 10 == GameManager.TimeModulo;
+        }
+
+        protected Color SweptColor(Color baseColor)
+        {
+            return Sweep()?Color.Lerp(baseColor, Color.yellow, .9f):baseColor;
         }
     } }
