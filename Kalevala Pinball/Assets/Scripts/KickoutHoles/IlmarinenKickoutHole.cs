@@ -8,8 +8,6 @@ namespace Kalevala
     {
         [SerializeField]
         private Animator _bellows;
-        [SerializeField]
-        private int _resourcesToForge;
         private bool _doOnce = true;
         private bool _hadResources = false;
 
@@ -30,7 +28,8 @@ namespace Kalevala
                     if(GameManager.Instance.GameMode.State != GameModeStateType.Sampo &&
                         Launcher.Instance.SkillShotSuccesful)
                     {
-                        PinballManager.Instance.ChangeResources(-(int)PinballManager.Instance.MaxResources / 3);
+                        PinballManager.Instance.ChangeResources((int)-PinballManager.Instance.MaxResources / 3);
+                        Debug.Log((int)-PinballManager.Instance.MaxResources / 3);
                     } else if (Launcher.Instance.SkillShotSuccesful)
                     {
                         Launcher.Instance.SkillShotSuccesful = false;
@@ -39,6 +38,9 @@ namespace Kalevala
                     _bellows.SetBool("Pumping", true);
                     _ball.SetHeatBall(_timeToWait);
                     SFXPlayer.Instance.Play(Sound.IlmarisenKOH);
+                } else
+                {
+                    _timeToWait = 0.2f;
                 }
                 Scorekeeper.Instance.AddScore(Scorekeeper.ScoreType.IlmarinenKOH);
                 _doOnce = false;
@@ -55,6 +57,7 @@ namespace Kalevala
             }
             _bellows.SetBool("Pumping", false);
             _doOnce = true;
+            _timeToWait = 2f;
         }
     }
 }

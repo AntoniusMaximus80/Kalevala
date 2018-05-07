@@ -374,7 +374,7 @@ namespace Kalevala
             ShootAgain = false;
             _extraBallSpawner.Deactivate();
             _status.ResetStatus();
-
+            _resources = 0;
             _pinballs = new List<Pinball>(FindObjectsOfType<Pinball>());
             _activeBalls = _pinballs.Count;
             Debug.Log("Total balls : " + _currentBallCount.ToString());

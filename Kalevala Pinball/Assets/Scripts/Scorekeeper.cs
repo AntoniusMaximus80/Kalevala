@@ -138,7 +138,11 @@ namespace Kalevala
             //Check if it was an objective
             if(scoreObject != null)
             {
-                ObjectiveManager.Instance.CheckObjective(scoreObject);
+                
+                if(ObjectiveManager.Instance.CheckObjective(scoreObject))
+                {
+                    _score = _score * 2;
+                }
             }
 
             // To do: Apply possible score modifiers here.

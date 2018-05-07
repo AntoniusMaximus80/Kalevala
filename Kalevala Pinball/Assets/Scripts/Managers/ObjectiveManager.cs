@@ -57,18 +57,20 @@ namespace Kalevala
             StartRandomObjective();
         }
 
-        public void CheckObjective( GameObject obj)
+        public bool CheckObjective( GameObject obj)
         {
             if(_activeObjective == null)
             {
-                return;
+                return false;
             }
 
             if(_activeObjective.MyObjective == obj)
             {
                 ObjectiveCleared();
                 StartRandomObjective();
+                return true;
             }
+            return false;
         }
 
         private void StartRandomObjective()
@@ -79,7 +81,7 @@ namespace Kalevala
                 return;
             }
             int random = 0;
-
+            
             if(_activeObjective == null)
             {
                 random = Random.Range(0, _objectives.Length);
@@ -88,13 +90,12 @@ namespace Kalevala
                 return;
             }
 
-            int randomizerCounter = 0;
+            random = Random.Range(0, _objectives.Length);
 
-            do
+            if(_objectives[random] == _activeObjective)
             {
-                randomizerCounter++;
-                random = Random.Range(0, _objectives.Length);
-            } while(_objectives[random] == _activeObjective && randomizerCounter < 10);
+                random = (random + 1) % _objectives.Length;
+            }
 
             _activeObjective = _objectives[random];
             _activeObjective.ActivateObjective();
@@ -104,11 +105,5 @@ namespace Kalevala
         {
             _activeObjective.DeactivateObjective();
         }
-        public void Reset()
-        {
-            _activeObjective.DeactivateObjective();
-            _activeObjective = null;
-        }
-
     }
 }
