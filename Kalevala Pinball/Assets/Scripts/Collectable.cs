@@ -6,13 +6,13 @@ namespace Kalevala
     [RequireComponent(typeof(Collider))]
     public class Collectable : MonoBehaviour
     {
-        public enum CollectableType
-        {
-            None = 0,
-            Grain = 1,
-            Salt = 2,
-            Gold = 3
-        }
+        //public enum CollectableType
+        //{
+        //    None = 0,
+        //    Grain = 1,
+        //    Salt = 2,
+        //    Gold = 3
+        //}
 
         private enum CollectableState
         {
@@ -86,7 +86,7 @@ namespace Kalevala
         private float _activeTime = 0;
         private float _elapsedTime = 0;
 
-        public CollectableType Type { get; private set; }
+        public SampoProductType Type { get; private set; }
         private Scorekeeper.ScoreType _scoreType;
 
         /// <summary>
@@ -109,25 +109,25 @@ namespace Kalevala
             }
         }
 
-        public void Init(CollectableType type)
+        public void Init(SampoProductType type)
         {
             Type = type;
 
             switch (Type)
             {
-                case CollectableType.Grain:
+                case SampoProductType.Grain:
                 {
                     _collectableObject = _grainModel;
                     _scoreType = Scorekeeper.ScoreType.CollectableGrain;
                     break;
                 }
-                case CollectableType.Salt:
+                case SampoProductType.Salt:
                 {
                     _collectableObject = _saltModel;
                     _scoreType = Scorekeeper.ScoreType.CollectableSalt;
                     break;
                 }
-                case CollectableType.Gold:
+                case SampoProductType.Gold:
                 {
                     _collectableObject = _goldModel;
                     _scoreType = Scorekeeper.ScoreType.CollectableGold;
@@ -340,7 +340,7 @@ namespace Kalevala
             _elapsedTime = 0;
 
             // Gives score based on the collectable type
-            if (Type != CollectableType.None)
+            if (Type != SampoProductType.None)
             {
                 Scorekeeper.Instance.AddScore(_scoreType);
             }

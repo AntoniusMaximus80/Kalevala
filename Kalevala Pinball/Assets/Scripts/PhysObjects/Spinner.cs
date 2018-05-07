@@ -138,20 +138,25 @@ namespace Kalevala
         /// <summary>
         /// Gives score each half round the spinner does.
         /// </summary>
-        private void CheckScoring()
+        /// <returns>Is score given</returns>
+        protected virtual bool CheckScoring()
         {
             if(transform.rotation.eulerAngles.x >= 0 && transform.rotation.eulerAngles.x <= 90 && !_fullRound)
             {
                 _fullRound = true;
                 Scorekeeper.Instance.AddScore(Scorekeeper.ScoreType.Spinner, this.gameObject);
                 SFXPlayer.Instance.Play(Sound.Spinner);
+                return true;
             }
             else if(transform.rotation.eulerAngles.x >= 270 && transform.rotation.eulerAngles.x <= 360 && _fullRound)
             {
                 SFXPlayer.Instance.Play(Sound.Spinner);
                 _fullRound = false;
                 Scorekeeper.Instance.AddScore(Scorekeeper.ScoreType.Spinner, this.gameObject);
+                return true;
             }
+
+            return false;
         }
 
         /// <summary>

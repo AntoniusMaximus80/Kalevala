@@ -12,13 +12,38 @@ namespace Kalevala
         [SerializeField]
         private float _launchSpeed = 20f;
 
+        [SerializeField]
+        private SampoSpinner _sampoSpinner;
+
+        [SerializeField]
+        private int _defaultGrainChance = 5;
+
+        [SerializeField]
+        private int _defaultSaltChance = 3;
+
+        [SerializeField]
+        private int _defaultGoldChance = 1;
+
         private Collectable[] _collectables;
 
         private bool _spawnMultiple;
-        private Collectable.CollectableType _collType;
+        private bool _randomProduct;
+        private SampoProductType _collType;
         private float _spawnInterval;
         private float _elapsedTime;
         private int _leftToSpawn;
+
+        private int _grainChance;
+        private int _saltChance;
+        private int _goldChance;
+
+        private int TotalChances
+        {
+            get
+            {
+                return _grainChance + _saltChance + _goldChance;
+            }
+        }
 
         private void Start()
         {
@@ -31,6 +56,9 @@ namespace Kalevala
                 collectable.SetHandler(this);
                 ReturnItemToPool(collectable);
             }
+
+            _sampoSpinner.HalfTurn += OnSampoSpinnerHalfTurn;
+            ResetChances();
         }
 
         private void Update()
@@ -70,21 +98,28 @@ namespace Kalevala
             }
         }
 
-        public void SpawnCollectables(Collectable.CollectableType type,
+        public void SpawnCollectables(SampoProductType type,
             int amount, float interval, bool launchToPosition)
         {
             // True: the collectable flies to its position
             // False: the collectable just appears at its position
             _launchToPosition = launchToPosition;
 
+            _randomProduct = false;
+
             SpawnCollectables(type, amount, interval);
         }
 
-        public void SpawnCollectables(Collectable.CollectableType type,
+        public void SpawnCollectables(int amount, float interval)
+        {
+            _randomProduct = true;
+
+            SpawnCollectables(SampoProductType.None, amount, interval);
+        }
+
+        public void SpawnCollectables(SampoProductType type,
             int amount, float interval)
         {
-            // TODO: Use SampoProduct enum for collectable type
-
             _spawnMultiple = true;
             _collType = type;
             _leftToSpawn = amount;
@@ -119,7 +154,7 @@ namespace Kalevala
         //    }
         //}
 
-        public Collectable SpawnCollectable(Collectable.CollectableType type,
+        public Collectable SpawnCollectable(SampoProductType type,
                                             bool launchToPosition)
         {
             // True: the collectable flies to its position
@@ -129,11 +164,16 @@ namespace Kalevala
             return SpawnCollectable(type);
         }
 
-        public Collectable SpawnCollectable(Collectable.CollectableType type)
+        public Collectable SpawnCollectable(SampoProductType type)
         {
             Collectable collectable = GetRandomItemFromPool();
             if (collectable != null)
             {
+                if (_randomProduct)
+                {
+                    type = GetRandomProductType();
+                }
+
                 InitCollectable(collectable, type);
             }
             else
@@ -144,7 +184,7 @@ namespace Kalevala
             return collectable;
         }
 
-        public Collectable SpawnAllCollectables(Collectable.CollectableType type)
+        public Collectable SpawnAllCollectables(SampoProductType type)
         {
             foreach (Collectable collectable in _collectables)
             {
@@ -155,8 +195,15 @@ namespace Kalevala
         }
 
         private void InitCollectable(Collectable collectable,
-                                     Collectable.CollectableType type)
+                                     SampoProductType type)
         {
+            if (type == SampoProductType.None)
+            {
+                Debug.LogError
+                    ("Trying to initialize a collectable with type None.");
+                return;
+            }
+
             collectable.ShowCollectableObject(false);
             collectable.Init(type);
             collectable.ShowCollectableObject(true);
@@ -215,11 +262,79 @@ namespace Kalevala
 
         private void ResetSpawning()
         {
-            _collType = Collectable.CollectableType.None;
+            _collType = SampoProductType.None;
             _spawnMultiple = false;
+            _randomProduct = false;
             _elapsedTime = 0;
             _leftToSpawn = 0;
             //_launchToPosition = false;
         }
+
+        private void OnSampoSpinnerHalfTurn()
+        {
+            // TODO: Should this be done in Sampo's script?
+            // It would make more sense, not to mention collectables
+            // would be spawned only when Sampo spins and spawns the
+            // non-collectable products.
+
+            if (!_spawnMultiple)
+            {
+                SpawnCollectables(5, 0.5f);
+            }
+        }
+
+        private SampoProductType GetRandomProductType()
+        {
+            SampoProductType result;
+
+            int typeNum = Random.Range(0, TotalChances);
+
+            if (typeNum < _grainChance)
+            {
+                result = SampoProductType.Grain;
+            }
+            else if (typeNum < _grainChance + _saltChance)
+            {
+                result = SampoProductType.Salt;
+            }
+            else
+            {
+                result = SampoProductType.Gold;
+            }
+
+            return result;
+        }
+
+        public bool ImproveValueChances()
+        {
+            // TODO: Called when certain amount of time in the Sampo mode has passed
+
+            bool result = false;
+
+            if (_grainChance > _saltChance && _grainChance > 1)
+            {
+                _grainChance--;
+                _saltChance++;
+                result = true;
+            }
+            else if (_saltChance > 1)
+            {
+                _saltChance--;
+                _goldChance++;
+                result = true;
+            }
+
+            return result;
+        }
+
+        public void ResetChances()
+        {
+            // TODO: Called when the Sampo mode ends
+
+            _grainChance = _defaultGrainChance;
+            _saltChance = _defaultSaltChance;
+            _goldChance = _defaultGoldChance;
+        }
+
     }
 }

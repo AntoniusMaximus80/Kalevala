@@ -664,8 +664,19 @@ namespace Kalevala
                 InstanceNextBall(pinball);
 
                 _currentBallCount--;
-                
-                if (OutOfBalls)
+
+                if (_currentBallCount == 1)
+                {
+                    if (GameManager.Instance.GameMode.State ==
+                        GameModeStateType.Sampo)
+                    {
+                        GameManager.Instance.GameMode.
+                            Owner.PerformTransition(GameModeStateType.Normal);
+
+                        // TODO: Reset collectable chances
+                    }
+                }
+                else if (OutOfBalls)
                 {
                     Viewscreen.OutOfBalls();
                     Debug.Log("Out of balls - game over");
@@ -685,125 +696,6 @@ namespace Kalevala
                 Debug.Log("Out of balls");
             }
         }
-
-        //private void RemoveExtraBall(Pinball pinball)
-        //{
-        //    pinball.gameObject.SetActive(false);
-        //    _activeBalls--;
-        //}
-
-        //public void InstanceNextBall(Pinball ball)
-        //{
-        //    ball.transform.position = _ballLaunchPoint;
-        //    ball.StopMotion();
-        //    //ball.SetPhysicsEnabled(false);
-        //    Launcher.Instance.StartLaunch(ball);
-        //}
-
-        /// <summary>
-        /// Returns the ball next to the launcher.
-        /// If Autosave or Shoot Again is active, the ball is not lost.
-        /// </summary>
-        /// <param name="ball">A pinball that went down the drain</param>
-        /// <param name="lauchFreeBallOnly">Is the ball returned to the
-        /// launcher only if it's free</param>
-        /// <returns>Is the ball lost</returns>
-        //public bool ReturnBallToLauncher(Pinball ball, bool lauchFreeBallOnly)
-        //{
-        //    // TODO: Figure out the mess dealing with Shoot Again, Autosave and extra balls
-
-        //    // Returns the ball next to the launcher if it's
-        //    // free or if also non-free balls can be launched
-        //    if (Autosave)
-        //    {
-        //        // The ball is returned to the launcher if there's not
-        //        // already a ball there. If there is, the ball is added
-        //        // to a queue and will be returned to the launcher when
-        //        // the previous one is launched.
-        //        if (Launcher.Instance.LaunchAreaIsEmpty)
-        //        {
-        //            InstanceNextBall(ball);
-        //        }
-        //        else
-        //        {
-        //            _autosavedPinballs.Add(ball);
-        //        }
-        //    }
-        //    else if (ShootAgain || !lauchFreeBallOnly)
-        //    {
-        //        InstanceNextBall(ball);
-        //    }
-
-        //    // The ball is not lost
-        //    if (Autosave)
-        //    {
-        //        Debug.Log("Ball autosaved");
-        //        return false;
-        //    }
-        //    // The ball is not lost but Shoot Again becomes unlit
-        //    else if (ShootAgain)
-        //    {
-        //        Debug.Log("Shooting ball again");
-        //        ShootAgain = false;
-        //        return false;
-        //    }
-        //    // The ball is lost
-        //    else
-        //    {
-        //        return true;
-        //    }
-        //}
-
-        //public void RemoveBall(Pinball pinball)
-        //{
-        //    Tilt = false;
-
-        //    Debug.Log("Active balls before losing: " + _activeBalls);
-
-        //    if (_activeBalls > 1)
-        //    {
-        //        // Returns the ball next to the launcher
-        //        // only if Shoot Again is lit
-        //        bool ballLost = ReturnBallToLauncher(pinball, true);
-
-        //        // Removes the ball from play
-        //        if (ballLost)
-        //        {
-        //            pinball.gameObject.SetActive(false);
-        //            _activeBalls--;
-        //        }
-        //    }
-        //    else
-        //    {
-        //        if (!OutOfBalls)
-        //        {
-        //            // Returns the ball next to the launcher
-        //            // and gets whether the ball is lost
-        //            bool ballLost = ReturnBallToLauncher(pinball, false);
-
-        //            if (ballLost)
-        //            {
-        //                _currentBallAmount--;
-        //                Viewscreen.BallCount(_currentBallAmount);
-        //            }
-
-        //            if (OutOfBalls)
-        //            {
-        //                Debug.Log("Out of balls - game over");
-        //                GameManager.Instance.GameOver(true);
-        //            }
-        //            else
-        //            {
-        //                Debug.Log("Balls left : " +
-        //                    _currentBallAmount.ToString());
-        //            }
-        //        }
-        //        else
-        //        {
-        //            Debug.Log("Out of balls");
-        //        }
-        //    }
-        //}
 
         /// <summary>
         /// Removes a ball for debugging purposes.

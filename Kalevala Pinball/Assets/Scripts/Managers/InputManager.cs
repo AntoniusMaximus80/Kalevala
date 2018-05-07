@@ -547,14 +547,13 @@ namespace Kalevala {
             if (Input.GetKeyUp(KeyCode.Z))
             {
                 _collSpawner.SpawnCollectable
-                    (Collectable.CollectableType.Gold);
+                    (SampoProductType.Gold);
             }
 
-            // Spawning all collectables
+            // Spawning some collectables
             if (Input.GetKeyUp(KeyCode.X))
             {
-                _collSpawner.SpawnCollectables
-                    (Collectable.CollectableType.Salt, 5, 0.5f);
+                _collSpawner.SpawnCollectables(5, 0.5f);
             }
 
             // Toggling a ramp
