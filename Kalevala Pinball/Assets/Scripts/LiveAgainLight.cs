@@ -11,9 +11,9 @@ namespace Kalevala
 
         public Color _offColor = Color.black;
 
-        private bool _state;
+        private bool _state, doOnce;
 
-        public Color _baseColor = Color.magenta;
+        private Color _baseColor;
 
         private float _switchTime = -10f;
 
@@ -21,10 +21,15 @@ namespace Kalevala
 
         public void Switch(bool onoff)
         {
-            _state = onoff;
+            
+            if (!doOnce) {
+                gameObject.GetComponent<Renderer>().material.EnableKeyword("_Emission");
+                _baseColor = gameObject.GetComponent<Renderer>().material.GetColor("_EmissionColor");
+                doOnce = true;
+            }
 
-            Up.enabled = onoff;
-            gameObject.GetComponent<Renderer>().material.EnableKeyword("_Emission");
+            _state = onoff;
+            Up.enabled = onoff;            
             gameObject.GetComponent<Renderer>().material.SetColor("_EmissionColor", onoff ? _baseColor : _offColor);
 
             _switchTime = Time.time;
