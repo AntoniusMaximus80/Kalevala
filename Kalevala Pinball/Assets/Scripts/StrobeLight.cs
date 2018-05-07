@@ -13,7 +13,7 @@ namespace Kalevala {
 
         // onoff color values for the emission.
         public Color _offColor = Color.black;
-        public Color _baseColor = Color.magenta;
+        private Color _baseColor;
 
         private bool _state = true, doOnce;
 
@@ -45,6 +45,13 @@ namespace Kalevala {
         {
 
             bool value;
+
+            if (!doOnce)
+            {
+                _cover.material.EnableKeyword("_Emission");
+                _baseColor = _cover.material.GetColor("_EmissionColor");
+                doOnce = true;
+            }
 
             if (_state && Viewscreen.TimeSinceIncrement < .2f)
             {
