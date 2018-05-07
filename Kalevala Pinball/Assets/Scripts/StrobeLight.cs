@@ -41,7 +41,7 @@ namespace Kalevala {
 
             bool value;
 
-            if (Viewscreen.TimeSinceIncrement < .2f)
+            if (_state && Viewscreen.TimeSinceIncrement < .2f)
             {
                 int time = Mathf.RoundToInt((Viewscreen.TimeSinceIncrement) * 100);
 
