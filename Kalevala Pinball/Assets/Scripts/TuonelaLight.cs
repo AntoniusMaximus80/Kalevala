@@ -34,7 +34,7 @@ namespace Kalevala
             Up.enabled = onoff;
             gameObject.GetComponent<Renderer>().material.SetColor("_EmissionColor", onoff ? _baseColor : _offColor);
 
-            _switchTime = Time.time;
+            //_switchTime = Time.time;
         }
 
         public void Update()
