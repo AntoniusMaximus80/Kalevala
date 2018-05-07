@@ -15,7 +15,7 @@ namespace Kalevala {
         public Color _offColor = Color.black;
         public Color _baseColor = Color.magenta;
 
-        private bool _state = true;
+        private bool _state = true, doOnce;
 
         
         private float _switchTime = -10f;
@@ -24,16 +24,21 @@ namespace Kalevala {
 
         public void Switch(bool onoff)
         {
+
+            if (!doOnce)
+            {
+                _cover.material.EnableKeyword("_Emission");
+                _baseColor = _cover.material.GetColor("_EmissionColor");
+                doOnce = true;
+            }
+
             _state = onoff;
-
-            //Up.enabled = onoff;
-            //Down.enabled = onoff;
-
+         
             _cover.material.SetColor("_EmissionColor", onoff ? _baseColor : _offColor);
             _lightBulb.SetActive(onoff);
             _pointLight.enabled = onoff;
 
-            _switchTime = Time.time;
+            //_switchTime = Time.time;
         }
 
         public void Update()
@@ -65,11 +70,6 @@ namespace Kalevala {
 
         }
 
-        public new void Start()
-        {
-            base.Start();
-            _baseColor = _cover.material.GetColor("_EmissionColor");
-        }
-
+        
     }
 }
