@@ -27,7 +27,11 @@ namespace Kalevala
                 _myObjective.GetComponent<DropTarget>().ResetDropTarget();
             }
             //turn on lights of the objective
-            if (_light != null) _light.Switch(true);
+            if(_light != null)
+            {
+                _light.Switch(true);
+                Debug.Log("Light Turned ON");
+            }
         }
 
         public void DeactivateObjective()
