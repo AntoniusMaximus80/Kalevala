@@ -42,6 +42,14 @@ namespace Kalevala
             }
         }
 
+        /// <summary>
+        /// Debugging
+        /// </summary>
+        private void Update()
+        {
+            StartSampoMode();
+        }
+
         private GameModeStateType GameMode
         {
             get
@@ -76,6 +84,17 @@ namespace Kalevala
                 {
                     Viewscreen.WorkShopEntered(_workshopKOHEnteredRequirement - _workshopKOHEnteredNum);
                 }
+            }
+        }
+
+        /// <summary>
+        /// Debugging
+        /// </summary>
+        private void StartSampoMode()
+        {
+            if (Input.GetKeyDown(KeyCode.Keypad1))
+            {
+                StartGameMode(GameModeStateType.Sampo);
             }
         }
 

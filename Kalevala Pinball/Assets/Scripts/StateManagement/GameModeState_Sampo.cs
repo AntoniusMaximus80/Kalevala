@@ -13,6 +13,8 @@ namespace Kalevala
             : base(owner, GameModeStateType.Sampo)
         {
             AddTransition(GameModeStateType.Normal);
+            _toyElevatorController =
+                UnityEngine.Object.FindObjectOfType<ToyElevatorController>();
         }
 
         public override void Update()
@@ -30,10 +32,7 @@ namespace Kalevala
             // Moved this here as this is probably the correct place.
             Viewscreen.StartSampoMode();
 
-            _toyElevatorController = UnityEngine.Object.FindObjectOfType<ToyElevatorController>();
-            _toyElevatorController.StartGameMode(GameModeStateType.Sampo);
-
-            
+            _toyElevatorController.StartGameMode(State);
         }
 
         public override void Deactivate()
@@ -42,7 +41,7 @@ namespace Kalevala
 
             Viewscreen.EndSampoMode();
 
-            _toyElevatorController = UnityEngine.Object.FindObjectOfType<ToyElevatorController>();
+            Debug.Log("EndGameMode 2");
             _toyElevatorController.EndGameMode();
         }
     }

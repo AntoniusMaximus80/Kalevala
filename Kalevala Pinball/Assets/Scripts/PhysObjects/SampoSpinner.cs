@@ -16,7 +16,8 @@ namespace Kalevala
         {
             bool givesScore = base.CheckScoring();
 
-            if (givesScore && HalfTurn != null && GameManager.Instance.GameMode.State == GameModeStateType.Sampo)
+            if (GameManager.Instance.GameMode.State == GameModeStateType.Sampo &&
+                givesScore && HalfTurn != null)
             {
                 HalfTurn();
             }

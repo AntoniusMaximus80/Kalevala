@@ -24,7 +24,7 @@ namespace Kalevala
 
         private GameModeStateType _currentGameModeState;
 
-        public bool _debugSampoModeStart = false;
+        //public bool _debugSampoModeStart = false;
 
         private void Start()
         {
@@ -35,17 +35,17 @@ namespace Kalevala
         // Update is called once per frame
         void Update()
         {
-            if (_debugSampoModeStart)
-            {
-                StartGameMode(GameModeStateType.Sampo);
-            } else
-            {
-                DeactivateToy();
-            }
+            //if (_debugSampoModeStart)
+            //{
+            //    StartGameMode(GameModeStateType.Sampo);
+            //} else
+            //{
+            //    DeactivateToy();
+            //}
 
             if (_currentToyElevatorState == ToyElevatorState.End)
             {
-
+                Debug.Log("EndGameMode 1");
                 EndGameMode();
             }
         }
@@ -62,9 +62,12 @@ namespace Kalevala
 
         public void ActivateToy()
         {
+            Debug.Log("Activate toy");
+
             _currentToyElevatorState = ToyElevatorState.Idle;
             if (_currentGameModeState == GameModeStateType.Sampo)
             {
+                Debug.Log("toy stands");
                 _sampo.GetComponent<Animator>().SetBool("Stand", true);
             }
         }
@@ -97,6 +100,8 @@ namespace Kalevala
 
         public void DeactivateToy()
         {
+            // TODO: Call when sampo mode ends
+
             if (_currentGameModeState == GameModeStateType.Sampo)
             {
                 _sampo.GetComponent<Animator>().SetBool("Stand", false);

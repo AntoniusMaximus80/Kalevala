@@ -618,7 +618,7 @@ namespace Kalevala
             else
             {
                 pinball.transform.position = _ballLaunchPoint;
-                Debug.LogWarning("A ball may already be in the launch area");
+                //Debug.LogWarning("A ball may already be in the launch area");
             }
 
             pinball.SetPhysicsEnabled(true);

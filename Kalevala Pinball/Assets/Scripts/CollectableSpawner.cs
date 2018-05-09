@@ -12,8 +12,8 @@ namespace Kalevala
         [SerializeField]
         private float _launchSpeed = 20f;
 
-        [SerializeField]
-        private SampoSpinner _sampoSpinner;
+        //[SerializeField]
+        //private SampoSpinner _sampoSpinner;
 
         [SerializeField]
         private int _defaultGrainChance = 5;
@@ -57,7 +57,9 @@ namespace Kalevala
                 ReturnItemToPool(collectable);
             }
 
-            _sampoSpinner.HalfTurn += OnSampoSpinnerHalfTurn;
+            // Debugging
+            //_sampoSpinner.HalfTurn += OnSampoSpinnerHalfTurn;
+
             ResetChances();
         }
 

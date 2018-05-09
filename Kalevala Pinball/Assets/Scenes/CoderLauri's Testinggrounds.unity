@@ -709,7 +709,7 @@ MonoBehaviour:
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_isInputParsingRequired: 1
+  m_isInputParsingRequired: 0
   m_inputSource: 0
   m_hasFontAssetChanged: 0
   m_subTextObjects:
@@ -898,7 +898,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Up: {fileID: 1118099373}
   _offColor: {r: 0, g: 0, b: 0, a: 1}
-  _baseColor: {r: 1, g: 0.3019608, b: 0.3019608, a: 1}
 --- !u!1 &47571653
 GameObject:
   m_ObjectHideFlags: 0
@@ -8357,7 +8356,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Up: {fileID: 1819388847}
   _offColor: {r: 0, g: 0, b: 0, a: 1}
-  _baseColor: {r: 1, g: 0.5882353, b: 0.06666667, a: 1}
 --- !u!1 &653946087
 GameObject:
   m_ObjectHideFlags: 0
@@ -11793,7 +11791,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Up: {fileID: 927729911}
   _offColor: {r: 0, g: 0, b: 0, a: 1}
-  _baseColor: {r: 1, g: 0.3019608, b: 0.3019608, a: 1}
 --- !u!1 &861027781
 GameObject:
   m_ObjectHideFlags: 0
@@ -16380,7 +16377,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Up: {fileID: 653946088}
   _offColor: {r: 0, g: 0, b: 0, a: 1}
-  _baseColor: {r: 1, g: 0.3019608, b: 0.3019608, a: 1}
 --- !u!1 &1158930578
 GameObject:
   m_ObjectHideFlags: 0
@@ -17407,7 +17403,6 @@ MonoBehaviour:
   _lightBulb: {fileID: 1178389925}
   _pointLight: {fileID: 1178389926}
   _offColor: {r: 0, g: 0, b: 0, a: 1}
-  _baseColor: {r: 1, g: 0, b: 1, a: 1}
 --- !u!1 &1181461298
 GameObject:
   m_ObjectHideFlags: 0
@@ -17797,6 +17792,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _isPartOfCurve: 1
   _curveName: HoleCurves
+--- !u!114 &1227087133 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114006659549435096, guid: 211d40b776f371a499e88a8daab2dc4d,
+    type: 2}
+  m_PrefabInternal: {fileID: 1303986723}
+  m_Script: {fileID: 11500000, guid: 233d3f50aad00ff4d9083c1218bf71cb, type: 3}
 --- !u!1001 &1232489022
 Prefab:
   m_ObjectHideFlags: 0
@@ -19566,12 +19567,12 @@ Prefab:
     - target: {fileID: 114602248010753546, guid: 211d40b776f371a499e88a8daab2dc4d,
         type: 2}
       propertyPath: _ballLaunchPoint.x
-      value: -12.804863
+      value: 4.4882565
       objectReference: {fileID: 0}
     - target: {fileID: 114602248010753546, guid: 211d40b776f371a499e88a8daab2dc4d,
         type: 2}
       propertyPath: _ballLaunchPoint.z
-      value: -37.588245
+      value: 36.762466
       objectReference: {fileID: 0}
     - target: {fileID: 114602248010753546, guid: 211d40b776f371a499e88a8daab2dc4d,
         type: 2}
@@ -20397,7 +20398,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Up: {fileID: 1693664838}
   _offColor: {r: 0, g: 0, b: 0, a: 1}
-  _baseColor: {r: 1, g: 0.3019608, b: 0.3019608, a: 1}
 --- !u!1 &1358274086
 GameObject:
   m_ObjectHideFlags: 0
@@ -23603,7 +23603,7 @@ MonoBehaviour:
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_isInputParsingRequired: 1
+  m_isInputParsingRequired: 0
   m_inputSource: 0
   m_hasFontAssetChanged: 0
   m_subTextObjects:
@@ -25019,7 +25019,6 @@ MonoBehaviour:
   _kickDirection: {x: -0.76, y: 0, z: -1}
   gizmoLenght: 2
   _bellows: {fileID: 325345695}
-  _resourcesToForge: 0
 --- !u!114 &1655778787
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25970,15 +25969,15 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4235853757763162, guid: 3047cdef67313fc49979309ecfe240c0, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -4.4
+      value: -7.7
       objectReference: {fileID: 0}
     - target: {fileID: 4235853757763162, guid: 3047cdef67313fc49979309ecfe240c0, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4235853757763162, guid: 3047cdef67313fc49979309ecfe240c0, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 10.1
+      value: -28.8
       objectReference: {fileID: 0}
     - target: {fileID: 4235853757763162, guid: 3047cdef67313fc49979309ecfe240c0, type: 2}
       propertyPath: m_LocalRotation.x
@@ -26493,7 +26492,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Up: {fileID: 1804575972}
   _offColor: {r: 0, g: 0, b: 0, a: 1}
-  _baseColor: {r: 1, g: 0.3019608, b: 0.3019608, a: 1}
 --- !u!1 &1791509857
 GameObject:
   m_ObjectHideFlags: 0
@@ -33055,7 +33053,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Up: {fileID: 392785627}
   _offColor: {r: 0, g: 0, b: 0, a: 1}
-  _baseColor: {r: 1, g: 0.3019608, b: 0.3019608, a: 1}
 --- !u!1 &1889367078
 GameObject:
   m_ObjectHideFlags: 0
@@ -34712,7 +34709,6 @@ MonoBehaviour:
   _lightBulb: {fileID: 1983048657}
   _pointLight: {fileID: 1983048656}
   _offColor: {r: 0, g: 0, b: 0, a: 1}
-  _baseColor: {r: 0.047058824, g: 0.7294118, b: 1, a: 1}
 --- !u!1 &1991961439
 GameObject:
   m_ObjectHideFlags: 0
@@ -34993,7 +34989,7 @@ MonoBehaviour:
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_isInputParsingRequired: 1
+  m_isInputParsingRequired: 0
   m_inputSource: 0
   m_hasFontAssetChanged: 0
   m_subTextObjects:
@@ -35815,7 +35811,7 @@ MonoBehaviour:
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_isInputParsingRequired: 1
+  m_isInputParsingRequired: 0
   m_inputSource: 0
   m_hasFontAssetChanged: 0
   m_subTextObjects:
@@ -37017,7 +37013,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Up: {fileID: 1016815828}
   _offColor: {r: 0, g: 0, b: 0, a: 1}
-  _baseColor: {r: 1, g: 0.3019608, b: 0.3019608, a: 1}
 --- !u!1 &2109120604
 GameObject:
   m_ObjectHideFlags: 0
@@ -37909,6 +37904,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c096df87f8265ac429caeac160767e61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _sampoSpinner: {fileID: 1742440600}
+  _collSpawner: {fileID: 1227087133}
+  _collectableProductsPerGenIter: 5
+  _collectableProductSpawnTime: 2
   _sampoState: 0
   _middle: {fileID: 2123725195}
   _innerLayer: {fileID: 2123725194}
