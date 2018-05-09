@@ -63,7 +63,7 @@ namespace Kalevala
 
             if(_returnAxeToStartPosition && _hingejoint.limits.min < 90)
             {
-                _jointLimits.min += 160f * Time.deltaTime;
+                _jointLimits.min += 100f * Time.deltaTime;
                 if(_jointLimits.min > 90f )
                 {
                     _jointLimits.min = 90f;
