@@ -550,12 +550,6 @@ namespace Kalevala {
                     (SampoProductType.Gold);
             }
 
-            // Spawning some collectables
-            if (Input.GetKeyUp(KeyCode.X))
-            {
-                _collSpawner.SpawnCollectables(5, 0.5f);
-            }
-
             // Toggling a ramp
             if (Input.GetKeyUp(KeyCode.K))
             {

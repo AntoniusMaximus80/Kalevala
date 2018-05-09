@@ -52,7 +52,10 @@ namespace Kalevala
                             _accelerateOrDecelerate = AccelerateOrDecelerate.Accelerate;
                             _rotationSpeedZ = 0f;
                             _rotate = false;
-                            _sampo.ChangeState(Sampo.SampoStateType.Idle);
+                            if(_sampo._sampoState != Sampo.SampoStateType.Start)
+                            {
+                                _sampo.ChangeState(Sampo.SampoStateType.Idle);
+                            }
                         }
                     }
                 }

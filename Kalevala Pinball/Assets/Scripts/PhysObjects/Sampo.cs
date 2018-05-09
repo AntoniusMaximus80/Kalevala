@@ -20,6 +20,9 @@ namespace Kalevala
         [SerializeField]
         private CollectableSpawner _collSpawner;
 
+        [SerializeField,Tooltip("Give transform from Sampo/Bottom/Inner glow")]
+        private Transform _collactableSpawnPosition;
+
         [SerializeField]
         private int _collectableProductsPerGenIter = 5;
 
@@ -63,33 +66,17 @@ namespace Kalevala
 
             _sampoSpinner.HalfTurn += SampoSpinnerHalfTurn;
         }
-
-        private void Update()
+               
+        public void ChangeState(SampoStateType sampoStateType)
         {
-            if (_sampoState == SampoStateType.End) {
-                _sampoState = SampoStateType.Start;
-                Debug.Log("EndGameMode 3");
-                _toyElevatorController.EndGameMode();
-            }
+            Debug.Log("New sampo State: " + sampoStateType);
 
-            if (_sampoState == SampoStateType.Generate)
-            {
-                _goldSampoNozzle._generate = true;
-                _saltSampoNozzle._generate = true;
-                _grainSampoNozzle._generate = true;
-            } else
+            if(sampoStateType != SampoStateType.Generate)
             {
                 _goldSampoNozzle._generate = false;
                 _saltSampoNozzle._generate = false;
                 _grainSampoNozzle._generate = false;
             }
-
-            // TODO: Spawns collectables
-        }
-
-        public void ChangeState(SampoStateType sampoStateType)
-        {
-            Debug.Log("New sampo State: " + sampoStateType);
 
             switch (sampoStateType)
             {
@@ -105,6 +92,10 @@ namespace Kalevala
                 case SampoStateType.Generate:
                     StartRotating();
                     _sampoState = SampoStateType.Generate;
+                    break;
+                case SampoStateType.End:
+                    _sampoState = SampoStateType.Start;
+                    Debug.Log("EndGameMode 3");
                     break;
 
                 default:
@@ -152,16 +143,35 @@ namespace Kalevala
 
         private void SampoSpinnerHalfTurn()
         {
-            Debug.Log("_sampoState: " + _sampoState);
+
             if (_sampoState == SampoStateType.Idle)
             {
                 Debug.Log("Generating");
                 ChangeState(SampoStateType.Generate);
 
+                _goldSampoNozzle._generate = true;
+                _saltSampoNozzle._generate = true;
+                _grainSampoNozzle._generate = true;
+
                 // TODO: Spawn only when warmed up
                 float interval = _collectableProductSpawnTime / _collectableProductsPerGenIter;
-                _collSpawner.SpawnCollectables(_collectableProductsPerGenIter, interval);
+                _collSpawner.SpawnCollectables(_collectableProductsPerGenIter, interval, EndGenerating,_collactableSpawnPosition.position);
             }
+        }
+
+        private void EndGenerating()
+        {
+            if(_sampoState != Sampo.SampoStateType.Start)
+            {
+                ChangeState(SampoStateType.Idle);
+            }
+        }
+
+        public void EndSampoMode()
+        {
+            _collSpawner.ResetCollectables();
+            ChangeState(SampoStateType.End);
+
         }
     }
 }

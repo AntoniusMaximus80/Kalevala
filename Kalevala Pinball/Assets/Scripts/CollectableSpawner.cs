@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 namespace Kalevala
 {
@@ -36,6 +37,8 @@ namespace Kalevala
         private int _grainChance;
         private int _saltChance;
         private int _goldChance;
+
+        private Action EndGenerating;
 
         private int TotalChances
         {
@@ -112,10 +115,11 @@ namespace Kalevala
             SpawnCollectables(type, amount, interval);
         }
 
-        public void SpawnCollectables(int amount, float interval)
+        public void SpawnCollectables(int amount, float interval, Action endGeneratingCallBack, Vector3 position)
         {
+            transform.position = position;
             _randomProduct = true;
-
+            EndGenerating = endGeneratingCallBack;
             SpawnCollectables(SampoProductType.None, amount, interval);
         }
 
@@ -236,7 +240,7 @@ namespace Kalevala
 
             if (pooledCollectables.Count > 1)
             {
-                int randomIndex = Random.Range(0, pooledCollectables.Count - 1);
+                int randomIndex = UnityEngine.Random.Range(0, pooledCollectables.Count - 1);
                 result = pooledCollectables[randomIndex];
             }
             else if (pooledCollectables.Count == 1)
@@ -269,27 +273,18 @@ namespace Kalevala
             _randomProduct = false;
             _elapsedTime = 0;
             _leftToSpawn = 0;
+            if(EndGenerating != null)
+            {
+                EndGenerating();
+            }
             //_launchToPosition = false;
         }
-
-        private void OnSampoSpinnerHalfTurn()
-        {
-            // TODO: Should this be done in Sampo's script?
-            // It would make more sense, not to mention collectables
-            // would be spawned only when Sampo spins and spawns the
-            // non-collectable products.
-
-            if (!_spawnMultiple)
-            {
-                SpawnCollectables(5, 0.5f);
-            }
-        }
-
+              
         private SampoProductType GetRandomProductType()
         {
             SampoProductType result;
 
-            int typeNum = Random.Range(0, TotalChances);
+            int typeNum = UnityEngine.Random.Range(0, TotalChances);
 
             if (typeNum < _grainChance)
             {

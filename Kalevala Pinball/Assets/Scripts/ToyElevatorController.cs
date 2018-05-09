@@ -95,13 +95,13 @@ namespace Kalevala
 
         public void EndGameMode()
         {
+            _sampo.GetComponent<Sampo>().EndSampoMode();
+            DeactivateToy();
             LowerElevator();
         }
 
         public void DeactivateToy()
         {
-            // TODO: Call when sampo mode ends
-
             if (_currentGameModeState == GameModeStateType.Sampo)
             {
                 _sampo.GetComponent<Animator>().SetBool("Stand", false);
