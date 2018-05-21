@@ -788,7 +788,7 @@ namespace Kalevala
 
             // Activates autosave for 15 seconds
             ActivateAutosave(15);
-
+            Launcher.Instance.ActivateSkillShot();
             // Activates extra ball spawner
             _extraBallSpawner.Activate(_workshopExtraBalls, false);
         }

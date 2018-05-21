@@ -155,6 +155,11 @@ namespace Kalevala
             Viewscreen.StartLaunch();
         }
 
+        public void ActivateSkillShot()
+        {
+            _handler.PathActivate();
+        }
+
         public bool BallOnLauncher { get; private set; }
 
         private void OnDrawGizmos()

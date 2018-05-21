@@ -310,23 +310,18 @@ namespace Kalevala
             switch(notePitch) {
                 case NotePitch.A:
                     SFXPlayer.Instance.Play(Sound.GuitarA);
-                    Debug.Log("A");
                     break;
                 case NotePitch.D:
                     SFXPlayer.Instance.Play(Sound.GuitarD);
-                    Debug.Log("D");
                     break;
                 case NotePitch.E:
                     SFXPlayer.Instance.Play(Sound.GuitarE);
-                    Debug.Log("E");
                     break;
                 case NotePitch.F:
                     SFXPlayer.Instance.Play(Sound.GuitarF);
-                    Debug.Log("F");
                     break;
                 case NotePitch.G:
                     SFXPlayer.Instance.Play(Sound.GuitarG);
-                    Debug.Log("G");
                     break;
             }
         }

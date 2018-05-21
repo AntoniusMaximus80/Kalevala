@@ -24,6 +24,8 @@ namespace Kalevala
             _maximumVelocity;
         private float _radius;
 
+        [SerializeField]
+        private Transform _failSafePosition;
         private Path _ramp;
         private bool _useGlobalRampExitSpeedMult;
         //private bool _dropAtEnd;
@@ -455,7 +457,7 @@ namespace Kalevala
         {
             //TODO Add new KOH where the ball will be placed if it flies out of the playfield
             _rb.velocity = Vector3.zero;
-            transform.position = new Vector3(0, 1f, 0f);
+            transform.position = _failSafePosition.position;
         }
 
         private void OnCollisionEnter( Collision collision )

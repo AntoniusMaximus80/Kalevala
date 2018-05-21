@@ -132,7 +132,6 @@ namespace Kalevala
                 float distanceBetweenPinballAndBooster = Vector3.Distance(collision.transform.position, _booster.transform.position);
                 float _boosterVectorMultiplier = Mathf.Clamp(4f - distanceBetweenPinballAndBooster, 0f, 4f);
                 collision.gameObject.GetComponent<Rigidbody>().AddForce(_boosterVector3 * _boosterVectorMultiplier, ForceMode.Impulse);
-                Debug.Log("Booster activated! Booster force: " + _boosterVector3 * _boosterVectorMultiplier);
             }
         }
     }

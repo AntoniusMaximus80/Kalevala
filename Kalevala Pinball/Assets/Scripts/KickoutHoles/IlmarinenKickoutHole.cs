@@ -26,10 +26,9 @@ namespace Kalevala
                    Launcher.Instance.SkillShotSuccesful)
                 {
                     if(GameManager.Instance.GameMode.State != GameModeStateType.Sampo &&
-                        Launcher.Instance.SkillShotSuccesful)
+                        !Launcher.Instance.SkillShotSuccesful)
                     {
                         PinballManager.Instance.ChangeResources((int)-PinballManager.Instance.MaxResources / 3);
-                        Debug.Log((int)-PinballManager.Instance.MaxResources / 3);
                     } else if (Launcher.Instance.SkillShotSuccesful)
                     {
                         Launcher.Instance.SkillShotSuccesful = false;
