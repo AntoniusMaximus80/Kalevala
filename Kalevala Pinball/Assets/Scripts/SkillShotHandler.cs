@@ -27,8 +27,11 @@ namespace Kalevala
                 {
                     _skillshotSuccesful = true;
                     PathActivate();
-                    Launcher.Instance.SkillShotSuccesful = true;
-                    Scorekeeper.Instance.AddScore(Scorekeeper.ScoreType.Skillshot);
+                    if(GameManager.Instance.GameMode.State != GameModeStateType.Sampo)
+                    {
+                        Launcher.Instance.SkillShotSuccesful = true;
+                        Scorekeeper.Instance.AddScore(Scorekeeper.ScoreType.Skillshot);
+                    }
                 }
             }
         }

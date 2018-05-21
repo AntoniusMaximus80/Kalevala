@@ -213,7 +213,7 @@ namespace Kalevala
             
             if(PinballManager.Instance.Resources < PinballManager.Instance.MaxResources / 3)
             {
-                DisplayModeInfo("Hit spruce bumbers for resources.");
+                DisplayModeInfo("Hit bumbers to gather resources.");
                 _instance._bumberIndicator.Switch(true);
             }
             else

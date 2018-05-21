@@ -17,7 +17,7 @@ namespace Kalevala
             if(_doOnce)
             {
                 _ball.transform.position = _endRampEntrance.position;
-                Scorekeeper.Instance.AddScore(Scorekeeper.ScoreType.TeleportKOH);
+                //Scorekeeper.Instance.AddScore(Scorekeeper.ScoreType.TeleportKOH);
                 _doOnce = false;
             }
         }

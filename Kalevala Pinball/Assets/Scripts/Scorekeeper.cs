@@ -14,7 +14,7 @@ namespace Kalevala
             Spinner,
             DropTarget,
             IlmarinenKOH,
-            TeleportKOH,
+            SwampKOH,
             TuonelaRollover,
             Skillshot,
             CollectableGrain,
@@ -30,7 +30,7 @@ namespace Kalevala
             _spinner,
             _dropTarget,
             _ilmarinenKOH,
-            _teleportKOH,
+            _swampKOH,
             _tuonelaRollover,
             _skillshot,
             _collectableGrain,
@@ -97,9 +97,9 @@ namespace Kalevala
                     _score += _ilmarinenKOH;
                     _message = "The workshop gave {0} points.";
                     break;
-                case ScoreType.TeleportKOH:
-                    _score += _teleportKOH;
-                    _message = "{0} points from the teleporter.";
+                case ScoreType.SwampKOH:
+                    _score += _swampKOH;
+                    _message = "{0} points from the Swamp.";
                     break;
                 case ScoreType.TuonelaRollover:
                     _score += _tuonelaRollover * Rollover.ScoreMultiplier;
