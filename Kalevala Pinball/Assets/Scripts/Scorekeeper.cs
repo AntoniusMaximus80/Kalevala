@@ -21,7 +21,8 @@ namespace Kalevala
             CollectableSalt,
             CollectableGold,
             KanteleBumper,
-            KanteleLight
+            KanteleLight,
+            ShieldTarget
         }
 
         public int _totalScore,
@@ -37,7 +38,8 @@ namespace Kalevala
             _collectableSalt,
             _collectableGold,
             _kanteleBumper,
-            _kanteleLight
+            _kanteleLight,
+            _shieldTarget
            ;
 
         private HighscoreList _highscores;
@@ -128,6 +130,10 @@ namespace Kalevala
                 case ScoreType.KanteleLight:
                     _score += _kanteleLight;
                     _message = "Kantele light gave {0} points.";
+                    break;
+                case ScoreType.ShieldTarget:
+                    _score += _shieldTarget;
+                    _message = "Shield target gave {0} points.";
                     break;
                 default:
                     Debug.LogError("ScoreType not recognized.");
