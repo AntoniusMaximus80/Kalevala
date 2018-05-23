@@ -324,6 +324,48 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 15080912}
   m_Mesh: {fileID: 4300064, guid: 8f9e4d763a966e146a9613f8df46950d, type: 3}
+--- !u!1 &18227844
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 18227845}
+  - component: {fileID: 18227846}
+  m_Layer: 0
+  m_Name: Waypoint009 (HoleCurves)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &18227845
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 18227844}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.9356079, y: -4.1614614, z: -0.568943}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1051578444}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &18227846
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 18227844}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49405937334ac0841b943485c8ce331c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _isPartOfCurve: 1
+  _curveName: HoleCurves
 --- !u!1 &19480858
 GameObject:
   m_ObjectHideFlags: 0
@@ -2291,6 +2333,48 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 4.5, y: 5, z: 0.5}
   m_Center: {x: 0, y: -5, z: -0.5}
+--- !u!1 &123231953
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 123231954}
+  - component: {fileID: 123231955}
+  m_Layer: 0
+  m_Name: Waypoint006 (HoleCurves)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &123231954
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 123231953}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.78902054, y: -1.8369874, z: -0.4890232}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1051578444}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &123231955
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 123231953}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49405937334ac0841b943485c8ce331c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _isPartOfCurve: 1
+  _curveName: HoleCurves
 --- !u!1 &124066099
 GameObject:
   m_ObjectHideFlags: 0
@@ -8582,7 +8666,7 @@ Prefab:
     - target: {fileID: 114602248010753546, guid: 211d40b776f371a499e88a8daab2dc4d,
         type: 2}
       propertyPath: debug_useDefaultLaunchPoint
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114006659549435096, guid: 211d40b776f371a499e88a8daab2dc4d,
         type: 2}
@@ -8621,6 +8705,48 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 440138567}
   m_Script: {fileID: 11500000, guid: 233d3f50aad00ff4d9083c1218bf71cb, type: 3}
+--- !u!1 &440229445
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 440229446}
+  - component: {fileID: 440229447}
+  m_Layer: 0
+  m_Name: Waypoint003 (HoleCurves)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &440229446
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 440229445}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.39731598, y: -0.42922443, z: -0.24898148}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1051578444}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &440229447
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 440229445}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49405937334ac0841b943485c8ce331c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _isPartOfCurve: 1
+  _curveName: HoleCurves
 --- !u!1 &441596817
 GameObject:
   m_ObjectHideFlags: 0
@@ -10901,6 +11027,7 @@ Transform:
   - {fileID: 379159809}
   - {fileID: 1420218945}
   - {fileID: 2063591581}
+  - {fileID: 906861120}
   m_Father: {fileID: 1887017440}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -11110,6 +11237,48 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   _lineSteps: 9
+--- !u!1 &648759587
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 648759588}
+  - component: {fileID: 648759589}
+  m_Layer: 0
+  m_Name: Waypoint004 (HoleCurves)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &648759588
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 648759587}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.55511856, y: -0.7966219, z: -0.3467865}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1051578444}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &648759589
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 648759587}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49405937334ac0841b943485c8ce331c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _isPartOfCurve: 1
+  _curveName: HoleCurves
 --- !u!1 &651558033
 GameObject:
   m_ObjectHideFlags: 0
@@ -11589,6 +11758,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _isPartOfCurve: 0
   _curveName: 
+--- !u!1 &700055004 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 100010, guid: 12ae4ab0b421ef74297aab625da1c67d, type: 3}
+  m_PrefabInternal: {fileID: 876437272}
+--- !u!65 &700055008
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 700055004}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 3.8, y: 0.800001, z: 3.499997}
+  m_Center: {x: 0.24, y: -0.0000034451489, z: -1.549994}
 --- !u!1 &707913289
 GameObject:
   m_ObjectHideFlags: 0
@@ -12295,6 +12480,48 @@ Transform:
   m_Father: {fileID: 1887017440}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &736291082
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 736291083}
+  - component: {fileID: 736291084}
+  m_Layer: 0
+  m_Name: Waypoint007 (HoleCurves)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &736291083
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 736291082}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.86511993, y: -2.5099552, z: -0.5334549}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1051578444}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &736291084
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 736291082}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49405937334ac0841b943485c8ce331c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _isPartOfCurve: 1
+  _curveName: HoleCurves
 --- !u!1001 &737871375
 Prefab:
   m_ObjectHideFlags: 0
@@ -14758,6 +14985,22 @@ Prefab:
       propertyPath: m_Layer
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 400010, guid: 12ae4ab0b421ef74297aab625da1c67d, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400010, guid: 12ae4ab0b421ef74297aab625da1c67d, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.17330441
+      objectReference: {fileID: 0}
+    - target: {fileID: 400010, guid: 12ae4ab0b421ef74297aab625da1c67d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.98486835
+      objectReference: {fileID: 0}
+    - target: {fileID: 400010, guid: 12ae4ab0b421ef74297aab625da1c67d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 19.96
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 9500000, guid: 12ae4ab0b421ef74297aab625da1c67d, type: 3}
   m_ParentPrefab: {fileID: 100100000, guid: 12ae4ab0b421ef74297aab625da1c67d, type: 3}
@@ -15099,6 +15342,79 @@ Light:
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!1 &906861119
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 1792604208859348, guid: 2b39468f711bf10438b60cd3062cb35d,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 906861120}
+  - component: {fileID: 906861122}
+  - component: {fileID: 906861121}
+  m_Layer: 0
+  m_Name: LowerSwampKOH
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &906861120
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 4598604144434658, guid: 2b39468f711bf10438b60cd3062cb35d,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 906861119}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -41.165, y: 0.702, z: -31.097}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1177693131}
+  - {fileID: 1051578444}
+  - {fileID: 1441129104}
+  m_Father: {fileID: 637795698}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &906861121
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 906861119}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61f06c1b088411845a98a93da06fcdc8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _kickoutForce: 75
+  _timeToWait: 2
+  _kickDirection: {x: 1, y: 0, z: 1.56}
+  gizmoLenght: 46
+--- !u!114 &906861122
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 114323864096817160, guid: 2b39468f711bf10438b60cd3062cb35d,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 906861119}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1138377da0885e84a8389af4e4c99d0d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _path: {fileID: 1051578443}
+  _isPathStart: 1
+  _dropBallAtEnd: 0
+  _rampDirection: {x: -0.964241, y: -0.5482435, z: -1.0652618}
+  _distanceTolerance: 1.81
+  _directionAngleTolerance: 89
+  _rampEnterSpeedMultiplier: 1
+  _rampGravityMultiplier: 1
+  _useGlobalRampExitSpeedMult: 1
+  _gizmosColor: {r: 1, g: 0, b: 0, a: 1}
+  _kickoutHole: {fileID: 906861121}
 --- !u!1 &923919565
 GameObject:
   m_ObjectHideFlags: 0
@@ -15430,6 +15746,48 @@ Light:
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!1 &938106556
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 938106557}
+  - component: {fileID: 938106558}
+  m_Layer: 0
+  m_Name: Waypoint005 (HoleCurves)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &938106557
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 938106556}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.685688, y: -1.2658762, z: -0.42680168}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1051578444}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &938106558
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 938106556}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49405937334ac0841b943485c8ce331c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _isPartOfCurve: 1
+  _curveName: HoleCurves
 --- !u!1 &950641144
 GameObject:
   m_ObjectHideFlags: 0
@@ -15891,6 +16249,48 @@ MeshCollider:
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: 929748f5158d09e43a3fa5b89a88e4b7, type: 3}
   m_PrefabInternal: {fileID: 979138203}
+--- !u!1 &984391661
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 984391662}
+  - component: {fileID: 984391663}
+  m_Layer: 0
+  m_Name: Waypoint001
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &984391662
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 984391661}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1051578444}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &984391663
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 984391661}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49405937334ac0841b943485c8ce331c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _isPartOfCurve: 0
+  _curveName: 
 --- !u!1 &985292716
 GameObject:
   m_ObjectHideFlags: 0
@@ -16440,6 +16840,48 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 22afbe9de40019b419b861c811ea086b, type: 3}
   m_IsPrefabParent: 0
+--- !u!1 &1030896771
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1030896772}
+  - component: {fileID: 1030896773}
+  m_Layer: 0
+  m_Name: Waypoint010
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1030896772
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1030896771}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.93, y: -5.14, z: -0.56}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1051578444}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1030896773
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1030896771}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49405937334ac0841b943485c8ce331c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _isPartOfCurve: 0
+  _curveName: 
 --- !u!1 &1032889441
 GameObject:
   m_ObjectHideFlags: 0
@@ -16743,6 +17185,62 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!1 &1051578442
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 1471202870273572, guid: 2b39468f711bf10438b60cd3062cb35d,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1051578444}
+  - component: {fileID: 1051578443}
+  m_Layer: 0
+  m_Name: HolePath
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1051578443
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 114377157988502550, guid: 2b39468f711bf10438b60cd3062cb35d,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1051578442}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5f0216b9c8467d4fa4d42b896f39c91, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _pathType: 2
+  _pathColor: {r: 1, g: 0, b: 0, a: 1}
+  _drawPath: 1
+--- !u!4 &1051578444
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 4594547333750910, guid: 2b39468f711bf10438b60cd3062cb35d,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1051578442}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.375, y: 0, z: 0.35699844}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 984391662}
+  - {fileID: 1599481094}
+  - {fileID: 440229446}
+  - {fileID: 648759588}
+  - {fileID: 938106557}
+  - {fileID: 123231954}
+  - {fileID: 736291083}
+  - {fileID: 2073905588}
+  - {fileID: 18227845}
+  - {fileID: 1030896772}
+  m_Father: {fileID: 906861120}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1054959846
 Prefab:
   m_ObjectHideFlags: 0
@@ -18501,6 +18999,65 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _isPartOfCurve: 1
   _curveName: Curve01
+--- !u!1 &1177693130
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 1840462505469834, guid: 2b39468f711bf10438b60cd3062cb35d,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1177693131}
+  - component: {fileID: 1177693132}
+  m_Layer: 0
+  m_Name: HoleCurves
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1177693131
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 4091809322217080, guid: 2b39468f711bf10438b60cd3062cb35d,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1177693130}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.375, y: 0, z: 0.35699844}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 906861120}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1177693132
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 114580562624354246, guid: 2b39468f711bf10438b60cd3062cb35d,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1177693130}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3860ab4dc14d6a54f93f3d97234ee75b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _startWaypoint: {fileID: 984391663}
+  _endWaypoint: {fileID: 1030896773}
+  _points:
+  - {x: 0, y: 0, z: 0}
+  - {x: -1.0165176, y: -0.5073993, z: -0.6402645}
+  - {x: -0.9300003, y: -5.14, z: -0.55999947}
+  _waypoints:
+  - {fileID: 1599481095}
+  - {fileID: 440229447}
+  - {fileID: 648759589}
+  - {fileID: 938106558}
+  - {fileID: 123231955}
+  - {fileID: 736291084}
+  - {fileID: 2073905589}
+  - {fileID: 18227846}
+  _lineSteps: 8
 --- !u!1 &1179290360
 GameObject:
   m_ObjectHideFlags: 0
@@ -26796,6 +27353,60 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1439315951}
   m_Mesh: {fileID: 4300020, guid: 8f9e4d763a966e146a9613f8df46950d, type: 3}
+--- !u!1 &1441129103
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 1230240745785340, guid: 2b39468f711bf10438b60cd3062cb35d,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1441129104}
+  - component: {fileID: 1441129105}
+  m_Layer: 0
+  m_Name: KickoutHoleBottom
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1441129104
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 4846050443286346, guid: 2b39468f711bf10438b60cd3062cb35d,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1441129103}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.5550003, y: -5.14, z: -0.20300102}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 906861120}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1441129105
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 114235745033050852, guid: 2b39468f711bf10438b60cd3062cb35d,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1441129103}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1138377da0885e84a8389af4e4c99d0d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _path: {fileID: 1051578443}
+  _isPathStart: 0
+  _dropBallAtEnd: 0
+  _rampDirection: {x: -1.2561657, y: 0, z: 0.25077194}
+  _distanceTolerance: 1
+  _directionAngleTolerance: 180
+  _rampEnterSpeedMultiplier: 1
+  _rampGravityMultiplier: 1
+  _useGlobalRampExitSpeedMult: 1
+  _gizmosColor: {r: 1, g: 0, b: 0, a: 1}
+  _kickoutHole: {fileID: 906861121}
 --- !u!1 &1442882176
 GameObject:
   m_ObjectHideFlags: 0
@@ -29269,6 +29880,48 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Up: {fileID: 1972431763}
   _offColor: {r: 0, g: 0, b: 0, a: 1}
+--- !u!1 &1599481093
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1599481094}
+  - component: {fileID: 1599481095}
+  m_Layer: 0
+  m_Name: Waypoint002 (HoleCurves)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1599481094
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1599481093}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.21227646, y: -0.16368377, z: -0.13338661}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1051578444}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1599481095
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1599481093}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49405937334ac0841b943485c8ce331c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _isPartOfCurve: 1
+  _curveName: HoleCurves
 --- !u!59 &1617753654 stripped
 HingeJoint:
   m_PrefabParentObject: {fileID: 59339142755674438, guid: d3f1272fd70bc0d4db95d54a0b8b2b74,
@@ -33536,6 +34189,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _isPartOfCurve: 1
   _curveName: HoleCurves
+--- !u!1 &1938540058 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 100016, guid: 12ae4ab0b421ef74297aab625da1c67d, type: 3}
+  m_PrefabInternal: {fileID: 876437272}
+--- !u!64 &1938540062
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1938540058}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300002, guid: 12ae4ab0b421ef74297aab625da1c67d, type: 3}
 --- !u!1001 &1946928964
 Prefab:
   m_ObjectHideFlags: 0
@@ -36543,6 +37214,48 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _isPartOfCurve: 0
   _curveName: 
+--- !u!1 &2073905587
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 2073905588}
+  - component: {fileID: 2073905589}
+  m_Layer: 0
+  m_Name: Waypoint008 (HoleCurves)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2073905588
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2073905587}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.9139824, y: -3.28478, z: -0.5600929}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1051578444}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2073905589
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2073905587}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49405937334ac0841b943485c8ce331c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _isPartOfCurve: 1
+  _curveName: HoleCurves
 --- !u!4 &2075371079 stripped
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: ffe8611cd15a5c84eaf64f2fa681b121, type: 3}
