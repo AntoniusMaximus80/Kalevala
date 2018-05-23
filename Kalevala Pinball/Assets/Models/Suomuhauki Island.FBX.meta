@@ -22,6 +22,12 @@ ModelImporter:
     100028: Bolt018
     100030: Bolt019
     100032: Plastic Rail012
+    100034: Bolt020
+    100036: Bolt021
+    100038: Bolt022
+    100040: Plastic Rail013
+    100042: Plastic Rail014
+    100044: Plastic Rail015
     400000: Bolt
     400002: Bolt001
     400004: Bolt002
@@ -39,6 +45,12 @@ ModelImporter:
     400028: Bolt018
     400030: Bolt019
     400032: Plastic Rail012
+    400034: Bolt020
+    400036: Bolt021
+    400038: Bolt022
+    400040: Plastic Rail013
+    400042: Plastic Rail014
+    400044: Plastic Rail015
     2100000: Placeholder
     2100002: Dark Brown Plastic
     2300000: Bolt
@@ -55,6 +67,12 @@ ModelImporter:
     2300022: Bolt018
     2300024: Bolt019
     2300026: Plastic Rail012
+    2300028: Bolt020
+    2300030: Bolt021
+    2300032: Bolt022
+    2300034: Plastic Rail013
+    2300036: Plastic Rail014
+    2300038: Plastic Rail015
     3300000: Bolt
     3300002: Bolt001
     3300004: Bolt002
@@ -69,6 +87,12 @@ ModelImporter:
     3300022: Bolt018
     3300024: Bolt019
     3300026: Plastic Rail012
+    3300028: Bolt020
+    3300030: Bolt021
+    3300032: Bolt022
+    3300034: Plastic Rail013
+    3300036: Plastic Rail014
+    3300038: Plastic Rail015
     4300000: Cover
     4300002: Kickout Hole
     4300004: Plastic Rail001
@@ -83,6 +107,12 @@ ModelImporter:
     4300022: Plastic Rail012
     4300024: Bolt018
     4300026: Bolt019
+    4300028: Plastic Rail013
+    4300030: Plastic Rail014
+    4300032: Plastic Rail015
+    4300034: Bolt020
+    4300036: Bolt021
+    4300038: Bolt022
     9500000: //RootNode
   externalObjects: {}
   materials:
