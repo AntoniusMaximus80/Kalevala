@@ -1441,6 +1441,11 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 108737382695133718, guid: f3ab502dfd88afc48b5a5ee4a49ea8a3,
+        type: 2}
+      propertyPath: m_Lightmapping
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f3ab502dfd88afc48b5a5ee4a49ea8a3, type: 2}
   m_IsPrefabParent: 0
@@ -2248,7 +2253,7 @@ Light:
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 4294836223
-  m_Lightmapping: 4
+  m_Lightmapping: 2
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
@@ -5107,7 +5112,7 @@ Light:
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_Lightmapping: 4
+  m_Lightmapping: 2
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
@@ -8087,6 +8092,11 @@ Prefab:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: f042c5ec9a18a0143b08e463fba8ba9b, type: 2}
+    - target: {fileID: 108737382695133718, guid: f3ab502dfd88afc48b5a5ee4a49ea8a3,
+        type: 2}
+      propertyPath: m_Lightmapping
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f3ab502dfd88afc48b5a5ee4a49ea8a3, type: 2}
   m_IsPrefabParent: 0
@@ -10623,7 +10633,7 @@ Light:
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_Lightmapping: 4
+  m_Lightmapping: 2
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
@@ -14367,11 +14377,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _isPartOfCurve: 0
   _curveName: 
---- !u!108 &840265157 stripped
-Light:
-  m_PrefabParentObject: {fileID: 108343162281006256, guid: a26a5c315455d1349933eaac512f2346,
-    type: 2}
-  m_PrefabInternal: {fileID: 1707381987}
 --- !u!1 &842043544
 GameObject:
   m_ObjectHideFlags: 0
@@ -20146,17 +20151,9 @@ Prefab:
       propertyPath: m_Name
       value: Pop Bumper (3)
       objectReference: {fileID: 0}
-    - target: {fileID: 4776191015770100, guid: e1a75fbb54078624eaa65f4e317c790e, type: 2}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4776191015770100, guid: e1a75fbb54078624eaa65f4e317c790e, type: 2}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4776191015770100, guid: e1a75fbb54078624eaa65f4e317c790e, type: 2}
-      propertyPath: m_LocalScale.z
-      value: 1
+    - target: {fileID: 1620743186032314, guid: e1a75fbb54078624eaa65f4e317c790e, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e1a75fbb54078624eaa65f4e317c790e, type: 2}
@@ -27944,31 +27941,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _toyElevatorController: {fileID: 12670988}
---- !u!1 &1453739349 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1341481112705090, guid: a26a5c315455d1349933eaac512f2346,
-    type: 2}
-  m_PrefabInternal: {fileID: 1707381987}
---- !u!23 &1453739350 stripped
-MeshRenderer:
-  m_PrefabParentObject: {fileID: 23400925417808742, guid: a26a5c315455d1349933eaac512f2346,
-    type: 2}
-  m_PrefabInternal: {fileID: 1707381987}
---- !u!114 &1453739351
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1453739349}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e99d4274fb128a643b0a8880f42d7ae4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _cover: {fileID: 1453739350}
-  _lightBulb: {fileID: 1509264248}
-  _pointLight: {fileID: 840265157}
-  _offColor: {r: 0, g: 0, b: 0, a: 1}
 --- !u!1 &1458231378
 GameObject:
   m_ObjectHideFlags: 0
@@ -28437,6 +28409,11 @@ Prefab:
       propertyPath: m_Name
       value: Right Apron Strobe Light
       objectReference: {fileID: 0}
+    - target: {fileID: 108737382695133718, guid: f3ab502dfd88afc48b5a5ee4a49ea8a3,
+        type: 2}
+      propertyPath: m_Lightmapping
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f3ab502dfd88afc48b5a5ee4a49ea8a3, type: 2}
   m_IsPrefabParent: 0
@@ -28770,11 +28747,6 @@ MonoBehaviour:
   _pathType: 2
   _pathColor: {r: 0, g: 0, b: 1, a: 1}
   _drawPath: 1
---- !u!1 &1509264248 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1496193169060742, guid: a26a5c315455d1349933eaac512f2346,
-    type: 2}
-  m_PrefabInternal: {fileID: 1707381987}
 --- !u!1 &1510208944
 GameObject:
   m_ObjectHideFlags: 0
@@ -30916,19 +30888,6 @@ Prefab:
     - target: {fileID: 4314033408447278, guid: a26a5c315455d1349933eaac512f2346, type: 2}
       propertyPath: m_RootOrder
       value: 29
-      objectReference: {fileID: 0}
-    - target: {fileID: 4314033408447278, guid: a26a5c315455d1349933eaac512f2346, type: 2}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 210
-      objectReference: {fileID: 0}
-    - target: {fileID: 4314033408447278, guid: a26a5c315455d1349933eaac512f2346, type: 2}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: -89.99999
-      objectReference: {fileID: 0}
-    - target: {fileID: 108343162281006256, guid: a26a5c315455d1349933eaac512f2346,
-        type: 2}
-      propertyPath: m_CullingMask.m_Bits
-      value: 4294836223
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a26a5c315455d1349933eaac512f2346, type: 2}
