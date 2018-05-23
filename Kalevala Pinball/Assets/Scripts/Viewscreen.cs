@@ -26,7 +26,8 @@ namespace Kalevala
 
         public float _incrementVisible = 5f;
 
-        public StrobeLight _bumberIndicator, _workshopIndicator, _sampoIndicator;
+        public StrobeLight _bumberIndicator, _bumperIndicator2,
+            _workshopIndicator, _sampoIndicator, _sampoIndicator2;
 
         private static float _incrementVisibleCountdown, _displayModeCountdown = 2f;
 
@@ -184,7 +185,10 @@ namespace Kalevala
         {
 
             _instance._bumberIndicator.Switch(false);
+            _instance._bumperIndicator2.Switch(false);
             _instance._workshopIndicator.Switch(false);
+            _instance._sampoIndicator.Switch(false);
+            _instance._sampoIndicator2.Switch(false);
 
 
             if (_launch)
@@ -208,6 +212,8 @@ namespace Kalevala
             if (_sampo)
             {
                 DisplayModeInfo("Spin Sampo spinner.");
+                _instance._sampoIndicator.Switch(true);
+                _instance._sampoIndicator2.Switch(true);
                 return;
             }
             
@@ -215,6 +221,7 @@ namespace Kalevala
             {
                 DisplayModeInfo("Hit bumbers to gather resources.");
                 _instance._bumberIndicator.Switch(true);
+                _instance._bumperIndicator2.Switch(true);
             }
             else
             {
