@@ -43,9 +43,9 @@ Shader "Yash/SpotLight" {
 
         }
             
-            
+
         fixed4 frag(v2f i) : COLOR {
-        
+
             return _Color * pow(i.e,2);
             
         }
