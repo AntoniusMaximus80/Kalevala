@@ -4930,7 +4930,8 @@ Prefab:
       propertyPath: m_Lightmapping
       value: 2
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 114928570831421828, guid: f3ab502dfd88afc48b5a5ee4a49ea8a3, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: f3ab502dfd88afc48b5a5ee4a49ea8a3, type: 2}
   m_IsPrefabParent: 0
 --- !u!4 &61730598 stripped
@@ -5088,6 +5089,11 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 73210218}
   m_Mesh: {fileID: 4300050, guid: 8f9e4d763a966e146a9613f8df46950d, type: 3}
+--- !u!108 &75117551 stripped
+Light:
+  m_PrefabParentObject: {fileID: 108343162281006256, guid: a26a5c315455d1349933eaac512f2346,
+    type: 2}
+  m_PrefabInternal: {fileID: 1935272089}
 --- !u!1 &76192252
 GameObject:
   m_ObjectHideFlags: 0
@@ -6148,6 +6154,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _isPartOfCurve: 0
   _curveName: 
+--- !u!108 &124651672 stripped
+Light:
+  m_PrefabParentObject: {fileID: 108343162281006256, guid: a26a5c315455d1349933eaac512f2346,
+    type: 2}
+  m_PrefabInternal: {fileID: 254188023}
 --- !u!1 &125768788
 GameObject:
   m_ObjectHideFlags: 0
@@ -14239,6 +14250,11 @@ ReflectionProbe:
   m_UseOcclusionCulling: 1
   m_Importance: 1
   m_CustomBakedTexture: {fileID: 0}
+--- !u!108 &160330264 stripped
+Light:
+  m_PrefabParentObject: {fileID: 108343162281006256, guid: a26a5c315455d1349933eaac512f2346,
+    type: 2}
+  m_PrefabInternal: {fileID: 1882660391}
 --- !u!1 &165070329
 GameObject:
   m_ObjectHideFlags: 0
@@ -14526,7 +14542,13 @@ Prefab:
       propertyPath: m_CullingMask.m_Bits
       value: 4294836223
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 114009727398341768, guid: a26a5c315455d1349933eaac512f2346,
+        type: 2}
+      propertyPath: _pointLight
+      value: 
+      objectReference: {fileID: 1712159750}
+    m_RemovedComponents:
+    - {fileID: 114884134417845236, guid: a26a5c315455d1349933eaac512f2346, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: a26a5c315455d1349933eaac512f2346, type: 2}
   m_IsPrefabParent: 0
 --- !u!4 &176786534 stripped
@@ -22514,6 +22536,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb7806970589eac47bbc62cd3cf65c15, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!108 &231114662 stripped
+Light:
+  m_PrefabParentObject: {fileID: 108343162281006256, guid: a26a5c315455d1349933eaac512f2346,
+    type: 2}
+  m_PrefabInternal: {fileID: 1572449861}
 --- !u!1 &238533259
 GameObject:
   m_ObjectHideFlags: 0
@@ -22867,7 +22894,13 @@ Prefab:
       propertyPath: m_CullingMask.m_Bits
       value: 4294836223
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 114009727398341768, guid: a26a5c315455d1349933eaac512f2346,
+        type: 2}
+      propertyPath: _pointLight
+      value: 
+      objectReference: {fileID: 124651672}
+    m_RemovedComponents:
+    - {fileID: 114884134417845236, guid: a26a5c315455d1349933eaac512f2346, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: a26a5c315455d1349933eaac512f2346, type: 2}
   m_IsPrefabParent: 0
 --- !u!4 &254188024 stripped
@@ -23468,6 +23501,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _isPartOfCurve: 0
   _curveName: 
+--- !u!108 &290427260 stripped
+Light:
+  m_PrefabParentObject: {fileID: 108343162281006256, guid: a26a5c315455d1349933eaac512f2346,
+    type: 2}
+  m_PrefabInternal: {fileID: 1317572950}
 --- !u!1 &290599447
 GameObject:
   m_ObjectHideFlags: 0
@@ -26495,7 +26533,8 @@ Prefab:
       propertyPath: m_Lightmapping
       value: 2
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 114928570831421828, guid: f3ab502dfd88afc48b5a5ee4a49ea8a3, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: f3ab502dfd88afc48b5a5ee4a49ea8a3, type: 2}
   m_IsPrefabParent: 0
 --- !u!4 &405724033 stripped
@@ -27591,7 +27630,13 @@ Prefab:
       propertyPath: m_CullingMask.m_Bits
       value: 4294836223
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 114009727398341768, guid: a26a5c315455d1349933eaac512f2346,
+        type: 2}
+      propertyPath: _pointLight
+      value: 
+      objectReference: {fileID: 1371782074}
+    m_RemovedComponents:
+    - {fileID: 114884134417845236, guid: a26a5c315455d1349933eaac512f2346, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: a26a5c315455d1349933eaac512f2346, type: 2}
   m_IsPrefabParent: 0
 --- !u!4 &461803484 stripped
@@ -27641,6 +27686,11 @@ Transform:
   m_Father: {fileID: 208576001}
   m_RootOrder: 37
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!108 &463864665 stripped
+Light:
+  m_PrefabParentObject: {fileID: 108343162281006256, guid: a26a5c315455d1349933eaac512f2346,
+    type: 2}
+  m_PrefabInternal: {fileID: 1260461194}
 --- !u!4 &467978692 stripped
 Transform:
   m_PrefabParentObject: {fileID: 400004, guid: 1ab90b44778df1a4eb94c188e10c942b, type: 3}
@@ -28977,7 +29027,13 @@ Prefab:
       propertyPath: m_CullingMask.m_Bits
       value: 4294836223
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 114009727398341768, guid: a26a5c315455d1349933eaac512f2346,
+        type: 2}
+      propertyPath: _pointLight
+      value: 
+      objectReference: {fileID: 1954652376}
+    m_RemovedComponents:
+    - {fileID: 114884134417845236, guid: a26a5c315455d1349933eaac512f2346, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: a26a5c315455d1349933eaac512f2346, type: 2}
   m_IsPrefabParent: 0
 --- !u!4 &540524587 stripped
@@ -29489,7 +29545,13 @@ Prefab:
       propertyPath: m_CullingMask.m_Bits
       value: 4294836223
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 114009727398341768, guid: a26a5c315455d1349933eaac512f2346,
+        type: 2}
+      propertyPath: _pointLight
+      value: 
+      objectReference: {fileID: 1961613650}
+    m_RemovedComponents:
+    - {fileID: 114884134417845236, guid: a26a5c315455d1349933eaac512f2346, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: a26a5c315455d1349933eaac512f2346, type: 2}
   m_IsPrefabParent: 0
 --- !u!4 &572507329 stripped
@@ -29706,7 +29768,13 @@ Prefab:
       propertyPath: m_CullingMask.m_Bits
       value: 4294836223
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 114009727398341768, guid: a26a5c315455d1349933eaac512f2346,
+        type: 2}
+      propertyPath: _pointLight
+      value: 
+      objectReference: {fileID: 1908420184}
+    m_RemovedComponents:
+    - {fileID: 114884134417845236, guid: a26a5c315455d1349933eaac512f2346, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: a26a5c315455d1349933eaac512f2346, type: 2}
   m_IsPrefabParent: 0
 --- !u!4 &599351901 stripped
@@ -36737,6 +36805,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _isPartOfCurve: 1
   _curveName: Curve01
+--- !u!108 &805700889 stripped
+Light:
+  m_PrefabParentObject: {fileID: 108343162281006256, guid: a26a5c315455d1349933eaac512f2346,
+    type: 2}
+  m_PrefabInternal: {fileID: 2057104161}
 --- !u!1 &807914520
 GameObject:
   m_ObjectHideFlags: 0
@@ -36880,6 +36953,11 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 826602085}
   m_Mesh: {fileID: 4300138, guid: 8f9e4d763a966e146a9613f8df46950d, type: 3}
+--- !u!108 &829549809 stripped
+Light:
+  m_PrefabParentObject: {fileID: 108343162281006256, guid: a26a5c315455d1349933eaac512f2346,
+    type: 2}
+  m_PrefabInternal: {fileID: 1707381987}
 --- !u!1001 &831345857
 Prefab:
   m_ObjectHideFlags: 0
@@ -72675,7 +72753,13 @@ Prefab:
       propertyPath: m_CullingMask.m_Bits
       value: 4294836223
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 114009727398341768, guid: a26a5c315455d1349933eaac512f2346,
+        type: 2}
+      propertyPath: _pointLight
+      value: 
+      objectReference: {fileID: 1996927001}
+    m_RemovedComponents:
+    - {fileID: 114884134417845236, guid: a26a5c315455d1349933eaac512f2346, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: a26a5c315455d1349933eaac512f2346, type: 2}
   m_IsPrefabParent: 0
 --- !u!4 &1228636758 stripped
@@ -76887,7 +76971,13 @@ Prefab:
       propertyPath: m_CullingMask.m_Bits
       value: 4294836223
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 114009727398341768, guid: a26a5c315455d1349933eaac512f2346,
+        type: 2}
+      propertyPath: _pointLight
+      value: 
+      objectReference: {fileID: 463864665}
+    m_RemovedComponents:
+    - {fileID: 114884134417845236, guid: a26a5c315455d1349933eaac512f2346, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: a26a5c315455d1349933eaac512f2346, type: 2}
   m_IsPrefabParent: 0
 --- !u!4 &1260461195 stripped
@@ -77903,7 +77993,13 @@ Prefab:
       propertyPath: m_CullingMask.m_Bits
       value: 4294836223
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 114009727398341768, guid: a26a5c315455d1349933eaac512f2346,
+        type: 2}
+      propertyPath: _pointLight
+      value: 
+      objectReference: {fileID: 290427260}
+    m_RemovedComponents:
+    - {fileID: 114884134417845236, guid: a26a5c315455d1349933eaac512f2346, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: a26a5c315455d1349933eaac512f2346, type: 2}
   m_IsPrefabParent: 0
 --- !u!4 &1317572951 stripped
@@ -78527,6 +78623,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _isPartOfCurve: 0
   _curveName: 
+--- !u!108 &1371782074 stripped
+Light:
+  m_PrefabParentObject: {fileID: 108343162281006256, guid: a26a5c315455d1349933eaac512f2346,
+    type: 2}
+  m_PrefabInternal: {fileID: 461803483}
 --- !u!1 &1371998581
 GameObject:
   m_ObjectHideFlags: 0
@@ -87985,6 +88086,11 @@ Prefab:
       propertyPath: m_Lightmapping
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 114928570831421828, guid: f3ab502dfd88afc48b5a5ee4a49ea8a3,
+        type: 2}
+      propertyPath: _pointLight
+      value: 
+      objectReference: {fileID: 2053505773}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f3ab502dfd88afc48b5a5ee4a49ea8a3, type: 2}
   m_IsPrefabParent: 0
@@ -89577,7 +89683,13 @@ Prefab:
       propertyPath: m_CullingMask.m_Bits
       value: 4294836223
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 114009727398341768, guid: a26a5c315455d1349933eaac512f2346,
+        type: 2}
+      propertyPath: _pointLight
+      value: 
+      objectReference: {fileID: 231114662}
+    m_RemovedComponents:
+    - {fileID: 114884134417845236, guid: a26a5c315455d1349933eaac512f2346, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: a26a5c315455d1349933eaac512f2346, type: 2}
   m_IsPrefabParent: 0
 --- !u!4 &1572449862 stripped
@@ -90674,7 +90786,13 @@ Prefab:
       propertyPath: m_RootOrder
       value: 27
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 114009727398341768, guid: a26a5c315455d1349933eaac512f2346,
+        type: 2}
+      propertyPath: _pointLight
+      value: 
+      objectReference: {fileID: 829549809}
+    m_RemovedComponents:
+    - {fileID: 114884134417845236, guid: a26a5c315455d1349933eaac512f2346, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: a26a5c315455d1349933eaac512f2346, type: 2}
   m_IsPrefabParent: 0
 --- !u!4 &1707381988 stripped
@@ -90773,6 +90891,11 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1711473287}
   m_Mesh: {fileID: 4300140, guid: 8f9e4d763a966e146a9613f8df46950d, type: 3}
+--- !u!108 &1712159750 stripped
+Light:
+  m_PrefabParentObject: {fileID: 108343162281006256, guid: a26a5c315455d1349933eaac512f2346,
+    type: 2}
+  m_PrefabInternal: {fileID: 176786533}
 --- !u!1 &1713056558
 GameObject:
   m_ObjectHideFlags: 0
@@ -100630,7 +100753,13 @@ Prefab:
       propertyPath: m_Name
       value: Triangle Light (2)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 114009727398341768, guid: a26a5c315455d1349933eaac512f2346,
+        type: 2}
+      propertyPath: _pointLight
+      value: 
+      objectReference: {fileID: 160330264}
+    m_RemovedComponents:
+    - {fileID: 114884134417845236, guid: a26a5c315455d1349933eaac512f2346, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: a26a5c315455d1349933eaac512f2346, type: 2}
   m_IsPrefabParent: 0
 --- !u!4 &1882660392 stripped
@@ -104631,6 +104760,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _isPartOfCurve: 1
   _curveName: Curve01
+--- !u!108 &1908420184 stripped
+Light:
+  m_PrefabParentObject: {fileID: 108343162281006256, guid: a26a5c315455d1349933eaac512f2346,
+    type: 2}
+  m_PrefabInternal: {fileID: 599351900}
 --- !u!1001 &1909005779
 Prefab:
   m_ObjectHideFlags: 0
@@ -105172,7 +105306,13 @@ Prefab:
       propertyPath: m_CullingMask.m_Bits
       value: 4294836223
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 114009727398341768, guid: a26a5c315455d1349933eaac512f2346,
+        type: 2}
+      propertyPath: _pointLight
+      value: 
+      objectReference: {fileID: 75117551}
+    m_RemovedComponents:
+    - {fileID: 114884134417845236, guid: a26a5c315455d1349933eaac512f2346, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: a26a5c315455d1349933eaac512f2346, type: 2}
   m_IsPrefabParent: 0
 --- !u!4 &1935272090 stripped
@@ -105539,6 +105679,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _isPartOfCurve: 1
   _curveName: Curve01
+--- !u!108 &1954652376 stripped
+Light:
+  m_PrefabParentObject: {fileID: 108343162281006256, guid: a26a5c315455d1349933eaac512f2346,
+    type: 2}
+  m_PrefabInternal: {fileID: 540524586}
 --- !u!1 &1958698121
 GameObject:
   m_ObjectHideFlags: 0
@@ -105581,6 +105726,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _isPartOfCurve: 0
   _curveName: 
+--- !u!108 &1961613650 stripped
+Light:
+  m_PrefabParentObject: {fileID: 108343162281006256, guid: a26a5c315455d1349933eaac512f2346,
+    type: 2}
+  m_PrefabInternal: {fileID: 572507328}
 --- !u!1001 &1965448414
 Prefab:
   m_ObjectHideFlags: 0
@@ -106063,6 +106213,11 @@ GameObject:
   m_PrefabParentObject: {fileID: 1918973288770362, guid: c42b693b45227ae48a74ca112dabeb31,
     type: 2}
   m_PrefabInternal: {fileID: 38800554}
+--- !u!108 &1996927001 stripped
+Light:
+  m_PrefabParentObject: {fileID: 108343162281006256, guid: a26a5c315455d1349933eaac512f2346,
+    type: 2}
+  m_PrefabInternal: {fileID: 1228636757}
 --- !u!1 &1996973469
 GameObject:
   m_ObjectHideFlags: 0
@@ -108115,6 +108270,11 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2050499983}
+--- !u!108 &2053505773 stripped
+Light:
+  m_PrefabParentObject: {fileID: 108737382695133718, guid: f3ab502dfd88afc48b5a5ee4a49ea8a3,
+    type: 2}
+  m_PrefabInternal: {fileID: 1494680858}
 --- !u!1 &2056523877
 GameObject:
   m_ObjectHideFlags: 0
@@ -108256,7 +108416,13 @@ Prefab:
       propertyPath: m_CullingMask.m_Bits
       value: 4294836223
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 114009727398341768, guid: a26a5c315455d1349933eaac512f2346,
+        type: 2}
+      propertyPath: _pointLight
+      value: 
+      objectReference: {fileID: 805700889}
+    m_RemovedComponents:
+    - {fileID: 114884134417845236, guid: a26a5c315455d1349933eaac512f2346, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: a26a5c315455d1349933eaac512f2346, type: 2}
   m_IsPrefabParent: 0
 --- !u!4 &2057104162 stripped
