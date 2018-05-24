@@ -26,8 +26,8 @@ namespace Kalevala
         }
 
         public int _totalScore,
-            _spruceBumper,
-            _slightshot,
+            _popBumper,
+            _slingshot,
             _spinner,
             _dropTarget,
             _ilmarinenKOH,
@@ -80,11 +80,11 @@ namespace Kalevala
             switch(scoreType)
             {
                 case ScoreType.PopBumper:
-                    _score += _spruceBumper;
-                    _message = "Spruce bumber hit for {0} points.";
+                    _score += _popBumper;
+                    _message = "Bumber hit for {0} points.";
                     break;
                 case ScoreType.Slingshot:
-                    _score += _slightshot;
+                    _score += _slingshot;
                     _message = "Slingshot hit for {0} points.";
                     break;
                 case ScoreType.Spinner:
