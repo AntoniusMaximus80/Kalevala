@@ -105,11 +105,11 @@ namespace Kalevala
         void Update()
         {
             // Debugging purposes only
-            if(Input.GetKeyDown(KeyCode.C))
-            {
-                ActivatePanel();
+            //if(Input.GetKeyDown(KeyCode.C))
+            //{
+            //    ActivatePanel();
                 
-            }
+            //}
             if(PanelActive)
             {
                 if(_currentNote < _noteCount)

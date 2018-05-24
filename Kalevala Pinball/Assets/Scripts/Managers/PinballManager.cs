@@ -193,10 +193,10 @@ namespace Kalevala
         private void Update()
         {
             // Debugging purposes only
-            if(Input.GetKey(KeyCode.A))
-            {
-                Resources = 45;
-            }
+            //if(Input.GetKey(KeyCode.A))
+            //{
+            //    Resources = 45;
+            //}
 
             UpdateShootAgain();
             UpdateAutosave();

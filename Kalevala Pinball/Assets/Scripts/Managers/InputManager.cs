@@ -201,10 +201,10 @@ namespace Kalevala {
 
             // Debug input uses various keys on the keyboard so
             // it cannot be active at the same time as text input 
-            if (!_textInputActive)
-            {
-                DebugInput();
-            }
+            //if (!_textInputActive)
+            //{
+            //    DebugInput();
+            //}
         }
 
         private void MainMenuInput()

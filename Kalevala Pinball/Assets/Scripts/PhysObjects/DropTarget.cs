@@ -25,10 +25,10 @@ namespace Kalevala
 
         private void Update()
         {
-            if (Input.GetKeyDown(KeyCode.R) && _triggered) // For debug purposes.
-            {
-                ResetDropTarget();
-            }
+            //if (Input.GetKeyDown(KeyCode.R) && _triggered) // For debug purposes.
+            //{
+            //    ResetDropTarget();
+            //}
 
             if (_animating)
             {
