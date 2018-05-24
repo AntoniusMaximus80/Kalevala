@@ -1,18 +1,18 @@
-; FBX 7.5.0 project file
+; FBX 7.4.0 project file
 ; ----------------------------------------------------
 
 FBXHeaderExtension:  {
 	FBXHeaderVersion: 1003
-	FBXVersion: 7500
+	FBXVersion: 7400
 	CreationTimeStamp:  {
 		Version: 1000
 		Year: 2018
 		Month: 5
-		Day: 22
-		Hour: 9
-		Minute: 32
-		Second: 37
-		Millisecond: 663
+		Day: 24
+		Hour: 8
+		Minute: 58
+		Second: 0
+		Millisecond: 435
 	}
 	Creator: "FBX SDK/FBX Plugins version 2018.1"
 	SceneInfo: "SceneInfo::GlobalInfo", "UserData" {
@@ -34,13 +34,13 @@ FBXHeaderExtension:  {
 			P: "Original|ApplicationVendor", "KString", "", "", "Autodesk"
 			P: "Original|ApplicationName", "KString", "", "", "3ds Max"
 			P: "Original|ApplicationVersion", "KString", "", "", "2018"
-			P: "Original|DateTime_GMT", "DateTime", "", "", "22/05/2018 06:32:37.662"
+			P: "Original|DateTime_GMT", "DateTime", "", "", "24/05/2018 05:58:00.432"
 			P: "Original|FileName", "KString", "", "", "C:\Users\Toni\Desktop\Kalevala\Kalevala Pinball\Assets\Models\Toy Elevator.FBX"
 			P: "LastSaved", "Compound", "", ""
 			P: "LastSaved|ApplicationVendor", "KString", "", "", "Autodesk"
 			P: "LastSaved|ApplicationName", "KString", "", "", "3ds Max"
 			P: "LastSaved|ApplicationVersion", "KString", "", "", "2018"
-			P: "LastSaved|DateTime_GMT", "DateTime", "", "", "22/05/2018 06:32:37.662"
+			P: "LastSaved|DateTime_GMT", "DateTime", "", "", "24/05/2018 05:58:00.432"
 			P: "Original|ApplicationActiveProject", "KString", "", "", "C:\Users\Toni\Documents\3dsMax"
 			P: "Original|ApplicationNativeFile", "KString", "", "", "C:\Users\Toni\Dropbox\+ Spring 2018 Project\Ukonkuula v2.max"
 		}
@@ -65,7 +65,7 @@ GlobalSettings:  {
 		P: "TimeProtocol", "enum", "", "",2
 		P: "SnapOnFrameMode", "enum", "", "",0
 		P: "TimeSpanStart", "KTime", "Time", "",0
-		P: "TimeSpanStop", "KTime", "Time", "",7389785280
+		P: "TimeSpanStop", "KTime", "Time", "",112694225520
 		P: "CustomFrameRate", "double", "Number", "",-1
 		P: "TimeMarker", "Compound", "", ""
 		P: "CurrentTimeMarker", "int", "Integer", "",-1
@@ -77,7 +77,7 @@ GlobalSettings:  {
 
 Documents:  {
 	Count: 1
-	Document: 2097638306944, "", "Scene" {
+	Document: 2419575470240, "", "Scene" {
 		Properties70:  {
 			P: "SourceObject", "object", "", ""
 			P: "ActiveAnimStackName", "KString", "", "", ""
@@ -221,7 +221,7 @@ Definitions:  {
 ;------------------------------------------------------------------
 
 Objects:  {
-	Geometry: 2096256710512, "Geometry::", "Mesh" {
+	Geometry: 2419616057920, "Geometry::", "Mesh" {
 		Properties70:  {
 			P: "Color", "ColorRGB", "Color", "",0.337254901960784,0.337254901960784,0.337254901960784
 		}
@@ -286,37 +286,36 @@ Objects:  {
 			}
 		}
 	}
-	Model: 2098859780976, "Model::Toy Elevator", "Mesh" {
+	Model: 2420641296288, "Model::Toy Elevator", "Mesh" {
 		Version: 232
 		Properties70:  {
-			P: "ScalingOffset", "Vector3D", "Vector", "",-1.46936793852786e-39,0,0
 			P: "PreRotation", "Vector3D", "Vector", "",-90,-0,0
 			P: "RotationActive", "bool", "", "",1
 			P: "InheritType", "enum", "", "",1
 			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
-			P: "GeometricTranslation", "Vector3D", "Vector", "",-3.60146331787109,56.1831130981445,0
+			P: "GeometricTranslation", "Vector3D", "Vector", "",11.6336841583252,43.1661262512207,-5.00679016113281e-05
+			P: "GeometricRotation", "Vector3D", "Vector", "",0,-0,-19.9999980926514
+			P: "GeometricScaling", "Vector3D", "Vector", "",1.06389975547791,0.792797803878784,1
 			P: "DefaultAttributeIndex", "int", "Integer", "",0
-			P: "Lcl Translation", "Lcl Translation", "", "A",0,-5.00679016113281e-07,-0
-			P: "Lcl Rotation", "Lcl Rotation", "", "A",0,-0,-19.9999956071736
-			P: "Lcl Scaling", "Lcl Scaling", "", "A",0.0106389975547791,0.00792797803878784,0.01
+			P: "Lcl Scaling", "Lcl Scaling", "", "A",0.01,0.01,0.01
 			P: "MaxHandle", "int", "Integer", "UH",3837
 		}
 		Shading: T
 		Culling: "CullingOff"
 	}
-	AnimationStack: 2096285400704, "AnimStack::Take 001", "" {
+	AnimationStack: 2419558661312, "AnimStack::Take 001", "" {
 		Properties70:  {
-			P: "LocalStop", "KTime", "Time", "",7389785280
-			P: "ReferenceStop", "KTime", "Time", "",7389785280
+			P: "LocalStop", "KTime", "Time", "",112694225520
+			P: "ReferenceStop", "KTime", "Time", "",112694225520
 		}
 	}
-	CollectionExclusive: 2098030071424, "DisplayLayer::Background Scene", "DisplayLayer" {
+	CollectionExclusive: 2420627370608, "DisplayLayer::Background Scene", "DisplayLayer" {
 		Properties70:  {
 			P: "Color", "ColorRGB", "Color", "",0.223529411764706,0.0313725490196078,0.533333333333333
 			P: "Show", "bool", "", "",0
 		}
 	}
-	CollectionExclusive: 2098030062400, "DisplayLayer::Playfield", "DisplayLayer" {
+	CollectionExclusive: 2420627372336, "DisplayLayer::Playfield", "DisplayLayer" {
 		Properties70:  {
 			P: "Color", "ColorRGB", "Color", "",0.694117647058824,0.109803921568627,0.584313725490196
 		}
@@ -329,11 +328,11 @@ Objects:  {
 Connections:  {
 	
 	;Model::Toy Elevator, Model::RootNode
-	C: "OO",2098859780976,0
+	C: "OO",2420641296288,0
 	
 	;Geometry::, Model::Toy Elevator
-	C: "OO",2096256710512,2098859780976
+	C: "OO",2419616057920,2420641296288
 	
 	;Model::Toy Elevator, DisplayLayer::Playfield
-	C: "OO",2098859780976,2098030062400
+	C: "OO",2420641296288,2420627372336
 }

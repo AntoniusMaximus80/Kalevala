@@ -18,7 +18,7 @@ namespace Kalevala
 
         [SerializeField]
         private Animator _toyElevatorAnimator,
-            _irisDoorAnimator;
+            _sampoIslandDoorsAnimator;
 
         public GameObject _sampo;
 
@@ -56,7 +56,7 @@ namespace Kalevala
         public void RaiseElevator()
         {
             _currentToyElevatorState = ToyElevatorState.Moving;
-            _irisDoorAnimator.SetBool("Open", true);
+            _sampoIslandDoorsAnimator.SetBool("Open", true);
             _toyElevatorAnimator.SetBool("Rise", true);
         }
 
@@ -75,7 +75,7 @@ namespace Kalevala
         public void LowerElevator()
         {
             _currentToyElevatorState = ToyElevatorState.Moving;
-            _irisDoorAnimator.SetBool("Open", false);
+            _sampoIslandDoorsAnimator.SetBool("Open", false);
             _toyElevatorAnimator.SetBool("Rise", false);
         }
 
