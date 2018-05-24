@@ -200,7 +200,9 @@ namespace Kalevala
 
             UpdateShootAgain();
             UpdateAutosave();
-            if(GameManager.Instance.GameMode.State == GameModeStateType.Sampo && !Autosave && _activeBalls < 2 )
+
+            // Ends Sampo mode
+            if (GameManager.Instance.GameMode.State == GameModeStateType.Sampo && !Autosave && _activeBalls < 2 )
             {
                 GameManager.Instance.StateManager.PerformTransition(GameModeStateType.Normal);
             }

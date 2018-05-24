@@ -46,7 +46,7 @@ namespace Kalevala
         /// Unlimited if the value is 0.
         /// </summary>
         [SerializeField, Tooltip("The time (in seconds) until the collectable expires. Unlimited if the value is 0.")]
-        private float _lifeTime = 10;
+        private float _lifeTime = 25;
 
         /// <summary>
         /// The time (in seconds) after being collected
@@ -402,6 +402,11 @@ namespace Kalevala
             float startTime = Time.time;
             float ratio = 0;
 
+            Vector3 center = (start + target) / 2f;
+            center.y -= 1f;
+            Vector3 startCenter = start - center;
+            Vector3 targetCenter = target - center;
+
             _collectableObject.transform.position = start;
             Vector3 baseScale = _collectableObject.transform.localScale;
             Color baseColor = _material.color;
@@ -412,7 +417,8 @@ namespace Kalevala
 
                 // Moves the object in an arc towards the target position
                 _collectableObject.transform.position =
-                    Vector3.Slerp(start, target, ratio);
+                    Vector3.Slerp(startCenter, targetCenter, ratio);
+                _collectableObject.transform.position += center;
 
                 // Increases the object's size as it
                 // gets closer to the target position

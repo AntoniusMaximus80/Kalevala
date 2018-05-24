@@ -66,7 +66,7 @@ namespace Kalevala
 
             _sampoSpinner.HalfTurn += SampoSpinnerHalfTurn;
         }
-               
+
         public void ChangeState(SampoStateType sampoStateType)
         {
             Debug.Log("New sampo State: " + sampoStateType);
@@ -95,7 +95,6 @@ namespace Kalevala
                     break;
                 case SampoStateType.End:
                     _sampoState = SampoStateType.Start;
-                    Debug.Log("EndGameMode 3");
                     break;
 
                 default:
@@ -109,8 +108,6 @@ namespace Kalevala
             _middle.ActivateRotator();
             _innerLayer.ActivateRotator();
             _outerLayer.ActivateRotator();
-
-            // TODO: Spawns collectables
         }
 
         private void StopRotating()
@@ -164,14 +161,16 @@ namespace Kalevala
             if(_sampoState != Sampo.SampoStateType.Start)
             {
                 ChangeState(SampoStateType.Idle);
+                _collSpawner.ImproveValueChances();
             }
         }
 
         public void EndSampoMode()
         {
+            Debug.Log("Sampo game mode ends");
             _collSpawner.ResetCollectables();
+            _collSpawner.ResetChances();
             ChangeState(SampoStateType.End);
-
         }
     }
 }

@@ -133,32 +133,7 @@ namespace Kalevala
 
             // Ensures that one collectable is spawned immediately
             _elapsedTime = interval;
-
-            //StartCoroutine(SpawnCollectablesRoutine(type, amount, interval));
         }
-
-        //public IEnumerator SpawnCollectablesRoutine(
-        //    Collectable.CollectableType type, int amount, float interval)
-        //{
-        //    int spawnedAmount = 0;
-        //    while (spawnedAmount < amount)
-        //    {
-        //        Collectable collectable = SpawnCollectable(type, false);
-
-        //        if (collectable != null)
-        //        {
-        //            spawnedAmount++;
-
-        //            // Waits the interval time
-        //            yield return new WaitForSeconds(interval);
-        //        }
-        //        else
-        //        {
-        //            // Can't spawn more collectables, breaks
-        //            break;
-        //        }
-        //    }
-        //}
 
         public Collectable SpawnCollectable(SampoProductType type,
                                             bool launchToPosition)
@@ -277,7 +252,6 @@ namespace Kalevala
             {
                 EndGenerating();
             }
-            //_launchToPosition = false;
         }
               
         private SampoProductType GetRandomProductType()
@@ -304,8 +278,6 @@ namespace Kalevala
 
         public bool ImproveValueChances()
         {
-            // TODO: Called when certain amount of time in the Sampo mode has passed
-
             bool result = false;
 
             if (_grainChance > _saltChance && _grainChance > 1)
@@ -326,12 +298,9 @@ namespace Kalevala
 
         public void ResetChances()
         {
-            // TODO: Called when the Sampo mode ends
-
             _grainChance = _defaultGrainChance;
             _saltChance = _defaultSaltChance;
             _goldChance = _defaultGoldChance;
         }
-
     }
 }
